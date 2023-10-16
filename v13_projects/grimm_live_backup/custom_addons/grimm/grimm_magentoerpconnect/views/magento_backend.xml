@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+<openerp>
+  <data>
+
+    <record id="grimm_view_magento_backend_form" model="ir.ui.view">
+      <field name="name">grimm.view.magento.backend.form</field>
+      <field name="model">magento.backend</field>
+      <field name="inherit_id" ref="of_base_magento_extensions_v9.of_view_magento_backend_form"/>
+      <field name="arch" type="xml">
+        <field name="product_images_import_type" position="attributes">
+          <attribute name="attrs"></attribute>
+        </field>
+
+        <xpath expr="//field[@name='import_products_from_date']/../.." position="attributes">
+          <attribute name="attrs"></attribute>
+        </xpath>
+
+        <group name="variants_import_config_group" position="attributes">
+          <attribute name="attrs"></attribute>
+        </group>
+
+        <field name="admin_storeview_id" position="after">
+          <field name="attrs_default_storeview_id"/>
+        </field>
+
+        <field name="sale_prefix" position="after">
+          <field name="orders_project_id"/>
+        </field>
+
+        <field name="warehouse_id" position="after">
+          <field name="pricelist_id"/>
+          <field name="default_company_id"/>
+        </field>
+
+        <page name="advanced_configuration" position="inside">
+          <group>
+            <group>
+              <separator string="Orders prepayment configuration" colspan="2"/>
+              <field name="order_payment_mode_mapping_ids" nolabel="1">
+                <tree editable="bottom">
+                  <field name="backend_id" invisible="1"/>
+                  <field name="payment_mode_ids" widget="many2many_tags"/>
+                  <field name="order_prepayment"/>
+                </tree>
+              </field>
+            </group>
+            <group>
+            </group>
+          </group>
+        </page>
+
+        <xpath expr="//field[@name='force_import_of_variants']/../.." position="after">
+          <group attrs="{'invisible':[('products_sync_type','!=','products_odoo_master')]}">
+            <div>
+              <span class="oe_inline">Import product's prices since</span>
+              <field name="import_product_prices_from_date" class="oe_inline" nolabel="1"/>
+            </div>
+            <button name="import_product_prices" type="object" class="oe_highlight" string="Import in background"/>
+
+            <div>
+              <span class="oe_inline">Export product's prices since</span>
+              <field name="export_product_prices_from_date" class="oe_inline" nolabel="1"/>
+            </div>
+            <button name="export_product_prices" type="object" class="oe_highlight" string="Export Prices NOW"/>
+
+          </group>
+        </xpath>
+
+        <xpath expr="//page[@name='import']" position="inside">
+          <group>
+            <div>
+              <span class="oe_inline">Import relations since</span>
+              <field name="import_grimm_relation_from_date" class="oe_inline" nolabel="1"/>
+            </div>
+            <button name="import_new_grimm_relation" type="object" class="oe_highlight" string="Import in background"/>
+          </group>
+        </xpath>
+
+      </field>
+
+    </record>
+
+
+  </data>
+</openerp>

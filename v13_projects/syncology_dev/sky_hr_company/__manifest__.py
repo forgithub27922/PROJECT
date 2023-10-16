@@ -1,0 +1,33 @@
+{
+    'name': 'Sky Hr Company',
+    'version': '13.0.0.1',
+    'category': 'HR',
+    'description': """
+    This module is for hr company""",
+    'author': 'Skyscend Business Solutions',
+    'website': 'http://www.skyscendbs.com',
+    'depends': ['hr', 'sky_hr_custom', 'sky_hr_public_holidays', 'sky_hr_recruitment_custom', 'sky_hr_time_tracking', 'website'],
+    'data': [
+        'security/base_groups.xml',
+        'views/hr_contract_view.xml',
+        'views/hr_employee_status_view.xml',
+        'views/hr_public_holidays_view.xml',
+        'views/hr_interview_view.xml',
+        'views/time_tracking_view.xml',
+        'views/emp_working_days_report_wiz_view.xml',
+        'report/report_employee_template.xml',
+        'views/hr_view.xml',
+        'views/hr_recruitment_view.xml',
+        'views/hr_employee_views.xml',
+        'views/hr_job_views.xml',
+        'views/hr_department_views.xml',
+        'views/hr_leave_type_views.xml',
+        'views/resource_views.xml',
+        'views/ir_attachment_views.xml',
+        'views/website_views.xml',
+        'views/base_menus.xml',
+        'views/res_company_views.xml',
+    ],
+    'installable': True,
+    'auto_install': False
+}

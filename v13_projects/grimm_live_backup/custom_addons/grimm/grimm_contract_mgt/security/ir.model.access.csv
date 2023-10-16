@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_contract_config_view_only","contract_config Public Access","model_contract_config","grimm_contract_mgt.group_contract_view_only",1,0,0,0
+"access_contract_type_view_only","contract_type Public Access","model_contract_type","grimm_contract_mgt.group_contract_view_only",1,0,0,0
+"access_notification_stage_view_only","notification_stage Public Access","model_notification_stage","grimm_contract_mgt.group_contract_view_only",1,0,0,0
+"access_contract_additional_document_view_only","model_contract_additional_document Public Access","model_contract_additional_document","grimm_contract_mgt.group_contract_view_only",1,0,0,0
+"access_contract_config","contract_config Admin Access","model_contract_config","grimm_contract_mgt.group_contract_administrator",1,1,1,1
+"access_contract_type","contract_type Admin Access","model_contract_type","grimm_contract_mgt.group_contract_administrator",1,1,1,1
+"access_notification_stage","notification_stage Admin Access","model_notification_stage","grimm_contract_mgt.group_contract_administrator",1,1,1,1
+"access_contract.additional.document","contract.additional.document Admin Access","model_contract_additional_document","grimm_contract_mgt.group_contract_administrator",1,1,1,1
+
+
+
+

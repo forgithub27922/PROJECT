@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="button_render_js" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script src="grimm_fsm_extensions/static/src/js/action_call.js" type="text/javascript"/>
+            </xpath>
+        </template>
+
+        <record id="grimm_fsm_mail_template_data_send_report" model="mail.template">
+            <field name="name">Grimm Task Report</field>
+            <field name="model_id" ref="project.model_project_task"/>
+            <field name="subject">Service auftrag ${object.name}</field>
+            <field name="email_to">${(object.partner_id.email_formatted) |safe},${(object.claim_shipping_id.email_formatted) |safe},${(object.claim_contact.email_formatted) |safe}</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="report_template" ref="industry_fsm_report.task_custom_report"/>
+            <field name="report_name">Worksheet
+                ${object.name}${(' - ' + object.partner_id.name) if object.partner_id else ''}.pdf
+            </field>
+            <field name="body_html" type="html">
+                <p>
+                    Hello ${object.partner_id.name or 'Customer'},
+                    <br/>
+                    <br/>
+                    Thank you for your order, which we were happy to carry out for you.
+                    <br/>
+                    <br/>
+                    We will send you the signed service report for your records in the appendix.
+                    <br/>
+                    <br/>
+                    If you have any questions, please contact us at service@grimm-gastrobedarf.de or on 0800/34 50 608.
+                    <br/>
+                    <br/>
+                    With best regards from the gates of Berlin,
+                    <br/>
+                    <br/>
+                    Your Team from GRIMM
+                </p>
+            </field>
+        </record>
+
+        <record id="grimm_fsm_mail_template_notify_manager" model="mail.template">
+            <field name="name">Grimm Task done - Notify manager</field>
+            <field name="model_id" ref="project.model_project_task"/>
+            <field name="subject">${object.name} is done.</field>
+            <field name="email_to">${(object.manager_id.email_formatted) |safe}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="report_template" ref="industry_fsm_report.task_custom_report"/>
+            <field name="report_name">Worksheet
+                ${object.name}${(' - ' + object.partner_id.name) if object.partner_id else ''}.pdf
+            </field>
+            <field name="body_html" type="html">
+                <p>
+                    Hello ${object.manager_id.name or 'Manager'},
+                    <br/>
+                    <br/>
+                    ${object.user_id.name or 'Technician'} just moved this task to Service Büro.
+                    <br/>
+                    <center><a href="/web#model=project.task&amp;id=${object.id}&amp;action=${object.env.ref('industry_fsm.project_task_action_fsm').id}&amp;view_type=form" style="background-color:#009EE3;border-radius: 15px;color: white;padding: 10px 34px;text-align: center;text-decoration: none;display: inline-block;cursor: pointer;">Open Ticket</a></center>
+                    <br/>
+                    With best regards from the gates of Berlin,
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

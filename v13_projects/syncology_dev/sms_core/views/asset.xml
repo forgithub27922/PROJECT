@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="assets_frontend" name="school assets" inherit_id="website.assets_frontend">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/sms_core/static/src/js/school.js"/>
+        </xpath>
+    </template>
+</odoo>
+
+

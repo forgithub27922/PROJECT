@@ -1,0 +1,722 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_payment_followup_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-01-17 11:11+0000\n"
+"PO-Revision-Date: 2023-01-17 11:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid " Belegart "
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid " Date "
+msgstr "Datum"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid " Due Date "
+msgstr "Fälligkeit"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid " Excluded "
+msgstr "Ausgeschlossen"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid " Expected Date "
+msgstr "Erwartetes Datum"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid " Mahnbetrag "
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid " ReNr. "
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid " Seit Tagen "
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:mail.template,subject:grimm_payment_followup_report.grimm_payment_reminder_template1
+msgid ""
+"${(object.company_id.name or '') | safe} ${(object.name or '') | safe} "
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "%s Payment Reminder"
+msgstr "%s Zahlungserinnerung"
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_report_header
+msgid ""
+"<b>\n"
+"                    <span class=\"regular\" style=\"padding-top:4mm; padding-bottom:4mm;\">Wichtige Hinweise</span>\n"
+"                  </b>\n"
+"                  entnehmen Sie unseren"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_report_header
+msgid ""
+"<span style=\"color: #009FE3; padding-bottom: 2px;\">Angebote:</span>\n"
+"                <br/>"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_report_header
+msgid ""
+"<span>Geschäftsführer:</span>\n"
+"                <br/>\n"
+"                <span>Dipl.-Ing. Udo Knuth, Markus Zeh</span>\n"
+"                <br/>\n"
+"                <span>Sitz der Gesellschaft: Dallgow-Döberitz</span>\n"
+"                <br/>\n"
+"                <span>Amtsgericht: Potsdam HRB 31072 P</span>\n"
+"                <br/>\n"
+"                <span>Ust.-IdNr. DE 136 780 120</span>\n"
+"                <br/>"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_report_header
+msgid ""
+"<span>Mittelbrandenburgische Sparkasse</span>\n"
+"                <br/>\n"
+"                <span>IBAN: DE44 1605 0000 1000 8709 83</span>\n"
+"                <br/>\n"
+"                <span>BIC: WELADED1PMB</span>\n"
+"                <br/>"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_report_header
+msgid ""
+"<span>T +49 0 30 - 34 50 60 8 0</span>\n"
+"                <br/>\n"
+"                <span>F +49 0 30 - 34 50 60 8 19</span>\n"
+"                <br/>\n"
+"                <span>shop@grimm-gastrobedarf.de</span>\n"
+"                <br/>\n"
+"                <span>service@grimm-gastrobedarf.de</span>\n"
+"                <br/>\n"
+"                <span>www.grimm-gastrobedarf.de</span>\n"
+"                <br/>"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:mail.template,body_html:grimm_payment_followup_report.grimm_payment_reminder_template1
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:95%;background-color: white; border-collapse: collapse; \">\n"
+"                    <tr>\n"
+"                        <td valign=\"top\" style=\"padding:0px 10px;\">\n"
+"                            <div class=\"o_account_report_summary\">\n"
+"                                <span>Sehr geehrte Damen und Herren,<br/>\n"
+"                                <br/>\n"
+"                                bei der nachstehend aufgeführten Rechnung konnten wir leider noch keinen Zahlungseingang feststellen.<br/>\n"
+"                                <br/>\n"
+"                                Sicherlich handelt es sich um ein Versehen. Sollten Sie allerdings Gründe haben,  die Begleichung unserer Rechnung nicht vorzunehmen, bitten wir Sie freundlich um entsprechende Information; andernfalls ersuchen wir Sie um Ausgleich innerhalb der nächsten 7 Tage.<br/>\n"
+"                                <br/>\n"
+"                                Falls Sie zwischenzeitlich die Zahlung veranlasst haben,  bitten wir Sie, dieses Schreiben als gegenstandslos zu betrachten.<br/>\n"
+"                                <br/>\n"
+"                                Wenn Sie Fragen zu Ihrem Konto haben, stehen wir Ihnen gerne zur Verfügung.<br/>\n"
+"                                <br/>\n"
+"                                Vielen Dank für Ihre Zusammenarbeit und Ihr Vertrauen.<br/>\n"
+"                                <br/>\n"
+"                                Ihre GRIMM Gastronomiebedarf GmbH<br/>\n"
+"                                </span>\n"
+"                            </div>\n"
+"\n"
+"                            <div class=\"table-responsive\" style=\"margin-left:15px\">\n"
+"                                <table class=\"o_account_reports_table table-hover\" width=\"100%\">\n"
+"                                    <thead>\n"
+"                                        <tr class=\"o_account_report_column_header\">\n"
+"                                                <th class=\"o_account_report_column_header \" style=\"font-weight:bold; font-size:16px; width:25%\">\n"
+"                                                    Rechnungsnummer\n"
+"                                                </th>\n"
+"                                                <th class=\"o_account_report_column_header date\" style=\"text-align:center; font-size:16px; width:25%\">\n"
+"                                                    Datum\n"
+"                                                </th>\n"
+"                                                <th class=\"o_account_report_column_header date\" style=\"font-weight:bold; text-align:center; font-size:16px; width:25%\">\n"
+"                                                    Fälligkeit\n"
+"                                                </th>\n"
+"                                                <th class=\"o_account_report_column_header number\" style=\"text-align:right; font-size:16px; width:25%\">\n"
+"                                                     Mahnbetrag\n"
+"                                                </th>\n"
+"                                        </tr>\n"
+"                                    </thead>\n"
+"                                    <tbody>\n"
+"                                        <tr class=\"  \" style=\"font-family:arial,helvetica,sans-serif; line-height:21px; font-size:16px\">\n"
+"                                            <td class=\"o_account_report_line o_account_report_line_indent \" colspan=\"1\">\n"
+"                                                <span data-id=\"831700\" class=\"o_account_reports_domain_line_2\">\n"
+"                                                    ${object.name}\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"text-align:center; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">\n"
+"                                                    ${format_date(object.invoice_date,dt_format=\"dd.MM.yyyy\") if object.invoice_date else ''}\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line  date o_account_report_line_indent\" style=\"white-space:nowrap; text-align:center\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">\n"
+"                                                    ${format_date(object.invoice_date_due,dt_format=\"dd.MM.yyyy\") if object.invoice_date_due else ''}\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line number o_account_report_line_indent\" style=\"text-align:right; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">\n"
+"                                                    ${format_amount(object.amount_residual,object.currency_id)}\n"
+"\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                        <tr class=\"o_account_reports_level6 extra_charge total \" style=\"border-top-style:double; font-family:arial,helvetica,sans-serif; line-height:21px; font-weight:bold; font-size:16px; padding-top:5px; padding-bottom:5px\">\n"
+"                                            <td data-id=\"2\" class=\"o_account_report_line o_account_report_line_indent \" colspan=\"1\">\n"
+"                                                    <span class=\"o_account_reports_caret_icon\" data-id=\"2\">\n"
+"                                                        <i class=\"fa fa-caret-right invisible\" title=\"Unfolded\"/>\n"
+"                                                    </span>\n"
+"                                                    <span class=\"account_report_line_name\">\n"
+"                                                        <span class=\"js_account_report_line_footnote\" data-id=\"2\">\n"
+"                                                        </span>\n"
+"                                                    </span>\n"
+"                                            </td>\n"
+"                                                <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"text-align:center; font-size:16px; width:25%\">\n"
+"                                                    <span class=\"'o_account_report_column_value'\"/>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"font-weight:bold; text-align:center; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">Mahngebühren</span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line number o_account_report_line_indent\" style=\"text-align:right; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\"> 5 €</span>\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                        <tr class=\"o_account_reports_level3 total \" style=\"font-family:arial,helvetica,sans-serif; line-height:21px; font-weight:bold; font-size:16px; padding-top:5px; padding-bottom:5px; text-decoration:underline; color:red\">\n"
+"                                            <td data-id=\"3\" class=\"o_account_report_line o_account_report_line_indent \" colspan=\"1\">\n"
+"                                                <span class=\"o_account_reports_caret_icon\" data-id=\"3\">\n"
+"                                                    <i class=\"fa fa-caret-right invisible\" title=\"Unfolded\"/>\n"
+"                                                </span>\n"
+"                                                <span class=\"account_report_line_name\">\n"
+"                                                    <span class=\"js_account_report_line_footnote\" data-id=\"3\"/>\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"text-align:center; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\"/>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"font-weight:bold; text-align:center; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">Insgesamt überfällig</span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line number o_account_report_line_indent\" style=\"text-align:right; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">${object.amount_residual + 5} €</span>\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                    </tbody>\n"
+"                                </table>\n"
+"                            </div>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+msgstr ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:95%;background-color: white; border-collapse: collapse; \">\n"
+"                    <tr>\n"
+"                        <td valign=\"top\" style=\"padding:0px 10px;\">\n"
+"                            <div class=\"o_account_report_summary\">\n"
+"                                <span>Sehr geehrte Damen und Herren, GERMAN<br/>\n"
+"                                <br/>\n"
+"                                bei der nachstehend aufgeführten Rechnung konnten wir leider noch keinen Zahlungseingang feststellen.<br/>\n"
+"                                <br/>\n"
+"                                Sicherlich handelt es sich um ein Versehen. Sollten Sie allerdings Gründe haben,  die Begleichung unserer Rechnung nicht vorzunehmen, bitten wir Sie freundlich um entsprechende Information; andernfalls ersuchen wir Sie um Ausgleich innerhalb der nächsten 7 Tage.<br/>\n"
+"                                <br/>\n"
+"                                Falls Sie zwischenzeitlich die Zahlung veranlasst haben,  bitten wir Sie, dieses Schreiben als gegenstandslos zu betrachten.<br/>\n"
+"                                <br/>\n"
+"                                Wenn Sie Fragen zu Ihrem Konto haben, stehen wir Ihnen gerne zur Verfügung.<br/>\n"
+"                                <br/>\n"
+"                                Vielen Dank für Ihre Zusammenarbeit und Ihr Vertrauen.<br/>\n"
+"                                <br/>\n"
+"                                Ihre GRIMM Gastronomiebedarf GmbH<br/>\n"
+"                                </span>\n"
+"                            </div>\n"
+"\n"
+"                            <div class=\"table-responsive\" style=\"margin-left:15px\">\n"
+"                                <table class=\"o_account_reports_table table-hover\" width=\"100%\">\n"
+"                                    <thead>\n"
+"                                        <tr class=\"o_account_report_column_header\">\n"
+"                                                <th class=\"o_account_report_column_header \" style=\"font-weight:bold; font-size:16px; width:25%\">\n"
+"                                                    Rechnungsnummer\n"
+"                                                </th>\n"
+"                                                <th class=\"o_account_report_column_header date\" style=\"text-align:center; font-size:16px; width:25%\">\n"
+"                                                    Datum\n"
+"                                                </th>\n"
+"                                                <th class=\"o_account_report_column_header date\" style=\"font-weight:bold; text-align:center; font-size:16px; width:25%\">\n"
+"                                                    Fälligkeit\n"
+"                                                </th>\n"
+"                                                <th class=\"o_account_report_column_header number\" style=\"text-align:right; font-size:16px; width:25%\">\n"
+"                                                     Mahnbetrag\n"
+"                                                </th>\n"
+"                                        </tr>\n"
+"                                    </thead>\n"
+"                                    <tbody>\n"
+"                                        <tr class=\"  \" style=\"font-family:arial,helvetica,sans-serif; line-height:21px; font-size:16px\">\n"
+"                                            <td class=\"o_account_report_line o_account_report_line_indent \" colspan=\"1\">\n"
+"                                                <span data-id=\"831700\" class=\"o_account_reports_domain_line_2\">\n"
+"                                                    ${object.name}\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"text-align:center; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">\n"
+"                                                    ${object.invoice_date}\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line  date o_account_report_line_indent\" style=\"white-space:nowrap; text-align:center\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">\n"
+"                                                    ${object.invoice_date_due}\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line number o_account_report_line_indent\" style=\"text-align:right; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">\n"
+"${format_amount(object.amount_residual,object.currency_id)}\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                        <tr class=\"o_account_reports_level6 extra_charge total \" style=\"border-top-style:double; font-family:arial,helvetica,sans-serif; line-height:21px; font-weight:bold; font-size:16px; padding-top:5px; padding-bottom:5px\">\n"
+"                                            <td data-id=\"2\" class=\"o_account_report_line o_account_report_line_indent \" colspan=\"1\">\n"
+"                                                    <span class=\"o_account_reports_caret_icon\" data-id=\"2\">\n"
+"                                                        <i class=\"fa fa-caret-right invisible\" title=\"Unfolded\"/>\n"
+"                                                    </span>\n"
+"                                                    <span class=\"account_report_line_name\">\n"
+"                                                        <span class=\"js_account_report_line_footnote\" data-id=\"2\">\n"
+"                                                        </span>\n"
+"                                                    </span>\n"
+"                                            </td>\n"
+"                                                <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"text-align:center; font-size:16px; width:25%\">\n"
+"                                                    <span class=\"'o_account_report_column_value'\"/>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"font-weight:bold; text-align:center; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">Mahngebühren</span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line number o_account_report_line_indent\" style=\"text-align:right; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\"> 5 €</span>\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                        <tr class=\"o_account_reports_level3 total \" style=\"font-family:arial,helvetica,sans-serif; line-height:21px; font-weight:bold; font-size:16px; padding-top:5px; padding-bottom:5px; text-decoration:underline; color:red\">\n"
+"                                            <td data-id=\"3\" class=\"o_account_report_line o_account_report_line_indent \" colspan=\"1\">\n"
+"                                                <span class=\"o_account_reports_caret_icon\" data-id=\"3\">\n"
+"                                                    <i class=\"fa fa-caret-right invisible\" title=\"Unfolded\"/>\n"
+"                                                </span>\n"
+"                                                <span class=\"account_report_line_name\">\n"
+"                                                    <span class=\"js_account_report_line_footnote\" data-id=\"3\"/>\n"
+"                                                </span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"text-align:center; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\"/>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line date o_account_report_line_indent\" style=\"font-weight:bold; text-align:center; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">Insgesamt überfällig</span>\n"
+"                                            </td>\n"
+"                                            <td class=\"o_account_report_line number o_account_report_line_indent\" style=\"text-align:right; font-size:16px; width:25%\">\n"
+"                                                <span class=\"'o_account_report_column_value'\">${object.amount_residual + 5} €</span>\n"
+"                                            </td>\n"
+"                                        </tr>\n"
+"                                    </tbody>\n"
+"                                </table>\n"
+"                            </div>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>\n"
+"            "
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_report_header
+msgid "AGB"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Account"
+msgstr "Konto"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_account_report
+msgid "Account Report"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__active
+msgid "Active"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_report_account_report_agedpartnerbalance
+msgid "Aged Partner Balance Report"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_account_aged_partner
+msgid "Aged Partner Balances"
+msgstr "Partnersalden nach Fälligkeit"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "As of: %s"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_main_template
+msgid "Click to add an introductory explanation"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Communication"
+msgstr "Kommunikation"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid ""
+"Could not send mail to partner %s because it does not have any email address"
+" defined"
+msgstr ""
+"Es konnte keine Mail gesendet werden an den Partner %s, da keine E-Mail-"
+"Adresse definiert ist"
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.actions.act_window,help:grimm_payment_followup_report.grimm_dunning_invoice_action
+msgid "Create a customer invoice"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.actions.act_window,help:grimm_payment_followup_report.grimm_dunning_invoice_action
+msgid ""
+"Create invoices, register payments and keep track of the discussions with "
+"your customers."
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_company__interval_days
+msgid "Days Interval for Aged Receivable"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__display_name
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_report_account_report_agedpartnerbalance__display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: grimm_payment_followup_report
+#. openerp-web
+#: code:addons/grimm_payment_followup_report/static/src/js/account_followup.js:0
+#, python-format
+msgid "Do you wanted to send an email to customer regarding payment reminder?"
+msgstr "Automatische Zahlungserinnerung jetzt senden?"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Due Date"
+msgstr "Fälligkeit"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__duration
+msgid "Duration"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "E-Mail Assistent"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Exp. Date"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__name
+msgid "Filter"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_account_followup_followup_line
+msgid "Follow-up Criteria"
+msgstr "Mahnkriterien"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_account_followup_report
+msgid "Follow-up Report"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Followup Level"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_report_header
+msgid ""
+"GRIMM Gastronomiebedarf GmbH\n"
+"                        <br/>\n"
+"                        Artilleriepark 9\n"
+"                        <br/>\n"
+"                        14624 Dallgow-Döberitz\n"
+"                        <br/>"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.actions.server,name:grimm_payment_followup_report.ir_cron_grimm_payment_reminder_ir_actions_server
+#: model:ir.cron,cron_name:grimm_payment_followup_report.ir_cron_grimm_payment_reminder
+#: model:ir.cron,name:grimm_payment_followup_report.ir_cron_grimm_payment_reminder
+msgid "Grimm - Payment Reminder"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_account_move__grimm_followup_level_id
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_partner__grimm_followup_level_id
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_users__grimm_followup_level_id
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_address__grimm_followup_level_id
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_invoice_address__grimm_followup_level_id
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_res_partner__grimm_followup_level_id
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_supplier__grimm_followup_level_id
+msgid "Grimm Followup Level"
+msgstr "Mahnstufe"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_account_move__grimm_next_reminder
+msgid "Grimm Next reminder."
+msgstr "Nächstes Mahndatum"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_account_move__grimm_followup_level_id
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_res_partner__grimm_followup_level_id
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_res_users__grimm_followup_level_id
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_shopware_address__grimm_followup_level_id
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_shopware_invoice_address__grimm_followup_level_id
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_shopware_res_partner__grimm_followup_level_id
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_shopware_supplier__grimm_followup_level_id
+msgid "Highest Follow-up level for all invoices."
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__id
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_report_account_report_agedpartnerbalance__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_config_settings__interval_days
+msgid "Interval Days"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.actions.act_window,name:grimm_payment_followup_report.grimm_dunning_invoice_action
+#: model:ir.ui.menu,name:grimm_payment_followup_report.menu_action_dunning_invoice
+msgid "Invoices Dunning Action"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_account_move__payment_state_update
+msgid "Is payment state updated?"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Journal"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model,name:grimm_payment_followup_report.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter____last_update
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_report_account_report_agedpartnerbalance____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_partner_aged_filter__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Mahngebühren"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_account_followup_followup_line__template_id
+msgid "Mail Template"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_company__number_of_columns
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_config_settings__number_of_columns
+msgid "Number of Columns"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_account_followup_followup_line__template_id
+msgid "Odoo will send an email once invoice is in this level."
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Older"
+msgstr "Ältere"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_partner__override_followup_level
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_users__override_followup_level
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_address__override_followup_level
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_invoice_address__override_followup_level
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_res_partner__override_followup_level
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_supplier__override_followup_level
+msgid "Override Followup Level"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.actions.act_window,name:grimm_payment_followup_report.action_partner_aged_filter
+#: model:ir.model,name:grimm_payment_followup_report.model_partner_aged_filter
+#: model:ir.ui.menu,name:grimm_payment_followup_report.label_partner_aged_filter_menu
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.view_partner_aged_form
+msgid "Partner Aged Filter"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_partner__send_mahnung
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_res_users__send_mahnung
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_address__send_mahnung
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_invoice_address__send_mahnung
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_res_partner__send_mahnung
+#: model:ir.model.fields,field_description:grimm_payment_followup_report.field_shopware_supplier__send_mahnung
+msgid "Send Mahnung"
+msgstr "Mahnungsempfänger"
+
+#. module: grimm_payment_followup_report
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_res_partner__override_followup_level
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_res_users__override_followup_level
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_shopware_address__override_followup_level
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_shopware_invoice_address__override_followup_level
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_shopware_res_partner__override_followup_level
+#: model:ir.model.fields,help:grimm_payment_followup_report.field_shopware_supplier__override_followup_level
+msgid ""
+"Tatsächlich wird die Folgeebene dadurch nicht überschrieben. Wir verwenden "
+"dieses Feld, um den Ebenentitel nur für den Druck von Briefen zu drucken."
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: model:mail.template,report_name:grimm_payment_followup_report.grimm_payment_reminder_template1
+msgid "Test file name"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Total"
+msgstr "Gesamtbetrag"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Total Overdue"
+msgstr "Insgesamt überfällig"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "Unknown Partner"
+msgstr "Unbekannter Partner"
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid ""
+"You are trying to send a followup report to a partner for which you didn't "
+"print all the invoices ({})"
+msgstr ""
+
+#. module: grimm_payment_followup_report
+#: code:addons/grimm_payment_followup_report/models/account_report_followup.py:0
+#, python-format
+msgid "payment reminder"
+msgstr "Zahlungserinnerung"
+
+#. module: grimm_payment_followup_report
+#: model_terms:ir.ui.view,arch_db:grimm_payment_followup_report.grimm_report_header
+msgid ""
+"shop@grimm-gastrobedarf.de\n"
+"                        <br/>\n"
+"                        service@grimm-gastrobedarf.de\n"
+"                        <br/>\n"
+"                        T +49 030 / 34 50 60 8 0\n"
+"                        <br/>\n"
+"                        F +49 030 / 34 50 60 8 19\n"
+"                        <br/>"
+msgstr ""

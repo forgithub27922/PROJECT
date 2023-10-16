@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_grimm_purchase_order_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.purchase.order.form.view.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='print_quotation'][@states='draft']" position="replace"/>
+                <xpath expr="//button[@name='print_quotation'][@states='sent']" position="replace"/>
+            </field>
+        </record>
+        <!--    <record id="view_grimm_sale_order_form_view_inherit" model="ir.ui.view">-->
+        <!--      <field name="name">view.grimm.sale.order.form.view.inherit</field>-->
+        <!--      <field name="model">sale.order</field>-->
+        <!--      <field name="inherit_id" ref="sale.view_order_form"/>-->
+        <!--      <field name="arch" type="xml">-->
+        <!--        <xpath expr="//button[@name='print_quotation'][@states='sent,sale']" position="replace"/>-->
+        <!--      </field>-->
+        <!--    </record>-->
+        <record id="view_grimm_account_invoice_button_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.account.invoice.button.form.view.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='preview_invoice']" position="replace">
+                    <button name="%(grimm_reports.grimm_invoice_report)d" string="Rechnung drucken" type="action"
+                            attrs="{'invisible':['|',('invoice_sent','=',True), ('state', 'not in', ('open','paid'))]}"
+                            class="oe_highlight"/>
+                    <button name="%(grimm_reports.grimm_invoice_report)d" string="Vorkasse drucken" type="action"
+                            attrs="{'invisible':[('state', '!=', ('proforma2'))]}" class="oe_highlight"/>
+                    <button name="%(grimm_reports.grimm_invoice_report)d" string="Rechnung drucken" type="action"
+                            attrs="{'invisible':['|',('invoice_sent','=',False), ('state', '!=', 'open')]}"/>
+                </xpath>
+                <xpath expr="//button[@name='action_invoice_sent'][hasclass('oe_highlight')]" position="replace">
+                    <button name="send_invoice_grimm" string="Vorkasse senden" type="object"
+                            attrs="{'invisible':[('state', '!=', ('proforma2'))]}" class="oe_highlight"/>
+                    <button name="send_invoice_grimm" string="Rechnung senden" type="object"
+                            attrs="{'invisible':[('state', 'not in', ('open','paid'))]}" class="oe_highlight"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="view_grimm_claim_warranty_button_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.claim.warranty.button.form.view.inherit</field>
+            <field name="model">crm.claim</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
+            <field name="priority">20</field>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="send_claim_warranty" string="Send Warranty" type="object"/>
+                    <button name="send_damage_report" string="Send Damage" type="object"/>
+                </xpath>
+            </field>
+        </record>
+        <!--    <record id="view_grimm_mro_order_button_form_view_inherit" model="ir.ui.view">-->
+        <!--      <field name="name">view.mro.order.button.form.view.inherit</field>-->
+        <!--      <field name="model">grimm.mro.order</field>-->
+        <!--      <field name="inherit_id" ref="mro_base.view_grimm_mro_order_form"/>-->
+        <!--      <field name="priority">20</field>-->
+        <!--      <field name="arch" type="xml">-->
+        <!--        <xpath expr="//header" position="inside">-->
+        <!--          <button name="print_service_report" string="Print Service" type="object"/>-->
+        <!--        </xpath>-->
+        <!--      </field>-->
+        <!--    </record>-->
+    </data>
+</odoo>

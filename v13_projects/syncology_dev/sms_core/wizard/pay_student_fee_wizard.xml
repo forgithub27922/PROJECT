@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="view_student_fee_payment_wizard" model="ir.ui.view">
+			<field name="name">student.fee.payment.wizard</field>
+			<field name="model">student.fee.payment.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Pay Student Fee">
+					<group>
+						<group>
+							<field name="installment_id" readonly="1" />
+							<field name="payment_date" attrs="{'invisible': [('mode', 'in',['update_fee_register','refund_student_fee'])]}" />
+							<field name="payment_date" attrs="{'invisible': [('mode', 'in',['update_fee_register','pay_student_fee'])]}" string="Refund Date"/>
+						</group>
+						<group>
+							<field name="mode" readonly="1" />
+							<field name="amount" readonly="0" />
+							<field name="journal_id" attrs="{'invisible': [('mode', 'in',['update_fee_register','pay_student_fee'])],'required':[('mode','=','refund_student_fee')]}" />
+							<field name="from_account" attrs="{'invisible': [('mode', 'in',['update_fee_register','pay_student_fee'])],'required':[('mode','=','refund_student_fee')]}" />
+							<field name="to_account" attrs="{'invisible': [('mode', 'in',['update_fee_register','pay_student_fee'])],'required':[('mode','=','refund_student_fee')]}" />
+						</group>
+					</group>
+					<p attrs="{'invisible': [('mode', '!=','update_fee_register')]}">All unpaid fee entires will be updated with new amount in student fee register</p>
+					<notebook attrs="{'invisible': [('mode', '=','update_fee_register')]}">
+						<page string='Student Fee'>
+							<p attrs="{'invisible': [('mode', 'in',['update_fee_register','refund_student_fee'])]}">Remove students from the list if their fee is still not paid.</p>
+							<field name="student_fee_ids" widget="one2many_list" nolabel="1">
+
+								<tree decoration-success="status=='paid'" decoration-danger="is_overdue == True" editable="top" create="0">
+									<field name="student_id" readonly="1" force_save="1" />
+									<field name="std_fee_id" readonly="1" force_save="1" />
+									<field name="due_date" readonly="1" />
+									<field name="total_amount" readonly="1" force_save="1" />
+									<field name="applied_fee" readonly="1" force_save="1" />
+									<field name="payment_date" />
+									<field name="status" readonly="1" />
+									<field name="is_overdue" invisible="1" />
+								</tree>
+							</field>
+						</page>
+					</notebook>
+					<footer>
+						<button name="student_fee_payment" attrs="{'invisible': [('mode', 'in',['update_fee_register','refund_student_fee'])]}" type="object" string="Pay Fee" class="oe_highlight" />
+						<button name="student_fee_payment" attrs="{'invisible': [('mode', 'in',['update_fee_register','pay_student_fee'])]}" type="object" string="Refund Fee" class="oe_highlight" />
+						<button name="update_student_fee_register" attrs="{'invisible': [('mode', 'in',['pay_student_fee','refund_student_fee'])]}" type="object" string="Update Fee Register" class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_student_fee_payment" model="ir.actions.act_window">
+			<field name="name">Pay Student Fee</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">student.fee.payment.wizard</field>
+			<field name="view_id" ref="view_student_fee_payment_wizard" />
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</odoo>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id='inherit_view_fleet_vehicle_form_inherited11' model='ir.ui.view'>
+        <field name="name">inherit.fleet.vehicle.form</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="sms_transport.view_fleet_vehicle_form_inherited11"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group[2]/group[3]/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_view_fleet_vehicle_filter" model="ir.ui.view">
+			<field name="name">inherit.fleet.vehicle.filter</field>
+			<field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="sms_transport.view_fleet_vehicle_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

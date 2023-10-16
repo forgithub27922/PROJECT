@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="action_assets_tree" model="ir.actions.act_window">
+      <field name="name">Assets</field>
+      <field name="res_model">grimm.asset.asset</field>
+      <field name="view_mode">tree,form,kanban,calendar,graph,pivot</field>
+      <field name="view_id" ref="asset_base.view_grimm_asset_asset_tree"/>
+      <field name="search_view_id" ref="asset_base.view_grimm_asset_asset_search"/>
+      <field name="domain">[('partner_owner','=', active_id)]</field>
+    </record>
+    <record model="ir.ui.view" id="view_res_partner_form_assets">
+      <field name="name">res.partner.assets.form.view</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="base.view_partner_form"/>
+      <field name="arch" type="xml">
+        <field name="is_company" position="after">
+          <field name="customer_rank" invisible="1"/>
+        </field>
+        <div name="button_box" position="inside">
+          <button type="action"
+                  class="oe_stat_button"
+                  id="consignment_button"
+                  icon="fa-pie-chart"
+                  name="%(action_assets_tree)d"
+                  attrs="{'invisible': [('customer_rank', '>', 0)]}"
+                  context="{'asset_asset.search_default_partner_owner': active_id,'default_partner_owner': active_id}">
+            <div class="o_form_field o_stat_info">
+              <span class="o_stat_value">
+                <field name="total_assets"/>
+              </span>
+              <span class="o_stat_text">Assets</span>
+            </div>
+          </button>
+          <button name="action_asset_history"
+                  type="object"
+                  class="oe_stat_button"
+                  icon="fa-cubes"
+                  attrs="{'invisible': [('previous_assets_count', '=', 0)]}">
+            <field name="previous_assets_count" widget="statinfo"/>
+          </button>
+        </div>
+      </field>
+    </record>
+  </data>
+</odoo>

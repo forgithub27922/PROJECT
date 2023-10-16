@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="sale_ebay.res_config_settings_view_form" model="ir.ui.view">
+            <field name="active">False</field>
+        </record>
+
+        <record id="grimm_ebay_product_template_tree_view" model="ir.ui.view">
+            <field name="name">grimm_ebay_product_template_tree_view</field>
+            <field name="model">ebay.product.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="ebay_product_template_id"/>
+                    <field name="ebay_title"/>
+                    <field name="calculated_ebay_price"/>
+                    <field name="ebay_backend_id"/>
+                    <field name="ebay_category_id"/>
+                    <field name="ebay_category_2_id"/>
+                    <field name="ebay_last_sync"/>
+                    <field name="ebay_listing_duration"/>
+                    <field name="ebay_listing_status"/>
+                    <field name="write_uid"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_ebay_backend_form" model="ir.ui.view">
+            <field name="name">ebay.backend.form</field>
+            <field name="model">ebay.backend</field>
+            <field name="arch" type="xml">
+                <form string="Ebay Backend">
+                    <header>
+                        <button name="synchronize_metadata"
+                                type="object"
+                                class="oe_highlight"
+                                string="Synchronize Ebay"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"/>
+                            </button>
+                        </div>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <field name="company_id" placeholder="Company"/>
+
+                        <group name="ebay" string="Ebay Configuration">
+                            <notebook>
+                                <page string="API" name="api">
+                                    <group colspan="4" col="4">
+                                        <field name="ebay_domain" colspan="4"/>
+                                        <field name="ebay_dev_id" placeholder="Developer key"
+                                               colspan="2"/>
+
+                                        <!--<div attrs="{'invisible': [('ebay_domain','=', 'prod')]}">
+                                            <div class="row">
+                                                <label for="ebay_sandbox_token" class="col-md-4 o_light_label"/>
+                                                <field name="ebay_sandbox_token" class="col-md-8 oe_inline"/>
+                                            </div>
+                                            <div class="row">
+                                                <label for="ebay_sandbox_app_id" class="col-md-4 o_light_label"/>
+                                                <field name="ebay_sandbox_app_id" class="col-md-8 oe_inline"/>
+                                            </div>
+                                            <div class="row">
+                                                <label for="ebay_sandbox_cert_id" class="col-md-4 o_light_label"/>
+                                                <field name="ebay_sandbox_cert_id" class="col-md-8 oe_inline"/>
+                                            </div>
+                                        </div>
+                                        <div attrs="{'invisible': [('ebay_domain','=', 'sand')]}">
+                                            <div class="row">
+                                                <label for="ebay_prod_token" class="col-md-4 o_light_label"/>
+                                                <field name="ebay_prod_token" class="col-md-8 oe_inline"/>
+                                            </div>
+                                            <div class="row">
+                                                <label for="ebay_prod_app_id" class="col-md-4 o_light_label"/>
+                                                <field name="ebay_prod_app_id" class="col-md-8 oe_inline"/>
+                                            </div>
+                                            <div class="row">
+                                                <label for="ebay_prod_cert_id" class="col-md-4 o_light_label"/>
+                                                <field name="ebay_prod_cert_id" class="col-md-8 oe_inline"/>
+                                            </div>
+                                        </div>-->
+
+
+                                        <field name="ebay_sandbox_app_id" colspan="2"
+                                               attrs="{'invisible': [('ebay_domain','=', 'prod')]}"/>
+                                        <field name="ebay_sandbox_cert_id" colspan="2"
+                                               attrs="{'invisible': [('ebay_domain','=', 'prod')]}"/>
+                                        <field name="ebay_sandbox_token" colspan="4"
+                                               attrs="{'invisible': [('ebay_domain','=', 'prod')]}"/>
+
+                                        <field name="ebay_prod_app_id" colspan="2"
+                                               attrs="{'invisible': [('ebay_domain','=', 'sand')]}"/>
+                                        <field name="ebay_prod_cert_id" colspan="2"
+                                               attrs="{'invisible': [('ebay_domain','=', 'sand')]}"/>
+                                        <field name="ebay_prod_token" colspan="4"
+                                               attrs="{'invisible': [('ebay_domain','=', 'sand')]}"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                        <group name="ebay_option" string="eBay Options">
+                            <field name="pricelist_id"
+                                   domain="['|',('company_id','=',company_id),('company_id','=',False)]"/>
+                            <field name="ebay_site"/>
+                            <field name="ebay_currency"/>
+                            <field name="ebay_out_of_stock"/>
+                            <field name="ebay_gallery_plus"/>
+                        </group>
+                        <notebook>
+                            <page name="synchronization" string="Synchronization">
+                                <p class="oe_grey oe_inline">
+                                    Import eBay config data and sync transactions
+                                    By clicking on the buttons,
+                                    you will initiate the synchronizations
+                                    with Ebay.
+                                </p>
+                                <span class="oe_inline">Synchronization</span>
+                                <div class="text-muted">
+                                    Import eBay config data and sync transactions
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <div class="col-md-6" title="Sync now">
+                                            <button name="sync_ebay_details" icon="fa-lg fa-refresh" type="object"
+                                                    string="Countries &amp; Currencies" class="btn-link"></button>
+                                        </div>
+                                        <div class="col-md-6" title="Sync now">
+                                            <button name="button_sync_categories" icon="fa-lg fa-refresh" type="object"
+                                                    string="Product Categories" class="btn-link"></button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6" title="Sync now">
+                                            <button name="sync_policies" icon="fa-lg fa-refresh" type="object"
+                                                    string="Policies" class="btn-link"></button>
+                                        </div>
+                                        <div class="col-md-6" title="Sync now">
+                                            <button name="button_sync_product_status" icon="fa-lg fa-refresh"
+                                                    type="object" string="Products &amp; Transactions"
+                                                    class="btn-link"></button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <group>
+                                    <field name="export_product_prices_from_date"/>
+                                </group>
+
+                            </page>
+
+                            <page name="storage_sales_channel" string="Storage and Sales Channel">
+                                <group string="Storage">
+                                    <field name="ebay_country" widget="selection"/>
+                                    <field name="ebay_zip_code"/>
+                                    <field name="ebay_location" placeholder="Ebay Location"/>
+                                </group>
+                                <group string="Sales Channel">
+                                    <field name="ebay_sales_team"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_ebay_backend_tree" model="ir.ui.view">
+            <field name="name">ebay.backend.tree</field>
+            <field name="model">ebay.backend</field>
+            <field name="arch" type="xml">
+                <tree string="Ebay Backend">
+                    <field name="name"/>
+                    <field name="ebay_domain"/>
+                    <field name="ebay_dev_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_ebay_backend" model="ir.actions.act_window">
+            <field name="name">Ebay Backends</field>
+            <field name="res_model">ebay.backend</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_ebay_backend_tree"/>
+        </record>
+
+        <menuitem id="backend_ebay_parent"
+                  name="Ebay"
+                  parent="sale.menu_sale_config"
+                  sequence="40"
+        />
+
+        <menuitem id="backend_ebay_target"
+                  name="Ebay Backends"
+                  parent="backend_ebay_parent"
+                  sequence="40"
+                  action="action_ebay_backend"/>
+
+        <record id="view_ebay_mapping_form" model="ir.ui.view">
+            <field name="name">ebay.mapping.form</field>
+            <field name="model">ebay.mapping</field>
+            <field name="arch" type="xml">
+                <form string="Ebay Mapping">
+                    <group>
+                        <field name="ebay_backend_id"/>
+                        <field name="mapping_type"/>
+                        <field name="shop_categ_id"
+                               attrs="{'invisible': [('mapping_type','=', 'property')],'required': [('mapping_type', '=', 'category')]}"/>
+                        <field name="ebay_categ_id" context="{'only_name': True}"
+                               domain="[('backend_id','=',ebay_backend_id),('leaf_category','=',True),('category_type','=','ebay')]"
+                               attrs="{'invisible': [('mapping_type','=', 'property')],'required': [('mapping_type', '=', 'category')]}"/>
+                        <field name="property_id"
+                               attrs="{'invisible': [('mapping_type','=', 'category')], 'required': [('mapping_type', '=', 'property')]}"/>
+                        <field name="ebay_store_categ_id"
+                               domain="[('backend_id','=',ebay_backend_id),('leaf_category','=',True),('category_type','=','store')]"
+                               attrs="{'invisible': [('mapping_type','=', 'category')],'required': [('mapping_type', '=', 'property')]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_ebay_mapping_tree" model="ir.ui.view">
+            <field name="name">ebay.mapping.tree</field>
+            <field name="model">ebay.mapping</field>
+            <field name="arch" type="xml">
+                <tree string="Ebay Mapping">
+                    <field name="ebay_backend_id"/>
+                    <field name="mapping_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_ebay_mapping" model="ir.actions.act_window">
+            <field name="name">Ebay Mapping</field>
+            <field name="res_model">ebay.mapping</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_ebay_mapping_tree"/>
+        </record>
+
+        <record id="ir_cron_auto_check_ebay_pricelist_item" model="ir.cron">
+            <field name="name">Auto Check price list items for eBay</field>
+            <field name="model_id" ref="model_ebay_backend"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_check_price_list_item()</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+        </record>
+
+        <menuitem id="backend_mapping_target"
+                  name="Ebay Mapping"
+                  parent="backend_ebay_parent"
+                  sequence="40"
+                  action="action_ebay_mapping"/>
+    </data>
+</openerp>

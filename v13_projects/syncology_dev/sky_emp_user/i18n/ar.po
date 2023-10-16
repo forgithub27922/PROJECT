@@ -1,0 +1,216 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_emp_user
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-23 09:25+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sky_emp_user
+#: model:mail.template,body_html:sky_emp_user.email_template_login_credentials
+msgid ""
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
+"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; "
+"\">\n"
+"\t\t\t<p> Hello <b>${object.name},</b></p>\n"
+"\t\t\t\t<p>Your Account has been set up with the following user name and "
+"password.\n"
+"\t\t\t\t</p>\n"
+"\t            <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;"
+"\" >\n"
+"\t            &nbsp; Login : ${object.work_email} <br/>\n"
+"\t            &nbsp; Password : <b>${object.company_id.password}</b><br>\n"
+"\t            <br/>\n"
+"\t            </p>\n"
+"\t            <p> So please do the needful.</p>\n"
+"\t\t\t\t\t<br>\n"
+"\t\t\t\t\t<P>Thanks,<br>\n"
+"\t\t\t\t\t<b>${object.company_id.name},</b><br>\n"
+"\t\t\t\t\t</p>\n"
+"\t\t\t</p>\n"
+"\t\t\t\n"
+"\t\t\t "
+msgstr ""
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
+"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; "
+"\">\n"
+"\t\t\t<p> مرحبا <b>${object.name},</b></p>\n"
+"\t\t\t\t<p>تم إعداد حسابك باستخدام اسم المستخدم وكلمة المرور التاليين.</"
+"p>\n"
+"\t            <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;"
+"\" >تسجيل الدخول : ${object.work_email} <br/>كلمة المرور : <b>${object."
+"company_id.password}</b><br>\n"
+"\t            <br/>\n"
+"\t            </p>\n"
+"\t            <p> لذا يرجى القيام المحتاجين.</p>\n"
+"\t\t\t\t\t<br>\n"
+"\t\t\t\t\t<P>شكرا<br>\n"
+"\t\t\t\t\t<b>${object.company_id.name},</b><br>\n"
+"\t\t\t\t\t</P>\n"
+"\t\t\t</p>\n"
+"\t\t\t\n"
+"\t\t\t </div>"
+
+#. module: sky_emp_user
+#: model:ir.model,name:sky_emp_user.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: sky_emp_user
+#: model:ir.model,name:sky_emp_user.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,field_description:sky_emp_user.field_hr_employee__automatic_user_create
+#: model:ir.model.fields,field_description:sky_emp_user.field_res_company__automatic_user_create
+msgid "Create User Automatically?"
+msgstr "إنشاء المستخدم تلقائيا؟"
+
+#. module: sky_emp_user
+#: model:ir.model,name:sky_emp_user.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,field_description:sky_emp_user.field_hr_employee__name
+msgid "First Name"
+msgstr "الاسم الأول"
+
+#. module: sky_emp_user
+#: code:addons/sky_emp_user/models/hr.py:0
+#, python-format
+msgid "Go to the configuration panel"
+msgstr "الذهاب للوحة الإعدادات"
+
+#. module: sky_emp_user
+#: model_terms:ir.ui.view,arch_db:sky_emp_user.view_employee_form_user_inherit
+msgid "Grant Access"
+msgstr "منح صلاحية الوصول"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,field_description:sky_emp_user.field_hr_job__group_ids
+msgid "Groups"
+msgstr "المجموعات"
+
+#. module: sky_emp_user
+#: model:ir.model.fields.selection,name:sky_emp_user.selection__res_company__pwd_email__send_link
+msgid "Invitation Link"
+msgstr "رابط الدعوة"
+
+#. module: sky_emp_user
+#: model:ir.model,name:sky_emp_user.model_hr_job
+msgid "Job Position"
+msgstr "المنصب الوظيفي"
+
+#. module: sky_emp_user
+#: model_terms:ir.ui.view,arch_db:sky_emp_user.res_config_settings_view_form_pwd_inherit
+msgid "Login Credentials"
+msgstr "بيانات اعتماد تسجيل الدخول"
+
+#. module: sky_emp_user
+#: model:mail.template,subject:sky_emp_user.email_template_login_credentials
+msgid "Login credentials"
+msgstr "بيانات اعتماد تسجيل الدخول"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,field_description:sky_emp_user.field_hr_employee__pwd
+#: model:ir.model.fields,field_description:sky_emp_user.field_res_company__password
+#: model:ir.model.fields,field_description:sky_emp_user.field_res_config_settings__password
+msgid "Password"
+msgstr "كلمة المرور"
+
+#. module: sky_emp_user
+#: code:addons/sky_emp_user/models/hr.py:0
+#, python-format
+msgid "Please set password in configuration."
+msgstr ""
+"الرجاء تعيين كلمة المرور في الإعدادات\n"
+"."
+
+#. module: sky_emp_user
+#: model:ir.model.fields,field_description:sky_emp_user.field_res_company__pwd_email
+#: model:ir.model.fields,field_description:sky_emp_user.field_res_config_settings__pwd_email
+msgid "Pwd Email"
+msgstr "كلمة مرور البريد الإلكتروني"
+
+#. module: sky_emp_user
+#: model_terms:ir.ui.view,arch_db:sky_emp_user.view_employee_form_user_inherit
+msgid "Revoke Access"
+msgstr "إلغاء صلاحيات الوصول"
+
+#. module: sky_emp_user
+#: model:ir.model.fields.selection,name:sky_emp_user.selection__res_company__pwd_email__send_pwd
+msgid "Send Passowrd"
+msgstr "إرسال كلمة المرور"
+
+#. module: sky_emp_user
+#: model_terms:ir.ui.view,arch_db:sky_emp_user.res_config_settings_view_form_pwd_inherit
+msgid "Set default password for the user when created"
+msgstr "تعيين كلمة المرور الافتراضية للمستخدم عند إنشائها"
+
+#. module: sky_emp_user
+#: code:addons/sky_emp_user/models/hr.py:0
+#, python-format
+msgid "There is no related user for this employee."
+msgstr "لا يوجد مستخدم ذي صلة لهذا الموظف."
+
+#. module: sky_emp_user
+#: model:ir.model.fields,field_description:sky_emp_user.field_hr_employee__user_active
+msgid "User Active"
+msgstr "المستخدم مفعل"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,field_description:sky_emp_user.field_res_config_settings__user_auto_creation
+msgid "User Auto Creation"
+msgstr "إنشاء المستخدم تلقائيا؟"
+
+#. module: sky_emp_user
+#: model_terms:ir.ui.view,arch_db:sky_emp_user.res_config_settings_view_form_pwd_inherit
+msgid "User Auto creation"
+msgstr "إنشاء المستخدم تلقائيا؟"
+
+#. module: sky_emp_user
+#: model_terms:ir.ui.view,arch_db:sky_emp_user.res_config_settings_view_form_pwd_inherit
+msgid "User auto creation for employee"
+msgstr "إنشاء تلقائي للمستخدم للموظف"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,help:sky_emp_user.field_res_company__automatic_user_create
+msgid ""
+"automatic user                                            creation along "
+"with employee"
+msgstr "إنشاء المستخدم التلقائي               جنبا إلى جنب مع الموظف"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,help:sky_emp_user.field_hr_employee__automatic_user_create
+msgid ""
+"automatic user                                           creation along "
+"with employee"
+msgstr "إنشاء المستخدم التلقائي               جنبا إلى جنب مع الموظف"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,help:sky_emp_user.field_res_config_settings__user_auto_creation
+msgid "automatic user         creation along with employee"
+msgstr "إنشاء المستخدم التلقائي               جنبا إلى جنب مع الموظف"
+
+#. module: sky_emp_user
+#: model:ir.model.fields,help:sky_emp_user.field_res_company__pwd_email
+#: model:ir.model.fields,help:sky_emp_user.field_res_config_settings__pwd_email
+msgid ""
+"send password:will send password via email         Invitatin Link:Send "
+"invitation link to user for         reset password"
+msgstr ""
+"إرسال كلمة المرور:سوف ترسل كلمة المرور عبر البريد الإلكتروني Invitatin "
+"Link:إرسال وصلة دعوة للمستخدم لإعادة تعيين كلمة المرور"

@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_stock_account
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-27 04:30+0000\n"
+"PO-Revision-Date: 2022-08-27 04:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_stock_account
+#: model:ir.model,name:sky_stock_account.model_account_move
+msgid "Journal Entries"
+msgstr "إدخالات دفتر اليومية"
+
+#. module: sky_stock_account
+#: model_terms:ir.ui.view,arch_db:sky_stock_account.form_view_stock_picking_inherit
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: sky_stock_account
+#: model:ir.model.fields,field_description:sky_stock_account.field_stock_picking__payment_status
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: sky_stock_account
+#: model:ir.model.fields,field_description:sky_stock_account.field_stock_move__price
+msgid "Price"
+msgstr "سعر البيع"
+
+#. module: sky_stock_account
+#: model:ir.model.fields,field_description:sky_stock_account.field_stock_picking__receipt_id
+msgid "Receipt"
+msgstr "إيصال"
+
+#. module: sky_stock_account
+#: model_terms:ir.ui.view,arch_db:sky_stock_account.form_view_stock_picking_inherit
+msgid "Scrap"
+msgstr "هالك"
+
+#. module: sky_stock_account
+#: model:ir.model,name:sky_stock_account.model_stock_move
+msgid "Stock Move"
+msgstr "حركة المخزون"
+
+#. module: sky_stock_account
+#: model:ir.model.fields,field_description:sky_stock_account.field_stock_move__subtotal
+msgid "SubTotal"
+msgstr "الإجمالي الفرعي"
+
+#. module: sky_stock_account
+#: model:ir.model.fields,field_description:sky_stock_account.field_stock_picking__total
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: sky_stock_account
+#: model:ir.model,name:sky_stock_account.model_stock_picking
+msgid "Transfer"
+msgstr "الشحنة"

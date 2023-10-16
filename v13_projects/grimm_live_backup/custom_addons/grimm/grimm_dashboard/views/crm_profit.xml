@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_profit_search" model="ir.ui.view">
+        <field name="name">crm.profit.search</field>
+        <field name="model">crm.profit</field>
+        <field name="arch" type="xml">
+            <search string="Search Partners">
+                <group expand="0" string="Extended Filters">
+                    <field name="partner_id"/>
+                </group>
+                <group expand="1" string="Group By">
+                    <filter string="Partner" name="group_partner" context="{'group_by':'partner_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="crm_lead_profit_tree" model="ir.ui.view">
+        <field name="name">crm_lead_profit_tree</field>
+        <field name="model">crm.profit</field>
+        <field name="arch" type="xml">
+            <tree create="false" import="false" delete="false">
+                <field name="partner_id"/>
+                <field name="order_freq"/>
+                <field name="no_of_so"/>
+                <field name="margin"/>
+                <field name="total_amount"/>
+                <field name="is_vendor"/>
+                <field name="product_id"/>
+                <field name="categ_id"/>
+                <field name="product_brand_id"/>
+                <field name="sale_order_id"/>
+                <field name="profit"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="crm_lead_profit_action" model="ir.actions.act_window">
+        <field name="name">CRM Profitable Customers/Vendors</field>
+        <field name="res_model">crm.profit</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="view_id" ref="crm_lead_profit_tree"/>
+        <field name="context">{"search_default_group_partner":1}</field>
+        <field name="target">current</field>
+    </record>
+
+    <menuitem
+            id="menu_crm_profit"
+            name="CRM Profitable Customers/Vendors"
+            action="crm_lead_profit_action"
+            parent="crm.menu_crm_config_lead"
+            sequence="99"/>
+
+    <record id="action_ir_crm_profit" model="ir.actions.server">
+      <field name="name">Send Personalised Email</field>
+      <field name="type">ir.actions.server</field>
+      <field name="model_id" ref="grimm_dashboard.model_crm_profit"/>
+      <field name="binding_model_id" ref="grimm_dashboard.model_crm_profit"/>
+      <field name="state">code</field>
+      <field name="code">cr = env.cr
+context = dict(env.context)
+action = model.send_personalised_email(context.get('active_ids', []), context=context)
+      </field>
+    </record>
+</odoo>

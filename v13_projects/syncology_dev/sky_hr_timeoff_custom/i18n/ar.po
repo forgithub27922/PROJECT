@@ -1,0 +1,732 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_hr_timeoff_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-23 22:06+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "%s : %d days"
+msgstr "أيام"
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "%s : %d hours"
+msgstr "ساعات"
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "%s on %s : %d hours"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "%s on %s: %d days"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_leave_and_vacation_view_form
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                Leave Balance\n"
+"                            </span>"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_leave_and_vacation_view_form
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                Leave Days\n"
+"                            </span>"
+msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                                أيام الإجازة\n"
+"                            </span>"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_leave_and_vacation_view_form
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                Vacation Balance\n"
+"                            </span>"
+msgstr ""
+"<span class=\"o_stat_text\">\n"
+"                                رصيد الإجازات\n"
+"                            </span>"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_leave_and_vacation_view_form
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                                Vacation Days\n"
+"                            </span>"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.view_employee_leave_balance_tree
+msgid "Allocated Leaves"
+msgstr "الأذونات المخصصة"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.view_employee_leave_balance_tree
+msgid "Allocated Vacation Days"
+msgstr "أيام الإجازة المخصصة"
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave_allocation.py:0
+#, python-format
+msgid "Allocation of %d day(s) to %s"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave_allocation.py:0
+#, python-format
+msgid "Allocation of %d hour(s) to %s"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.new_hr_time_off_form_view
+msgid "Approve"
+msgstr "قبول"
+
+#. module: sky_hr_timeoff_custom
+#: model:res.groups,name:sky_hr_timeoff_custom.grp_approve_reject
+msgid "Approve/Reject"
+msgstr "قبول / رفض"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.actions.server,name:sky_hr_timeoff_custom.leave_allocation_cron_actions_ir_actions_server
+#: model:ir.cron,cron_name:sky_hr_timeoff_custom.leave_allocation_cron_actions
+#: model:ir.cron,name:sky_hr_timeoff_custom.leave_allocation_cron_actions
+msgid "Auto Leaves allocation end of each month"
+msgstr "تخصيص الأذونات اتوماتيكيا بنهاية كل شهر"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__update_leave_vacation_balance__update_type__both
+msgid "Both"
+msgstr "كلا من"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.reject_vacation_leave_request_wizard_form_view
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.update_leave_vacation_balance_wizard_view
+msgid "Cancel"
+msgstr "تجاهل"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.new_hr_time_off_form_view
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.reject_vacation_leave_request_wizard_form_view
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.update_leave_vacation_balance_wizard_view
+msgid "Confirm"
+msgstr "يأكد"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.actions.act_window,help:sky_hr_timeoff_custom.action_hr_vacation_allocation
+msgid "Create a new leave allocation"
+msgstr "انشاء تخصيص اذونات جديد"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.actions.act_window,help:sky_hr_timeoff_custom.hr_vacation_action_action_approve_department
+msgid "Create a new time off request"
+msgstr "انشاء طلب عطلات جديد"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_reject_request_wizard__create_uid
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__create_uid
+msgid "Created by"
+msgstr "انشئ بواسطة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_reject_request_wizard__create_date
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__create_date
+msgid "Created on"
+msgstr "انشئ في"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__current_leave_balance
+msgid "Current Leave Balance"
+msgstr "رصيد الأذونات:"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__current_vacation_balance
+msgid "Current Vacation Balance"
+msgstr "رصيد الاجازات"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.view_employee_leave_balance_search
+msgid "Department"
+msgstr "قسم"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_reject_request_wizard__display_name
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__number_of_days
+msgid "Duration (Days)"
+msgstr "المدة (بالأيام)"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave_allocation__number_of_days_display
+msgid "Duration (days)"
+msgstr "المدة (بالأيام)"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__number_of_days_display
+msgid "Duration in days"
+msgstr "المدة بالأيام"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,help:sky_hr_timeoff_custom.field_hr_leave_allocation__number_of_days
+msgid "Duration in days. Reference field to use when necessary."
+msgstr "المدة بالأيام. حقل مرجعي يُستخدم عند الحاجة."
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model,name:sky_hr_timeoff_custom.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__end_time
+msgid "End Time"
+msgstr "وقت الانتهاء"
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "End time must be between 00:00 to 23:59!!!"
+msgstr "وقت الانتهاء ما بين 00:00 إلى 23:59"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__hr_leave__leave_period__evening_leave
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_time_off_search_view
+msgid "Evening Leave"
+msgstr "إجازة مسائية"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model,name:sky_hr_timeoff_custom.model_hr_department
+msgid "HR Department"
+msgstr "قسم الموارد البشرية"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.actions.act_window,help:sky_hr_timeoff_custom.action_hr_vacation_allocation
+msgid ""
+"HR Officers allocate vacations to employees (e.g. paid leave request).<br>"
+msgstr "مسئول الموارد البشرية يخصص الاجازات للعاملين"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model,name:sky_hr_timeoff_custom.model_hr_leave_allocation
+msgid "Hr Leave Allocation"
+msgstr "تخصيص اذونات موارد بشرية"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model,name:sky_hr_timeoff_custom.model_hr_leave_type
+msgid "Hr Leave Type"
+msgstr "نوع الأذونات موارد بشرية"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_reject_request_wizard__id
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,help:sky_hr_timeoff_custom.field_hr_leave_allocation__number_of_days_display
+msgid ""
+"If Accrual Allocation: Number of days allocated in addition to the ones you "
+"will get via the accrual' system."
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.view_employee_leave_balance_search
+msgid "Job Position"
+msgstr "المنصب الوظيفي"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_reject_request_wizard____last_update
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_reject_request_wizard__write_uid
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_reject_request_wizard__write_date
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model,name:sky_hr_timeoff_custom.model_hr_leave
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__hr_leave__leave_type__leave
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__hr_leave_allocation__leave_type__leave
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__hr_leave_type__leave_type__leave
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__update_leave_vacation_balance__update_type__leave
+msgid "Leave"
+msgstr "إذن"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.view_hr_department_inherit
+msgid "Leave / Vacation Allocation"
+msgstr "أذونات / تخصيص اجازة"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.view_hr_department_inherit
+msgid "Leave / Vacation Allowance"
+msgstr "أذونات / اجازات متاحة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_department__leave_alloc_days
+msgid "Leave Alloc Days"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.lave_allocation_menu
+msgid "Leave Allocation"
+msgstr "تخصيص اذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_employee__total_alloc_leave
+msgid "Leave Allocations"
+msgstr "تخصيص اذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_employee__leave_balance
+msgid "Leave Balance"
+msgstr "رصيد الأذونات:"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_department__leave_monthly_allowance
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_employee__leave_monthly_allowance
+msgid "Leave Monthly Allowance"
+msgstr "أذونات شهرية متاحة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__leave_period
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_time_off_search_view
+msgid "Leave Period"
+msgstr "فترة الإجازة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.leave_request_menu
+msgid "Leave Requests"
+msgstr "طلب اذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__leave_type
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave_allocation__holiday_status_id
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave_allocation__leave_type
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave_type__leave_type
+msgid "Leave Type"
+msgstr "نوع الإجازة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.vacation_type_request_menu
+msgid "Leave Types"
+msgstr "انواع الاذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_employee__total_leave
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.leave_requests_main_menu
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.update_leave_vacation_balance_wizard_view
+msgid "Leaves"
+msgstr "الاذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__lock
+msgid "Lock"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_time_off_form_view
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.new_hr_time_off_form_view
+msgid "Locked"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid ""
+"Logged in user cannot approve this /leave/vacation. User must have (All "
+"Approver/Administrator) rights."
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid ""
+"Logged in user cannot approve this leave/vacation. User must have (All "
+"Approver/Administrator) rights."
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid ""
+"Logged in user cannot approve this leave/vacation. User must have "
+"(Responsible/Administrator) rights."
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__hr_leave__leave_period__morning_leave
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_time_off_search_view
+msgid "Morning Leave"
+msgstr "إجازة الصباح"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__new_leave_balance
+msgid "New Leave Balance"
+msgstr "رصيد الاذونات الجديد"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.new_hr_time_off_form_view
+msgid "New Time Off Request"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__new_vacation_balance
+msgid "New Vacation Balance"
+msgstr "رصيد الاجازات الجديد"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,help:sky_hr_timeoff_custom.field_hr_department__leave_alloc_days
+#: model:ir.model.fields,help:sky_hr_timeoff_custom.field_hr_department__vacation_alloc_days
+msgid ""
+"No of days to be allocated every month to the Employees of this Department"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave_allocation__number_of_days
+msgid "Number of Days"
+msgstr "عدد الأيام"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,help:sky_hr_timeoff_custom.field_hr_leave__number_of_days_display
+msgid ""
+"Number of days of the time off request according to your working schedule. "
+"Used for interface."
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,help:sky_hr_timeoff_custom.field_hr_leave__number_of_days
+msgid ""
+"Number of days of the time off request. Used in the calculation. To "
+"manually correct the duration, use this field."
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_time_off_form_view
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.new_hr_time_off_form_view
+msgid "Reject"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_reject_request_wizard__reject_reason
+msgid "Reject Reason"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.reject_vacation_leave_request_wizard_form_view
+#, python-format
+msgid "Reject Request"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model,name:sky_hr_timeoff_custom.model_reject_request_wizard
+msgid "Reject Vacation/Leave Request Wizard"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__rejection
+msgid "Rejection Reason"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.new_hr_time_off_form_view
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_leave_allocation_form_view_allocation_type_inherit
+msgid "Short Description e.g. Personal Work"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__start_time
+msgid "Start Time"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "Start Time must be prior to End Time!"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "Start time must be between 00:00 to 23:59!!!"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.view_employee_leave_balance_tree
+msgid "Taken Leaves"
+msgstr "الاذونات المستخدمة"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.view_employee_leave_balance_tree
+msgid "Taken Vacation Days"
+msgstr "ايام الإجازة المستخدمة"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_leave_and_vacation_view_form
+msgid "Total Leave Days"
+msgstr "حاصل أيام الاذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_leave_and_vacation_view_form
+msgid "Total Vacation Days"
+msgstr "حاصل ايام الإجازة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__unpaid
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave_type__unpaid
+msgid "Unpaid"
+msgstr "غير مدفوع الاجر"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_leave_and_vacation_view_form
+msgid "Update Leave/ Vacation Balance"
+msgstr "تعديل رصيد الإجازات والاذونات"
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_employee.py:0
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.update_leave_vacation_balance_wizard_view
+#, python-format
+msgid "Update Leave/Vacation Balance"
+msgstr "تعديل رصيد الإجازات والاذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model,name:sky_hr_timeoff_custom.model_update_leave_vacation_balance
+msgid "Update Leave/Vacation Balance Wizard"
+msgstr "تعديل رصيد الإجازات والاذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__update_type
+msgid "Update Type"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__hr_leave__leave_type__vacation
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__hr_leave_allocation__leave_type__vacation
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__hr_leave_type__leave_type__vacation
+#: model:ir.model.fields.selection,name:sky_hr_timeoff_custom.selection__update_leave_vacation_balance__update_type__vacation
+msgid "Vacation"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_department__vacation_alloc_days
+msgid "Vacation Alloc Days"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.vacation_allocation_menu
+msgid "Vacation Allocation"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.actions.act_window,name:sky_hr_timeoff_custom.action_hr_vacation_allocation
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_employee__total_alloc_vacation
+msgid "Vacation Allocations"
+msgstr "تخصيص اجازات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_employee__vacation_balance
+msgid "Vacation Balance"
+msgstr "رصيد الاجازات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_department__vacation_monthly_allowance
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_employee__vacation_monthly_allowance
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__vacation_monthly_allowance
+msgid "Vacation Monthly Allowance"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.actions.act_window,name:sky_hr_timeoff_custom.hr_vacation_action_action_approve_department
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.vacation_request_menu
+msgid "Vacation Requests"
+msgstr "طلب الإجازة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.actions.act_window,name:sky_hr_timeoff_custom.vacation_types_action
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.leave_type_request_menu
+msgid "Vacation Types"
+msgstr "انواع الإجازات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.actions.act_window,name:sky_hr_timeoff_custom.action_emp_leave_balance
+msgid "Vacation and Leave Balance"
+msgstr "الإجازات ورصيد الأذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_employee__total_vacation
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.vacation_requests_main_menu
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.update_leave_vacation_balance_wizard_view
+msgid "Vacations"
+msgstr "الاجازات"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.ui.menu,name:sky_hr_timeoff_custom.menu_employee_leave_balance
+msgid "Vacations & Leave Balance"
+msgstr "الإجازات ورصيد الأذونات"
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.new_hr_time_off_form_view
+msgid "Validate"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "You can not delete a leave which is approved!"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "You can take maximum {0} days of vacation for month!!!"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "You can take maximum {0} leaves in a  month!!!"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "You do not have enough leaves balance check your leave balance!!!"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/hr_leave.py:0
+#, python-format
+msgid "You do not have enough vacation balance check your vacation balance!!!"
+msgstr ""
+
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__current_leave_monthly_allowance
+msgid "Current Leave Monthly Allowance"
+msgstr "رصيد الاذونات الشهري الحالي"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__new_leave_monthly_allowance
+msgid "New Leave Monthly Allowance"
+msgstr "رصيد الاذونات الشهري الجديد"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__current_vacation_monthly_allowance
+msgid "Current Vacation Monthly Allowance"
+msgstr "رصيد الاجازات الشهري الحالي"
+
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_update_leave_vacation_balance__new_vacation_monthly_allowance
+msgid "New Vacation Monthly Allowance"
+msgstr "رصيد الاجازات الشهري الجديد"
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/update_leave_vacation_balance_wizard.py:0
+#, python-format
+msgid "New leave monthly allowance should be less than current leave monthly allowance"
+msgstr ""
+
+
+#. module: sky_hr_timeoff_custom
+#: code:addons/sky_hr_timeoff_custom/models/update_leave_vacation_balance_wizard.py:0
+#, python-format
+msgid "New vacation monthly allowance should be less than current vacation monthly allowance"
+msgstr ""
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_leaves_by_department__department_id
+msgid "Department"
+msgstr "القسم"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_leaves_by_department__yearly_balance
+msgid "Yearly Balance"
+msgstr "الرصيد السنوي"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_leaves_by_department__monthly_allowance
+msgid "Monthly Balance"
+msgstr "الحد الاقصي الشهري"
+
+
+#. module: sky_hr_timeoff_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_timeoff_custom.hr_lave_type_form_view
+msgid "Department"
+msgstr "القسم"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__monthly_request_made
+msgid "Monthly Requests Made"
+msgstr "المستنفذ الشهري"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__monthly_allowance
+msgid "Monthly Allowance"
+msgstr "الحد الشهري"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__yearly_request_made
+msgid "Yearly Requests Made"
+msgstr "المستنفذ السنوي"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__current_yearly_balance
+msgid "Current Yearly Balance"
+msgstr "الرصيد السنوي الحالي"
+
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__penalty_id
+msgid "Penalty"
+msgstr "الجزاء"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__penalty_value
+msgid "Value"
+msgstr "القيمة"
+
+#. module: sky_hr_timeoff_custom
+#: model:ir.model.fields,field_description:sky_hr_timeoff_custom.field_hr_leave__penalty_unit
+msgid "Unit"
+msgstr "الوحدة"

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit Invoice Taxes Tree view-->
+    <record id="inherit_invoice_taxes_tree_view" model="ir.ui.view">
+        <field name="name">view.invoice.taxes.tree.inherit</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Invoice Taxes Form view-->
+    <record id="inherit_invoice_taxes_form_view" model="ir.ui.view">
+        <field name="name">view.invoice.taxes.form.inherit</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Invoice Taxes Search view-->
+    <record id="inherit_invoice_taxes_search_view" model="ir.ui.view">
+        <field name="name">view.invoice.taxes.search.inherit</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_account_tax_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+            <xpath expr="//search//filter[@name='company']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

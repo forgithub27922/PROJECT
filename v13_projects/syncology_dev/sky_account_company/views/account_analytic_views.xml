@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit Analytic Account Tree view-->
+    <record id="inherit_analytic_account_tree_view" model="ir.ui.view">
+        <field name="name">view.analytic.account.tree.inherit</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_account_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Analytic Account Form view-->
+    <record id="inherit_analytic_account_form_view" model="ir.ui.view">
+        <field name="name">view.analytic.account.form.inherit</field>
+        <field name="model">account.analytic.account</field>
+        <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

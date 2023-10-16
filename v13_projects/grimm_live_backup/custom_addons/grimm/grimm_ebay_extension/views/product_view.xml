@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="sale_ebay.product_template_sale_ebay_form_view" model="ir.ui.view">
+        <field name="name">grimm_product_template_ebay_price</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="eBay" name="ebay_sale">
+                    <field name="ebay_product_ids" context = "{'parent_id': active_id, 'parent_model': 'product.template'}">
+                        <tree>
+                            <field name="ebay_backend_id"/>
+                            <field name="ebay_title"/>
+                            <field name="ebay_subtitle"/>
+                            <field name="ebay_url"/>
+                            <field name="calculated_ebay_price"/>
+                        </tree>
+                        <form>
+                            <header>
+                                <button name="push_product_ebay" type="object" string="List Item on eBay"
+                                        attrs="{'invisible': ['|', ('ebay_use', '=', False), ('ebay_listing_status', 'in', ['Active', 'Out Of Stock', 'Error'])]}"/>
+                                <button name="relist_product_ebay" type="object" string="Relist Item"
+                                        attrs="{'invisible': ['|', ('ebay_use', '=', False), ('ebay_listing_status','not in', ['Ended', 'Completed', 'Out Of Stock'])]}"/>
+                                <button name="revise_product_ebay" type="object" string="Revise Item"
+                                        attrs="{'invisible': ['|', ('ebay_use', '=', False), '|',('ebay_url','=', False),('ebay_listing_status','not in', ['Active', 'Out Of Stock', 'Error'])]}"/>
+                                <button name="end_listing_product_ebay" type="object" string="End Item's Listing"
+                                        attrs="{'invisible': ['|', ('ebay_use', '=', False), '|',('ebay_url','=', False),'|',('ebay_listing_status','not in',['Active', 'Error']),('ebay_listing_status','=','Out Of Stock')]}"/>
+                                <button name="%(sale_ebay.action_ebay_link_listing)d" type='action'
+                                        string='Link With Existing eBay Listing'
+                                        attrs="{'invisible': ['|',('ebay_use', '=', False),('ebay_listing_status','!=', 'Unlisted')]}"/>
+                            </header>
+                            <div>
+                                <field name="ebay_use"/>
+                                <label for="ebay_use"/>
+                            </div>
+                            <group>
+                                <field name="ebay_backend_id" context = "{'parent_id': parent.id, 'parent_model': 'product.template'}" required="1"/>
+                                <field name="calculated_ebay_price"/>
+                                <field name="ebay_url" readonly="True" attrs="{'invisible': [('ebay_url','=', False)]}"
+                                       widget="url"/>
+                                <field name="ebay_listing_status"/>
+                                <field name="ebay_quantity_sold"
+                                       attrs="{'invisible': ['|',('product_variant_count', '>', 1),('ebay_listing_status','=', 'Unlisted')]}"/>
+                                <field name="ebay_start_date"
+                                       attrs="{'invisible': [('ebay_listing_status','=', 'Unlisted')]}"/>
+                            </group>
+
+                            <group colspan="2">
+                                <group>
+                                    <field name="ebay_title" required="1"/>
+                                    <!--<field name="generate_ebay_title"/>-->
+                                    <!--<field name="ebay_subtitle" required="1"/>-->
+                                    <field name="ebay_item_condition_id"
+                                           options="{'no_create': True, 'no_open': True}" required="1"/>
+                                    <field name="ebay_category_id" required="1" options="{'no_create': True, 'no_open': True}"  domain="[('backend_id','=',ebay_backend_id),('leaf_category','=',True),('category_type','=','ebay')]"/>
+                                    <field name="ebay_category_2_id"  domain="[('backend_id','=',ebay_backend_id),('leaf_category','=',True),('category_type','=','ebay')]"
+                                           attrs="{'invisible': [('ebay_category_id', '=', False)]}"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="ebay_store_category_id"  domain="[('backend_id','=',ebay_backend_id),('leaf_category','=',True),('category_type','=','store')]"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="ebay_store_category_2_id"  domain="[('backend_id','=',ebay_backend_id),('leaf_category','=',True),('category_type','=','store')]"
+                                           attrs="{'invisible': [('ebay_store_category_id', '=', False)]}"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                </group>
+                                <group>
+                                    <field name="ebay_listing_type" required="1"/>
+                                    <field name="product_variant_count" invisible="1"/>
+
+                                    <label for="calculated_ebay_price" attrs="{'invisible': [('ebay_listing_type','=', 'Chinese')]}" string="Ebay Price" style="width:50%%"/>
+                                    <div name="ebay_price_track">
+                                        <field name="calculated_ebay_price" attrs="{'invisible': [('ebay_listing_type','=', 'Chinese')]}" widget="monetary" options="{'currency_field': 'currency_id'}"
+                                               class="oe_inline" readonly="1"/>
+                                        <button string="⇒ track" attrs="{'invisible': [('ebay_listing_type','=', 'Chinese')]}" class="oe_link oe_right"
+                                                help="Track the Ebay price calculation"
+                                                name="tracking_ebay_price" type="object"/>
+                                    </div>
+
+                                    <field name="ebay_buy_it_now_price"
+                                           attrs="{'invisible': [('ebay_listing_type','=', 'FixedPriceItem')]}"
+                                           widget="monetary"/>
+
+                                    <!--<field name="ebay_fixed_price"
+                                           attrs="{'invisible': ['|',('ebay_listing_type','=', 'Chinese'),('product_variant_count', '>', 1)]}"
+                                           widget="monetary"/>-->
+
+
+                                    <field name="ebay_sync_stock"
+                                           attrs="{'invisible': [('ebay_listing_type','=', 'Chinese')]}"/>
+                                    <field name="ebay_quantity"
+                                           attrs="{'invisible': ['|',('ebay_sync_stock','=',True),'|',('product_variant_count','>',1),('ebay_listing_type','=', 'Chinese')]}"/>
+                                    <field name="ebay_listing_duration"/>
+                                    <field name="ebay_best_offer"
+                                           attrs="{'invisible': [('product_variant_count','>',1),('ebay_listing_type','=', 'FixedPriceItem')]}"/>
+                                    <field name="ebay_private_listing"/>
+
+                                </group>
+                                <group name="ebay_policies">
+                                    <field name="ebay_seller_payment_policy_id" required="1" domain="[('backend_id','=',ebay_backend_id),('policy_type','in',['PAYMENT'])]"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="ebay_seller_return_policy_id" required="1"  domain="[('backend_id','=',ebay_backend_id),('policy_type','in',['RETURN_POLICY'])]"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                    <field name="ebay_seller_shipping_policy_id" required="1"  domain="[('backend_id','=',ebay_backend_id),('policy_type','in',['SHIPPING'])]"
+                                           options="{'no_create': True, 'no_open': True}"/>
+                                </group>
+                            </group>
+                            <!--<div groups="product.group_product_variant">
+                                <label for="product_variant_ids" attrs="{'invisible': ['|',('ebay_listing_type','=', 'Chinese'),('product_variant_count', '=', 1)]}"/>
+                                <label for="product_variant_ids"
+                                       attrs="{'invisible': [('ebay_listing_type','=', 'Chinese')]}"/>
+                                <field name="product_variant_ids" widget="one2many_list" attrs="{'required': False,'invisible': ['|',('ebay_listing_type','=', 'Chinese'),('product_variant_count', '=', 1)]}">
+                                    <tree string="Variants" editable="bottom" create="false" delete="false">
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="attribute_value_ids" widget="many2many_tags"/>
+                                        <field name="ebay_use"/>
+                                        <field name="ebay_fixed_price" widget="monetary"/>
+                                        <field name="ebay_quantity"/>
+                                        <field name="virtual_available"/>
+                                    </tree>
+                                </field>
+                            </div>-->
+                            <div>
+                                <label for="ebay_template_id"/>
+                                <!--<field name="ebay_template_id"
+                                  domain="[('model','=','product.template')]"
+                                  context="{
+                                      'form_view_ref':'product_email_template.email_template_form_simplified',
+                                      'default_model': 'product.template',
+                                      'default_subject': name,
+                                      'default_name': name,
+                                  }"
+                                />-->
+                                <field name="ebay_template_id"
+                                       domain="[('model','=','ebay.product.template')]"
+                                       context="{
+                                    'form_view_ref':'product_email_template.email_template_form_simplified',
+                                    'default_model': 'ebay.product.template',
+                                }"
+                                />
+                            </div>
+                            <label for="ebay_description"/>
+                            <field name="ebay_description" placeholder="Describe the product characteristics..."/>
+                        </form>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+    <openerp>
+        <data>
+
+            <record id="of_product_attribute_set_form_view" model="ir.ui.view">
+                <field name="name">of.product.attribute.set.view</field>
+                <field name="model">product.attribute.set</field>
+                <field name="inherit_id" ref="grimm_product.of_product_attribute_set_form_view" />
+                <field name="arch" type="xml">
+
+                    <group name="base_data1" position="inside">
+                        <field name="skeleton_attribute_set_id" />
+                        <field name="should_export" invisible="1" />
+                    </group>
+
+                    <group name="base_data2" position="inside">
+                        <button name="button_export_to_magento" type="object"  string="Export/Update on Magento" class="oe_highlight oe_right" attrs="{'invisible':[('should_export','=',False)]}" />
+                    </group>
+
+                    <xpath expr="//field[@name='product_attribute_ids']/tree/field[@name='variant_attribute']" position="after">
+                        <field name="is_system" invisible="1" />
+                    </xpath>
+
+                    <xpath expr="//field[@name='product_attribute_ids']/tree" position="attributes">
+                        <attribute name="colors">red:variant_attribute==True and is_system==True;blue:variant_attribute==True;grey:is_system==True;</attribute>
+                    </xpath>
+
+                    <field name="product_attribute_ids" position="after">
+                        <notebook>
+                            <page name="magento" string="Magento">
+                                <separator string="Magento bindings" />
+                                <field name="magento_binding_ids" >
+                                    <tree>
+                                        <field name="backend_id" />
+                                        <field name="magento_id" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+
+                    </field>
+
+                </field>
+            </record>
+
+            <record id="of_magento_product_attribute_set_form_view" model="ir.ui.view">
+                <field name="name">of.magento.product.attribute.set.view</field>
+                <field name="model">magento.product.attribute.set</field>
+                <field name="arch" type="xml">
+                    <form string="Magento product attribute set">
+                        <group>
+                            <field name="magento_id" />
+                            <field name="backend_id" />
+                        </group>
+                        <separator string="Magento attributes" />
+                        <field name="magento_attribute_ids" readonly="1">
+                            <tree string="Magento attributes">
+                                <field name="name" />
+                                <field name="backend_id" />
+                                <field name="magento_id" />
+                            </tree>
+                        </field>
+
+                    </form>
+                </field>
+            </record>
+
+        </data>
+    </openerp>

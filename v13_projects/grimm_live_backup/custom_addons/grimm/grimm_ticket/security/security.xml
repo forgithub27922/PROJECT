@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="0">
+
+    <record model="ir.module.category" id="grimm_ticket_management">
+      <field name="name">Ticketsystem</field>
+      <field name="description">User access levels for ticket system</field>
+      <field name="sequence">10</field>
+    </record>
+
+    <record model="res.groups" id="grimm_ticket_user_group">
+      <field name="name">User</field>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+      <field name="users" eval="[(4, ref('base.user_root'))]"/>
+      <field name="category_id" ref="grimm_ticket.grimm_ticket_management"/>
+    </record>
+
+    <record model="res.groups" id="grimm_ticket_manager_group">
+      <field name="name">Manager</field>
+      <field name="implied_ids" eval="[(4, ref('grimm_ticket.grimm_ticket_user_group'))]"/>
+      <field name="category_id" ref="grimm_ticket.grimm_ticket_management"/>
+    </record>
+
+  </data>
+</openerp>

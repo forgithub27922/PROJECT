@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+grimm_ticket_manager,grimm.ticket,model_grimm_ticket,grimm_ticket.grimm_ticket_manager_group,1,1,1,1
+grimm_ticket_user,grimm.ticket,model_grimm_ticket,grimm_ticket.grimm_ticket_user_group,1,1,1,0
+grimm_ticket_stage_manager,grimm.ticket.stage,model_grimm_ticket_stage,grimm_ticket.grimm_ticket_manager_group,1,1,1,1
+grimm_ticket_stage_user,grimm.ticket.stage,model_grimm_ticket_stage,grimm_ticket.grimm_ticket_user_group,1,1,1,0
+grimm_ticket_tag_user,grimm.ticket.tag,model_grimm_ticket_tag,grimm_ticket.grimm_ticket_user_group,1,1,1,1

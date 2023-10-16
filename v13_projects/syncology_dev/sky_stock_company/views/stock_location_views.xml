@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="inherit_stock_location_route_form_view" model="ir.ui.view">
+        <field name="name">inherit.stock.location.route.form</field>
+        <field name="model">stock.location.route</field>
+        <field name="inherit_id" ref="stock.stock_location_route_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_stock_location_route_tree" model="ir.ui.view">
+        <field name="name">inherit.stock.location.route.tree</field>
+        <field name="model">stock.location.route</field>
+        <field name="inherit_id" ref="stock.stock_location_route_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_view_location_form" model="ir.ui.view">
+        <field name="name">inherit.stock.location.form</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_view_location_tree2" model="ir.ui.view">
+        <field name="name">inherit.stock.location.tree</field>
+        <field name="model">stock.location</field>
+        <field name="inherit_id" ref="stock.view_location_tree2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

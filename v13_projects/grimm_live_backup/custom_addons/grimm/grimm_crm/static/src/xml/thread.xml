@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+  <t t-extend="mail.ChatThread.Message">
+
+    <t t-jquery="small[t-att-title*='message.date.format(date_format)']" t-operation="after">
+      <t t-if="message.partner_ids[0]">
+        <p>
+          <span>To:</span>
+          <t t-set="is_first_partner" t-value="true"/>
+          <t t-foreach="message.partner_ids" t-as="partner">
+
+            <strong t-if="partner[0]"
+                    data-oe-model="res.partner" t-att-data-oe-id="partner[0]"
+                    t-attf-class="#{'o_mail_redirect'}">
+              <t t-if="! is_first_partner">
+                ;
+              </t>
+              <t t-if="is_first_partner">
+                <t t-set="is_first_partner" t-value="false"/>
+              </t>
+              <t t-esc="partner[1]"/>
+            </strong>
+          </t>
+        </p>
+      </t>
+    </t>
+
+<!--    <t t-jquery="i[class='fa fa-reply o_thread_icon o_thread_message_reply']" t-operation="after">-->
+<!--      <i class="fa fa-reply o_thread_mail_message_reply"-->
+<!--         t-att-data-message-id="message.id"-->
+<!--         t-att-data-subject="message.subject"-->
+<!--         t-att-data-from="message.from"-->
+<!--         t-att-data-res-id="message.res_id"-->
+<!--         t-att-data-model="message.model"-->
+<!--         t-att-data-author-id="message.author_id"-->
+<!--         title="Reply"/>-->
+<!--    </t>-->
+
+    <t t-jquery="div[t-att-data-message-id='message.id'] div.o_thread_message_sidebar" t-operation="append">
+      <i t-if="message.parent_reply_id" class="fa fa-arrow-circle-o-down o_thread_parent_reply" aria-hidden="true" t-att-data-message-parent='message.parent_reply_id' title="Gehe zur beantworteten Nachricht"></i>
+    </t>
+  </t>
+
+  <t t-name="mail.Attachment">
+    <div t-attf-class="o_attachment #{attachment.upload ? 'o_attachment_uploading' : ''}" t-att-title="attachment.name" t-att-data-id="attachment.id">
+        <a class="o_image" t-att-href='attachment.url' target="_blank" t-att-data-mimetype="attachment.mimetype" t-attf-data-src="/web/image/#{attachment.id}/100x80">
+            <span class='o_attachment_name'><t t-esc='attachment.name'/></span>
+        </a>
+        <t t-if="editable">
+            <div class="o_attachment_delete">
+                <i class='fa fa-times-circle' title="Delete this attachment" t-att-data-id="attachment.id"/>
+            </div>
+            <div class="o_attachment_progress_bar">
+                Uploading
+            </div>
+        </t>
+    </div>
+  </t>
+
+</templates>

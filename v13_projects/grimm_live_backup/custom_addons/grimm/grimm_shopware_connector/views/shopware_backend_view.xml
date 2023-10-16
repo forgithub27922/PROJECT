@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://grimm-gastrobedarf.de) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+        <record id="grimm_view_shopware_backend_form" model="ir.ui.view">
+            <field name="name">grimm.view.shopware.backend.form</field>
+            <field name="model">shopware.backend</field>
+            <field name="inherit_id" ref="shopware_connector.view_shopware_backend_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='import']" position="inside">
+                    <group>
+                        <div>
+                            <span class="oe_inline">Export product's prices updates since</span>
+                            <field name="export_product_prices_from_date" class="oe_inline" nolabel="1"/>
+                        </div>
+                        <button name="export_product_prices" type="object" class="oe_highlight" string="Export Prices NOW"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_ir_model_field_update_trigger" model="ir.ui.view">
+            <field name="name">shopware.ir.model.fields</field>
+            <field name="model">ir.model</field>
+            <field name="inherit_id" ref="base.view_model_form"/>
+            <field name="arch" type="xml">
+                <field name="copied" position="after">
+                    <field name="update_shopware_trigger"/>
+                    <button string="⇒ Change Update Trigger Boolean" class="oe_link oe_right"
+                                    help="Click to change Update Trigger Value"
+                                    name="change_update_trigger" type="object"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

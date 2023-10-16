@@ -1,0 +1,64 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_stock_company
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-27 05:15+0000\n"
+"PO-Revision-Date: 2022-08-27 05:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_stock_company
+#: model:ir.model,name:sky_stock_company.model_sale_report
+msgid "Sales Analysis Report"
+msgstr "تقرير المبيعات التحليلي"
+
+#. module: sky_stock_company
+#: model:ir.model.fields,field_description:sky_stock_company.field_sale_report__company_id
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_product_packaging_form_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_product_packaging_tree_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_product_product_tree_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_product_template_form_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_product_template_tree_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_quant_search_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_stock_location_route_form_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_stock_location_route_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_stock_putaway_list
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_stock_scrap_form_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_stock_scrap_tree_view
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_stock_valuation_layer_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_stock_valuation_layer_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_inventory_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_inventory_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_location_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_location_tree2
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_move_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_move_line_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_move_line_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_move_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_order_product_search
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_picking_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_picking_type_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_picking_type_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_production_lot_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_production_lot_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_quant_package_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_quant_package_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_stock_quant_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_stock_quant_tree_editable
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_stock_rule_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_stock_rule_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_warehouse
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_warehouse_orderpoint_form
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_warehouse_orderpoint_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_view_warehouse_tree
+#: model_terms:ir.ui.view,arch_db:sky_stock_company.inherit_vpicktree
+msgid "School"
+msgstr "المدرسة"

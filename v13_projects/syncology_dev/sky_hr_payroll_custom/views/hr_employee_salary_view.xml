@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Tree View of HR Salary -->
+        <record id="view_hr_employee_salary_tree" model="ir.ui.view">
+            <field name="name">view.hr.employee.salary.tree</field>
+            <field name="model">hr.employee.salary</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="employee_arabic_name"/>
+                    <field name="basic" sum="Total Basic"/>
+                    <field name="additions" sum="Total Additions"/>
+                    <field name="gross" sum="Total Gross"/>
+                    <field name="paycuts" sum="Total Paycuts"/>
+                    <field name="net" sum="Total Net"/>
+                    <field name="performance" sum="Total Performacne" invisible="1"/>
+                    <field name="annual_bonus" sum="Total Annual Bonus" invisible="1"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Form View OF Hr Employee Salary -->
+        <record id="view_hr_employee_salary_form" model="ir.ui.view">
+            <field name="name">view.hr.employee.salary.form</field>
+            <field name="model">hr.employee.salary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" string="Confirm"
+                                type="object" states="draft"/>
+                        <button name="action_approve" string="Approve"
+                                type="object" states="confirmed" class="btn-primary"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group colspan="2" col="4">
+                            <field name="employee_id" required="1"/>
+                            <field name="basic"/>
+                            <field name="additions"/>
+                            <field name="gross"/>
+                            <field name="paycuts"/>
+                            <field name="net"/>
+                            <field name="performance" invisible="1"/>
+                            <field name="annual_bonus" invisible="1"/>
+                            <field name="start_date" required="1"/>
+                            <field name="end_date" required="1"/>
+                            <field name="parent_id" invisible="1"/>
+                            <field name="department_id" invisible="1"/>
+                            <field name="job_id" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page name="addition_page" string="Additions">
+                                <field name="addition_ids" readonly="1" force_save="1">
+                                    <tree>
+                                        <field name="date"/>
+                                        <field name="addition_type_id"/>
+                                        <field name="type_of_value"/>
+                                        <field name="value"/>
+                                        <field name="amount" sum="Total Additions"/>
+                                        <field name="issued_by"/>
+                                        <field name="reason"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="penalty_page" string="Penalties">
+                                <field name="penalty_ids" readonly="1" force_save="1">
+                                    <tree>
+                                        <field name="date"/>
+                                        <field name="penalty_type_id"/>
+                                        <field name="value_type"/>
+                                        <field name="value"/>
+                                        <field name="amount" sum="Total Penalties"/>
+                                        <field name="issued_by"/>
+                                        <field name="reason"/>
+                                    </tree>
+                                </field>
+                            </page>
+                             <page name="cuts" string="Cuts">
+
+                                 <group colspan="2" col="2">
+                                     <field name="insurance"/>
+                                     <field name="ins_cut_value" force_save="1"/>
+                                     <field name="fellowship_fund"/>
+                                     <field name="fellowship_cut_value" force_save="1"/>
+                                     <field name="staff_children_cut"/>
+                                     <field name="other_cut"/>
+                                     <field name="cuts" invisible="1"/>
+                                 </group>
+
+                             </page>
+                            <page name="Allowance" string="Allowance">
+                               <group colspan="2" col="2">
+                                    <field name="senior_allowance"/>
+                                    <field name="transition_allowance"/>
+                                    <field name="lms_allowance"/>
+                                    <field name="travel_allowance_driver"/>
+                                    <field name="supervision_maintenance_allowance"/>
+                                    <field name="other_allowance"/>
+                                   <field name="allowance" invisible="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Hr Employee Salary Action -->
+        <record id="hr_employee_salary_action" model="ir.actions.act_window">
+            <field name="name">Salaries</field>
+            <field name="res_model">hr.employee.salary</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_employee_salary_tree"/>
+        </record>
+
+        <!-- Hr Employee Salary Main Menu -->
+        <menuitem id="hr_employee_salary_main_menu" name="Salaries" parent="sky_hr_custom.menu_human_resource_main"
+                  sequence="9"/>
+
+        <!-- Hr Employee Salary Menu -->
+        <menuitem id="employee_salary_menu" name="Salaries" parent="hr_employee_salary_main_menu" sequence="2"
+                  action="hr_employee_salary_action" groups="sky_hr_payroll_custom.group_payroll_user"/>
+
+        <!-- Hr Employee Salary Search View -->
+        <record id="view_hr_employee_salary_search" model="ir.ui.view">
+            <field name="name">view.hr.employee.salary.search</field>
+            <field name="model">hr.employee.salary</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <filter name="grp_manager" string="Manager" context="{'group_by':'parent_id'}"/>
+                    <filter name="grp_department" string="Department" context="{'group_by':'department_id'}"/>
+                    <filter name="grp_job" string="Job" context="{'group_by':'job_id'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- New Tree View of HR Salary For Smart Button -->
+        <record id="new_view_hr_employee_salary_tree" model="ir.ui.view">
+            <field name="name">new.view.hr.employee.salary.tree</field>
+            <field name="model">hr.employee.salary</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="employee_id"/>
+                    <field name="basic" sum="Total Basic"/>
+                    <field name="additions" sum="Total Additions"/>
+                    <field name="gross" sum="Total Gross"/>
+                    <field name="paycuts" sum="Total Paycuts"/>
+                    <field name="net" sum="Total Net"/>
+                    <field name="performance" sum="Total Performacne" invisible="1"/>
+                    <field name="annual_bonus" sum="Total Annual Bonus" invisible="1"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- New Employee Salary Action-->
+        <record id="hr_employee_salary_new_action" model="ir.actions.act_window">
+            <field name="name">My Salaries</field>
+            <field name="res_model">hr.employee.salary</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="new_view_hr_employee_salary_tree"/>
+            <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+        </record>
+
+         <!-- New Hr Employee Salary Menu -->
+        <menuitem id="new_employee_salary_menu" name="My Salaries" parent="hr_employee_salary_main_menu" sequence="1"
+                  action="hr_employee_salary_new_action" groups="base.group_user"/>
+
+    </data>
+</odoo>

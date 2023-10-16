@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="prompt_attribute_exists_dialog_form" model="ir.ui.view">
+         <field name="name">prompt.attribute.exists.dialog.form</field>
+         <field name="model">prompt.attribute.exists.dialog</field>
+         <field name="arch" type="xml">
+            <form string="Prompt Attribute Does Not Exists Dialog">
+                <group col="4">
+                    <p colspan="4"><b>The following attribute does not exist in the property set of the following product!</b></p>
+                    <p colspan="4">Press 'Add' button to add the record or press 'Skip' to skip the execution.</p>
+                </group>
+                <group col="4">
+                    <field name="source_product" readonly="1"/>
+                    <field name="product_id" readonly="1"/>
+                    <field name="attribute_id" readonly="1"/>
+                    <field name="source" readonly="1"/>
+                    <field name="mapping_m2m_char" invisible="1"/>
+                </group>
+                 <group col="4">
+                    <div colspan="4" class="alert-danger" role="alert">
+                      <strong>Note:</strong> Pressing 'Abort' terminates the further transactions.
+                    </div>
+                </group>
+                <footer>
+                    <button name="add_attribute_action" string="Add" type="object" class="btn-primary" context="{'active_ids': context.get('active_ids')}"/>
+                    <button name="skip_attribute_action" string="Skip" type="object" class="btn-primary" context="{'active_ids': context.get('active_ids')}"/>
+                    <button name="skip_product_action" string="Skip Product" type="object" class="btn-primary" context="{'active_ids': context.get('active_ids')}"/>
+                    <button string="Abort" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+         </field>
+     </record>
+</odoo>

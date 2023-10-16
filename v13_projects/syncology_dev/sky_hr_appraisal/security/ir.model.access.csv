@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_kra_manager,access.hr.kra.manager,model_hr_kra,group_appraisal_manager,1,1,1,1
+access_hr_kra_user,access.hr.kra.user,model_hr_kra,group_appraisal_user,1,1,1,0
+access_hr_kra_option_manager,access.hr.kra.option.manager,model_hr_kra_options,group_appraisal_manager,1,1,1,1
+access_hr_kra_option_user,access.hr.kra.option.user,model_hr_kra_options,group_appraisal_user,1,0,0,0
+access_hr_employee_kra_manager,access.hr.employee.kra.manager,model_hr_employee_kra,group_appraisal_manager,1,1,1,1
+access_hr_employee_kra_user,access.hr.employee.kra.user,model_hr_employee_kra,group_appraisal_user,1,1,1,0
+access_hr_employee_appraisal_manager,access.hr.employee.appraisal.manager,model_hr_employee_appraisal,group_appraisal_manager,1,1,1,1
+access_hr_employee_appraisal_user,access.hr.employee.appraisal.user,model_hr_employee_appraisal,group_appraisal_user,1,1,1,0

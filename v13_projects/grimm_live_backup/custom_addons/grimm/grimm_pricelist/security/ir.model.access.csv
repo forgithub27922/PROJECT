@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"read_access_partner_pricelist_item","Read Access Partner Pricelist Item","model_partner_pricelist_item","",1,0,0,0
+"write_access_partner_pricelist_item","Write Access Partner Pricelist Item","model_partner_pricelist_item","sales_team.group_sale_manager",1,1,1,1
+"read_access_partner_sale_pricelist_item","Read Access Partner Sale Pricelist Item","model_partner_sale_pricelist_item","",1,0,0,0
+"write_access_partner_sale_pricelist_item","Write Access Partner Sale Pricelist Item","model_partner_sale_pricelist_item","sales_team.group_sale_manager",1,1,1,1

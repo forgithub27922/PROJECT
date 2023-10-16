@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="grimm_web_footer" inherit_id="website.language_selector" name="GRIMM Website">
+        <xpath expr="//ul" position="attributes">
+            <attribute name="class">list-inline js_language_selector mt16 d-none</attribute>
+        </xpath>
+    </template>
+
+    <template id="grimm_web_brand_promotion" inherit_id="web.brand_promotion" name="GRIMM Promotion">
+        <xpath expr="//div" position="attributes">
+            <attribute name="class">o_brand_promotion d-none</attribute>
+        </xpath>
+    </template>
+</odoo>

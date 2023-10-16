@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_education_user,access.hr.education.user,model_hr_education,base.group_user,1,0,0,0
+access_hr_education_officer,access.hr.education.officer,model_hr_education,hr.group_hr_user,1,1,1,1
+access_hr_experience_user,access.hr.experience.user,model_hr_experience,base.group_user,1,0,0,0
+access_hr_experience_officer,access.hr.experience.officer,model_hr_experience,hr.group_hr_user,1,1,1,1
+access_hr_training_user,access.hr.training.user,model_hr_training,base.group_user,1,0,0,0
+access_hr_training_officer,access.hr.training.officer,model_hr_training,hr.group_hr_user,1,1,1,1
+access_hr_employee_contract_type_user,access.hr.employee.contract.type.user,model_hr_employee_contract_type,base.group_user,1,0,0,0
+access_hr_employee_contract_type_officer,access.hr.employee.contract.type.officer,model_hr_employee_contract_type,hr.group_hr_user,1,1,1,1
+access_hr_employee_status_user,access.hr.employee.status.user,model_hr_employee_status,base.group_user,1,0,0,0
+access_hr_employee_status_officer,access.hr.employee.status.officer,model_hr_employee_status,hr.group_hr_user,1,1,1,1
+hr.access_hr_employee_system_user,hr.employee system user,hr.model_hr_employee,base.group_user,1,0,0,0
+access_job_history_line,access.job.history.line,model_job_history_line,,1,1,1,1
+access_change_job_pos_wiz,access.change.job.pos.wiz,model_change_job_position_wiz,,1,1,1,1
+resource.access_resource_resource,resource.resource,resource.model_resource_resource,base.group_system,1,1,1,1
+access_schedule_time,access.schedule.time,model_schedule_time,,1,1,1,1

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="res.groups" id="base.group_multi_company">
+        <field name="name">Multi Schools</field>
+    </record>
+</odoo>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <act_window
+                id="act_crm_claim_sale_order"
+                name="Related Sales"
+                view_mode='tree,form'
+                res_model="sale.order"/>
+
+        <act_window
+                id="act_crm_claim_rma_tasks"
+                name="Related Tasks"
+                view_mode='form,tree'
+                res_model="project.task"/>
+
+        <act_window
+                id="act_crm_claim_stock_picking"
+                name="Related Picking"
+                view_mode='tree,form'
+                res_model="stock.picking"/>
+
+
+        <record id="view_grimm_crm_claim_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.crm.claim.form.view.inherit</field>
+            <field name="model">crm.claim</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/group" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <field name="product_id" attrs="{'invisible':True}"/>
+                        <button class="oe_inline oe_stat_button" name="create_saleorder" type="object" string="Sales"
+                                icon="fa-rocket"/>
+
+                        <button class="oe_inline oe_stat_button" name="create_task" type="object" string="Tasks"
+                                context="{'search_default_claim_id':[active_id]}"
+                                icon="fa-tasks"/>
+                        <button class="oe_inline oe_stat_button" name="%(act_crm_claim_stock_picking)d" type="action"
+                                string="Stock Picking" icon="fa-tasks" context="{'search_default_claim_id':[active_id],
+                        'default_product_id': product_id,
+                        'default_partner_id': owner,
+                    }"/>
+                    </div>
+                </xpath>
+
+                <field name="categ_id" position="replace"/>
+                <field name="priority" position="replace"/>
+                <field name="date" position="replace"/>
+                <field name="date_deadline" position="replace"/>
+                <xpath expr="//sheet/group[1]" position="inside">
+                    <group>
+                        <field name="sequence"/>
+                        <field name="categ_id" options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                    <group>
+                        <field name="priority" widget="priority" modifiers="{}"/>
+                        <field name="date_deadline"/>
+                    </group>
+                </xpath>
+
+                <field name="user_id" position="replace"/>
+                <field name="team_id" position="replace"/>
+                <xpath expr="//sheet/group[2]" position="inside">
+                    <group>
+                        <field name="asset_internal_cat"/>
+                        <field name="asset_id" options="{'limit': 0,'create':false, 'search_more':true}"
+                               context="{'search_default_partner_owner':owner,'search_default_partner_contact':partner_id,'default_partner_owner':owner,'default_partner_contact':partner_id}"/>
+                    </group>
+                    <group>
+                        <field name="date"/>
+                        <field name="create_user" readonly="1"/>
+                        <field name="user_id"/>
+                        <field name="team_id"/>
+                        <field name="customer_ref"/>
+                    </group>
+                </xpath>
+                <xpath expr="//sheet/group[2]" position="attributes">
+                    <attribute name="colspan"/>
+                    <attribute name="col"/>
+                </xpath>
+
+                <field name="name" position="replace"/>
+                <field name="partner_id" position="replace"/>
+                <field name="description" position="replace"/>
+                <xpath expr="//field[@name='email_from']" position="replace"/>
+                <xpath expr="//field[@name='partner_phone']" position="replace"/>
+                <xpath expr="//notebook/page[1]" position="replace">
+                    <page string="Kontakt">
+                        <group>
+                            <group>
+                                <separator colspan="2" string="Kontaktdaten"/>
+                                <field name="owner" attrs="{'readonly':[('asset_id','!=',False)]}"/>
+                                <field name="asset_invoice_partner"/>
+                                <field name="asset_delivery_partner"/>
+                                <field name="beneficiary"/>
+                                <field name="partner_id" context="{'show_address': 1}" options="{'always_reload': 1}"/>
+                                <field name="partner_phone"/>
+                                <field name="partner_mobile"/>
+                                <field name="email_from"/>
+                            </group>
+                            <group>
+                                <separator colspan="2" string="Rollenpartner"/>
+                                <field name="role_partner"/>
+                                <field name="brand_name" invisible="1"/>
+                                <field name="brand_id"/>
+                                <field name="brand_phone"/>
+                                <field name="brand_mobile"/>
+                                <field name="brand_email"/>
+                            </group>
+                        </group>
+                        <group>
+                            <separator colspan="2" string="Beschreibung"/>
+                            <field name="name"/>
+                            <field name="description" widget="html" nolabel="true"/>
+                        </group>
+                    </page>
+                </xpath>
+
+                <field name="create_date" position="replace"/>
+                <field name="write_date" position="replace"/>
+                <xpath expr="//notebook/page[2]/group[2]" position="replace"/>
+                <xpath expr="//notebook/page[2]/group[3]" position="replace"/>
+                <xpath expr="//notebook/page[2]/group[1]" position="replace">
+                    <group>
+                        <group>
+                            <separator string="Datumangaben" colspan="2"/>
+                            <field name="create_date"/>
+                            <field name="write_date"/>
+                        </group>
+                        <group>
+                            <separator colspan="2" string="Aktionen"/>
+                            <field name="date_closed" invisible="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <separator colspan="2" string="Quellenangaben"/>
+                        <field name="model_ref_id"/>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook/page[2]" position="inside">
+                    <group colspan="2" col="2">
+                        <separator colspan="2" string="Vorgehen Problembehebung"/>
+                        <field name="type_action" modifiers="{}"/>
+                        <field name="resolution" widget="html"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_grimm_crm_claim_tree_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.crm.claim.tree.view.inherit</field>
+            <field name="model">crm.claim</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="sequence" string="Aufgaben Nr."/>
+                    <field name="asset_customer_inventory_no" invisible="1"/>
+                    <field name="asset_name" invisible="1"/>
+                    <field name="asset_default_code" invisible="1"/>
+                    <field name="asset_serial" invisible="1"/>
+                    <field name="asset_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_crm_case_claims_filter_extension" model="ir.ui.view">
+            <field name="name">crm.claim.select.inherit</field>
+            <field name="model">crm.claim</field>
+            <field name="inherit_id" ref="crm_claim.view_crm_case_claims_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="sequence" string="Claim No." filter_domain="[('sequence','ilike',self)]"/>
+                    <field name="asset_name" string="Assets"
+                           filter_domain="['|','|','|','|',('asset_serial','ilike',self),('asset_name','ilike',self),('asset_id','ilike',self),('asset_customer_inventory_no','ilike',self),('sequence','ilike',self)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_crm_case_claims_form_extension" model="ir.ui.view">
+            <field name="name">Grimm CRM Claims</field>
+            <field name="model">crm.claim</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="replace">
+                    <field name="user_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="crm_claim_category_claim">
+            <field name="name">Claims</field>
+            <field name="res_model">crm.claim</field>
+            <field name="view_mode">tree,calendar,form,pivot</field>
+            <field name="view_id" ref="crm_claim.crm_case_claims_tree_view"/>
+            <field name="search_view_id" ref="crm_claim.view_crm_case_claims_filter"/>
+            <field name="context">{'group_by':'stage_id'}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Record and track your customers' claims. Claims may be linked to a sales order or a lot.You can send
+                    emails
+                    with attachments and keep the full history for a claim (emails sent, intervention type and so
+                    on).Claims may
+                    automatically be linked to an email address using the mail gateway module.
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_crm_claim_pivot_view">
+            <field name="name">crm.claim.pivot</field>
+            <field name="model">crm.claim</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="stage_id" type="row"/>
+                    <field name="role_partner"/>
+                    <field name="date"/>
+                    <field name="categ_id" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+    </data>
+</odoo>

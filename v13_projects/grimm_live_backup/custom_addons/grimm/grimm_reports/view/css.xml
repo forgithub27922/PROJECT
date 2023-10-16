@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+        <!-- Adds all assets in Odoo -->
+        <template id="grimm_report_static" name="Static Ressources Reports" inherit_id="web.report_assets_common">
+            <xpath expr="." position="inside">
+                <!--These links will be called when loading your Odoo -->
+                <link rel="stylesheet" href="/grimm_reports/static/src/css/grimm.css"/>
+            </xpath>
+        </template>
+        <template id="grimm_menu_assets" name="Grimm Web Assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script txpe="text/javascript" src="/grimm_reports/static/src/js/grimm_reports.js"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>

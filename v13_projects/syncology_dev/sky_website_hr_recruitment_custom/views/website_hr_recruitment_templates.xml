@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="my_header" inherit_id="website.layout" name="my_header">
+        <xpath expr="//header" position="replace">
+        </xpath>
+        <xpath expr="//footer" position="replace">
+        </xpath>
+    </template>
+
+    <template id="my_login_header" inherit_id="web.login" name="my_header">
+        <xpath expr="//form/input[@name='csrf_token']" position="before">
+            <img class="img-responsive d-block mx-auto" t-attf-src="/web/binary/company_logo" alt="Logo"/>
+        </xpath>
+    </template>
+
+    <!-- Job Template -->
+    <template id="website_hr_recruitment_job_detail_inherit" inherit_id="website_hr_recruitment.detail">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="js_hr_recruitment">
+                <div class="oe_structure" id="oe_structure_website_hr_recruitment_detail_1"/>
+
+                <!-- Breadcrumb -->
+                <section class="mb16 bg-white">
+                    <div class="container">
+                        <div class="float-right">
+                            <a role="button" t-attf-href="/jobs/apply/#{job.id}?debug=assets" class="btn btn-primary btn-lg float-right mt32 mb4">Apply Now!</a>
+                        </div>
+                        <label class="mb0 mt16">
+                            <a href="/jobs">Jobs</a>
+                        </label> /
+                        <h1 class="mb0 mt0" t-field="job.name"/>
+                        <h4 class="mt0" t-field="job.address_id" t-options='{
+                        "widget": "contact",
+                        "fields": ["city"],
+                        "no_tag_br": True
+                    }'/>
+                    </div>
+                </section>
+
+                <div t-field="job.website_description"/>
+
+                <div class="oe_structure">
+                    <section class="o_job_bottom_bar mt32 mb32">
+                        <div class="text-center">
+                            <a role="button" t-attf-href="/jobs/apply/#{job.id}?debug=assets" class="btn btn-primary btn-lg">Apply Now!</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Applicant Template -->
+    <template id="website_hr_recruitment_inherit" inherit_id="website_hr_recruitment.apply">
+        <xpath expr="//div[@id='wrap']" position="replace">
+            <div id="wrap" class="container">
+                <h1 class="text-center mt-2">
+                    Job Application Form
+                </h1>
+                <hr></hr>
+
+                <h3 class="text-center mt-2">
+                    Personal Information
+                </h3>
+
+                <div class="row mt-3">
+                    <section id="forms" class="col">
+                        <span class="hidden" data-for="hr_recruitment_form" t-att-data-values="{'department_id': job and job.department_id.id or '', 'job_id': job and job.id or ''}"/>
+                        <form id="hr_recruitment_form" enctype="multipart/form-data" action="/website_form_recruitment/" method="post" class="s_website_form">
+                            <input type="hidden" name="hidden_job_id" t-att-value="job.id"/>
+                            <input type="hidden" name="hidden_department_id" t-att-value="job.department_id.id"/>
+
+                            <!-- Arabic field -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="first_name_arabic">First Name (Arabic)</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="middle_name_arabic">Second Name (Arabic)</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="last_name_arabic">Third Name (Arabic)</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="fourth_name_arabic">Fourth Name (Arabic)</label>
+                                </div>
+                            </div>
+
+                            <!-- Arabic field text box -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="first_name_arabic" placeholder="Enter First Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="middle_name_arabic" placeholder="Enter Second Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="last_name_arabic" placeholder="Enter Third Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="fourth_name_arabic" placeholder="Enter Fourth Name (Arabic)" required=""/>
+                                </div>
+                            </div>
+
+                            <!-- English field -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="first_name">First Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="middle_name">Second Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="last_name">Third Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="fourth_name">Fourth Name</label>
+                                </div>
+                            </div>
+
+                            <!-- English field text box -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="first_name" placeholder="Enter First Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="middle_name" placeholder="Enter Second Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="last_name" placeholder="Enter Third Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="fourth_name" placeholder="Enter Fourth Name" required=""/>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="address">Address</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="address" placeholder="Enter Address" required=""/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="city_id">City</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="required_fields form-control" for="city_id" name="city_id">
+                                        <t t-foreach="cities" t-as="city">
+                                            <option t-att-value="city[0]">
+                                                <t t-esc="city[1]"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="partner_phone">Phone</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="partner_phone" maxlength="13" placeholder="+2XXXXXXXXXX" required=""/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="email_from">Email</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="email" class="required_fields form-control o_website_form_input" name="email_from" placeholder="Enter Email ID" required=""/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="religion">Religion</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="required_fields form-control o_website_form_input" name="religion" placeholder="Enter Religion" required=""/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="gender">Gender</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="required_fields form-control" for="gender" name="gender">
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="date_of_birth">Date of Birth</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="date" class="required_fields form-control o_website_form_input" name="date_of_birth" required=""/>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="place_of_birth">Place of Birth</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="required_fields form-control" for="place_of_birth" name="place_of_birth">
+                                        <t t-foreach="states" t-as="state">
+                                            <option t-att-value="state[0]">
+                                                <t t-esc="state[1]"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="nationality">Nationality</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="required_fields form-control" for="nationality" name="nationality">
+                                        <t t-foreach="countries" t-as="country">
+                                            <option t-att-value="country[0]">
+                                                <t t-esc="country[1]"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="marital_status">Marital Status</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="required_fields form-control" for="marital_status" name="marital_status">
+                                        <option value="unmarried">Unmarried</option>
+                                        <option value="married">Married</option>
+                                        <option value="divorced">Divorced</option>
+                                        <option value="widowed">Widowed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="military_status">Military Status</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="required_fields form-control" for="military_status" name="military_status">
+                                        <option value="done">Done</option>
+                                        <option value="relieved">Relieved</option>
+                                        <option value="uncharged">Uncharged</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="national_id">National ID</label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" name="national_id" placeholder="Enter National ID" maxlength="14" required=""/>
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="general_service_status">General Service Status
+                                    </label>
+                                </div>
+                                <div class="col-lg-4">
+                                    <select class="required_fields form-control" for="general_service_status" name="general_service_status">
+                                        <option value="done">Done</option>
+                                        <option value="relieved">Relieved</option>
+                                        <option value="uncharged">Uncharged</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-2">
+                                    <label class="col-form-label" for="passport_id">Passport No
+                                    </label>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <input type="text" class="form-control" name="passport_id" placeholder="Enter Passport No" maxlength="9" required=""/>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+
+
+                            <div id="family_information">
+                                <hr/>
+                                <h3 class="text-center mt-2">
+                                    Family Information
+                                </h3>
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" for="partner_full_name">
+                                            Partner Full Name
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="required_fields form-control o_website_form_input" name="partner_full_name" placeholder="Enter Partner Full Name" required=""/>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" for="partner_national_id">
+                                            Partner National ID
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="required_fields form-control o_website_form_input" name="partner_national_id" placeholder="Enter Partner National ID" maxlength="14" required=""/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" for="partner_qualification">
+                                            Partner Academic Qualification
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="required_fields form-control o_website_form_input" name="partner_qualification" placeholder="Enter Partner Academic Qualification" required=""/>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" for="partner_birthdate">
+                                            Partner Data of Birth
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="date" class="required_fields form-control o_website_form_input" name="partner_birthdate" required=""/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" for="partner_place_of_birth">
+                                            Partner Place of Birth
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <select class="required_fields form-control" for="partner_place_of_birth" name="partner_place_of_birth">
+                                            <t t-foreach="states" t-as="state">
+                                                <option t-att-value="state[0]">
+                                                    <t t-esc="state[1]"/>
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" for="partner_employment">
+                                            Partner Employment
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="required_fields form-control o_website_form_input" name="partner_employment" placeholder="Enter Partner Employment" required=""/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row form-field o_website_form_required_custom">
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" for="partner_employment_location">
+                                            Partner Employment Location
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="text" class="required_fields form-control o_website_form_input" name="partner_employment_location" placeholder="Partner Employment Location" required=""/>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <label class="col-form-label" for="with_children">
+                                            With Children?
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <input type="checkbox" class="ml-2 form-control o_website_form_input form-check-input" name="with_children" style="width: 1.85rem;height: 1.85rem;"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr/>
+                            <h3 class="text-center mt-2">
+                                Academic Qualification
+                            </h3>
+                            <div class="content">
+                                <div id="edu_details"/>
+                                <div class="text-center mt-2 w-100 d-inline-block mb32">
+                                    <a role="button" class="add_details btn btn-primary" style="border-radius:0px;color:#fff">
+                                        Add Academic Qualification
+                                        <input type="hidden" id="details" value="edu"/>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <hr/>
+                            <h3 class="text-center mt-2">
+                                Training Information
+                            </h3>
+                            <div class="content">
+                                <div id="tra_details"/>
+                                <div class="text-center mt-2 w-100 d-inline-block mb32">
+                                    <a role="button" class="add_details btn btn-primary" style="border-radius:0px;color:#fff">
+                                        Add Training
+                                        <input type="hidden" id="details" value="tra"/>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <hr/>
+                            <h3 class="text-center mt-2">
+                                Experience Information
+                            </h3>
+                            <div class="content">
+                                <div id="exp_details"/>
+                                <div class="text-center mt-2 w-100 d-inline-block mb32">
+                                    <a role="button" class="add_details btn btn-primary" style="border-radius:0px;color:#fff">
+                                        Add Experience
+                                        <input type="hidden" id="details" value="exp"/>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <hr/>
+                            <h3 class="text-center mt-2">
+                                CV
+                            </h3>
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3 col-md-4 text-right">
+                                    <label class="col-form-label" for="upload_cv">Upload CV</label>
+                                </div>
+                                <div class="col-lg-7 col-md-8">
+                                    <input type="file" name="attachment_resume" accept=".pdf" class="required_fields form-control o_website_form_input" required=""/>
+                                    <input type="hidden" name="attachment_newresume"/>
+                                    <input type="hidden" name="hidden_file_name" style="display:none;"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="offset-lg-3 offset-md-4 col-md-8 col-lg-7" id="custom_form_submit">
+                                    <a href="#" role="button" class="btn btn-primary btn-lg o_website_form_send">
+                                        Submit
+                                    </a>
+                                    <span id="o_website_form_result"/>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Education Qualification Details Template -->
+    <template id="education_details" name="Education Details">
+        <div class="main_education_details">
+            <div class="form-group row form-field o_website_form_required_custom">
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="name">Name</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="required_fields form-control o_website_form_input" name="name" placeholder="Enter Name" required=""/>
+                </div>
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="institute_name">Institute Name</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="required_fields form-control o_website_form_input" name="institute" placeholder="Institute Name" required=""/>
+                </div>
+            </div>
+
+            <div class="form-group row form-field o_website_form_required_custom">
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="start_date">Start Date</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="date" class="required_fields form-control o_website_form_input" name="start_date" required=""/>
+                </div>
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="end_date">End Date</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="date" class="required_fields form-control o_website_form_input" name="end_date" required=""/>
+                </div>
+            </div>
+
+            <div class="form-group row form-field o_website_form_required_custom">
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="final_grade">Final Grade</label>
+                </div>
+                <div class="col-lg-4">
+                    <select class="required_fields form-control" for="final_grade" name="final_grade">
+                        <option value="excellent">Excellent</option>
+                        <option value="very good">Very Good</option>
+                        <option value="good">Good</option>
+                        <option value="sufficient">Sufficient</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="text-center">
+                <a class="btn btn-danger btn-sm" id="remove_detail" style="color:#fff">Remove</a>
+            </div>
+        </div>
+    </template>
+
+    <!-- Training Details Template -->
+    <template id="training_details" name="Training Details">
+        <div class="main_training_details">
+            <div class="form-group row form-field o_website_form_required_custom">
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="training">Training</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="required_fields form-control o_website_form_input" name="training" placeholder="Enter Training" required=""/>
+                </div>
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="institute_name">Institute Name</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="required_fields form-control o_website_form_input" name="institute_name" placeholder="Institute Name" required=""/>
+                </div>
+            </div>
+
+            <div class="form-group row form-field o_website_form_required_custom">
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="start_date">Start Date</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="date" class="required_fields form-control o_website_form_input" name="start_date" required=""/>
+                </div>
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="end_date">End Date</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="date" class="required_fields form-control o_website_form_input" name="end_date" required=""/>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-danger btn-sm" id="remove_detail" style="color:#fff">Remove</a>
+            </div>
+        </div>
+    </template>
+
+
+    <!-- Experience Details Template -->
+    <template id="experience_details" name="Training Details">
+        <div class="main_exp_details">
+            <div class="form-group row form-field o_website_form_required_custom">
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="employer_name">Employer Name</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="text" class="required_fields form-control o_website_form_input" name="employer_name" placeholder="Enter Employer Name" required=""/>
+                </div>
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="job_id">Position</label>
+                </div>
+                <div class="col-lg-4">
+                    <select class="required_fields form-control" for="job_id" name="job_id">
+                        <t t-foreach="jobs" t-as="job">
+                            <option t-att-value="job[0]">
+                                <t t-esc="job[1]"/>
+                            </option>
+                        </t>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row form-field o_website_form_required_custom">
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="experience_start_date">Start Date</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="date" class="required_fields form-control o_website_form_input" name="experience_start_date" required=""/>
+                </div>
+                <div class="col-lg-2">
+                    <label class="col-form-label" for="experience_end_date">End Date</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="date" class="required_fields form-control o_website_form_input" name="experience_end_date" required=""/>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a class="btn btn-danger btn-sm" id="remove_detail" style="color:#fff">Remove</a>
+            </div>
+
+        </div>
+    </template>
+
+
+
+</odoo>

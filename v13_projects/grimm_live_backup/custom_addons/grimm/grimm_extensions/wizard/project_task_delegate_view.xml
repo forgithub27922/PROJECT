@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id='project_task_delegate_form' model='ir.ui.view'>
+            <field name='name'>project_task_delegate_form</field>
+            <field name='model'>delegate.task.wizard</field>
+            <field name='arch' type='xml'>
+                <form string="Delegate Task">
+                    <sheet>
+                        <group>
+                            <field name='task_id' readonly="1"/>
+                        </group>
+                        <group>
+                            <field name='task_user'/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button name='delegate_task'
+                                string='OK'
+                                class='btn-primary'
+                                type='object'/>
+                        or
+                        <button string='Cancel'
+                                class='btn-default'
+                                special='cancel'/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_delegate_task" model="ir.actions.act_window">
+            <field name="name">Delegate Task Wizard</field>
+            <field name="res_model">delegate.task.wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="project_task_delegate_form"/>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

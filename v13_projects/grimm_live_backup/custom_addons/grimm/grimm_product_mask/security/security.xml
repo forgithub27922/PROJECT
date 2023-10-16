@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record model="res.groups" id="grimm_product_template_group">
+            <field name="name">Artikelstamm in Home</field>
+            <field name="comment">Users belong to this group can access Product Template menu.</field>
+        </record>
+    </data>
+</odoo>

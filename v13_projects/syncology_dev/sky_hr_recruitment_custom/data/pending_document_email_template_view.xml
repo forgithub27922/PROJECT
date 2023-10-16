@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data>
+        <record id="pending_applicant_document_email_template" model="mail.template">
+            <field name="name">SYNC_Pending Document Email Template</field>
+            <field name="model_id" ref="sky_hr_recruitment_custom.model_hr_applicant"/>
+            <field name="subject">Job Application In ${object.job_id.name} Closed</field>
+            <field name="body_html" type="html">
+                <div>
+                    <p>You have been selected as <b>${object.job_id.name}</b> at
+                        <b>${object.company_id.name}</b>
+                    </p>
+
+                    <p>Kindly submit the documents before joining.</p>
+                    <p>We look forward to your on boarding.</p>
+                    <p>Thanks and Regards,</p>
+                </div>
+
+            </field>
+        </record>
+    </data>
+</odoo>

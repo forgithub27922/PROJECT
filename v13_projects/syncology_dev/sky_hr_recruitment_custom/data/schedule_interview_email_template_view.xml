@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data >
+        <record id="schedule_interview_email_template" model="mail.template">
+            <field name="name">SYNC_Interview Information : Send by email</field>
+            <field name="model_id" ref="sky_hr_recruitment_custom.model_hr_interview"/>
+            <field name="subject">Interview Schedule On ${object.interview_date} ${object.interview_time}</field>
+            <field name="body_html" type="html">
+                <div>
+                    <p>"Your application to has been moved to the next stage, which is the interview.
+                    <br/>
+                    <br/>
+                    Date : ${object.interview_date}
+                    <br/>
+                    <br/>
+                    Time : ${object.interview_time}
+                    <br/>
+                    <br/>
+                    Location : ${object.interview_location}
+                    <br/>
+                    <br/>
+                    Please attend at least 10 minutes before the provided time."
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>
+

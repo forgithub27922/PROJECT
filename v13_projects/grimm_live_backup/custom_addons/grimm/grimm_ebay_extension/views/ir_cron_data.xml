@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record id="grimm_ir_cron_sale_ebay_status_5" model="ir.cron">
+            <field name="name">Grimm Ebay: update product status</field>
+            <field name="model_id" ref="model_ebay_product_template"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_sync_ebay_products(False, True)</field>
+            <field name="active" eval="True"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">5</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <record id="grimm_ir_cron_sale_ebay_status_10" model="ir.cron">
+            <field name="name">Grimm Ebay: update product status</field>
+            <field name="model_id" ref="model_ebay_product_template"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_sync_ebay_products(True, True)</field>
+            <field name="active" eval="True"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">10</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <!--<record id="ebay_product_template_company_depends_rule" model="ir.rule">
+            <field name="name">Ebay Product template company dependent</field>
+            <field name="model_id" ref="grimm_ebay_extension.model_ebay_product_template"/>
+            <field name="domain_force">['|',('ebay_backend_id.company_id','=',False),('ebay_backend_id.company_id','=',user.company_id.id)]</field>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+        </record>-->
+
+    </data>
+</odoo>

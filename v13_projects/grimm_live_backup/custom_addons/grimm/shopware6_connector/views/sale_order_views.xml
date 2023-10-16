@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_sale_order_shopware6_form" model="ir.ui.view">
+        <field name="name">sale.order.shopware6.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <field name="is_shopware6_amount_diff" invisible="True"/>
+                <div class="alert alert-danger" role="alert" style="margin-bottom:0px;"
+                     attrs="{'invisible': [('is_shopware6_amount_diff', '=', False)]}">
+                    There is difference in total. On Shopware total is
+                    <bold>
+                            <field name="shopware6_amount_total" readonly="True"/>
+                    </bold>
+                </div>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Shopware6 Bindings" name="shopware6_binding">
+                    <group>
+                        <field name="shopware6_amount_total"/>
+                        <field name="shopware6_bind_ids">
+                            <tree>
+                                <field name="backend_id"/>
+                                <field name="shopware6_id"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

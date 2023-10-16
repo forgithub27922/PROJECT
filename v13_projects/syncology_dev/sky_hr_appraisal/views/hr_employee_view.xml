@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherited form view of employee to add a button on the subordinates section -->
+    <record id="view_emp_form_appraisal_inherit" model="ir.ui.view">
+        <field name="name">view.emp.form.appraisal.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="sky_hr_custom.hr_employee_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='pg_subordinates']/field[@name='child_ids']/tree/field[@name='department_id']" position="after">
+                <field name="appraisal_enable" invisible="1"/>
+                <button name="%(action_generate_appraisal_wiz)d"
+                        string="Evaluate"
+                        type="action"
+                        attrs="{'invisible':[('appraisal_enable','=',False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

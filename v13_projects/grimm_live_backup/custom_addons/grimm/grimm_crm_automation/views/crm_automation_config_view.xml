@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="crm_automation_config_tree_view" model="ir.ui.view">
+            <field name="name">CRM Automation Config</field>
+            <field name="model">crm.automation.config</field>
+            <field name="arch" type="xml">
+                <tree string="CRM Automation Config">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="crm_automation_config_form_view" model="ir.ui.view">
+            <field name="name">CRM Automation Config</field>
+            <field name="model">crm.automation.config</field>
+            <field name="arch" type="xml">
+                <form string="CRM Automation Config">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_toggle"/>
+                            </button>
+                        </div>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <group>
+                            <field name="lead_domain" widget="domain" options="{'model': 'crm.lead'}" class="oe_inline"/>
+                        </group>
+                        <group>
+                            <field name="config_lines">
+                                <tree>
+                                    <field name="src_state" required="1"/>
+                                    <field name="move_day" class="oe_inline"/>
+                                    <field name="dest_state" required="1"/>
+                                    <field name="template_id"/>
+                                </tree>
+                                <form>
+                                    <div class="oe_title">
+                                        <label for="src_state" class="oe_edit_only"/>
+                                        <h1>
+                                            <field name="src_state"/>
+                                        </h1>
+                                    </div>
+                                    <div class="oe_inline">
+                                        After
+                                        <field name="move_day" required="1" class="oe_inline"/>
+                                        days move to
+                                    </div>
+                                    <div class="oe_title">
+                                        <label for="dest_state" class="oe_edit_only"/>
+                                        <h1>
+                                            <field name="dest_state"/>
+                                        </h1>
+                                    </div>
+                                    <group>
+                                        <field name="template_id" options="{'no_create': True}" context="{'default_model': 'sale.order'}" domain="[('model_id', 'in', ['sale.order'])]"/>
+                                    </group>
+
+                                    <!--<group>
+                                        <field name="is_advance_domain"/>
+                                        <field name="advance_domain" widget="domain" options="{'model': 'crm.lead'}"
+                                               attrs="{'invisible':[('is_advance_domain', '=', False)]}"/>
+                                    </group>-->
+                                </form>
+                            </field>
+                        </group>
+                        <field name="html_info" widget="html"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_crm_automation_config" model="ir.actions.act_window">
+            <field name="name">Automation Config</field>
+            <field name="res_model">crm.automation.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="crm_automation_config_tree_view"/>
+        </record>
+
+        <menuitem id="crm_automation_config_menu"
+                  name="Automation Config"
+                  parent="crm.crm_menu_config"
+                  sequence="40"
+                  action="action_crm_automation_config"/>
+
+
+        <record id="sale_automation_config_tree_view" model="ir.ui.view">
+            <field name="name">Sale Automation Config</field>
+            <field name="model">sale.automation.config</field>
+            <field name="arch" type="xml">
+                <tree string="Sale Automation Config">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_automation_config_form_view" model="ir.ui.view">
+            <field name="name">Sale Automation Config</field>
+            <field name="model">sale.automation.config</field>
+            <field name="arch" type="xml">
+                <form string="Sale Automation Config">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_toggle"/>
+                            </button>
+                        </div>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline" required="1"/>
+                        </h1>
+                        <group>
+                            <field name="model_domain" widget="domain" options="{'model': 'sale.order'}"/>
+                            <div class="oe_inline" colspan="2">
+                                After
+                                <field name="older_than" required="1" class="oe_inline"/>
+                                days create/assign below activity
+                            </div>
+                            <field name="activity_type" required="1"/>
+                            <field name="activity_title" required="1"/>
+                            <field name="activity_summary"/>
+                            <field name="activity_note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="grimm_auto_lead_create_sale_order_form" model="ir.ui.view">
+            <field name="name">sale.order</field>
+            <field name="model">sale.order</field>
+            <field name="priority">3</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='sales_person']" position="before">
+                    <group name="sales_lead" string="Lead">
+                        <field name="followup_date"/>
+                        <field name="lead_auto_create"/>
+                    </group>
+                    <group/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="grimm_crm_stage_form_inherit" model="ir.ui.view">
+            <field name="name">GRIMM CRM stage inherit</field>
+            <field name="model">crm.stage</field>
+            <field name="priority">3</field>
+            <field name="inherit_id" ref="crm.crm_stage_form"/>
+            <field name="arch" type="xml">
+                <field name="is_won" position="before">
+                    <field name="delete_activities"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record id="action_sale_automation_config" model="ir.actions.act_window">
+            <field name="name">Automation Config</field>
+            <field name="res_model">sale.automation.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sale_automation_config_tree_view"/>
+        </record>
+
+        <menuitem id="sale_automation_config_menu"
+                  name="Sale Automation Config"
+                  parent="sale.menu_sale_config"
+                  sequence="40"
+                  action="action_sale_automation_config"/>
+
+        <record model="ir.cron" id="ir_cron_crm_automation" forcecreate="True">
+            <field name="name">CRM - Automate Pipeline</field>
+            <field name="model_id" ref="model_crm_automation_config"/>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">
+res=model._scheduler_automate_crm_pipeline()
+log("Executed crm_automation data ==> %s"% res, level='info')
+            </field>
+
+        </record>
+
+        <record model="ir.cron" id="ir_cron_sale_automation" forcecreate="True">
+            <field name="name">Sale - Automate Activity Creation</field>
+            <field name="model_id" ref="model_sale_automation_config"/>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model._scheduler_automate_sale_pipeline()</field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="deactivation_lms_mail_template" model="mail.template">
+        <field name="name">SYNC_Deactivation LMS</field>
+        <field name="model_id" ref="sms_core.model_academic_student"/>
+        <field name="body_html" type="html">
+                    <div>
+                        <br/>
+                        <p>
+                    The access to our EduSync learning management system has been temporarily
+                    deactivated because a payment due date is reached. We apologize for the
+                    inconvenience <br/> <br/>
+                    Thank You.</p>
+                    </div>
+                <br/>
+        </field>
+    </record>
+</odoo>

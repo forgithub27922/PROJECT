@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_warranty_claim_document_grimm">
+            <t t-call="grimm_reports.grimm_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
+                <div class="page">
+                    <div class="folding_line1"/>
+                    <div class="folding_line2"/>
+                    <div class="folding_line3"/>
+                    <div class="container">
+                        <table style="width:100%;">
+                            <tr class="info_row">
+                                <td class="grimm_info">
+                                    <hr class="top"/>
+                                    Bitte ergänzen oder korrigieren Sie die Angaben und senden Sie dieses Formular
+                                    unterschrieben an uns zurück.
+                                    <hr class="bottom"/>
+                                </td>
+                                <td class="grimm_info_col2"/>
+                                <td colspan="2">
+                                    <span t-field="doc.company_id.report_logo_header"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr class="info_row">
+                                <td/>
+                                <td/>
+                                <td colspan="2" class="order-head bold">
+                                    <span t-attf-style="color:{{doc.company_id.theme_color}};">GEWÄHRLEISTUNGSANTRAG
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="sichtfenster">
+                                        GRIMM Gastronomiebedarf GmbH ·
+                                        <span t-if="doc.company_id.street" t-field="doc.company_id.street"/>
+                                        ·
+                                        <span t-if="doc.company_id.zip" t-field="doc.company_id.zip"/>
+                                        <span t-if="doc.company_id.city" t-field="doc.company_id.city"/>
+                                    </span>
+                                </td>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <t t-if="not doc.partner_id.parent_partner_print">
+                                    <td class="address">
+                                        <div>
+                                            <t t-if="doc.partner_id.parent_id">
+                                                <div t-field="doc.partner_id.parent_id.name"/>
+                                            </t>
+                                            <div t-field="doc.partner_id.name"/>
+                                            <t t-if="doc.partner_id.company">
+                                                <div t-field="doc.partner_id.company"/>
+                                            </t>
+                                            <div t-field="doc.partner_id.street"/>
+                                            <t t-if="doc.partner_id.street2">
+                                                <div t-field="doc.partner_id.street2"/>
+                                            </t>
+                                            <div>
+                                                <span t-field="doc.partner_id.zip"/>
+                                                <span t-field="doc.partner_id.city"/>
+                                            </div>
+                                            <div t-field="doc.partner_id.country_id"/>
+                                        </div>
+                                    </td>
+                                </t>
+                                <t t-if="doc.partner_id.parent_partner_print">
+                                    <td class="address">
+                                        <div>
+                                            <div t-field="doc.partner_id.name"/>
+                                            <t t-if="doc.partner_id.company">
+                                                <div t-field="doc.partner_id.company"/>
+                                            </t>
+                                            <div t-field="doc.partner_id.street"/>
+                                            <t t-if="doc.partner_id.street2">
+                                                <div t-field="doc.partner_id.street2"/>
+                                            </t>
+                                            <div>
+                                                <span t-field="doc.partner_id.zip"/>
+                                                <span t-field="doc.partner_id.city"/>
+                                            </div>
+                                            <div t-field="doc.partner_id.country_id"/>
+                                        </div>
+                                    </td>
+                                </t>
+                                <td/>
+                                <td class="header">
+                                    <b>
+                                        <div>NR.</div>
+                                    </b>
+                                    <div>Belegdatum</div>
+                                </td>
+                                <td class="header">
+                                    <b>
+                                        <div t-field="doc.sequence"/>
+                                    </b>
+                                    <!-- <div t-field="doc.date" t-field-options='{"widget": "date"}'/> -->
+                                    <span t-esc="doc.date.strftime('%d.%m.%Y')"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="spacer"/>
+                        <b class="claim-header">Standort des Gerätes</b>
+                        <table class="claim-text border-t" style="width: 100%">
+                            <tr>
+                                <td style="width: 30%">Firma</td>
+                                <td class="dotted_sub">
+                                    <t t-if="doc.partner_id.company">
+                                        <span t-field="doc.partner_id.company"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ansprechpartner</td>
+                                <td class="dotted_sub">
+                                    <t t-if="doc.partner_id.name">
+                                        <span t-field="doc.partner_id.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Straße</td>
+                                <td class="dotted_sub">
+                                    <t t-if="doc.partner_id.street">
+                                        <span t-field="doc.partner_id.street"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PLZ / Ort</td>
+                                <td class="dotted_sub">
+                                    <t t-if="doc.partner_id.city">
+                                        <span t-field="doc.partner_id.zip"/>
+                                        <span t-field="doc.partner_id.city"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Telefon</td>
+                                <td class="dotted_sub">
+                                  <t t-if="doc.partner_id.phone">
+                                          <span t-field="doc.partner_id.phone"/>
+                                  </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>E-Mail</td>
+                                <td class="dotted_sub">
+                                  <t t-if="doc.partner_id.email">
+                                          <span t-field="doc.partner_id.email"/>
+                                  </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kundennummer</td>
+                                <td class="dotted_sub">
+                                    <t t-if="doc.partner_id.ref">
+                                        <span t-field="doc.partner_id.ref"/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <b class="claim-header border-b">Angeaben zum Gerät</b>
+                        <table class="claim-text border-t" style="width: 100%">
+                            <tr>
+                                <td style="width: 30%">Gerätebezeichnung / Art.-Nr.</td>
+                                <td class="dotted_sub">
+                                    <t t-if="doc.device_description">
+                                        <span t-field="doc.device_description"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Hersteller</td>
+                                <td class="dotted_sub">
+                                    <t t-if="doc.manufacturer_id.name">
+                                        <span t-field="doc.manufacturer_id.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Seriennummer</td>
+                                <td class="dotted_sub">
+                                    <t t-if="doc.serial_number">
+                                        <span t-field="doc.serial_number"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Rechnungsnummer</td>
+                                <td class="dotted_sub">
+                                  <t t-if="doc.inv_id">
+                                    <span t-field="doc.inv_id.name"/>
+                                  </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Lieferdatum</td>
+                                <td class="dotted_sub">
+                                  <t t-if="doc.lieferdatum">
+                                    <span t-esc="doc.lieferdatum.strftime('%d.%m.%Y')"/>
+                                  </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <b class="claim-header border-b">Genaue Fehlerbeschreibung</b>
+                        <table class="claim-text" style="width: 100%">
+                            <tr style="height: 34px;">
+                                <td class="dotted_sub">
+                                  <t t-if="doc.name">
+                                    <span t-field="doc.name"/>
+                                  </t>
+                                </td>
+                            </tr>
+                            <tr style="height: 34px;">
+                                <td class="dotted_sub"/>
+                            </tr>
+                            <tr style="height: 34px;">
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td class="small_text">Sollte es sich um einen Fehler handeln, den die Firma GRIMM
+                                    Gastronomiebedarf GmbH nicht zu vertreten hat (z.B. Bedienungsfehler,
+                                    Verunreinigungen, Anschlussfehler), erkläre ich mich mit der Weiterbelastung der
+                                    Reparaturkosten an mich einverstanden. Der Unterzeichende erklärt, zur Abgabe
+                                    dieser Erklärung bevollmächtigt zu sein.
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="claim-text" style="width: 100%">
+                            <tr style="height: 44px;">
+                                <td class="dotted_sub"/>
+                                <td class="dotted_sub"/>
+                                <td class="dotted_sub"/>
+                            </tr>
+                            <tr>
+                                <td class="text-center">Ort, Datum</td>
+                                <td class="text-center">Stempel</td>
+                                <td class="text-center">Unterschrift</td>
+                            </tr>
+                            <tr style="height: 24px;">
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_claim_warranty">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="grimm_reports.report_warranty_claim_document_grimm" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

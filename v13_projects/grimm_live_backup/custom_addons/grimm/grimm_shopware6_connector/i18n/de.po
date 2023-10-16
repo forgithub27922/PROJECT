@@ -1,0 +1,1917 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_shopware6_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-19 13:25+0000\n"
+"PO-Revision-Date: 2022-01-19 13:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_backend_form_view_inherit
+msgid "<span class=\"oe_inline\">Export Product price since</span>"
+msgstr "<span class=\"oe_inline\">Produktpreis exportieren seit</span>"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__openerp_id
+msgid "Accessory Part Product"
+msgstr "Zubehörprodukt"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_accessory_part_product
+msgid "Accessory Part and Quantity"
+msgstr "Zubehör und Mengen"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__accessory_part_id
+msgid "Accessory Product"
+msgstr "Zubehörprodukt"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_active
+msgid "Active"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__shopware_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__shopware_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__shopware_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__shopware_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__shopware_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__shopware_active
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__shopware_active
+msgid "Active on Shopware "
+msgstr "Aktiv auf Shopware"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__is_accessorypart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__is_accessorypart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__is_accessorypart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__is_accessorypart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__is_accessorypart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__is_accessorypart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__is_accessorypart_cross
+msgid "Add Accessory as Cross selling? "
+msgstr "Zubehör als Cross-Selling hinzufügen?"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__is_servicepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__is_servicepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__is_servicepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__is_servicepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__is_servicepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__is_servicepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__is_servicepart_cross
+msgid "Add Servicepart as Cross selling? "
+msgstr "Servicepart als Cross-Selling hinzufügen?"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__is_sparepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__is_sparepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__is_sparepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__is_sparepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__is_sparepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__is_sparepart_cross
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__is_sparepart_cross
+msgid "Add Sparepart as Cross selling? "
+msgstr "Ersatzteil als Cross-Selling hinzufügen?"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_account_payment_mode__days_before_cancel
+msgid ""
+"After 'n' days, if the 'Import Rule' is not fulfilled, the import of the "
+"sales order will be canceled."
+msgstr ""
+"Nach 'n' Tagen wird der Import des Kundenauftrags storniert, wenn die "
+"'Importregel' nicht erfüllt ist."
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_sale_order__compute_amount_due
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sale_order__compute_amount_due
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_sale_order__compute_amount_due
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_sale_order__compute_amount_due
+msgid "Amount Due"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__data
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__data
+msgid "Attachment"
+msgstr "Anhang"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__attr_id
+msgid "Attribute"
+msgstr "Eigenschaft"
+
+#. module: grimm_shopware6_connector
+#: model:ir.actions.server,name:grimm_shopware6_connector.ir_cron_auto_export_price_to_shopware6_ir_actions_server
+#: model:ir.cron,cron_name:grimm_shopware6_connector.ir_cron_auto_export_price_to_shopware6
+#: model:ir.cron,name:grimm_shopware6_connector.ir_cron_auto_export_price_to_shopware6
+msgid "Auto export price to Shopware6"
+msgstr "Preis automatisch nach Shopware6 exportieren"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__shopware6_base_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__shopware6_base_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__shopware6_base_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__shopware6_base_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__shopware6_base_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__shopware6_base_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__shopware6_base_unit
+msgid "Base Unit"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order_cancel_reason__name__wrong_address
+msgid "Billing/delivery address was not correct"
+msgstr "Rechnungs-/Lieferadresse stimmte nicht"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order__shopware6_customer_group__business
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order__shopware6_customer_group_old__business
+msgid "Business Customer"
+msgstr "Geschäftskunde"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_category_related_product__calculated_magento_price
+msgid "Calculated Preis for Magento"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_option_form_view
+msgid "Can you put this product more than once into the basket?"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_category_tree_view
+msgid "Category"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_category_form_view
+msgid "Category name"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_magento_product_product__shopware6_price_trigger
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_magento_product_template__shopware6_price_trigger
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_product_product__shopware6_price_trigger
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_product_template__shopware6_price_trigger
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_product__shopware6_price_trigger
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_template__shopware6_price_trigger
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware_product_template__shopware6_price_trigger
+msgid ""
+"Change the values of this field to active product price update to shopware 6"
+msgstr ""
+"Ändern Sie die Werte dieses Feldes auf aktive Produktpreisaktualisierung auf"
+" Shopware 6"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__channel_id
+msgid "Channel ID"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__grimm_custom_product_option__type__checkbox
+msgid "Checkbox"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword__color
+msgid "Color"
+msgstr "Farbe"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_category__compute_field
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_category__compute_field
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_category__compute_field
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_category__compute_field
+msgid "Compute Field"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_sale_order__order_confirm_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sale_order__order_confirm_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_sale_order__order_confirm_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_sale_order__order_confirm_date
+msgid "Confirmation date"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.actions.act_window,help:grimm_shopware6_connector.grimm_product_variant_new_view
+msgid "Create a new product variant"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__created_at
+msgid "Created At (on Shopware)"
+msgstr "Erstellt am (auf Shopware6)"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__created_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__created_at
+msgid "Created At (on Shopware6)"
+msgstr "Erstellt am (auf Shopware6)"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword__create_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword__create_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__shopware6_document_type__odoo_type_id__credit
+msgid "Credit Note"
+msgstr "Gutschrift"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_grimm_shopware6_product_normal_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_grimm_shopware6_product_template_form_inherit
+msgid "Cross Selleing"
+msgstr "Cross-Selling"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__cross_selling_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__cross_selling_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__cross_selling_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__cross_selling_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__cross_selling_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__cross_selling_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__cross_selling_id
+msgid "Cross Selling Id"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__cross_selling_title
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__cross_selling_title
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__cross_selling_title
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__cross_selling_title
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__cross_selling_title
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__cross_selling_title
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__cross_selling_title
+msgid "Cross Selling Title"
+msgstr "Cross-Selling-Titel"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__openerp_id
+msgid "Custom Product"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_grimm_custom_product_template__image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_image
+msgid "Custom Product Image."
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__openerp_id
+msgid "Custom Product Option"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__openerp_id
+msgid "Custom Product Option Value"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_id
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_template_product
+msgid "Custom Product Template"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.actions.act_window,name:grimm_shopware6_connector.action_grimm_custom_products
+#: model:ir.ui.menu,name:grimm_shopware6_connector.grimm_custom_product_root_menu
+msgid "Custom Product Templates"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_template_product_normal_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_template_template
+msgid "Custom products"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_sale_order__shopware6_customer_group
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sale_order__shopware6_customer_group
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_sale_order__shopware6_customer_group
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_sale_order__shopware6_customer_group
+msgid "Customer Group"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_sale_order__shopware6_customer_group_old
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sale_order__shopware6_customer_group_old
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_sale_order__shopware6_customer_group_old
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_sale_order__shopware6_customer_group_old
+msgid "Customer Group Old"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order_cancel_reason__name__changed_by_customer
+msgid "Customer has made changes/exchange"
+msgstr "Kunde hat Änderungen/Tausch vorgenommen"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order_cancel_reason__name__not_paid
+msgid "Customer has not paid in advance"
+msgstr "Kunde hat keine Vorkasse geleistet"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__shopware6_delivery_time__unit__day
+msgid "Day"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_account_payment_mode__days_before_cancel
+msgid "Days before cancel"
+msgstr "Tage vor Stornierung"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.media_manager_kanban_view
+msgid "Delete"
+msgstr "Löschen"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_shopware6_delivery_time_form
+msgid "Delivery Configuration"
+msgstr "Lieferkonfiguration"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__shopware6_document_type__odoo_type_id__delivery
+msgid "Delivery Note"
+msgstr "Lieferschein"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword__display_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_attribute__display_type
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_attribute__display_type
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_property_group__display_type
+msgid "Display Type"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.media_manager_kanban_view
+msgid "Document"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__doc_comment
+msgid "Document Comment"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__doc_datetime
+msgid "Document Date"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__document
+msgid "Document File"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__doc_number
+msgid "Document Number"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__doc_type
+msgid "Document Type"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_backend__document_type_mapping
+msgid "Document Type mappings"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.media_manager_kanban_view
+msgid "Dropdown menu"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_sale_order__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sale_order__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_sale_order__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__ecommerce_link
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_sale_order__ecommerce_link
+msgid "E-Commerce link"
+msgstr "E-Commerce-Link"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_backend_form_view_inherit
+msgid "Export Price"
+msgstr "Exportpreis"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_template_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_shopware6_delivery_time_form
+msgid "Export Record"
+msgstr "Datensatz exportieren"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_media_manager_form
+msgid "Export Shopware6"
+msgstr "Shopware6 exportieren"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_backend__export_product_prices_from_date
+msgid "Export product prices from date"
+msgstr "Produktpreise ab Datum exportieren"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__media_manager__type__binary
+msgid "File"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__file_url
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__file_url
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__file_url
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__file_url
+msgid "File URL"
+msgstr "Datei-URL"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__filename
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__filename
+msgid "Filename"
+msgstr "Dateiname"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_grimm_custom_product_option
+msgid "Grimm Custom Product Option"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_grimm_custom_product_option_value
+msgid "Grimm Custom Product Option Value"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_grimm_custom_product_template
+msgid "Grimm Custom Product Template"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_custom_product_use_parent_template
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_custom_product_use_parent_template
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_custom_product_use_parent_template
+msgid "Grimm Custom Product Use Parent Template"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_grimm_product_brand
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__openerp_id
+msgid "Grimm Product Brand"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.actions.act_window,name:grimm_shopware6_connector.action_grimm_product_category
+msgid "Grimm Product Category"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_backend__ratepay_team_webhook_url
+msgid ""
+"Here you can enter webhook url so odoo will call after ratepay delivery "
+"confirmation."
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sales_channel_rel__visiblity__20
+msgid "Hide in Listngs"
+msgstr "In Produktlisten ausblenden"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sales_channel_rel__visiblity__10
+msgid "Hide in Listngs and Search"
+msgstr "In der Produktliste & Suche ausblenden"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword__id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__image_1920
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_image
+msgid "Image"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_account_payment_mode__import_rule
+msgid "Import Rule"
+msgstr "Importregel"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__return_instructions
+msgid "Instructions"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_grimm_product_brand__return_instructions
+msgid "Instructions for product return"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__shopware6_document_type__odoo_type_id__invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__shopware6_document_type__odoo_type_id__invoice_cancel
+msgid "Invoice Cancel"
+msgstr "Rechnung stornieren"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__is_done
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__is_done
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__is_done
+msgid "Is Done?"
+msgstr "Ist fertig?"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_accessory_part_product__is_shopware_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__is_shopware_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__is_shopware_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__is_shopware_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__ptmpl_connect_shopware
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__is_shopware6_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__is_shopware_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__is_shopware_exported
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__is_shopware6_exported
+msgid "Is Exported ?"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__is_required
+msgid "Is required?"
+msgstr "Erforderlich?"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_template_form_view
+msgid "Items"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword____last_update
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword__write_uid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword__write_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__sync_date
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__sync_date
+msgid "Last synchronization date"
+msgstr "Datum der letzten Synchronisierung"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__length
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__length
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__length
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__length
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__length
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__length
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__length
+msgid "Length"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__connect_magento
+msgid "Magento"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__magento_value_map_ids
+msgid "Magento brand mappings"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.actions.server,name:grimm_shopware6_connector.ir_cron_mass_update_product_to_shopware6_ir_actions_server
+#: model:ir.cron,cron_name:grimm_shopware6_connector.ir_cron_mass_update_product_to_shopware6
+#: model:ir.cron,name:grimm_shopware6_connector.ir_cron_mass_update_product_to_shopware6
+msgid "Mass update product to Shopware6"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__max_qty
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__max_qty
+msgid "Max Qty"
+msgstr "Max. Menge"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_product_image_form_view
+msgid "Media"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_media_manager_form
+msgid "Media Configuration"
+msgstr "Medienkonfiguration"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__openerp_id
+msgid "Media Id"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.media_manager_kanban_view
+msgid "Media Link"
+msgstr "Medienlink"
+
+#. module: grimm_shopware6_connector
+#: model:ir.actions.act_window,name:grimm_shopware6_connector.action_media_manager
+#: model:ir.ui.menu,name:grimm_shopware6_connector.media_manager_menu
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_media_manager_form
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_media_manager_tree
+msgid "Media Manager"
+msgstr "Medien-Manager"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__media_url
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__media_url
+msgid "Media URL"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__mimetype
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__mimetype
+msgid "Mimetype"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__min_qty
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__min_qty
+msgid "Min Qty"
+msgstr "Mindestens hinzufügen"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__max
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__min
+msgid "Minimum"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__shopware6_delivery_time__unit__month
+msgid "Month"
+msgstr "Monat"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__multiselect
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__multiselect
+msgid "Multiselect"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_search_keyword__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_name
+msgid "Name"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__need_confirmation
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_need_confirmation
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_need_confirmation
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_need_confirmation
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_need_confirmation
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__need_confirmation
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_need_confirmation
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_need_confirmation
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_need_confirmation
+msgid "Need Confirmation"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__odoo_type_id
+msgid "Odoo Type"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__option_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_option_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_option_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_option_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_option_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__option_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_option_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_option_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_option_ids
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_option_form_view
+msgid "Option"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_option_form_view
+msgid "Options"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__options_auto_collapse
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_options_auto_collapse
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_options_auto_collapse
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_options_auto_collapse
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_options_auto_collapse
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__options_auto_collapse
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_options_auto_collapse
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_options_auto_collapse
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_options_auto_collapse
+msgid "Options Auto Collapse"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__order_id
+msgid "Order ID (Shopware6)"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order_cancel_reason__name__other
+msgid "Other Reason"
+msgstr "Anderer Grund"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__packaging_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__packaging_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__packaging_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__packaging_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__packaging_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__packaging_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__packaging_unit
+msgid "Packaging Unit"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__packaging_unit_plural
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__packaging_unit_plural
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__packaging_unit_plural
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__packaging_unit_plural
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__packaging_unit_plural
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__packaging_unit_plural
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__packaging_unit_plural
+msgid "Packaging Unit Plural"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_accessory_part_product__sequence
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__position
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__sequence
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__position
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__position
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__sequence
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__position
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_spare_part_product__sequence
+msgid "Position"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__price
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__price
+msgid "Price"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__openerp_id
+msgid "Price Update Queue"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_accessory_part_product__product_sale_price
+msgid "Price at which the product is sold to customers."
+msgstr "Preis, zu dem das Produkt an Kunden verkauft wird."
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_backend__pricelist_id
+msgid "Pricelist"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order__shopware6_customer_group__private
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order__shopware6_customer_group_old__private
+msgid "Private Customer"
+msgstr "Privatkunde"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_product_product
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__product_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__product_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__product_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__product_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__product_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__product_id
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_product_attribute
+msgid "Product Attribute"
+msgstr "Produktattribute"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_product_category
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__category_id
+#: model:ir.ui.menu,name:grimm_shopware6_connector.menu_grimm_product_category
+msgid "Product Category"
+msgstr "Produktkategorie"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__product_id
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_magento_product_image__product_id
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_product_image__product_id
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_media__product_id
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_media_file__product_id
+msgid "Product ID"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__product_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__product_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__product_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__product_id
+msgid "Product Id"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__product_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__product_ids
+msgid "Product Ids"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__openerp_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__openerp_id
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_product_image_form_view
+msgid "Product Media"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__prod_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__prod_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__prod_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__prod_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__prod_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__prod_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__prod_name
+msgid "Product Name"
+msgstr "Produktbezeichnung"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_product_template_specifications
+msgid "Product Technical Specifications"
+msgstr "Produkt Technische Spezifikationen"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_product_template
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__product_tmpl_id
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_shopware6_connector
+#: model:ir.actions.act_window,name:grimm_shopware6_connector.grimm_product_variant_new_view
+#: model:ir.ui.menu,name:grimm_shopware6_connector.new_menu_products
+msgid "Product Variants (New)"
+msgstr "Produktvarianten"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_product_image
+msgid "Product image"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_product_mass_update_queue
+msgid "Product mass update queue"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__product_ids
+msgid "Products"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__quantity
+msgid "Quantity"
+msgstr "Menge"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__queue_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__queue_ids
+msgid "Queue Jobs"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_sale_order_cancel_reason
+msgid "Quotation Reject Reason"
+msgstr "Angebotsablehnungsgrund"
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_option_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_option_value_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_template_form_view
+msgid "Record"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__product_id
+msgid "Related Product"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_attribute__related_products
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_category__related_product_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_attribute__related_products
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_category__related_product_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_category__related_product_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_property_group__related_products
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_category__related_product_ids
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_category_form_view
+msgid "Related Products"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__required
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__required
+msgid "Required"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__shopware6_sale_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__shopware6_sale_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__shopware6_sale_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__shopware6_sale_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__shopware6_sale_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__shopware6_sale_unit
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__shopware6_sale_unit
+msgid "Sale Unit"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__sales_channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_sale_order__shopware6_channel_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__sales_channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sale_order__shopware6_channel_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__sales_channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_sale_order__shopware6_channel_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__channel_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_sale_order__shopware6_channel_id
+msgid "Sales Channel"
+msgstr "Verkaufskanal"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__product_sale_price
+msgid "Sales Price"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__search_words
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__search_words
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__search_words
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__search_words
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__search_words
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__search_words
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__search_words
+msgid "Search Words"
+msgstr "Suchwörter"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__grimm_custom_product_option__type__select
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__product_attribute__display_type__select
+msgid "Select"
+msgstr "Auswählen"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sale_order_cancel_reason__name
+msgid "Select Reason"
+msgstr "Grund auswählen"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_grimm_custom_product_option__sequence
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__sequence
+msgid "Sequence for the handle."
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__set_as_cover
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__set_as_cover
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__set_as_cover
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__set_as_cover
+msgid "Set as Cover ?"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__calculated_magento_price
+msgid "Shop Price"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__connect_shopware
+msgid "Shopware"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_account_payment_mode
+msgid "Shopware Payment Method"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_price_queue
+msgid "Shopware Price"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_update_queue__shopware6_bind_ids
+msgid "Shopware Price Queue Bindings"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__shopware_brand_ids
+msgid "Shopware Supplier Bindings"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_delivery_carrier_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_product_image_form_view
+msgid "Shopware6"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_accessory_part_product
+msgid "Shopware6 Accessory Part Product"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_backend
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__backend_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__backend_id
+msgid "Shopware6 Backend"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_option_value_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.shopware6_grimm_product_brand_form_view_inherit
+msgid "Shopware6 Binding"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_accessory_part_product__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__shopware6_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__shopware6_bind_ids
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_option_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_custom_product_template_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_media_manager_form
+msgid "Shopware6 Bindings"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_category_related_product
+msgid "Shopware6 Category Related Products"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_grimm_custom_product_template
+msgid "Shopware6 Custom Product"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_grimm_custom_product_option
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_grimm_custom_product_option_value
+msgid "Shopware6 Custom Product Option"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.actions.act_window,name:grimm_shopware6_connector.action_shopware6_delivery_time
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_delivery_time
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__shopware6_delivery_time_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__shopware6_delivery_time_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__shopware6_delivery_time_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__shopware6_delivery_time_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__shopware6_delivery_time_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__shopware6_delivery_time_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__shopware6_delivery_time_id
+#: model:ir.ui.menu,name:grimm_shopware6_connector.shopware6_delivery_time_menu
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_shopware6_delivery_time_form
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.view_shopware6_delivery_time_tree
+msgid "Shopware6 Delivery Time"
+msgstr "Shopware6 Lieferzeit"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_attribute__shopware6_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_attribute__shopware6_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_property_group__shopware6_description
+msgid "Shopware6 Description"
+msgstr "Shopware6 Beschreibung"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_document
+msgid "Shopware6 Document"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_document_type
+msgid "Shopware6 Document Type"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_delivery_carrier__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__shopware6_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__shopware6_id
+msgid "Shopware6 ID"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__related_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__related_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__related_image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__image
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__related_image
+msgid "Shopware6 Image"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_magento_product_image__image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_magento_product_image__related_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_product_image__image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_product_image__related_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_media__image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_media__related_image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_media_file__image
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_product_media_file__related_image
+msgid "Shopware6 Image."
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__shopware6_main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__shopware6_main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__shopware6_main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__main_categ_id
+msgid "Shopware6 Main Category"
+msgstr "Hauptkategorie"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__shopware6_main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__shopware6_main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__shopware6_main_categ_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__shopware6_main_categ_id
+msgid "Shopware6 Main Categotry"
+msgstr "Hauptkategorie"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_grimm_product_brand
+msgid "Shopware6 Manufacturer"
+msgstr "Shopware6 Hersteller"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_product_brand__shopware6_brand_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__shopware6_brand_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_brand__shopware6_brand_ids
+msgid "Shopware6 Manufacturer Bindings"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__shopware6_media_file_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__shopware6_media_file_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__shopware6_media_file_bind_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__shopware6_media_file_bind_ids
+msgid "Shopware6 Media File"
+msgstr "Shopware6 Mediendatei"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__shopware6_media_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__shopware6_media_id
+msgid "Shopware6 Media Id"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_media_manager
+msgid "Shopware6 Media Manager"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_attribute__shopware6_position
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_attribute__shopware6_position
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_property_group__shopware6_position
+msgid "Shopware6 Position"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__shopware6_price_trigger
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__shopware6_price_trigger
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__shopware6_price_trigger
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__shopware6_price_trigger
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__shopware6_price_trigger
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__shopware6_price_trigger
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__shopware6_price_trigger
+msgid "Shopware6 Price Trigger"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_attribute__display_on_product_detail_page
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_attribute__display_on_product_detail_page
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_property_group__display_on_product_detail_page
+msgid "Shopware6 Product Detail Page"
+msgstr "Ausgabe Technische Daten?"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_attribute__display_in_product_filter
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_attribute__display_in_product_filter
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_property_group__display_in_product_filter
+msgid "Shopware6 Product Filter"
+msgstr "Filterbar?"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_product_media
+msgid "Shopware6 Product Media"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_product_media_file
+msgid "Shopware6 Product Media File"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_search_keyword
+msgid "Shopware6 Search Keyword"
+msgstr "Suchwörter"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_unit
+msgid "Shopware6 Unit"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_media_manager__data
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_media_manager__data
+msgid "Shopware6 attachments like images, pdf etc. "
+msgstr "Shopware6 Anhänge wie Bilder, PDF etc. "
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_shopware6_product_update_queue
+msgid "Shopware6 product update queue"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.actions.server,name:grimm_shopware6_connector.ir_cron_import_sale_orders_from_shopware6_ir_actions_server
+#: model:ir.cron,cron_name:grimm_shopware6_connector.ir_cron_import_sale_orders_from_shopware6
+#: model:ir.cron,name:grimm_shopware6_connector.ir_cron_import_sale_orders_from_shopware6
+msgid "Shopwares6 - Import Sales Orders"
+msgstr "Shopwares6 - Kundenaufträge importieren"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__short_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__short_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__short_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__short_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__short_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__short_description
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__short_description
+msgid "Short Description"
+msgstr "Kurzbeschreibung"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__shortCode
+msgid "Shortcode"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__ptmpl_connect_magento
+msgid "Should export to Magento?"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__sku
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__sku
+msgid "Sku"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_spare_part_product
+msgid "Spare Part and Quantity"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__step_by_step_mode
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_step_by_step_mode
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_step_by_step_mode
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_step_by_step_mode
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_step_by_step_mode
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__step_by_step_mode
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_step_by_step_mode
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_step_by_step_mode
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_step_by_step_mode
+msgid "Step By Step Mode"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: code:addons/grimm_shopware6_connector/models/shopware_backend/shopware_backend.py:0
+#, python-format
+msgid "Successfully synced <b>%s</b> with <br/><b>%s</b>.!"
+msgstr "Erfolgreich synchronisiert<b>%s</b> mit <br/><b>%s</b>.!"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_backend__ratepay_team_webhook_url
+msgid "Team Webhook URL (Ratepay)"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_template__technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__grimm_product_custom_product_template_technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__grimm_product_custom_product_template_technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__grimm_product_custom_product_template_technical_name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__grimm_product_custom_product_template_technical_name
+msgid "Technical Name"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__technical_specifications
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__technical_specifications
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__technical_specifications
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__technical_specifications
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__technical_specifications
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__technical_specifications
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__technical_specifications
+msgid "Technical Specification"
+msgstr "Technische Daten"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__template_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__option_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__grimm_product_custom_product_template_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__grimm_product_custom_product_template_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__template_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__option_id
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__grimm_product_custom_product_template_id
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_template_product
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_template_product_normal_view
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_template_template
+msgid "Template"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__product_attribute__display_type__text
+msgid "Text"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_magento_product_attribute__display_type
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_product_attribute__display_type
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_property_group__display_type
+msgid "The display type used in the Product Configurator."
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__name
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__name
+msgid "Title"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order_cancel_reason__name__long_delivery
+msgid "Too long delivery time"
+msgstr "Zu lange Lieferzeit"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_stock_picking
+msgid "Transfer"
+msgstr "Lieferung vornehmen"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__type
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__type
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__type
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__type
+msgid "Type"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_product__shopware6_sale_unit_measure
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_template__shopware6_sale_unit_measure
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_product__shopware6_sale_unit_measure
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template__shopware6_sale_unit_measure
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_product__shopware6_sale_unit_measure
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_template__shopware6_sale_unit_measure
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware_product_template__shopware6_sale_unit_measure
+msgid "UOM"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__url
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__url
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__media_manager__type__url
+msgid "URL"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_media_manager__store_uuid
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__store_uuid
+msgid "UUID"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__unit
+msgid "Unit"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_price_queue__updated_at
+msgid "Updated At (on Shopware)"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_category_related_product__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_accessory_part_product__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_delivery_time__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_document_type__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_template__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_media_manager__updated_at
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_unit__updated_at
+msgid "Updated At (on Shopware6)"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_mass_update_queue__updated_fields
+msgid "Updated Fields"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_magento_product_image__file_select
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_image__file_select
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media__file_select
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_product_media_file__file_select
+msgid "Upload Option"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__use_product_data
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__use_product_data
+msgid "Use Product Data"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option_value__use_product_price
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option_value__use_product_price
+msgid "Use Product Price"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_template_product
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_template_product_normal_view
+msgid "Use parent"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__values
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_product_template_specifications__value_ids
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__values
+msgid "Values"
+msgstr "Werte"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sales_channel_rel__visiblity__30
+msgid "Visible"
+msgstr "Sichtbar"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_sales_channel_rel__visiblity
+msgid "Visiblity"
+msgstr "Sichtweite"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__warranty_duration
+msgid "Warranty Duration"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__accessory_warranty_duration
+msgid "Warranty Duration for Accessory"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__sparepart_warranty_duration
+msgid "Warranty Duration for Sparepart"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__warranty_type
+msgid "Warranty Type"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__accessory_warranty_type
+msgid "Warranty Type for Accessory"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_product_brand__sparepart_warranty_type
+msgid "Warranty Type for Sparepart"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,help:grimm_shopware6_connector.field_shopware6_grimm_product_brand__warranty_duration
+msgid ""
+"Warranty in month for this product/supplier relation. Only for "
+"company/supplier relation (purchase order) ; the  customer/company relation "
+"(sale order) always use the product main warranty field"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order_cancel_reason__name__expensive
+msgid "We were priced too expensive"
+msgstr "Wir waren preislich zu teuer"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__shopware6_delivery_time__unit__week
+msgid "Week"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__sale_order_cancel_reason__name__wrong_product
+msgid "Wrong product ordered / does not fit"
+msgstr "Falsches Produkt bestellt / passt nicht"
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields.selection,name:grimm_shopware6_connector.selection__shopware6_delivery_time__unit__year
+msgid "Year"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.constraint,message:grimm_shopware6_connector.constraint_category_related_product_category_product_unique
+msgid "You can not assign same product twice.!"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.actions.act_window,help:grimm_shopware6_connector.grimm_product_variant_new_view
+msgid ""
+"You must define a product for everything you sell, whether it's a physical product,\n"
+"                a consumable or a service you offer to customers.\n"
+"                The product form contains information to simplify the sale process:\n"
+"                price, notes in the quotation, accounting data, procurement methods, etc."
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model_terms:ir.ui.view,arch_db:grimm_shopware6_connector.grimm_product_category_form_view
+msgid "e.g. Lamps"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_media_manager
+msgid "media.manager"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__value
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__value
+msgid "option_id"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model,name:grimm_shopware6_connector.model_sales_channel_rel
+msgid "sales.channel.rel"
+msgstr ""
+
+#. module: grimm_shopware6_connector
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_grimm_custom_product_option__sequence
+#: model:ir.model.fields,field_description:grimm_shopware6_connector.field_shopware6_grimm_custom_product_option__sequence
+msgid "sequence"
+msgstr ""

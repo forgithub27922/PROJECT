@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <data>
+
+        <!-- product template form view -->
+        <record model="ir.ui.view" id="product_template_grimm_custom_form">
+            <field name="name">Custom Product Main View</field>
+            <field name="model">product.template</field>
+            <field name="arch" type="xml">
+                <form string="Product">
+                    <header>
+                        <!--<button string="Configure Variants" type="action"
+                                name="%(product.product_attribute_value_action)d"
+                                attrs="{'invisible': ['|', ('attribute_line_ids', '&lt;=', 0), ('is_product_variant', '=', True)]}"
+                                groups="product.group_product_variant"/>
+                                <button name="export_to_magento" type="object" attrs="{'invisible':[('should_export','=',False)]}" string="Export to Magento" class="oe_highlight" modifiers="{'invisible':[['should_export','=',false]]}" options="{}"/>
+		<button name="export_to_shopware6" type="object" string="Export to Shopware6" class="oe_highlight" modifiers="{}" options="{}"/>
+                                -->
+                    </header>
+                    <!--
+                    <div class="alert alert-info alert-dismissible fade show" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('shopware6_last_job_status', 'in', [''])]}">
+                        Status of last Shopware6 job is:
+                        <bold>
+                                <field name="shopware6_last_job_status" readonly="True"/>
+                        </bold>
+                    </div>
+                    <sheet>
+                        <field name="product_variant_count" invisible="1"/>
+                        <field name="should_export" invisible="1"/>
+                        <field name="is_product_variant" invisible="1"/>
+                        <field name="attribute_line_ids" invisible="1"/>
+                        <div class="oe_button_box" name="button_box"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                        <field name="id" invisible="True"/>
+                        <field name="image_1920" widget="image" class="oe_avatar"
+                               options="{'preview_image': 'image_128'}"/>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Product Name"/>
+                            <h1>
+                                <field name="name" placeholder="Product Name"/>
+                                <br modifiers="{}"/>
+                                <field name="attribute_set_id" placeholder="Attribute set" on_change="1" can_create="true" can_write="true" modifiers="{}"/>
+                                <separator modifiers="{}"/>
+                                <label class="oe_edit_only" for="product_brand_id" string="Product Brand" modifiers="{}"/>
+                                <h3 modifiers="{}">
+                                    <field name="product_brand_id" on_change="1" can_create="true" can_write="true" modifiers="{}"/>
+                                    <div modifiers="{}">
+                                        <label for="used_in_manufacturer_listing" attrs="{'invisible':[('product_brand_id','=',False)]}" modifiers="{'invisible':[['product_brand_id','=',false]]}"/>
+                                        <field name="used_in_manufacturer_listing" placeholder="Manufacturer Listing Position" attrs="{'invisible':[('product_brand_id','=',False)]}" modifiers="{'invisible':[['product_brand_id','=',false]]}"/>
+                                    </div>
+                                </h3>
+                            </h1>
+                            <div name="options" groups="base.group_user">
+                                <div>
+                                    <field name="sale_ok"/>
+                                    <label for="sale_ok"/>
+                                </div>
+                                <div>
+                                    <field name="purchase_ok"/>
+                                    <label for="purchase_ok"/>
+                                </div>
+                            </div>
+                        </div>
+                        <notebook>
+                            <page string="General Information" name="general_information">
+                                <group>
+                                    <group name="group_general">
+                                        <field name="active" invisible="1"/>
+                                        <field name="type"/>
+                                        <field name="categ_id" string="Product Category"/>
+                                    </group>
+                                    <group name="group_standard_price">
+                                        <label for="list_price"/>
+                                        <div name="pricing">
+                                            <field name="list_price" class="oe_inline" widget="monetary"
+                                                   options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                                            <button name="open_pricelist_rules" icon="fa-arrow-right" type="object"
+                                                    groups="product.group_product_pricelist" class="oe_inline">
+                                                <field name="pricelist_item_count"
+                                                       attrs="{'invisible': [('pricelist_item_count', '=', 0)]}"/>
+                                                <span attrs="{'invisible': [('pricelist_item_count', '=', 1)]}">
+                                                    Extra Prices
+                                                </span>
+                                                <span attrs="{'invisible': [('pricelist_item_count', '!=', 1)]}">
+                                                    Extra Price
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <label for="standard_price" groups="base.group_user"
+                                               attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                                        <div name="standard_price_uom" groups="base.group_user"
+                                             attrs="{'invisible': [('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"
+                                             class="o_row">
+                                            <field name="standard_price" widget="monetary"
+                                                   options="{'currency_field': 'cost_currency_id', 'field_digits': True}"/>
+                                            <span groups="uom.group_uom" class="oe_read_only">per
+                                                <field name="uom_name"/>
+                                            </span>
+                                        </div>
+                                        <field name="company_id" groups="base.group_multi_company"
+                                               options="{'no_create': True}"/>
+                                        <field name="uom_id" groups="uom.group_uom" options="{'no_create': True}"/>
+                                        <field name="uom_po_id" groups="uom.group_uom" options="{'no_create': True}"/>
+                                        <field name="currency_id" invisible="1"/>
+                                        <field name="cost_currency_id" invisible="1"/>
+                                        <field name="product_variant_id" invisible="1"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Sales" attrs="{'invisible':[('sale_ok','=',False)]}" name="sales"
+                                  invisible="1">
+                                <group name="sale">
+                                    <group name="email_template_and_project" invisible="1"/>
+                                </group>
+                                <group string="Sales Description" name="description">
+                                    <field name="description_sale" nolabel="1"
+                                           placeholder="This note is added to sales orders and invoices."/>
+                                </group>
+                            </page>
+                            <page string="Purchase" name="purchase" attrs="{'invisible': [('purchase_ok','=',False)]}"
+                                  invisible="1">
+                                <group name="purchase">
+                                    <group string="Vendor Bills" name="bill"/>
+                                </group>
+                            </page>
+                            <page string="Pack Products" attrs="{'invisible':[('is_pack','=', False)]}">
+                                <field name="pack_ids">
+                                    <tree editable="bottom">
+                                        <field name="product_id"/>
+                                        <field name="list_price"/>
+                                        <field name="purchase_price"/>
+                                        <field name="calculated_magento_price"/>
+                                        <field name="qty_uom"/>
+                                        <field name="bi_image"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Inventory" name="inventory" groups="product.group_stock_packaging"
+                                  attrs="{'invisible':[('type', '=', 'service')]}">
+                                <group name="inventory">
+                                    <group name="group_lots_and_weight" string="Logistics"
+                                           attrs="{'invisible': [('type', 'not in', ['product', 'consu'])]}">
+                                        <label for="weight"
+                                               attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                                        <div class="o_row" name="weight"
+                                             attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                                            <field name="weight"/>
+                                            <span>
+                                                <field name="weight_uom_name"/>
+                                            </span>
+                                        </div>
+                                        <label for="volume"
+                                               attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"/>
+                                        <div class="o_row" name="volume"
+                                             attrs="{'invisible':[('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}">
+                                            <field name="volume" string="Volume"/>
+                                            <span>
+                                                <field name="volume_uom_name"/>
+                                            </span>
+                                        </div>
+                                    </group>
+                                </group>
+                                <group name="packaging" string="Packaging" colspan="4"
+                                       attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu']), ('product_variant_count', '&gt;', 1), ('is_product_variant', '=', False)]}"
+                                       groups="product.group_stock_packaging">
+                                    <field name="packaging_ids" nolabel="1"
+                                           context="{'tree_view_ref':'product.product_packaging_tree_view2', 'form_view_ref':'product.product_packaging_form_view2'}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>-->
+                </form>
+            </field>
+        </record>
+
+
+        <!-- product template tree view -->
+        <record model="ir.ui.view" id="product_template_grimm_custom_view_inherit">
+            <field name="name">Grimm Main Product View Inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="grimm_product.product_template_grimm_custom_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="attributes">
+                    <attribute name="name">Product Template</attribute>
+                </xpath>
+                <!--<field name="categ_id" position="after">
+                    <field name="default_code" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}" modifiers="{'invisible':[['product_variant_count','&gt;',1]]}"/>
+                    <field name="barcode" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}" modifiers="{'invisible':[['product_variant_count','&gt;',1]],'readonly':true}"/>
+                    <field name="tracking" invisible="1"/>
+                </field>
+
+                <div name="button_box" position="inside">
+                    <button name="%(product.product_variant_action)d" type="action"
+                            icon="fa-sitemap" class="oe_stat_button"
+                            attrs="{'invisible': [('product_variant_count', '&lt;=', 1)]}"
+                            groups="product.group_product_variant">
+                        <field string="Variants" name="product_variant_count" widget="statinfo" />
+                    </button>
+                    <button class="oe_stat_button" name="action_view_sales" type="object" icon="fa-signal" groups="sales_team.group_sale_salesman" help="Sold in the last 365 days" attrs="{'invisible': [('sale_ok', '=', False)]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="sales_count" widget="statinfo" nolabel="1" class="mr4"/>
+                                <field name="uom_name"/>
+                            </span>
+                            <span class="o_stat_text">Sold</span>
+                        </div>
+                    </button>
+                    <button class="oe_stat_button" name="action_open_quants" icon="fa-cubes" type="object" attrs="{'invisible':[('type', '!=', 'product')]}">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="qty_available" widget="statinfo" nolabel="1" class="mr4"/>
+                                <field name="uom_name"/>
+                            </span>
+                            <span class="o_stat_text">On Hand</span>
+                        </div>
+                    </button>
+                    <button type="object" name="action_product_forecast_report" attrs="{'invisible':[('type', '!=', 'product')]}" context="{'default_product_id': id}" class="oe_stat_button" icon="fa-cubes">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="virtual_available" widget="statinfo" nolabel="1" class="mr4"/>
+                                <field name="uom_name"/>
+                            </span>
+                            <span class="o_stat_text">Forecasted</span>
+                        </div>
+                    </button>
+                    <button string="Traceability" type="object" name="action_view_stock_move_lines" attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}" class="oe_stat_button" icon="fa-exchange" groups="stock.group_stock_user"/>
+                    <button name="%(stock.product_open_orderpoint)d" type="action"
+                            attrs="{'invisible':['|',('type', 'not in', ['product', 'consu']),('nbr_reordering_rules', '!=', 1)]}"
+                            class="oe_stat_button" icon="fa-refresh">
+                        <div class="o_field_widget o_stat_info mr4">
+                            <span class="o_stat_text">Min :</span>
+                            <span class="o_stat_text">Max:</span>
+                        </div>
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value"><field name="reordering_min_qty"/></span>
+                            <span class="o_stat_value"><field name="reordering_max_qty"/></span>
+                        </div>
+                    </button>
+                    <button type="action"
+                            name="%(stock.product_open_orderpoint)d"
+                            attrs="{'invisible':['|',('type', '!=', 'product'),('nbr_reordering_rules', '==', 1)]}"
+                            class="oe_stat_button" icon="fa-refresh">
+                        <field name="nbr_reordering_rules" widget="statinfo"/>
+                    </button>
+                    <button string="Lot/Serial Numbers" type="object" name="action_open_product_lot" attrs="{'invisible': [('tracking', '=', 'none')]}" class="oe_stat_button" icon="fa-bars" groups="stock.group_production_lot"/>
+                    <button string="Routes" type="action"
+                            name="%(stock.action_stock_rules_report)d"
+                            attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}"
+                            class="oe_stat_button" icon="fa-cogs"
+                            context="{'default_product_id': id}"
+                            groups="stock.group_stock_multi_locations"/>
+                    <button string="Putaway Rules" type="object"
+                            name="action_view_related_putaway_rules"
+                            class="oe_stat_button" icon="fa-random" groups="stock.group_stock_multi_locations"
+                            attrs="{'invisible': [('type', '=', 'service')]}"
+                            context="{'invisible_handle': True, 'single_product': True}"/>
+
+
+                    <button class="oe_stat_button" name="grimm_action_view_sales" type="object" icon="fa-usd" groups="sales_team.group_sale_salesman" help="Sold in the last 365 days">
+                        <field name="sales_count"/>
+                        <field name="uom_name"/>
+                        <span class="o_stat_text">Sold</span>
+                    </button>
+                    <button class="oe_stat_button" name="action_view_po" type="object" icon="fa-shopping-cart" attrs="{'invisible': [('purchase_ok', '=', False)]}" help="Purchased in the last 365 days">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="purchased_product_qty" widget="statinfo" nolabel="1" class="mr4"/>
+                                <field name="uom_name"/>
+                            </span>
+                            <span class="o_stat_text">Purchased</span>
+                        </div>
+                    </button>
+                    <button type="object" name="action_open_quants" attrs="{'invisible':[('type', '!=', 'product')]}" class="oe_stat_button" icon="fa-cubes">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value" widget="statinfo">
+                                <field name="qty_available" widget="statinfo" nolabel="1" class="mr4"/>
+                                <field name="uom_name"/>
+                            </span>
+                            <span class="o_stat_text">On Hand</span>
+                        </div>
+                    </button>
+                    <button type="object" name="action_product_tmpl_forecast_report" attrs="{'invisible':[('type', '!=', 'product')]}" context="{'default_product_tmpl_id': id}" class="oe_stat_button" icon="fa-cubes">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="virtual_available" widget="statinfo" nolabel="1" class="mr4"/>
+                                <field name="uom_name"/>
+                            </span>
+                            <span class="o_stat_text">Forecasted</span>
+                        </div>
+                    </button>
+                    <button string="Traceability" type="object" name="action_view_stock_move_lines" attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}" class="oe_stat_button" icon="fa-exchange" groups="stock.group_stock_user"/>
+                    <button type="object" name="action_view_orderpoints" attrs="{'invisible':['|',('type', '!=', 'product'),('nbr_reordering_rules', '!=', 1)]}" class="oe_stat_button" icon="fa-refresh">
+                        <div class="o_field_widget o_stat_info mr4">
+                            <span class="o_stat_text">Min:</span>
+                            <span class="o_stat_text">Max:</span>
+                        </div>
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value"><field name="reordering_min_qty"/></span>
+                            <span class="o_stat_value"><field name="reordering_max_qty"/></span>
+                        </div>
+                    </button>
+                    <button type="object" name="action_view_orderpoints" attrs="{'invisible':['|',('type', '!=', 'product'),('nbr_reordering_rules', '==', 1)]}" class="oe_stat_button" icon="fa-refresh">
+                        <field name="nbr_reordering_rules" widget="statinfo"/>
+                    </button>
+                    <button string="Lot/Serial Numbers" type="object" name="action_open_product_lot" attrs="{'invisible': [('tracking', '=', 'none')]}" class="oe_stat_button" icon="fa-bars" groups="stock.group_production_lot"/>
+                    <button string="Routes" type="action"
+                            name="%(stock.action_stock_rules_report)d"
+                            attrs="{'invisible':[('type', 'not in', ['product', 'consu'])]}"
+                            class="oe_stat_button" icon="fa-cogs"
+                            context="{'default_product_id': id}"
+                            groups="stock.group_stock_multi_locations"/>
+                    <button string="Putaway Rules" type="object"
+                            name="action_view_related_putaway_rules"
+                            class="oe_stat_button" icon="fa-random" groups="stock.group_stock_multi_locations"
+                            attrs="{'invisible': [('type', '=', 'service')]}"
+                            context="{'invisible_handle': True, 'single_product': True}"/>
+                </div>-->
+
+                <!--<xpath expr="//page[@name='general_information']" position="replace">
+                    <page string="General Information" name="general_information">
+                        <group name="studio_group_U3L4O">
+                            <group name="studio_group_U3L4O_left">
+                                <field name="product_brand_id"/>
+                                <field name="active" invisible="1"/>
+                                <field name="type" on_change="1" modifiers="{'required':true}"/>
+                                <field name="categ_id" string="Product Category" on_change="1" can_create="true" can_write="true" modifiers="{'required':true}"/>
+                                <field name="barcode" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}" modifiers="{'invisible':[['product_variant_count','&gt;',1]],'readonly':true}"/>
+                                <field name="manufacture_code"/>
+                                <field name="default_code" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}" modifiers="{'invisible':[['product_variant_count','&gt;',1]]}"/>
+                                <field name="ean_number" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}" modifiers="{'invisible':[['product_variant_count','&gt;',1]]}"/>
+                                <field name="hs_code"/>
+                            </group>
+                            <group name="studio_group_U3L4O_right">
+                                <field name="sale_ok"/>
+                                <field name="purchase_ok"/>
+                                <hr style="width: 100%; color: black;" colspan="2"/>
+                                <field name="has_variants"/>
+                                <field name="is_pack"/>
+                                <hr style="width: 100%; color: black;" colspan="2"/>
+                                <field name="is_device"/>
+                                <field name="is_spare_part"/>
+                                <field name="is_accessory_part"/>
+                                <field name="is_tool"/>
+                                <field name="is_service_part"/>
+                            </group>
+                        </group>
+                    </page>
+
+                    <page string="Prices" name="studio_page_290yD">
+                        <group name="studio_group_290yD">
+                            <group name="studio_group_290yD_left">
+                                <field name="cost_method" invisible="1" readonly="1" modifiers="{'invisible':true,'readonly':true}"/>
+                                <field name="magento_type" invisible="1"/>
+                                <field name="rrp_price" attrs="{'invisible':['|','|',('has_variants','=',True),('magento_type','=','configurable')]}" modifiers="{'invisible':['|','|',['has_variants','=',true],['magento_type','=','configurable']]}"/>
+                                <field name="standard_price" attrs="{'readonly':[('cost_method', '!=', 'fifo')]}" widget="monetary" options="{'currency_field': 'cost_currency_id', 'field_digits': True}" class="oe_inline" modifiers="{'readonly':[['cost_method','!=','fifo']]}"/>
+                                <label for="standard_price" string="Purchase Price" style="width:50%" modifiers="{}"/>
+                                <div name="standard_price_uom" modifiers="{}">
+                                    <field name="calculated_standard_price" widget="monetary" options="{'currency_field': 'currency_id'}" class="oe_inline" readonly="1" modifiers="{'readonly':true}"/>
+                                    <button string="⇒ track" class="oe_link oe_right" help="Track the Purchase price calculation" name="tracking_standard_price" type="object" modifiers="{}" options="{}"/>
+                                </div>
+                                <field name="price_calculation_group"/>
+                                <field name="calculated_standard_price" invisible="1"/>
+                                <label for="calculated_magento_price" modifiers="{}"/>
+                                <div modifiers="{}">
+                                    <field name="calculated_magento_price" modifiers="{'readonly':true}"/>
+                                    <button string="⇒ track" class="oe_link oe_right" help="Track the Magento price calculation" name="tracking_magento_price" type="object" modifiers="{}" options="{}"/>
+                                </div>
+                                <field name="cal_pack_price" attrs="{'invisible':[('is_pack','=', False)]}" modifiers="{'invisible':[['is_pack','=',false]]}"/>
+                            </group>
+                            <group name="studio_group_290yD_right">
+                                <field name="price_on_request"/>
+                                <field name="special_purchase_price" widget="monetary" options="{'currency_field': 'currency_id'}" modifiers="{}"/>
+                                <field name="special_purchase_price_from" modifiers="{}"/>
+                                <field name="special_purchase_price_to" modifiers="{}"/>
+                                <field name="special_price"/>
+                                <field name="special_price_from"/>
+                                <field name="special_price_to"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Delivery" name="studio_page_rLjFX">
+                        <group>
+                            <field name="description_purchase"/>
+                          </group>
+                      <field name="seller_ids"/>
+                    </page>
+
+                    <page string="Technical specifications" name="studio_page_ffVHV">
+                        <group name="studio_group_ffVHV">
+                            <group name="studio_group_ffVHV_left">
+                                <field name="height"/>
+                                <field name="width"/>
+                                <field name="depth"/>
+                                <field name="weight"/>
+
+                                <field name="net_weight"/>
+                                <field name="technical_specifications">
+                                  <tree editable="bottom">
+                                    <field name="attr_id" required="True" context="{'search_from_attr_set':parent.attribute_set_id}"/>
+                                    <field name="value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('attribute_id', '=', attr_id)]" context="{'default_attribute_id': attr_id}"/>
+                                  </tree>
+                                </field>
+                            </group>
+                            <group name="studio_group_ffVHV_right">
+                                <field name="shopware6_sale_unit"/>
+                              <field name="shopware6_sale_unit_measure" widget="selection"/>
+                              <field name="packaging_unit"/>
+                              <field name="packaging_unit_plural"/>
+                              <field name="shopware6_base_unit"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Texts" name="studio_page_1iZST">
+                        <group name="studio_group_1iZST">
+                                <field name="short_description"/>
+                                <field name="description" widget="html"/>
+                        </group>
+                    </page>
+                    <page string="E-commerce" name="studio_page_t3WkV">
+                        <group name="studio_group_t3WkV">
+                            <group name="studio_group_t3WkV_left">
+                                <field name="prod_name"/>
+                                <field name="ecommerce_link"/>
+                                <field name="shopware6_delivery_time_id" domain="[('shopware6_id', '!=', '')]"/>
+                                <field name="used_in_manufacturer_listing" placeholder="Manufacturer Listing Position" attrs="{'invisible':[('product_brand_id','=',False)]}" modifiers="{'invisible':[['product_brand_id','=',false]]}"/>
+                                <field name="main_categ_id" domain="[('id','in',shopware6_category_ids)]"/>
+                                <field name="shopware_active"/>
+                                <field name="shopware6_category_ids" options="{'no_create_edit': True}" domain="[('is_shopware6_exported','=',True)]"/>
+
+                                <field name="search_words" widget="many2many_tags" options="{'color_field': 'color'}"/>
+
+                                <field name="shopware_meta_description"/>
+                                <field name="channel_ids" readonly="False">
+                                  <tree editable="bottom">
+                                    <field name="channel_id"/>
+                                    <field name="visiblity" widget="selection" options="{'horizontal': true}"/>
+                                  </tree>
+                                </field>
+                            </group>
+                            <group>
+                                <field name="shopware6_shopping_prio_id"/>
+                            </group>
+                        </group>
+                        <group name="shopware6_binding" groups="connector.group_connector_manager">
+                            <separator string="Grimm bindings" colspan="4"/>
+                            <field name="product_variant_count" invisible="1"/>
+                            <field name="shopware6_pt_bind_ids" nolabel="1" colspan="4" attrs="{'invisible':[('product_variant_count','=',1)]}">
+                                <tree>
+                                    <field name="id"/>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+
+                            <field name="shopware6_bind_ids" nolabel="1" colspan="4" attrs="{'invisible':[('product_variant_count','&gt;',1)]}">
+                                <tree>
+                                    <field name="id"/>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <div colspan="2">
+                            <button name="button_remove_all_bindings" type="object" string="Remove all bindings" class="oe_highlight"/>
+                            <button name="button_remove_empty_bindings" type="object" string="Remove empty bindings" class="oe_highlight"/>
+                        </div>
+                        <group name="shopware_binding" groups="connector.group_connector_manager">
+                            <separator string="Partenics bindings" colspan="4"/>
+                            <field name="shopware_bind_ids" nolabel="1">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware_id"/>
+                                    <field name="last_job_status"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                    <page string="Custom products">
+                        <group>
+                            <field name="grimm_product_custom_product_template_id" string="Template"/>
+                            <field name="grimm_product_custom_product_template_technical_name" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_description" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_active" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_step_by_step_mode" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_options_auto_collapse" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_need_confirmation" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_image" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_option_ids" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        </group>
+                    </page>
+                    <page string="Media" name="studio_page_hVp44">
+                        <button name="open_related_media" type="object" string="Open Related Media Manager" class="oe_highlight" modifiers="{}" options="{}"/>
+                        <group string="Images data" name="images_data" modifiers="{}">
+                            <field name="image_ids" nolabel="1" context="{'default_name': name}" modifiers="{}"/>
+                        </group>
+                    </page>
+                    <page string="Documents" name="studio_page_UGoHU">
+                        <group name="studio_group_UGoHU_left">
+                            <field name="product_attachment_ids" colspan="4" nolabel="1" context="{'default_product_tmpl_id':active_id}" modifiers="{}"/>
+                        </group>
+                    </page>
+                    <page string="Sale" name="studio_page_48R3y">
+                        <group name="studio_group_48R3y">
+                            <group name="studio_group_48R3y_left">
+                                <label for="sale_delay" attrs="{'invisible': [('sale_ok', '=', False)]}" modifiers="{'invisible':[['sale_ok','=',false]]}"/>
+                                <div attrs="{'invisible': [('sale_ok', '=', False)]}" modifiers="{'invisible':[['sale_ok','=',false]]}">
+                                    <field name="sale_delay" class="oe_inline" style="vertical-align:baseline" modifiers="{}"/>
+                                    days
+
+                                </div>
+                                <field name="warranty_type"/>
+                                <field name="warranty"/>
+                            </group>
+                            <group name="studio_group_48R3y_right">
+                                <field name="is_package"/>
+                                <field name="package_id" create="false" attrs="{'invisible':[('is_package','=', False)],'required':[('is_package','=', True)]}" can_create="true" can_write="true" modifiers="{'invisible':[['is_package','=',false]],'required':[['is_package','=',true]]}"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page name="accessory_parts" name="studio_page_o3NMp" string="Accessory Parts" modifiers="{}">
+                        <button name="1509" type="action" class="btn-link" string="Add Multiple Products" modifiers="{}" options="{}"/>
+                        <field name="accessory_part_ids" context="{'default_product_id': active_id}" modifiers="{}">
+                          <tree>
+                            <field name="sequence" widget="handle"/>
+                            <field name="accessory_part_id"/>
+                            <field name="image_1920" widget="image" style="width:150px;"/>
+                          </tree>
+                        </field>
+                    </page>
+                    <page name="spare_parts" name="studio_page_MImVS" string="Spare Parts" modifiers="{}">
+                        <field name="spare_part_prod_ids" context="{'default_product_id': active_id}">
+                            <tree editable="top">
+                                <field name="sequence" widget="handle"/>
+                                <field name="product_id" invisible="1"/>
+                                <field name="spare_part_id" required="1" domain="[('is_spare_part','=',True)]"/>
+                                <field name="connect_shopware"/>
+                                <field name="connect_magento"/>
+                                <field name="position"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Service Part" name="studio_page_fTZZs">
+                        <field name="service_part_ids" context="{'default_product_id': active_id}" modifiers="{}"/>
+                    </page>
+                    <page name="variants" string="Variants" attrs="{'invisible':[('is_pack','=', True)]}" modifiers="{'invisible':[['is_pack','=',true]]}">
+
+                        <group style="background-color:#f0f2f5;border-radius: 9px;" string="Shopware6 Product Listing" attrs="{'invisible':['|',('shopware6_pt_bind_ids','=',[]),('attribute_line_ids','=',[])]}">
+              			    <field name="shopware6_product_listing" widget="radio" options="{'horizontal': true}"/>
+              			    <field name="main_variant_id" domain="[('product_tmpl_id', '=', id)]" attrs="{'invisible':[('shopware6_product_listing','=', 'expand')],'required':[('shopware6_product_listing','=', 'single')]}"/>
+
+              			    <span attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}">The main variant will be preselected on the product's detail page and displayed in listings representatively.<br/>
+              			    The following settings are ranked by priority, for example if "Use parent product in listing" is not checked, the remaining options will not work.<br/><hr/>
+              			    </span>
+
+
+              			    <field name="parent_product_listing" attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}"/>
+              			    <span attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}">Name, image, description and variants of the parent product are displayed in the listing. A main variant (does not matter which one) must be selected.<br/><hr/></span>
+
+              			    <field name="dont_show_variant" attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}"/>
+              			    <span attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}">Don't show variants in the listing, this makes sense if the product has many variants.<br/><hr/></span>
+
+              			    <field name="show_property" attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}"/>
+              			    <span attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}">If a product has too many variants to show, use this option to show the properties by which a product can be configured.<br/><hr/></span>
+
+              			    <field name="show_value_number" attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}"/>
+              			    <span attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}">Show the number of property values after the property. Example: Property name (26). Requires "Show properties" to work.<br/><hr/></span>
+
+              			    <field name="show_in_cross_selling" attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}"/>
+              			    <span attrs="{'invisible':[('shopware6_product_listing','=', 'expand')]}">Applies the above settings to product boxes in Cross Selling<br/><hr/></span>
+              			  </group>
+
+                        <field name="attribute_line_ids" widget="one2many" context="{'show_attribute': False}" modifiers="{}"/>
+                        <p class="oe_grey oe_edit_only" modifiers="{}">
+                            <strong modifiers="{}">
+                                Warning
+                            </strong>
+                            : adding or deleting attributes
+                                will delete and recreate existing variants and lead
+                                to the loss of their possible customizations.
+
+                        </p>
+                    </page>
+
+                    <page string="Custom products" name="studio_page_gKMSP">
+                        <group>
+                            <field name="grimm_product_custom_product_template_id" string="Template"/>
+                            <field name="grimm_product_custom_product_template_technical_name" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_description" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_active" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_step_by_step_mode" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_options_auto_collapse" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_need_confirmation" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_image" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                            <field name="grimm_product_custom_product_template_option_ids" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        </group>
+                    </page>
+
+                    <page string="Inventory" name="studio_page_QEbzz">
+                        <group name="studio_group_QEbzz">
+                            <group name="studio_group_QEbzz_left">
+                                <field name="route_ids" widget="many2many_checkboxes" attrs="{'invisible': [('type', 'in', ['service', 'digital'])]}" can_create="true" can_write="true" modifiers="{'invisible':[['type','in',['service','digital']]]}"/>
+                                <field name="property_stock_inventory"/>
+                                <field name="property_stock_production"/>
+                                <field name="sale_delay"/>
+                                <field name="tracking"/>
+                                <field name="responsible_id"/>
+                            </group>
+                            <group name="studio_group_QEbzz_right">
+                                <field name="un_number"/>
+                                <field name="trans_categ_id"/>
+                                <field name="is_forwarding_good"/>
+                                <field name="is_express_shipping"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Accounting" name="studio_page_dAGkr">
+                        <group name="studio_group_dAGkr">
+                            <group name="studio_group_dAGkr_left">
+                                <field name="property_account_income_id" domain="[('internal_type','=','other'),('deprecated','=',False)]" can_create="true" can_write="true" modifiers="{}"/>
+                                <field name="taxes_id" widget="many2many_tags" context="{'default_type_tax_use':'sale'}"/>
+
+                                <field name="invoice_policy" widget="radio" invisible="False" attrs="{'invisible': [('type','==','service')]}" on_change="1" modifiers="{'invisible':[['type','==','service']]}"/>
+                            </group>
+                            <group name="studio_group_dAGkr_right">
+
+                                <field name="property_account_expense_id" domain="[('deprecated','=',False)]" attrs="{'readonly': [('purchase_ok', '=', 0)]}" can_create="true" can_write="true" modifiers="{'readonly':[['purchase_ok','=',0]]}"/>
+                                <field name="supplier_taxes_id" widget="many2many_tags" context="{'default_type_tax_use':'purchase'}"/>
+                                <field name="property_account_creditor_price_difference" domain="[('deprecated','=',False)]" attrs="{'readonly':[('purchase_ok', '=', 0)]}" can_create="true" can_write="true" modifiers="{'readonly':[['purchase_ok','=',0]]}"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Variants" name="bi_variants" attrs="{'invisible':[('is_pack','=', False)]}" modifiers="{'invisible':[['is_pack','=',false]]}">
+                        <h1 modifiers="{}">
+                            You cannot create variants of the Pack
+                        </h1>
+                    </page>
+                    <page string="More texts" name="more_text_information">
+                        <group name="studio_group_1i2334">
+                                <field name="description_sale"/>
+                                <field name="description_purchase"/>
+                                <field name="description_pickingout"/>
+                                <field name="description_pickingin"/>
+                                <field name="description_picking"/>
+                        </group>
+                    </page>
+                    <page name="shopware6" string="Shopware6">
+                        <group>
+                            <field name="shopware6_category_ids" options="{'no_create_edit': True}" domain="[('is_shopware6_exported','=',True)]"/>
+                            <field name="product_media_ids" attrs="{'invisible':[('product_variant_count','&gt;',1)]}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="file_select"/>
+                                    <field name="set_as_cover"/>
+                                </tree>
+                            </field>
+                            <field name="product_tmpl_media_ids" attrs="{'invisible':[('product_variant_count','&lt;',2)]}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="file_select"/>
+                                    <field name="set_as_cover"/>
+                                </tree>
+                            </field>
+                            <field name="sales_channel_ids" invisible="1" widget="many2many_checkboxes" options="{'no_create_edit': True}"/>
+
+                        </group>
+                        <group string="Cross Selleing">
+                            <field name="is_accessorypart_cross"/>
+                            <field name="is_sparepart_cross"/>
+                            <field name="is_servicepart_cross"/>
+                        </group>
+                        <group name="shopware6_binding">
+                            <separator string="Shopware6 bindings" colspan="4"/>
+                            <field name="product_variant_count" invisible="1"/>
+                            <field name="shopware6_pt_bind_ids" nolabel="1" colspan="4" attrs="{'invisible':[('product_variant_count','=',1)]}">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+
+                            <field name="shopware6_bind_ids" nolabel="1" colspan="4" attrs="{'invisible':[('product_variant_count','&gt;',1)]}">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <div colspan="2">
+                            <button name="button_remove_all_bindings" type="object" string="Remove all bindings" class="oe_highlight"/>
+                            <button name="button_remove_empty_bindings" type="object" string="Remove empty bindings" class="oe_highlight"/>
+                        </div>
+
+                    </page>
+                </xpath>-->
+            </field>
+        </record>
+
+        <record id="action_custom_product_view" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="res_model">product.template</field>
+            <field name="context">{'form_view_ref': 'grimm_product.product_template_grimm_custom_form'}</field>
+            <field name="view_mode">tree,form</field>
+            <!--            <field name="view_id" ref="view_label_printer_tree"/>-->
+        </record>
+
+        <menuitem id="grimm_custom_product_menu"
+                  name="Grimm Product"
+                  parent="sale.product_menu_catalog"
+                  sequence="40"
+                  action="action_custom_product_view"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Inherited form view of account move -->
+    <record id="view_account_move_inherit" model="ir.ui.view">
+        <field name="name">view.account.move.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='ref']" position="before">
+                    <field name="global_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited tree view of account move -->
+     <record id="view_account_move_inherit_tree" model="ir.ui.view">
+     <field name="name">view.account.move.inherit.tree</field>
+     <field name="model">account.move</field>
+     <field name="inherit_id" ref="account.view_move_tree"/>
+     <field name="arch" type="xml">
+         <xpath expr="//field[@name='partner_id']" position="before">
+                 <field name="global_id"/>
+         </xpath>
+
+     </field>
+ </record>
+
+    <!-- Inherited tree view of account move -->
+     <record id="view_invoice_inherit_tree" model="ir.ui.view">
+     <field name="name">view.invoice.inherit.tree</field>
+     <field name="model">account.move</field>
+     <field name="inherit_id" ref="account.view_invoice_tree"/>
+     <field name="arch" type="xml">
+         <xpath expr="//field[@name='name']" position="after">
+                 <field name="global_id"/>
+         </xpath>
+
+           <xpath expr="//field[@name='name']" position="before">
+                 <field name="invoice_date"/>
+         </xpath>
+     </field>
+ </record>
+
+    <!-- Inherited form view of account move line -->
+    <record id="view_account_move_line_inherit_form" model="ir.ui.view">
+        <field name="name">view.account.move.line.inherit.form</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_id']" position="after">
+                    <field name="global_id"/>
+                    <field name="group_id"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited tree view of account move line-->
+    <record id="view_account_move_line_inherit_tree_main_view" model="ir.ui.view">
+        <field name="name">view.account.move.line.inherit.line</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="before">
+                    <field name="global_id"/>
+            </xpath>
+
+            <xpath expr="//field[@name='date']" position="after">
+                    <field name="name"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited form view of account move line -->
+    <record id="view_account_move_line_inherit_tree" model="ir.ui.view">
+        <field name="name">view.account.move.line.inherit.line</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='move_id']" position="after">
+                    <field name="global_id"/>
+            </xpath>
+        </field>
+    </record>
+
+
+
+</odoo>

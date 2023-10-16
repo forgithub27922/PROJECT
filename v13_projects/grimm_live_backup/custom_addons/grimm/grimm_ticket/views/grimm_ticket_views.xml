@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- Grimm Ticket Views -->
+
+        <record model="ir.ui.view" id="grimm_ticket_tree_view">
+            <field name="name">grimm.ticket.tree</field>
+            <field name="model">grimm.ticket</field>
+            <field name="arch" type="xml">
+                <tree string="Tickets">
+                    <field name="tid"/>
+                    <field name="title"/>
+                    <field name="arranger"/>
+                    <field name="department"/>
+                    <field name="is_my_department" invisible="True"/>
+                    <field name="due_date"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_ticket_form_view">
+            <field name="name">grimm.ticket.form</field>
+            <field name="model">grimm.ticket</field>
+            <field name="arch" type="xml">
+                <form string="Ticket Form">
+                    <header>
+                        <field name="user_is_arranger" invisible="1"/>
+                        <field name="user_is_admin" invisible="1"/>
+                        <button name="%(grimm_ticket.grimm_ticket_assign_wizard_action)d" string="Ticket Assign"
+                                type="action" class="oe_highlight btn-primary"
+                                context="{'default_ticket': active_id}"/>
+                        <field name="stage_id" widget="statusbar" clickable="True"/>
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="title"/>
+                                <field name="arranger"/>
+                                <field name="creator"/>
+                                <field name="department"/>
+                                <field name="is_my_department" invisible="True"/>
+                                <field name="manager"/>
+                                <field name="priority" widget="priority"/>
+                                <field name="due_date"/>
+                                <label for="effort_estimation"/>
+                                <div>
+                                    <field name="effort_estimation" class="oe_inline"
+                                           style="vertical-align: baseline;"/>Hours
+                                </div>
+                            </group>
+                            <group>
+                                <field name="tid"/>
+                                <field name="create_date" readonly="True"/>
+                                <field name="write_uid" readonly="True"/>
+                                <field name="write_date" readonly="True"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="tags" widget="many2many_tags"/>
+                            <field name="description" widget="html"/>
+                        </group>
+                    </sheet>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_ticket_kanban_view">
+            <field name="name">grimm.ticket.kanban</field>
+            <field name="model">grimm.ticket</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="stage_id" class="o_kanban_small_column grimm_ticket_kanban"
+                        quick_create="false">
+                    <field name="color"/>
+                    <field name="stage_id"/>
+                    <field name="department"/>
+                    <field name="priority"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click" t-attf-style="#{record.color.raw_value}"
+                                 name="grimms_tickets">
+                                <div class="o_dropdown_kanban dropdown"/>
+                                <div class="oe_kanban_content">
+                                    <div class="grimm_ticket_kanban_col_left">
+                                        <div class="grimm_ticket_id">
+                                            <field name="tid"/>
+                                        </div>
+                                        <div class="grimm_ticket_division">
+                                            <t t-if="record.department">
+                                                <span>
+                                                    <field name="department"/>
+                                                    <field name="is_my_department" invisible="True"/>
+                                                </span>
+                                            </t>
+                                            <t t-if="!record.department.value">
+                                                <span>-</span>
+                                            </t>
+                                        </div>
+                                    </div>
+                                    <div class="grimm_ticket_kanban_col_right">
+                                        <div class="grimm_ticket_content">
+                                            <h3>
+                                                <field name="title"/>
+                                            </h3>
+                                        </div>
+                                        <div class="grimm_ticket_footer">
+                                            <div>
+                                                <field name="arranger"/>
+                                            </div>
+                                            <div>
+                                                <field name="priority" widget="priority"/>
+                                            </div>
+                                            <div>
+                                                <field name="due_date"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_ticket_search_view">
+            <field name="name">grimm_ticket_search_view</field>
+            <field name="model">grimm.ticket</field>
+            <field name="arch" type="xml">
+                <search string="Grimm Ticket Search">
+                    <field name="tid"/>
+                    <field name="title"/>
+                    <field name="department"/>
+                    <field name="manager"/>
+                    <field name="arranger"/>
+                    <field name="tags"/>
+                    <!--<separator/>
+                    <filter string="My Department" name="my_department"
+                            domain="[('is_my_department', '=', True)]"/>
+                    <group expand="0" name="group_by" string="Group By">
+                        <filter domain="[]" string="Department" context="{'group_by': 'department'}"/>
+                        <filter domain="[]" string="Arranger" context="{'group_by': 'arranger'}"/>
+                        <filter domain="[]" string="Creator" context="{'group_by': 'creator'}"/>
+                        <filter domain="[]" string="Stage" context="{'group_by': 'stage_id'}"/>
+                        <filter domain="[]" string="Due Date" context="{'group_by': 'due_date'}"/>
+                    </group>-->
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_ticket_calendar_view">
+            <field name="name">grimm.ticket.calendar</field>
+            <field name="model">grimm.ticket</field>
+            <field name="arch" type="xml">
+                <calendar string="Grimm Ticket" date_start="due_date" color="arranger">
+                    <field name="tid"/>
+                    <field name="title"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_ticket_pivot_view">
+            <field name="name">grimm.ticket.pivot</field>
+            <field name="model">grimm.ticket</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="stage_id" type="col"/>
+                    <field name="tid" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_ticket_graph_view">
+            <field name="name">grimm.ticket.graph</field>
+            <field name="model">grimm.ticket</field>
+            <field name="arch" type="xml">
+                <graph>
+                    <field name="stage_id"/>
+                    <field name="effort_estimation" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- Grimm Ticket Tag Views -->
+        <record model="ir.ui.view" id="grimm_ticket_tag_tree_view">
+            <field name="name">grimm.ticket.tag.tree</field>
+            <field name="model">grimm.ticket.tag</field>
+            <field name="arch" type="xml">
+                <tree string="Tag">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_ticket_tag_form_view">
+            <field name="name">grimm.ticket.tag.form</field>
+            <field name="model">grimm.ticket.tag</field>
+            <field name="arch" type="xml">
+                <form string="Tag Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

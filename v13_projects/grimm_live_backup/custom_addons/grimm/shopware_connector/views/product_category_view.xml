@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+    <record id="shopware_product_category_normal_form_view" model="ir.ui.view">
+        <field name="name">product.category.form</field>
+        <field name="model">product.category</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <group name="first" position="after">
+                <notebook>
+                    <page name="category" string="Shopware Binding">
+                        <button name="export_to_shopware" type="object" class="oe_highlight" string="Export Record" attrs="{'invisible': [('is_shopware_exported', '=', True)]}"/>
+                        <field name="is_shopware_exported" invisible="1"/>
+                        <group string="Shopware Bindings">
+                            <field name="shopware_bind_ids" nolabel="1">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </group>
+        </field>
+    </record>
+
+    <record id="view_shopware_product_category_form" model="ir.ui.view">
+        <field name="name">shopware.product.category.form</field>
+        <field name="model">shopware.product.category</field>
+        <field name="arch" type="xml">
+            <form string="Shopware Product Category">
+                <group>
+                    <field name="backend_id"/>
+                    <field name="shopware_id"/>
+                    <field name="created_at" readonly="1"/>
+                    <field name="updated_at" readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</data>
+</openerp>

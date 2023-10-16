@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_product_supplierinfo_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.product.supplierinfo.form.view.inherit</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//label[@for='price']" position="before">
+                    <label for="rrp_price"/>
+                    <div>
+                        <field name="rrp_price" class="oe_inline"/>
+                        <field name="currency_id" class="oe_inline" groups="base.group_multi_currency"/>
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+        <!--          Odoo 13 Migration  -->
+        <record id="product_template_form_view_inherit" model="ir.ui.view">
+            <field name="name">product.template.common.form.price_inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+
+                <!--<xpath expr="//h1/field[@name='name']" position="before">-->
+                <!--<field name="price_up_to_date" class="oe_inline" readonly="0"/>-->
+                <!--</xpath>-->
+
+                <xpath expr="//group[@name='group_standard_price']" position="replace">
+                    <group name="group_standard_price">
+                        <field name="cost_price" attrs="{'invisible':1}"/>
+                        <field name="is_special_purchase_price_expired" attrs="{'invisible':1}"/>
+                        <field name="price_on_request"/>
+                        <field name="standard_price"/>
+                        <label for="standard_price" string="Purchase Price" groups="base.group_user"
+                               style="width:50%%"/>
+                        <div name="standard_price_uom" groups="base.group_user">
+                            <field name="calculated_standard_price" widget="monetary"
+                                   options="{'currency_field': 'currency_id'}"
+                                   class="oe_inline" readonly="1"/>
+                        </div>
+                        <field name="special_purchase_price" widget="monetary"
+                               options="{'currency_field': 'currency_id'}"/>
+                        <field name="special_purchase_price_from"/>
+                        <field name="special_purchase_price_to"/>
+                        <label for="list_price" string="Sale Price before the switch"/>
+                        <field name="list_price" widget="monetary" options="{'currency_field': 'currency_id'}"
+                               nolabel="1"/>
+
+                        <field name="uom_id" on_change="onchange_uom(uom_id,uom_po_id)" groups="product.group_uom"/>
+                        <field name="uom_po_id" groups="product.group_uom"/>
+
+                        <field name="valuation" invisible="1" readonly="1"/>
+                        <field name="cost_method" invisible="1" readonly="1"/>
+                        <!--<field name="property_cost_method" invisible="1"/>--><!--Odoo13Change-->
+                        <field name="currency_id" invisible="1"/>
+                        <field name="cost_currency_id" invisible="1"/>
+                        <field name="product_variant_id" invisible="1"/>
+                    </group>
+                </xpath>
+
+                <group name="sale" position="after">
+                    <group name="price_calculation_group" string="Price Calculation">
+                        <field name="price_calculation_group"/>
+                    </group>
+                </group>
+
+            </field>
+        </record>
+
+        <!--<record id="product_product_tree_view_inherit" model="ir.ui.view">-->
+        <!--<field name="name">product.product.tree.price_inherit</field>-->
+        <!--<field name="model">product.product</field>-->
+        <!--<field name="inherit_id" ref="product.product_product_tree_view"/>-->
+        <!--<field name="arch" type="xml">-->
+
+        <!--<xpath expr="//field[@name='default_code']" position="before">-->
+        <!--<field name="price_up_to_date"/>-->
+        <!--</xpath>-->
+
+
+        <!--</field>-->
+        <!--</record>-->
+
+        <!--          Odoo 13 Migration  -->
+<!--            <record id="product_normal_form_view_inherit" model="ir.ui.view">-->
+<!--              <field name="name">product_product_price_form_view_inherit</field>-->
+<!--              <field name="model">product.product</field>-->
+<!--              <field name="inherit_id" ref="product.product_normal_form_view"/>-->
+<!--              <field name="arch" type="xml">-->
+
+<!--                <xpath expr="//field[@name='item_ids']//field[@name='name']" position="before">-->
+<!--                  <field name="pricelist_id"/>-->
+<!--                </xpath>-->
+
+<!--              </field>-->
+<!--            </record>-->
+
+
+        <!--<record id="check_products_prices" model="ir.actions.server">-->
+        <!--<field name="name">Check Products Prices</field>-->
+        <!--<field name="model_id" ref="grimm_pricelist.model_product_pricelist_item"/>-->
+        <!--<field name="state">code</field>-->
+        <!--<field name="code">action = self.check_products_prices(cr, uid, context.get('active_ids', []), context=context)-->
+        <!--</field>-->
+        <!--<field name="view_mode">list,form</field>-->
+        <!--</record>-->
+
+        <!--<record id="check_products_prices" model="ir.values">-->
+        <!--<field eval="'client_action_multi'" name="key2"/>-->
+        <!--<field eval="'product.pricelist.item'" name="model"/>-->
+        <!--<field name="name">Check Products Prices</field>-->
+        <!--<field eval="'ir.actions.server,%d'%check_products_prices" name="value"/>-->
+        <!--</record>-->
+
+    </data>
+</openerp>
+
+

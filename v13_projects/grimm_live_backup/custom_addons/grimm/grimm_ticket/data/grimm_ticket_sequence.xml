@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="grimm_ticket_sequence" model="ir.sequence">
+            <field name="name">Grimm Ticket Sequence</field>
+            <field name="code">grimm.ticket.sequence</field>
+            <field name="prefix">GRI-</field>
+            <field name="padding">3</field>
+            <field name="number_increment">1</field>
+            <field name="number_next_actual">1000</field>
+        </record>
+
+    </data>
+</openerp>

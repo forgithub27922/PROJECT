@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_transport_schedule_template">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<div class="text-center">
+						<h2>Schedule Report</h2>
+					</div><br/>
+					<t t-foreach="docs" t-as='recs'>
+					<table class="table table-condensed">
+					<tbody>
+									<tr>
+										<td style="width:15%">
+											<strong>Date </strong>
+											<br />
+											<strong>Day </strong>
+												<br />
+											<strong>Bus</strong>
+											<br />
+											<strong>Print Option</strong>
+										</td>
+										<td style="width:35%">
+											<!-- <b>
+												<span t-field="recs.schedule_date" />
+											</b> -->
+											<br />
+											<b>
+												<span t-esc="day" />
+											</b>
+											<br />
+											<b>
+												<span t-field="recs.bus_id.name" />
+											</b>
+											<br />
+											<b>
+											Day
+											</b>
+										</td>
+										<td style="width:15%">
+											<strong>Driver</strong>
+											<br />
+											<strong>Supervisor</strong>
+											<br />
+											<strong>Students</strong>
+										</td>
+										<td style="width:35%">
+											<b>
+												<span t-field="recs.driver_id.name" />
+											</b>
+											<br />
+											<b>
+												<span t-field="recs.supervisor_id.name" />
+											</b>
+											<br />
+											<b>
+											<t t-set="f" t-value="0" />
+											<t t-foreach="recs.students_ids" t-as='s'>
+												<t t-set="f" t-value="f+1" />
+											</t>
+												<span t-esc="f" />
+											</b>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+					<table class="table table-condensed">
+						<thead>
+							<tr valign="top">
+								<th style="width:20px">S.No</th>
+								<th style="width:140px">Student</th>
+								<th style="width:80px">School</th>
+								<th style="width:80px">Class</th>
+								<th style="width:100px">Grade</th>
+								<th style="width:140px">Contact No</th>
+								<th style="width:60px">Email</th>
+							</tr>
+						</thead>
+						<tbody>
+						<t t-set="i" t-value="1" />
+							<tr t-foreach="recs.students_ids" t-as='o'>
+								<td style="width:20px">
+									<span t-esc="i" />
+								</td>
+								<td  style="width:130px">
+									<span t-field="o.student_id.full_name" />
+								</td>
+								<td  style="width:80px">
+										<span t-field="o.student_id.school_id.name" />
+								</td>
+								<td  style="width:100px">
+									<span t-field="o.student_id.class_id.name" />
+								</td>
+									<td  style="width:100px">
+									<span t-field="o.class_grade" />
+								</td>
+								<td  style="width:100px">
+									<span t-field="o.father_mobile" />
+								</td>
+								<td style="width:130px">
+										<span t-field="o.email" />
+								</td>
+								<t t-set="i" t-value="i+1" />
+							</tr>
+						</tbody>
+					</table>
+					<br />
+					<br />
+					<br />
+					<br />
+					<br />
+</t>
+					
+					<div>
+						<div style="float:left;">
+								Printed Date:<br />
+							<t t-esc="time.strftime('%d-%b-%Y')" />
+						</div>
+						<div style="float:right;">
+								Printed By:
+								<br />
+							<t t-esc="request.env.user.name" />
+						</div>
+					</div>
+
+				</div>
+			</t>
+		</t>
+	</template>
+</odoo>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_grimm_asset_asset_tree" model="ir.ui.view">
+            <field name="name">grimm.asset.asset.tree</field>
+            <field name="model">grimm.asset.asset</field>
+            <field name="arch" type="xml">
+                <tree string="Assets">
+                    <field name="customer_inventory_no"/>
+                    <field name="partner_owner"/>
+                    <field name="partner_contact"/>
+                    <field name="serial_number"/>
+                    <field name="has_maintenance"/>
+                    <field name="create_date" widget="date"/>
+                    <field name="write_date" widget="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_grimm_asset_kanban" model="ir.ui.view">
+            <field name="name">grimm.asset.asset.kanban</field>
+            <field name="model">grimm.asset.asset</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="partner_owner"/>
+                    <field name="partner_contact"/>
+                    <field name="tags"/>
+                    <field name="product_img"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>
+                                            <field name="name"/>
+                                            <field name="partner_owner"/>
+                                            <field name="partner_contact"/>
+                                            <field name="tags"/>
+                                            <field name="product_img"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_grimm_asset_asset_form" model="ir.ui.view">
+            <field name="name">grimm.asset.asset.form</field>
+            <field name="model">grimm.asset.asset</field>
+            <field name="arch" type="xml">
+                <form string="Asset">
+                    <header>
+
+                    </header>
+                    <sheet string="Asset">
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_partner_history"
+                                    type="object"
+                                    class="oe_stat_button"
+                                    icon="fa-user-times"
+                                    attrs="{'invisible': [('previous_owners_count', '=', 0)]}">
+                                <field name="previous_owners_count" widget="statinfo"/>
+                            </button>
+                        </div>
+                        <field name="product_img" widget='image' class="oe_avatar" nolabel="1"/>
+                        <div class="oe_title">
+                            <h3>
+                                <field name="name"/>
+                            </h3>
+                            <h3>
+                                <field name="matchcode"/>
+                            </h3>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="id" invisible="1"/>
+                                <field name="product_id"/>
+                                <field name="internal_cat"/>
+                                <field name="brand"/>
+                                <field name="default_code"/>
+                                <field name="description" string="Features"/>
+                                <field name="manufacture_date" widget="date"/>
+                                <field name="condition" widget="priority"/>
+                                <field name="has_maintenance"/>
+                                <field name="tags" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="serial_number"/>
+                                <field name="connection_ids" colspan="2" nolabel="1">
+                                    <tree string="Connections" editable="bottom">
+                                        <field name="connection_medium"/>
+                                        <field name="connection_spec"/>
+                                        <field name="connection_value"/>
+                                        <field name="connection_unit"/>
+                                    </tree>
+                                </field>
+                                <field name="customer_inventory_no"/>
+                            </group>
+                        </group>
+                        <notebook>
+
+                            <page string="Contact">
+                                <group>
+                                    <field name="asset_facility_id"/>
+                                    <group>
+                                        <field name="partner_owner" attrs="{'readonly': [('id', '>', 0)]}"
+                                               context="{'show_address': 1}"
+                                               options="{'always_reload': 1}"/>
+                                        <button name="%(action_change_partners_wizard)d" type="action"
+                                                string="Change Owner"
+                                                groups="base.group_user"/>
+                                    </group>
+                                    <group>
+                                        <field name="partner_contact" context="{'show_address': 1}"/>
+                                        <field name="partner_invoice"/>
+                                        <field name="beneficiary" string="Leistungsempfänger"/>
+                                        <field name="partner_delivery" context="{'show_address': 1}"
+                                               options="{'always_reload': 1}"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="location_ids" nolabel="1" context="{'default_asset_id': id}">
+                                        <tree string="Locations" editable="bottom">
+                                            <field name="name"/>
+                                            <field name="placement"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                            <page string="Information">
+                                <group>
+                                    <group>
+                                        <field name="placing_date" widget="date"/>
+                                    </group>
+                                    <group>
+                                        <field name="product_price"/>
+                                    </group>
+                                    <group name="asset_inventory">
+                                        <field name="location_description"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Service Parts">
+                                <field name="service_part_ids" readonly="1"/>
+                            </page>
+                            <page string="Accessory Parts">
+                                <field name="accessory_part_ids" readonly="1">
+                                    <tree>
+                                        <field name="quantity"/>
+                                        <field name="accessory_part_id"/>
+                                        <field name="product_sale_price"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Spare Parts">
+                                <field name="spare_part_ids" readonly="1">
+                                    <tree>
+                                        <field name="default_code"/>
+                                        <field name="description"/>
+                                        <field name="lst_price"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Tools">
+                                <field name="tool_ids" readonly="1"/>
+                            </page>
+                            <page string="Product Attachments">
+                                <field name="product_attachment_ids" readonly="1"/>
+                            </page>
+                            <page string="Asset Attachments">
+                                <field name="attachment_ids" context="{'default_asset_id':active_id}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_grimm_asset_asset_search" model="ir.ui.view">
+            <field name="name">grimm.asset.asset.search</field>
+            <field name="model">grimm.asset.asset</field>
+            <field name="arch" type="xml">
+                <search string="Search Assets">
+                    <field name="name" string="Parameter" filter_domain="['|','|','|','|','|','|','|','|','|','|','|',
+                        ('name','ilike',self),
+                        ('serial_number','ilike',self),
+                        ('matchcode','ilike',self),
+                        ('partner_owner','ilike',self),
+                        ('partner_owner.street','ilike',self),
+                        ('partner_owner.zip','ilike',self),
+                        ('partner_owner.city','ilike',self),
+                        ('tags','ilike',self),
+                        ('asset_facility_id','ilike',self),
+                        ('brand','ilike',self),
+                        ('location_ids','ilike',self),
+                        ('internal_cat','ilike',self)
+                      ]"/>
+                    <field name="matchcode"/>
+                    <field name="serial_number"/>
+                    <field name="partner_owner"/>
+                    <field name="tags" string="Tag"/>
+                    <field name="asset_facility_id"/>
+                    <field name="serial_number"/>
+                    <field name="brand"/>
+                    <field name="location_ids"/>
+                    <field name="internal_cat"/>
+                    <separator/>
+                    <filter string="Wartung aktiv" domain="[('has_maintenance','=','1')]" name="maintenance_active"/>
+                    <filter string="Inactive" domain="[('active','=',False)]" name="inactive"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter string="Asset Facility" domain="[]" context="{'group_by':'asset_facility_id'}" name="asset_facility"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_asset_document_asset_form" model="ir.ui.view">
+            <field name="name">asset.document.asset.form</field>
+            <field name="model">asset.document</field>
+            <field name="arch" type="xml">
+                <form string="Asset Document">
+                    <sheet>
+                        <group>
+                            <field name="asset_id" readonly="1"/>
+                            <field name="name"/>
+                            <field name="filename" invisible="1"/>
+                            <field name="attachment" widget="binary" height="64" filename="filename"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_asset_document_asset_tree" model="ir.ui.view">
+            <field name="name">asset.document.asset.tree</field>
+            <field name="model">asset.document</field>
+            <field name="arch" type="xml">
+                <tree string="Asset Documents">
+                    <field name="asset_id" readonly="1" invisible="1"/>
+                    <field name="name"/>
+                    <field name="filename" invisible="1"/>
+                    <field name="attachment" widget="binary" height="64" filename="filename"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_grimm_asset_asset_tree" model="ir.actions.act_window">
+            <field name="name">Assets</field>
+            <field name="res_model">grimm.asset.asset</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_id" ref="view_grimm_asset_asset_tree"/>
+            <field name="search_view_id" ref="view_grimm_asset_asset_search"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click to create a new asset.
+                </p>
+            </field>
+        </record>
+        <menuitem action="action_grimm_asset_asset_tree" id="menu_action_grimm_asset_asset" parent="menu_grimm_parent"
+                  sequence="30"/>
+    </data>
+</odoo>

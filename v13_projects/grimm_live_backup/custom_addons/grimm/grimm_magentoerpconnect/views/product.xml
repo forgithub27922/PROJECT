@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+        <record id="shop_price_tracking_wizard" model="ir.ui.view">
+            <field name="name">Shop Price Tracking</field>
+            <field name="model">shop.price.tracking</field>
+            <field name="arch" type="xml">
+                <form string="Price Tracking">
+                    <field name="price_track" readonly="1"/>
+                    <footer></footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="of_product_normal_form_view" model="ir.ui.view">
+            <field name="name">of.product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="connector_magento.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='magento_bind_ids']/.." position="before">
+                    <group>
+                        <field name="variant_product_status_id" options="{'create_edit':False, 'create':False}"/>
+                    </group>
+                </xpath>
+
+
+            </field>
+        </record>
+
+        <record id="of_product_normal_form_view" model="ir.ui.view">
+            <field name="name">of.product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+
+                <div name="standard_price_uom" position="after">
+                    <label for="calculated_magento_price"/>
+                    <div>
+                        <field name="calculated_magento_price"/>
+                        <button string="⇒ track" class="oe_link oe_right"
+                                help="Track the Magento price calculation"
+                                name="tracking_magento_price" type="object"/>
+                    </div>
+                </div>
+
+                <label for="standard_price" position="before">
+                    <field name="rrp_price" readonly="0"/>
+                </label>
+
+                <group name="sale" position="before">
+                    <group name="special_price" string="Special Price">
+                        <field name="special_price"/>
+                        <field name="special_price_from"/>
+                        <field name="special_price_to"/>
+                    </group>
+                </group>
+
+                <notebook position="inside">
+                    <page name="meta" string="Meta Information">
+                        <group>
+                            <field name="meta_autogenerate"/>
+                            <separator string="Meta Title" colspan="4"/>
+                            <field name="meta_title" colspan="4" nolabel="1"/>
+                            <field name="meta_title_counter" colspan="4" nolabel="1" class="oe_edit_only"/>
+                            <separator string="Meta Keyword" colspan="4"/>
+                            <field name="meta_keyword" colspan="4" nolabel="1"/>
+                            <separator string="Meta Description" colspan="4"/>
+                            <field name="meta_description" colspan="4" nolabel="1"/>
+                            <field name="meta_description_counter" colspan="4" nolabel="1" class="oe_edit_only"/>
+                        </group>
+
+                    </page>
+                </notebook>
+
+                <group name="sale" position="inside">
+                    <label for="magento_delivery_time" string="Magento Delivery Time" style="font-weight:bold;"/>
+                    <field name="magento_delivery_time" options="{'create_edit': False, 'create': False}"/>
+                </group>
+
+                <!--                <xpath expr="//field[@name='magento_bind_ids']/.." position="before">-->
+                <!--                    <group>-->
+                <!--                        <field name="variant_product_status_id" options="{'create_edit':False, 'create':False}"/>-->
+                <!--                    </group>-->
+                <!--                </xpath>-->
+
+                <!--                <group name="group_lots_and_weight" position="after">-->
+                <!--                    <group name="dimensions" string="Dimensions" colspan="4">-->
+                <!--                        <label for="width"/>-->
+                <!--                        <div class="o_row" name="width">-->
+                <!--                            <field name="width" string="Width"/>-->
+                <!--                        </div>-->
+                <!--                        <label for="depth"/>-->
+                <!--                        <div class="o_row" name="depth">-->
+                <!--                            <field name="depth" string="Depth"/>-->
+                <!--                        </div>-->
+                <!--                        <label for="height"/>-->
+                <!--                        <div class="o_row" name="height">-->
+                <!--                            <field name="height" string="Height"/>-->
+                <!--                        </div>-->
+                <!--                    </group>-->
+                <!--                </group>-->
+
+            </field>
+        </record>
+
+        <!-- Created new Form View for wizard-->
+        <record id="sr_form_view_select_multi_product_wizard" model="ir.ui.view">
+            <field name="name">sr.form.view.select.multi.product.wizard</field>
+            <field name="model">sr.multi.product</field>
+            <field name="arch" type="xml">
+                <form string="Select Multiple product">
+                    <group>
+                        <field name="product_ids" nolabel="1" domain="[('is_accessory_part','=',True)]">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <footer>
+                        <button class="btn-primary" name="add_product" type="object" string="Apply"/>
+                        Or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Created new action for wizard-->
+        <record id="action_select_multi_product_wizard" model="ir.actions.act_window">
+            <field name="name">Select Multiple Product</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sr.multi.product</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="magento_connector_accessory_part_view_inherit" model="ir.ui.view">
+            <field name="name">Accessory Part</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="asset_base.view_grimm_product_template_form_view_inherit"/>
+            <field name="arch" type="xml">
+                <field name="accessory_part_ids" position="before">
+                    <button name="%(action_select_multi_product_wizard)d" type="action" class="btn-link"
+                            string="Add Multiple Products"/>
+                </field>
+                <field name="accessory_part_ids" position="replace">
+                    <!--<group>-->
+                    <field name="accessory_part_ids" context="{'default_product_id': active_id}">
+                        <tree editable="top">
+                            <field name="product_id" invisible="1"/>
+                            <field name="accessory_part_id" required="1"
+                                   domain="[('is_accessory_part','=',True)]"/>
+                            <!--<field name="connect_shopware"/> #Odoo13Change
+                            <field name="connect_magento"/>-->
+                            <field name="position"/>
+                        </tree>
+                    </field>
+                    <!--</group>-->
+                </field>
+            </field>
+        </record>
+
+
+        <record id="grimm_product_template_form_view" model="ir.ui.view">
+            <field name="name">Grimm Product template form view extension</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+
+                <group name="sale" position="before">
+                    <group name="special_price" string="Special Price">
+                        <field name="special_price"/>
+                        <field name="special_price_from"/>
+                        <field name="special_price_to"/>
+                    </group>
+                </group>
+
+                <notebook position="inside">
+                    <page name="meta" string="Meta Information">
+                        <group>
+                            <field name="meta_autogenerate"/>
+                            <separator string="Meta Title" colspan="4"/>
+                            <field name="meta_title" colspan="4" nolabel="1"/>
+                            <field name="meta_title_counter" colspan="4" nolabel="1" class="oe_edit_only"/>
+                            <separator string="Meta Keyword" colspan="4"/>
+                            <field name="meta_keyword" colspan="4" nolabel="1"/>
+                            <separator string="Meta Description" colspan="4"/>
+                            <field name="meta_description" colspan="4" nolabel="1"/>
+                            <field name="meta_description_counter" colspan="4" nolabel="1" class="oe_edit_only"/>
+                        </group>
+
+                    </page>
+                </notebook>
+
+                <group name="sale" position="inside">
+                    <label for="magento_delivery_time" string="Magento Delivery Time" style="font-weight:bold;"/>
+                    <field name="magento_delivery_time" options="{'create_edit': False, 'create': False}"/>
+                </group>
+            </field>
+        </record>
+
+        <!--remove update cost button from product form view -->
+        <!--        <record id="grimm_product_template_form_view_inherit_stock_account" model="ir.ui.view">-->
+        <!--            <field name="name">Grimm Product template form view inherit stock account</field>-->
+        <!--            <field name="model">product.template</field>-->
+        <!--            <field name="inherit_id" ref="stock_account.view_template_property_form"/>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <span name="update_cost_price" position="attributes">-->
+        <!--                    <attribute name="invisible">1</attribute>-->
+        <!--                </span>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="track_standard_price_product_template_form_view_inherit" model="ir.ui.view">
+            <field name="name">track.product.template.product.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="grimm_pricelist.product_template_form_view_inherit"/>
+            <field name="arch" type="xml">
+                <div name="standard_price_uom" position="replace">
+                    <div name="standard_price_uom" groups="base.group_user">
+                        <field name="calculated_standard_price" widget="monetary"
+                               options="{'currency_field': 'currency_id'}" class="oe_inline" readonly="1"/>
+                        <button string="⇒ track" class="oe_link oe_right"
+                                help="Track the Purchase price calculation"
+                                name="tracking_standard_price" type="object"/>
+                    </div>
+                </div>
+            </field>
+        </record>
+
+        <record id="of_product_template_form_view" model="ir.ui.view">
+            <field name="name">of.product.template.product.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="of_base_magento_extensions_v9.of_product_template_form_view"/>
+            <field name="arch" type="xml">
+
+
+                <label for="list_price" position="before">
+                    <label for="calculated_magento_price"/>
+                    <div>
+                        <field name="calculated_magento_price"/>
+                        <button string="⇒ track" class="oe_link oe_right"
+                                help="Track the Magento price calculation"
+                                name="tracking_magento_price" type="object"/>
+                    </div>
+                </label>
+
+
+                <label for="standard_price" position="before">
+                    <!--<field name="rrp_price"
+                           attrs="{'invisible':['|','|',('has_variants','=',True),('magento_type','=','configurable'),('is_pack','=',True)]}"/>--> <!-- is_pack is available in product_bundle_pack module -->
+                    <field name="rrp_price"
+                           attrs="{'invisible':['|','|',('has_variants','=',True),('magento_type','=','configurable')]}"/>
+                </label>
+
+                <field name="magento_type" position="after">
+                    <field name="magento_product_status_id" options="{'create_edit':False, 'create':False}"/>
+                    <field name="magento_visibility" options="{'create_edit':False, 'create':False}"/>
+                </field>
+
+                <xpath expr="//field[@name='weight']/../../.." position="after">
+                    <group name="dimensions" string="Dimensions" colspan="4"
+                           attrs="{'invisible':['|',('has_variants','=',True),('magento_type','=','configurable')]}">
+
+                        <label for="width"/>
+                        <div class="o_row" name="width">
+                            <field name="width" string="Width"/>
+                        </div>
+
+                        <label for="depth"/>
+                        <div class="o_row" name="depth">
+                            <field name="depth" string="Depth"/>
+                        </div>
+
+                        <label for="height"/>
+                        <div class="o_row" name="height">
+                            <field name="height" string="Height"/>
+                        </div>
+                    </group>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Notes" name="notes">
+                        <group name="description_online">
+                            <group string="Short Description" colspan="4">
+                                <field name="short_description" colspan="4" nolabel="1" placeholder="Short description of the Product"/>
+                            </group>
+                            <group string="Description" colspan="4">
+                                <field name="description" widget="html" nolabel="1" colspan="4" placeholder="A precise description of the Product."/>
+                            </group>
+                            <group string="Connection" colspan="4">
+                                <field name="connection" nolabel="1" colspan="4"/>
+                            </group>
+                        </group>
+                        <group name="description">
+                            <group string="Description for Customers" attrs="{'invisible': [('sale_ok','=',False)]}" colspan="4">
+                                <field name="description_sale" nolabel="1" placeholder="This note will show up on sales orders."/>
+                            </group>
+                            <group string="Description for Vendors" attrs="{'invisible': [('purchase_ok','=',False)]}" colspan="4">
+                                <field name="description_purchase" nolabel="1" placeholder="This note will show up on purchase orders."/>
+                            </group>
+                        </group>
+                        <group name="picking">
+                            <group string="Description for Delivery Orders" colspan="4">
+                                <field name="description_pickingout" nolabel="1" placeholder="This note will show up on delivery orders."/>
+                            </group>
+                            <group string="Description for Receptions" colspan="4">
+                                <field name="description_pickingin" nolabel="1" placeholder="This note will show up on the receipt orders (e.g. where to store the product in the warehouse)."/>
+                            </group>
+                            <group string="Description for Internal Transfers" colspan="4">
+                                <field name="description_picking" placeholder="This note will show up  on internal transfer orders (e.g. where to pick the product in the warehouse)." nolabel="1"/>
+                            </group>
+                        </group>
+                        <group name="warning">
+                            <group name="sale_warning"/>
+                            <group name="purchase_warning"/>
+                        </group>
+                    </page>
+                </xpath>
+
+
+                <field name="product_brand_id" position="after">
+                    <div>
+                        <label for="used_in_manufacturer_listing"
+                               attrs="{'invisible':[('product_brand_id','=',False)]}"/>
+                        <field name="used_in_manufacturer_listing" placeholder="Manufacturer Listing Position"
+                               attrs="{'invisible':[('product_brand_id','=',False)]}"/>
+                    </div>
+                </field>
+
+            </field>
+        </record>
+
+
+        <record id="product_template_only_form_view" model="ir.ui.view">
+            <field name="name">view.grimm.product.template.form.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//page[@name='sales']" position="after">
+                    <!--<page name="product_link" string="Product Link">
+                      <separator string="Related Products"/>
+                      <field name="product_link_related_ids"
+                             context="{'default_type': 'related'}"
+                             domain="[('type', '=', 'related')]">
+                        <tree editable="top">
+                          <field name="sequence" widget="handle"/>
+                          <field name="position"/>
+                          <field name="name"/>
+                          <field name="default_code"/>
+                          <field name="type" invisible="1"/>
+                        </tree>
+                      </field>
+
+                      <separator string="Up-Selling Products"/>
+                      <field name="product_link_up_sell_ids"
+                             context="{'default_type': 'up_sell',}"
+                             domain="[('type', '=', 'up_sell')]">
+                        <tree editable="top">
+                          <field name="sequence" widget="handle"/>
+                          <field name="position"/>
+                          <field name="name"/>
+                          <field name="default_code"/>
+                          <field name="type" invisible="1"/>
+                        </tree>
+                      </field>
+
+                      <separator string="Cross-Selling Products"/>
+                      <field name="product_link_cross_sell_ids"
+                             context="{'default_type': 'cross_sell'}"
+                             domain="[('type', '=', 'cross_sell')]">
+                        <tree editable="top">
+                          <field name="sequence" widget="handle"/>
+                          <field name="position"/>
+                          <field name="name"/>
+                          <field name="default_code"/>
+                          <field name="type" invisible="1"/>
+                        </tree>
+                      </field>
+
+                    </page>-->
+
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="product_warranty_type_magento_form_view" model="ir.ui.view">
+            <field name="name">product.warranty.type.magento.form.view</field>
+            <field name="model">product.warranty.type</field>
+            <field name="arch" type="xml">
+                <form string="Product Warranty Type">
+                    <group name="warranty" position="after">
+                        <field name="name" string="Name" css="width:25%;"/>
+                        <separator string="Magento warranty value mappings"/>
+                        <field name="magento_value_map_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="waranty_type_id" invisible="1"/>
+                                <field name="interval_no"/>
+                                <field name="interval"/>
+                                <field name="magento_attr_value_id" context="{'search_warranty_attibute':True}"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="grimm_product_brand_form_view_inherit" model="ir.ui.view">
+            <field name="name">grimm.product.brand.form.view.inherit</field>
+            <field name="model">grimm.product.brand</field>
+            <field name="inherit_id" ref="asset_base.grimm_product_brand_form_view"/>
+            <field name="arch" type="xml">
+                <page name="associated_products" position="after">
+                    <page name="magento_mappings" string="Magento mappings">
+                        <field name="magento_value_map_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="brand_id" invisible="1"/>
+                                <field name="backend_id" options="{'create_edit':False, 'create':False}"/>
+                                <field name="brand_magento_attr_value_id"
+                                       options="{'create_edit':False, 'create':False}"
+                                       context="{'search_brand_from_magento_backend': backend_id}"
+                                />
+                            </tree>
+                        </field>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="product_product_tree_view" model="ir.ui.view">
+            <field name="name">grimm.product.product.tree.view.inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="lst_price" position="replace">
+                    <field name="calculated_magento_price"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="product_template_tree_view" model="ir.ui.view">
+            <field name="name">grimm.product.template.tree.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="list_price" position="replace"/>
+                <field name="standard_price" position="after">
+                    <field name="calculated_magento_price"/>
+                    <field name="rrp_price"/>
+                    <field name="weight"/>
+                </field>
+                <field name="categ_id" position="replace">
+                    <field name="categ_id" optional="show"/>
+                </field>
+                <field name="type" position="replace">
+                    <field name="type" optional="show"/>
+                </field>
+                <field name="qty_available" position="before">
+                    <field name="write_uid"/>
+                    <field name="write_date"/>
+                </field>
+                <xpath expr="//field[@name='virtual_available']" position="after">
+                    <field name="magento_product_status_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_magento_status_form" model="ir.ui.view">
+            <field name="name">product.magento.status.form</field>
+            <field name="model">product.magento.status</field>
+            <field name="arch" type="xml">
+                <form string="Product magento status">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <field name="magento_value_map_ids" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="magento_status_id" invisible="1"/>
+                            <field name="backend_id" options="{'create_edit':False, 'create':False}"/>
+                            <field name="status_magento_attr_value_id" options="{'create_edit':False, 'create':False}"
+                                   context="{'search_status_from_magento_backend':backend_id}"/>
+                        </tree>
+                    </field>
+                </form>
+
+            </field>
+        </record>
+
+
+        <!--<record id="of_product_normal_form_view_add_categids" model="ir.ui.view">-->
+        <!--<field name="name">product.normal.form</field>-->
+        <!--<field name="model">product.template</field>-->
+        <!--<field name="inherit_id" ref="of_base_magento_extensions_v9.of_product_normal_form_view_add_categids"/>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<field name="categ_ids" position="attributes">-->
+        <!--<attribute name="invisible">0</attribute>-->
+        <!--<attribute name="widget">many2many</attribute>-->
+        <!--</field>-->
+        <!--</field>-->
+        <!--</record>-->
+
+
+        <record id="action_server_learn_skill" model="ir.actions.server">
+            <field name="name">Export to Magento</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="grimm_magentoerpconnect.model_product_template"/>
+            <field name="binding_model_id" ref="grimm_magentoerpconnect.model_product_template"/>
+            <!--<field name="groups">connector.group_connector_manager</field>--><!--Odoo13Change-->
+            <field name="state">code</field>
+            <field name="code">
+cr = env.cr
+context = dict(env.context)
+action = model.export_multi_to_magento(context.get('active_ids', []), context=context)
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- sky_hr_public_holidays Inherit Form view of Public Holidays -->
+    <record id="inherit_view_public_holidays_form" model="ir.ui.view">
+        <field name="name">inherit.view.public.holidays.form</field>
+        <field name="model">hr.public.holidays.line</field>
+        <field name="inherit_id" ref="sky_hr_public_holidays.view_public_holidays_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_public_holidays Inherit Tree view of Public Holidays -->
+    <record id="inherit_view_public_holidays_tree" model="ir.ui.view">
+        <field name="name">inherit.view.public.holidays.tree</field>
+        <field name="model">hr.public.holidays.line</field>
+        <field name="inherit_id" ref="sky_hr_public_holidays.view_public_holidays_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_public_holidays Inherit Search view of Public Holidays -->
+    <record id="inherit_view_public_holidays_search" model="ir.ui.view">
+        <field name="name">inherit.view.public.holidays.search</field>
+        <field name="model">hr.public.holidays.line</field>
+        <field name="inherit_id" ref="sky_hr_public_holidays.view_public_holidays_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/filter[@name='grp_by_company']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+            <xpath expr="//search/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

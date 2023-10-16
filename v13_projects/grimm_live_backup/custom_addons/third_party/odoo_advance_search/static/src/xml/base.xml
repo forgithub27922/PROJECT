@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+	<div t-extend="ListView">
+		<t t-jquery="thead tr[t-if*='options.header']" t-operation="after">
+	      	<tr t-if="options.selectable">
+	        	<t t-if="options.selectable">
+	        		<td />
+	        	</t>
+	        	<t t-foreach="columns" t-as="column">
+	        	<t t-if="column.invisible !== '1'">
+		        	<td t-if="column.searchable===true and column.widget===undefined or (column.searchable===true and column.widget!==undefined and column.widget!=='handle')">
+		        		<!-- <input type="text" t-att-name="column.name"
+							t-attf-class="odoo_field_search_expan_#{model.split('.').join('_')}" t-att-value="def_column_val[column.name]"/> -->
+
+						<input t-if="column.type === 'integer' or column.type === 'float' or column.type === 'monetary'" t-attf-class="odoo_field_search_expan_#{model.split('.').join('_')}" type="number" t-att-value="def_column_val[column.name]" t-att-name="column.name" t-att-field_type="column.type" style="width:100%;"/>
+                        <input t-if="column.type === 'text' or column.type === 'char' or column.type === 'one2many' or
+                        	column.type === 'many2one' or column.type === 'many2many'"
+                        	type="text" t-attf-class="odoo_field_search_expan_#{model.split('.').join('_')}" t-att-value="def_column_val[column.name]" t-att-name="column.name" t-att-field_type="column.type" style="width:100%;"/>
+                        <select t-if="column.type==='boolean'" t-attf-class="odoo_field_search_expan_#{model.split('.').join('_')}" t-att-name="column.name" t-att-field_type="column.type" style="width:100%;">
+                            <option/>
+                            <option t-att="{'selected': def_column_val[column.name] === 'is true' ? 'selected' : null}">is true</option>
+                            <option t-att="{'selected': def_column_val[column.name] === 'is false' ? 'selected' : null}">is false</option>
+                        </select>
+
+                        <input t-if="column.type==='date' or column.type==='datetime'" type="date" style="float:left;width:100%;line-height: inherit;" t-attf-class="odoo_field_search_expan_#{model.split('.').join('_')}" t-att-value="def_column_val[column.name]" t-att-name="column.name" t-att-field_type="column.type"/>
+                        <!--<div t-if="column.type=='datetime'" class="o_datepicker o_form_field_date o_form_field" data-fieldname="date_order">
+					        <input class="o_datepicker_input o_form_input" type="text" name="date_order" />
+					        <span class="o_datepicker_button"></span>
+					    </div> -->
+                        <!-- <div t-if="column.type=='date' or column.type=='datetime'" class="o_datepicker">
+					        <input type="text"
+					            class="o_datepicker_input odoo_field_search_expan"
+					            t-att-name="def_column_val[column.name]"
+					            />
+					        <span class="o_datepicker_button"/>
+					    </div> -->
+                        <select t-if="column.type==='selection'" t-attf-class="odoo_field_search_expan_#{model.split('.').join('_')}" t-att-name="column.name" t-att-field_type="column.type" style="width:100%;">
+				            <option/>
+				            <t t-foreach="column.selection" t-as="option">
+				                <t t-set="selected" t-value="def_column_val[column.name] === option[0]"/>
+				                <option t-if="selected"
+				                        t-attf-selected="selected"
+				                        t-att-value="option[0]">
+				                    <t t-esc="option[1]"/>
+				                </option>
+				                <option t-if="!selected" t-att-value="option[0]">
+				                    <t t-esc="option[1]"/>
+				                </option>
+				            </t>
+				        </select>
+
+		        	</td>
+		        	<td t-else="">
+
+		        	</td>
+		        </t>
+	        	</t>
+        	</tr>
+	    </t>
+	</div>
+</templates>

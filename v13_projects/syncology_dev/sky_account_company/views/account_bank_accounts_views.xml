@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit Bank Accounts Tree view-->
+    <record id="inherit_bank_accounts_tree_view" model="ir.ui.view">
+        <field name="name">view.bank.accounts.tree.inherit</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_bank_journal_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Bank Accounts Form view-->
+    <record id="inherit_bank_accounts_form_view" model="ir.ui.view">
+        <field name="name">view.bank.accounts.form.inherit</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_bank_journal_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- Inherit Bank Statement Form view-->
+    <record id="inherit_bank_statement_form_view" model="ir.ui.view">
+        <field name="name">view.statement.form.inherit</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Bank Statement Tree view-->
+    <record id="inherit_bank_statement_tree_view" model="ir.ui.view">
+        <field name="name">view.statement.tree.inherit</field>
+        <field name="model">account.bank.statement</field>
+        <field name="inherit_id" ref="account.view_bank_statement_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

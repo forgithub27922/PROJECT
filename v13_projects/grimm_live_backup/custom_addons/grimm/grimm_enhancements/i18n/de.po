@@ -1,0 +1,89 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_enhancements
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-06-15 14:28+0000\n"
+"PO-Revision-Date: 2020-06-15 14:28+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_enhancements
+#: code:addons/grimm_enhancements/controllers/login_pwd.py:46
+#, python-format
+msgid "Dear , your password expires in  day(s). Please change your password."
+msgstr "Sehr geehrte/r , Ihr Passwort läuft in Tag (en) ab. Bitte ändern Sie Ihr Passwort."
+
+#. module: grimm_enhancements
+#: model:ir.model,name:grimm_enhancements.model_ir_http
+msgid "HTTP routing"
+msgstr "HTTP Routing"
+
+#. module: grimm_enhancements
+#: model:ir.model,name:grimm_enhancements.model_account_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: grimm_enhancements
+#: model:ir.ui.view,arch_db:grimm_enhancements.sale_order_line_form
+msgid "Manual Invoices"
+msgstr "Manuell erstellte Rechnungen"
+
+#. module: grimm_enhancements
+#: code:addons/grimm_enhancements/controllers/login_pwd.py:58
+#, python-format
+msgid "Only employee can access this database. Please contact the administrator."
+msgstr "Only employee can access this database. Please contact the administrator."
+
+#. module: grimm_enhancements
+#: code:addons/grimm_enhancements/controllers/login_pwd.py:47
+#, python-format
+msgid "Hinweis zum Ablauf des Passworts!"
+msgstr "Password Expiry Notice!"
+
+#. module: grimm_enhancements
+#: code:addons/grimm_enhancements/controllers/login_pwd.py:54
+#, python-format
+msgid "Password expired. Please contact the administrator!"
+msgstr "Passwort abgelaufen. Bitte wenden Sie sich an den Administrator!"
+
+#. module: grimm_enhancements
+#: model:ir.ui.view,arch_db:grimm_enhancements.sale_order_line_form
+msgid "Sales Order Lines"
+msgstr "Verkaufsauftragpositionen"
+
+#. module: grimm_enhancements
+#: model:ir.model.fields,field_description:grimm_enhancements.field_account_invoice_purchase_id_copy
+#: model:ir.model.fields,field_description:grimm_enhancements.field_magento_account_invoice_purchase_id_copy
+#: model:ir.model.fields,field_description:grimm_enhancements.field_magento_order_shipment_purchase_id_copy
+msgid "Source Document"
+msgstr "Referenzbeleg"
+
+#. module: grimm_enhancements
+#: model:ir.ui.view,arch_db:grimm_enhancements.sale_order_line_form
+msgid "Stock Moves"
+msgstr "Lagerbuchungen"
+
+#. module: grimm_enhancements
+#: model:ir.model,name:grimm_enhancements.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: grimm_enhancements
+#: code:addons/grimm_enhancements/controllers/login_pwd.py:52
+#, python-format
+msgid "Wrong login/password"
+msgstr "Falsches Login / Passwort"
+
+#. module: grimm_enhancements
+#: code:addons/grimm_enhancements/controllers/pwd_validation.py:20
+#, python-format
+msgid "Your password expires in %s day(s). Please change your password"
+msgstr "Ihr Passwort läuft in %s Tag (en) ab. Bitte ändern Sie Ihr Passwort"

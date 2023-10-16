@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="view_out_in_invoice_pivot" model="ir.ui.view">
+      <field name="name">account.invoice.in_out.report.pivot</field>
+      <field name="model">account.invoice.in_out.report</field>
+      <field name="arch" type="xml">
+        <pivot string="Out-In-Invoice Statistics" disable_linking="True">
+          <field name="team_id" type="col"/>
+          <field name="date" interval="month" type="row"/>
+          <field name="marge_subtotal" type="measure"/>
+        </pivot>
+      </field>
+    </record>
+
+    <record id="view_out_in_invoice_graph" model="ir.ui.view">
+      <field name="name">account.invoice.in_out.report.graph</field>
+      <field name="model">account.invoice.in_out.report</field>
+      <field name="arch" type="xml">
+        <graph string="Out-In-Invoice Statistics">
+          <field name="date" type="row"/>
+          <field name="marge_subtotal" type="measure"/>
+        </graph>
+      </field>
+    </record>
+
+    <!-- Custom reports (aka filters) -->
+    <record id="filter_out_in_invoice_aka_filter" model="ir.filters">
+      <field name="name">Out-In-Invoice aka filter</field>
+      <field name="model_id">account.invoice.in_out.report</field>
+      <field name="domain">['&amp;', ('date','&lt;=', time.strftime('%%Y-12-31')), '&amp;', ('date','&gt;=',time.strftime('%%Y-01-01')),
+        ('sale_state','not in',('cancel',))]
+      </field>
+      <field name="user_id" eval="False"/>
+      <field name="context">{'group_by': ['sale_state'], 'measures': ['marge_subtotal']}</field>
+    </record>
+    <record id="filter_sale_purchase_report_salespersons" model="ir.filters">
+      <field name="name">By Salespersons</field>
+      <field name="model_id">account.invoice.in_out.report</field>
+      <field name="user_id" eval="False"/>
+      <field name="context">{'group_by': ['date:month', 'user_id']}</field>
+    </record>
+    <record id="filter_sale_purchase_report_salesteam" model="ir.filters">
+      <field name="name">By Salesteam</field>
+      <field name="model_id">account.invoice.in_out.report</field>
+      <field name="user_id" eval="False"/>
+      <field name="context">{'group_by': ['date:month', 'team_id']}</field>
+    </record>
+    <record id="filter_sale_purchase_report_product" model="ir.filters">
+      <field name="name">By Product</field>
+      <field name="model_id">account.invoice.in_out.report</field>
+      <field name="user_id" eval="False"/>
+      <field name="context">{'group_by': ['date:month', 'product_id']}</field>
+    </record>
+
+    <record id="view_out_in_invoice_search" model="ir.ui.view">
+      <field name="name">account.invoice.in_out.report.search</field>
+      <field name="model">account.invoice.in_out.report</field>
+      <field name="arch" type="xml">
+        <search string="Out-In-Invoice Statistics">
+          <field name="date"/>
+          <filter string="This Year" name="year" invisible="1"
+                  domain="[('date','&lt;=', time.strftime('%%Y-12-31')),('date','&gt;=',time.strftime('%%Y-01-01'))]"/>
+          <filter name="All_Invoices" string="All Invoices"
+                  domain="[('sale_state','!=', 'cancel'), ('purchase_state','!=','cancel')]"/>
+          <filter name="Confirmed" string="Confirmed"
+                  domain="[('sale_state','in',('open', 'paid')), ('purchase_state','!=','cancel')]"/>
+          <filter name="Transport" string="Transport"
+                  domain="['&amp;', '|', ('property_account_income_id','like', '%440018%'), ('property_account_income_id','=', False), '|', ('property_account_expense_id','like', '%580000%'), ('property_account_expense_id','=', False)]"/>
+          <separator/>
+          <field name="customer_id"/>
+          <field name="supplier_id"/>
+          <field name="product_id"/>
+          <field name="user_id"/>
+          <group expand="0" string="Extended Filters">
+            <field name="categ_id" filter_domain="[('categ_id', 'child_of', self)]"/>
+            <field name="company_id" groups="base.group_multi_company"/>
+          </group>
+          <group expand="1" string="Group By">
+            <filter string="Salesperson" name="User" context="{'group_by':'user_id'}"/>
+            <filter string="Sales Team" name="sales_team" context="{'group_by':'team_id'}"/>
+            <filter string="Customer" name="Customer" context="{'group_by':'customer_id'}"/>
+            <filter string="Supplier" name="Supplier" context="{'group_by':'supplier_id'}"/>
+            <filter string="Supplier Credit Account" name="Supplier"
+                    context="{'group_by':'p_property_account_payable_id'}"/>
+            <filter string="Product Category" name="Category" context="{'group_by':'categ_id'}"/>
+            <filter name="status" string="Status" context="{'group_by':'sale_state'}"/>
+            <filter string="Company" groups="base.group_multi_company" name="company" context="{'group_by':'company_id'}"/>
+            <separator/>
+            <filter string="Order Month" name="order_month" context="{'group_by':'date:month'}" help="Ordered date of the sales order"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <record id="action_out_in_invoice_report_all" model="ir.actions.act_window">
+      <field name="name">Out-In-Invoice Statistics</field>
+      <field name="res_model">account.invoice.in_out.report</field>
+      <field name="view_mode">pivot,graph</field>
+      <field name="view_id"/>  <!-- force empty -->
+      <field name="search_view_id" ref="view_out_in_invoice_search"/>
+      <field name="context">{'search_default_All_Invoices':1, 'group_by_no_leaf':1,'group_by':[]}</field>
+      <field name="help">This report performs analysis on your out invoice and in invoice.
+      </field>
+    </record>
+
+    <menuitem name="Out-In-Invoice Statistics" action="action_out_in_invoice_report_all"
+              id="menu_report_out_in_invoice_all" parent="account.menu_finance_reports" sequence="20"/>
+
+  </data>
+</odoo>

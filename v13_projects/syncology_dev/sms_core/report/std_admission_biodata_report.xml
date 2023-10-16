@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <template id="dev_std_detail_report">    
+             <t t-call="web.internal_layout">    
+             <t t-set="o" t-value="o.with_context({'name':o.full_name})" />
+            <div class="page" style="font-size:13px">
+                <div class="text-center">
+					<h2><center><strong>Personal File</strong></center></h2>
+				</div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~1st ROW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->                
+                        <div class="row" style="margin-top:50px;"> 
+                        
+                        	<div class="col-6" style="margin-top:30px;">
+                                <table style="{border: 1px solid black;}" width="100%">
+                                    <tr>
+                                        <td style="border:1px;" width="25%" rowspan="5"> 
+                                            <center><img t-if="o.student_image" t-att-src="'data:image/png;base64,%s' % o.student_image" style="height: 140px;width: 130px;border-radius: 50px;"/></center>
+                                            <br/>
+                                            <center><t t-esc="o.application_no"/></center>
+                                        </td>
+                                        <td style="font-size: 15px;line-height: 1.5" width="25%"><strong></strong></td>
+                                        <td width="25%"><strong></strong></td>
+                                        <td style="font-size: 15px;line-height: 1.5" width="25%"><span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 15px;line-height: 1.5"><strong></strong></td>
+                                        <td ><strong></strong></td>
+                                        <td style="font-size: 15px;line-height: 1.5"><span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 15px;line-height: 1.5"><strong></strong></td>
+                                        <td ><strong></strong></td>
+                                        <td style="font-size: 15px;line-height: 1.5"><span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 15px;line-height: 1.5"><strong></strong></td>
+                                        <td ><strong></strong></td>
+                                        <td style="font-size: 15px;line-height: 1.5"><span></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 15px;line-height: 1.5"><strong></strong></td>
+                                        <td ><strong></strong></td>
+                                        <td style="font-size: 15px;line-height: 1.5"><span></span></td>
+                                    </tr>
+                                </table>
+                        	</div>
+                            <div class="col-6" style="margin-top:30px;">
+                                <table style="{border: 1px solid black;}" width="100%">
+                                    <tr>
+                                        <!-- <td style="border:1px;" width="25%" rowspan="5"> 
+                                            <center><img t-if="o.image" t-att-src="'data:image/png;base64,%s' % o.image" style="height: 140px;width: 130px;border-radius: 50px;"/></center>
+                                            <br/>
+                                            <center><t t-esc="o.emp_no_auto"/></center>
+                                        </td> -->
+                                        <td width="40%" style="font-size: 15px;line-height: 1.5" > 
+                                            <strong>Name</strong>
+                                        </td>
+                                        <td width="10%" style="font-size: 15px;line-height: 1.5"> 
+                                            <strong>:</strong>
+                                        </td>
+                                        <td width="50%" style="font-size: 15px;line-height: 1.5"> 
+                                            <t t-esc="o.full_name"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 15px;line-height: 1.5">
+                                            <strong>National ID</strong>
+                                        </td>
+                                        <td > 
+                                            <strong>:</strong>
+                                        </td>
+                                        <td style="font-size: 15px;line-height: 1.5"> 
+                                            <t t-esc="o.national_id" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 15px;line-height: 1.5">
+                                            <strong>Nationality</strong>
+                                        </td>
+                                        <td > 
+                                            <strong>:</strong>
+                                        </td>
+                                        <td style="font-size: 15px;line-height: 1.5"> 
+                                             <t t-esc="o.nationality.name" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 15px;line-height: 1.5">
+                                            <strong>Gender</strong>
+                                        </td>
+                                        <td > 
+                                            <strong>:</strong>
+                                        </td>
+                                        <td style="font-size: 15px;line-height: 1.5"> 
+                                            <t t-esc="o.gender"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-size: 15px;line-height: 1.5">
+                                            <strong>Status</strong>
+                                        </td>
+                                        <td > 
+                                            <strong>:</strong>
+                                        </td>
+                                        <td style="font-size: 15px;line-height: 1.5"> 
+                                            <span t-field="o.state"  />
+                                        </td>
+                                    </tr>
+                                </table>
+                        </div>
+                    </div>
+                <hr />
+                
+<!--~~~~~~~~~~~~~~~~~~~~~~~~2nd ROW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+                <div class="row">
+<!--                    <div class="col-xs-4">-->
+                            <div class="col-6">
+                                <h4><strong>Personal Information</strong></h4>
+                                <table width="100%" style="empty-cells: hide;">
+                                    
+                                    <tr>
+                                        <td> 
+                                            <strong>Date of Birth</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                           <span t-if="o.birth_date">
+                                                <span t-field="o.birth_date" />
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 
+                                            <strong>Birth Place</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                           <span t-if="o.birth_place">
+                                                <span t-field="o.birth_place" />
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> 
+                                            <strong>City</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                           <span t-if="o.city">
+                                                <span t-field="o.city" />
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Working Address</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <span t-if="o.address"><span t-field="o.address"/></span><br/>
+                                           <!--  <span t-if="o.address_id.city"><span t-field="o.address_id.city"/>,</span><span t-if="o.address_id.state_id"><span t-field="o.address_id.state_id.name"/>,</span><span t-field="o.address_id.zip"/> -->
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+                        </div>
+                        <div class="col-6 pull-left" >
+                            <h4><strong>Applied For</strong></h4>
+                            <table width="100%" >
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Application For</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.application_for" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>School</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.school_id.name" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Class</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.class_id.name" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Date of Apply</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.date_of_apply" />
+                                        </td>
+                                    </tr>
+                                </table>
+                        </div>
+                </div>
+                <hr/>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~3rd ROW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->    
+                <div class="row">
+                    <div class="col-6">
+                        <h4><strong>Father Info</strong></h4>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Name</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.father_full_name"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Nationality</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.father_nationality.name"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>National Id</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.father_national_id" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Contact No</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.father_mobile_no" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Marital Status</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.father_marital_status" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Education</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.father_degree_education" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Employment</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.father_employment" />
+                                        </td>
+                                    </tr>
+                                </table>
+                    </div>
+                    <div class="col-6">
+                    <h4><strong>Mother Info</strong></h4>
+                            <table width="100%">
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Name</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.mother_full_name"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Nationality</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.mother_nationality.name"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>National Id</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.mother_national_id" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Contact No</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.mother_mobile_no" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Marital Status</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.mother_marital_status" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Education</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.mother_degree_education" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Employment</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.mother_employment" />
+                                        </td>
+                                    </tr>
+                                </table>
+                    </div>
+                </div>
+                <hr/>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~4rd ROW~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->    
+                <div class="row">
+                    <div class="col-6">
+                        <h4><strong>Guardian Info</strong></h4>
+                                <table width="100%">
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Name</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.guardian_full_name"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Nationality</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.guardian_nationality.name"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>National Id</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.guardian_national_id" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Contact No</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.guardian_mobile_no" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Relation to Child</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.relation_to_child" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Education</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.guardian_degree_education" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Employment</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.guardian_employment" />
+                                        </td>
+                                    </tr>
+                                </table>
+                    </div>
+                    <div class="col-6">
+                    <h4><strong></strong></h4>
+                            <table width="100%">
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Employment Location</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.guardian_employeer_location"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td width="40%"> 
+                                            <strong>Home Landline</strong>
+                                        </td>
+                                        <td width="10%"> 
+                                            :
+                                        </td>
+                                        <td width="50%"> 
+                                            <t t-esc="o.guardian_landline_number"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Work Landline</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.guardian_land_line_no" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Mobile No</strong>
+                                        </td>
+                                        <td> 
+                                            :
+                                        </td>
+                                        <td> 
+                                            <t t-esc="o.guardian_mobile_no" />
+                                        </td>
+                                    </tr>
+                                </table>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+            </t>
+    </template>
+    
+    <template id="report_std_adm_biodata_template">
+        <t t-call="web.html_container">
+             <t t-foreach="docs" t-as="o">
+            <t t-call="sms_core.dev_std_detail_report" t-lang="o.full_name"/>
+        </t>
+        </t>
+    </template>  
+    
+    <report
+        id="action_std_admission_biodata_report"
+        string="Biodata Report"
+        model="student.admission.form"
+        report_type="qweb-pdf"
+        name="sms_core.report_std_adm_biodata_template"
+        file="sms_core.report_std_adm_biodata_template"
+        print_report_name="sms_core.report_std_adm_biodata_template"
+    />
+    
+</data>
+</odoo>

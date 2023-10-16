@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_media_manager_tree" model="ir.ui.view">
+            <field name="name">media.manager.tree</field>
+            <field name="model">media.manager</field>
+            <field name="arch" type="xml">
+                <tree string="Media Manager">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="url"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="media_manager_kanban_view" model="ir.ui.view">
+            <field name="name">Media.Manager.kanban</field>
+            <field name="model">media.manager</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="id"/>
+                    <field name="type"/>
+                    <field name="create_uid"/>
+                    <field name="mimetype"/>
+                    <field name="url"/>
+                    <field name="is_shopware6_exported"/>
+                    <field name="create_date"/>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_area oe_kanban_global_click o_kanban_attachment">
+                                <div class="row">
+                                    <div class="offset-10">
+                                        <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+                                            <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                                <span class="fa fa-ellipsis-v"/>
+                                            </a>
+                                            <div class="dropdown-menu" role="menu">
+                                                <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="o_kanban_image">
+                                    <div class="o_kanban_image_wrapper">
+                                        <img class="o_kanban_image_inner_pic" t-att-src="kanban_image('media.manager', 'data', record.id.raw_value)"/>
+                                    </div>
+                                </div>-->
+                                <div class="o_kanban_image">
+                                    <div class="o_kanban_image_wrapper">
+                                        <t t-set="webimage" t-value="new RegExp('image.*(gif|jpeg|jpg|png)').test(record.mimetype.value)"/>
+                                        <div t-if="record.type.raw_value == 'url'" class="o_url_image fa fa-link fa-3x text-muted"/>
+                                        <img t-elif="webimage"  t-att-src="kanban_image('media.manager', 'data', record.id.raw_value)" width="100" height="100" alt="Document" class="o_attachment_image"/>
+                                        <div t-else="!webimage" class="o_image o_image_thumbnail" t-att-data-mimetype="record.mimetype.value"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_details">
+                                    <div class="o_kanban_details_wrapper">
+                                        <div t-att-title="record.name.raw_value" class="o_kanban_record_title">
+                                            <field name="name" class="o_text_overflow"/>
+                                        </div>
+                                        <div class="o_kanban_record_body">
+                                            <t t-if="record.type.raw_value == 'url'">
+                                              <a t-att-href="record.url.raw_value">Media Link</a>
+                                            </t>
+
+                                        </div>
+                                        <div class="o_kanban_record_bottom">
+                                            <time class="oe_kanban_bottom_left">
+                                                <field name="create_date" widget="date"/>
+                                            </time>
+                                            <div class="oe_kanban_bottom_right">
+                                                <field name="create_uid" widget="many2one_avatar_user"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_media_manager" model="ir.actions.act_window">
+            <field name="name">Media Manager</field>
+            <field name="res_model">media.manager</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_id" ref="media_manager_kanban_view"/>
+        </record>
+
+        <menuitem id="media_manager_menu"
+                  name="Media Manager"
+                  parent="sale.prod_config_main"
+                  sequence="40"
+                  action="action_media_manager"/>
+
+        <record id="view_media_manager_form" model="ir.ui.view">
+            <field name="name">media.manager.form</field>
+            <field name="model">media.manager</field>
+            <field name="arch" type="xml">
+                <form string="Media Manager">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <field name="is_shopware6_exported" invisible="1"/>
+                            <button class="oe_stat_button" string="Export Shopware6" name="export_to_shopware6" icon="fa-paper-plane-o" type="object" attrs="{'invisible': [('is_shopware6_exported', '=', True)]}"/>
+                        </div>
+
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <notebook>
+                            <page string="Media Configuration" name="media_configure">
+                                <group colspan="4" col="4">
+                                    <field name="active" widget="toggle_button"/>
+                                    <field name="send_email" widget="boolean_toggle"/>
+                                    <field name="document_type"/>
+                                    <field name="data" widget="binary" height="64" filename="filename" attrs="{'invisible': [('type', '=', 'url')]}"/>
+                                    <field name="media_url" widget="url"/>
+                                    <field name="url" attrs="{'invisible': [('type', '=', 'binary')], 'required': [('type', '=', 'url')]}"/>
+                                    <field name="filename" invisible="1"/>
+                                    <field name="type" invisible="1"/>
+                                    <button name="get_thumbnail" type="object" class="" string="Get Thumbnail" attrs="{'invisible': [('media_url', '=', False)]}"/>
+                                </group>
+                                <label for="product_ids"/>
+                                <field name="product_ids"/>
+                            </page>
+                            <page string="Shopware6 Bindings" name="shopware6_bindings">
+                                <field name="shopware6_bind_ids">
+                                    <tree>
+                                        <field name="backend_id"/>
+                                        <field name="shopware6_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

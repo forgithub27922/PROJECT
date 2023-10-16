@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Template for Student Fee Report -->
+    <template id="report_student_fee">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="stud">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br/>
+                        <br/>
+                        <h1 class="text-center">
+                            Student Fee Receipt
+                        </h1>
+                        <br/>
+                        <h3>
+                            <span t-field="stud.serial_number"/>
+                        </h3>
+                        <h3>
+                            <span t-field="stud.student_id.name"/>
+                            -
+                            <span t-field="stud.name"/>
+                        </h3>
+                        <br/>
+
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <h5>
+                                        <b>Fee Type:</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <span t-field="stud.fee_policy_line_id.fee_type_id.name"/>
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <b>Fee:</b>
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <span t-field="stud.total_amount"/>
+                                    </h5>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Fee Date:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.fee_date"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Sibl Dis:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.sibling_disc"/>
+                                    </h5>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Due Date:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.due_date"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Emp Child Dis:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.emp_chil_disc"/>
+                                    </h5>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Warning Date:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.warning_date"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Discount:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.cash_discount"/>
+                                    </h5>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Payment Date:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.payment_date"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Fee Applied:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.applied_fee"/>
+                                    </h5>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Fee Policy:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.name"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Fee Policy Line:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="stud.fee_policy_line_id.name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+    <record id="shopware_res_partner_form_view" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="shopware_bindings" string="Shopware Bindings">
+                    <group string="Shopware Customer">
+                        <field name="shopware_bind_ids" readonly="1" nolabel="1">
+                            <tree>
+                                <field name="backend_id"/>
+                                <field name="shopware_id"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                    <group string="Shopware Supplier">
+                        <field name="shopware_supplier_ids" readonly="1" nolabel="1">
+                            <tree>
+                                <field name="backend_id"/>
+                                <field name="shopware_id"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</data>
+</openerp>

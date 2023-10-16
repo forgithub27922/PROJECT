@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+    <record id="shopware_product_template_form_view" model="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="connector" string="Shopware">
+                    <form>
+                    <button name="export_to_shopware" type="object" class="oe_highlight" help="This button will be disable if product is exported to shopware." string="Export Record" attrs="{'invisible': [('is_shopware_exported', '=', True)]}"/>
+                        <group colspan="2">
+                            <field name="is_shopware_exported" invisible="1"/>
+                            <field name="status_on_shopware"/>
+                            <field name="shopware_categories" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <group string="Description">
+                                <field name="shopware_description"/>
+                                <field name="shopware_meta_title"/>
+<!--                                <field name="shopware_meta_keyword"/>-->
+                                <field name="shopware_meta_description"/>
+                            </group>
+                            <group string="Shopware Property">
+                                <!--<field name="product_variant_id"/>-->
+                                <field name="property_set_id"/>
+                                <field name="property_set_attribute_ids" invisible="1"/>
+                                <field name="shopware_property_ids" widget="one2many_list">
+                                    <tree string="Variants" editable="bottom">
+                                        <field name="attribute_id" options="{'no_create': True, 'no_create_edit':True}" domain="[('id', 'in', parent.property_set_attribute_ids)]"/>
+                                        <field name="value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}"/>
+                                    </tree>
+                                </field>
+                                <field name="shopware_image_ids">
+                                    <tree>
+                                        <field name="position"/>
+                                        <field name="name"/>
+                                        <field name="image" widget="image" width="50" height="50"/>
+                                        <field name="file_url" width="50" height="50"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <group colspan="2">
+                            <group string="Shopware Bindings"/>
+                            <field name="shopware_bind_ids" nolabel="1">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware_id"/>
+                                    <field name="last_job_status"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </form>
+                </page>
+                <!--<page name="shopware_notes" string="Shopware Notes">
+                    <group string="Description">
+                        <field name="shopware_description"/>
+                    </group>
+                    <group string="Meta Information">
+                        <field name="shopware_meta_title"/>
+                        <field name="shopware_meta_keyword"/>
+                        <field name="shopware_meta_description"/>
+                    </group>
+                </page>-->
+            </xpath>
+        </field>
+    </record>
+
+    <!--<record id="shopware_product_product_form_view" model="ir.ui.view">
+        <field name="name">product.product.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="shopware_connector.shopware_product_template_form_view"/>
+        <field name="arch" type="xml">
+            <field name="shopware_bind_ids" position="after">
+                <field name="shopware_variant_bind_ids"/>
+            </field>
+        </field>
+    </record>-->
+
+    <record id="shopware_product_template_variant_tab_form_view" model="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='variants']/field[@name='attribute_line_ids']" position="replace">
+                <field name="attribute_line_ids" widget="one2many" context="{'show_attribute': False}">
+                    <tree string="Variants" editable="bottom">
+                        <field name="attribute_id"/>
+                        <field name="value_ids" widget="many2many_tags" options="{'no_create_edit': True}" domain="[('attribute_id', '=', attribute_id)]" context="{'default_attribute_id': attribute_id}"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_shopware_product_template_form" model="ir.ui.view">
+        <field name="name">shopware.product.template.form</field>
+        <field name="model">shopware.product.template</field>
+        <field name="arch" type="xml">
+            <form string="Shopware Product Template">
+                <group>
+                    <field name="backend_id"/>
+                    <field name="shopware_id"/>
+                    <field name="created_at" readonly="1"/>
+                    <field name="updated_at" readonly="1"/>
+                </group>
+                <group string="Queue Jobs">
+                    <field name="queue_ids" nolabel="1">
+                        <tree decoration-success="state=='done'" decoration-danger="state=='failed'" decoration-info="state in ['pending', 'enqueued', 'started']">
+                            <field name="name"/>
+                            <field name="func_string"/>
+                            <field name="date_created"/>
+                            <field name="date_done"/>
+                            <field name="uuid"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                </group>
+                <!--<group string="Inventory Options">
+                    <field name="no_stock_sync"/>
+                    <div class="oe_inline">
+                        <label for="shopware_qty" class="oe_inline" />
+                        <field name="shopware_qty" readonly="1" class="oe_inline" nolabel="1"/>
+                        <button name="recompute_magento_qty" string="(recompute)" class="oe_link oe_inline" type="object"/>
+                    </div>
+                </group>-->
+            </form>
+        </field>
+    </record>
+
+    <record id="view_shopware_product_template_tree" model="ir.ui.view">
+        <field name="name">shopware.product.template.tree</field>
+        <field name="model">shopware.product.template</field>
+        <field name="arch" type="xml">
+            <tree string="Shopware Product">
+                <field name="backend_id"/>
+                <field name="shopware_id"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="view_odoo_product_image_form" model="ir.ui.view">
+        <field name="name">odoo.product.image.form</field>
+        <field name="model">odoo.product.image</field>
+        <field name="arch" type="xml">
+            <form string="Product Image">
+                <group>
+                    <field name="name"/>
+                    <field name="position"/>
+                    <field name="shopware_id"/>
+                    <field name="file_select" widget="radio"/>
+                    <field name="image" filename="file_name" attrs="{'invisible': [('file_select', '=', 'url')]}"/>
+                    <field name="file_name" readonly="True" attrs="{'invisible': [('file_select', '=', 'url')]}"/>
+                    <field name="file_url" attrs="{'invisible': [('file_select', '=', 'upload')]}"/>
+                </group>
+                <!--<button name="export_to_shopware" type="object" class="oe_highlight" string="Export Record"/>-->
+                <group string="Shopware Binding">
+                    <field name="shopware_bind_ids" readonly="1">
+                        <tree>
+                            <field name="backend_id"/>
+                            <field name="shopware_id"/>
+                        </tree>
+                    </field>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_export_multi_product_shopware" model="ir.actions.server">
+      <field name="name">Export to Shopware</field>
+      <field name="type">ir.actions.server</field>
+      <field name="model_id" ref="shopware_connector.model_product_template"/>
+      <field name="binding_model_id" ref="shopware_connector.model_product_template"/>
+      <field name="groups_id" eval="[(4, ref('connector.group_connector_manager'))]"/>
+      <field name="state">code</field>
+      <field name="code">cr = env.cr
+context = dict(env.context)
+action = model.export_multi_to_shopware(context.get('active_ids', []), context=context)
+      </field>
+    </record>
+
+</data>
+</openerp>

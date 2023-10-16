@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<openerp>
+  <data noupdate="1">
+    <!-- Sequences for partner.debitor -->
+    <record id="seq_partner_debitor" model="ir.sequence">
+        <field name="name">Debitor Number</field>
+        <field name="code">partner.debitor</field>
+        <field name="padding">8</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    <!-- Sequences for partner.creditor
+    <record id="seq_partner_creditor" model="ir.sequence">
+        <field name="name">Creditor Number</field>
+        <field name="code">partner.creditor</field>
+        <field name="padding">8</field>
+        <field name="company_id" eval="False"/>
+    </record>
+    -->
+    <record id="account_payment_term_14days" model="account.payment.term">
+        <field name="name">14 days net</field>
+        <field name="note">Payment term: 14 days net</field>
+        <field name="line_ids" eval="[(0, 0, {'value': 'balance', 'value_amount': 0.0, 'sequence': 500, 'days': 14, 'option': 'day_after_invoice_date'})]"/>
+    </record>
+  </data>
+</openerp>

@@ -1,0 +1,46 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_stock_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-22 12:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_stock_custom
+#: model:ir.model.constraint,message:sky_stock_custom.constraint_product_product_barcode_uniq
+#: model:ir.model.constraint,message:sky_stock_custom.constraint_product_template_barcode_uniq
+msgid "A barcode can only be assigned to one product !"
+msgstr "لا يمكن نسب الباركود لاكثر من صنف"
+
+#. module: sky_stock_custom
+#: model:ir.model.fields,field_description:sky_stock_custom.field_product_product__barcode
+#: model:ir.model.fields,field_description:sky_stock_custom.field_product_product__scanned_barcode
+#: model:ir.model.fields,field_description:sky_stock_custom.field_product_template__barcode
+#: model:ir.model.fields,field_description:sky_stock_custom.field_product_template__scanned_barcode
+msgid "Barcode"
+msgstr "باركود"
+
+#. module: sky_stock_custom
+#: model:ir.model.fields,help:sky_stock_custom.field_product_product__barcode
+#: model:ir.model.fields,help:sky_stock_custom.field_product_template__barcode
+msgid "International Article Number used for product identification."
+msgstr "رقم المادة الدولي المستخدم للتعرف على المنتج."
+
+#. module: sky_stock_custom
+#: model:ir.model,name:sky_stock_custom.model_product_product
+msgid "Product"
+msgstr "المنتج"
+
+#. module: sky_stock_custom
+#: model:ir.model,name:sky_stock_custom.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"

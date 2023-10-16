@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="print_label_layout_standard">
+            <div class="header">
+                <div class="row">
+                    Header
+                </div>
+            </div>
+
+            <div class="article o_report_layout_standard">
+                <t t-raw="0" />
+            </div>
+
+            <div class="footer">
+                <div class="text-center" style="border-top: 1px solid black;">
+                    Footer
+                </div>
+            </div>
+        </template>
+
+        <template id="print_label_layout">
+            <!-- Multicompany -->
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc"/>
+            </t>
+
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+            <t t-call="grimm_tools.print_label_layout_standard"><t t-raw="0"/></t>
+        </template>
+
+    <template id="receipt_label_print_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="grimm_tools.print_label_layout">
+                    <div class="page">
+                        <t t-foreach="docs.move_lines" t-as="line">
+                            <t t-set="loop_index" t-value="int(line.quantity_done)" />
+                            <t t-if="line.product_id.is_package">
+                                <t t-set="loop_index" t-value="int(line.product_id.package_id.qty_no)" />
+                            </t>
+                            <t t-foreach="range(loop_index)" t-as="p_line">
+                                <br/>
+                                <table style="width:100%;margin-left:-25px;font-size:17px;">
+                                    <tr>
+                                        <td width="30%">Artikelnr.:</td><td style="font-size:30px;"><b><span t-field="line.product_id.default_code"/></b></td>
+                                    </tr>
+                                    <tr>
+                                      <td width="30%">Beschreibung: </td><td style="font-size:30px;"><span t-if="line.product_id and line.product_id.name" t-esc="str(line.product_id.name)[:30]"/>.</td>
+                                    </tr>
+                                    <tr>
+                                        <t t-if="line.product_id.is_package">
+                                            <td width="30%">Menge:</td><td><span>1</span> Stück  (VPE = <span t-field="line.product_id.package_id.qty_no"/>)</td>
+                                        </t>
+                                        <t t-if="not line.product_id.is_package">
+                                            <td width="30%">Menge:</td><td><span>1</span> Stück</td>
+                                        </t>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <center>
+                                                <t t-if="line.product_id.barcode">
+                                                    <img t-if="line.product_id.barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', line.product_id.barcode)"/>
+                                                    <br/>
+                                                    <span style="font-size:10px;" t-field="line.product_id.barcode"/>
+                                                </t>
+                                                <t t-if="not line.product_id.barcode">
+                                                    <img t-if="line.product_id.default_code" t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', line.product_id.default_code)"/>
+                                                    <br/>
+                                                    <span style="font-size:10px;" t-field="line.product_id.default_code"/>
+                                                </t>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p style="page-break-after:always;"/>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="location_receipt_label_print_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="grimm_tools.print_label_layout">
+                    <div class="page">
+                        <br/>
+                        <table style="width:100%;margin-left:-25px;font-size:20px;">
+                            <tr><td><center style="font-size:50px;"><span t-field="doc.name"/></center></td></tr>
+                            <tr>
+                                <td><br/><center><img t-if="doc.barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', doc.barcode)"/><br/><span style="font-size:10px;" t-field="doc.barcode"/></center></td>
+                            </tr>
+                            <!--<tr><td><br/><center><span t-field="doc.company_id.name"/></center></td></tr>-->
+                        </table>
+                        <p style="page-break-after:always;"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+   <report
+        id="receipt_label_print"
+        model="stock.picking"
+        string="Receipt Label"
+        report_type="qweb-pdf"
+        name="grimm_tools.receipt_label_print_template"
+        file="grimm_tools.receipt_label_print_template"
+        menu="False"
+    />
+
+    <report
+        id="location_receipt_label_print"
+        model="stock.location"
+        string="Location Label"
+        report_type="qweb-pdf"
+        name="grimm_tools.location_receipt_label_print_template"
+        file="grimm_tools.location_receipt_label_print_template"
+        menu="False"
+    />
+
+    </data>
+
+</odoo>

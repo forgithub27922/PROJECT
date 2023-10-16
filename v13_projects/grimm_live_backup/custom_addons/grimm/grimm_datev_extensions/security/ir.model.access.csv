@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_datev_export_history","DATEV Export History","model_datev_export_history","account.group_account_manager",1,0,0,0
+"access_invoice_ledger_export","Invoice Ledger Export","model_invoice_ledger_export","account.group_account_manager",1,1,1,0

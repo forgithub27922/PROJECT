@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+    <t t-name="mobile_main_menu">
+        <div class="o_stock_barcode_main_menu_container o_home_menu_background">
+            <div class="o_stock_barcode_main_menu position-relative">
+                <h1></h1>
+                <div>
+                    <div class="o_inline_block">
+                        <h3></h3>
+                    </div>
+                    <div class="o_inline_block">
+                        <button class="button_info btn btn-primary btn-sm">Info</button>
+                    </div>
+                </div>
+                <div class="o_sop_mobile_barcode_container">
+                    <a class="button_scan_so btn btn-primary btn-sm"><i class="fa fa-camera fa-2x o_mobile_barcode_camara"></i><div>Tap to scan</div>Serviceauftrag scannen</a>
+                    <a class="button_product btn btn-primary btn-sm"><i class="fa fa-camera fa-2x o_mobile_barcode_camara"></i><div>Tap to scan</div>Produktbarcode scannen</a>
+                    <img src="/stock_barcode/static/img/barcode.png" height="100"/>
+                </div>
+                <br />
+                <br />
+                <div id="tabs-block">
+                    <ul class="nav nav-tabs">
+                      <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#service_order_menu">Neu</a></li>
+                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#service_order_menu">Ersatzteile Bestellt</a></li>
+                      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#service_order_menu">Techniker</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div id="service_order_menu" class="tab-pane container fade in active show">
+                          <table class="table table-hover table-ticket">
+                              <thead><tr><th class="text-center">Datum</th><th>Kunden</th><th class="text-center">Status</th></tr></thead>
+                              <tbody></tbody>
+                          </table>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <table class="table table-bordered table-product" style="width:100%;" border="1">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th>Code</th>
+                                <th>Bezeichnung</th>
+                                <th>Stk</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <br />
+                <div class="table-checkboxes grimm_well">
+                    <textarea class="form-control" rows="5" id="other_material" placeholder="Anderes Material"></textarea>
+                    <table class="table-timesheets">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <label for="datepicker" class="h4">Datum:</label>
+                                    <input type="text" id="datepicker"/>
+                                </td>
+                                <td>
+                                    <label for="duration" class="h4">Arbeitszeit:</label>
+                                    <select class="form-control serv_ele" id="duration">
+                                        <option selected="true" disabled="disabled"></option>
+                                        <option value="0.25">00:15</option>
+                                        <option value="0.5">00:30</option>
+                                        <option value="0.75">00:45</option>
+                                        <option value="1.0">01:00</option>
+                                        <option value="1.25">01:15</option>
+                                        <option value="1.5">01:30</option>
+                                        <option value="1.75">01:45</option>
+                                        <option value="2.0">02:00</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label for="staffs_sel" class="h4">Users:</label>
+                                    <select class="form-control staffs" id="staffs_sel">
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="zero-padding"><label><input type="radio" name="travel_cost" id="st_ap_1" class="ts_checkboxes" value="anfahrtspauschale berlin (ap i)" checked="checked"/>Anfahrtspauschale Berlin (AP I)</label></td>
+                                <td class="zero-padding"><label><input type="radio" name="travel_cost" id="st_anfahrt" class="ts_checkboxes" value="keine anfahrt"/>Keine Anfahrt</label></td>
+                                <td class="zero-padding"><label><input type="radio" name="travel_cost" id="st_ap_2" class="ts_checkboxes" value="anfahrtspauschale ii (ap 2)"/>Anfahrtspauschale II (AP 2)</label></td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <button class="button_timesheet btn btn-primary btn-lg">Create a Timesheet</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-action-checks">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="meters_pack" id="st_meters_pack" class="st_checkboxes"/></td>
+                                <td><input type="checkbox" name="clean_and_care" id="st_clean_and_care" class="st_checkboxes"/></td>
+                                <td><input type="checkbox" name="small_pieces" id="st_small_pieces" class="st_checkboxes"/></td>
+                            </tr>
+                            <tr>
+                                <td class="zero-padding">Messgerätepauschale</td>
+                                <td class="zero-padding">Reinigungs- und Pflegematerial</td>
+                                <td class="zero-padding">Kleineteile / Befestigung / Pflege</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table class="table table-bordered table-timesheet-res">
+                        <thead>
+                            <tr>
+                                <th>Datum</th><th>Arbeitszeit</th><th>Employee</th><th>Anfahrtspauschale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <form action="/mobile_barcode/upload_attachments" method="post" class="s_website_form form-horizontal container-fluid pad-bottom" enctype="multipart/form-data" id="file_upload_form">
+                    <label class="btn btn-primary beleg">
+                        Einkaufsbeleg fotografieren
+                        <input type="file" name="beleg_info" id="beleg_info" accept="image/png, image/jpeg, .pdf, .csv"/>
+                    </label>
+                    <input type="hidden" name="serv_code_hidden" id="serv_code_hidden" style="display:none;"/>
+                    <button type="submit" name="Upload" id="file_upload_btn" style="display:none;"></button>
+                </form>
+                <button class="button_sign btn btn-primary btn-sm">Open Signature Pad</button>
+                <button class="button_finish btn btn-primary btn-sm">Finish</button>
+            </div>
+        </div>
+        <div class="modal fade" id="o_info_popup" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><span class="fa fa-info-circle"/> Information</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>Company</h4>
+                        <table class="table table-bordered table-company" style="width:100%;">
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <h4>Contact</h4>
+                        <table class="table table-bordered table-contact" style="width:100%;">
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="canvas_sign_pad_popup" role="dialog">
+            <div class="modal-dialog" id="signature_width">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <form method="post">
+                            <div class='js-signature'></div>
+                            <button type="submit" name="Upload" id="sign_upload_btn" style="display:none;"></button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary btn-canvas-clear" data-dismiss="modal" aria-hidden="true">Close</button>
+                        <button class="btn btn-primary btn-canvas-clear">Clear</button>
+                        <button type="button" class="btn btn-primary btn-canvas-submit" data-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

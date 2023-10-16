@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    	<template id="assets_backend" name="advanda_search_in_tree assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+            	<!-- <script type="text/javascript" src="/odoo_advance_search/static/src/js/odoo_advance_search.js"></script> -->
+            	<link rel="stylesheet" href="/odoo_advance_search/static/src/css/search.css" />
+            	<script type="text/javascript" src="/odoo_advance_search/static/src/js/search_view_common.js"></script>
+            	<script type="text/javascript" src="/odoo_advance_search/static/src/js/list_controller.js"></script>
+            	<script type="text/javascript" src="/odoo_advance_search/static/src/js/list_renderer.js"></script>
+            	<script type="text/javascript" src="/odoo_advance_search/static/src/js/control_panel_controller.js"></script>
+            	<script type="text/javascript" src="/odoo_advance_search/static/src/js/view_dialog.js"></script>
+            </xpath> 
+        </template>
+		<template id="assets_common" name="advanda_search_in_tree assets" inherit_id="web.assets_common">
+			<xpath expr="//link[last()]" position="after">
+				<script type="text/javascript" src="/odoo_advance_search/static/src/js/list_renderer_common.js"></script>
+			</xpath>
+		</template>
+    </data>
+</openerp>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+    <t t-name="grimm_stock_locations">
+        <div>
+<!--            <input type="hidden" name="location_exists_hidden" id="location_exists_hidden" style="display:none;"/>-->
+            <table class="table table-bordered" id="dest_loc_tbl" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>Location</th>
+                        <th>Qty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="lst_moves" t-as="i">
+                        <tr>
+                            <td t-esc="i.location_dest_id"></td>
+                            <td t-esc="i.qty_done"></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </t>
+</templates>

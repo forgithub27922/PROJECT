@@ -1,0 +1,186 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_account_transactions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-12 05:00+0000\n"
+"PO-Revision-Date: 2022-05-12 05:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__account_id
+msgid "Account"
+msgstr "الحساب"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__amount
+msgid "Amount"
+msgstr "مقدار"
+
+#. module: sky_account_transactions
+#: model_terms:ir.ui.view,arch_db:sky_account_transactions.view_account_transaction_form
+msgid "Cancel"
+msgstr "تجاهل"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields.selection,name:sky_account_transactions.selection__account_transaction__state__canceled
+msgid "Canceled"
+msgstr "ألغيت"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__create_uid
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__create_date
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__currency_id
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__currency_id
+msgid "Currency"
+msgstr "عملة"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__date
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__name
+msgid "Description"
+msgstr "وصف"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__display_name
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields.selection,name:sky_account_transactions.selection__account_transaction__state__draft
+msgid "Draft"
+msgstr "مشروع"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__id
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__journal_id
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__move_id
+msgid "Journal Entry"
+msgstr "قيد دفتر اليومية"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction____last_update
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__write_uid
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__write_date
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__notes
+msgid "Notes"
+msgstr "ملاحظات"
+
+#. module: sky_account_transactions
+#: model_terms:ir.ui.view,arch_db:sky_account_transactions.view_account_transaction_form
+msgid "Post"
+msgstr "ترحيل القيد"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields.selection,name:sky_account_transactions.selection__account_transaction__state__posted
+msgid "Posted"
+msgstr "تم النشر"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields.selection,name:sky_account_transactions.selection__account_transaction__txn_type__receive
+msgid "Receive Money"
+msgstr "إستلم نقود"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__ref
+msgid "Reference"
+msgstr "المرجعي"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields.selection,name:sky_account_transactions.selection__account_transaction__txn_type__send
+msgid "Send Money"
+msgstr "ايصال صرف نقدية"
+
+#. module: sky_account_transactions
+#: model_terms:ir.ui.view,arch_db:sky_account_transactions.view_account_transaction_form
+msgid "Set To Draft"
+msgstr "تعيين إلى مسودة"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__state
+msgid "State"
+msgstr "حالة"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__total_amount
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__txn_line_ids
+#: model_terms:ir.ui.view,arch_db:sky_account_transactions.view_account_transaction_form
+msgid "Transaction Lines"
+msgstr "خطوط المعاملات"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction__txn_type
+msgid "Transaction Type"
+msgstr "نوع المعاملة"
+
+#. module: sky_account_transactions
+#: model:ir.actions.act_window,name:sky_account_transactions.action_account_transaction
+#: model:ir.ui.menu,name:sky_account_transactions.menu_account_transaction
+msgid "Transactions"
+msgstr "المعاملات"
+
+#. module: sky_account_transactions
+#: model:ir.model,name:sky_account_transactions.model_account_transaction
+msgid "account.transaction"
+msgstr "الحساب. عملية تجارية"
+
+#. module: sky_account_transactions
+#: model:ir.model,name:sky_account_transactions.model_account_transaction_line
+msgid "account.transaction.line"
+msgstr "الحساب. عملية تجارية. خط"
+
+#. module: sky_account_transactions
+#: model:ir.model.fields,field_description:sky_account_transactions.field_account_transaction_line__txn_id
+msgid "transaction"
+msgstr "عملية تجارية"

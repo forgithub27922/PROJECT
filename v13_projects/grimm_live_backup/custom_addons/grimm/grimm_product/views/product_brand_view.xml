@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <!-- product brand form view -->
+        <record model="ir.ui.view" id="product_brand_warranty_form_view">
+            <field name="name">product.brand.warranty.form</field>
+            <field name="model">grimm.product.brand</field>
+            <field name="inherit_id" ref="asset_base.grimm_product_brand_form_view"/>
+            <field name="arch" type="xml">
+                <!--<xpath expr="//group[1]" position="inside">-->
+                <!--<group name="warranty" string="Warranty">-->
+                <!--<field name="warranty_type"/>-->
+                <!--<field name="warranty_duration"/>-->
+                <!--<field name="return_instructions"/>-->
+                <!--</group>-->
+                <!--</xpath>-->
+
+                <xpath expr="//field[@name='name']" position="replace">
+                    <group>
+                        <field name="name"/>
+                        <field name="warranty_type"/>
+                        <field name="warranty_duration"/>
+                        <field name="return_instructions"/>
+                    </group>
+                    <group colspan="4" col="4">
+                        <field name="sparepart_warranty_type"/>
+                        <field name="accessory_warranty_type"/>
+
+                        <field name="sparepart_warranty_duration"/>
+                        <field name="accessory_warranty_duration"/>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

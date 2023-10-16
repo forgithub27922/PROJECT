@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<odoo>
+
+	<!-- Mail template are declared in a NOUPDATE block
+         so users can freely customize/delete them -->
+	<data noupdate="0">
+		<!--Email template -->
+		<record id="email_template_admission_states" model="mail.template">
+			<field name="name">Admission: Admission email</field>
+			<field name="email_from">info@oxygenbt.com}</field>
+			<field name="subject">Admission: ${object.full_name.name}</field>
+			<field name="partner_to"></field>
+
+
+			<field name="model_id" ref="sms_core.student_admission_form" />
+			<field name="auto_delete" eval="True" />
+			<!--<field name="report_template" ref="account_invoices"/>
+            <field name="report_name">Invoice_${(object.number or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}</field>-->
+			<!--<field name="lang">${object.partner_id.lang}</field>-->
+			<field name="body_html" type="html">
+				<div>
+					<h2>
+						<strong>Application No: </strong>No.${object.application_no}</h2>
+					<p>Dear Parents/Guardian,</p>
+					<p>We are glad to inform you that your application for <strong>${object.full_name}</strong>, has
+been selected to move to the next stage in the application process which is the <strong>Iterview</strong>. Kindly expect a phone call in the coming days. In case of no answer, 2
+more attempts will be made, otherwise the application will be considered cancelled.</p>
+
+
+					<p>Thank you,</p>
+
+				</div>
+				
+
+			</field>
+		</record>
+
+
+
+	</data>
+</odoo>

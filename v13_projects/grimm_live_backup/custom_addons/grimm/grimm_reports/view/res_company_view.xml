@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_company_report_view_inherit" model="ir.ui.view">
+            <field name="name">res_company_report_view_inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Report Configuration">
+                        <group name="report_color_theme" string="Report Color Theme">
+                            <field name="theme_color" widget="color"/>
+                        </group>
+                        <group>
+                            <group name="report_header" string="Report Header">
+                                <field name="report_logo_header" widget="html"/>
+                            </group>
+                            <group name="report_footer" string="Report Footer">
+                                <field name="col_1" widget="html"/>
+                                <field name="col_2" widget="html"/>
+                                <field name="col_3" widget="html"/>
+                                <field name="col_4" widget="html"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="company_report_label_view_inherit" model="ir.ui.view">
+            <field name="name">company_report_label_view_inherit</field>
+            <field name="model">ir.actions.report</field>
+            <field name="inherit_id" ref="base.act_report_xml_view"/>
+            <field name="arch" type="xml">
+                <field name="attachment" position="after">
+                    <field name="button_label_ids">
+                        <tree string="Report label based on company" editable="bottom">
+                            <field name="company_id"/>
+                            <field name="button_name"/>
+                        </tree>
+                        <form string="Report label based on company">
+                            <field name="company_id"/>
+                            <field name="button_name"/>
+                        </form>
+                    </field>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

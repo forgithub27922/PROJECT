@@ -1,0 +1,20 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_grimm_asset_asset_group_user,grimm_asset_asset group_user,model_grimm_asset_asset,base.group_user,1,1,1,1
+access_grimm_asset_document_user,grimm_asset_asset group_user,model_asset_document,base.group_user,1,1,1,1
+access_grimm_product_document_user,grimm_asset_asset group_user,model_product_document,base.group_user,1,1,1,1
+access_grimm_asset_tag_group_user,grimm_asset_tag group_user,model_grimm_asset_tag,base.group_user,1,1,1,1
+access_grimm_asset_category_group_user,grimm_asset_category group_user,model_grimm_asset_category,base.group_user,1,1,1,1
+access_grimm_asset_facility_group_user,grimm_asset_facility group_user,model_grimm_asset_facility,base.group_user,1,1,1,1
+access_grimm_asset_library_group_user,grimm_asset_library group_user,model_grimm_asset_library,base.group_user,1,1,1,1
+access_grimm_asset_qualification_group_user,grimm_asset_qualification group_user,model_grimm_asset_qualification,base.group_user,1,1,1,1
+access_grimm_product_brand_group_user,grimm_product_brand group_user,model_grimm_product_brand,base.group_user,1,1,1,1
+access_grimm_asset_type,access_grimm_asset_type,model_grimm_asset_type,base.group_user,1,1,1,1
+access_service_part_product,access_service_part_product,model_service_part_product,base.group_user,1,1,1,1
+access_grimm_owner_history,access_grimm_owner_history,model_grimm_owner_history,base.group_user,1,1,1,1
+access_grimm_product_category_user,product.category.user,product.model_product_category,base.group_user,1,1,0,0
+access_grimm_asset_location,access_grimm_asset_location,model_grimm_asset_location,base.group_user,1,1,1,0
+access_asset_location_value,access_asset_location_value,model_asset_location_value,base.group_user,1,1,1,0
+access_accessory_part_product,access_accessory_part_product,model_accessory_part_product,base.group_user,1,1,1,0
+access_product_connection_medium,access_product_connection_medium,model_product_connection_medium,base.group_user,1,1,1,0
+access_product_connection_unit,access_product_connection_unit,model_product_connection_unit,base.group_user,1,1,1,0
+access_grimm_document_type,grimm_document_type,model_product_document_type,,1,1,1,1

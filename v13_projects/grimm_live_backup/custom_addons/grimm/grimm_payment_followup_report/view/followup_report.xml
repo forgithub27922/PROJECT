@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data>
+<template id="account_followup.followup_filter_info_template">
+    <div t-if="context.get(&quot;mail&quot;) != True" class="print_only">
+
+   <div class="row" style="margin-top:50px;">
+      <table>
+       <tr>
+         <td>
+            <div style="margin-left:33px;font-size:11px;">
+                <span t-if="company_info.name" t-field="company_info.name"/><span t-if="company_info.street" t-field="company_info.street"/>, <span t-if="company_info.street2" t-field="company_info.street2"/><span t-if="company_info.zip" t-field="company_info.zip"/>  <span t-if="company_info.city" t-field="company_info.city"/>
+            </div>
+         </td>
+      </tr>
+      <tr>
+        <td>
+            <div class="col-xs-5 col-xs-offset-7" style="margin-left: 45px;">
+                <!--<div t-field="invoice_address_id.self" t-options="{'widget': 'contact', 'fields': ['city'], 'no_marker': 'true'}"/>-->
+                <div t-field="invoice_address_id.self" t-options='{"widget": "contact", "fields": ["name","address"], "no_marker": True}'/>
+                <span t-field="invoice_address_id.vat"/>
+            </div>
+       </td>
+      </tr>
+     </table>
+
+
+
+      </div>
+      <br/><br/><br/>
+      <table width="100%" style="margin-left:30px;">
+         <tr>
+            <td><b>Kunden-Konto : </b> <span t-field="partner.ref"/></td>
+            <td><b style="display: none;">Telefon : </b></td>
+         </tr>
+         <tr>
+            <td>
+               <!--<span t-field="partner.ref"/>-->
+            </td>
+            <td/>
+         </tr>
+         <tr>
+            <td>
+               <!--<h3><b>1.Mahnung</b></h3>-->
+               <h3><b><span t-field="partner.followup_level.name"/></b></h3>
+            </td>
+            <td align="right" style="padding-right:30px;">Datum : <span t-esc="today"/><br/>Seite:1 </td>
+         </tr>
+      </table>
+   </div>
+</template>
+
+<template id="grimm_report_header" inherit_id="web.external_layout_standard">
+    <xpath expr="//div[@t-attf-class='header o_company_#{company.id}_layout']" position="replace">
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <table style="width:100%;">
+              <tr class="info_row">
+                <td class="grimm_info" style="font-weight: 200; vertical-align:top;">
+                  <hr class="top"/>
+                  <b>
+                    <span class="regular" style="padding-top:4mm; padding-bottom:4mm;">Wichtige Hinweise</span>
+                  </b>
+                  entnehmen Sie unseren
+                  <a href=" https://www.grimm-gastrobedarf.de/agb">AGB</a>
+                  <hr class="bottom"/>
+                </td>
+                <td class="grimm_info_col2"/>
+                <td colspan="2">
+                  <table style="width:100%;">
+                    <tr>
+                      <td colspan="2">
+                        <img src='/grimm_reports/static/src/img/grimm_logo2.png' height="35"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="company_info" style="font-weight: 200;">
+                        GRIMM Gastronomiebedarf GmbH
+                        <br/>
+                        Artilleriepark 9
+                        <br/>
+                        14624 Dallgow-Döberitz
+                        <br/>
+                      </td>
+                      <td class="company_info right" style="font-weight: 200;">
+                        shop@grimm-gastrobedarf.de
+                        <br/>
+                        service@grimm-gastrobedarf.de
+                        <br/>
+                        T +49 030 / 34 50 60 8 0
+                        <br/>
+                        F +49 030 / 34 50 60 8 19
+                        <br/>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              </table>
+            <!--<div class="row">
+                <div class="col-xs-4 mb4">
+                    <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 45px;float:right;"/>
+                </div>
+
+                <div class="col-xs-8">
+                    <b><span t-if="company.name" t-field="company.name"/></b><br/><span t-if="company.street" t-field="company.street"/>, <span t-if="company.street2" t-field="company.street2"/><span t-if="company.zip" t-field="company.zip"/> <span t-if="company.city" t-field="company.city"/> ,  Tel.:+4930345060826
+                </div>
+                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+            </div>
+            <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="col-xs-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>-->
+            <!--<div class="row">
+                <div class="col-xs-6" name="company_address">
+                    <span t-field="company.partner_id"
+                        t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}'
+                        style="border-bottom: 1px solid black; display:inline-block;"/>
+                </div>
+            </div>-->
+        </div>
+    </xpath>
+    <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+        <div>
+          <table class="footer_table">
+            <tr style="border-top: 0.1em solid rgba(112,111,111,0.5); padding-bottom: 7px;">
+              <td colspan="5">
+                <!--<t t-if="doc.name">
+                  <p style="text-align: right; border: none; font-size: 0.5rem; margin-bottom: 0;">Dokumentenref.
+                    <span t-field="doc.name"/>
+                  </p>
+                </t>-->
+              </td>
+            </tr>
+            <tr>
+              <td class="footer_col1">
+                <span style="color: #009FE3; padding-bottom: 2px;">Angebote:</span>
+                <br/>
+                <img src='/grimm_reports/static/src/img/qr2.png' width="43"/>
+              </td>
+              <td class="footer_col2">
+                <span>Geschäftsführer:</span>
+                <br/>
+                <span>Dipl.-Ing. Udo Knuth, Markus Zeh</span>
+                <br/>
+                <span>Sitz der Gesellschaft: Dallgow-Döberitz</span>
+                <br/>
+                <span>Amtsgericht: Potsdam HRB 31072 P</span>
+                <br/>
+                <span>Ust.-IdNr. DE 136 780 120</span>
+                <br/>
+              </td>
+              <td class="footer_col3">
+                <span>T +49 0 30 - 34 50 60 8 0</span>
+                <br/>
+                <span>F +49 0 30 - 34 50 60 8 19</span>
+                <br/>
+                <span>shop@grimm-gastrobedarf.de</span>
+                <br/>
+                <span>service@grimm-gastrobedarf.de</span>
+                <br/>
+                <span>www.grimm-gastrobedarf.de</span>
+                <br/>
+              </td>
+              <td class="footer_col4">
+                <span>Mittelbrandenburgische Sparkasse</span>
+                <br/>
+                <span>IBAN: DE44 1605 0000 1000 8709 83</span>
+                <br/>
+                <span>BIC: WELADED1PMB</span>
+                <br/>
+              </td>
+              <td class="footer_col5">
+                <table style="width: 100%">
+                  <tr>
+                    <td>
+                      <span>&#160;</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&#160;</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>&#160;</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="footer_page">
+                      <span class="article" style="font-size: 9px;font-weight: 600;color:white;"/>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </xpath>
+</template>
+
+
+<template id="grimm_main_template" inherit_id="account_reports.main_template">
+    <!--<xpath expr="//div[@class='js_account_report_footnotes']" position="replace">
+        <div class="js_account_report_footnotes" style="margin-left:25px;margin-top:100px;">
+            <br/>
+                <b>
+                buchhaltung@grimm-gastrobedarf.de
+                </b><br/>
+                Mit freundlichen Grüßen <br/><br/>
+                Grimm Gastronomiebedarf GmbH <br/>
+                Buchhaltung
+                <hr/>
+        </div>
+    </xpath>-->
+    <xpath expr="//div[@class='o_account_reports_summary']" position="replace">
+        <div class="o_account_reports_summary" style="padding-bottom:40px; position: relative; margin-left:25px;">
+            <i class="fa fa-fw fa-pencil o_account_reports_edit_summary_pencil"/>
+            <div class="o_account_report_summary" role="alert">
+                <span t-if="report.get('summary')"><t t-esc="report['summary']" t-options="{'widget': 'text'}"/></span>
+                <input t-if="not report.get('summary')" type="text" class="o_input" name="summary" placeholder="Click to add an introductory explanation"/>
+            </div>
+        </div>
+    </xpath>
+    
+</template>
+
+<!--<template id="grimm_template_followup_report_inherit" inherit_id="account_followup.template_followup_report">Odoo13Change
+    <xpath expr="//button[@t-att-data-partner='partner.id'][2]" position="attributes">
+        <attribute name="style">display:none;</attribute>
+    </xpath>
+    <xpath expr="//button[@t-att-data-partner='partner.id']" position="after">
+        <button class="btn btn-primary grimm_send_followup_email" t-att-data-partner="partner.id">Send by email</button>
+    </xpath>
+</template>-->
+    <record id="payment_followup_report_layout" model="ir.config_parameter">
+      <field name="key">is_followup_report_landscape</field>
+      <field name="value">FALSE</field>
+    </record>
+
+    <!--<record id="grimm_res_config_settings_view_form" model="ir.ui.view">Odoo13Change
+        <field name="name">grimm.res.config.settings.view.form.inherit.account.reports</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <div id="account_followup" position="after">
+                <div class="col-md-6 o_setting_box" id="aged_receivable">
+                    <div class="o_setting_left_pane"/>
+                    <div class="o_setting_right_pane">
+                        <label string="Days Interval"/>
+                        <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."/>
+                        <div class="text-muted">
+                            Days Interval between two aged receivable column.
+                        </div>
+                        <div class="content-group mt16">
+                            Add <field name="interval_days" class="text-center oe_inline" /> days as an Interval with <field name="number_of_columns" class="text-center oe_inline" /> columns.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>-->
+</data>
+</openerp>

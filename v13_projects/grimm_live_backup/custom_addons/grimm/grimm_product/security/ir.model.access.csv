@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_return_instruction_user","return.instruction.user","model_return_instruction","base.group_user",1,1,1,1
+access_product_warranty_type,access_product_warranty_type,model_product_warranty_type,base.group_user,1,1,1,1
+access_product_attribute_set_all,access.product.attribute.set.all,model_product_attribute_set,base.group_user,1,1,1,1
+access_product_attributes_data_all,access.product.attributes.data.all,model_product_attributes_data,base.group_user,1,1,1,1

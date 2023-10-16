@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!-- Reject Vacation/Leave Request Wizard Form View -->
+        <record id="reject_vacation_leave_request_wizard_form_view" model="ir.ui.view">
+            <field name="name">reject.vacation.leave.request.wizard.form.view</field>
+            <field name="model">reject.request.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Reject Request">
+                    <group>
+                        <field name="reject_reason" required="1"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" class="btn-primary"
+                                name="action_confirm" type="object"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

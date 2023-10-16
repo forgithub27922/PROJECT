@@ -1,0 +1,2203 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_extensions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-03 10:13+0000\n"
+"PO-Revision-Date: 2021-03-03 10:13+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_extensions
+#: model:mail.template,body_html:grimm_extensions.mail_template_data_notification_email_default
+msgid ""
+"\n"
+"\n"
+"<div itemscope=\"\" itemtype=\"http://schema.org/EmailMessage\">\n"
+"    <div itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/ViewAction\">\n"
+"        % if ctx.get('button_access'):\n"
+"        <link itemprop=\"target\" href=\"${ctx['button_access']['url']}\">\n"
+"        <link itemprop=\"url\" href=\"${ctx['button_access']['url']}\">\n"
+"        % endif\n"
+"        <meta itemprop=\"name\" content=\"View ${ctx['model_name']}\">\n"
+"    </div>\n"
+"</div>\n"
+"<div summary=\"o_mail_notification\" style=\"padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%; color:#777777\">\n"
+"    <table style=\"width:600px; background:inherit; color:inherit\" cellspacing=\"0\" cellpadding=\"0\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:5px 10px 5px 5px;font-size: 30px\" width=\"270\" valign=\"center\">\n"
+"                % if ctx.get('button_access'):\n"
+"                <a href=\"${ctx['button_access']['url']}\" style=\"-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px\" class=\"o_default_snippet_text\">${ctx['button_access']['title']}</a>\n"
+"                % endif\n"
+"\n"
+"                % if ctx.get('button_follow'):\n"
+"                <a href=\"${ctx['button_follow']['url']}\" style=\"-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px\" class=\"o_default_snippet_text\">${ctx['button_follow']['title']}</a>\n"
+"\n"
+"                % elif ctx.get('button_unfollow'):\n"
+"                <a href=\"${ctx['button_unfollow']['url']}\" style=\"-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px\" class=\"o_default_snippet_text\">${ctx['button_unfollow']['title']}</a>\n"
+"                % endif\n"
+"\n"
+"                % if not ctx.get('button_access') and not ctx.get('button_follow') and not ctx.get('button_unfollow') and ctx.get('model_name'):\n"
+"                <p style=\"padding: 5px 10px; font-size: 12px;\">\n"
+"                About <strong>${ctx['model_name']}\n"
+"                % if ctx.get('record_name'):\n"
+"                : ${ctx['record_name']}\n"
+"                % endif\n"
+"                </strong>\n"
+"                </p>\n"
+"                % endif\n"
+"            </td>\n"
+"            <td style=\"padding:5px 15px 5px 10px; font-size: 12px;\" width=\"270\" valign=\"center\" align=\"right\">\n"
+"                <p>\n"
+"                </p>\n"
+"            </td>\n"
+"        </tr>\n"
+"    </tbody></table>\n"
+"</div>\n"
+"<div style=\"padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%; color:#777777\">\n"
+"    <table style=\"vertical-align:top; padding:0px; background:inherit; color:inherit\" cellspacing=\"0\" cellpadding=\"0\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"width:600px; padding:5px 10px 5px 5px;\" valign=\"top\">\n"
+"                <div>\n"
+"                    <hr style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0\" width=\"100%\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table style=\"margin: 0 auto; width:600px; background:inherit; color:inherit\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:5px 10px 5px 5px;font-size: 14px;\">\n"
+"                ${object.body | safe}\n"
+"                % if ctx.get('tracking'):\n"
+"                    <ul>\n"
+"                    % for tracking in ctx['tracking']\n"
+"                        <li>${tracking[0]} : ${tracking[1]} -&gt; ${tracking[2]}</li>\n"
+"                    % endfor\n"
+"                    </ul>\n"
+"                % endif\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"% if ctx.get('signature'):\n"
+"<div style=\"padding:0px; width:600px;margin:0 auto; background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table style=\"margin: 0 auto; width:600px; background:inherit; color:inherit\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:5px 10px 5px 5px;font-size: 14px; text-align: left;\">\n"
+"                ${ctx['signature'] | safe}\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"% endif\n"
+"              "
+msgstr ""
+"\n"
+"\n"
+"<div itemscope=\"\" itemtype=\"http://schema.org/EmailMessage\">\n"
+"    <div itemprop=\"potentialAction\" itemscope=\"\" itemtype=\"http://schema.org/ViewAction\">\n"
+"        % if ctx.get('button_access'):\n"
+"        <link itemprop=\"target\" href=\"${ctx['button_access']['url']}\">\n"
+"        <link itemprop=\"url\" href=\"${ctx['button_access']['url']}\">\n"
+"        % endif\n"
+"        <meta itemprop=\"name\" content=\"View ${ctx['model_name']}\">\n"
+"    </div>\n"
+"</div>\n"
+"<div summary=\"o_mail_notification\" style=\"padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%; color:#777777\">\n"
+"    <table style=\"width:600px; background:inherit; color:inherit\" cellspacing=\"0\" cellpadding=\"0\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:5px 10px 5px 5px;font-size: 30px\" width=\"270\" valign=\"center\">\n"
+"                % if ctx.get('button_access'):\n"
+"                <a href=\"${ctx['button_access']['url']}\" style=\"-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px\" class=\"o_default_snippet_text\">${ctx['button_access']['title']}</a>\n"
+"                % endif\n"
+"\n"
+"                % if ctx.get('button_follow'):\n"
+"                <a href=\"${ctx['button_follow']['url']}\" style=\"-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px\" class=\"o_default_snippet_text\">${ctx['button_follow']['title']}</a>\n"
+"\n"
+"                % elif ctx.get('button_unfollow'):\n"
+"                <a href=\"${ctx['button_unfollow']['url']}\" style=\"-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px\" class=\"o_default_snippet_text\">${ctx['button_unfollow']['title']}</a>\n"
+"                % endif\n"
+"\n"
+"                % if not ctx.get('button_access') and not ctx.get('button_follow') and not ctx.get('button_unfollow') and ctx.get('model_name'):\n"
+"                <p style=\"padding: 5px 10px; font-size: 12px;\">\n"
+"                About <strong>${ctx['model_name']}\n"
+"                % if ctx.get('record_name'):\n"
+"                : ${ctx['record_name']}\n"
+"                % endif\n"
+"                </strong>\n"
+"                </p>\n"
+"                % endif\n"
+"            </td>\n"
+"            <td style=\"padding:5px 15px 5px 10px; font-size: 12px;\" width=\"270\" valign=\"center\" align=\"right\">\n"
+"                <p>\n"
+"                </p>\n"
+"            </td>\n"
+"        </tr>\n"
+"    </tbody></table>\n"
+"</div>\n"
+"<div style=\"padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%; color:#777777\">\n"
+"    <table style=\"vertical-align:top; padding:0px; background:inherit; color:inherit\" cellspacing=\"0\" cellpadding=\"0\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"width:600px; padding:5px 10px 5px 5px;\" valign=\"top\">\n"
+"                <div>\n"
+"                    <hr style=\"background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0\" width=\"100%\">\n"
+"                </div>\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"<div style=\"padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table style=\"margin: 0 auto; width:600px; background:inherit; color:inherit\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:5px 10px 5px 5px;font-size: 14px;\">\n"
+"                ${object.body | safe}\n"
+"                % if ctx.get('tracking'):\n"
+"                    <ul>\n"
+"                    % for tracking in ctx['tracking']\n"
+"                        <li>${tracking[0]} : ${tracking[1]} -&gt; ${tracking[2]}</li>\n"
+"                    % endfor\n"
+"                    </ul>\n"
+"                % endif\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"% if ctx.get('signature'):\n"
+"<div style=\"padding:0px; width:600px;margin:0 auto; background: #FFFFFF repeat top /100%;color:#777777\">\n"
+"    <table style=\"margin: 0 auto; width:600px; background:inherit; color:inherit\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">\n"
+"        <tbody><tr>\n"
+"            <td style=\"padding:5px 10px 5px 5px;font-size: 14px; text-align: left;\">\n"
+"                ${ctx['signature'] | safe}\n"
+"            </td>\n"
+"        </tr></tbody>\n"
+"    </table>\n"
+"</div>\n"
+"% endif\n"
+
+#. module: grimm_extensions
+#: model:mail.template,body_html:grimm_extensions.email_template_claim_confirm
+msgid ""
+"\n"
+"              <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrter Kunde,</p>\n"
+"<p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">hiermit bestätigen wir die Erfassung Ihres Anliegens ${object.name}. </p>\n"
+"<p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Viele Grüße,</p>\n"
+"<p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Grimm Team</p>\n"
+"              "
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__mrp_repair_count
+msgid "# of Repairs"
+msgstr "# Reparaturen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__sale_order_count
+msgid "# of Sales Order"
+msgstr "# des Auftrags"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__project_task_count
+msgid "# of Tasks"
+msgstr "# Aufgaben"
+
+#. module: grimm_extensions
+#: model:mail.template,subject:grimm_extensions.email_template_claim_confirm
+msgid "${object.company_id.name} (Ref ${object.sequence or 'n/a' })"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:mail.template,subject:grimm_extensions.mail_template_data_notification_email_default
+msgid ""
+"${object.subject or (object.record_name and 'Re: %s' % object.record_name) "
+"or (object.parent_id and object.parent_id.subject and 'Re: %s' % "
+"object.parent_id.subject) or (object.parent_id and "
+"object.parent_id.record_name and 'Re: %s' % object.parent_id.record_name)}"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:account.payment.term,name:grimm_extensions.account_payment_term_14days
+msgid "14 days net"
+msgstr "14 Tage netto"
+
+#. module: grimm_extensions
+#: model:account.payment.term,note:grimm_extensions.account_payment_term_14days
+msgid "14 days net after invoice receipt"
+msgstr "14 Tage netto nach Rechnungseingang"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_product_product__description
+#: model:ir.model.fields,help:grimm_extensions.field_product_template__description
+#: model:ir.model.fields,help:grimm_extensions.field_shopware6_product_product__description
+#: model:ir.model.fields,help:grimm_extensions.field_shopware6_product_template__description
+#: model:ir.model.fields,help:grimm_extensions.field_shopware_product_template__description
+msgid ""
+"A precise description of the Product, used only for internal information "
+"purposes."
+msgstr "Die Produktbeschreibung mit allen Details für die interne Verwendung."
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__accessories
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__accessories
+msgid "Accessories"
+msgstr "Zubehör"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__is_accessory_part
+msgid "Accessory Part"
+msgstr "Zubehör"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__accessory_part_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__accessory_part_ids
+msgid "Accessory Parts"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_account_account
+msgid "Account"
+msgstr "Konto"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.act_related_invoice
+msgid "Account Invoice"
+msgstr "Konto Rechnung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__pagebreak
+msgid "Add pagebreak"
+msgstr "Fügen Sie einen Seitenumbruch hinzu"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__pagebreak_before
+msgid "Add pagebreak before"
+msgstr "Fügen Sie vorher einen Seitenumbruch hinzu"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__subtotal
+msgid "Add subtotal"
+msgstr "Zwischensumme hinzufügen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__add_to_total
+msgid "Add to total"
+msgstr "Zur Summe hinzufügen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__product_age
+msgid "Age"
+msgstr "Alter"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__agreement_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__agreement_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__agreement_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__agreement_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__agreement_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__agreement_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__agreement_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__agreement_particular
+msgid "Agreement Particulars"
+msgstr "Vereinbarung im Besonderen"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Aktionen"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid "An Invoice in state %s can not be deleted!"
+msgstr "Eine Rechnung im Status %s kann nicht gelöscht werden!"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_quotation_tree_view_inherit
+msgid "Angebotstitel"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_asset_asset_form_view_inherit
+msgid "Anschlusswerte"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__apply_sale_pricelist
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__apply_sale_pricelist
+msgid "Apply Sales price list"
+msgstr "Verkaufspreisliste anwenden"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__apply_purchase_pricelist
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__apply_purchase_pricelist
+msgid "Apply purchase price list"
+msgstr "Kaufpreisliste anwenden"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_asset_asset_search_ext
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_default_code
+msgid "Article Number"
+msgstr "Artikelnummer"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_grimm_asset_asset
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__asset_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_repair_order__asset_id
+msgid "Asset"
+msgstr "Gerätebezeichnung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_object
+msgid "Asset Facility"
+msgstr "Kontaktgruppe"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_concat_name
+msgid "Asset Name"
+msgstr "Gerätename"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__asset_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__asset_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__asset_ids
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_crm_case_claims_filter_extension
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_project_task_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_order_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_sale_contract_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_sales_order_filter_extension
+msgid "Assets"
+msgstr "Geräte"
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__sale_order__state__prepayment
+msgid "Auf Zahlung warten"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_tree_view_inherit
+msgid "Aufgaben Nr."
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_order_tree_view_inherit
+msgid "Auftragstitel"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__sale_base_price
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__sale_base_price
+msgid "Based price"
+msgstr "Basispreis"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move__beneficiary
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__beneficiary
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__beneficiary
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_account_invoice__beneficiary
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_sale_order__beneficiary
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__beneficiary
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__beneficiary
+msgid "Beneficiary"
+msgstr "Leistungsempfänger"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Beschreibung"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_acount_invoice_form_view_inherit
+msgid "Bestätigen"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__big_title
+msgid "Big Title"
+msgstr "Großer Titel"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__product_brand_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__product_brand_id
+msgid "Brand"
+msgstr "Marke"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__brand_name
+msgid "Brand Name"
+msgstr "Hersteller"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__brand_contact
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__brand_id
+msgid "Brand Partner"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.project_task_delegate_form
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_import_products
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_order_form_view_inherit
+msgid "Cancel Proforma"
+msgstr "Auftrag abbrechen"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid ""
+"Cannot create unbalanced journal entry. Ids: %s\n"
+"Differences debit - credit: %s"
+msgstr ""
+"Kann keine unausgeglichene Journalbuchung erstellen. Ids: %s\n"
+"Differenzen Soll - Haben: %s"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__freight_paid_de_mainland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__freight_paid_de_mainland
+msgid "Carriage Paid from (German Mainland)"
+msgstr "Frachtfrei ab (deutsches Festland)"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_categ_id
+msgid "Category"
+msgstr "Aufgabenkategorie"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__cat_name
+msgid "Category Name"
+msgstr "Kategoriename"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_crm_claim
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_sale_order__claim_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_stock_picking__claim_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_repair_order__claim_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__claim_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__claim_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_stock_picking__claim_id
+msgid "Claim"
+msgstr "Forderung"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_order_form_view_inherit
+msgid "Claim ID"
+msgstr "Anspruchs-ID"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_crm_case_claims_filter_extension
+msgid "Claim No."
+msgstr "Anspruchs-Nr."
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__sequence
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_sequence
+msgid "Claim Reference"
+msgstr "Aufgaben Nr."
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_crm_claim_role_partner
+msgid "Claim Role Partner"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_name
+msgid "Claim Subject"
+msgstr "Aufgaben Beschreibung"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.action_claim_history
+#: model:ir.actions.act_window,name:grimm_extensions.crm_claim_category_claim
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__crm_claim_count
+#: model:ir.ui.menu,name:grimm_extensions.menu_grimm_claims
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_picking_search_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_sales_order_filter_extension
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_task_search_form_inherit
+msgid "Claims"
+msgstr "Reklamationen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_account__code
+msgid "Code"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "E-Mail schreiben"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.purchase_order_form
+msgid "Confirmation received"
+msgstr "AB erhalten"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__connection_spec
+msgid "Connection Spec"
+msgstr "Leistung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__product_id
+msgid "Connection Type"
+msgstr "Verbindungstyp"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.product_connection_tree_view
+msgid "Connection Types"
+msgstr "Verbindungstypen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__connection_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__connection_ids
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_asset_asset_form_view_inherit
+msgid "Connections"
+msgstr "Anschlüsse"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__connection_value
+msgid "Connetion Value"
+msgstr "Anschlusswert"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_res_partner
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_address
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_contact
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__contact
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__partner_contact
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__contact
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_order_form_view_inherit
+msgid "Contract"
+msgstr "Arbeitsvertrag"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_subscription.py:0
+#, python-format
+msgid "Contract needs to be open in order to generate MRO Orders"
+msgstr ""
+"Wartungsvertrag muss aktiviert sein, um einen Wartungsauftrag anzulegen"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.action_contract_history
+msgid "Contracts"
+msgstr "Wartungsverträge"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__purchase_order_count
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__purchase_order_count
+msgid "Count of Purchase Orders"
+msgstr "Bestellungen"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_project_task_form_view_inherit
+msgid "Create Opportunity"
+msgstr "Chance erstellen"
+
+#. module: grimm_extensions
+#: model_terms:ir.actions.act_window,help:grimm_extensions.grimm_action_orders
+#: model_terms:ir.actions.act_window,help:grimm_extensions.grimm_action_quotations
+msgid "Create a new quotation, the first step of a new sale!"
+msgstr ""
+"Erstellen Sie ein neues Angebot, der erste Schritt eines neuen Verkaufs!"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim_role_partner__create_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard__create_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__create_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__create_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__create_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_warranty_type__create_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__create_uid
+msgid "Created by"
+msgstr "Angelegt von"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim_role_partner__create_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard__create_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__create_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__create_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__create_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_warranty_type__create_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_partner_new_contact_full_form
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_customer_inventory_no
+msgid "Customer Inventory No"
+msgstr "Inventarnummer Kunde"
+
+#. module: grimm_extensions
+#: model:ir.ui.menu,name:grimm_extensions.menu_grimm_partner
+msgid "Customers"
+msgstr "Kunden"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__recurring_order_next_date
+msgid "Date of Next Order"
+msgstr "Datum nächster Wartung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_sale_order__payment_date
+#: model:ir.model.fields,help:grimm_extensions.field_shopware_sale_order__payment_date
+msgid "Date on which sales order is created."
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Datumangaben"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__sale_subscription__recurring_order_rule_type__daily
+msgid "Day(s)"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_product_product__seller_ids
+#: model:ir.model.fields,help:grimm_extensions.field_product_template__seller_ids
+#: model:ir.model.fields,help:grimm_extensions.field_shopware6_product_product__seller_ids
+#: model:ir.model.fields,help:grimm_extensions.field_shopware6_product_template__seller_ids
+#: model:ir.model.fields,help:grimm_extensions.field_shopware_product_template__seller_ids
+msgid "Define vendor pricelists."
+msgstr "Lieferantenpreislisten definieren."
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.project_task_delegate_form
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_project_task_form_view_inherit
+msgid "Delegate Task"
+msgstr "Aufgabe delegieren"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.action_delegate_task
+msgid "Delegate Task Wizard"
+msgstr "Assistent für die Ticket Delegierung"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_delegate_task_wizard
+msgid "Delegate task wizard"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_delivery_partner
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__partner_delivery
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.grimm_view_partner_property_form_inherit
+msgid "Delivery"
+msgstr "Lieferung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_order_shipment__delivery_address_header
+msgid "Delivery Address Header"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__delivery_eu
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__delivery_eu
+msgid "Delivery EU"
+msgstr "Lieferung EU"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__delivery_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__delivery_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__delivery_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__delivery_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__delivery_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__delivery_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__delivery_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__delivery_particular
+msgid "Delivery Particulars"
+msgstr "Lieferung insbesondere"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__delivery_switzerland
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__delivery_switzerland
+msgid "Delivery Switzerland"
+msgstr "Lieferung Schweiz"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__picking_id
+msgid "Delivery order"
+msgstr "Lieferauftrag"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__delivery_3rd_countries
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__delivery_3rd_countries
+msgid "Delivery third countries"
+msgstr "Lieferung Drittländer"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_product__description
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__description
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_product__description
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_template__description
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_product_template__description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim_role_partner__display_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard__display_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__display_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__display_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__display_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_warranty_type__display_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_contact_email
+msgid "E-Mail"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__brand_email
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__validity_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__validity_date
+msgid "Expiration"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__parent_partner_print
+msgid "External Address"
+msgstr "Ohne Firmenname drucken !"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.grimm_view_partner_property_form_inherit
+msgid "Fees"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__fees_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__fees_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__fees_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__fees_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__fees_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__fees_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__fees_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__fees_particular
+msgid "Fees Particulars"
+msgstr "Gebühren Besonderheiten"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__data
+msgid "File"
+msgstr "Datei"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__name
+msgid "Filename"
+msgstr "Dateiname"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order_line__free_description_text
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order_line__free_description_text
+msgid "Free Text"
+msgstr "Freitext"
+
+#. module: grimm_extensions
+#: model:ir.cron,cron_name:grimm_extensions.mro_order_automatic_create_cron
+#: model:ir.cron,name:grimm_extensions.mro_order_automatic_create_cron
+msgid "Generate MRO Orders from contracts"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_grimm_product_brand
+msgid "Grimm Product Brand"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_grimm_sale_purchase_link
+msgid "Grimm sale purchase link"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_magento_address__sale_base_price
+#: model:ir.model.fields,help:grimm_extensions.field_magento_res_partner__sale_base_price
+msgid ""
+"Here you can select base price for calculation, for some product we want to "
+"calculate based on purchase price and for some product it calculated based "
+"on List price."
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim_role_partner__id
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard__id
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__id
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__id
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__id
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_warranty_type__id
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_magento_address__apply_purchase_pricelist
+#: model:ir.model.fields,help:grimm_extensions.field_magento_address__apply_sale_pricelist
+#: model:ir.model.fields,help:grimm_extensions.field_magento_res_partner__apply_purchase_pricelist
+#: model:ir.model.fields,help:grimm_extensions.field_magento_res_partner__apply_sale_pricelist
+msgid "If you activate, odoo will override the price based on below rules."
+msgstr ""
+"Wenn Sie aktivieren, überschreibt odoo den Preis basierend auf den folgenden"
+" Regeln."
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.action_import_products
+#: model:ir.ui.menu,name:grimm_extensions.menu_product_import
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_import_products
+msgid "Import Products"
+msgstr "Produktimport"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_import_products_wizard
+msgid "Import Products Wizard"
+msgstr "Produkt Importassistent"
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__import_products_wizard__import_type__import_sale
+msgid "Import Sale"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__import_products_wizard__import_type__import_service
+msgid "Import Service"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__import_type
+msgid "Import Type"
+msgstr "Importart"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_import_products
+msgid "Import from XLSX"
+msgstr "XLSX Import"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_internal_cat
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__asset_internal_cat
+msgid "Internal Category"
+msgstr "Gerätekategorie"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__default_code
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_template__default_code
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_product_template__default_code
+msgid "Internal Reference"
+msgstr "SHOP Artikelnr."
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_invoice_partner
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__partner_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__invoice_count
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__invoice_count
+msgid "Invoice Count"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/account.py:0
+#, python-format
+msgid "Invoice must be in draft state in order to validate it."
+msgstr ""
+"Die Rechnung muss sich im Entwurfs-Status befinden, um validiert werden zu "
+"können."
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move__invoice_date
+msgid "Invoice/Bill Date"
+msgstr "Rechnungsdatum"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__island_surcharges
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__island_surcharges
+msgid "Island Surcharges"
+msgstr "Gebühren Inselzuschläge"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__customer
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__customer
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__customer
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__customer
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__customer
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__customer
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__customer
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__customer
+msgid "Ist ein Kunde"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__supplier
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__supplier
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__supplier
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__supplier
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__supplier
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__supplier
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__supplier
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__supplier
+msgid "Ist ein Lieferant"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_sale_order_line__line_no_seq
+#: model:ir.model.fields,help:grimm_extensions.field_shopware_sale_order_line__line_no_seq
+msgid "It will sort line based on manual number."
+msgstr "Die Zeile wird anhand der manuellen Nummer sortiert."
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_account_move_line
+msgid "Journal Item"
+msgstr "Buchungszeile"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Kontakt"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Kontaktdaten"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move__sale_order_client_order_refs
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_account_invoice__sale_order_client_order_refs
+#: model:ir.model.fields,field_description:grimm_extensions.field_purchase_order__sale_order_client_order_refs
+msgid "Kundenreferenz"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim_role_partner____last_update
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard____last_update
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link____last_update
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard____last_update
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection____last_update
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_warranty_type____last_update
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim_role_partner__write_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard__write_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__write_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__write_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__write_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_warranty_type__write_uid
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim_role_partner__write_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard__write_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__write_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_import_products_wizard__write_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_connection__write_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_warranty_type__write_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__sale_order__state__deliverynotice
+msgid "Lieferanzeige"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move__delivery_dates
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_account_invoice__delivery_dates
+msgid "Lieferdatum"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move_line__line_no
+msgid "Line Number"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__location_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__location_ids
+msgid "Location"
+msgstr "Aufstellungsort"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_asset_asset_form_view_inherit
+msgid "Locations"
+msgstr "Lagerorte"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_sale_contract_form_view_inherit
+msgid "MRO Interval"
+msgstr "Wartungsinterval"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_grimm_mro_order
+msgid "MRO Order"
+msgstr "Wartungsauftrag"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__recurring_order_rule_type
+msgid "MRO Order Recurrency"
+msgstr "Wartungsauftrag Wiederholung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_sale_subscription__recurring_order_rule_type
+msgid "MRO Order creation automatically repeat at specified interval"
+msgstr ""
+"Wartungsauftragserzeugung erfolgt automatisch auf Basis des hinterlegten "
+"Intervals"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__previous_contracts_count
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__grimm_asset_asset__state__maintain
+msgid "Maintenance"
+msgstr "Wartung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_sale_order_line__line_no_manual
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order_line__line_no_manual
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order_line__line_no_manual
+msgid "Manual No."
+msgstr "Manuelle Nr."
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_sale_order__manual_line_number
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_sale_order_line__manual_line_number
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__manual_line_number
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order_line__manual_line_number
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__manual_line_number
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order_line__manual_line_number
+msgid "Manuel Line Number"
+msgstr "´Manuelle Positionsnummer"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__merchandise
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__merchandise
+msgid "Merchandise"
+msgstr "Handelsware"
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__grimm_asset_asset__state__general
+msgid "Miscellaneous"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/wizard/change_partners_wizard.py:0
+#, python-format
+msgid "Missing data for active model or active id"
+msgstr ""
+"Fehlender Datensatz für das aktive Dokument oder die aktive Datenbank Id"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__brand_mobile
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__partner_mobile
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_contact_mobile
+msgid "Mobile"
+msgstr "Mobil"
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__sale_subscription__recurring_order_rule_type__monthly
+msgid "Month(s)"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid "Multiple assets found for partner"
+msgstr "Mehrere Geräte wurden für den Partner gefunden"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid "Multiple facilities found for partner"
+msgstr "Mehrere Objekte wurden für den Partner gefunden"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_account__name
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__create_user
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim_role_partner__name
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__name
+msgid "Name"
+msgstr "Bezeichnung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_product__net_weight
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__net_weight
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_product__net_weight
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_template__net_weight
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_product_template__net_weight
+msgid "Net Weight"
+msgstr "Nettogewicht"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard__task_user
+msgid "Neuer Verantwortlicher"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/crm_claim.py:0
+#, python-format
+msgid "New"
+msgstr "Neu"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_sale_contract_form_view_inherit
+msgid "Next MRO Order"
+msgstr "Nächster Wartungsauftrag"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__notes
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__notes
+msgid "Notes"
+msgstr "Notizen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_sale_order_line__line_no
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order_line__line_no
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order_line__line_no
+msgid "Nr."
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.project_task_delegate_form
+msgid "OK"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__object_address
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__object_address
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__object_address
+msgid "Object Address"
+msgstr "Kontaktgruppe"
+
+#. module: grimm_extensions
+#: model_terms:ir.actions.act_window,help:grimm_extensions.grimm_action_quotations
+msgid ""
+"Once the quotation is confirmed by the customer, it becomes a sales order.\n"
+"                    <br>\n"
+"                    You will be able to create an invoice and collect the payment."
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.actions.act_window,help:grimm_extensions.grimm_action_orders
+msgid ""
+"Once the quotation is confirmed, it becomes a sales order.\n"
+"                    <br>\n"
+"                    You will be able to create an invoice and collect the payment."
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.act_task_2_opportunity
+msgid "Opportunity"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_purchase_order__oc_received_date
+msgid "Order Confirmation received Date"
+msgstr "AB-Erhalten Datum"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_purchase_order__po_date
+msgid "Order Date"
+msgstr "Auftragsdatum"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__order_subject
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__order_subject
+msgid "Order Subject"
+msgstr "Auftragstitel"
+
+#. module: grimm_extensions
+#: model:ir.ui.menu,name:grimm_extensions.service_menu_grimm_orders
+msgid "Orders"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_purchase_order_origin_filter
+msgid "Origin"
+msgstr "Herkunft"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__others
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__others
+msgid "Others"
+msgstr "Mindermengenzuschlag"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__own_customer_ref
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__own_customer_ref
+msgid "Own Customer Reference"
+msgstr "Eigene Kundennummer"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__owner
+msgid "Owner"
+msgstr "Besitzer"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__payment_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__payment_date
+msgid "Payment Date"
+msgstr "Zahlung erfolgt am"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_acount_invoice_form_view_inherit
+msgid "Payment Received"
+msgstr "Zahlung erhalten"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_account_payment
+#: model:ir.model,name:grimm_extensions.model_account_prepayment
+msgid "Payments"
+msgstr "Zahlungen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__brand_phone
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_contact_phone
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__photos
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__photos
+msgid "Photos"
+msgstr "Bilder"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_subscription.py:0
+#: code:addons/grimm_extensions/models/sale_subscription.py:0
+#, python-format
+msgid "Please enter contract end date"
+msgstr "Bitte Vertragsende angeben"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_subscription.py:0
+#, python-format
+msgid "Please enter correct end date"
+msgstr "Bitte richtiges Datum eingeben"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_subscription.py:0
+#, python-format
+msgid "Please enter next recurring order date"
+msgstr "Bitte Folgeauftragsdatum eingeben"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_stock_picking__salutation_text
+msgid "Pre-Text Delivery Note"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_purchase_order__salutation_text
+msgid "Pre-Text Price Inquiry"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__prepayment
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__prepayment
+msgid "Prepayment"
+msgstr "Vorkasse"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move__prepayment_order_state
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_account_invoice__prepayment_order_state
+msgid "Prepayment State"
+msgstr "Vorauszahlung Status"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__pricelist_status
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__pricelist_status
+msgid "Pricelist Status"
+msgstr "Stand Pricelist"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_attribute__print_attrib
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_attributes_data__print_attrib
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_property_group__print_attrib
+msgid "Print on Report"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_product_product
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__product_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__product_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__product_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__product_id
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.product_template_search_view_extension
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_product_attribute
+msgid "Product Attribute"
+msgstr "Produktattribute"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.grimm_view_partner_property_form_inherit
+msgid "Product Brand"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.product_connection_action
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.product_connection_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.product_connections_search_view
+msgid "Product Connections"
+msgstr "Anschlusswerte"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__product_info
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__product_info
+msgid "Product Info"
+msgstr "Produktdaten"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.report_configuration_tree_view_extension
+msgid "Product Postalcode"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_product_attributes_data
+msgid "Product attributes data"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_product_connection
+msgid "Product connection"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.ui.menu,name:grimm_extensions.menu_grimm_products
+msgid "Products"
+msgstr "Artikelstamm"
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__account_move__state__proforma
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__account_move__state__proforma2
+msgid "Proforma"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid "Proforma already sent! Still waiting for payment"
+msgstr "Proforma wurde versendet! Auf Zahlung wartend"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.act_related_po
+#: model:ir.model,name:grimm_extensions.model_purchase_order
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__purchase_id
+msgid "Purchase Order"
+msgstr "Beschaffungsauftrag"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Bestellposition"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__purchase_order_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__purchase_order_ids
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.grimm_view_purchase_order_count
+msgid "Purchase Orders"
+msgstr "Bestellungen"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Quellenangaben"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/crm_claim.py:0
+#: model:ir.actions.act_window,name:grimm_extensions.grimm_action_quotations
+#: model:ir.ui.menu,name:grimm_extensions.service_menu_grimm_quotations
+#, python-format
+msgid "Quotations"
+msgstr "Angebote"
+
+#. module: grimm_extensions
+#: model_terms:ir.actions.act_window,help:grimm_extensions.crm_claim_category_claim
+msgid ""
+"Record and track your customers' claims. Claims may be linked to a sales order or a lot.You can send\n"
+"                    emails\n"
+"                    with attachments and keep the full history for a claim (emails sent, intervention type and so\n"
+"                    on).Claims may\n"
+"                    automatically be linked to an email address using the mail gateway module."
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__customer_ref
+msgid "Reference"
+msgstr "Referenz"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move__origin_link
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_account_invoice__origin_link
+msgid "Referenzbeleg"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.act_crm_claim_stock_picking
+msgid "Related Picking"
+msgstr "Zugehörige Lagerbewegung"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid "Related Proforma Invoice %s was deleted"
+msgstr "Verknüpfte Proforma Rechnung %s wurde gelöscht!"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.act_crm_claim_sale_order
+msgid "Related Sales"
+msgstr "Zugehörige Verkäufe"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.act_crm_claim_rma_tasks
+msgid "Related Tasks"
+msgstr "Zugehörige Aufgaben"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__mrp_repair_id
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__grimm_asset_asset__state__repair
+msgid "Repair"
+msgstr "Reparatur"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_repair_order
+msgid "Repair Order"
+msgstr "Reparaturauftrag"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__previous_repair_count
+msgid "Repairs"
+msgstr "Reparaturen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__recurring_order_interval
+msgid "Repeat Every"
+msgstr "Alle wiederholen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_sale_subscription__recurring_order_interval
+msgid "Repeat every (Days/Week/Month/Year)"
+msgstr "Wiederholungsintervall (Tag/Woche/Monat/Jahr)"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.report_configuration_form_view_extension
+msgid "Report Configuration"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.action_sale_layout_category
+#: model:ir.ui.menu,name:grimm_extensions.sale_layout_category_menu
+msgid "Report Layout Categories"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__user_id
+msgid "Responsible"
+msgstr "Verantwortlich"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_crm_claim__team_id
+msgid ""
+"Responsible sales team. Define Responsible user and Email account for mail "
+"gateway."
+msgstr ""
+"Verantwortliches Verkaufsteam. Definieren Sie einen verantwortlichen "
+"Benutzer und ein Emailkonto für das Email-Gateway."
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__return_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__return_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__return_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__return_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__return_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__return_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__return_particular
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__return_particular
+msgid "Return Particulars"
+msgstr "Retouren Besonderheiten"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.grimm_view_partner_property_form_inherit
+msgid "Returns"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__role_partner
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Rollenpartner"
+msgstr "Rollenfunktion"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.act_related_so
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__sale_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__sale_order_id
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.purchase_order_form
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_sale_contract_form_view_inherit
+msgid "Sale Order"
+msgstr "Verkaufsauftrag"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/purchase.py:0
+#: model:ir.actions.act_window,name:grimm_extensions.action_saleorder_history
+#, python-format
+msgid "Sale Orders"
+msgstr "Aufträge"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_sale_layout_category
+msgid "Sale layout category"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid "Sale order cannot have both recurring and standard products!"
+msgstr "Auftrag kann nicht Wartungsverträge und Verkaufsprodukte enthalten!"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Sales"
+msgstr "Verkauf"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_sale_report
+msgid "Sales Analysis Report"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
+
+#. module: grimm_extensions
+#: model:ir.actions.act_window,name:grimm_extensions.grimm_action_orders
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__sale_order_count
+msgid "Sales Orders"
+msgstr "VK-Aufträge"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__team_id
+msgid "Sales Team"
+msgstr "Verkaufsteam"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_purchase_order__sale_count
+msgid "Sales count"
+msgstr "Verkäufe"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_asset_asset_search_ext
+msgid "Search Assets"
+msgstr "Suche Geräte"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move_line__layout_category_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order_line__layout_category_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order_line__layout_category_id
+msgid "Section"
+msgstr "Sektion"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_order_form_view_inherit
+msgid "Send Proforma"
+msgstr "Vorkasse senden"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_order_form_view_inherit
+msgid "Send by Email"
+msgstr "Senden"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__sent_dn_date
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__sent_dn_date
+msgid "Sent delivery notice Date"
+msgstr "Datum der Versendung von Lieferanzeige"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move_line__layout_category_sequence
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__code_seq
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__sequence
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order_line__layout_category_sequence
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order_line__layout_category_sequence
+msgid "Sequence"
+msgstr "Reihenfolge"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_attribute__print_seq
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_attributes_data__print_seq
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_property_group__print_seq
+msgid "Sequence for Report Printing"
+msgstr "Sequenz für die Berichtsausgabe"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_sale_purchase_link__serial_number
+msgid "Serial No"
+msgstr "Seriennummer"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_stock_picking__sale_purchase_links
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.grimm_stock_picking_form_view_inherit
+msgid "Serial No."
+msgstr "Seriennummer"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__asset_serial
+msgid "Serial Number"
+msgstr "Seriennummer"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_order_form_view_inherit
+msgid "Service"
+msgstr "Dienstleistung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__claim_shipping_id
+msgid "Shipping Address"
+msgstr "Lieferadresse"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/res_partner.py:0
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__sold_products
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__sold_products
+#, python-format
+msgid "Sold Products"
+msgstr "Verkaufte Produkte"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order_line__line_no_seq
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order_line__line_no_seq
+msgid "Sort"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__spare_part
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__spare_part
+msgid "Spare Part"
+msgstr "Ersatzteile"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.product_template_search_grimm_view
+msgid "Spare Parts"
+msgstr "Ersatzteile"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__features
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__features
+msgid "Special Features"
+msgstr "Besonderheiten"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_asset_asset_form_view_inherit
+msgid "Standort"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__state
+msgid "State"
+msgstr "Bundesland"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move__state
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__state
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__state
+msgid "Status"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Stock Picking"
+msgstr "Lagerbewegung"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_stock_move_line__storage_bin
+msgid "Storage Bin"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_layout_category__sub_counter
+msgid "Subcounter"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_sale_subscription
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_order__subscription_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_sale_order__subscription_id
+msgid "Subscription"
+msgstr "Aboauftrag"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_sale_subscription_line
+msgid "Subscription Line"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription__template_id
+msgid "Subscription Template"
+msgstr "Vorlage für Abonnements"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_product__supplier_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__supplier_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_product__supplier_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_template__supplier_name
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_product_template__supplier_name
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.grimm_view_partner_property_form_inherit
+msgid "Supplier"
+msgstr "Lieferant"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_product__supplier_article_numbers
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__supplier_article_numbers
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_product__supplier_article_numbers
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_template__supplier_article_numbers
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_product_template__supplier_article_numbers
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.product_template_search_view_extension
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_sales_order_filter_extension
+msgid "Supplier Article Number"
+msgstr "Lieferanten-Artikelnummer"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__supplier_folder
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__supplier_folder
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__supplier_folder
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__supplier_folder
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__supplier_folder
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__supplier_folder
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__supplier_folder
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__supplier_folder
+msgid "Supplier Folder"
+msgstr "Lieferantenordner"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_project_task
+#: model:ir.model.fields,field_description:grimm_extensions.field_crm_claim__task_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_delegate_task_wizard__task_id
+#: model:ir.model.fields,field_description:grimm_extensions.field_repair_order__task_id
+msgid "Task"
+msgstr "Aufgabe"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__name_seq
+msgid "Task Code"
+msgstr "Ticket Nr."
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/crm_claim.py:0
+#: model:ir.ui.menu,name:grimm_extensions.menu_grimm_tasks
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_order_form_inherit_sale_service_inherit
+#, python-format
+msgid "Tasks"
+msgstr "Tickets"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription_line__price_tax
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription_line__tax_id
+msgid "Taxes"
+msgstr "Steuern"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__technical_sketch
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__technical_sketch
+msgid "Technical Sketch"
+msgstr "Technische Zeichnungen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__telephone_advice_fee
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__telephone_advice_fee
+msgid "Telephone Advice Fee"
+msgstr "Gebühren telefonische Avis"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__texts
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__texts
+msgid "Texts"
+msgstr "Texte"
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid ""
+"The payment method is RatePay.\n"
+"The total waiting period is 12 hours!"
+msgstr ""
+"Die Zahlungsmethode ist RatePay-Rechnung.\n"
+"Eine Auftragsbestätigung ist frühestens 12 Stunden nach Auftragseingang möglich."
+
+#. module: grimm_extensions
+#: model:ir.model.fields,help:grimm_extensions.field_product_attribute__print_seq
+#: model:ir.model.fields,help:grimm_extensions.field_product_attributes_data__print_seq
+#: model:ir.model.fields,help:grimm_extensions.field_shopware6_property_group__print_seq
+msgid "The sequence of this line when displayed in report"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_project_task__name
+msgid "Title"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_sale_subscription_line__price_total
+msgid "Total"
+msgstr "Gesamtbetrag"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_sale_quotation_tree_view_inherit
+msgid "Total Tax not Included"
+msgstr "Gesamtbetrag"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_stock_picking
+msgid "Transfer"
+msgstr "Lieferung vornehmen"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__transport_cost_insurance
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__transport_cost_insurance
+msgid "Transport costs insurance"
+msgstr "Transportkostenversicherung"
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_product_warranty_type
+msgid "Type for Warranty"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_stock_move_line__picking_type_code
+msgid "Type of Operation"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.grimm_view_partner_property_form_inherit
+msgid "User Agreement"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_product__seller_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__seller_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_product__seller_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_product_template__seller_ids
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_product_template__seller_ids
+msgid "Vendors"
+msgstr "Lieferanten"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_grimm_crm_claim_form_view_inherit
+msgid "Vorgehen Problembehebung"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__warranty
+msgid "Warranty (months)"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__warranty_type
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_product_brand__warranty_type
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_template__warranty_type
+#: model:ir.model.fields,field_description:grimm_extensions.field_product_warranty_type__name
+msgid "Warranty Type"
+msgstr "Garantietyp"
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_grimm_asset_asset__warranty_to
+msgid "Warranty until"
+msgstr "Garantie bis"
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__sale_subscription__recurring_order_rule_type__weekly
+msgid "Week(s)"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model,name:grimm_extensions.model_mass_editing_wizard
+msgid "Wizard for mass edition"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields.selection,name:grimm_extensions.selection__sale_subscription__recurring_order_rule_type__yearly
+msgid "Year(s)"
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/account.py:0
+#: code:addons/grimm_extensions/models/account.py:0
+#: code:addons/grimm_extensions/models/purchase.py:0
+#: code:addons/grimm_extensions/models/purchase.py:0
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#: code:addons/grimm_extensions/models/sale_order.py:0
+#, python-format
+msgid ""
+"You can enter only one tax per line. Please check this product %s. \n"
+" Or contact Administrator."
+msgstr ""
+
+#. module: grimm_extensions
+#: code:addons/grimm_extensions/models/account.py:0
+#, python-format
+msgid ""
+"You cannot validate an invoice with a negative total amount. You should "
+"create a credit note instead."
+msgstr ""
+"Sie können keine Rechnung mit einem negativen Gesamtbetrag validieren. "
+"Stattdessen sollten Sie eine Gutschrift erstellen."
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_account_move__payment_dates
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_account_invoice__payment_dates
+msgid "Zahlungsdatum"
+msgstr ""
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.product_connections_search_view
+msgid "connection_medium"
+msgstr ""
+
+#. module: grimm_extensions
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_address__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_magento_res_partner__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_partner__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_res_users__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_address__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware6_res_partner__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_address__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_invoice_address__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_res_partner__min_qty_surcharge
+#: model:ir.model.fields,field_description:grimm_extensions.field_shopware_supplier__min_qty_surcharge
+msgid "minimum quantity surcharge"
+msgstr "Mindermengenzuschlag"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.project_task_delegate_form
+msgid "or"
+msgstr "oder"
+
+#. module: grimm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_extensions.view_sale_contract_form_view_inherit
+msgid "⇒ Generate MRO Order"
+msgstr "⇒ Wartungsauftrag anlegen"

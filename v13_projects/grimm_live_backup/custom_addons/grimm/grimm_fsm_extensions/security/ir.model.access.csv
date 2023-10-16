@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_project_task_parameter","Project Task Parameter","model_project_task_parameter","base.group_user",1,1,1,1
+"access_project_task_product","Project Task Product","model_project_task_product","base.group_user",1,1,1,1
+"access_bornemann_config","Bornemann Config Access rights","model_bornemann_config","base.group_user",1,1,1,1
+"access_bornemann_fleet","Bornemann Fleet Access rights","model_bornemann_fleet","base.group_user",1,1,1,1
+"access_channel_message","Channel Message Access rights","model_channel_message","base.group_user",1,1,1,1

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ebay_backend,access.ebay.backend,model_ebay_backend,sales_team.group_sale_manager,1,1,1,1
+read_access_ebay_backend,read.access.ebay.backend,model_ebay_backend,,1,0,0,0
+access_ebay_product_template,access.ebay.product.template,model_ebay_product_template,sales_team.group_sale_manager,1,1,1,1
+access_ebay_mapping,access.ebay.mapping,model_ebay_mapping,,1,1,1,1

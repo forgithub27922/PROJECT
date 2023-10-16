@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+          <menuitem name="Website"
+                  id="website.menu_website_configuration"
+                  sequence="9"
+                  groups="-base.group_user,website.group_website_publisher"
+                  web_icon="website,static/description/icon.png"/>
+
+             <function name="remove_website_group" model="hr.employee" />
+
+    </data>
+
+    <!-- Inherited view of Job Positions to website_description -->
+    <record id="view_hr_job_form_website_description_inherit" model="ir.ui.view">
+        <field name="name">hr.job.website.description.form</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='recruitment']" position="after">
+                <group colspan="4">
+                    <field name="website_description"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

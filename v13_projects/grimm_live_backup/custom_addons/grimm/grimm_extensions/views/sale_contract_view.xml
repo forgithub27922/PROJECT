@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sale_contract_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.sale.contract.form.view.inherit</field>
+            <field name="model">sale.subscription</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+            <field name="arch" type="xml">
+                <field name="date" position="replace">
+                    <field name="date"/>
+                    <label for="recurring_order_interval" string="MRO Interval"/>
+                    <div>
+                        <field name="recurring_order_interval" class="oe_inline"/>
+                        <field name="recurring_order_rule_type" class="oe_inline"/>
+                    </div>
+                    <field name="sale_order_id" invisible="1"/>
+                    <!--          <field name="mro_order_ids" invisible="1"/>-->
+                </field>
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="object_address"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="partner_invoice"/>
+                    <field name="partner_delivery"/>
+                    <field name="partner_contact"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Assets">
+                        <field name="asset_ids" domain="[('partner_owner','=',partner_id)]"/>
+                    </page>
+                </xpath>
+                <xpath expr="//button[@name='action_subscription_invoice']" position="after">
+                    <button class="oe_stat_button" string="Sale Order"
+                            icon="fa-clipboard"
+                            name="action_sale_order"
+                            type="object" attrs="{'invisible': [('sale_order_id','=',False)]}"
+                            context="{'default_object_address': object_address, 'default_partner_id': partner_id, 'default_partner_contact': partner_contact, 'default_partner_invoice':partner_invoice, 'default_partner_delivery':partner_delivery}"/>
+                    <!--<button class="oe_stat_button" string="MRO Orders"-->
+                    <!--                  icon="fa-briefcase"-->
+                    <!--                  name="action_mro_order"-->
+                    <!--                  type="object" attrs="{'invisible': [('mro_order_ids','==',[])]}"/>-->
+                </xpath>
+                <field name="pricelist_id" position="after">
+                    <label for="recurring_order_next_date" string="Next MRO Order"/>
+                    <div>
+                        <field name="recurring_order_next_date"/>
+                        <button string="&#8658; Generate MRO Order" class="oe_link" name="create_mro_orders"
+                                type="object"
+                                context="{'subscription_id': id}"/>
+                    </div>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

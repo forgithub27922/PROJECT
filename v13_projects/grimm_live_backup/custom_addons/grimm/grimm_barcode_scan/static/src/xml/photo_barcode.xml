@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<templates xml:space="preserve">
+
+    <t t-name="photo_main_menu">
+        <div class="o_stock_barcode_main_menu_container" style="background-image: url('/grimm_barcode_scan/static/src/img/grimm.jpg'); background-size: cover;">
+            <div class="o_stock_barcode_main_menu">
+                <a href="#" class="o_stock_barcode_menu d-block float-left"><i class="fa fa-chevron-left"></i></a>
+                <h1>Grimm Barcode Scanning</h1>
+                <!--<div t-if="widget.message_demo_barcodes" class="message_demo_barcodes alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true" class="fa fa-times"></span>
+                    </button>
+                    We have created a few demo data with barcodes for you to explore the features. Print the
+                    <a href="/stock_barcode/static/img/barcodes_demo.pdf" class='o_stock_barcodes_sheet' target="_blank">stock barcodes sheet</a>
+                     to check out what this module can do !
+                </div>-->
+                <img src="/grimm_barcode_scan/static/src/img/camera.png" style="width: 100%;"/>
+                <p>Scan a product barcode or SKU to mark it as Photo done.<br/>
+                    Scan a Barcode or SKU to process it.<br/></p>
+                <button class="button_photo_operations btn btn-primary btn-sm">Open Products</button>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="internal_transfer_main_menu">
+        <div class="o_stock_barcode_main_menu_container" style="background-image: url('/grimm_barcode_scan/static/src/img/grimm.jpg'); background-size: cover;">
+            <div class="o_stock_barcode_main_menu">
+                <a href="#" class="o_stock_barcode_menu d-block float-left"><i class="fa fa-chevron-left"></i></a>
+                <h1>Grimm Internal Transfer</h1>
+                <!--<div t-if="widget.message_demo_barcodes" class="message_demo_barcodes alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true" class="fa fa-times"></span>
+                    </button>
+                    We have created a few demo data with barcodes for you to explore the features. Print the
+                    <a href="/stock_barcode/static/img/barcodes_demo.pdf" class='o_stock_barcodes_sheet' target="_blank">stock barcodes sheet</a>
+                     to check out what this module can do !
+                </div>-->
+                <img src="/grimm_barcode_scan/static/src/img/transfer.png" style="width: 100%;"/>
+                <p>Scan a product barcode or SKU to see Internal Transfer which are in ready state.<br/></p>
+                <button class="button_open_operations btn btn-primary btn-sm">Open Operations</button>
+            </div>
+        </div>
+    </t>
+
+    <t t-extend="main_menu">
+        <t t-jquery=".row" t-operation="before">
+            <a href="/grimm_barcode_scan/static/src/img/barcodes_actions.pdf" target="_blank" aria-label="Download" title="Download">commands for Inventory</a>.
+        </t>
+    </t>
+
+</templates>

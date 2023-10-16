@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="grimm_shopware_product_template_form_view" model="ir.ui.view">
+            <field name="name">product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="is_device"/>
+                    <field name="manufacture_code"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="shopware_delivery_carrier_inherit" model="ir.ui.view">
+            <field name="name">delivery.carrier.form</field>
+            <field name="model">delivery.carrier</field>
+            <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Shopware" name="shopware">
+                        <group name="shopware_delivery">
+                            <field name="shopware_id"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_inherit_shopware_connector_product_view" model="ir.ui.view">
+            <field name="name">grimm.inherit.product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="shopware_connector.shopware_product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@colspan='2']" position="after">
+                    <group>
+                        <group string="Shopware VPE">
+                            <field name="shopware_package_content"/>
+                            <field name="shopware_basic_unit"/>
+                            <field name="shopware_packaging_unit"
+                                   attrs="{'required': [('shopware_package_content', '>', 1), ('shopware_basic_unit', '>', 1)]}"/>
+                        </group>
+                        <group string="Spareparts Options">
+                            <field name="spare_part_option" widget="radio" options="{'horizontal': true}"/>
+                            <field name="genuine"/>
+                        </group>
+                    </group>
+                </xpath>
+
+                <xpath expr="//field[@name='shopware_image_ids']/tree/field[@name='file_url']" position="after">
+                    <field name="record_inserted"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="shopware_product_brand_form_view_inherit" model="ir.ui.view">
+            <field name="name">hopware.product.brand.form.view.inherit</field>
+            <field name="model">grimm.product.brand</field>
+            <field name="inherit_id" ref="asset_base.grimm_product_brand_form_view"/>
+            <field name="arch" type="xml">
+                <page name="associated_products" position="after">
+                    <page name="shopware_mappings" string="Shopware mappings">
+                        <field name="shopware_brand_ids" readonly="1" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="backend_id"/>
+                                <field name="shopware_id"/>
+                            </tree>
+                        </field>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="grimm_shopware_product_image_inherit" model="ir.ui.view">
+            <field name="name">hopware.product.image.form.view.inherit</field>
+            <field name="model">odoo.product.image</field>
+            <field name="inherit_id" ref="shopware_connector.view_odoo_product_image_form"/>
+            <field name="arch" type="xml">
+                <field name="image" position="after">
+                    <field name="magento_image_id" invisible="1"/>
+                    <field name="magento_image" widget='image' attrs="{'invisible': [('magento_image_id', '=', False)]}" readonly="1"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Enhance iew for accessory parts -->
+        <record id="connector_accessory_part_view_inherit" model="ir.ui.view">
+            <field name="name">Accessory Part</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="asset_base.view_grimm_product_template_form_view_inherit"/>
+            <field name="arch" type="xml">
+                <!--<page name="accessory_parts" position="replace">
+                    <page name="accessory_parts" string="Accessory Parts">
+                        <field name="accessory_part_ids" context="{'default_product_id': active_id}">
+                            <tree editable="top">
+                                <field name="accessory_part_id"/>
+                                <field name="connect_shopware" attrs="{'readonly': [('ptmpl_connect_shopware', '=', False)]}"/>
+                                <field name="connect_magento" attrs="{'readonly': [('ptmpl_connect_magento', '=', True)]}"/>
+                                <field name="ptmpl_connect_magento" invisible="1"/>
+                                <field name="ptmpl_connect_shopware" invisible="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                </page>-->
+                <!--<field name="accessory_part_ids" position="after">
+                    <group>
+                        <field name="shopware_accessory_ids" domain="[('status_on_shopware', '=', True)]">
+                            <kanban>
+                                <field name="id"/>
+                                <field name="image_small"/>
+                                <field name="lst_price"/>
+                                <field name="product_variant_count"/>
+                                <field name="currency_id"/>
+                                <templates>
+                                    <t t-name="kanban-box">
+                                        <div class="oe_kanban_global_click">
+                                            <a t-if="!read_only_mode" type="delete" class="fa fa-times pull-right"/>
+                                            <div class="o_kanban_image">
+                                                <img t-att-src="kanban_image('product.template', 'image_small', record.id.raw_value)"/>
+                                            </div>
+                                            <div class="oe_kanban_details">
+                                                <strong class="o_kanban_record_title">
+                                                    <field name="name"/>
+                                                    <small t-if="record.default_code.value">[<field
+                                                            name="default_code"/>]
+                                                    </small>
+                                                </strong>
+                                                <div t-if="record.product_variant_count.value &gt; 1"
+                                                     groups="product.group_product_variant">
+                                                    <strong>
+                                                        <t t-esc="record.product_variant_count.value"/>
+                                                        Variants
+                                                    </strong>
+                                                </div>
+                                                <div name="tags"/>
+                                                <ul>
+                                                    <li>Price:
+                                                        <field name="lst_price" widget="monetary"
+                                                               options="{'currency_field': 'currency_id', 'field_digits': True}"/>
+                                                    </li>
+                                                </ul>
+                                                <div name="tags"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </templates>
+                            </kanban>
+                        </field>
+                    </group>
+                </field>-->
+                <field name="spare_part_ids" position="replace">
+                    <!--<field name="spare_part_ids" mode="tree" domain="[('status_on_shopware', '=', True)]">-->
+                    <field name="spare_part_prod_ids" context="{'default_product_id': active_id}">
+                        <tree editable="top">
+                            <field name="product_id" invisible="1"/>
+                            <field name="spare_part_id" required="1" domain="[('is_spare_part','=',True)]"/>
+                            <field name="connect_shopware"/>
+                            <field name="connect_magento"/>
+                            <field name="position"/>
+                        </tree>
+                    </field>
+
+                    <!--<field name="spare_part_ids" mode="tree">--> <!--Removed domain as suggestion from Marco -->
+                    <!--<tree>
+                            <field name="default_code"/>
+                            <field name="barcode"/>
+                            <field name="ean_number"/>
+                            <field name="name"/>
+                            <field name="supplier_article_numbers"/>
+                            <field name="type"/>
+                        </tree>
+                    </field>-->
+                    <!--<field name="spare_part_ids" mode="kanban" domain="[('status_on_shopware', '=', True)]">
+                        <kanban>
+                            <field name="id"/>
+                            <field name="image_small"/>
+                            <field name="lst_price"/>
+                            <field name="product_variant_count"/>
+                            <field name="currency_id"/>
+                            <templates>
+                                <t t-name="kanban-box">
+                                    <div class="oe_kanban_global_click">
+                                        <a t-if="!read_only_mode" type="delete" class="fa fa-times pull-right"/>
+                                        <div class="o_kanban_image">
+                                            <img t-att-src="kanban_image('product.template', 'image_small', record.id.raw_value)"/>
+                                        </div>
+                                        <div class="oe_kanban_details">
+                                            <strong class="o_kanban_record_title">
+                                                <field name="name"/>
+                                                <small t-if="record.default_code.value">[<field name="default_code"/>]</small>
+                                            </strong>
+                                            <div t-if="record.product_variant_count.value &gt; 1" groups="product.group_product_variant">
+                                                <strong>
+                                                    <t t-esc="record.product_variant_count.value"/> Variants
+                                                </strong>
+                                            </div>
+                                            <div name="tags"/>
+                                            <ul>
+                                                <li>Price: <field name="lst_price" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}"/></li>
+                                            </ul>
+                                            <div name="tags"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                    </field>-->
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,1 @@
+BYERPROTECT_TYPE = 'buyerprotect'

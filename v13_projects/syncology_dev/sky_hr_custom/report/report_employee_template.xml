@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Template being called from the report -->
+    <template id="report_employee">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="emp">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 class="text-center">
+                            <span>Employee Report</span>
+                        </h1>
+                        <table class="table">
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <img t-if="emp.image_1920" t-att-src="image_data_uri(emp.image_1920)"
+                                         style="max-height:45pt;max-width:90%   " alt="Employee Image"
+                                         align="right"/>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>
+                                    <h5>First Name :</h5>
+                                </th>
+
+                                <th>
+                                        <h5>Second Name :</h5>
+                                </th>
+
+                                <th>
+                                        <h5>Third Name :</h5>
+                                </th>
+
+                                <th>
+                                        <h5>Fourth Name :</h5>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.name"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.middle_name"/>
+                                    </h5>
+                                </td>
+                                 <td style="border: 1px solid white">
+                                     <h5>
+                                        <span t-field="emp.last_name"/>
+                                     </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.fourth_name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                        </table>
+
+                            <table class="table">
+                            <tr>
+                                <th>
+                                    <h5>First Name (Arabic):</h5>
+                                </th>
+                                <th>
+                                    <h5>Second Name (Arabic):</h5>
+                                </th>
+                                <th>
+                                    <h5>Third Name (Arabic):</h5>
+                                </th>
+                                <th>
+                                        <h5>Fourth Name (Arabic):</h5>
+                                </th>
+                            </tr>
+                            <td style="border: 1px solid white">
+                                <h5>
+                                    <span t-field="emp.first_name_arabic"/>
+                                </h5>
+                            </td>
+                            <td style="border: 1px solid white">
+                                <h5>
+                                    <span t-field="emp.middle_name_arabic"/>
+                                </h5>
+                            </td>
+                            <td style="border: 1px solid white">
+                                <h5>
+                                    <span t-field="emp.last_name_arabic"/>
+                                </h5>
+                            </td>
+                            <td style="border: 1px solid white">
+                                <h5>
+                                    <span t-field="emp.fourth_name_arabic"/>
+                                </h5>
+                            </td>
+                        </table>
+                        <hr/>
+                        <table class="table">
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Leave Days:
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+
+                                    <h5>
+                                        <span t-field="emp.total_leave"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Leave Balance:
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.leave_balance"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Vacation Days:
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+
+                                    <h5>
+                                        <span t-field="emp.total_vacation"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Vacation Balance
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.vacation_balance"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                        </table>
+                        <hr/>
+                        <table class="table">
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>Work Mobile:</h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.mobile_phone"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>Department:</h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.department_id.name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>Work Phone:</h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.work_phone"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>Job Position:</h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.job_id.name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>Work Email:</h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.work_email"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>Manager:</h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.parent_id.name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>Work Location:</h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.work_location"/>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>Company:</h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.company_id.name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+
+                <!-- Work Information page -->
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 class="text-center">
+                            Work Information
+                        </h1>
+                        <hr/>
+                        <table class="table">
+                            <tr>
+                                <td colspan="2" style="border: 1px solid white">
+                                    <h3>Schedule</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Work Hours:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.resource_calendar_id.name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Timezone:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.tz"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <!-- <tr>
+                                <td colspan="2" style="border: 1px solid white">
+                                    <h3>Salary Information</h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Salary:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.salary"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Annual Bonus:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.annual_bonus"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Starting Date:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.starting_date"/>
+                                    </h5>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Salary Schedule:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.salary_schedule"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <b>Next Salary Date:</b>
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.next_salary_date"/>
+                                    </h5>
+                                </td>
+                            </tr> -->
+                        </table>
+                    </div>
+                </t>
+
+                <!-- Private Information page -->
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 class="text-center">
+                            Private Information
+                        </h1>
+                        <hr/>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Address:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.address_rec"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>Nationality (Country):</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.country_id.name"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Phone Number:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.phone_number"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>Passport No:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.passport_id"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Religion:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.religion"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>Date of Birth:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.birthday"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Marital Status:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.marital_status"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>National ID:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.national_id"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Military Status:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.military_status"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>Place of Birth:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.birth_place"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>General Service Status:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.general_service_status"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>Gender:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.gender_rec"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Bank Account Number:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.bank_account_id.acc_number"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>City:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.city_id.name"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+
+                <!-- Family Information page -->
+                <t t-if="emp.marital_status == 'married'">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <h1 class="text-center">
+                                Family Information
+                            </h1>
+                            <hr/>
+                            <table class="table">
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Spouse Complete Name:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.spouse_complete_name"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>Partner National ID:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.spouse_national_id"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Partner Academic Qualification:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.spouse_academic_qualification"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>Spouse Birthdate:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.spouse_birthdate"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Partner Place of Birth:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.spouse_place_of_birth.name"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>Partner Employment:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.spouse_employment"/>
+                                        </h5>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid white">
+                                        <h5>Partner Employment Location:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <span t-field="emp.spouse_employment_location"/>
+                                        </h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>With Children?:</h5>
+                                    </td>
+                                    <td style="border: 1px solid white">
+                                        <h5>
+                                            <t t-if="emp.spouse_with_children">
+                                                <span>True</span>
+                                            </t>
+                                            <t t-else="">
+                                                <span>False</span>
+                                            </t>
+                                        </h5>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+
+
+                <!-- Qualification and Experience page -->
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1 class="text-center">
+                            Education
+                        </h1>
+                        <br/>
+                        <table class="table">
+                            <thead>
+                                <th>
+                                    <h5>Name</h5>
+                                </th>
+                                <th>
+                                    <h5>Institute</h5>
+                                </th>
+                                <th>
+                                    <h5>Start Date</h5>
+                                </th>
+                                <th>
+                                    <h5>End Date</h5>
+                                </th>
+                                <th>
+                                    <h5>Final Grade</h5>
+                                </th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="emp.education_ids" t-as="edu_rec">
+                                    <tr>
+                                        <td>
+                                            <h5>
+                                                <span t-field="edu_rec.name"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="edu_rec.institute"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="edu_rec.start_date"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="edu_rec.end_date"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="edu_rec.final_grade"/>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <br/>
+                        <h1 class="text-center">
+                            Training
+                        </h1>
+                        <table class="table">
+                            <thead>
+                                <th>
+                                    <h5>Training</h5>
+                                </th>
+                                <th>
+                                    <h5>Institute</h5>
+                                </th>
+                                <th>
+                                    <h5>Start Date</h5>
+                                </th>
+                                <th>
+                                    <h5>End Date</h5>
+                                </th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="emp.training_ids" t-as="training_rec">
+                                    <tr>
+                                        <td>
+                                            <h5>
+                                                <span t-field="training_rec.name"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="training_rec.institute_name"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="training_rec.start_date"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="training_rec.end_date"/>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                        <br/>
+                        <h1 class="text-center">
+                            Experience
+                        </h1>
+                        <table class="table">
+                            <thead>
+                                <th>
+                                    <h5>Employer Name</h5>
+                                </th>
+                                <th>
+                                    <h5>Position</h5>
+                                </th>
+                                <th>
+                                    <h5>Start Date</h5>
+                                </th>
+                                <th>
+                                    <h5>End Date</h5>
+                                </th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="emp.experience_ids" t-as="exp_rec">
+                                    <tr>
+                                        <td>
+                                            <h5>
+                                                <span t-field="exp_rec.name"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="exp_rec.job_id.name"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="exp_rec.start_date"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="exp_rec.end_date"/>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </t>
+
+                <!-- Subordinates page -->
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br/>
+                        <h1 class="text-center">
+                            Subordinates
+                        </h1>
+                        <br/>
+                        <table class="table">
+                            <thead>
+                                <th>
+                                    <h5>Employee Name(Arabic)</h5>
+                                </th>
+                                <th>
+                                    <h5>Employee Name</h5>
+                                </th>
+                                <th>
+                                    <h5>Job Position</h5>
+                                </th>
+                                <th>
+                                    <h5>Department</h5>
+                                </th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="emp.child_ids" t-as="sub_rec">
+                                    <tr>
+                                        <td>
+                                            <h5>
+                                                <span t-field="sub_rec.fourth_name_arabic"/>
+                                                <span t-field="sub_rec.last_name_arabic"/>
+                                                <span t-field="sub_rec.middle_name_arabic"/>
+                                                <span t-field="sub_rec.first_name_arabic"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="sub_rec.name"/>
+                                                <span t-field="sub_rec.middle_name"/>
+                                                <span t-field="sub_rec.last_name"/>
+                                                <span t-field="sub_rec.fourth_name"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="sub_rec.job_id.name"/>
+                                            </h5>
+                                        </td>
+                                        <td>
+                                            <h5>
+                                                <span t-field="sub_rec.department_id.name"/>
+                                            </h5>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+
+
+                <!-- Insurance Information page -->
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br/>
+                        <h1 class="text-center">
+                            Insurance Information
+                        </h1>
+                        <br/>
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <h5>
+                                        Contract Type:
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <span t-field="emp.contract_type_id.name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h3>
+                                        Social Security
+                                    </h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>
+                                        Social Security Number:
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <span t-field="emp.social_security_number"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Date of Social Security
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.social_security_date"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>
+                                        Reason for No Insurance
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <span t-field="emp.reason_no_insurance"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h3>
+                                        Health Insurance
+                                    </h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>
+                                        Medical Check Done?
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <t t-if="emp.medical_check_done">
+                                            <span>True</span>
+                                        </t>
+                                        <t t-else="">
+                                            <span>False</span>
+                                        </t>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Health Insurance Card Number
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.health_insurance_card_number"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>
+                                        Date of Release:
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <span t-field="emp.release_date"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h3>
+                                        Labour Office
+                                    </h3>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h5>
+                                        Contracting Job:
+                                    </h5>
+                                </td>
+                                <td>
+                                    <h5>
+                                        <span t-field="emp.contract_job_id.name"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Contract Date:
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.contract_date"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Date of Work Certificate
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.date_work_certi"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        Incoming Number
+                                    </h5>
+                                </td>
+                                <td style="border: 1px solid white">
+                                    <h5>
+                                        <span t-field="emp.incoming_no"/>
+                                    </h5>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+
+            </t>
+        </t>
+    </template>
+</odoo>

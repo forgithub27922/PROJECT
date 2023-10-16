@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="act_related_invoice" model="ir.actions.act_window">
+            <field name="name">Account Invoice</field>
+            <field name="res_model">account.move.line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_partner_id': active_id}</field>
+            <field name="view_id" ref="account.view_move_line_tree"/>
+        </record>
+
+        <record id="view_partner_new_contact_full_form" model="ir.ui.view">
+            <field name="name">grimm_view_partner_new_contact_full_form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <!-- Change the view by adding a new contact person from short view to full view-->
+                <xpath expr="//notebook[@colspan='4']//form" position="replace">
+                </xpath>
+                <field name="website" position="after">
+                    <field name="parent_partner_print" attrs="{'invisible': [('parent_id', '=', False)]}"/>
+                </field>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="get_related_products"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-usd"
+                            groups="base.group_user">
+                        <field name="sold_products" widget="statinfo"/>
+                    </button>
+                </xpath>
+                <xpath expr="//group[@name='sale']" position="inside">
+                    <field name="property_payment_term_id" widget="selection"/>
+                    <field name="customer_payment_mode_id" widget="selection"/>
+                    <field name="trust" groups="base.group_no_one"/>
+                </xpath>
+                <xpath expr="//group[@name='purchase']" position="inside">
+                    <!--<field name="own_customer_ref"/>-->
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <page name="sales_purchases" position="attributes">
+                    <attribute name="string">Customer</attribute>
+                    <attribute name="attrs">{'invisible':[('customer', '=', False)]}</attribute>
+                </page> <!-- odoo13change -->
+                <!--<xpath expr="//group[@name='sale']/field[@name='customer']" position="replace"></xpath>--> <!-- odoo13change -->
+                <field name="category_id" position="after">
+                    <field name="customer"/>
+                    <field name="supplier"/>
+                </field>
+            </field>
+        </record>
+
+
+        <record id="view_res_partner_grimm_filter" model="ir.ui.view">
+            <field name="name">res.partner.grimm.select</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <separator/>
+                    <field name="city"/>
+                    <field name="street"/>
+                    <field name="zip"/>
+                    <field name="own_customer_ref"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_view_partner_property_form_inherit" model="ir.ui.view">
+            <field name="name">res.partner.grimm.inherit.property</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <field name="property_account_receivable_id" position="attributes">
+                    <attribute name="options">{'create': False, 'create_edit': False, 'limit': 10,'no_open': True}
+                    </attribute>
+                </field>
+                <field name="property_account_payable_id" position="attributes">
+                    <attribute name="options">{'create': False, 'create_edit': False, 'limit': 10,'no_open': True}
+                    </attribute>
+                </field>
+                <page name="accounting" position="attributes">
+                    <attribute name="string">Supplier</attribute>
+                    <attribute name="attrs">{'invisible':[('supplier', '=', False)]}</attribute>
+                </page> <!-- odoo13change -->
+
+                <!--<group name="acc_sale" position="replace"></group>
+                <group name="acc_purchase" position="inside">
+                  <field name="property_supplier_payment_term_id" widget="selection"/>
+                  <field name="currency_id" invisible="1"/>
+                </group>--> <!-- odoo13change -->
+
+                <group name="accounting_entries" position="after">
+                    <group name="returns" string="Returns">
+                        <field name="merchandise"/>
+                        <field name="accessories"/>
+                        <field name="spare_part"/>
+                        <field name="return_particular"/>
+                    </group>
+
+                    <group name="partner_delivery" string="Delivery">
+                        <group>
+                            <field name="freight_paid_de_mainland"/>
+                        </group>
+                        <group>
+                            <field name="delivery_eu"/>
+                            <field name="delivery_switzerland"/>
+                            <field name="delivery_3rd_countries"/>
+                        </group>
+                        <group>
+                            <field name="transport_cost_insurance"/>
+                            <field name="min_qty_surcharge"/>
+                            <field name="features"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="delivery_particular"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <group name="pricelist_contacts" colspan="4">
+                            <field name="next_price_update" widget="date"/>
+                            <field name="pricelist_status" widget="date"/>
+                            <!--<field name="own_customer_ref" attrs="{'readonly': [('supplier','=', False)]}"/>--> <!-- odoo13change -->
+                            <field name="own_customer_ref"/>
+                            <field name="property_product_pricelist" groups="product.group_sale_pricelist"/>
+                            <field name="property_purchase_currency_id" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+
+                        <group name="partner_fees" string="Fees" colspan="4">
+                            <field name="telephone_advice_fee"/>
+                            <field name="island_surcharges"/>
+                            <field name="others"/>
+                            <field name="fees_particular"/>
+                        </group>
+                    </group>
+
+                    <group name="user_agreement" string="User Agreement">
+                        <group>
+                            <field name="product_info"/>
+                            <field name="technical_sketch"/>
+                        </group>
+                        <group>
+                            <field name="photos"/>
+                            <field name="texts"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="agreement_particular"/>
+                        </group>
+                    </group>
+                </group>
+                <group name="accounting_entries" position="after">
+                    <group name="product_brand" string="Product Brand">
+                        <field name="product_brand_id" widget="many2many_tags"/>
+                        <field name="supplier_folder" widget="url"/>
+                    </group>
+                </group>
+                <xpath expr="//group[@name='accounting_entries']/field[@name='property_account_receivable_id']"
+                       position="replace"/>
+                <field name="industry_id" position="after">
+                    <field name="property_account_receivable_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_partner_tree" model="ir.ui.view">
+            <field name="name">res.partner.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="display_name" position="before">
+                    <field name="ref"/>
+                    <field name="own_customer_ref"/>
+                </field>
+                <field name="phone" position="after">
+                    <field name="mobile"/>
+                </field>
+                <field name="email" position="after">
+                    <field name="street"/>
+                    <field name="zip"/>
+                    <field name="city"/>
+                    <field name="create_date"/>
+                </field>
+                <field name="country_id" position="after">
+                    <field name="total_invoiced" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                </field>
+            </field>
+        </record>
+
+
+        <!--<record id="mail.action_contacts" model="ir.actions.act_window">
+            <field name="name">Contact Action Odoo13Change</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <record id="mail.action_contacts_view_tree" model="ir.actions.act_window.view">
+            <field eval="0" name="sequence"/>
+            <field name="view_mode">tree</field>
+        </record>
+        <record id="mail.action_contacts_view_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">form</field>
+        </record>
+        <record id="mail.action_contacts_view_kanban" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">kanban</field>
+        </record>-->
+    </data>
+</odoo>

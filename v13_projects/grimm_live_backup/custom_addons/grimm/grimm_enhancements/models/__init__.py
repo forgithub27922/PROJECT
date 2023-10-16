@@ -1,0 +1,1 @@
+from . import account, publisher_warranty_contract, res_partner

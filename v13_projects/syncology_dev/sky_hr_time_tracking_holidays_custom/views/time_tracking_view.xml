@@ -1,0 +1,30 @@
+<odoo>
+
+    <!-- Form view of Time Tracking Line-->
+    <record id="view_time_tracking_line_form" model="ir.ui.view">
+        <field name="name">view.time.tracking.line.form</field>
+        <field name="model">time.tracking.line</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_tracking_line_form"/>
+        <field name="arch" type="xml">
+            <field name="exception_hours" position="after">
+                <br/>
+                <field name="approved_leave_start_time" widget="float_time" readonly="1"/>
+                <field name="approved_leave_end_time" widget="float_time" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- Tree view of Time Tracking Line-->
+<!--    <record id="view_time_tracking_line_tree" model="ir.ui.view">-->
+<!--        <field name="name">view.time.tracking.line.tree</field>-->
+<!--        <field name="model">time.tracking.line</field>-->
+<!--        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_tracking_line_tree"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <field name="date" position="after">-->
+<!--                <field name="approved_leave_start_time" widget="float_time"/>-->
+<!--                <field name="approved_leave_end_time" widget="float_time"/>-->
+<!--            </field>-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>

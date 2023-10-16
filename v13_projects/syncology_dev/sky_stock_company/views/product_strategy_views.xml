@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+     <record id="inherit_stock_putaway_list" model="ir.ui.view">
+        <field name="name">inherit.stock.putaway.rule.tree</field>
+        <field name="model">stock.putaway.rule</field>
+        <field name="inherit_id" ref="stock.stock_putaway_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

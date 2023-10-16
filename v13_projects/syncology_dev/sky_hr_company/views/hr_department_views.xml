@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="inherit_view_department_form" model="ir.ui.view">
+        <field name="name">inherit.hr.department.form</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_view_department_tree" model="ir.ui.view">
+        <field name="name">inherit.hr.department.tree</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_hr_department_view_kanban" model="ir.ui.view">
+        <field name="name">inherit.hr.department.kanban</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.hr_department_view_kanban"/>
+        <field name="arch" type="xml">
+            <xpath expr="//kanban/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

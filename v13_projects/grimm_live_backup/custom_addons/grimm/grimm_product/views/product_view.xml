@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+  <data>
+
+    <!-- product template form view -->
+    <record model="ir.ui.view" id="product_template_grimm_form">
+      <field name="name">product.template.grimm.form</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='sales']" position="inside">
+          <group name="warranty" string="Warranty">
+            <group>
+              <field name="warranty_type"/>
+            </group>
+            <group>
+              <field name="warranty"/>
+            </group>
+          </group>
+        </xpath>
+
+        <!-- magento has_variants -->
+        <field name="type" position="before">
+          <field name="id" invisible="1"/>
+        </field>
+        <div name="options" position="inside">
+          <div attrs="{'readonly':[('id','>',0)]}">
+            <field name="has_variants"/>
+            <label for="has_variants"/>
+          </div>
+        </div>
+
+        <!-- attribute set -->
+        <field name="name" position="after">
+          <br/>
+          <field name="attribute_set_id" placeholder="Attribute set"/>
+          <separator/>
+        </field>
+
+        <!-- attribute search by attribute_set -->
+        <field name="attribute_id" position="attributes">
+          <attribute name="context">{'search_from_attr_set':parent.attribute_set_id, 'variant_only':True}</attribute>
+          <attribute name="options">{'create_edit':False}</attribute>
+        </field>
+
+        <!-- Additional Attributes -->
+        <!--<xpath expr="//page[@name='general_information']" position="inside">-->
+
+          <!--<group name="attribute_data">-->
+            <!--<field name="attribute_data_ids" nolabel="1" context="{'show_attribute':False}">-->
+              <!--<tree editable="bottom">-->
+                <!--<field name="attr_id" context="{'search_from_attr_set':parent.attribute_set_id, 'variant_only':False}"-->
+                       <!--options="{'create_edit':False}"/>-->
+                <!--<field name="value_id" domain="[('attribute_id','=',attr_id)]"/>-->
+              <!--</tree>-->
+            <!--</field>-->
+          <!--</group>-->
+        <!--</xpath>-->
+
+      </field>
+    </record>
+
+
+    <!-- product template tree view -->
+    <record model="ir.ui.view" id="product_template_grimm_tree">
+      <field name="name">product.template.grimm.tree</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_tree_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+          <field name="seller_ids" widget="many2many_tags"/>
+          <field name="supplier_article_numbers"/>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

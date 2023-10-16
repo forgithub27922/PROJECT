@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Inherited Form view of Hr Employee -->
+    <record id="hr_employee_inherit_form_view" model="ir.ui.view">
+        <field name="name">hr.employee.inherit.form.view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="sky_hr_attendance_custom.view_emp_form_att_inherit"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/div[@name='button_box2']" position="inside">
+                <button name="%(sky_hr_payroll_custom.hr_addition_action)d"
+                        class="oe_stat_button"
+                        type="action"
+                        icon="fa-star"
+                        context="{'search_default_employee_id': active_id}">
+                    <div class=" o_field_widget o_stat_info">
+                        <span class="o_stat_text">
+                            Additions
+                        </span>
+                    </div>
+                </button>
+                <button name="%(sky_hr_payroll_custom.hr_penalty_action)d"
+                        class="oe_stat_button"
+                        type="action"
+                        icon="fa-exclamation-triangle"
+                        context="{'search_default_employee_id': active_id}">
+                    <div class=" o_field_widget o_stat_info">
+                        <span class="o_stat_text">
+                            Penalties
+                        </span>
+                    </div>
+                </button>
+                <button name="%(sky_hr_payroll_custom.hr_employee_salary_new_action)d"
+                        class="oe_stat_button"
+                        type="action"
+                        icon="fa-gbp"
+                        context="{'search_default_employee_id': active_id}">
+                    <div class=" o_field_widget o_stat_info">
+                        <span class="o_stat_text">
+                            Salaries
+                        </span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Add Hourly Rate field on Employee -->
+    <record id="view_emp_form_hourly_rate_inherit" model="ir.ui.view">
+        <field name="name">view.emp.form.hourly.rate.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="sky_hr_custom.hr_employee_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='gr_salary']/field[@name='starting_date']" position="after">
+                <field name="addition_rate"/>
+                <field name="penalty_rate"/>
+                <field name="salary_schedule" required="1"/>
+                <field name="next_salary_date" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

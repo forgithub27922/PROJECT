@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="view_sales_channel_form" model="ir.ui.view">
+            <field name="name">sales.channel.form</field>
+            <field name="model">sales.channel</field>
+            <field name="arch" type="xml">
+                <form string="Shopware Sales Channel">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline" />
+                        </h1>
+                        <group name="sales_channel_details">
+                            <notebook>
+                                <page name="api" string="Shop Details">
+                                    <group colspan="4" col="4">
+                                        <field name="shopware6_id" readonly="1"/>
+                                        <!-- <field name="secure" colspan="4"/> -->
+                                        <field name="no_sales_order_sync" colspan="4"/>
+                                        <field name="import_orders_from_date" colspan="2"/>
+                                        <button name="import_sale_orders"
+                                            type="object"
+                                            class="oe_highlight"
+                                            string="Import Shop Orders" attrs="{'invisible': [('no_sales_order_sync', '=', True)]}"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_sales_channel_tree" model="ir.ui.view">
+            <field name="name">sales.channel.tree</field>
+            <field name="model">sales.channel</field>
+            <field name="arch" type="xml">
+                <tree string="Shopware Backend">
+                    <field name="name"/>
+                    <field name="shopware6_id" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_sales_channel" model="ir.actions.act_window">
+            <field name="name">Sales Channel</field>
+            <field name="res_model">sales.channel</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_sales_channel_tree"/>
+        </record>
+
+
+    <menuitem id="backend_sales_channel"
+            name="Sales Channel"
+            parent="backend_shopware6"
+            sequence="40"
+            action="action_sales_channel"/>
+</data>
+</openerp>

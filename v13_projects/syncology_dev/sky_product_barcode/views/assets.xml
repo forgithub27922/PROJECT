@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="assets_backend" name="pos_validation_barcode assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/sky_product_barcode/static/src/js/action_barcode_form.js"/>
+            <script type="text/javascript" src="/sky_product_barcode/static/src/js/action_barcode_widget.js"/>
+        </xpath>
+    </template>
+
+</odoo>

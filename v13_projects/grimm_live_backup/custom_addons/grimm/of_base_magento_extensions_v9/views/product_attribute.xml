@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+        <openerp>
+            <data>
+
+                <record id="of_product_attribute_value_form_view" model="ir.ui.view">
+                    <field name="name">of.product.attribute.value.form.view</field>
+                    <field name="model">product.attribute.value</field>
+                    <!--<field name="inherit_id" ref="grimm_product.of_product_attribute_value_form_view" />-->
+                    <field name="arch" type="xml">
+                        <form string="Product Attribute Value">
+                            <field name="name"/>
+                            <field name="sequence"/>
+                            <field name="attribute_id"/>
+                            <field name="admin_name"/>
+
+                            <field name="is_used_on_products"/>
+                            <field name="is_custom"/>
+                            <field name="html_color"/>
+                            <field name="display_type"/>
+
+                            <notebook>
+                                <page name="magento" string="Magento">
+                                    <field name="magento_binding_ids">
+                                        <tree editable="bottom" >
+                                            <field name="backend_id" />
+                                            <field name="magento_id" />
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </form>
+                    </field>
+                </record>
+
+                <record id="of_magento_product_attribute_value_tree_view" model="ir.ui.view">
+                    <field name="name">of.magento.product.attribute.value.tree.view</field>
+                    <field name="model">magento.product.attribute.value</field>
+                    <field name="arch" type="xml">
+                        <tree>
+                            <field name="name" />
+                            <field name="admin_name" />
+                        </tree>
+                    </field>
+                </record>
+
+                <record id="of_product_attribute_form_view" model="ir.ui.view">
+                    <field name="name">of.product.attribute.form.view</field>
+                    <field name="model">product.attribute</field>
+                    <field name="inherit_id" ref="grimm_product.of_product_attribute_form_view" />
+                    <field name="arch" type="xml">
+
+                        <field name="name" position="after">
+                            <field name="technical_name" />
+                            <field name="display_name" />
+                            <field name="type" style="width:50%" />
+                            <field name="is_system" />
+                            <field name="manual_mapping" />
+                            <field name="attribute_scope" style="width:50%" attrs="{'readonly':[('type','=','configurable')]}" />
+                            <field name="should_export" invisible="1" />
+                        </field>
+
+                        <group name="base_attr_data2" position="inside">
+                            <button name="button_export_to_magento" type="object" string="Export/Update on Magento"
+                                    attrs="{'invisible':[('should_export','=',False)]}" class="oe_highlight oe_right"
+                            />
+
+                            <button name="remove_from_products" type="object" string="Remove from products"
+                                    attrs="{'invisible':[('use_in_products','=',True)]}" class="oe_highlight oe_right"
+                                    confirm="Are you sure you want to remove this attribute from all products?"
+                            />
+                        </group>
+
+                        <xpath expr="//sheet/separator" position="attributes">
+                            <attribute name="attrs">{'invisible':[('type','not in',('configurable','select'))]}</attribute>
+                        </xpath>
+
+                        <field name="value_ids" position="attributes">
+                            <attribute name="attrs">{'invisible':[('type','not in',('configurable','select'))]}</attribute>
+                        </field>
+
+                        <field name="value_ids" position="after">
+                            <notebook>
+                                <page name="magento" string="Magento">
+                                    <separator string="Magento bindings" />
+                                    <field name="magento_binding_ids" nolabel="1" >
+                                        <tree>
+                                            <field name="backend_id" />
+                                            <field name="magento_id" />
+                                            <field name="magento_code" />
+                                            <field name="is_configurable" readonly="1" />
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                            <button name="remove_empty_bindings" type="object" string="Remove empty bindings" class="oe_highlight" />
+
+                        </field>
+
+                    </field>
+                </record>
+
+                <record id="of_magento_product_attribute_form_view" model="ir.ui.view">
+                    <field name="name">of.product.attribute.form.view</field>
+                    <field name="model">magento.product.attribute</field>
+                    <field name="arch" type="xml">
+                        <form string="Magento product attribute">
+                            <group>
+                                <field name="magento_id" />
+                                <field name="backend_id" />
+                                <field name="magento_code" />
+                                <field name="is_configurable" />
+                            </group>
+                            <separator string="Magento attribute values" />
+                            <field name="magento_attribute_value_ids" nolabel="1">
+                                <tree string="Magento attribute values" editable="bottom">
+                                    <field name="name" />
+                                    <field name="backend_id" />
+                                    <field name="magento_id" />
+                                </tree>
+                            </field>
+
+                        </form>
+
+                    </field>
+                </record>
+
+                <record id="of_magento_product_attribute_tree_view" model="ir.ui.view">
+                    <field name="name">of.magento.product.attribute.tree.view</field>
+                    <field name="model">magento.product.attribute</field>
+                    <field name="arch" type="xml">
+                        <tree string="Magento product attribute">
+                            <field name="name" />
+                            <field name="magento_code" />
+                            <field name="is_system" />
+                            <field name="backend_id" />
+                        </tree>
+                    </field>
+                </record>
+
+                <record id="of_product_attribute_tree_view" model="ir.ui.view">
+                    <field name="name">of.product.attribute.tree</field>
+                    <field name="model">product.attribute</field>
+                    <field name="inherit_id" ref="grimm_product.of_product_attribute_tree_view" />
+                    <field name="arch" type="xml">
+                        <field name="name" position="attributes">
+                            <attribute name="invisible">1</attribute>
+                        </field>
+
+                        <field name="name" position="after">
+                            <field name="display_name" />
+                            <field name="type" />
+                            <field name="attribute_scope" />
+                            <field name="is_system" />
+                        </field>
+
+                    </field>
+                </record>
+
+                <record id="of_product_attribute_search_view" model="ir.ui.view">
+                    <field name="name">of.product.attribute.search.view</field>
+                    <field name="model">product.attribute</field>
+                    <field name="inherit_id" ref="grimm_product.of_product_attribute_search_view" />
+                    <field name="arch" type="xml">
+                        <field name="name" position="attributes">
+                            <attribute name="filter_domain">['|',('name','ilike',self),('technical_name','ilike',self)]</attribute>
+                        </field>
+
+                        <field name="name" position="after">
+                            <filter name="configurables" string="Configurable" domain="[('type','=','configurable')]" help="Configurable attributes"/>
+                        </field>
+
+                    </field>
+                </record>
+
+            </data>
+        </openerp>

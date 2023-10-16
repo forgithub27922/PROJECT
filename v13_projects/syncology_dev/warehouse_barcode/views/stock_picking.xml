@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherited View of Warehouse Order to add Barcode -->
+        <record id="view_stock_picking_form_barcode_inherit" model="ir.ui.view">
+            <field name="name">stock.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="_barcode_scanned" widget="barcode_handler" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='quantity_done']" position="attributes">
+                    <attribute name="readonly">0</attribute>
+                    <attribute name="force_save">1</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

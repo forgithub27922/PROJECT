@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017-2018 Jairo Llopis <jairo.llopis@tecnativa.com>
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<templates>
+    <t t-extend="WidgetLabel.tooltip">
+        <t t-jquery=".oe_tooltip_help" t-operation="replace">
+            <p t-if="widget.attrs.help || widget.field.help" class="oe_tooltip_help">
+                <t t-raw="widget.attrs.help || widget.field.help"/>
+            </p>
+        </t>
+    </t>
+</templates>

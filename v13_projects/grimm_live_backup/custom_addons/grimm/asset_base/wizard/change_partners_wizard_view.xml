@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_change_partners_wizard" model="ir.ui.view">
+            <field name="name">view.change.partners.wizard</field>
+            <field name="model">change.partners.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="active_model_name" invisible="True" />
+                        <field name="asset_id" attrs="{'invisible': [('active_model_name', '!=', 'grimm.asset.asset')]}" />
+                        <field name="facility_id" attrs="{'invisible': [('active_model_name', '!=', 'grimm.asset.facility')]}" />
+                    </group>
+                    <group>
+                        <field name="partner_owner"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="partner_contact"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="partner_invoice"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="partner_delivery"
+                               options="{'no_create': True, 'no_open': True}"/>
+                        <field name="beneficiary"
+                               options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+                    <group>
+                        <field name="update_children" attrs="{'invisible': [('active_model_name', '=', 'grimm.asset.asset')]}"/>
+                    </group>
+                    <footer>
+                        <button string='Confirm' name="confirm" type="object" class="btn-primary" />
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_change_partners_wizard" model="ir.actions.act_window">
+            <field name="name">Change Partners Wizard</field>
+            <field name="res_model">change.partners.wizard</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_change_partners_wizard"/>
+           <field name="target">new</field>
+        </record>
+    </data>
+</openerp>

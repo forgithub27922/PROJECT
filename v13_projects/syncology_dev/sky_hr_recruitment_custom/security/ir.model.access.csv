@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_interview_user,access.hr.interview.user,model_hr_interview,base.group_user,1,0,0,0
+access_hr_interview_officer,access.hr.interview.officer,model_hr_interview,hr_recruitment.group_hr_recruitment_user,1,1,1,1
+access_hr_education_officer,access.hr.education.officer,sky_hr_custom.model_hr_education,hr_recruitment.group_hr_recruitment_user,1,1,1,1
+access_hr_experience_officer,access.hr.experience.officer,sky_hr_custom.model_hr_experience,hr_recruitment.group_hr_recruitment_user,1,1,1,1
+access_hr_training_officer,access.hr.training.officer,sky_hr_custom.model_hr_training,hr_recruitment.group_hr_recruitment_user,1,1,1,1

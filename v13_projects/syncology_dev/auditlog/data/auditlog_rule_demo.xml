@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+        <!-- Call Function to create Auditlog rule -->
+        <function name="action_create_model_rule" model="auditlog.rule"/>
+</odoo>

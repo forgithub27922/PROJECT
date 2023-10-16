@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="grimm_hr_employee_form" model="ir.ui.view">
+      <field name="name">grimm.hr.employee.form</field>
+      <field name="model">hr.employee</field>
+      <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//page[@name='hr_settings']" position="inside">
+              <field name="additional_note" placeholder="Other Information ..." colspan="4"/>
+          </xpath>
+          <xpath expr="//page[@name='personal_information']" position="attributes">
+              <attribute name="groups">hr.group_hr_manager</attribute>
+          </xpath>
+      </field>
+    </record>
+</odoo>

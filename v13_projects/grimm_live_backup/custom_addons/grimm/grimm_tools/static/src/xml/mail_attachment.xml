@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <t t-extend="FieldBinaryFileUploader">
+        <t t-jquery="button[class='btn btn-secondary o_attach']" t-operation="after">
+            <t t-set="fsize" t-value="0"/>
+            <div t-foreach="widget.value.data" t-as="file" class="oe_attachment">
+                <t t-set="fsize" t-value="fsize+file.data.file_size"/>
+            </div>
+            <input type="hidden" t-att-value="fsize" id="total_bytes" class="total_bytes"/>
+            Attachment size :
+            <b>
+                <span id="attachment_size" class="attachment_size">0 B</span>
+            </b>
+            <script type="text/javascript">
+                var total_size = $( "#total_bytes" ).val();
+                if(total_size > 0){
+                var size_name = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"]
+                var i = (Math.floor(Math.log(total_size) / Math.log(1000)))
+                var p = Math.pow(1000, i)
+                var s = Math.round(total_size / p, 2)
+                if(s > 0){
+                var final_size = s + " " + size_name[i]
+                $( "#attachment_size" ).html(final_size)
+                }
+                }
+            </script>
+        </t>
+    </t>
+    <t t-extend="Throbber">
+        <t t-jquery="div[class='oe_blockui_spin']" t-operation="replace">
+            <div class="oe_blockui_spin" style="height: 50px">
+                <img src="/grimm_tools/static/description/loading.png" height="100px"
+                     style="animation: fa-spin 2s infinite steps(275);"/>
+            </div>
+            <br/>
+            <br/>
+        </t>
+    </t>
+</templates>

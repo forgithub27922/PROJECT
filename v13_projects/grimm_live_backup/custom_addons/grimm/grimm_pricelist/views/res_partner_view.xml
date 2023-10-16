@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_supplier_price_list_tree" model="ir.ui.view">
+            <field name="name">partner.pricelist.item.tree</field>
+            <field name="model">partner.pricelist.item</field>
+            <field name="arch" type="xml">
+                <tree string="Pricelist Items">
+                    <field name="sequence" widget="handle"/>
+                    <field colspan="4" name="name"/>
+                    <field name="product_id" groups="product.group_product_variant"/>
+                    <!--<field name="product_tmpl_id"/>-->
+                    <field name="categ_id"/>
+                    <!--<field name="min_quantity"/>-->
+                    <field name="date_start"/>
+                    <field name="date_end"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_supplier_price_list_form" model="ir.ui.view">
+            <field name="name">partner.pricelist.item.form</field>
+            <field name="model">partner.pricelist.item</field>
+            <field name="arch" type="xml">
+                <form string="Pricelist Items">
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="applied_on" widget="radio"/>
+                            <field name="categ_id"
+                                   attrs="{'invisible':[('applied_on', '!=', '2_product_category')], 'required':[('applied_on', '=', '2_product_category')]}"/>
+                            <!--<field name="product_tmpl_id"
+                                   attrs="{'invisible':[('applied_on', '!=', '1_product')],'required':[('applied_on', '=', '1_product')]}"
+                                   string="Product"/>-->
+                            <field name="product_id"
+                                   attrs="{'invisible':[('applied_on', '!=', '0_product_variant')],'required':[('applied_on', '=', '0_product_variant')]}"
+                                   string="Product Variant"/>
+                        </group>
+                        <group>
+                            <field name="price_calculation_group"/>
+                            <field name="product_name"/>
+                            <field name="product_gross_weight"/>
+                            <field name="product_net_weight"/>
+                            <field name="product_brand_id"/>
+                            <field name="attribute_set_id"/>
+                            <field name="min_uvp"/>
+                            <field name="date_start"/>
+                            <field name="date_end"/>
+                            <field name="is_accessory_part"/>
+                            <field name="is_spare_part"/>
+                            <field name="is_device"/>
+                            <field name="is_product_pack"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="is_advance_domain"/>
+                        <field name="advance_domain" widget="domain" options="{'model': 'product.product'}"
+                               attrs="{'invisible':[('is_advance_domain', '=', False)]}"/>
+                    </group>
+                    <separator string="Price Computation"/>
+                    <group>
+                        <group>
+                            <label for="compute_price" string="Compute Price"/>
+                            <div>
+                                <field name="compute_price" widget="radio"/>
+                                <field name="currency_id" invisible="1"/>
+                                <div attrs="{'invisible':[('compute_price', '!=', 'fixed')]}">
+                                    <field name="fixed_price" nolabel="1" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}"/>
+                                </div>
+                                <div attrs="{'invisible':[('compute_price', '!=', 'percentage')]}">
+                                    <field name="percent_price" nolabel="1" class="oe_inline"/>%
+                                </div>
+                            </div>
+                        </group>
+                    </group>
+                    <div class="oe_grey" groups="product.group_uom">
+                        <p>The computed price is expressed in the default Unit of Measure of the product.
+                        </p>
+                    </div>
+                    <group col="8" attrs="{'invisible':[('compute_price', '!=', 'formula')]}">
+                        <!--<field name="base" colspan="6"/>-->
+
+                        <span> New Price =</span>
+                        <div>
+                            <span>Price -</span>
+                        </div>
+                        <field name="percent_sign" nolabel="1" style="width:10%"/>
+                        <div class="o_row">
+                            <field name="price_discount"/>
+                            <span>%</span>
+                        </div>
+                        <label string=" + " for="price_surcharge"/>
+                        <field name="price_surcharge" nolabel="1"/>
+                        <span> </span>
+                        <span> </span>
+                        <field name="price_round" string="Rounding Method"/>
+                        <field name="price_min_margin" string="Min. Margin"/>
+                        <field name="price_max_margin" string="Max. Margin"/>
+
+
+                    </group>
+                </form>
+            </field>
+        </record>
+        <record id="grimm_view_res_partner_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.res.partner.form.view.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Price List" groups="sales_team.group_sale_manager" name="price_list_child"
+                          attrs="{'invisible': ['|',('is_company','=',True),('parent_id','=',False)]}">
+                        <div>
+                            <p>Pricelist related settings are managed on
+                                <button name="open_commercial_entity" type="object" string="the parent company"
+                                        class="oe_link"/>
+                            </p>
+                        </div>
+                    </page>
+                    <page name="price_list" groups="sales_team.group_sale_manager" string="Price List"
+                          attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}">
+                        <h3>Purchase Price List</h3>
+                        <group>
+                            <field name="apply_purchase_pricelist"/>
+                        </group>
+                        <field name="purchase_pricelist_ids"/>
+                        <h3>Sale Price List</h3>
+                        <group>
+                            <field name="apply_sale_pricelist"/>
+                            <field name="sale_base_price" widget="radio"/>
+                        </group>
+                        <field name="sale_pricelist_ids">
+                            <tree string="Pricelist Items">
+                                <field name="sequence" widget="handle"/>
+                                <field colspan="4" name="name"/>
+                                <field name="product_id" groups="product.group_product_variant"/>
+                                <!--<field name="product_tmpl_id"/>-->
+                                <field name="categ_id"/>
+                                <!--<field name="min_quantity"/>-->
+                                <field name="date_start"/>
+                                <field name="date_end"/>
+                            </tree>
+                            <form string="Pricelist Items">
+                                <h1>
+                                    <field name="name"/>
+                                </h1>
+                                <group>
+                                    <group>
+                                        <field name="applied_on" widget="radio"/>
+                                        <field name="categ_id"
+                                               attrs="{'invisible':[('applied_on', '!=', '2_product_category')], 'required':[('applied_on', '=', '2_product_category')]}"/>
+                                        <!--<field name="product_tmpl_id"
+                                               attrs="{'invisible':[('applied_on', '!=', '1_product')],'required':[('applied_on', '=', '1_product')]}"
+                                               string="Product"/>-->
+                                        <field name="product_id"
+                                               attrs="{'invisible':[('applied_on', '!=', '0_product_variant')],'required':[('applied_on', '=', '0_product_variant')]}"
+                                               string="Product Variant"/>
+                                    </group>
+                                    <group>
+                                        <field name="price_calculation_group"/>
+                                        <field name="product_name"/>
+                                        <field name="product_gross_weight"/>
+                                        <field name="product_net_weight"/>
+                                        <field name="product_brand_id"/>
+                                        <field name="attribute_set_id"/>
+                                        <field name="min_uvp"/>
+                                        <field name="date_start"/>
+                                        <field name="date_end"/>
+                                        <field name="is_accessory_part"/>
+                                        <field name="is_spare_part"/>
+                                        <field name="is_device"/>
+                                        <field name="is_product_pack"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <field name="is_advance_domain"/>
+                                    <field name="advance_domain" widget="domain"
+                                           options="{'model': 'product.product'}"
+                                           attrs="{'invisible':[('is_advance_domain', '=', False)]}"/>
+                                </group>
+                                <separator string="Price Computation"/>
+                                <group>
+                                    <group>
+                                        <label for="compute_price" string="Compute Price"/>
+                                        <div>
+                                            <field name="compute_price" widget="radio"/>
+                                            <field name="currency_id" invisible="1"/>
+                                            <div attrs="{'invisible':[('compute_price', '!=', 'fixed')]}">
+                                                <field name="fixed_price" nolabel="1" widget="monetary"
+                                                       options="{'currency_field': 'currency_id'}"/>
+                                            </div>
+                                            <div attrs="{'invisible':[('compute_price', '!=', 'percentage')]}">
+                                                <field name="percent_price" nolabel="1" class="oe_inline"/>%
+                                            </div>
+                                        </div>
+                                    </group>
+                                </group>
+                                <div class="oe_grey" groups="product.group_uom">
+                                    <p>The computed price is expressed in the default Unit of Measure of the
+                                        product.
+                                    </p>
+                                </div>
+                                <group col="8" attrs="{'invisible':[('compute_price', '!=', 'formula')]}">
+                                    <!--<field name="base" colspan="6"/>-->
+
+                                    <label string="New Price ="/>
+                                    <div>
+                                        <span>Price -</span>
+                                    </div>
+                                    <field name="percent_sign" nolabel="1" style="width:10%"/>
+                                    <div class="o_row">
+                                        <field name="price_discount"/>
+                                        <span>%</span>
+                                    </div>
+                                    <label string=" + " for="price_surcharge"/>
+                                    <field name="price_surcharge" nolabel="1"/>
+                                    <span> </span>
+                                    <span> </span>
+                                    <field name="price_round" string="Rounding Method"/>
+                                    <field name="price_min_margin" string="Min. Margin"/>
+                                    <field name="price_max_margin" string="Max. Margin"/>
+
+
+                                </group>
+                            </form>
+                        </field>
+                    </page>
+                </xpath>
+
+                <!--<group name="purchase" position="inside">
+                    <field name="property_supplier_pricelist" groups="product.group_sale_pricelist"
+
+                    />
+                    attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}"
+                    <div name="parent_supplier_pricelists" groups="product.group_sale_pricelist" colspan="2"
+                         attrs="{'invisible': ['|',('is_company','=',True),('parent_id','=',False)]}">
+                      <p>Pricelists are managed on
+                        <button name="open_commercial_entity" type="object" string="the parent company" class="oe_link"/>
+                      </p>
+                    </div>
+
+                </group>-->
+            </field>
+        </record>
+    </data>
+</openerp>

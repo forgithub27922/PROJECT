@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_datev_export_history_tree" model="ir.ui.view">
+            <field name="name">datev.export.history</field>
+            <field name="model">datev.export.history</field>
+            <field name="arch" type="xml">
+                <tree string="DATEV exported history">
+                    <field name="datev_filename"/>
+                    <field name="export_uid"/>
+                    <field name="write_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_datev_export_history" model="ir.actions.act_window">
+            <field name="name">DATEV Export History</field>
+            <field name="res_model">datev.export.history</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_datev_export_history_tree"/>
+        </record>
+
+        <menuitem id="datev_export_history_menu"
+                  name="DATEV export history"
+                  parent="account.menu_finance_configuration"
+                  sequence="40"
+                  action="action_datev_export_history"/>
+
+        <record id="view_datev_export_history_form" model="ir.ui.view">
+            <field name="name">datev.export.history.form</field>
+            <field name="model">datev.export.history</field>
+            <field name="arch" type="xml">
+                <form string="DATEV export history">
+                    <sheet>
+
+                        <h1>
+                            <field name="datev_filename" class="oe_inline"/>
+                            <!--<button string='Reset Export' name="reset_export" type="object" class="btn-primary" />-->
+                        </h1>
+                        <notebook>
+                            <page string="Invoices Details" name="inv_details">
+                                <group colspan="4" col="4">
+                                    <group string="Exported Invoices">
+                                        <field name="in_invoice"/>
+                                        <field name="out_invoice"/>
+                                        <field name="in_refund"/>
+                                        <field name="out_refund"/>
+                                    </group>
+                                    <group string="Invoices period">
+                                        <field name="company_id"/>
+                                        <field name="date_start"/>
+                                        <field name="date_stop"/>
+                                        <field name="write_date"/>
+                                    </group>
+                                    <group string="Result File">
+                                        <field name="datev_filename" invisible="1"/>
+                                        <field name="datev_file" filename="datev_filename"/>
+
+                                        <field name="export_uid"/>
+                                        <field name="inv_csv_filename" invisible="1"/>
+                                        <field name="inv_csv_file" filename="inv_csv_filename"/>
+                                    </group>
+                                </group>
+                                <group string="Response message and Invoices">
+                                    <field name="response_message"/>
+                                    <field name="invoice_ids" widget="many2many_tags"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_datev_option_inherit" model="ir.ui.view">
+            <field name="name">view.datev.options.view.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="datev_export.view_company_inherit_form_datev_export"/>
+            <field name="arch" type="xml">
+                <field name="export_cost_category_id" position="after">
+                    <field name="history_days"/>
+                    <field name="datev_send_email"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="ir_remove_datev_history" model="ir.cron">
+            <field name="name">Remove DATEV history</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">5</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_datev_export_history" name="model_id"/>
+            <field name="state">code</field>
+            <field name="code">model._remove_datev_history()</field>
+        </record>
+
+        <record id="datev_export_email_template" model="mail.template">
+            <field name="name">DATEV export invoices</field>
+            <field name="email_from">
+                ${(object.export_uid.partner_id.email and '%s &lt;%s&gt;' % (object.export_uid.partner_id.name, object.export_uid.partner_id.email) or '')|safe}
+            </field>
+            <field name="subject">DATEV Export(${datetime.datetime.strptime(str(object.date_start), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_start else 'XX.YY.ZZZZ'} - ${datetime.datetime.strptime(str(object.date_stop), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_stop else 'XX.YY.ZZZZ'})
+                ${object.company_id.name}
+            </field>
+            <field name="email_to">${object.export_uid.partner_id.email}</field>
+            <field name="model_id" ref="grimm_datev_extensions.model_datev_export_history"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="lang">${object.export_uid.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+<p>
+
+                % set company = object and object.company_id or ctx.get('company')
+
+                </p><table border="0" width="100%" cellpadding="0" bgcolor="#ededed" style="padding: 20px; background-color: #ededed" summary="o_mail_notification">
+                    <tbody>
+
+                      <!-- HEADER -->
+                      <tr>
+                        <td align="center" style="min-width: 590px;">
+                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: #009EE3; padding: 10px;">
+                            <tbody><tr>
+                              <td valign="middle" style=" padding: 13px;">
+                                  <span style="font-size:20px; color:white; font-weight: bold;">
+                                      GRIMM Gastronomiebedarf GmbH <!--Rechnung ${object.record_name}-->
+                                  </span>
+                              </td>
+                              <td valign="middle" align="right">
+                                  <img src="/logo.png?company=${company.id}" style="padding: 0px; margin: 0px; height: auto; width: 80px;" alt="${company.name}">
+                              </td>
+                            </tr>
+                          </tbody></table>
+                        </td>
+                      </tr>
+
+                      <!-- CONTENT -->
+                      <tr>
+                        <td align="center" style="min-width: 590px;">
+                          <table width="590" border="0" cellpadding="0" bgcolor="#ffffff" style="min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px;">
+                            <tbody>
+                              <tr><td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
+                              <br/><br/>
+                                Dear <b>${object.export_uid.partner_id.name}</b>,<br/><br/>
+                                You have exported Invoice for DATEV. Please see below details and attachment. <br/><br/>
+                                Thank you.<br/><br/>
+                                <table width="100%">
+                                <tr><td>In Invoice</td>
+                                <td>
+                                    % if object.in_invoice:
+                                        <input type="checkbox" name="in_invoice" value="in_invoice" checked="" disabled>
+                                    % else:
+                                        <input type="checkbox" name="in_invoice" value="in_invoice" disabled>
+                                    % endif
+                                 </td></tr>
+                                <tr><td>Out Invoice</td>
+                                <td>
+                                    % if object.out_invoice:
+                                        <input type="checkbox" name="out_invoice" value="out_invoice" checked="" disabled>
+                                    % else:
+                                        <input type="checkbox" name="out_invoice" value="out_invoice" disabled>
+                                    % endif
+                                </td>
+                                </tr>
+                                <tr><td>In Refund</td>
+                                <td>
+                                    % if object.in_refund:
+                                        <input type="checkbox" name="in_refund" value="in_refund" checked="" disabled>
+                                    % else:
+                                        <input type="checkbox" name="in_refund" value="in_refund" disabled>
+                                    % endif
+                                </td></tr>
+                                <tr><td>Out Refund</td>
+                                <td>
+                                    % if object.out_refund:
+                                        <input type="checkbox" name="out_refund" value="out_refund" checked="" disabled>
+                                    % else:
+                                        <input type="checkbox" name="out_refund" value="out_refund" disabled>
+                                    % endif
+                                </td></tr>
+                                <tr><td>Period</td><td>${datetime.datetime.strptime(str(object.date_start), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_start else 'XX.YY.ZZZZ'} - ${datetime.datetime.strptime(str(object.date_stop), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_stop else 'XX.YY.ZZZZ'}</td></tr>
+                                <tr><td>Exported Date &amp; Time</td><td>${format_datetime(object.write_date,dt_format='dd.MM.YYYY HH:MM:SS')}</td></tr>
+                                </table><br/><br/>
+                              </td>
+                            </tr></tbody>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <!-- FOOTER -->
+                      <tr>
+                        <td align="center" style="min-width: 590px;">
+                          <table width="590" border="0" cellpadding="0" bgcolor="#875A7B" style="min-width: 590px; background-color: #009EE3; padding: 20px;">
+                            <tbody><tr>
+                              <td valign="middle" align="left" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
+                                ${company.name}<br><p></p><p>
+                                ${company.phone or ''}
+                              </p></td>
+                              <td valign="middle" align="right" style="color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;">
+                                % if company.email:
+                                <a href="mailto:${company.email}" style=" color: white;">${company.email}</a><br><p></p><p>
+                                % endif
+                                % if company.website:
+                                    <a href="${company.website}" style=" color: white;">
+                                        ${company.website}
+                                    </a>
+                                % endif
+                              </p></td>
+                            </tr>
+                          </tbody></table>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td align="center">
+                            <!--Powered by <a href="https://www.odoo.com">Odoo</a>.-->
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+
+
+            <p></p>
+              ]]></field>
+        </record>
+
+    </data>
+</openerp>

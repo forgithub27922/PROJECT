@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <data >
+        <record id="accept_applicant_email_template" model="mail.template">
+            <field name="name">SYNC_Accept Applicant Information : Send by email</field>
+            <field name="model_id" ref="sky_hr_recruitment_custom.model_pending_document"/>
+            <field name="subject">Job Application In ${object.job_id.name} Accepted</field>
+            <field name="body_html" type="html">
+                <div>
+                    <p>"Congratulations. You have passed your interview for the position <b>${object.job_id.name}.</b>
+                        <br/><br/>
+                        Please expect an email from us in the coming few days for instructions on what to do next, and the documents required from your side.
+                        <br/><br/>
+                        Thanks and see you on board."
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>
+

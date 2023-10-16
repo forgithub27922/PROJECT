@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_service_begleitschein_doc_grimm">
+            <t t-call="grimm_reports.grimm_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
+                <div class="page">
+                    <div class="folding_line1"/>
+                    <div class="folding_line2"/>
+                    <div class="folding_line3"/>
+                    <div class="container">
+                        <table style="width:100%;">
+                            <tr class="info_row">
+                                <td class="grimm_info">
+                                    <br/>
+                                </td>
+                                <td class="grimm_info_col2"/>
+                                <td colspan="2">
+                                    <span t-field="doc.company_id.report_logo_header"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr class="info_row">
+                                <td></td>
+                                <td></td>
+                                <td colspan="2" class="order-head bold">
+                                    <span t-attf-style="color:{{doc.company_id.theme_color}};">Service-Begleitschein
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="order-head bold">
+                                    <t t-if="doc.picking_type_id.id != 6">
+                                        <div t-field="doc.picking_type_id.name"></div>
+                                    </t>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td></td>
+                                <td class="header" style="font-weight: 200;">
+                                    <span class="bold">Zur Bestellung</span>
+                                    <br/>
+                                    <span>Beleg-Datum</span>
+                                    <br/>
+                                    <span class="regular">Kunden-Nr.</span>
+                                    <br/>
+                                    <span>Kundenreferenz</span>
+                                    <br/>
+                                </td>
+                                <td class="header" style="font-weight: 200;">
+                                    <span t-field="doc.name" class="bold"/>
+                                    <br/>
+                                    <!--<span t-field="doc.po_date" t-field-options='{"widget": "date"}'/>-->
+                                    <span t-esc="doc.po_date.strftime('%d.%m.%Y')"/>
+                                    <br/>
+                                    <span t-field="doc.partner_id.ref" class="regular"/>
+                                    <br/>
+                                    <span t-field="doc.sale_order_client_order_refs"/>
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td colspan="2">
+                                    <span>Diese Daten bei Rückfragen angeben!</span>
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2" class="order-user">Ihr Ansprechpartner</td>
+                            </tr>
+                            <tr style="font-weight: 200;">
+                                <td>
+                                </td>
+                                <td></td>
+                                <td colspan="2" class="header" style="font-weight: 200;">
+                                    <div t-esc="user.name"></div>
+                                </td>
+                            </tr>
+                            <tr style="font-weight: 200;">
+                                <td><![CDATA[&nbsp;]]></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                            </tr>
+                            <tr style="font-weight: 200;">
+                                <td><![CDATA[&nbsp;]]></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                            </tr>
+                            <tr style="font-weight: 200;">
+                                <td><![CDATA[&nbsp;]]></td>
+                                <td></td>
+                                <td colspan="2"></td>
+                            </tr>
+                        </table>
+                        <table class="table table-condensed purchase-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;">Pos.</th>
+                                    <th style="width: 40%;">Artikel/Leistung</th>
+                                    <th style="white-space: nowrap; overflow: hidden;">Menge</th>
+                                    <th>Artikel-Nr.</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="doc.order_line" t-as="l">
+                                    <tr t-if="l.product_qty">
+                                        <td>
+                                            <span t-esc="l_index+1"/>
+                                        </td>
+                                        <td>
+                                            <div t-field="l.name" class="regular"/>
+                                        </td>
+                                        <td style="white-space: nowrap; overflow: hidden;">
+                                            <t t-if="l.product_qty">
+                                                <t t-if="l.product_qty.is_integer()">
+                                                    <t t-if="l.product_id.product_tmpl_id.is_package">
+                                                        <t t-set="calc_val"
+                                                           t-value="int(l.product_qty) / int(l.product_id.package_id.qty_no)"/>
+                                                        <span t-esc="str(int(calc_val)) + ' (à ' + str(l.product_id.package_id.qty_no) + ' Stück)'"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="'%.0f'%l.product_qty"/>
+                                                    </t>
+                                                </t>
+                                                <t t-if="not l.product_qty.is_integer()">
+                                                    <span t-esc="'%.2f'%l.product_qty"/>
+                                                </t>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <t t-foreach="l.product_id.seller_ids" t-as="vc">
+                                                <t t-if="vc.product_id == l.product_id">
+                                                    <span t-field="vc.product_code"/>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_service_begleitschein_grimm">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="grimm_reports.report_service_begleitschein_doc_grimm" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

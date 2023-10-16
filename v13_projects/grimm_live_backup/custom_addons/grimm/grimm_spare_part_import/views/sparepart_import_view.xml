@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="sparepart_import_wizard" model="ir.ui.view">
+            <field name="name">wizard.sparepart.import</field>
+            <field name="model">sparepart.import</field>
+            <field name="arch" type="xml">
+                <form string="Sparepart Import">
+                    <group>
+                        <field name="which_import" widget='radio' options="{'horizontal': true}"/>
+                        <field name="filename" invisible="1"/>
+                        <field name="csv_file" filename="filename"/>
+                    </group>
+                    <group string="Sparepart Import"  attrs="{'invisible':[('which_import','=','accessory')]}" >
+                        <group>
+                            <field name="product_ids" widget="many2many_tags"  attrs="{'invisible':[('device_sparepart_from_file','=',True)]}"/>
+                            <field name="supplier_id" attrs="{'required':[('which_import','=','part')]}" options="{'no_create': True}" domain="[('supplier', '=', True)]"/>
+                            <field name="device_supplier_id" attrs="{'invisible':[('device_sparepart_from_file','=',False)]}" options="{'no_create': True}" domain="[('supplier', '=', True)]"/>
+                            <field name="device_sparepart_from_file"/>
+                        </group>
+                        <field name="download_link" readonly="1"/>
+                        <field name="upload_info" readonly="1"/>
+                    </group>
+
+                    <footer>
+                        <button name="import_sparepart" string="Import" type="object" class="oe_highlight" attrs="{'invisible': [('filename', '=', False)]}"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_sparepart_wizard" model="ir.actions.act_window">
+            <field name="name">Sparepart/Accessory Import File</field>
+            <field name="res_model">sparepart.import</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sparepart_import_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="sparepart_import_menu"
+                name="Sparepart/Accessory Import"
+                parent="sale.product_menu_catalog"
+                sequence="40"
+                action="action_import_sparepart_wizard"/>
+    </data>
+</openerp>

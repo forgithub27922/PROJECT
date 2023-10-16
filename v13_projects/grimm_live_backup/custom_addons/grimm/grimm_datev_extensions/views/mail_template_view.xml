@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+        <record id="grimm_email_template_form_view_inherit_edi" model="ir.ui.view">
+            <field name="name">Email Template EDI option</field>
+            <field name="model">mail.template</field>
+            <field name="inherit_id" ref="mail.email_template_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='report_template']" position="after">
+                    <field name="model_name" invisible="1"/>
+                    <field name="attach_edi_report" widget="boolean_toggle" attrs="{'invisible': [('model_name', '!=', 'account.move')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_res_partner_inherit_xrechnung" model="ir.ui.view">
+            <field name="name">Grimm Res Partner X-Rechnung</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <field name="send_xrechnung"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

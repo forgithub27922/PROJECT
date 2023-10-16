@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_magento_product_attribute_set_base_group,magento.product.attribute.set.group.user,model_magento_product_attribute_set,base.group_user,1,1,1,1
+access_magento_product_attribute_base_group,magento.product.attribute.group.user,model_magento_product_attribute,base.group_user,1,1,1,1
+access_magento_product_attribute_value_base_group,magento.product.attribute.value.group.user,model_magento_product_attribute_value,base.group_user,1,1,1,1
+access_magento_product_attribute_set_base_group,magento.product.attribute.set.group.user,model_magento_product_attribute_set,base.group_user,1,1,1,1
+access_magento_product_attribute_base_group,magento.product.attribute.group.user,model_magento_product_attribute,base.group_user,1,1,1,1
+access_magento_product_attribute_value_base_group,magento.product.attribute.value.group.user,model_magento_product_attribute_value,base.group_user,1,1,1,1
+access_magento_product_tmpl_base_group,magento.product.tmpl.group.user,model_magento_product_template,base.group_user,1,1,1,1
+access_products_import_history_base_group,products.import.history.group.user,model_products_import_history,base.group_user,1,1,1,1
+access_magento_tax_mapping_base_group,magento.tax.mapping.group.user,model_magento_tax_mapping,base.group_user,1,1,1,1
+access_fiscal_mappings_employee,access.fiscal.mappings.employee,model_country_fiscal_position_map,base.group_user,1,1,1,1
+access_product_image_group,product.image.group.user,model_product_image,base.group_user,1,1,1,1
+access_magento_product_image_group,magento.product.image.group.user,model_magento_product_image,base.group_user,1,1,1,1
+access_product_default_system_values,product.default.system.values,model_default_product_system_vals,base.group_user,1,1,1,1
+access_test_product_attributes_data_all,access.text.product.attributes.data.all,model_product_textual_attributes_data,base.group_user,1,1,1,1
+access_product_attributes_data_multi_select,access.product.attributes.data.multi_select,model_product_attributes_data_multi_select,base.group_user,1,1,1,1
+access_magento_order_shipment,access.magento.order.shipment,model_magento_order_shipment,base.group_user,1,1,1,1

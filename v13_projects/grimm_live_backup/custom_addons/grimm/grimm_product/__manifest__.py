@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+
+{
+    'name': "Grimm Product Extensions",
+    'version': '0.1.0',
+    'summary': 'Product Extensions for Grimm Gastronomiebedarf GmbH',
+    'category': 'Product',
+    'author': "Viet Pham, Grimm Gastronomiebedarf GmbH",
+    'website': "https://www.grimm-gastronomiebedarf.de/",
+    'license': 'OPL-1',
+    'depends': ['product',
+                # 'product_brand',
+                'sale',
+                'asset_base',
+                'web_m2x_options',
+                ],
+    'external_dependencies': {
+        'python': [],
+    },
+    'data': [
+        'security/ir.model.access.csv',
+        'views/product_custom_view.xml',
+        'views/product_warranty_view.xml',
+        'views/return_instruction_view.xml',
+        'views/product_brand_view.xml',
+        'views/product_view.xml',
+        'views/product_attribute_view.xml',
+        'views/product_attribute_set_view.xml',
+    ],
+    'demo': [],
+    'qweb': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

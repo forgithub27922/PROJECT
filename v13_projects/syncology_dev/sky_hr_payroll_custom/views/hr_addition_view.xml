@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Tree View of Hr Addition Type -->
+        <record id="view_hr_addition_type_tree" model="ir.ui.view">
+            <field name="name">view.hr.addition.type.tree</field>
+            <field name="model">hr.addition.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="rate"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View of Hr Addition Type -->
+        <record id="view_hr_addition_type_form" model="ir.ui.view">
+            <field name="name">view.hr.addition.type.form</field>
+            <field name="model">hr.addition.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group colspan="2" col="4">
+                            <field name="name" required="1"/>
+                            <field name="code"/>
+                            <field name="rate"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Hr Addition Types Action -->
+        <record id="hr_addition_type_action" model="ir.actions.act_window">
+            <field name="name">Additions Types</field>
+            <field name="res_model">hr.addition.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Hr Addition Menu under configuration -->
+        <menuitem id="addition_type_menu" name="Addition Types" parent="sky_hr_custom.menu_hr_config" sequence="9"
+                  action="hr_addition_type_action" groups="sky_hr_payroll_custom.group_payroll_manager"/>
+
+        <!-- Tree View of HR Addition -->
+        <record id="view_hr_addition_tree" model="ir.ui.view">
+            <field name="name">view.hr.addition.tree</field>
+            <field name="model">hr.addition</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                    <field name="employee_id"/>
+                    <field name="employee_arabic_name"/>
+                    <field name="addition_type_id"/>
+                    <field name="type_of_value"/>
+                    <field name="value"/>
+                    <field name="amount" groups="sky_hr_payroll_custom.group_payroll_manager"/>
+                    <field name="issued_by"/>
+                    <field name="reason"/>
+                    <field name="rejection_reason"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- Form View of HR Addition -->
+        <record id="view_hr_addition_form" model="ir.ui.view">
+            <field name="name">view.hr.addition.form</field>
+            <field name="model">hr.addition</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_pending" string="Reset To Draft"
+                                type="object" states="approved" class="btn-primary"
+                                groups="sky_hr_payroll_custom.group_payroll_officer,sky_hr_payroll_custom.group_payroll_manager"/>
+                        <button name="action_approve" string="Approve"
+                                type="object" states="pending" class="btn-primary"
+                                groups="sky_hr_payroll_custom.group_payroll_user"/>
+                        <button name="action_reject" string="Reject"
+                                type="object" states="pending"
+                                 groups="sky_hr_payroll_custom.group_payroll_user"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Locked" bg_color="bg-danger"
+                            attrs="{'invisible':[('lock','!=',True)]}"/>
+                        <field name="is_overtime" invisible="1"/>
+                        <group name="grp_main" colspan="4" col="4">
+                            <field name="date" required="1"
+                                   attrs="{'readonly': ['|','|',('state', '=', 'approved'), ('state', '=', 'rejected'),('lock','=',True)]}"/>
+                            <field name="employee_id" required="1"
+                                   attrs="{'readonly': ['|','|',('state', '=', 'approved'), ('state', '=', 'rejected'),('lock','=',True)]}"/>
+                            <field name="addition_type_id" required="1"
+                                   attrs="{'readonly': ['|','|',('state', '=', 'approved'), ('state', '=', 'rejected'),('lock','=',True)]}"/>
+                            <field name="type_of_value" required="1"
+                                   attrs="{'readonly': ['|','|',('state', '=', 'approved'), ('state', '=', 'rejected'),('lock','=',True)]}"/>
+                            <field name="value_amount"
+                                   attrs="{'invisible':[('type_of_value','=','hours')], 'readonly': ['|','|',('state', '=', 'approved'), ('state', '=', 'rejected'),('lock','=',True)]}"/>
+                            <field name="value" widget="float_time"
+                                   attrs="{'invisible':[('type_of_value','!=','hours')], 'readonly': ['|','|',('state', '=', 'approved'), ('state', '=', 'rejected'),('lock','=',True)]}"/>
+                            <field name="reason"
+                                   attrs="{'readonly': ['|','|',('state', '=', 'approved'), ('state', '=', 'rejected'),('lock','=',True)]}"/>
+                            <field name="issued_by" readonly="1"/>
+                            <field name="actual_overtime_hours" widget="float_time" readonly="1"
+                                   attrs="{'invisible':[('is_overtime','=',False)]}"/>
+                            <field name="approved_overtime" widget="float_time" readonly="1"
+                                   attrs="{'invisible':[('is_overtime','=',False)]}"/>
+                            <field name="amount" readonly="1"
+                                   groups="sky_hr_payroll_custom.group_payroll_manager"
+                                   attrs="{'invisible':[('type_of_value','not in',('days','hours'))]}"/>
+                            <field name="rejection_reason"
+                                   attrs="{'invisible': [('state','!=','rejected')],
+                                            'readonly': ['|',('state', '=', 'rejected'),('lock','=',True)]}"/>
+                            <field name="lock" invisible="1"/>
+                            <field name="parent_id" invisible="1"/>
+                            <field name="department_id" invisible="1"/>
+                            <field name="job_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Hr Addition Search View -->
+        <record id="view_hr_addition_search" model="ir.ui.view">
+            <field name="name">view.hr.addition.search</field>
+            <field name="model">hr.addition</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <field name="employee_arabic_name"/>
+                    <field name="addition_type_id"/>
+                    <field name="state"/>
+                    <filter name="grp_emp" string="Employee" context="{'group_by': 'employee_id'}"/>
+                    <filter name="grp_date" string="Date" context="{'group_by': 'date'}"/>
+                    <filter name="grp_addition_type" string="Addition Type" context="{'group_by': 'addition_type_id'}"/>
+                    <filter name="grp_status" string="Status" context="{'group_by': 'state'}"/>
+                    <filter name="fil_date" string="Date" date="date"/>
+                    <filter name="fil_status_pending" string="Pending" domain="[('state','=', 'pending')]"/>
+                    <filter name="fil_status_approved" string="Approved" domain="[('state','=', 'approved')]"/>
+                    <filter name="fil_status_rejected" string="Rejected" domain="[('state','=', 'rejected')]"/>
+                    <filter name="grp_manager" string="Manager" context="{'group_by':'parent_id'}"/>
+                    <filter name="grp_department" string="Department" context="{'group_by':'department_id'}"/>
+                    <filter name="grp_job" string="Job" context="{'group_by':'job_id'}"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Hr Addition Action -->
+        <record id="hr_addition_action" model="ir.actions.act_window">
+            <field name="name">Additions</field>
+            <field name="res_model">hr.addition</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- New Hr Addition Action-->
+        <record id="new_hr_addition_action" model="ir.actions.act_window">
+            <field name="name">My Additions</field>
+            <field name="res_model">hr.addition</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+        </record>
+
+        <!-- Hr Addition Main Menu -->
+        <menuitem id="hr_addition_main_menu" name="Additions" parent="sky_hr_custom.menu_human_resource_main"
+                  sequence="8"/>
+
+        <!-- Hr Addition Menu -->
+        <menuitem id="additions_menu" name="Additions" parent="hr_addition_main_menu" sequence="2" groups="sky_hr_payroll_custom.group_payroll_user"
+                  action="hr_addition_action"/>
+
+        <!-- New Hr Addition Menu -->
+        <menuitem id="new_additions_menu" name="My Additions" parent="hr_addition_main_menu" sequence="1"
+                  action="new_hr_addition_action" groups="base.group_user"/>
+
+        <!-- Giving Access Right of Configuration menu of Human Resource to payroll manager -->
+        <menuitem id="sky_hr_custom.menu_hr_config" name="Configuration" parent="sky_hr_custom.menu_human_resource_main"
+                  groups="sky_hr_payroll_custom.group_payroll_manager"/>
+
+    </data>
+</odoo>

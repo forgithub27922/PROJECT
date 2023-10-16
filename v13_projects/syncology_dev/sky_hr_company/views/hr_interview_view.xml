@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- sky_hr_recruitment_custom Inherit form view of Applicant Interview -->
+    <record id="inherit_hr_interview_view_form" model="ir.ui.view">
+        <field name="name">inherit.hr.interview.view.form</field>
+        <field name="model">hr.interview</field>
+        <field name="inherit_id" ref="sky_hr_recruitment_custom.hr_interview_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_recruitment_custom Inherit tree view of Applicant Interview -->
+    <record id="inherit_hr_interview_view_tree" model="ir.ui.view">
+        <field name="name">inherit.hr.interview.view.tree</field>
+        <field name="model">hr.interview</field>
+        <field name="inherit_id" ref="sky_hr_recruitment_custom.hr_interview_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="pending_payment_email_template" model="mail.template">
+        <field name="name">SYNC_Pending for Payment</field>
+        <field name="model_id" ref="sms_core.model_student_admission_form"/>
+        <field name="body_html" type="html">
+            <div>
+                <strong>Application No:</strong>${object.application_no}
+                <br/>
+                <br/>
+                <p>We are glad to inform you that the application process for ${object.full_name} is
+                    successfully completed, and we are very excited to have ${object.full_name}
+                    joining us.
+                    <br/>
+                    Thanks and have a wonderful year.
+                </p>
+                <br/>
+            </div>
+        </field>
+    </record>
+</odoo>

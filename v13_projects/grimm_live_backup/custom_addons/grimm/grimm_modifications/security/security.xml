@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data noupdate="1">
+      <record id="fleet_angebot" model="res.groups">
+        <field name="name">Fleet Angebot</field>
+      </record>
+
+      <record id="fleet_vertrag" model="res.groups">
+        <field name="name">Fleet Vertrag</field>
+      </record>
+
+      <record id="fleet_zulassung" model="res.groups">
+        <field name="name">Fleet Zulassung</field>
+      </record>
+
+      <record id="fleet_repair" model="res.groups">
+        <field name="name">Fleet Repairs</field>
+      </record>
+
+      <record id="fleet_steuer" model="res.groups">
+        <field name="name">Fleet Steuer</field>
+      </record>
+
+      <record id="fleet_accident" model="res.groups">
+        <field name="name">Fleet Accident</field>
+      </record>
+
+      <record id="fleet_sondereinbauten" model="res.groups">
+        <field name="name">Fleet Sondereinbauten</field>
+      </record>
+
+      <record id="fleet_verkauf" model="res.groups">
+        <field name="name">Fleet Sales</field>
+      </record>
+  </data>
+</openerp>

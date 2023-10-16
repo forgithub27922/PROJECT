@@ -1,0 +1,31 @@
+{
+    'name': 'Sky Stock Company',
+    'version': '13.0.0.1',
+    'category': 'Stock',
+    'description': """
+    This module is used for replacing company string to school""",
+    'author': 'Skyscend Business Solutions',
+    'website': 'http://www.skyscendbs.com',
+    'depends': ['stock', 'stock_account', 'product', 'sale'],
+    'data': [
+        'security/base_groups.xml',
+        'views/stock_picking_views.xml',
+        'views/stock_valuation_layer_views.xml',
+        'views/stock_inventory_views.xml',
+        'views/stock_move_line_views.xml',
+        'views/stock_scrap_views.xml',
+        'views/product_template_views.xml',
+        'views/product_views.xml',
+        'views/stock_quant_views.xml',
+        'views/stock_warehouse_views.xml',
+        'views/product_strategy_views.xml',
+        'views/stock_production_lot_views.xml',
+        'views/stock_move_views.xml',
+        'views/stock_location_views.xml',
+        'views/stock_rule_views.xml',
+        'views/sale_report_views.xml',
+        'views/base_menus.xml',
+    ],
+    'installable': True,
+    'auto_install': False
+}

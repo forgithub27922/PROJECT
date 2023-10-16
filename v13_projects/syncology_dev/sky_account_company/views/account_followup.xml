@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- base_accounting_kit Inherit Form view of Account Follow-up-->
+    <record id="inherit_view_account_followup_followup_form" model="ir.ui.view">
+        <field name="name">inherit.account.followup.form</field>
+        <field name="model">account.followup</field>
+        <field name="inherit_id" ref="base_accounting_kit.view_account_followup_followup_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/label[@for='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- base_accounting_kit Inherit Tree view of Account Follow-up-->
+    <record id="inherit_view_account_followup_followup_tree" model="ir.ui.view">
+        <field name="name">inherit.account.followup.tree</field>
+        <field name="model">account.followup</field>
+        <field name="inherit_id" ref="base_accounting_kit.view_account_followup_followup_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- base_accounting_kit Inherit Search view of Account Follow-up-->
+    <record id="inherit_view_account_followup_followup_search" model="ir.ui.view">
+        <field name="name">inherit.account.followup.search</field>
+        <field name="model">account.followup</field>
+        <field name="inherit_id" ref="base_accounting_kit.view_account_followup_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

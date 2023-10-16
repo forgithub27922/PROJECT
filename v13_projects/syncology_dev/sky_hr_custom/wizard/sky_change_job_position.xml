@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    form view of menu add charges-->
+    <record id="view_change_job_position_wiz_form" model="ir.ui.view">
+        <field name="name">view.change.job.position.wiz.form</field>
+        <field name="model">change.job.position.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="new_job_position" required="1"/>
+                        <field name="changing_date" required="1"/>
+                        <field name="status" required="1"/>
+                    </group>
+                    <footer>
+                        <button name="update_job_position" type="object" string="Update" class="btn-primary"/>
+                        <button special="cancel" string="cancel" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    action of the menu add charges wizard-->
+
+    <record id="action_change_job_position_wiz" model="ir.actions.act_window">
+        <field name="name">Change Job Position</field>
+        <field name="res_model">change.job.position.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

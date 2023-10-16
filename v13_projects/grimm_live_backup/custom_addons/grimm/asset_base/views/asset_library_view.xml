@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+  <data>
+    <record id="view_grimm_asset_library_tree" model="ir.ui.view">
+      <field name="name">grimm.asset.library.tree</field>
+      <field name="model">grimm.asset.library</field>
+      <field name="arch" type="xml">
+        <tree string="Assets">
+          <field name="name"/>
+          <field name="matchcode"/>
+          <field name="brand_id"/>
+          <field name="revision"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_grimm_asset_library_form" model="ir.ui.view">
+      <field name="name">grimm.asset.library.form</field>
+      <field name="model">grimm.asset.library</field>
+      <field name="arch" type="xml">
+        <form string="Asset">
+          <sheet string="Asset">
+            <field name="exploded_drawing" widget='image' class="oe_avatar"/>
+            <group>
+              <field name="name"/>
+              <field name="matchcode"/>
+              <field name="brand_id"/>
+              <field name="category_ids" widget="many2many_tags"/>
+              <field name="revision"/>
+            </group>
+            <notebook>
+              <page string="Spare Parts">
+                <field name="spare_parts_ids" widget="many2many"/>
+              </page>
+              <page string="Tools">
+                <field name="tools_ids" widget="many2many"/>
+              </page>
+              <page string="Qualifications">
+                <field name="qualification_ids" widget="many2many"/>
+              </page>
+              <page string="Suppliers">
+                <field name="supplier_ids" widget="many2mant"/>
+              </page>
+              <page string="Other Info">
+                <group>
+                  <field name="width"/>
+                  <field name="height"/>
+                  <field name="length"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_grimm_asset_library_search" model="ir.ui.view">
+      <field name="name">grimm.asset.library.search</field>
+      <field name="model">grimm.asset.library</field>
+      <field name="arch" type="xml">
+        <search string="Search Assets">
+          <field name="name"/>
+          <field name="matchcode"/>
+          <field name="brand_id"/>
+          <field name="category_ids"/>
+          <field name="revision"/>
+          <separator/>
+          <filter string="Inactive" domain="[('active','=',False)]"/>
+          <separator/>
+          <group expand="0" string="Group By">
+            <filter string="Categories" domain="[]" context="{'group_by':'category_ids'}"/>
+            <filter string="Brands" domain="[]" context="{'group_by':'brand_id'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <record id="action_grimm_asset_library_tree" model="ir.actions.act_window">
+      <field name="name">Assets Library</field>
+      <field name="res_model">grimm.asset.library</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="view_grimm_asset_library_tree"/>
+      <field name="search_view_id" ref="view_grimm_asset_library_search"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Click to create a new asset.
+        </p>
+      </field>
+    </record>
+    <!-- <menuitem action="action_grimm_asset_library_tree" id="menu_action_grimm_asset_library" parent="menu_grimm_assets" sequence="10"/> -->
+  </data>
+</odoo>

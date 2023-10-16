@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="maintenance.menu_maintenance_title"
+        name="Maintenance"
+        web_icon="maintenance,static/description/icon.png"
+        groups="maintenance.group_equipment_manager"
+        sequence="110"/>
+
+    <menuitem id="utm.menu_link_tracker_root"
+        name="Link Tracker"
+        sequence="30"
+        web_icon="utm,static/description/icon.png"
+        groups="grimm_enhancements.group_link_tracker_admin,-base.group_no_one"/>
+
+    <menuitem id="base.menu_board_root" name="Dashboards"
+              sequence="305" web_icon="base,static/description/board.png"
+              groups="grimm_enhancements.group_dashboard_admin,-base.group_user"/>
+
+</odoo>

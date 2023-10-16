@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+
+        <record id="product_image_form_view" model="ir.ui.view">
+            <field name="name">Product image form view</field>
+            <field name="model">product.image</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+
+                <form string="Additional image">
+                    <sheet>
+                        <div class="o_row">
+                            <field name="manual_image_data" widget="image" class="oe_avatar oe_left"
+                                   attrs="{'invisible':[('is_automatic_image','=',True)], 'required':[('is_automatic_image','=',False)]}"
+                                   filename="file_name"/>
+                            <field name="automatic_image_data" widget="image" class="oe_avatar oe_left"
+                                   attrs="{'invisible':[('is_automatic_image','=',False)]}" filename="file_name"/>
+                        </div>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name" string="Image label"/>
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        <div>
+                            <label for="file_name"/>
+                            <field name="file_name"/>
+                        </div>
+                        <div class="oe_left" name="types" invisible="1">
+                            <div>
+                                <field name="is_base_image"/>
+                                <label for="is_base_image"/>
+
+                                <field name="is_small_image"/>
+                                <label for="is_small_image"/>
+
+                                <field name="is_thumbnail"/>
+                                <label for="is_thumbnail"/>
+
+                                <field name="is_automatic_image" invisible="1"/>
+                                <label for="is_automatic_image" invisible="1"/>
+
+                                <field name="is_standard" invisible="1"/>
+                                <field name="should_export" invisible="1"/>
+                            </div>
+
+                            <br/>
+                            <group>
+                                <field name="sync_with_magento"/>
+                                <field name="position" readonly="0"/>
+                            </group>
+                            <!--<div>
+                              <field name="sync_with_magento"/>
+                              <label for="sync_with_magento"/>
+                              <label for="position"/>
+                              <field name="position" readonly="0"/>
+                            </div>-->
+
+                            <div>
+                                <field name="transfer_to_magento"/>
+                                <label for="transfer_to_magento"/>
+
+                                <field name="transfer_to_shopware"/>
+                                <label for="transfer_to_shopware"/>
+
+                                <!--<field name="transfer_to_ebay"/>
+                                <label for="transfer_to_ebay"/>-->
+                            </div>
+                        </div>
+
+                        <div class="oe_right">
+                            <button name="export_to_magento" string="Export to Magento" type="object"
+                                    class="oe_highlight" attrs="{'invisible':[('should_export','=',False)]}"
+                            />
+                        </div>
+
+                        <field name="product_tmpl_id" invisible="1"/>
+
+                        <group col="4">
+                            <field name="license" required="1"/>
+                            <field name="original_link" widget="url"/>
+                            <field name="attribution"/>
+                        </group>
+
+                        <field name="magento_binding_ids" readonly="1">
+                            <tree>
+                                <field name="backend_id"/>
+                                <field name="magento_id"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <record id="magento_product_image_form_view" model="ir.ui.view">
+            <field name="name">Magento product image form view</field>
+            <field name="model">magento.product.image</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <form string="Magento product image">
+                    <group>
+                        <field name="magento_id"/>
+                        <field name="magento_ptmpl_id" attrs="{'invisible':[('magento_ptmpl_id','=',False)]}"/>
+                        <field name="magento_product_id" attrs="{'invisible':[('magento_product_id','=',False)]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="product_image_tree_view" model="ir.ui.view">
+            <field name="name">Product image tree view</field>
+            <field name="model">product.image</field>
+            <field name="mode">primary</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <!--<field name="is_base_image"/>
+                    <field name="is_small_image"/>
+                    <field name="is_thumbnail"/>-->
+                    <field name="position" readonly="0"/>
+                    <!--<field name="should_export" invisible="1"/>
+                    <button name="export_to_magento" string="Export to Magento"
+                            type="object" attrs="{'invisible':[('should_export','=',False)]}"/>-->
+
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>

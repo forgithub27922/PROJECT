@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_sync_lms_wizard" model="ir.ui.view">
+			<field name="name">sync.lms.wizard</field>
+			<field name="model">sync.lms.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Admission Reports">
+					<group>
+						<group>
+							<field name="reason" required="1"/>
+						</group>
+					</group>
+					<footer>
+						<button name="btn_active_deactive_lms" type="object" string="Proceed"
+							class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_view_sync_lms_wizard" model="ir.actions.act_window">
+			<field name="name">Sync Lms</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sync.lms.wizard</field>
+			<field name="view_id" ref="view_sync_lms_wizard" />
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+
+	</data>
+</odoo>

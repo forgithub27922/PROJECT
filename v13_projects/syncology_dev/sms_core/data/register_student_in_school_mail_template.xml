@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="register_student_in_school_mail_template" model="mail.template">
+        <field name="name">SYNC_Register Student In School</field>
+        <field name="model_id" ref="sms_core.model_academic_student"/>
+        <field name="body_html" type="html">
+
+            <div>
+                    <p>We would like to inform you that your payment for has been received and ${object.full_name} has
+                    been admitted to ${object.class_id.name}. You and ${object.full_name} can now
+                    access our school’s super powerful learning management system EduSync, through the following link: <br />
+                    <a target="_blank" href="http://35.192.148.38/login/index.php">Goto Moodle LMS</a>
+                    where you can view ${object.full_name}’s academic activity and grades,
+                    and ${object.full_name} can start a new amazing learning journey. For more information please visit the following link:
+                    ${object.full_name} access credentials are: <br />
+                    User Name : ${object.md_username} <br/>
+                    Login Password : ${object.md_password} <br/>
+                    credentials from students affairs module <br/>
+                    Parent credentials are: <br/>
+                    User Name : ${object.md_parent_username} <br/>
+                    Login Password : ${object.md_password} <br/> <br/>
+                    We happily welcome you and ${object.full_name} to our family, Have a wonderful year,
+                    and see you on ${object.full_name}’s first day.
+                    </p>
+            </div>
+                <br/>
+        </field>
+    </record>
+</odoo>

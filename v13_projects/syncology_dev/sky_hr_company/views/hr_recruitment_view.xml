@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- sky_hr_recruitment_custom Inherit Form view of Applicant-->
+    <record id="inherit_hr_applicant_view_form" model="ir.ui.view">
+        <field name="name">inherit.view.applicant.form.syncology</field>
+        <field name="model">hr.applicant</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_applicant_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group[3]/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

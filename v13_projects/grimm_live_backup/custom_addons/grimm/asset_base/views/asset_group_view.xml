@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+  <data>
+    <record id="view_grimm_asset_group_tree" model="ir.ui.view">
+      <field name="name">grimm.asset.group.tree</field>
+      <field name="model">grimm.asset.group</field>
+      <field name="arch" type="xml">
+        <tree string="Assets groups">
+          <field name="name"/>
+          <field name="partner_owner"/>
+          <field name="asset_facility_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_grimm_asset_group_form" model="ir.ui.view">
+      <field name="name">grimm.asset.group.form</field>
+      <field name="model">grimm.asset.group</field>
+      <field name="arch" type="xml">
+        <form string="Asset Group">
+          <header>
+            <button name="%(action_change_partners_wizard)d" type="action" string="Change Partners"
+                    groups="base.group_user"/>
+          </header>
+          <sheet string="Asset Group">
+            <div class="oe_button_box" name="button_box">
+              <button name="action_partner_history" type="object" class="oe_stat_button" icon="fa-user-times"
+                      attrs="{'invisible': [('previous_owners_count', '=', 0)]}">
+                <field name="previous_owners_count" widget="statinfo"/>
+              </button>
+            </div>
+            <group>
+              <field name="name"/>
+              <field name="asset_facility_id"/>
+            </group>
+            <notebook>
+              <page string="Assets">
+                <field name="id" invisible="1"/>
+                <field name="asset_ids"/>
+              </page>
+              <page string="Contact">
+                <group>
+                  <field name="partner_owner" attrs="{'readonly': [('id', '>', 0)]}"/>
+                  <field name="partner_object" attrs="{'readonly': [('id', '>', 0)]}"/>
+                  <field name="partner_contact" attrs="{'readonly': [('id', '>', 0)]}"/>
+                  <field name="partner_invoice" attrs="{'readonly': [('id', '>', 0)]}"/>
+                  <field name="beneficiary" attrs="{'readonly': [('id', '>', 0)]}"/>
+                  <field name="partner_delivery" attrs="{'readonly': [('id', '>', 0)]}"/>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_grimm_asset_group_search" model="ir.ui.view">
+      <field name="name">grimm.asset.group.search</field>
+      <field name="model">grimm.asset.group</field>
+      <field name="arch" type="xml">
+        <search string="Search Asset Groups">
+          <field name="name"/>
+          <field name="partner_owner"/>
+          <field name="asset_ids"/>
+          <separator/>
+          <group expand="0" string="Group By">
+            <filter string="Partner" domain="[]" context="{'group_by':'partner_owner'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <record id="action_grimm_asset_group_tree" model="ir.actions.act_window">
+      <field name="name">Asset Groups</field>
+      <field name="res_model">grimm.asset.group</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="view_grimm_asset_group_tree"/>
+      <field name="search_view_id" ref="view_grimm_asset_group_search"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Click to create a new asset group.
+        </p>
+      </field>
+    </record>
+    <menuitem action="action_grimm_asset_group_tree" id="menu_action_grimm_asset_group" parent="menu_grimm_assets"
+              sequence="6"/>
+  </data>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <template id="grimm_web_layout" name="Grimm Web Layout" inherit_id="web.layout">
+        <xpath expr="//body" position="replace">
+            <t t-if="not request.session.uid">
+                <!--<body t-att-class="body_classname" style="background-image: url('/grimm_web_replace/static/src/img/grimm.jpg');background-size: cover;">-->
+                <body t-att-class="body_classname">
+                    <t t-raw="0"/>
+                </body>
+            </t>
+            <t t-if="request.session.uid">
+                <t t-if="request.env.user.dashboard_image">
+                    <body t-att-class="body_classname" t-attf-style="background-image: url(data:image/png;base64,{{request.env.user.dashboard_image}});background-size: 100% 100%;">
+                        <t t-raw="0"/>
+                    </body>
+                </t>
+                <t t-if="not request.env.user.dashboard_image">
+                    <body t-att-class="body_classname">
+                        <t t-raw="0"/>
+                    </body>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    <!--<template id="grimm_web_login_layout" name="Grimm Web Login Layout" inherit_id="web.login_layout">
+        <xpath expr="//div[@class='row']" position="attributes">
+            <attribute name="style">color:white;margin-top: 10%;border: 3px solid;border-color: white;border-radius: 10px;background-color: rgb(255,255,255,0.2);</attribute>
+        </xpath>
+        <xpath expr="//a[@href='/web/database/manager']" position="attributes">
+            <attribute name="style">color:white;</attribute>
+        </xpath>
+        <xpath expr="//a[@href='https://www.odoo.com']" position="attributes">
+            <attribute name="style">color:white;</attribute>
+        </xpath>
+    </template>-->
+    <template id="grimm_web_login_layout_website" name="Grimm Web Login Layout" inherit_id="website.login_layout">
+        <xpath expr="//div[@class='oe_website_login_container']" position="attributes">
+            <attribute name="style">margin-left: 30%;margin-right: 30%;color:white;margin-top: 10%;border: 3px solid;border-color: white;border-radius: 10px;background-color: rgb(255,255,255,0.2);</attribute>
+        </xpath>
+    </template>
+</openerp>

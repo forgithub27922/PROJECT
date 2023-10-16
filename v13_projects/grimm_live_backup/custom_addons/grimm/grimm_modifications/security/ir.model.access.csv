@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_fleet_attachment_category","access.fleet.attachment.category","model_fleet_attachment_category","base.group_user",1,1,1,1
+"access_grimm_purchase_report","access.grimm.purchase.report","model_grimm_purchase_report","base.group_user",1,1,1,1
+"access_inventory_development_report","access.inventory.development.report","model_inventory_development_report","base.group_user",1,1,1,1

@@ -1,0 +1,224 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_crm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-21 21:54+0000\n"
+"PO-Revision-Date: 2018-06-21 21:54+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+
+#. module: grimm_crm
+#: model:ir.model,name:grimm_crm.model_crm_claim
+msgid "Claim"
+msgstr "Aufgabe"
+
+#. module: grimm_crm
+#. openerp-web
+#: code:addons/grimm_crm/static/src/xml/thread.xml:52
+#, python-format
+msgid "Delete this attachment"
+msgstr "Delete this attachment"
+
+#. module: grimm_crm
+#: code:addons/grimm_crm/wizards/mail_compose_message.py:27
+#, python-format
+msgid "E-Mail doesn't have any receiver"
+msgstr "E-Mail hat keinen Empfänger"
+
+#. module: grimm_crm
+#: model:ir.model,name:grimm_crm.model_mail_template
+msgid "Email Templates"
+msgstr "E-Mail-Vorlagen"
+
+#. module: grimm_crm
+#: model:ir.model,name:grimm_crm.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "E-Mail Assistent"
+
+#. module: grimm_crm
+#: model:ir.model.fields,field_description:grimm_crm.field_project_task_meeting_to
+msgid "End"
+msgstr "Ende"
+
+#. module: grimm_crm
+#: model:ir.model,name:grimm_crm.model_calendar_event
+msgid "Event"
+msgstr "Event"
+
+#. module: grimm_crm
+#: model:ir.model.fields,help:grimm_crm.field_mail_template_not_overwrite
+msgid "Existed contents not overwrite"
+msgstr "Vorhandene Text und Anhänge werden nicht überschrieben."
+
+#. module: grimm_crm
+#: model:ir.ui.view,arch_db:grimm_crm.project_task_form2_view_inherit
+msgid "From"
+msgstr "Von"
+
+#. module: grimm_crm
+#. openerp-web
+#: code:addons/grimm_crm/static/src/xml/thread.xml:41
+#, python-format
+msgid "Gehe zur beantworteten Nachricht"
+msgstr "Gehe zur beantworteten Nachricht"
+
+#. module: grimm_crm
+#: model:ir.ui.view,arch_db:grimm_crm.grimm_view_crm_case_opportunities_filter
+msgid "Inkl. Archiviert"
+msgstr "Inkl. Archiviert"
+
+#. module: grimm_crm
+#: model:ir.model,name:grimm_crm.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Interessent / Chance"
+
+#. module: grimm_crm
+#. openerp-web
+#: code:addons/grimm_crm/static/src/js/chatter.js:46
+#, python-format
+msgid "Log"
+msgstr "Log"
+
+#. module: grimm_crm
+#: model:ir.model.fields,field_description:grimm_crm.field_project_task_meeting_id
+msgid "Meeting"
+msgstr "Meeting"
+
+#. module: grimm_crm
+#: model:ir.model.fields,help:grimm_crm.field_project_task_meeting_to
+msgid "Meeting End Datetime"
+msgstr "Termin Ende"
+
+#. module: grimm_crm
+#: model:ir.model.fields,help:grimm_crm.field_project_task_meeting_from
+msgid "Meeting Start Datetime"
+msgstr "Termin Beginn"
+
+#. module: grimm_crm
+#: model:ir.model.fields,field_description:grimm_crm.field_project_task_meeting_categ_id
+msgid "Meeting Type"
+msgstr "Terminart"
+
+#. module: grimm_crm
+#: model:ir.model,name:grimm_crm.model_mail_message
+msgid "Message"
+msgstr "Nachricht"
+
+#. module: grimm_crm
+#: model:ir.model.fields,field_description:grimm_crm.field_mail_template_not_overwrite
+msgid "Not overwrite"
+msgstr "Nicht überschreiben"
+
+#. module: grimm_crm
+#: model:ir.model.fields,help:grimm_crm.field_mail_compose_message_is_notify_follower
+msgid "Notify to all on follower"
+msgstr "Informieren an allen Beobachtern"
+
+#. module: grimm_crm
+#: model:ir.model.fields,help:grimm_crm.field_project_task_meeting_categ_id
+msgid "Once a task is created, Odoo will create a corresponding meeting of this type in the calendar."
+msgstr "Wenn eine Aufgabe erstellt ist, wird Odoo einen Kalender-Termin mit diesem Terminart erstellen."
+
+#. module: grimm_crm
+#: model:ir.model.fields,field_description:grimm_crm.field_mail_message_parent_reply_id
+msgid "Parent Reply Message"
+msgstr "Parent Reply Message"
+
+#. module: grimm_crm
+#: code:addons/grimm_crm/models/crm_claim.py:111
+#, python-format
+msgid "Part inquiry %s %s"
+msgstr "Ersatzteilanfrage %s %s"
+
+#. module: grimm_crm
+#. openerp-web
+#: code:addons/grimm_crm/static/src/js/chatter.js:210
+#, python-format
+msgid "Please complete partner's informations"
+msgstr "Please complete partner's informations"
+
+#. module: grimm_crm
+#. openerp-web
+#: code:addons/grimm_crm/static/src/js/chatter.js:296
+#, python-format
+msgid "Re: "
+msgstr "Re: "
+
+#. module: grimm_crm
+#. openerp-web
+#: code:addons/grimm_crm/static/src/xml/thread.xml:37
+#, python-format
+msgid "Reply"
+msgstr "Reply"
+
+#. module: grimm_crm
+#: model:ir.model.fields,field_description:grimm_crm.field_mail_compose_message_is_notify_follower
+msgid "Sent to followers"
+msgstr "Senden an Beobachtern"
+
+#. module: grimm_crm
+#: model:ir.model.fields,field_description:grimm_crm.field_project_task_meeting_from
+msgid "Start"
+msgstr "Beginn"
+
+#. module: grimm_crm
+#: model:ir.model,name:grimm_crm.model_project_task
+#: model:ir.model.fields,field_description:grimm_crm.field_calendar_event_task_id
+msgid "Task"
+msgstr "Aufgabe"
+
+#. module: grimm_crm
+#: code:addons/grimm_crm/models/project.py:118
+#, python-format
+msgid "Ticket %s"
+msgstr "Ticket %s"
+
+#. module: grimm_crm
+#: code:addons/grimm_crm/models/project.py:57
+#, python-format
+msgid "Ticket %s: Meeting: End Datetime must be greater than Start Datetime"
+msgstr "Ticket %s: Meeting: End Datetime must be greater than Start Datetime"
+
+#. module: grimm_crm
+#. openerp-web
+#: code:addons/grimm_crm/static/src/xml/thread.xml:8
+#, python-format
+msgid "To:"
+msgstr "An:"
+
+#. module: grimm_crm
+#: model:ir.actions.server,name:grimm_crm.update_claim_from_e_mail
+msgid "Update Claim from E-Mail"
+msgstr "Reklamation aus E-Mail aktualisieren"
+
+#. module: grimm_crm
+#: model:ir.actions.server,name:grimm_crm.update_lead_from_e_mail
+msgid "Update Lead from E-Mail"
+msgstr "Interessenten aus E-Mail aktualisieren"
+
+#. module: grimm_crm
+#. openerp-web
+#: code:addons/grimm_crm/static/src/xml/thread.xml:54
+#, python-format
+msgid "Uploading"
+msgstr "Uploading"
+
+#. module: grimm_crm
+#: model:crm.stage,name:grimm_crm.stage_lead_lost
+msgid "Verloren"
+msgstr "Verloren"
+
+#. module: grimm_crm
+#: model:ir.ui.view,arch_db:grimm_crm.project_task_form2_view_inherit
+msgid "to"
+msgstr "bis"
+

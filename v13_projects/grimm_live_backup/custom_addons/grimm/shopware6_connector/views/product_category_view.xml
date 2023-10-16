@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+
+    <record id="shopware6_product_category_normal_form_view" model="ir.ui.view">
+        <field name="name">product.category.form</field>
+        <field name="model">product.category</field>
+        <field name="priority">1</field>
+        <field name="inherit_id" ref="product.product_category_form_view"/>
+        <field name="arch" type="xml">
+            <group name="first" position="after">
+                <notebook>
+                    <page name="category" string="Shopware6 Details">
+                        <button name="export_to_shopware6" type="object" class="oe_highlight" string="Export Record" attrs="{'invisible': [('is_shopware6_exported', '=', True)]}"/>
+                        <group colspan="4" col="4">
+                                <field name="is_shopware6_exported" invisible="1"/>
+                                <field name="shopware6_active" colspan="4"/>
+                                <field name="shopware6_category_type" colspan="2"/>
+                                <field name="shopware6_category_assignment_type" colspan="2"/>
+                                <field name="shopware6_description" colspan="2"/>
+                                <field name="shopware6_meta_title" colspan="2"/>
+                                <field name="shopware6_meta_description" colspan="2"/>
+                                <field name="shopware6_meta_keywords" colspan="2"/>
+                        </group>
+                        <group string="Shopware6 Bindings">
+                            <field name="shopware6_bind_ids" nolabel="1">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </group>
+        </field>
+    </record>
+
+    <record id="view_shopware6_product_category_form" model="ir.ui.view">
+        <field name="name">shopware6.product.category.form</field>
+        <field name="model">shopware6.product.category</field>
+        <field name="arch" type="xml">
+            <form string="Shopware6 Product Category">
+                <group>
+                    <field name="backend_id"/>
+                    <field name="shopware6_id"/>
+                    <field name="created_at" readonly="1"/>
+                    <field name="updated_at" readonly="1"/>
+                    <field name="shopware6_parent_id" readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</data>
+</openerp>

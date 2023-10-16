@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_contract_history" model="ir.actions.act_window">
+            <field name="name">Contracts</field>
+            <field name="res_model">sale.subscription</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sale_subscription.sale_subscription_view_list"/>
+        </record>
+
+        <record id="action_saleorder_history" model="ir.actions.act_window">
+            <field name="name">Sale Orders</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sale.view_order_tree"/>
+        </record>
+
+        <record id="action_claim_history" model="ir.actions.act_window">
+            <field name="name">Claims</field>
+            <field name="res_model">crm.claim</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="crm_claim.crm_case_claims_tree_view"/>
+        </record>
+
+        <record id="view_grimm_asset_asset_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.asset.asset.form.view.inherit</field>
+            <field name="model">grimm.asset.asset</field>
+            <field name="inherit_id" ref="asset_base.view_grimm_asset_asset_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_partner_history']" position="after">
+                    <button
+                            name="%(action_contract_history)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-book"
+                            attrs="{'invisible': [('previous_contracts_count', '=', 0)]}"
+                            context="{'search_default_asset_id': [active_id],
+              'default_partner_id': partner_owner,
+              'default_asset_ids':active_id,
+              'default_beneficiary': beneficiary}
+              ">
+                        <field name="previous_contracts_count" widget="statinfo"/>
+                    </button>
+
+                    <button
+                            name="%(action_saleorder_history)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-user-times"
+                            context="{'search_default_asset_ids': [active_id],
+              'default_partner_id': partner_contact,
+              'default_beneficiary': beneficiary,
+              'default_contact': partner_owner,
+              'default_partner_invoice_id':partner_invoice,
+              'default_partner_shipping_id':partner_delivery,
+              'default_object_address': asset_facility_id,
+              'default_asset_ids': [(4, active_id, None)],
+              'default_order_subject': name}
+              ">
+                        <field name="sale_order_count" widget="statinfo"/>
+                    </button>
+                    <button
+                            name="%(action_claim_history)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-user-times"
+                            context="{'search_default_asset_name': name,
+              'default_partner_id': partner_contact,
+              'default_contact': partner_owner,
+              'default_asset_id':active_id,
+              'default_beneficiary': beneficiary}
+              ">
+                        <field name="crm_claim_count" widget="statinfo"/>
+                    </button>
+                </xpath>
+                <!--<xpath expr="//field[@name='placing_date']" position="before">
+                  <field name="warranty"/>
+                  <field name="warranty_type"/>
+                </xpath>-->
+                <field name="brand" position="replace"/>
+                <xpath expr="//field[@name='product_id']" position="before">
+                    <field name="matchcode"/>
+                </xpath>
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="brand"/>
+                </xpath>
+                <field name="serial_number" position="replace"/>
+                <field name="condition" position="replace"/>
+                <field name="connection_ids" position="replace"/>
+                <field name="product_img" position="replace"/>
+                <xpath expr="//div[@class='oe_title']" position="after">
+                    <group>
+                        <group>
+                            <group>
+                                <field name="serial_number"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="condition" widget="priority"/>
+                            </group>
+                            <group>
+                                <field name="product_img" widget='image' class="oe_avatar oe_right" nolabel="1"/>
+                            </group>
+                        </group>
+                    </group>
+                </xpath>
+                <field name="tags" position="replace"/>
+                <field name="has_maintenance" position="replace"/>
+                <field name="manufacture_date" position="replace"/>
+                <field name="product_price" position="replace"/>
+                <xpath expr="//field[@name='customer_inventory_no']" position="before">
+                    <field name="product_price"/>
+                    <field name="product_age"/>
+                    <field name="manufacture_date" widget="date"/>
+                    <field name="has_maintenance"/>
+                    <field name="tags" widget="many2many_tags"/>
+                </xpath>
+                <field name="location_ids" position="replace"/>
+                <xpath expr="//notebook" position="before">
+                    <group>
+                        <group>
+                            <h5 style="padding-left: 5px;">Anschlusswerte</h5>
+                            <newline/>
+                            <field name="connection_ids" colspan="2" nolabel="1">
+                                <tree string="Connections" editable="bottom">
+                                    <field name="connection_medium"/>
+                                    <field name="connection_spec"/>
+                                    <field name="connection_value"/>
+                                    <field name="connection_unit"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <h5 style="padding-left: 5px;">Standort</h5>
+                            <newline/>
+                            <field name="location_ids" nolabel="1" context="{'default_asset_id': id}">
+                                <tree string="Locations" editable="bottom">
+                                    <field name="name"/>
+                                    <field name="placement"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </xpath>
+                <field name="placing_date" position="replace"/>
+                <field name="location_description" position="replace"/>
+                <xpath expr="//notebook/page[2]/group[1]/group[1]" position="inside">
+                    <field name="warranty"/>
+                    <field name="warranty_type"/>
+                </xpath>
+                <xpath expr="//notebook/page[2]/group[1]/group[2]" position="inside">
+                    <field name="warranty_to"/>
+                    <field name="placing_date"/>
+                    <field name="location_description"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_grimm_asset_asset_tree_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.asset.asset.tree.view.inherit</field>
+            <field name="model">grimm.asset.asset</field>
+            <field name="inherit_id" ref="asset_base.view_grimm_asset_asset_tree"/>
+            <field name="arch" type="xml">
+                <field name="serial_number" position="replace"/>
+                <xpath expr="//field[@name='partner_owner']" position="before">
+                    <field name="serial_number"/>
+                    <field name="name"/>
+                </xpath>
+                <field name="customer_inventory_no" position="replace"/>
+                <xpath expr="//field[@name='has_maintenance']" position="before">
+                    <field name="product_id"/>
+                    <field name="brand"/>
+                    <field name="customer_inventory_no"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_grimm_asset_asset_kanban_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.asset.asset.kanban.view.inherit</field>
+            <field name="model">grimm.asset.asset</field>
+            <field name="inherit_id" ref="asset_base.view_grimm_asset_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_img']" position="after">
+                    <field name="previous_contracts_count"/>
+                    <field name="previous_repair_count"/>
+                    <field name="sale_order_count"/>
+                    <field name="tags"/>
+                </xpath>
+                <xpath expr="//li/field[@name='partner_owner']" position="before">
+                    <div>
+                        <field name="tags"/>
+                    </div>
+                </xpath>
+                <xpath expr="//li" position="after">
+                    <li>
+                        <field name="matchcode"/>
+                    </li>
+                </xpath>
+                <xpath expr="//ul" position="after">
+                    <div class="oe_kanban_partner_links">
+                        <span class="badge" t-if="record.previous_contracts_count.value>0">
+                            <i class="fa fa-fw fa-calendar"/>
+                            <t t-esc="record.previous_contracts_count.value"/>
+                        </span>
+                        <span class="badge" t-if="record.previous_repair_count.value>0">
+                            <i class="fa fa-fw fa-sign-in"/>
+                            <t t-esc="record.previous_repair_count.value"/>
+                        </span>
+                        <span class="badge" t-if="record.sale_order_count.value>0">
+                            <i class="fa fa-fw fa-star"/>
+                            <t t-esc="record.sale_order_count.value"/>
+                        </span>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_grimm_asset_asset_search_ext" model="ir.ui.view">
+            <field name="name">grimm.asset.asset.search.ext</field>
+            <field name="model">grimm.asset.asset</field>
+            <field name="arch" type="xml">
+                <search string="Search Assets">
+                    <field name="name"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

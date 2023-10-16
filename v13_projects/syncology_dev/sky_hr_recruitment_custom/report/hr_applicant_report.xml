@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+<!-- PDF Report for Hr Applicant PDF-->
+    <report id="report_hr_applicant_pdf"
+            string="Applicant Report"
+            model="hr.applicant"
+            name="sky_hr_recruitment_custom.report_hr_applicant"
+            file="sky_hr_recruitment_custom.report_hr_applicant"
+            report_type="qweb-pdf"/>
+
+</odoo>

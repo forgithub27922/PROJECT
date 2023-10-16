@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="grimm_task_tab_view" model="ir.ui.view">
+        <field name="name">grimm_task_tab_view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page[@name='extra_info']" position="after">
+                <page string="Scanned Products">
+                    <button name="action_transfer"
+                            string="Transfer Scanned Products to Sale Order"
+                            type="object" class="oe_highlight"/>
+                    <field name="prod_serv_barcode" widget="one2many_list">
+                        <tree editable="bottom">
+                            <field name="product_barcode"/>
+                            <field name="prod_default_code"/>
+                            <field name="product"/>
+                            <field name="qty"/>
+                            <field name="transferred"/>
+                            <field name="write_date" widget="date" string="Last Updated On"/>
+                            <field name="user_id"/>
+                        </tree>
+                    </field>
+                    <field name="service_travel" widget="one2many_list">
+                        <tree>
+                            <field name="st_small_pieces"/>
+                            <field name="st_meters_pack"/>
+                            <field name="st_clean_and_care"/>
+                            <field name="user_id"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Parameter">
+                            <group string="Testing according to VDE0701, 0702 and DGUV">
+                                <field name="conductor_resistance"/>
+                                <field name="conductor_current"/>
+                                <field name="insulation_resistance"/>
+                            </group>
+                            <group string="">
+                                <field name="touch_current"/>
+                            </group>
+                            <group string="Water values">
+                                <field name="water_conductor_resistance"/>
+                                <field name="water_hardness"/>
+                                <field name="water_total_hardness"/>
+                                <field name="full_demineralisation_conductance"/>
+                            </group>
+                        </page>
+            </xpath>
+        </field>
+    </record>
+
+<!--    <record id="grimm_extra_info_tab_view" model="ir.ui.view">-->
+<!--        <field name="name">grimm_extra_info_tab_view</field>-->
+<!--        <field name="model">project.task</field>-->
+<!--        <field name="inherit_id" ref="project.view_task_form2"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//form/sheet/notebook/page[@name='extra_info']/group/group[4]" position="after">-->
+<!--                <group>-->
+<!--                    <field name="service_travel" widget="one2many_list">-->
+<!--                        <tree>-->
+<!--                            <field name="st_small_pieces"/>-->
+<!--                            <field name="st_meters_pack"/>-->
+<!--                            <field name="st_clean_and_care"/>-->
+<!--                            <field name="user_id"/>-->
+<!--                        </tree>-->
+<!--                    </field>-->
+<!--                </group>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record id="grimm_task_timesheet_view" model="ir.ui.view">
+        <field name="name">grimm_task_timesheet_view</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="hr_timesheet.view_task_form2_inherited"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page/field[@name='timesheet_ids']/tree/field[@name='employee_id']" position="after">
+                <field name="travel_cost"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

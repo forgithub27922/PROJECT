@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Tree View Of Hr Employee Appraisal -->
+        <record id="view_hr_employee_appraisal_tree" model="ir.ui.view">
+            <field name="name">view.hr.employee.appraisal.tree</field>
+            <field name="model">hr.employee.appraisal</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="reviewee_arabic_name"/>
+                    <field name="department_id"/>
+                    <field name="job_id"/>
+                    <field name="reviewer_id"/>
+                    <field name="reviewer_arabic_name"/>
+                    <field name="hike_percentage"/>
+                    <field name="current_annual_bonus"/>
+                    <field name="scored_bonus"/>
+                    <field name="current_salary" invisible="1"/>
+                    <field name="new_salary" invisible="1"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search Of Hr Employee Appraisal -->
+        <record id="view_hr_employee_appraisal_search" model="ir.ui.view">
+            <field name="name">view.hr.employee.appraisal.search</field>
+            <field name="model">hr.employee.appraisal</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <field name="reviewer_id"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Form View Of Hr Employee Appraisal -->
+        <record id="view_hr_employee_appraisal_form" model="ir.ui.view">
+            <field name="name">view.hr.employee.appraisal.form</field>
+            <field name="model">hr.employee.appraisal</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_approve" string="Approve" type="object" states="pending"/>
+                        <button name="action_reject" string="Reject" type="object" states="pending"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <label for="employee_id"/>
+                        <h1>
+                            <field name="employee_id" required="1"
+                                   attrs="{'readonly': [('state', 'in', ('approve','reject'))]}"
+                                   domain="[('user_id','!=',uid)]"/>
+                        </h1>
+                        <br/>
+                        <group colspan="2" col="4">
+                            <field name="date" required="1" attrs="{'readonly': [('state', 'in', ('approve','reject'))]}"/>
+                            <field name="reviewer_id"
+                                   required="1"
+                                   domain="employee_id and [('child_ids','in',[employee_id])] or [('child_ids','in',[])]"
+                                   attrs="{'readonly': [('state', 'in', ('approve','reject'))]}"/>
+                            <field name="department_id"/>
+                            <field name="job_id"/>
+                            <field name="hike_percentage"/>
+                            <field name="current_annual_bonus" readonly="1" force_save="1"/>
+                            <field name="scored_bonus"/>
+                            <field name="new_salary" invisible="1"/>
+                            <field name="current_salary" readonly="1" force_save="1" invisible="1"/>
+
+                        </group>
+                        <notebook>
+                            <page string="KRAs">
+                                <field name="kra_ids" attrs="{'readonly': [('state', 'in', ('approve','reject'))]}">
+                                    <tree editable="bottom">
+                                        <field name="kra_id" options="{'no_create':True, 'no_open':True}" domain="[('department_id', '=', parent.department_id), '|', ('job_id','=', parent.job_id), ('job_id','=', False)]"/>
+                                        <field name="kra_option_id" domain="[('kra_id','=',kra_id)]" options="{'no_create':True, 'no_open':True}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action of Employee Appraisal -->
+        <record id="action_employee_appraisal" model="ir.actions.act_window">
+            <field name="name">Appraisals</field>
+            <field name="res_model">hr.employee.appraisal</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu of Employee Appraisal -->
+        <menuitem id="menu_hr_employee_appraisal_main" sequence="11" name="Performance Appraisals"
+                  parent="sky_hr_custom.menu_human_resource_main" groups="sky_hr_appraisal.group_appraisal_manager,sky_hr_appraisal.group_appraisal_user"/>
+        <menuitem id="menu_hr_employee_appraisal" name="Appraisal" parent="menu_hr_employee_appraisal_main" sequence="1"
+                  action="action_employee_appraisal"/>
+
+        <!-- Giving Access Right of Configuration menu of Human Resource to appraisal manager -->
+        <menuitem id="sky_hr_custom.menu_hr_config" name="Configuration" parent="sky_hr_custom.menu_human_resource_main"
+                  groups="sky_hr_appraisal.group_appraisal_manager"/>
+
+    </data>
+</odoo>

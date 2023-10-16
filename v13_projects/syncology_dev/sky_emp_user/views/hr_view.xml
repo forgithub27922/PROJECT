@@ -1,0 +1,84 @@
+<odoo>
+
+    <!-- Inherited Form view of Employee to have the User readonly and work email required-->
+    <record id="view_employee_form_user_inherit" model="ir.ui.view">
+        <field name="name">hr.employee.form.user.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mobile_phone']" position="before">
+                <field name="id"/>
+            </xpath>
+            <xpath expr="//button[@name='%(hr.plan_wizard_action)d']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//button" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='coach_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='identification_group']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='work_email']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="before">
+                <field name="automatic_user_create"/>
+            </xpath>
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='address_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//group[@name='identification_group']" position="after">
+                <group>
+                    <field name="user_active" invisible="1"/>
+                    <button name="revoke_access" string="Revoke Access" type="object" class="btn-danger"
+                            attrs="{'invisible': [('user_active', '=', False)]}" groups="hr.group_hr_manager,hr.group_hr_user" />
+                    <button name="grant_access" string="Grant Access" type="object" class="btn-success"
+                            attrs="{'invisible': ['|', ('user_active', '=', True), ('user_id', '=', True)]}" groups="hr.group_hr_manager,hr.group_hr_user"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited view of Job Positions to add the Groups / roles -->
+    <record id="view_hr_job_form_group_inherit" model="ir.ui.view">
+        <field name="name">hr.job.form</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='description']" position="after">
+                <label for="group_ids"/>
+                <field name="group_ids"/>
+            </xpath>
+        </field>
+    </record>
+
+<!--    Inherited to remove Print Badge button -->
+    <report
+        id="hr.hr_employee_print_badge"
+        string="Print Badge"
+        model="False"
+        report_type="qweb-pdf"
+        name="hr.print_employee_badge"
+        file="hr.print_employee_badge"
+        print_report_name="'Print Badge - %s' % (object.name).replace('/', '')"
+    />
+
+    <!-- Inherited Search view of Employee to Remove Company in Searchpanel-->
+    <record id="employee_search_view_inherit" model="ir.ui.view">
+        <field name="name">employee.search.view.inherit</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/searchpanel/field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

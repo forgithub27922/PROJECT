@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+  <data>
+    <!-- grimm pretext template tree view -->
+    <record model="ir.ui.view" id="grimm_pretext_template_tree_view">
+      <field name="name">grimm.pretext.template.tree</field>
+      <field name="model">grimm.pretext.template</field>
+      <field name="arch" type="xml">
+        <tree string="Grimm Pre-Text Template">
+          <field name="name"/>
+          <field name="model_id"/>
+        </tree>
+      </field>
+    </record>
+
+
+    <!-- grimm pretext template form view -->
+    <record model="ir.ui.view" id="grimm_pretext_template_form_view">
+      <field name="name">grimm.pretext.template.form</field>
+      <field name="model">grimm.pretext.template</field>
+      <field name="arch" type="xml">
+        <form string="Grimm Pre-Text Template">
+          <group>
+            <field name="name"/>
+            <field name="model_id" options="{'no_create': True}"/>
+            <field name="text" widget="html"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record id="grimm_pretext_template_action" model="ir.actions.act_window">
+      <field name="name">Pre-Text Template</field>
+      <field name="res_model">grimm.pretext.template</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="grimm_pretext_template_tree_view"/>
+    </record>
+
+
+    <menuitem id="menu_grimm_configuration"
+              name="Grimm"
+              parent="base.menu_custom"
+              sequence="0"
+              groups="base.group_no_one"/>
+
+    <menuitem action="grimm_pretext_template_action"
+              id="grimm_pretext_template_menu"
+              parent="grimm_pretext_template.menu_grimm_configuration" sequence="20"/>
+
+
+  </data>
+</odoo>

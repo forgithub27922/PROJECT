@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template name="Login Layout" id="login_layout_inherit" inherit_id="web.login_layout">
+        <xpath expr="//a[@href='https://www.odoo.com?utm_source=db&amp;utm_medium=auth']" position="replace"/>
+    </template>
+
+    <template name="Brand Promotion Message" id="brand_promotion_message_inherit"
+              inherit_id="web.brand_promotion_message">
+        <xpath expr="//t[@t-set='final_message']" position="replace"/>
+        <xpath expr="//t[2]" position="replace"/>
+    </template>
+</odoo>

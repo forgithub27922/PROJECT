@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="product_pricelist_item_view_search">
+      <field name="name">product.pricelist.item.search</field>
+      <field name="model">product.pricelist.item</field>
+      <field name="arch" type="xml">
+        <search string="Products Price List Item Search">
+          <field name="apply_supplier_id"/>
+          <field name="pricelist_id"/>
+          <field name="price_calculation_group"/>
+          <field name="name"/>
+          <field name="price"/>
+          <group expand="0" name="group_by" string="Group By">
+            <filter string="Supplier" context="{'group_by': 'apply_supplier_id'}" name="supplier"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <record id="product_pricelist_item_view" model="ir.actions.act_window">
+      <field name="name">Price List Items</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">product.pricelist.item</field>
+      <field name="view_mode">tree,form</field>
+      <field name="search_view_id" ref="product_pricelist_item_view_search"/>
+      <field name="context">{'search_default_pricelist_id': active_ids, 'default_pricelist_id': active_id}</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Click to create a pricelist item.
+        </p>
+        <p>
+          A pricelist item compute the price of the products.
+        </p>
+        <p>
+          Each rule include a set of applicability criteria (date range,
+          product category...) and a computation that easily helps to achieve
+          any kind of pricing.
+        </p>
+      </field>
+    </record>
+
+<!-- Commented while migrating to Odoo 13. Error:  cannot be located in parent view -->
+<!--    <record id="view_product_pricelist_form_view_inherit" model="ir.ui.view">-->
+<!--      <field name="name">view.product.pricelist.form.view.inherit</field>-->
+<!--      <field name="model">product.pricelist</field>-->
+<!--      <field name="inherit_id" ref="product.product_pricelist_view"/>-->
+<!--      <field name="arch" type="xml">-->
+
+<!--        <xpath expr="//div[@groups='product.group_pricelist_item']" position="replace">-->
+<!--          <notebook colspan="4">-->
+<!--            <page string="Pricelist Items" name="pricelist_items" groups="product.group_pricelist_item">-->
+<!--              <field name="item_ids" nolabel="1" context="{'default_base':'list_price'}">-->
+<!--                <tree string="Pricelist Items">-->
+<!--                  <field name="name" string="Applicable On"/>-->
+<!--                  <field name="name_alt" string="Anderer Name"/>-->
+<!--                  <field name="apply_supplier_id"/>-->
+<!--                  <field name="min_uvp"/>-->
+<!--                  <field name="min_quantity"/>-->
+<!--                  <field name="date_start"/>-->
+<!--                  <field name="date_end"/>-->
+<!--                  <field name="price" string="Price"/>-->
+<!--                  <field name="base" invisible="1"/>-->
+<!--                  <field name="price_discount" invisible="1"/>-->
+<!--                  <field name="applied_on" invisible="1"/>-->
+<!--                  <field name="compute_price" invisible="1"/>-->
+<!--                </tree>-->
+<!--              </field>-->
+<!--            </page>-->
+<!--          </notebook>-->
+<!--        </xpath>-->
+
+<!--        <button name="toggle_active" position="before">-->
+<!--          <button class="oe_stat_button" type="action" name="%(grimm_pricelist.product_pricelist_item_view)d"-->
+<!--                  icon="fa-list" string="Items"/>-->
+<!--        </button>-->
+
+<!--      </field>-->
+<!--    </record>-->
+
+
+    <record id="product_pricelist_item_form_view_iherit" model="ir.ui.view">
+      <field name="name">view.product.pricelist.item.form.view.inherit</field>
+      <field name="model">product.pricelist.item</field>
+      <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='min_quantity']" position="before">
+          <field name="apply_supplier_id"/>
+          <field name="price_calculation_group"/>
+          <field name="product_name"/>
+          <field name="product_gross_weight"/>
+          <field name="product_net_weight"/>
+          <field name="product_brand_id"/>
+          <field name="attribute_set_id"/>
+          <field name="min_uvp"/>
+        </xpath>
+
+        <xpath expr="//label[@for='price_discount']" position="replace">
+          <field name="percent_sign" nolabel="1" style="width:10%%"/>
+        </xpath>
+
+        <xpath expr="//group[@col='6']/div[1]" position="replace">
+          <div>
+            <span attrs="{'invisible':[('base', '!=', 'list_price')]}">Public Price</span>
+            <span attrs="{'invisible':[('base', '!=', 'standard_price')]}">Cost</span>
+            <span attrs="{'invisible':[('base', '!=', 'pricelist')]}">Other Pricelist</span>
+          </div>
+        </xpath>
+
+        <field name="name" position="replace">
+          <group>
+            <group>
+              <field name="name" nolabel="1"/>
+            </group>
+            <group>
+              <group>
+                <button name="copy_name" string="Copy Name" type="object" class="oe_inline fa fa-arrow-right oe_link"/>
+              </group>
+              <group>
+                <field name="name_alt" nolabel="1"/>
+              </group>
+            </group>
+          </group>
+        </field>
+
+      </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="product_pricelist_item_tree_view">
+      <field name="name">product.pricelist.item.tree</field>
+      <field name="model">product.pricelist.item</field>
+      <field name="inherit_id" ref="product.product_pricelist_item_tree_view"/>
+      <field name="arch" type="xml">
+        <field name="name" position="after">
+          <field name="name_alt" string="Anderer Name"/>
+          <field name="price"/>
+        </field>
+<!-- Commented while migrating to Odoo 13. Error:  categ_id not found -->
+<!--        <field name="categ_id" position="replace">-->
+<!--          <field name="apply_supplier_id"/>-->
+<!--          <field name="price_calculation_group"/>-->
+<!--          <field name="product_brand_id"/>-->
+<!--          <field name="product_name"/>-->
+<!--          <field name="attribute_set_id"/>-->
+<!--          <field name="min_uvp"/>-->
+<!--        </field>-->
+
+      </field>
+    </record>
+
+
+    <!--<record id="check_products_prices" model="ir.actions.server">-->
+    <!--<field name="name">Check Products Prices</field>-->
+    <!--<field name="model_id" ref="grimm_pricelist.model_product_pricelist_item"/>-->
+    <!--<field name="state">code</field>-->
+    <!--<field name="code">action = self.check_products_prices(cr, uid, context.get('active_ids', []), context=context)</field>-->
+    <!--<field name="view_mode">list,form</field>-->
+    <!--</record>-->
+
+    <!--<record id="check_products_prices" model="ir.values">-->
+    <!--<field eval="'client_action_multi'" name="key2"/>-->
+    <!--<field eval="'product.pricelist.item'" name="model"/>-->
+    <!--<field name="name">Check Products Prices</field>-->
+    <!--<field eval="'ir.actions.server,%d'%check_products_prices" name="value"/>-->
+    <!--</record>-->
+
+  </data>
+</openerp>
+
+

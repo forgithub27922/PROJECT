@@ -1,0 +1,404 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_sale_purchase_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-07-12 09:27+0000\n"
+"PO-Revision-Date: 2018-07-12 09:27+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_property_account_receivable_id
+msgid "Account Debit"
+msgstr "Debitorenkonto"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_property_payable_id
+msgid "Account Credit"
+msgstr "Kreditorenkonto"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_property_account_expense_id
+msgid "Account Expense"
+msgstr "Aufwandskonto"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_property_account_income_id
+msgid "Account Income"
+msgstr "Erlöskonto"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "All Invoices"
+msgstr "Alle Rechnungen"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.filters,name:grimm_sale_purchase_report.filter_sale_purchase_report_product
+msgid "By Product"
+msgstr "Nach Produkt"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.filters,name:grimm_sale_purchase_report.filter_sale_purchase_report_salespersons
+msgid "By Salespersons"
+msgstr "Nach Verkäufern"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.filters,name:grimm_sale_purchase_report.filter_sale_purchase_report_salesteam
+msgid "By Salesteam"
+msgstr "Nach Verkaufsteam"
+
+#. module: grimm_sale_purchase_report
+#: selection:account.invoice.in_out.report,purchase_state:0
+#: selection:account.invoice.in_out.report,sale_state:0
+#: selection:sale.purchase.report,po_state:0
+#: selection:sale.purchase.report,state:0
+msgid "Cancelled"
+msgstr "Abgebrochen"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_categ_id
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_categ_id
+msgid "Category"
+msgstr "Kategorie"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_company_id
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_company_id
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_customer_id
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_partner_id
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_date
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_date
+msgid "Date Order"
+msgstr "Auftragsdatum"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_display_name
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: grimm_sale_purchase_report
+#: selection:sale.purchase.report,po_state:0
+msgid "Done"
+msgstr "Done"
+
+#. module: grimm_sale_purchase_report
+#: selection:account.invoice.in_out.report,purchase_state:0
+#: selection:account.invoice.in_out.report,sale_state:0
+msgid "Draft"
+msgstr "Draft"
+
+#. module: grimm_sale_purchase_report
+#: selection:sale.purchase.report,state:0
+msgid "Draft Quotation"
+msgstr "Angebot Entwurf"
+
+#. module: grimm_sale_purchase_report
+#: selection:sale.purchase.report,po_state:0
+msgid "Draft RFQ"
+msgstr "Draft RFQ"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Extended Filters"
+msgstr "Erweiterte Filter"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Group By"
+msgstr "Gruppiert nach..."
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_id
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_purchase_invoice_id
+msgid "In Invoice"
+msgstr "Eingangsrechnung"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report___last_update
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_marge_subtotal
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_marge_subtotal
+msgid "Marge Subtotal"
+msgstr "Marge Netto"
+
+#. module: grimm_sale_purchase_report
+#: selection:account.invoice.in_out.report,purchase_state:0
+#: selection:account.invoice.in_out.report,sale_state:0
+msgid "Open"
+msgstr "Open"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Order Month"
+msgstr "Auftragsdatum"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Ordered date of the sales order"
+msgstr "Bestelldatum des Verkaufsauftrages"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_sale_invoice_id
+msgid "Out Invoice"
+msgstr "Ausgangsrechnung"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.actions.act_window,name:grimm_sale_purchase_report.action_out_in_invoice_report_all
+#: model:ir.model,name:grimm_sale_purchase_report.model_account_invoice_in_out_report
+#: model:ir.ui.menu,name:grimm_sale_purchase_report.menu_report_out_in_invoice_all
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_graph
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_pivot
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Out-In-Invoice Statistics"
+msgstr "Ausgang-,Eingangsrechnung Statistik"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.filters,name:grimm_sale_purchase_report.filter_out_in_invoice_aka_filter
+msgid "Out-In-Invoice aka filter"
+msgstr "Out-In-Invoice aka filter"
+
+#. module: grimm_sale_purchase_report
+#: selection:account.invoice.in_out.report,purchase_state:0
+#: selection:account.invoice.in_out.report,sale_state:0
+msgid "Paid"
+msgstr "Paid"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_product_id
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_product_id
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Product Category"
+msgstr "Produktkategorie"
+
+#. module: grimm_sale_purchase_report
+#: selection:account.invoice.in_out.report,purchase_state:0
+#: selection:account.invoice.in_out.report,sale_state:0
+msgid "Profoma"
+msgstr "Profoma"
+
+#. module: grimm_sale_purchase_report
+#: selection:account.invoice.in_out.report,purchase_state:0
+#: selection:account.invoice.in_out.report,sale_state:0
+msgid "Profoma2"
+msgstr "Profoma2"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_purchase_id
+#: selection:sale.purchase.report,po_state:0
+msgid "Purchase Order"
+msgstr "Beschaffungsauftrag"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_purchase_qty
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_purchase_qty
+msgid "Purchase Quantity"
+msgstr "Beschaffungsmenge"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_purchase_subtotal_signed
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_purchase_subtotal
+msgid "Purchase Subtotal"
+msgstr "Beschaffungssumme (Netto)"
+
+#. module: grimm_sale_purchase_report
+#: selection:sale.purchase.report,state:0
+msgid "Quotation Sent"
+msgstr "Angebot gesendet"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+msgid "Quotations"
+msgstr "Angebote"
+
+#. module: grimm_sale_purchase_report
+#: selection:sale.purchase.report,po_state:0
+msgid "RFQ Sent"
+msgstr "RFQ Sent"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_sale_id
+msgid "Sale Order"
+msgstr "Verkaufsauftrag"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_user_id
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_user_id
+msgid "Sale Person"
+msgstr "Verkäufer"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_sale_qty
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_sale_qty
+msgid "Sale Quantity"
+msgstr "Verkaufsmenge"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_sale_subtotal_signed
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_sale_subtotal
+msgid "Sale Subtotal"
+msgstr "Verkaufssumme (Netto)"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_team_id
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_team_id
+msgid "Sale Team"
+msgstr "Verkaufsteam"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_graph
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_pivot
+msgid "Sales Analysis"
+msgstr "Statistik Verkaufsaufträge"
+
+#. module: grimm_sale_purchase_report
+#: selection:sale.purchase.report,state:0
+msgid "Sales Done"
+msgstr "Verkauf fertig"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.filters,name:grimm_sale_purchase_report.filter_sale_purchase_report_sales_funnel
+msgid "Sales Funnel"
+msgstr "Vertriebsprozess"
+
+#. module: grimm_sale_purchase_report
+#: selection:sale.purchase.report,state:0
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+msgid "Sales Purchase Analysis"
+msgstr "Verkauf <-> Einkauf Analyse"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.actions.act_window,name:grimm_sale_purchase_report.action_order_purchase_report_all
+msgid "Sales Purchases Analysis"
+msgstr "Verkauf <-> Einkauf Analyse"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model,name:grimm_sale_purchase_report.model_sale_purchase_report
+msgid "Sales Purchases Statistics"
+msgstr "Verkauf <-> Einkauf Statistik"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Sales Team"
+msgstr "Verkaufsteam"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.menu,name:grimm_sale_purchase_report.menu_report_sale_purchase_product_all
+msgid "Sales versus Purchases"
+msgstr "Verkauf gegen Einkauf"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Salesperson"
+msgstr "Verkäufer"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_po_state
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_state
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Status"
+msgstr "Status"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_purchase_state
+msgid "Status In Invoice"
+msgstr "Status Eingangsrechnung"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_sale_state
+msgid "Status Out Invoice"
+msgstr "Status Ausgangsrechnung"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_account_invoice_in_out_report_supplier_id
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_supplier_id
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Supplier"
+msgstr "Lieferant"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.model.fields,field_description:grimm_sale_purchase_report.field_sale_purchase_report_p_property_account_payable_id
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "Supplier Credit Account"
+msgstr "Lieferant Kreditorenkonto"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_order_purchase_product_search
+#: model:ir.ui.view,arch_db:grimm_sale_purchase_report.view_out_in_invoice_search
+msgid "This Year"
+msgstr "Aktuelles Jahr"
+
+#. module: grimm_sale_purchase_report
+#: model:ir.actions.act_window,help:grimm_sale_purchase_report.action_out_in_invoice_report_all
+msgid "This report performs analysis on your out invoice and in invoice."
+msgstr "This report performs analysis on your out invoice and in invoice."
+
+#. module: grimm_sale_purchase_report
+#: model:ir.actions.act_window,help:grimm_sale_purchase_report.action_order_purchase_report_all
+msgid "This report performs analysis on your quotations and sales orders vs Purchase by drop shipping.\n"
+"        Analysis check your sales revenues and sort it by different group criteria (salesman, partner, product, etc.)\n"
+"        Use this report to perform analysis on sales not having invoiced yet. If you want to analyse your turnover, you\n"
+"        should use the Invoice Analysis report in the Accounting application."
+msgstr "This report performs analysis on your quotations and sales orders vs Purchase by drop shipping.\n"
+"        Analysis check your sales revenues and sort it by different group criteria (salesman, partner, product, etc.)\n"
+"        Use this report to perform analysis on sales not having invoiced yet. If you want to analyse your turnover, you\n"
+"        should use the Invoice Analysis report in the Accounting application."
+
+#. module: grimm_sale_purchase_report
+#: selection:sale.purchase.report,po_state:0
+msgid "To Approve"
+msgstr "To Approve"
+

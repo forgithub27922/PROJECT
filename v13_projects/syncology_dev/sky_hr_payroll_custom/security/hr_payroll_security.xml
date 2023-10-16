@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Category for Payroll Module -->
+    <record model="ir.module.category" id="module_hr_payroll_categ">
+        <field name="name">Payroll</field>
+        <field name="description">Category for Employee Payroll</field>
+        <field name="sequence">10</field>
+    </record>
+
+
+    <!-- Group for Payroll User -->
+    <record id="group_payroll_user" model="res.groups">
+        <field name="name">Payroll User</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        <field name="category_id" ref="module_hr_payroll_categ"/>
+    </record>
+
+    <!-- Group for Payroll Manager -->
+    <record id="group_payroll_manager" model="res.groups">
+        <field name="name">Payroll Manager</field>
+        <field name="implied_ids" eval="[(4, ref('sky_hr_payroll_custom.group_payroll_user'))]"/>
+        <field name="category_id" ref="module_hr_payroll_categ"/>
+    </record>
+
+    <!-- Group for Payroll Admin -->
+    <!-- <record id="group_payroll_admin" model="res.groups">
+        <field name="name">Payroll Admin</field>
+        <field name="category_id" ref="module_hr_payroll_categ"/>
+    </record> -->
+
+    <!-- Group for Payroll Officer -->
+    <record id="group_payroll_officer" model="res.groups">
+        <field name="name">Payroll Officer</field>
+        <field name="category_id" ref="module_hr_payroll_categ"/>
+        <field name="implied_ids" eval="[(4, ref('sky_hr_payroll_custom.group_payroll_user'))]"/>
+    </record>
+
+     <!-- Record rule to see only Non Confidential Additions-->
+    <!-- <record id="group_payroll_officer_non_confidential_additions_rule" model="ir.rule">
+        <field name="name">Non Confidential Additions Rule</field>
+        <field name="model_id" ref="model_hr_addition"/>
+        <field name="domain_force">[('employee_id.is_confidential', '=', False)]</field>
+        <field name="groups" eval="[(4,ref('sky_hr_payroll_custom.group_payroll_officer'))]"/>
+    </record> -->
+
+    <!-- Record rule to see only Non Confidential Penalties -->
+     <!-- <record id="group_payroll_officer_non_confidential_penalties_rule" model="ir.rule">
+        <field name="name">Non Confidential Penalties Rule</field>
+        <field name="model_id" ref="model_hr_penalty"/>
+        <field name="domain_force">[('employee_id.is_confidential', '=', False)]</field>
+        <field name="groups" eval="[(4,ref('sky_hr_payroll_custom.group_payroll_officer'))]"/>
+    </record> -->
+
+     <!-- Record rule to see only Non Confidential Salaries -->
+     <record id="group_payroll_officer_non_confidential_salaries_rule" model="ir.rule">
+        <field name="name">Non Confidential Salaries Rule</field>
+        <field name="model_id" ref="model_hr_employee_salary"/>
+        <field name="domain_force">[('employee_id.is_confidential', '=', False)]</field>
+        <field name="groups" eval="[(4,ref('sky_hr_payroll_custom.group_payroll_officer'))]"/>
+    </record>
+
+    <!-- Record rule to see only My Penalty for Payroll Admin , Payroll Manager-->
+    <record id="group_payroll_admin_rule" model="ir.rule">
+        <field name="name">Payroll Admin Rule</field>
+        <field name="model_id" ref="model_hr_penalty"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4,ref('sky_hr_payroll_custom.group_payroll_officer')),
+                                   (4,ref('sky_hr_payroll_custom.group_payroll_manager'))]"/>
+    </record>
+
+    <!-- Record rule to see only Penalty for Users-->
+     <record id="hr_employee_penalty" model="ir.rule">
+         <field name="name">Employee Penalties</field>
+         <field name="model_id" ref="model_hr_penalty"/>
+         <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+         <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+     </record>
+
+    <!-- Record Rule to see own penalty, subordinates penalty and Non-Confidential penalty for payroll user -->
+    <record id="emp_penalty_record_rule" model="ir.rule">
+        <field name="name">Employee own, subordinates and non-confidential penalty</field>
+        <field name="model_id" ref="model_hr_penalty"/>
+        <field name="domain_force">['|',('employee_id.user_id', '=', user.id),
+            ('employee_id.parent_id.user_id', '=', user.id),
+            ('employee_id.is_confidential', '=', False)]
+        </field>
+        <field name="groups" eval="[(4, ref('sky_hr_payroll_custom.group_payroll_user'))]"/>
+    </record>
+
+    <!-- Record rule to see Additions for Users-->
+     <record id="hr_employee_additions" model="ir.rule">
+         <field name="name">Employee Additions</field>
+         <field name="model_id" ref="model_hr_addition"/>
+         <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+         <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+     </record>
+
+    <!-- Record rule to see all Additions for payroll manager, payroll admin, payroll officer -->
+    <record id="hr_employee_additions_all" model="ir.rule">
+        <field name="name">All Additions</field>
+        <field name="model_id" ref="model_hr_addition"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('sky_hr_payroll_custom.group_payroll_manager')),
+        (4, ref('sky_hr_payroll_custom.group_payroll_officer'))]"/>
+    </record>
+
+
+    <!-- Record Rule to see own additions, subordinates additions and Non-Confidential additions for payroll user -->
+    <record id="hr_employee_additions_user" model="ir.rule">
+        <field name="name">Employee own, subordinates and non-confidential additions</field>
+        <field name="model_id" ref="model_hr_addition"/>
+        <field name="domain_force">['|',('employee_id.user_id', '=', user.id),
+            ('employee_id.parent_id.user_id', '=', user.id),
+            ('employee_id.is_confidential', '=', False)]
+        </field>
+        <field name="groups" eval="[(4, ref('sky_hr_payroll_custom.group_payroll_user'))]"/>
+    </record>
+
+     <!-- Record rule to see salaries for Users -->
+     <record id="hr_employee_salaries" model="ir.rule">
+         <field name="name">Employee Salaries</field>
+         <field name="model_id" ref="model_hr_employee_salary"/>
+         <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+         <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+     </record>
+
+    <!-- Record rule to see all salaries for payroll manager, payroll admin, payroll officer-->
+    <record id="hr_employee_salaries_all" model="ir.rule">
+        <field name="name">All Salaries</field>
+        <field name="model_id" ref="model_hr_employee_salary"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('sky_hr_payroll_custom.group_payroll_manager'))]"/>
+    </record>
+
+    <!-- Record Rule to see own salaries, subordinates salaries and Non-Confidential salaries for payroll user -->
+    <record id="hr_employee_salaries_user" model="ir.rule">
+        <field name="name">Employee own, subordinates and non-confidential salary</field>
+        <field name="model_id" ref="model_hr_employee_salary"/>
+        <field name="domain_force">['|',('employee_id.user_id', '=', user.id),
+            ('employee_id.parent_id.user_id', '=', user.id),
+            ('employee_id.is_confidential', '=', False)]
+        </field>
+        <field name="groups" eval="[(4, ref('sky_hr_payroll_custom.group_payroll_user'))]"/>
+    </record>
+
+</odoo>

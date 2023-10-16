@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="remove_export_option_view_assets_backend" name="Remove Export Option View assets"
+              inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/sms_transport/static/src/js/remove_export_option.js"/>
+        </xpath>
+    </template>
+
+</odoo>

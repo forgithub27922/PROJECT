@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="gteg_import_wizard" model="ir.ui.view">
+            <field name="name">wizard.product.bundle.bi.form</field>
+            <field name="model">gteg.invoice.import</field>
+            <field name="arch" type="xml">
+                <form string="Product Bundle">
+                    <group>
+                        <field name="csv_file" filename="gteg_filename"/>
+                        <field name="gteg_filename" readonly="1"/>
+                    </group>
+                    <field name="upload_info" readonly="1"/>
+                    <footer>
+                        <button name="import_gteg_invoice" string="Import"
+                                type="object" class="oe_highlight" attrs="{'invisible': [('gteg_filename', '=', False)]}"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_gteg_wizard" model="ir.actions.act_window">
+            <field name="name">GTEG Invoice Import File</field>
+            <field name="res_model">gteg.invoice.import</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="gteg_import_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="gteg_import_ionvoice_menu"
+                name="GTEG Invoice Import"
+                parent="account.menu_finance_payables"
+                sequence="40"
+                action="action_import_gteg_wizard"/>
+
+        <record id="gteg_payment_import_wizard" model="ir.ui.view">
+            <field name="name">wizard.gteg.payment.import.form</field>
+            <field name="model">gteg.payment.import</field>
+            <field name="arch" type="xml">
+                <form string="Payment Import">
+                    <group>
+                        <field name="csv_file" filename="gteg_filename"/>
+                        <field name="gteg_filename" readonly="1"/>
+                    </group>
+                    <field name="upload_info" readonly="1"/>
+                    <footer>
+                        <button name="import_gteg_payment" string="Import"
+                                type="object" class="oe_highlight" attrs="{'invisible': [('gteg_filename', '=', False)]}"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_gteg_payment_wizard" model="ir.actions.act_window">
+            <field name="name">GTEG Payment Import File</field>
+            <field name="res_model">gteg.payment.import</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="gteg_payment_import_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="gteg_import_payment_menu"
+                name="GTEG Payment Import"
+                parent="account.menu_finance_payables"
+                sequence="40"
+                action="action_import_gteg_payment_wizard"/>
+
+        <record id="view_gteg_product_code_tree" model="ir.ui.view">
+            <field name="name">gteg.product.code.tree</field>
+            <field name="model">gteg.product.code</field>
+            <field name="arch" type="xml">
+                <tree string="GTEG Product Code" editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="product_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_gteg_product_code" model="ir.actions.act_window">
+            <field name="name">GTEG EDI code</field>
+            <field name="res_model">gteg.product.code</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_gteg_product_code_tree"/>
+            <field name="target">current</field>
+        </record>
+
+        <menuitem id="gteg_product_code_menu"
+                name="GTEG EDI Code"
+                parent="account.menu_finance_payables"
+                sequence="40"
+                action="action_gteg_product_code"/>
+    </data>
+</openerp>

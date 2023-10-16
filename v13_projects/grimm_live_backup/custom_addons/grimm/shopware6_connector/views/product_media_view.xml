@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="view_product_media_form" model="ir.ui.view">
+            <field name="name">product.media.form</field>
+            <field name="model">product.media</field>
+            <field name="arch" type="xml">
+                <form string="Product Image">
+                    <button name="export_to_shopware_media" type="object" class="oe_highlight" help="This button will be disable if product is exported to shopware6." string="Export to Media Record" attrs="{'invisible': [('is_shopware_exported', '=', True)]}"/>
+                    <group>
+                        <field name="is_shopware_exported" invisible="1"/>
+                        <field name="name"/>
+                        <field name="position"/>
+                        <field name="set_as_cover"/>
+                        <field name="file_select" widget="radio" options="{'horizontal': true}"/>
+                        <field name="image" widget="image" style="box-shadow: rgba(0,0,0,0.8) 0 0 10px; width:200px;" filename="file_name" attrs="{'invisible': [('file_select', 'in', ['url','base'])],'required': [('file_select', '=', 'upload')]}"/>
+                        <field name="related_image" widget="image" style="box-shadow: rgba(0,0,0,0.8) 0 0 10px; width:200px;" attrs="{'invisible': [('file_select', 'in', ['url','upload'])]}"/>
+                        <field name="file_name" invisible="1"/>
+                        <field name="file_url" attrs="{'invisible': [('file_select', 'in', ['upload','base'])]}"/>
+                    </group>
+                    <!--<button name="export_to_shopware" type="object" class="oe_highlight" string="Export Record"/>-->
+                    <notebook>
+                        <page name="product_media" string="Product Media">
+                            <field name="shopware6_bind_ids" readonly="1">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="product_media" string="Media">
+                            <field name="shopware6_media_file_bind_ids" readonly="1">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </form>
+            </field>
+        </record>
+</data>
+</openerp>

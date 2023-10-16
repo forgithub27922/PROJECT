@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Category for Appraisal Module -->
+    <record model="ir.module.category" id="module_hr_appraisal_categ">
+        <field name="name">Appraisal</field>
+        <field name="description">Category for Employee Performance Appraisal</field>
+        <field name="sequence">10</field>
+    </record>
+
+    <!-- Group of Appraisal Performer -->
+    <record id="group_appraisal_user" model="res.groups">
+        <field name="name">Appraisal User</field>
+        <field name="category_id" ref="module_hr_appraisal_categ"/>
+    </record>
+
+    <!-- Group of Appraisal Manager -->
+    <record id="group_appraisal_manager" model="res.groups">
+        <field name="name">Appraisal Manager</field>
+        <field name="category_id" ref="module_hr_appraisal_categ"/>
+        <field name="implied_ids" eval="[(6,0,[ref('sky_hr_appraisal.group_appraisal_user')])]"/>
+    </record>
+
+</odoo>

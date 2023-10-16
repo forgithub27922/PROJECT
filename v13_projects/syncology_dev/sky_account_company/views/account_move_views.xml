@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit Invoice Tree view-->
+    <record id="inherit_invoice_tree_view" model="ir.ui.view">
+        <field name="name">view.invoice.tree.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_invoice_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Invoice Form view-->
+    <record id="inherit_invoice_form_view" model="ir.ui.view">
+        <field name="name">view.invoice.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+            <xpath expr="//page[@name='other_info']//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Journal Entries Tree view-->
+    <record id="inherit_journal_entries_tree_view" model="ir.ui.view">
+        <field name="name">view.journal.entries.tree.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Journal Entries Search view-->
+    <record id="inherit_journal_entries_search_view" model="ir.ui.view">
+        <field name="name">view.journal.entries.search.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_account_move_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="///search//filter[@name='by_company']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Journal Items Tree view-->
+    <record id="inherit_journal_items_tree_view" model="ir.ui.view">
+        <field name="name">view.journal.items.tree.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Journal Items Form view-->
+    <record id="inherit_journal_items_form_view" model="ir.ui.view">
+        <field name="name">view.journal.items.form.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Journals Sales/Purchases Tree view-->
+    <record id="inherit_sales_purchases_journals_tree_view" model="ir.ui.view">
+        <field name="name">view.journals.sales.purchases.tree.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped_sales_purchases"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Journals Bank/Cash Tree view-->
+    <record id="inherit_bank_cash_journals_tree_view" model="ir.ui.view">
+        <field name="name">view.journals.bank.cash.tree.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped_bank_cash"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Journals Miscellaneous Tree view-->
+    <record id="inherit_miscellaneous_journals_tree_view" model="ir.ui.view">
+        <field name="name">view.journals.miscellaneous.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped_misc"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Reconciliation Tree view-->
+    <record id="inherit_reconciliation_tree_view" model="ir.ui.view">
+        <field name="name">view.reconciliation.inherit</field>
+        <field name="model">account.move.line</field>
+        <field name="inherit_id" ref="account.view_move_line_tree_grouped"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

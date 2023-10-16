@@ -1,0 +1,749 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_hr_payroll_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-23 09:54+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.report_employee_inherit
+msgid "<b>Addition Rate:</b>"
+msgstr "معدل الإضافة"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.report_employee_inherit
+msgid "<b>Penalty Rate:</b>"
+msgstr "معدل الجزاء"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_employee__salary_schedule__15
+msgid "15th of Month"
+msgstr "الخامس عشر من الشهر"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_employee__salary_schedule__1
+msgid "1st of Month"
+msgstr "الأول من الشهر"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.hr_employee_inherit_form_view
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                            Additions\n"
+"                        </span>"
+msgstr "إضافي"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.hr_employee_inherit_form_view
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                            Penalties\n"
+"                        </span>"
+msgstr "جزاءات"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.hr_employee_inherit_form_view
+msgid ""
+"<span class=\"o_stat_text\">\n"
+"                            Salaries\n"
+"                        </span>"
+msgstr "رواتب"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_company__absence_penalty_type_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_config_settings__absence_penalty_type_id
+msgid "Absence Penalty Type"
+msgstr "نوع عقوبة الغياب"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__actual_overtime_hours
+msgid "Actual Overtime Hours"
+msgstr "ساعات العمل الإضافي الفعلية"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__addition_type_id
+msgid "Addition Type"
+msgstr "نوع الإضافة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee__addition_rate
+msgid "Addition Rate"
+msgstr "معدل الإضافة"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_employee.py:0
+#, python-format
+msgid "Addition rate should be greater than or equal to 1!"
+msgstr "يجب أن يكون معدل الإضافة أكبر من أو يساوي 1!"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee__penalty_rate
+msgid "Penalty Rate"
+msgstr "معدل الجزاء"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_employee.py:0
+#, python-format
+msgid "Penalty rate should be greater than or equal to 1!"
+msgstr "يجب أن يكون معدل العقوبة أكبر من أو يساوي 1!"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.addition_type_menu
+msgid "Addition Types"
+msgstr "أنواع الإضافة"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+msgid "Addition type used while creating addition from overtime."
+msgstr "نوع الإضافة المستخدم أثناء إنشاء الإضافة من العمل الإضافي."
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.act_window,name:sky_hr_payroll_custom.hr_addition_action
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee__addition_ids
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__addition_ids
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_time_tracking_line__addition_ids
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.additions_menu
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.hr_addition_main_menu
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_tracking_line_tree_payroll_inherit
+msgid "Additions"
+msgstr "الاضافات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__additions
+msgid "Additions Amount"
+msgstr "مبلغ الإضافات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.act_window,name:sky_hr_payroll_custom.hr_addition_type_action
+msgid "Additions Types"
+msgstr "أنواع الإضافات"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+msgid "Additions and Penalties"
+msgstr "الإضافات والعقوبات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__amount
+msgid "Amount"
+msgstr "مقدار"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__annual_bonus
+msgid "Annual Bonus"
+msgstr "المكافأة السنوية"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_addition_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_form
+msgid "Approve"
+msgstr "يعتمد"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_addition__state__approved
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_employee_salary__state__approved
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_penalty__state__approved
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_penalty_form
+msgid "Approved"
+msgstr "وافق"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__approved_overtime
+msgid "Approved Overtime"
+msgstr "العمل الإضافي المعتمد"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.server,name:sky_hr_payroll_custom.cron_emp_salary_creation_ir_actions_server
+#: model:ir.cron,cron_name:sky_hr_payroll_custom.cron_emp_salary_creation
+#: model:ir.cron,name:sky_hr_payroll_custom.cron_emp_salary_creation
+msgid "Automatic Salary Creation"
+msgstr "إنشاء الراتب التلقائي"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__basic
+msgid "Basic"
+msgstr "أساسي"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.hr_addition_reject_wizard_form_view
+msgid "Cancel"
+msgstr "تجاهل"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.module.category,description:sky_hr_payroll_custom.module_hr_payroll_categ
+msgid "Category for Employee Payroll"
+msgstr "فئة رواتب الموظف"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__code
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__code
+msgid "Code"
+msgstr "رمز"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.hr_addition_reject_wizard_form_view
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_form
+msgid "Confirm"
+msgstr "يتأكد"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_employee_salary__state__confirmed
+msgid "Confirmed"
+msgstr "مؤكد"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__create_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_reject_wizard__create_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__create_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__create_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__create_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__create_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_reject_wizard__create_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__create_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__create_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__create_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__date
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_addition__type_of_value__days
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_penalty__value_type__days
+msgid "Days"
+msgstr "أيام"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__display_name
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_reject_wizard__display_name
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__display_name
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__display_name
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__display_name
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_employee_salary__state__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_company__early_exit_penalty_type_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_config_settings__early_exit_penalty_type_id
+msgid "Early Exit Penalty Type"
+msgstr "نوع عقوبة الخروج المبكر"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_hr_employee
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__employee_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__employee_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_hr_employee_salary
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__employee_salary_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__employee_salary_id
+msgid "Employee Salary"
+msgstr "راتب الموظف"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.server,name:sky_hr_payroll_custom.emp_time_tracking_check_ir_actions_server
+#: model:ir.cron,cron_name:sky_hr_payroll_custom.emp_time_tracking_check
+#: model:ir.cron,name:sky_hr_payroll_custom.emp_time_tracking_check
+msgid "Employee Time Tracking Check For Penalties"
+msgstr "فحص تعقب وقت الموظف للعقوبات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__end_date
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__gross
+msgid "Gross Salary"
+msgstr "الراتب الكلى"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee__hourly_rate
+msgid "Hourly Rate"
+msgstr "المعدل بالساعة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_addition__type_of_value__hours
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_penalty__value_type__hours
+msgid "Hours"
+msgstr "ساعات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_hr_addition
+msgid "Hr Addition"
+msgstr "إضافة الموارد البشرية"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_addition.py:0
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.hr_addition_reject_wizard_form_view
+#, python-format
+msgid "Hr Addition Reject Form"
+msgstr "نموذج رفض إضافة الموارد البشرية"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_hr_addition_reject_wizard
+msgid "Hr Addition Reject Wizard"
+msgstr "معالج رفض إضافة ساعة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_hr_addition_type
+msgid "Hr Addition Type"
+msgstr "نوع إضافة الموارد البشرية"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_reject_wizard__id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__issued_by
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__issued_by
+msgid "Issued By"
+msgstr "صادر عن"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition____last_update
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_reject_wizard____last_update
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type____last_update
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary____last_update
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty____last_update
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__write_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_reject_wizard__write_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__write_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__write_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__write_uid
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__write_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_reject_wizard__write_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__write_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__write_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__write_date
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_company__late_entry_penalty_type_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_config_settings__late_entry_penalty_type_id
+msgid "Late Entry Penalty Type"
+msgstr "نوع عقوبة الدخول المتأخر"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_hr_leave
+msgid "Leave"
+msgstr "إذن"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_company__leave_penalty_type_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_config_settings__leave_penalty_type_id
+msgid "Leave Penalty Type"
+msgstr "نوع عقوبة الإذونات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__lock
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__lock
+msgid "Lock"
+msgstr "مغلق"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_addition_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_penalty_form
+msgid "Locked"
+msgstr "تم الغلق"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_addition__type_of_value__money
+msgid "Money"
+msgstr "نقود"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.act_window,name:sky_hr_payroll_custom.new_hr_addition_action
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.new_additions_menu
+msgid "My Additions"
+msgstr "الاضافات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.act_window,name:sky_hr_payroll_custom.new_hr_penalty_action
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.new_penalty_menu
+msgid "My Penalties"
+msgstr "جزاءاتي"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.act_window,name:sky_hr_payroll_custom.hr_employee_salary_new_action
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.new_employee_salary_menu
+msgid "My Salaries"
+msgstr "رواتبي"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__name
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__name
+msgid "Name"
+msgstr "اسم"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__net
+msgid "Net Salary"
+msgstr "الراتب الكلى"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee__next_salary_date
+msgid "Next Salary Date"
+msgstr "تاريخ الراتب التالي:"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_company__overtime_addtion_type_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_config_settings__overtime_addtion_type_id
+msgid "OverTime Addition Type"
+msgstr "نوع الإضافي"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__is_overtime
+msgid "Overtime?"
+msgstr "ساعات عمل إضافية"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_penalty__value_type__pay_cut
+msgid "Pay Cut"
+msgstr "استقطاعات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__paycuts
+msgid "Paycuts Amount"
+msgstr "قيمة الاستقطاعات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.module.category,name:sky_hr_payroll_custom.module_hr_payroll_categ
+msgid "Payroll"
+msgstr "الرواتب"
+
+#. module: sky_hr_payroll_custom
+#: model:res.groups,name:sky_hr_payroll_custom.group_payroll_manager
+msgid "Payroll Manager"
+msgstr "مدير الرواتب"
+
+#. module: sky_hr_payroll_custom
+#: model:res.groups,name:sky_hr_payroll_custom.group_payroll_user
+msgid "Payroll User"
+msgstr "مسئول الرواتب"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.act_window,name:sky_hr_payroll_custom.hr_penalty_action
+#: model:ir.model,name:sky_hr_payroll_custom.model_hr_penalty
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee__penalty_ids
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__penalty_ids
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_time_tracking_line__penalty_ids
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.penalty_menu
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.penalty_menu_main
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_tracking_line_tree_payroll_inherit
+msgid "Penalties"
+msgstr "جزاءات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__amount
+msgid "Penalty Amount"
+msgstr "قيمة الاستقطاعات"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.act_window,name:sky_hr_payroll_custom.hr_penalty_type_action
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__penalty_type_id
+msgid "Penalty Type"
+msgstr "نوع العقوبة "
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_hr_penalty_type
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.penalty_type_menu
+msgid "Penalty Types"
+msgstr "نوع العقوبة "
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+msgid "Penalty type used while creating penalty from absence for paycut."
+msgstr "نوع الجزاء المستخدم في انشاء جزاء خصم الغياب "
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+msgid "Penalty type used while creating penalty from early exit for paycut."
+msgstr "نوع الجزاء المستخدم في انشاء جزاء خصم الانصراف المبكر "
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+msgid "Penalty type used while creating penalty from late entry for paycut."
+msgstr "نوع الجزاء المستخدم في انشاء جزاء خصم تأخير الحضور "
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+msgid "Penalty type used while creating penalty from leave for paycut."
+msgstr "نوع الجزاء المستخدم في انشاء جزاء خصم الإذونات "
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.res_config_settings_view_form
+msgid "Penalty type used while creating penalty from vacation for paycut."
+msgstr "نوع الجزاء المستخدم في انشاء جزاء خصم الاجازات بدون اذن "
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_addition__state__pending
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_penalty__state__pending
+msgid "Pending"
+msgstr "معلق"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__performance
+msgid "Performance"
+msgstr "الأداء"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_type__rate
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty_type__rate
+msgid "Rate"
+msgstr "معدل"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_addition.py:0
+#: code:addons/sky_hr_payroll_custom/models/hr_penalty.py:0
+#, python-format
+msgid "Rate should be greater than or equal to 1!"
+msgstr "يجب أن يكون المعدل أكبر من أو يساوي 1!"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__reason
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_addition_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition_reject_wizard__reject_reason
+msgid "Reject Reason"
+msgstr "سبب الرفض"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_addition__state__rejected
+#: model:ir.model.fields.selection,name:sky_hr_payroll_custom.selection__hr_penalty__state__rejected
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_penalty_form
+msgid "Rejected"
+msgstr "تم الرفض"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__rejection_reason
+msgid "Rejection Reason"
+msgstr "سبب الرفض"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.actions.act_window,name:sky_hr_payroll_custom.hr_employee_salary_action
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.employee_salary_menu
+#: model:ir.ui.menu,name:sky_hr_payroll_custom.hr_employee_salary_main_menu
+msgid "Salaries"
+msgstr "رواتب"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee__salary_schedule
+msgid "Salary Schedule"
+msgstr "جدولة الراتب:"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__state
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_employee_salary__state
+msgid "Status"
+msgstr "حالة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,help:sky_hr_payroll_custom.field_hr_employee__hourly_rate
+msgid "This rate will be used for creating penalties and additions"
+msgstr "هذا المعدل سيستخدم في حساب الجزاءات والإضافي"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_time_tracking
+msgid "Time Tracking"
+msgstr "فحص تعقب مواعيد الموظف"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model,name:sky_hr_payroll_custom.model_time_tracking_line
+msgid "Time Tracking Line"
+msgstr "فحص تعقب مواعيد الموظف"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.new_view_hr_employee_salary_tree
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_tree
+msgid "Total Additions"
+msgstr "إجمالي الإضافي"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.new_view_hr_employee_salary_tree
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_tree
+msgid "Total Annual Bonus"
+msgstr "إجمالي المكافأة السنوية"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.new_view_hr_employee_salary_tree
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_tree
+msgid "Total Basic"
+msgstr "أساسي"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.new_view_hr_employee_salary_tree
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_tree
+msgid "Total Gross"
+msgstr "الراتب الكلى"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.new_view_hr_employee_salary_tree
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_tree
+msgid "Total Net"
+msgstr "إجمالي الصافي"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.new_view_hr_employee_salary_tree
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_tree
+msgid "Total Paycuts"
+msgstr "قيمة الاستقطاعات"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_form
+msgid "Total Penalties"
+msgstr "إجمالي الجزاءات"
+
+#. module: sky_hr_payroll_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.new_view_hr_employee_salary_tree
+#: model_terms:ir.ui.view,arch_db:sky_hr_payroll_custom.view_hr_employee_salary_tree
+msgid "Total Performacne"
+msgstr "إجمالي الأداء"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__tracking_line_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__tracking_line_id
+msgid "Tracking Line"
+msgstr "فحص تعقب مواعيد الموظف"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__type_of_value
+msgid "Type of value"
+msgstr "نوع القيمة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_company__vacation_penalty_type_id
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_res_config_settings__vacation_penalty_type_id
+msgid "Vacation Penalty Type"
+msgstr "نوع العقوبة "
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__value
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_addition__value_amount
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__value
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__value_amount
+msgid "Value"
+msgstr "القيمة"
+
+#. module: sky_hr_payroll_custom
+#: model:ir.model.fields,field_description:sky_hr_payroll_custom.field_hr_penalty__value_type
+msgid "Value Type"
+msgstr "نوع القيمة"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_addition.py:0
+#, python-format
+msgid "You can create addition overtime with only type of value hour!"
+msgstr "يمكنك انشاء وقت إضافي بعدد الساعات فقط"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_penalty.py:0
+#, python-format
+msgid "You can delete approved Penalties!"
+msgstr "يمكنك الغاء جزاءات مطبقة بالفعل"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_employee_salary.py:0
+#, python-format
+msgid "You can delete data in Draft state"
+msgstr "يمكنك الغاء بيانات في المسودة"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_addition.py:0
+#, python-format
+msgid "You can not create addition with type money! Please contact your Manager!"
+msgstr "لا يمكنك الغاء إضافي مالي ! يرجى التواصل مع مديرك"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_addition.py:0
+#, python-format
+msgid "You can not delete approved addition!"
+msgstr "لا يمكنك إلغاء إضافي مطبق بالفعل"
+
+#. module: sky_hr_payroll_custom
+#: code:addons/sky_hr_payroll_custom/models/hr_leave.py:0
+#, python-format
+msgid "You have a penalty approved, you need to cancel this penalty"
+msgstr "يوجد عقوبة مطبقة بالفعل .. تحتاج لإلغائها أولا"

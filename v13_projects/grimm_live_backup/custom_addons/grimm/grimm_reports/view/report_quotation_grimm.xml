@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_quotation_document_grimm">
+            <t t-call="grimm_reports.grimm_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
+                <div class="page">
+                    <div class="folding_line1"/>
+                    <div class="folding_line2"/>
+                    <div class="folding_line3"/>
+                    <div class="container">
+                        <table style="width:100%;">
+                            <tr class="info_row">
+                                <td class="grimm_info">
+                                    <hr class="top"/>
+                                    <span class="regular">Bei Rückfragen</span>
+                                    stehe ich Ihnen gerne zur Verfügung !
+                                    <br/>
+                                    <hr class="bottom"/>
+                                </td>
+                                <td class="grimm_info_col2"/>
+                                <td colspan="2">
+                                    <span t-field="doc.company_id.report_logo_header"/>
+                                    <!--<table style="width:100%;">
+                                      <tr>
+                                        <td colspan="2">
+                                          <img src='/grimm_reports/static/src/img/grimm_logo2.png' height="35"/>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="company_info" style="font-weight: 200;">
+                                          GRIMM Gastronomiebedarf GmbH
+                                          <br/>
+                                          Artilleriepark 9
+                                          <br/>
+                                          14624 Dallgow-Döberitz
+                                          <br/>
+                                        </td>
+                                        <td class="company_info right" style="font-weight: 200;">
+                                          shop@grimm-gastrobedarf.de
+                                          <br/>
+                                          service@grimm-gastrobedarf.de
+                                          <br/>
+                                          T +49 030 / 34 50 60 8 0
+                                          <br/>
+                                          F +49 030 / 34 50 60 8 19
+                                          <br/>
+                                        </td>
+                                      </tr>
+                                    </table>-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr class="info_row">
+                                <td></td>
+                                <td></td>
+                                <td colspan="2" class="order-head bold">
+                                    <span t-attf-style="color:{{doc.company_id.theme_color}};">Preisanfrage</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="sichtfenster">
+                                        GRIMM Gastronomiebedarf GmbH
+                                        ·
+                                        <span t-if="doc.company_id.street" t-field="doc.company_id.street"/>
+                                        ·
+                                        <span t-if="doc.company_id.zip" t-field="doc.company_id.zip"/>
+                                        <span t-if="doc.company_id.city" t-field="doc.company_id.city"/>
+                                    </span>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td class="address">
+                                    <div style="font-weight: 200;" t-field="doc.partner_id"
+                                         t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true, "phone_icons": false}'/>
+                                </td>
+                                <td></td>
+                                <td class="header">
+                                    <span class="regular">NR.</span>
+                                    <br/>
+                                    <span style="font-weight:200;">Beleg-Datum</span>
+                                    <br/>
+                                    <span class="regular">Kunden-Nr.</span>
+                                    <br/>
+                                    <span>Kundenreferenz</span>
+                                    <br/>
+                                </td>
+                                <td class="header">
+                                    <span t-field="doc.name" class="regular"/>
+                                    <br/>
+                                    <!--<span t-field="doc.date_order" t-field-options='{"widget": "date"}' style="font-weight:200;"/>-->
+                                    <span t-esc="doc.date_order.strftime('%d.%m.%Y')" style="font-weight:200;"/>
+                                    <br/>
+                                    <span t-field="doc.partner_id.ref" style="font-weight:200;"/>
+                                    <br/>
+                                    <span t-field="doc.sale_order_client_order_refs"/>
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2" class="header">
+                                    <span style="font-weight:200;">Diese Daten bei Rückfragen angeben!</span>
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2" class="order-user">GRIMM Ansprechpartner</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="3" style="font-weight: 200;">
+                                    <p t-raw="doc.salutation_text"/>
+                                </td>
+                                <td></td>
+                                <td colspan="2" class="header" style="font-weight: 200;">
+                                    <t t-if="user.name">
+                                        <div t-field="user.name" class="header-spacer">
+                                            <t t-if="user.title">
+                                                <span t-field="user.title.name"/>
+                                            </t>
+                                            <span t-field="user.name"/>
+                                        </div>
+                                        <span t-field="user.function"/>
+                                        <br/>
+                                        <t t-if="user.phone">
+                                            <i class="fa fa-phone" t-attf-style="padding-right: 5px; color:{{doc.company_id.theme_color}};"></i>
+                                            <span t-field="user.phone"/>
+                                            <br/>
+                                        </t>
+                                        <t t-if="user.mobile">
+                                            <i class="fa fa-mobile fa-lg" t-attf-style="padding-right: 10px; color:{{doc.company_id.theme_color}};"></i>
+                                            <span t-field="user.mobile"/>
+                                            <br/>
+                                        </t>
+                                        <t t-if="user.email">
+                                            <i class="fa fa-envelope" t-attf-style="padding-right: 5px; color:{{doc.company_id.theme_color}};"></i>
+                                            <span t-field="user.email" class="underline"/>
+                                            <br/>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th style="width: 5%;">Pos.</th>
+                                    <th style="width: 40%;">Artikel/Leistung</th>
+                                    <th>Artikel-Nr.</th>
+                                    <th>Menge</th>
+                                    <th>Betrag EUR</th>
+                                    <th>Gesamt EUR</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="doc.order_line" t-as="l">
+                                    <tr t-if="l.product_qty">
+                                        <td>
+                                            <span t-esc="l_index+1"/>
+                                        </td>
+                                        <td>
+                                            <div t-field="l.name" class="regular"/>
+                                            <!--
+                                                                  <div class="light" style="font-weight: 200;">
+                                                                    <t t-if="l.product_id.product_brand_id">
+                                                                      <span t-field="l.product_id.product_brand_id.name" class="regular"/><br/>
+                                                                    </t>
+                                                                    <t t-if="l.product_id.attribute_data_ids">
+                                                                      <ul class="product">
+                                                                        <t t-foreach="l.product_id.attribute_data_ids.sorted(key=lambda a: a.print_seq)" t-as="a">
+                                                                          <t t-if="a.print_attrib == True">
+                                                                            <li><span t-field="a.attr_id.name"/> <span t-field="a.value_id.name"/></li>
+                                                                          </t>
+                                                                        </t>
+                                                                      </ul>
+                                                                    </t>
+                                                                    <t t-if="l.product_id.connection_ids">
+                                                                      <t t-foreach="l.product_id.connection_ids" t-as="con">
+                                                                        <span t-field="con.name"/>
+                                                                        <span t-field="con.connection_spec"/>
+                                                                        <span t-field="con.connection_value"/><br/>
+                                                                      </t>
+                                                                    </t>
+                                                                    <t t-if="l.product_id.weight">
+                                                                      Netto-Gewicht <span class="blue">&amp;rsaquo;</span> <span t-esc="int(float(l.product_id.weight))"/> kg
+                                                                    </t>
+                                                                    <t t-if="l.product_id.net_weight">
+                                                                      /<span t-esc="int(float(l.product_id.net_weight))" class="light"/> kg
+                                                                    </t>
+                                                                    <t t-if="l.product_id.width">
+                                                                        <br/>Maße in mm: <span class="blue">&amp;rsaquo;</span> B <span t-esc="int(float(l.product_id.width))"/>
+                                                                    </t>
+                                                                    <t t-if="l.product_id.depth">
+                                                                        T <span t-esc="int(float(l.product_id.depth))"/>
+                                                                    </t>
+                                                                    <t t-if="l.product_id.height">
+                                                                        H <span t-esc="int(float(l.product_id.height))"/>
+                                                                    </t>
+                                                                    <t t-if="l.product_id.warranty">
+                                                                      <br/>Garantie: <span t-field="l.product_id.warranty" class="regular"/> Monate
+                                                                    </t>
+                                                                    <t t-if="l.product_id.warranty_type">
+                                                                      - <span t-field="l.product_id.warranty_type" class="regular"/>
+                                                                    </t>
+                                                                  </div>
+                                            -->
+                                        </td>
+                                        <td>
+                                            <t t-foreach="l.product_id.seller_ids" t-as="vc">
+                                                <span t-field="vc.product_code"/>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <t t-if="l.product_qty">
+                                                <t t-if="l.product_qty.is_integer()">
+                                                    <!--                          <span t-esc="'%.0f'%l.product_qty"/>-->
+                                                    <t t-if="l.product_id.product_tmpl_id.is_package">
+                                                        <t t-set="calc_val"
+                                                           t-value="int(l.product_qty) / int(l.product_id.package_id.qty_no)"/>
+                                                        <span t-esc="str(int(calc_val)) + ' (à ' + str(l.product_id.package_id.qty_no) + ' Stück)'"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="'%.0f'%l.product_qty"/>
+                                                    </t>
+                                                </t>
+                                                <t t-if="not l.product_qty.is_integer()">
+                                                    <span t-esc="'%.2f'%l.product_qty"/>
+                                                </t>
+                                            </t>
+                                            <!--                      <span t-field="l.product_uom"/>-->
+                                        </td>
+                                        <td style="font-weight: 200;">
+                                            ............
+                                        </td>
+                                        <td style="font-weight: 200;">
+                                            ............
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <table class="table table-condensed" style="font-weight: 200;">
+                            <tbody>
+                                <tr class="grimm-invoice-line">
+                                    <td colspan="4"></td>
+                                </tr>
+                                <tr>
+                                    <td width="10%">
+                                        Lieferort
+                                    </td>
+                                    <td width="10%"/>
+                                    <td>
+                                        <span class="blue">›</span>
+                                        <t t-if="doc.dest_address_id">
+                                            <span t-field="doc.dest_address_id.country_id.name"/>
+                                            <t t-if="doc.dest_address_id.zip or doc.dest_address_id.city">
+                                                <span>,</span>
+                                                <span t-field="doc.dest_address_id.zip"/>
+                                                <span t-field="doc.dest_address_id.city"/>
+                                            </t>
+                                        </t>
+                                        <t t-if="not doc.dest_address_id">
+                                            <span>Deutschland</span>
+                                        </t>
+                                    </td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Lieferkosten
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <span class="blue">›</span>
+                                        .....................
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Lieferzeit
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <span class="blue">›</span>
+                                        .....................
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Lieferzeit
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <span class="blue">›</span>
+                                        .....................
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Preisbindefrist
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <span class="blue">›</span>
+                                        .....................
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Zahlungsbedingungen
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <span class="blue">›</span>
+                                        .....................
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr style="padding-top: 30px;">
+                                    <td colspan="4">
+                                        Mit freundlichen Grüßen
+                                        <p>
+                                            <span t-esc="user.name"></span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4" style="font-weight: 200;">Wichtige Hinweise und Infos entnehmen Sie
+                                        unseren
+                                        <a href="https://www.grimm-gastrobedarf.de/agb">AGB</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_quotation_grimm">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="grimm_reports.report_quotation_document_grimm" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

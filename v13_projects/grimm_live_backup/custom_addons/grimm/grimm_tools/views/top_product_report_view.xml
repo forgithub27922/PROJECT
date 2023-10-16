@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="top_product_report_wizard" model="ir.ui.view">
+            <field name="name">top.product.report.export</field>
+            <field name="model">top.product.report</field>
+            <field name="arch" type="xml">
+                <form string="Top Product Report">
+                    <group>
+                        <field name="name" widget='radio'/>
+                        <field name="model_domain" widget="domain" options="{'model': 'product.product'}"/>
+                        <field name="record_limit"/>
+                        <field name="order_by"/>
+                    </group>
+                    <group string="Product Export">
+                        <!--<group>
+                            <field name="product_ids" widget="many2many_tags"  attrs="{'invisible':[('device_sparepart_from_file','=',True)]}"/>
+                            <field name="supplier_id" attrs="{'required':[('which_import','=','part')]}" options="{'no_create': True}" domain="[('supplier', '=', True)]"/>
+                            <field name="device_supplier_id" attrs="{'invisible':[('device_sparepart_from_file','=',False)]}" options="{'no_create': True}" domain="[('supplier', '=', True)]"/>
+                            <field name="device_sparepart_from_file"/>
+                        </group>
+                        <field name="download_link" readonly="1"/>
+                        <field name="upload_info" readonly="1"/>-->
+                        <field name="download_link" readonly="1"/>
+                    </group>
+
+                    <footer>
+                        <button name="export_products" string="Export" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_top_product_report" model="ir.actions.act_window">
+            <field name="name">Top Products</field>
+            <field name="res_model">top.product.report</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="top_product_report_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="top_product_report_menu"
+                name="Top Product"
+                parent="sale.menu_sale_report"
+                sequence="40"
+                action="action_top_product_report"/>
+    </data>
+</openerp>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="photo_barcode_action_main_menu" model="ir.actions.client">
+            <field name="name">Photo</field>
+            <field name="tag">photo_barcode_main_menu</field>
+        </record>
+
+        <record id="internal_transfer_action_main_menu" model="ir.actions.client">
+            <field name="name">Internal Transfer</field>
+            <field name="tag">internal_transfer_main_menu</field>
+        </record>
+
+        <record id="photo_done_popup" model="ir.actions.client">
+            <field name="name">Photo Done</field>
+            <field name="tag">photo_done</field>
+            <field name="target">current</field>
+        </record>
+
+        <record id="ir_create_magento_delivery_cron" model="ir.cron">
+            <field name="name">Create Magento Delivery cron jobs</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">24</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_magento_shippment_buffer" name="model_id"/>
+            <field name="state">code</field>
+            <field name="code">model._execute_magento_delivery_job()</field>
+        </record>
+
+        <record id="grimm_product_product_photo_inherit" model="ir.ui.view">
+            <field name="name">grimm_product_template_photo_inherit</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="default_code" position="after">
+                    <field name="ean_number"/>
+                    <field name="is_photo_done"/>
+                    <field name="photo_date" readonly="1"/>
+                </field>
+                <field name="lst_price" position="after">
+                    <field name="rrp_price"/>
+                    <label for="calculated_magento_price"/>
+                    <div>
+                        <field name="calculated_magento_price"/>
+                        <button string="⇒ track" class="oe_link oe_right" help="Track the Magento price calculation" name="tracking_magento_price" type="object"/>
+                    </div>
+                </field>
+            </field>
+        </record>
+
+<!--        <record id="grimm_product_image_fields_view" model="ir.ui.view">-->
+<!--            <field name="name">grimm_product_image_fields_view</field>-->
+<!--            <field name="model">product.template</field>-->
+<!--            <field name="inherit_id" ref="of_base_magento_extensions_v9.of_product_template_form_view"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//notebook/page[@name='additional_imgs']/group[@name='images_data']" position="before">-->
+<!--                    <group name="image_fields_grp">-->
+<!--                        <field name="is_photo_done" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}"/>-->
+<!--                        <field name="photo_date" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}"-->
+<!--                               readonly="1"/>-->
+<!--                        <field name="is_image_on_server"/>-->
+<!--                    </group>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="grimm_product_template_barcode_inherit" model="ir.ui.view">
+            <field name="name">grimm_product_template_barcode_inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <field name="barcode" position="after">
+                    <field name="ean_number" attrs="{'invisible': [('product_variant_count', '&gt;', 1)]}"/>
+                    <field name="is_photo_done"/>
+                    <field name="photo_date" readonly="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="grimm_product_template_barcode_search_view_extension" model="ir.ui.view">
+            <field name="name">Product template Barcode search view extension</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="barcode" string="Barcode" filter_domain="[('barcode','ilike',self)]"/>
+                    <filter string="Today's Photo" name="today_photo"
+                            domain="[('photo_date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('photo_date', '&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_stock_picking_action_kanban" model="ir.actions.act_window">
+            <field name="name">Operations</field>
+            <field name="res_model">stock.picking</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+    </data>
+</openerp>

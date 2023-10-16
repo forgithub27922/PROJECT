@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_un_number,access_grimm_un_number,model_un_number,,1,1,1,1
+access_transport_category,access_grimm_transport_category,model_transport_category,,1,1,1,1

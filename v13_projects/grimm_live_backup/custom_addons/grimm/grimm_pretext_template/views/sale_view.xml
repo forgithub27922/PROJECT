@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- sale order form view -->
+    <record model="ir.ui.view" id="sale_order_pretext_form">
+      <field name="name">sale.order.pre-text.form</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[1]" position="after">
+          <page name="pre-text" string="Pre-Texts">
+            <group col="1">
+              <separator string="Pre-Text Offer"/>
+              <field name="salutation_text_offer_tmpl_id" nolabel="1" class="oe_edit_only"
+                     placeholder="Chose a template to set the text"
+                     context="{'default_model_id':'sale.order', 'default_text':salutation_text_offer}"/>
+              <field name="salutation_text_offer" nolabel="1"/>
+              <separator string="Pre-Text Order"/>
+              <field name="salutation_text_order_tmpl_id" nolabel="1" class="oe_edit_only"
+                     placeholder="Chose a template to set the text"
+                     context="{'default_model_id':'sale.order', 'default_text':salutation_text_order}"/>
+              <field name="salutation_text_order" nolabel="1"/>
+              <separator string="Pre-Text Delivery Note"/>
+              <field name="salutation_text_dn_tmpl_id" nolabel="1" class="oe_edit_only"
+                     placeholder="Chose a template to set the text"
+                     context="{'default_model_id':'sale.order', 'default_text':salutation_text_dn}"/>
+              <field name="salutation_text_dn" nolabel="1"/>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

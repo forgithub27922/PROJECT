@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="view_send_fee_overdue_email_wizard" model="ir.ui.view">
+			<field name="name">fee.overdue.warning.email.wizard</field>
+			<field name="model">fee.overdue.warning.email.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Warning Email">
+					<separator string="Send Warnining Email" />
+					<group>	
+						<group string="">
+							<field name="installment_id" readonly="1" />
+							<field name="email_status" readonly="1" />
+						</group>
+						<group string="">
+							<field name="warning_date" readonly="1" force_save="1" />
+							<field name="due_date" readonly="1" force_save="1"/>
+						</group>
+					</group>
+					<field name="student_ids" widget="one2many_list">
+						<tree>
+							<field name="student_id" />
+							<field name="name" />
+							<field name="due_date" />
+							<field name="warning_date" />
+							<field name="applied_fee" />
+							<field name="status" />
+							<field name="is_overdue" />
+						</tree>
+					</field>
+					<footer>
+						<button name="send_fee_overdue_warning_email" type="object" string="Send Email" class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_send_overdue_email" model="ir.actions.act_window">
+			<field name="name">Overdue Warning Email</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">fee.overdue.warning.email.wizard</field>
+			<field name="view_id" ref="view_send_fee_overdue_email_wizard" />
+			<field name="context">{'default_installment_id': context.get('installment_id',False)}</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</odoo>

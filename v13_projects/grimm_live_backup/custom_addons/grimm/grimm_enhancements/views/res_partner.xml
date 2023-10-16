@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_partner_headers" model="ir.ui.view">
+        <field name="name">res_partner_headers</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button name="action_validate_address" type="object" string="Validate Address"/>
+                </header>
+            </xpath>
+            <xpath expr="//div[@class='o_address_format']" position="after">
+                <field name="is_address_validated"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

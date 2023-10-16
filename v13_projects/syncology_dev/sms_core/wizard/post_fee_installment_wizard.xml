@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="view_post_fee_installment_wizard" model="ir.ui.view">
+            <field name="name">view.post.fee.installment.wizard</field>
+            <field name="model">post.fee.installment.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="school_id" attrs="{'invisible': [('type', '=', 'post_to_students')], 'required': [('type', '=', 'post_to_grades')]}"/>
+                            <field name="type" required="1" widget="radio"/>
+                            <field name="grade_id" attrs="{'invisible': [('type', '=', 'post_to_students')], 'required': [('type', '=', 'post_to_grades')]}" widget="many2many_tags"/>
+                            <field name="student_ids" attrs="{'invisible': [('type', '=', 'post_to_grades')], 'required': [('type', '=', 'post_to_students')]}" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="deactivate_lms_on_due" readonly="1"/>
+                            <field name="pending_payment_students"/>
+                            <field name="synced_with_lms" invisible="1"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="post_fee_installment" type="object" string="Confirm"
+                                class="btn-primary"/>
+                        <button string="Cancel" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_post_fee_installment_wizard" model="ir.actions.act_window">
+            <field name="name">action.post.fee.installment.wizard</field>
+            <field name="res_model">post.fee.installment.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

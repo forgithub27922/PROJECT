@@ -1,0 +1,4304 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sms_core
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-16 09:43+0000\n"
+"PO-Revision-Date: 2022-03-19 14:50+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sms_core
+#: model:ir.actions.server,name:sms_core.action_sync_lms
+msgid "'Sync LMS' Server Action"
+msgstr ""
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "+2 XXX XXXXX XX"
+msgstr ""
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span> All Schools</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span> All Classes</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span> جميع المدارس</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span> جميع الفصول</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+msgid ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span> All Schools</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span> All Classes</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t\t\t<br/>"
+msgstr ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span> جميع المدارس</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span> جميع الفصول</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__from_account
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__from_account
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__from_account
+msgid "From Account"
+msgstr "من حساب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__to_account
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__to_account
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__to_account
+msgid "To Account"
+msgstr "الي حساب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"<br/>\n"
+"\t\t\t\t\t\t\t\t\t<strong>Gender:  </strong>"
+msgstr "النوع"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_list_form
+msgid "<small>Create new school or edit existing.</small>"
+msgstr "انشاء مدرسة جديدة أو تعديل مدرسة مسجلة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.hr_kanban_view_academic_student
+msgid ""
+"<span class=\"fa fa-circle text-danger\" role=\"img\" aria-label=\"in_active"
+"\" title=\"in_active\" name=\"moodle_status_in_active\">\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t</span>"
+msgstr ""
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.hr_kanban_view_academic_student
+msgid ""
+"<span class=\"fa fa-circle text-success\" role=\"img\" aria-label=\"Admitted"
+"\" title=\"Present\" name=\"state_admitted\">\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\t</span>"
+msgstr ""
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+msgid "<span> week(s) before due date</span>"
+msgstr "أسبوع / أسابيع قبل تاريخ الاستحقاق  "
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "<span>Admission Cancelled.</span>"
+msgstr "<span>تم إلغاء القبول.</span>"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "<span>Admission Rejected.</span>"
+msgstr "<span>رفض القبول.</span>"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid ""
+"<span>Admission Successful, For more information goto <strong>Student "
+"Affairs</strong> section.</span>"
+msgstr "تم قبول طلب التقديم ولمزيد من التفاصيل توجه إلى شئون الطلاب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid ""
+"<span>Admission in progress, Click the button <strong>Pending for "
+"Documents</strong> &amp; move to next state.</span>"
+msgstr "طلب التقديم مازال في اجراءات القبول اضفط زر انتظار المستندات"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid ""
+"<span>Admission in progress, Click the button <strong>Pending for "
+"Interview</strong> &amp; move to next state.</span>"
+msgstr "طلب التقديم مازال في اجراءات القبول اضفط زر انتظار تحديد مقابلة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid ""
+"<span>Admission in progress, Click the button <strong>Pending for Payment</"
+"strong> &amp; move to next state.</span>"
+msgstr "طلب التقديم مازال في اجراءات القبول اضفط زر انتظار دفع المصروفات"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+msgid "<span>All States</span>"
+msgstr "كل الحالات"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_md_class_section_form
+msgid "<span>Class Form</span>"
+msgstr "نموذج الفصل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_form
+msgid "<span>Configure your courses for a class/grade.</span>"
+msgstr "إعداد الكورسات للفصل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_course_repository_form
+msgid "<span>Define all your courses here.</span>"
+msgstr "تعريف كل الكورسات هنا"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_form
+msgid "<span>Fee Policy</span>"
+msgstr "سياية المصروفات"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid ""
+"<span>Final Step, Click the button <strong>Confirm Admission</strong> &amp; "
+"admit the student.</span>"
+msgstr "الخطوة الأخيرة اضغط زر تأكيد طلب التقديم لقبول الطالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_masterdata_class_form
+msgid "<span>Grade Form</span>"
+msgstr "نموذج الصف الدراسي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "<span>In-Active</span>"
+msgstr "فعال"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_studen_fee_form
+msgid "<span>Overdue</span>"
+msgstr "متأخرات الدفع"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_studen_fee_form
+msgid "<span>Student Fee Register</span>"
+msgstr "رسوم تسجيل طالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_masterdata_class_form
+msgid ""
+"<span>Students from different classes in this grade.</span>\n"
+"\t\t\t\t\t\t\t\t<br/>"
+msgstr "يوجد طلبة من فصول مختلفة في هذا الصف الدراسي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_list_form
+msgid ""
+"<span>The following classes are offered in current school.</span>\n"
+"\t\t\t\t\t\t\t\t<br/>"
+msgstr "يتم تقديم الفصول التالية في المدرسة الحالية."
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "<span>Use this form for students registration &amp; admission.</span>"
+msgstr "استخدم هذا النموذج للطلاب   تسجيل الطلاب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+msgid ""
+"<strong>\n"
+"\t\t\t\t\t\t\t\tFamily Contact Head\n"
+"\t\t\t\t\t\t\t</strong>"
+msgstr "اتصال الأسرة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Application For</strong>"
+msgstr "طلب تقديم لـ"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Applied For</strong>"
+msgstr "مقدم في "
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Birth Place</strong>"
+msgstr "تاريخ الميلاد"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>City</strong>"
+msgstr "المدينة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Class</strong>"
+msgstr "الفصل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Contact No</strong>"
+msgstr "رقم الاتصال"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid ""
+"<strong>Date From</strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Date To</strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Status</strong>"
+msgstr "من تاريخ                      إلى تاريخ"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Date of Apply</strong>"
+msgstr "<strong>تاريخ الاستحقاق:</strong>"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Date of Birth</strong>"
+msgstr "تاريخ الميلاد"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Education</strong>"
+msgstr "التعليم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Employment Location</strong>"
+msgstr "موقع التوظيف "
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Employment</strong>"
+msgstr "توظيف"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Father Info</strong>"
+msgstr "معلومات الوالد"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Gender</strong>"
+msgstr "النوع"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Guardian Info</strong>"
+msgstr "معلومات ولي الأمر"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Home Landline</strong>"
+msgstr "رقم تليفون المنزل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Marital Status</strong>"
+msgstr "الحالة الاجتماعية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Mobile No</strong>"
+msgstr "رقم الموبيل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Mother Info</strong>"
+msgstr "معلومات الوالدة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Name</strong>"
+msgstr "الاسم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>National ID</strong>"
+msgstr "الرقم القومي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>National Id</strong>"
+msgstr "الرقم القومي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Nationality</strong>"
+msgstr "الجنسية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+msgid ""
+"<strong>Period</strong>\n"
+"\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t<strong>Filters</strong>"
+msgstr "الفترة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Personal File</strong>"
+msgstr "الملف الشخصي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Personal Information</strong>"
+msgstr "معلومات شخصية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Relation to Child</strong>"
+msgstr "علاقته بالطالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "<strong>Religion:  </strong>"
+msgstr "الديانة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>School</strong>"
+msgstr "المدرسة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+msgid ""
+"<strong>School</strong>\n"
+"\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t<strong>Class</strong>\n"
+"\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t<strong>Applications</strong>"
+msgstr "المدرسة                    الصف                 طلبات التقديم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid ""
+"<strong>Schools</strong>\n"
+"\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t<strong>Classes</strong>"
+msgstr "المدارس                   الصفوف الدراسية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Status</strong>"
+msgstr "الحالة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid ""
+"<strong>Students</strong>\n"
+"\t\t\t\t\t\t\t\t\t<br/>"
+msgstr "الطلاب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid ""
+"<strong>Total Amount</strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Discount</strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Net Amount</strong>"
+msgstr "القيمة الإجمالية                       الخصم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Work Landline</strong>"
+msgstr "رقم تليفون العمل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.dev_std_detail_report
+msgid "<strong>Working Address</strong>"
+msgstr "عنوان العمل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "Academic Info"
+msgstr "معلومات اكاديمية"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__admit_student_school_wizard__wizard_mode__academic_student
+msgid "Academic Student"
+msgstr "الطالب الأكاديمي"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sms_fee_management_root
+msgid "Student Accounting"
+msgstr "حسابات الطلاب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__mode
+msgid "Action"
+msgstr "إجراء "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_needaction
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_needaction
+msgid "Action Needed"
+msgstr "إجراء مطلوب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Actions"
+msgstr ""
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "Activate LMS"
+msgstr "تفعيل LMS"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_class_course__active
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__active
+#: model:ir.model.fields,field_description:sms_core.field_school_class__active
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__active
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__moodle_status__active
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_policy__state__active
+#: model:ir.model.fields.selection,name:sms_core.selection__student_class__status__active
+#: model:ir.model.fields.selection,name:sms_core.selection__student_courses__course_status__active
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_school_classes_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_courses_repository_filter
+msgid "Active"
+msgstr "نشط"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_all_academic_student_id
+msgid "Active Students"
+msgstr "الطلاب النشطاء"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_course__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_section__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_school_class__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__activity_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__activity_ids
+msgid "Activities"
+msgstr "الأنشطة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activities_fee
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_policy_line__fee_type__activities_fee
+msgid "Activities Fee"
+msgstr "رسوم الأنشطة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_class_course__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_class_section__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_school_class__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "استثناء الديكور من النشاط "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_class_course__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_class_section__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_school_class__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__activity_state
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Add child"
+msgstr "إضافة طفل"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__address
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__address
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Address"
+msgstr "العنوان"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard__admission_id
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__admission_id
+#: model:ir.model.fields.selection,name:sms_core.selection__admit_student_school_wizard__wizard_mode__admission
+#: model:ir.ui.menu,name:sms_core.academic_activities_root
+msgid "Admission"
+msgstr "طلب التحاق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__admission_date
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__date_of_apply
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__admission_Date
+msgid "Admission Date"
+msgstr "تاريخ  الالتحاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_courses_form
+msgid "Admission Form"
+msgstr "نموذج الالتحاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Admission Info"
+msgstr "معلومات الالتحاق"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_admission_list_report
+msgid "Admission List"
+msgstr "كشف نموذج الالتحاق"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_admission_list_wizard
+#: model:ir.actions.report,name:sms_core.action_report_admission_list
+msgid "Admission List Report"
+msgstr "تقرير نموذج الالتحاق"
+
+#. module: sms_core
+#: model:res.groups,name:sms_core.group_manager_sms_admission
+msgid "Admission Manager"
+msgstr "مدير قسم الاتحاق"
+
+#. module: sms_core
+#: model:res.groups,name:sms_core.group_officer_sms_admission
+msgid "Admission Officer"
+msgstr "مسئول قسم الاتحاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Admission Process"
+msgstr "إجراءات نموذج الالتحاق"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sms_admission_reports_head_id
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admission_list_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_sync_lms_wizard
+msgid "Admission Reports"
+msgstr "تقارير طلبات الالتحاق"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_admission_list_wizard
+msgid "Admission list wizard"
+msgstr "معالج كشف نموذج الالتحاق"
+
+#. module: sms_core
+#: model:website.menu,name:sms_core.menu_patient_form12
+msgid "Admissions"
+msgstr "طلبات الالتحاق"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sms_admission_head_id
+msgid "Admissions Process"
+msgstr "اجراءات طلبات الالتحاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admit_student_school_wizard
+msgid "Admit Student"
+msgstr "طالب مقبول"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_admit_student_school_wizard
+msgid "Admit Student In School"
+msgstr "قبول الطالب في المدرسة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__state__admitted
+#: model:ir.model.fields.selection,name:sms_core.selection__admission_list_wizard__state__admitted
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__state__admitted
+#: model:ir.ui.menu,name:sms_core.menu_admission_admitted_list
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+msgid "Admitted"
+msgstr "القبول"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__admitted_by
+msgid "Admitted By"
+msgstr "تم قبوله بواسطة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__class_id
+msgid "Admitted to Grade"
+msgstr "تم قبوله في الصف الدراسي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__school_id
+msgid "Admitted to School"
+msgstr "تم قبوله في المدرسة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__admission_list_wizard__state__all
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_collection_dues_wizard__filter_status__all
+msgid "All"
+msgstr "الكل"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_admission_all_list
+msgid "All Applications"
+msgstr "كافة طلبات القبول"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_acd_std_fee_all
+msgid "All Students (Active)"
+msgstr "الطلاب النشطاء"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+msgid ""
+"All unpaid fee entires will be updated with new amount in student fee "
+"register"
+msgstr ""
+"سيتم تحديث جميع إدخالات الرسوم غير المدفوعة مع مبلغ جديد في سجل رسوم الطالب"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__application_for__american
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__application_for__american
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "American"
+msgstr "المدرسة الأمريكية"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__amount
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__amount
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid "Amount"
+msgstr "المبلغ"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__application_for
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__application_for
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Application For"
+msgstr "طلب تقديم لـ"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__application_no
+msgid "Application No"
+msgstr "طلب تقديم رقم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.student_already_exists_ir_ui_view
+#: model_terms:website.page,arch_db:sms_core.student_already_exists
+msgid "Application already exists for the curernt student."
+msgstr "التطبيق موجود بالفعل للطالب الحالي."
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sms_core_admission_root
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+msgid "Applications"
+msgstr "طلبات القبول"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_admission_approved
+msgid "Applications (Admitted)"
+msgstr "طلبات القبول التي تم قبولها"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_admission_in_all
+msgid "Applications (All)"
+msgstr "كافة طلبات القبول"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_admission_cancelled
+msgid "Applications (Cancelled)"
+msgstr "طلبات القبول التي تم الغاءها"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_admission_in_review
+msgid "Applications (In Review)"
+msgstr "طلبات القبول في المراجعة"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_admission_in_interview
+msgid "Applications (Interview)"
+msgstr "طلبات القبول في انتظار مقابلة"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_admission_rejected
+msgid "Applications (Rejected)"
+msgstr "طلبات القبول التي تم رفضها"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_admission_undecided
+msgid "Applications (Undecided)"
+msgstr "طلبات القبول التي لم يتم اتخاذ قارا فيها"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_admission_submit_documents
+msgid "Applications (Waiting Documents)"
+msgstr "طلبات القبول في انتظار استكمال المستندات"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_admission_submit_payments
+msgid "Applications (Waiting Payments)"
+msgstr "طلبات القبول في انتظار دفع المصروفات"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+msgid "Applied"
+msgstr "تم التطبيق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__applied_fee
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid "Applied Fee"
+msgstr "رسوم طلب الالتحاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_form
+msgid "Applied on"
+msgstr "مطبق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Arabic"
+msgstr "عربي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "Are you sure to withdraw this student?"
+msgstr "هل أنت متأكد من سحب هذا الطالب؟"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Are you sure you want to cancel this admission?"
+msgstr "هل أنت متأكد أنك تريد إلغاء هذا القبول؟"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_attachment_count
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد المرفقات"
+
+#. module: sms_core
+#: model:ir.actions.report,name:sms_core.action_std_admission_biodata_report
+msgid "Biodata Report"
+msgstr "تقرير Biodata"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Birth Date"
+msgstr "تاريخ الميلاد"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__birth_place
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__birth_place
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Birth Place"
+msgstr "محل الميلاد"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__books_fee
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_policy_line__fee_type__books_fee
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_filter
+msgid "Books Fee"
+msgstr "رسوم الكتب"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__sibing_status__has_brothers_sisters
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__sibing_status__has_brothers_sisters
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Brothers/Sisters in School"
+msgstr "الأخوة / الأخوات في المدرسة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_overdue_warning_email_wizard__email_status__cant_send
+msgid "Can't send before warning date"
+msgstr "لا يمكن إرسال قبل تاريخ التحذير"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admission_list_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admit_student_school_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_fee_collection_dues_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_reject_std_admission_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_send_fee_overdue_email_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_reports_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_sync_lms_wizard
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__state__cancelled
+#: model:ir.model.fields.selection,name:sms_core.selection__admission_list_wizard__state__cancelled
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_payment_wizard_line__status__cancelled
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__state__cancelled
+#: model:ir.model.fields.selection,name:sms_core.selection__student_fee__status__cancelled
+#: model:ir.ui.menu,name:sms_core.menu_admissions_cancelled_list
+msgid "Cancelled"
+msgstr "ملغي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.student_already_exists_ir_ui_view
+#: model_terms:website.page,arch_db:sms_core.student_already_exists
+msgid "Cannot Proceed!"
+msgstr "لا يمكن التنفيذ"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid "Cash Disc"
+msgstr "نسبة الخصم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admit_student_school_wizard
+msgid "Change Class"
+msgstr "تغيير الفصل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid "Child Disc"
+msgstr "نسبة الخصم لطفل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+msgid "Children"
+msgstr "الاطفال"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+msgid "Children's Details"
+msgstr "بيانات الاطفال"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__student_ids
+msgid "Childs"
+msgstr "أطفال"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+msgid "Childs Information"
+msgstr "بيانات أطفال"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__city
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__city
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "City"
+msgstr "المدينة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__section_id
+#: model:ir.model.fields,field_description:sms_core.field_class_section__name
+#: model:ir.model.fields,field_description:sms_core.field_student_class__class_id
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__class_id
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__class_id
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_class_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_courses_filter
+msgid "Class"
+msgstr "الفصل"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__class_course_id
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_courses_filter
+msgid "Class Course"
+msgstr "كورس الفصل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_form
+msgid "Class Courses"
+msgstr "كورسات الفصل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_md_class_section_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_course_repository_form
+msgid "Class Form"
+msgstr "نموذج الفصل"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_md_all_sections
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__student_classes_ids
+#: model:ir.ui.menu,name:sms_core.menu_masterdata_sections
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_md_class_section_tree
+msgid "Classes"
+msgstr "الفصول"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_courses_tree
+msgid "Classes Courses"
+msgstr "كورسات الفصول"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_policy__state__closed
+#: model:ir.model.fields.selection,name:sms_core.selection__student_class__status__closed
+#: model:ir.model.fields.selection,name:sms_core.selection__student_courses__course_status__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__collections
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__collections
+msgid "Collections"
+msgstr "مجموعات"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sms_configuration_head_id
+msgid "Configuration"
+msgstr "اعدادات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__admitted_by
+msgid "Confirmed By"
+msgstr "مؤكد بواسطة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+msgid "Country"
+msgstr "الدولة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_class_course__name
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__name
+msgid "Course"
+msgstr "كورس"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_courses_repository_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_course_repository_form
+msgid "Course Repository"
+msgstr "مستودع الدورة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__class_course_ids
+#: model:ir.model.fields,field_description:sms_core.field_school_class__courses_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_class__std_course_ids
+msgid "Courses"
+msgstr "كورسات "
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_courses_repository
+msgid "Courses Repository"
+msgstr "مستودع الدورة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_class_course__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_class_section__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_school_class__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_class__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_core.field_sync_lms_wizard__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__create_date
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__create_date
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard__create_date
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__create_date
+#: model:ir.model.fields,field_description:sms_core.field_class_course__create_date
+#: model:ir.model.fields,field_description:sms_core.field_class_section__create_date
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__create_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__create_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__create_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__create_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__create_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__create_date
+#: model:ir.model.fields,field_description:sms_core.field_school_class__create_date
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__create_date
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__create_date
+#: model:ir.model.fields,field_description:sms_core.field_student_class__create_date
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__create_date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__create_date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__create_date
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__create_date
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__create_date
+#: model:ir.model.fields,field_description:sms_core.field_sync_lms_wizard__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__current_strength
+#: model:ir.model.fields,field_description:sms_core.field_class_section__current_strength
+msgid "Current Strength"
+msgstr "القوة الحالية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admission_list_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_fee_collection_dues_wizard
+msgid "Date From"
+msgstr "التاريخ من"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__date_of_reject_cancel
+msgid "Date Reject Cancel"
+msgstr "تاريخ رفض الإلغاء"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admission_list_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_fee_collection_dues_wizard
+msgid "Date To"
+msgstr "الى تاريخ"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__date_of_withdraw
+msgid "Date Withdrawn"
+msgstr "تاريخ سحب الملف"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__date_from
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__date_from
+msgid "Date from"
+msgstr "التاريخ من"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__date_of_admission
+msgid "Date of Admission"
+msgstr "تاريخ  الالتحاق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__date_of_apply
+msgid "Date of Apply"
+msgstr "تاريخ الاستحقاق:"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__birth_date
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__birth_date
+msgid "Date of Birth"
+msgstr "تاريخ الميلاد"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__date_of_admission
+msgid "Date of Confirmation"
+msgstr "تاريخ التاكيد"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__date_to
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__date_to
+msgid "Date to"
+msgstr "الى تاريخ"
+
+#. module: sms_core
+#: model:ir.actions.server,name:sms_core.fee_detail_email_ir_actions_server
+#: model:ir.cron,cron_name:sms_core.fee_detail_email
+#: model:ir.cron,name:sms_core.fee_detail_email
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "Deactivate LMS"
+msgstr "تعطيل حساب LMS"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__moodle_status__deleted
+#: model:ir.model.fields.selection,name:sms_core.selection__class_section__cls_sec_lms_status__deleted
+#: model:ir.model.fields.selection,name:sms_core.selection__school_class__cls_lms_status__deleted
+#: model:ir.model.fields.selection,name:sms_core.selection__schools_list__lms_status__deleted
+msgid "Deleted"
+msgstr "تم الغاؤه"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_class_course__desc
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__desc
+#: model:ir.model.fields,field_description:sms_core.field_school_class__desc
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__school_description
+msgid "Description"
+msgstr "توضيح"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__cash_discount
+msgid "Discount"
+msgstr "الخصم (%)"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__discount_given
+msgid "Discount Given"
+msgstr "الخصم الممنوح"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+msgid "Discounts"
+msgstr "الخصومات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__display_name
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__display_name
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard__display_name
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__display_name
+#: model:ir.model.fields,field_description:sms_core.field_class_course__display_name
+#: model:ir.model.fields,field_description:sms_core.field_class_section__display_name
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__display_name
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__display_name
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__display_name
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__display_name
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__display_name
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__display_name
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_fee_collection_dues_report_templet__display_name
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_admission_list_template__display_name
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_parent_guardian_info_template__display_name
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_std_adm_biodata_template__display_name
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_student_info_list_template__display_name
+#: model:ir.model.fields,field_description:sms_core.field_school_class__display_name
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__display_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__display_name
+#: model:ir.model.fields,field_description:sms_core.field_student_class__display_name
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__display_name
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__display_name
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__display_name
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__display_name
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__display_name
+#: model:ir.model.fields,field_description:sms_core.field_sync_lms_wizard__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__father_marital_status__divorced
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__guardian_marital_status__divorced
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__mother_marital_status__divorced
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__father_marital_status__divorced
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__guardian_marital_status__divorced
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__mother_marital_status__divorced
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Divorced"
+msgstr "مطلق"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_mail_followers
+msgid "Document Followers"
+msgstr "متابعو المستند"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__admission_list_wizard__state__documentation
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__state__documentation
+msgid "Documentation"
+msgstr "توثيق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Documents"
+msgstr "المستندات "
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_admission_documents_submit
+msgid "Documents Submission"
+msgstr "تقديم المستندات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__domain_name
+msgid "Domain Name"
+msgstr "اسم النطاق"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__state__draft
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_policy__state__draft
+#: model:ir.model.fields.selection,name:sms_core.selection__student_class__status__draft
+#: model:ir.model.fields.selection,name:sms_core.selection__student_courses__course_status__draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__due_amount
+msgid "Due Amount"
+msgstr "المبلغ المستحق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__due_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__due_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__due_date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__due_date
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Due Date Not Set"
+msgstr "لم يتم تحديد تاريخ الاستحقاق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__due_month
+msgid "Due Month"
+msgstr "شهر الاستحقاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+msgid "Dues Date"
+msgstr "تاريخ الاستحقاق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_degree_education
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_degree_education
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_degree_education
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_degree_education
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_degree_education
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_degree_education
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Education"
+msgstr "تعليم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Egypt"
+msgstr "مصر"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_email
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_email
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_email
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_email
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_email
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_email
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Email Address"
+msgstr "البريد الإلكتروني"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__email_status
+msgid "Email Status"
+msgstr "حالة البريد الإلكتروني"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__emp_chil_disc
+msgid "Emp Child Dis"
+msgstr "خصم ابناء العاملين"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__employee_child_discount
+msgid "Employee Child"
+msgstr "خصم ابناء العاملين"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+msgid "Employee Child %"
+msgstr "خصم ابناء العاملين"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"Employer\n"
+"\t\t\t\t\t\t\t\t\t\t\tLocation"
+msgstr "موقع التوظيف "
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Employer Location"
+msgstr "موقع التوظيف "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_employment
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_employment
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_employment
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_employment
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_employment
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_employment
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Employment"
+msgstr "توظيف"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_employer_location
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_employeer_location
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_employer_location
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_employer_location
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_employeer_location
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_employer_location
+msgid "Employment Location"
+msgstr "موقع توظيف "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__end_date
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "English"
+msgstr "الإنجليزي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Enroll a Child"
+msgstr "تسجيل الطفل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_masterdata_class_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_list_form
+msgid "Enrolled Students"
+msgstr "طلاب مسجلين"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Enter ‘None’, if no record of previous school"
+msgstr "ادخل (لا يوجد) اذا لم تكن هناك مدرسة سابقة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Enter ‘None’, if no record of previous school."
+msgstr "ادخل (لا يوجد) اذا لم تكن هناك مدرسة سابقة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__family_id
+msgid "Family ID"
+msgstr "بطاقة تعريف العائلة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_tree
+msgid "Family Register"
+msgstr "تسجيل العائلة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_full_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_full_name
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_full_name
+msgid "Father Full Name"
+msgstr "الاسم الكامل للوالد :"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_full_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_full_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_full_name_arabic
+msgid "Father Full Name Arabic"
+msgstr "الاسم الكامل للوالد باللغة العربية :"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+msgid "Father Infomration"
+msgstr "معلومات الوالد"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Father Information"
+msgstr "معلومات الوالد"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Father Is Absent"
+msgstr "الوالد غير موجود"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"Father Is Legal\n"
+"\t\t\t\t\t\t\t\t\t\tGuardian"
+msgstr "الوالد هو ولي الأمر القانوني"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_tree
+msgid "Father Name"
+msgstr "الاسم الكامل للوالد :"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_is_absent
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_is_absent
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_is_absent
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+msgid "Father is Absent"
+msgstr "الوالد غير موجود"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_degree_education
+msgid "Father Education"
+msgstr "تعليم الأب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_email
+msgid "Father Email"
+msgstr "البريد الإلكتروني للأب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_employment
+msgid "Father Employment"
+msgstr "توظيف الأب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_employer_location
+msgid "Father Employment Location"
+msgstr "مكان عمل الأب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_landline_number
+msgid "Father Home Phone"
+msgstr "هاتف المنزل الأب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_marital_status
+msgid "Father Marital Status"
+msgstr "الأب الحالة الاجتماعية"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_mobile_no
+msgid "Father Mobile Number"
+msgstr "رقم هاتف الوالد"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_national_id
+msgid "Father National ID"
+msgstr "الرقم القومي للأب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_nationality
+msgid "Father Nationality"
+msgstr "جنسية الأب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_passport
+msgid "Father Passport No"
+msgstr "رقم جواز سفر الأب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__father_land_line_no
+msgid "Father Work Phone"
+msgstr "هاتف عمل الأب"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__head_person__father
+msgid "Father is Contact Head"
+msgstr "الأب هو جهة الاتصال"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+msgid "Father is Guardian"
+msgstr "الوالد هو ولي الأمر "
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__legal_guardian__father_is_legal_guardian
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__legal_guardian__father_is_legal_guardian
+msgid "Father is the legal guardian"
+msgstr "الوالد هو ولي الأمر القانوني"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__std_fee_id
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__total_amount
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__name
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__name
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__total_amount
+msgid "Fee"
+msgstr "رسم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__applied_fee
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__applied_fee
+msgid "Fee Applied"
+msgstr "رسوم طلب الالتحاق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__fee_balance
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__outsandings
+msgid "Fee Balance"
+msgstr "رصيد الرسوم"
+
+#. module: sms_core
+#: model:ir.actions.report,name:sms_core.fee_collection_dues_report
+msgid "Fee Collection Dues Report"
+msgstr "تقرير تحصيل الرسوم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid "Fee Collection/Dues Report"
+msgstr "تقرير تحصيل الرسوم"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_fee_reports_wizard
+msgid "Fee Collection/Outstanding Report"
+msgstr "تقرير تحصيل الرسوم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__fee_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__fee_date
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Fee Date"
+msgstr "تاريخ الرسوم"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__reason__fee_defaulter
+#: model:ir.model.fields.selection,name:sms_core.selection__sync_lms_wizard__reason__fee_defaulter
+msgid "Fee Defaulter"
+msgstr "مخالفة الرسوم"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_all_fee_policy_lines
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_tree
+msgid "Fee Installments"
+msgstr "اقساط الرسوم الدراسية"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__fee_policy_line_ids
+msgid "Fee Lines"
+msgstr "خطوط الرسوم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid "Fee Name"
+msgstr "مسمى الرسوم"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_all_fee_policy
+#: model:ir.model,name:sms_core.model_fee_policy
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__name
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__fee_policy_id
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__fee_policy_id
+#: model:ir.ui.menu,name:sms_core.menu_all_fee_policy_id
+#: model:ir.ui.menu,name:sms_core.menu_sms_fee_configuration_head_id
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_studen_fee_form
+msgid "Fee Policy"
+msgstr "سياية المصروفات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__fee_policy_line_id
+msgid "Fee Policy Line"
+msgstr "سياية المصروفات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__student_ids
+msgid "Fee Records"
+msgstr "سجلات الرسوم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+msgid "Fee Register"
+msgstr "رسوم تسجيل طالب"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sms_fee_reports_head_id
+#: model_terms:ir.ui.view,arch_db:sms_core.view_fee_collection_dues_wizard
+msgid "Fee Reports"
+msgstr "تقارير الرسوم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__fee_type
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__fee_type
+msgid "Fee Type"
+msgstr "نوع الرسوم"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__applied_fee
+msgid "Fee charged against student. After Discount"
+msgstr "رسوم مشحونة ضد الطالب. بعد الخصم"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__total_fee_charged
+msgid "Fee charged against student. Without discount"
+msgstr "رسوم مشحونة ضد الطالب. بدون الخصم"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_fee-collection_dues_report_id
+msgid "Fee collection/Outstanding Report"
+msgstr "تقرير تحصيل الرسوم"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__outsandings
+msgid "Fee still not paid."
+msgstr "لم يدفع الرسوم بعد"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__gender__female
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__gender__female
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Female"
+msgstr "أنثى"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__filter
+msgid "Filter"
+msgstr "مصنف"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__filter_status
+msgid "Filter By"
+msgstr "مصنف بواسطة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__first_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__first_name
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "First Name"
+msgstr "الاسم الاول"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__first_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__first_name_arabic
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "First Name Arabic"
+msgstr "الاسم الاول (عربي)"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "First Name(Arabic)"
+msgstr "الاسم الاول (عربي)"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_follower_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_follower_ids
+msgid "Followers"
+msgstr "المتابعون"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_channel_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "المتابعون (القنوات)"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_partner_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "المتابعون (الشركاء)"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__full_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__full_name
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Full Name"
+msgstr "الاسم الكامل "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__full_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__full_name_arabic
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Full Name Arabic"
+msgstr "الاسم الكامل باللغة العربية :"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__gender
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__gender
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__class_id
+#: model:ir.model.fields,field_description:sms_core.field_academic_student_installment__class_id
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__class_grade_id
+#: model:ir.model.fields,field_description:sms_core.field_class_course__class_id
+#: model:ir.model.fields,field_description:sms_core.field_class_section__grade_id
+#: model:ir.model.fields,field_description:sms_core.field_post_fee_installment_wizard__grade_id
+#: model:ir.model.fields,field_description:sms_core.field_school_class__name
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__grade_id
+#: model_terms:ir.ui.view,arch_db:sms_core.academic_student_installment_view_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.view_delete_student_wizard
+msgid "Grade"
+msgstr "الصف الدراسي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_form
+msgid "Grade Course"
+msgstr "كورس الصف الدراسي"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_class_courses
+msgid "Grade Courses"
+msgstr "كورسات الصف الدراسي"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_all_classes
+#: model:ir.ui.menu,name:sms_core.menu_masterdata_classes
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_school_classes_tree
+msgid "Grades"
+msgstr "الصفوف الدراسية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_masterdata_class_form
+msgid "Grades Form"
+msgstr "الصفوف الدراسية من"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_list_form
+msgid "Grades Offered"
+msgstr "الصفوف المقدمة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_school_class__grading_policy
+msgid "Grading Policy"
+msgstr "سياسة ولي الأمر"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_md_class_section_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_school_classes_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_class_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_courses_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_courses_repository_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_full_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_full_name
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_full_name
+msgid "Guardian Full Name"
+msgstr "الاسم الكامل لولي الأمر :"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_full_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_full_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_full_name_arabic
+msgid "Guardian Full Name Arabic"
+msgstr "الاسم الكامل لولي الأمر باللغة العربية :"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+msgid "Guardian Infomration"
+msgstr "معلومات ولي الأمر"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Guardian Information"
+msgstr "معلومات ولي الأمر"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_tree
+msgid "Guardian Name"
+msgstr "الاسم الكامل لولي الأمر :"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_degree_education
+msgid "Guardian Education"
+msgstr "تعليم الوصي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_email
+msgid "Guardian Email"
+msgstr "البريد الإلكتروني للوصي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_employment
+msgid "Guardian Employment"
+msgstr "توظيف الوصي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_employeer_location
+msgid "Guardian Employment Location"
+msgstr "موقع عمل الوصي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_landline_number
+msgid "Guardian Home Phone"
+msgstr "هاتف المنزل الوصي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_marital_status
+msgid "Guardian Marital Status"
+msgstr "الحالة الزوجية لولي الأمر"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_mobile_no
+msgid "Guardian Mobile Number"
+msgstr "رقم هاتف الوصي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_national_id
+msgid "Guardian National ID"
+msgstr "بطاقة هوية ولي الأمر"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_nationality
+msgid "Guardian Nationality"
+msgstr "جنسية ولي الأمر"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_passport
+msgid "Guardian Passport No"
+msgstr "رقم جواز سفر ولي الأمر"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__guardian_land_line_no
+msgid "Guardian Work Phone"
+msgstr "هاتف عمل الوصي"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__head_person__guardian
+msgid "Guardian is Contact Head"
+msgstr "ولي الأمر هو جهة الاتصال"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__head_person
+msgid "Head Person"
+msgstr "جهة الاتصال"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__schools_list__school_type__higher_secondary
+msgid "Higher Secondary"
+msgstr "ثانوي عليا"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_landline_number
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_landline_number
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_landline_number
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_landline_number
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_landline_number
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_landline_number
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Home Phone"
+msgstr "رقم التليفون المنزل"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__id
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__id
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard__id
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__id
+#: model:ir.model.fields,field_description:sms_core.field_class_course__id
+#: model:ir.model.fields,field_description:sms_core.field_class_section__id
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__id
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__id
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__id
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__id
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__id
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__id
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_fee_collection_dues_report_templet__id
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_admission_list_template__id
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_parent_guardian_info_template__id
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_std_adm_biodata_template__id
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_student_info_list_template__id
+#: model:ir.model.fields,field_description:sms_core.field_school_class__id
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__id
+#: model:ir.model.fields,field_description:sms_core.field_student_class__id
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__id
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__id
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__id
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__id
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__id
+#: model:ir.model.fields,field_description:sms_core.field_sync_lms_wizard__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__application_for__ig
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__application_for__ig
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "IG"
+msgstr "النظام البريطاني"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_class_course__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_class_section__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_school_class__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__activity_exception_icon
+msgid "Icon"
+msgstr "الأيقونة"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_class_course__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_class_section__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_course_repository__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_fee_policy__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_school_class__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_schools_list__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_student_fee__activity_exception_icon
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "الأيقونة للإشارة إلى استثناء النشاط"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__message_needaction
+#: model:ir.model.fields,help:sms_core.field_academic_student__message_unread
+#: model:ir.model.fields,help:sms_core.field_class_course__message_needaction
+#: model:ir.model.fields,help:sms_core.field_class_course__message_unread
+#: model:ir.model.fields,help:sms_core.field_class_section__message_needaction
+#: model:ir.model.fields,help:sms_core.field_class_section__message_unread
+#: model:ir.model.fields,help:sms_core.field_course_repository__message_needaction
+#: model:ir.model.fields,help:sms_core.field_course_repository__message_unread
+#: model:ir.model.fields,help:sms_core.field_fee_policy__message_needaction
+#: model:ir.model.fields,help:sms_core.field_fee_policy__message_unread
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__message_needaction
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__message_unread
+#: model:ir.model.fields,help:sms_core.field_school_class__message_needaction
+#: model:ir.model.fields,help:sms_core.field_school_class__message_unread
+#: model:ir.model.fields,help:sms_core.field_schools_list__message_needaction
+#: model:ir.model.fields,help:sms_core.field_schools_list__message_unread
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__message_needaction
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__message_unread
+#: model:ir.model.fields,help:sms_core.field_student_fee__message_needaction
+#: model:ir.model.fields,help:sms_core.field_student_fee__message_unread
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__message_needaction
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "إذا تم تحديدها ، فإن الرسائل الجديدة تتطلب انتباهك."
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__message_has_error
+#: model:ir.model.fields,help:sms_core.field_academic_student__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_class_course__message_has_error
+#: model:ir.model.fields,help:sms_core.field_class_course__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_class_section__message_has_error
+#: model:ir.model.fields,help:sms_core.field_class_section__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_course_repository__message_has_error
+#: model:ir.model.fields,help:sms_core.field_course_repository__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_fee_policy__message_has_error
+#: model:ir.model.fields,help:sms_core.field_fee_policy__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__message_has_error
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_school_class__message_has_error
+#: model:ir.model.fields,help:sms_core.field_school_class__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_schools_list__message_has_error
+#: model:ir.model.fields,help:sms_core.field_schools_list__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__message_has_error
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_student_fee__message_has_error
+#: model:ir.model.fields,help:sms_core.field_student_fee__message_has_sms_error
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__message_has_error
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "إذا قمت  بالاختيار  فبعض الرسائل قد ينتج عنها اخطاء عند  الارسال"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__student_image
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__student_image
+msgid "Image"
+msgstr "صورة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__moodle_status__in_active
+msgid "In Active"
+msgstr "نشط"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__admission_list_wizard__state__in_review
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__state__in_review
+#: model:ir.ui.menu,name:sms_core.menu_admission_in_review_list
+msgid "In Review"
+msgstr "مراجعة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__state__inactive
+#: model:ir.model.fields.selection,name:sms_core.selection__class_section__cls_sec_lms_status__in_active
+#: model:ir.model.fields.selection,name:sms_core.selection__school_class__cls_lms_status__in_active
+#: model:ir.model.fields.selection,name:sms_core.selection__schools_list__lms_status__in_active
+msgid "Inactive"
+msgstr "غير نشط"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_all_academic_student_inactive_id
+msgid "Inactive Students"
+msgstr "طالب غير نشط"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__installment_id
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__installment_id
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Installment"
+msgstr "الأقساط"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__intallment_name
+msgid "Installment Name"
+msgstr "اسم القسط"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__installment_no
+msgid "Installment Name"
+msgstr "اسم القسط"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_tree
+msgid "Installments"
+msgstr "اقساط الرسوم الدراسية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_filter
+msgid "Instalment"
+msgstr "القسط"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_all_fee_policy_line_id
+msgid "Instalments"
+msgstr "اقساط"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__admission_list_wizard__state__interview
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__state__interview
+#: model:ir.ui.menu,name:sms_core.menu_admission_to_interview_list
+msgid "Interview"
+msgstr "مقابلة شخصية"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_is_follower
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_is_follower
+msgid "Is Follower"
+msgstr "متابع"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "LMS Account Info"
+msgstr "معلومات حساب LMS"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mooddle_id
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_courses_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_masterdata_class_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_school_classes_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_list_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_tree
+msgid "LMS ID"
+msgstr "رقم المعرّف LMS"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__md_parent_username
+msgid "LMS Parent User Name"
+msgstr "اسم المستخدم الوالدين في LMS"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__md_password
+msgid "LMS Password"
+msgstr "كلمة المرور LMS"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__md_username
+msgid "LMS User Name"
+msgstr "اسم المستخدم في LMS"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student____last_update
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard____last_update
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard____last_update
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard____last_update
+#: model:ir.model.fields,field_description:sms_core.field_class_course____last_update
+#: model:ir.model.fields,field_description:sms_core.field_class_section____last_update
+#: model:ir.model.fields,field_description:sms_core.field_course_repository____last_update
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard____last_update
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard____last_update
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line____last_update
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy____last_update
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line____last_update
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_fee_collection_dues_report_templet____last_update
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_admission_list_template____last_update
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_parent_guardian_info_template____last_update
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_std_adm_biodata_template____last_update
+#: model:ir.model.fields,field_description:sms_core.field_report_sms_core_report_student_info_list_template____last_update
+#: model:ir.model.fields,field_description:sms_core.field_school_class____last_update
+#: model:ir.model.fields,field_description:sms_core.field_schools_list____last_update
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form____last_update
+#: model:ir.model.fields,field_description:sms_core.field_student_class____last_update
+#: model:ir.model.fields,field_description:sms_core.field_student_courses____last_update
+#: model:ir.model.fields,field_description:sms_core.field_student_fee____last_update
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard____last_update
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info____last_update
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard____last_update
+#: model:ir.model.fields,field_description:sms_core.field_sync_lms_wizard____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__last_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__last_name
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Last Name"
+msgstr "الاسم الأخير"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__last_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__last_name_arabic
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Last Name Arabic"
+msgstr "الاسم الأخير بالعربي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Last Name(Arabic)"
+msgstr "الاسم الأخير بالعربي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_class_course__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_class_section__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_school_class__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_class__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_core.field_sync_lms_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__write_date
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__write_date
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard__write_date
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__write_date
+#: model:ir.model.fields,field_description:sms_core.field_class_course__write_date
+#: model:ir.model.fields,field_description:sms_core.field_class_section__write_date
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__write_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__write_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__write_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__write_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__write_date
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__write_date
+#: model:ir.model.fields,field_description:sms_core.field_school_class__write_date
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__write_date
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__write_date
+#: model:ir.model.fields,field_description:sms_core.field_student_class__write_date
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__write_date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__write_date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__write_date
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__write_date
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__write_date
+#: model:ir.model.fields,field_description:sms_core.field_sync_lms_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__legal_guardian
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__legal_guardian
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__legal_guardian
+msgid "Legal Guardian"
+msgstr "ولي الأمر القانوني"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__line_rec_id
+msgid "Line Rec"
+msgstr "بند الحركة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_class_section__cls_sec_lms_status
+#: model:ir.model.fields,field_description:sms_core.field_school_class__cls_lms_status
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__lms_status
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid "Lms Status"
+msgstr "حالة LMS"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "المرفق الرئيسي"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__gender__male
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__gender__male
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Male"
+msgstr "ذكر"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_marital_status
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_marital_status
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_marital_status
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_marital_status
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_marital_status
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_marital_status
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Marital Status"
+msgstr "الحالة الإجتماعية"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__father_marital_status__married
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__guardian_marital_status__married
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__mother_marital_status__married
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__father_marital_status__married
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__guardian_marital_status__married
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__mother_marital_status__married
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Married"
+msgstr "متزوج"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__max_capacity
+#: model:ir.model.fields,field_description:sms_core.field_class_section__max_capacity
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_md_class_section_filter
+msgid "Max Capacity"
+msgstr "الحد الأقصى "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_has_error
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ في ارسال الرسالة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_ids
+msgid "Messages"
+msgstr "الرسائل"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__middle_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__middle_name
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Middle Name"
+msgstr "الاسم الأوسط"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__middle_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__middle_name_arabic
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Middle Name Arabic"
+msgstr "الاسم الأوسط بالعربي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Middle Name(Arabic)"
+msgstr "الاسم الأوسط بالعربي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_mobile_no
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_mobile_no
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_mobile_no
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_mobile_no
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_mobile_no
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_mobile_no
+msgid "Mobile Number"
+msgstr "رقم الموبيل"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__wizard_mode
+msgid "Mode"
+msgstr "الحالة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mooddle_id
+#: model:ir.model.fields,field_description:sms_core.field_class_course__mooddle_id
+#: model:ir.model.fields,field_description:sms_core.field_class_section__mooddle_id
+#: model:ir.model.fields,field_description:sms_core.field_school_class__mooddle_id
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__moodle_id
+msgid "Moodle ID"
+msgstr "رقم الشارة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__moodle_status
+msgid "Moodle Status"
+msgstr "الحالة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"More children to enroll? Click\n"
+"\t\t\t\t\t\t\t\t\t<strong>Add Child</strong>"
+msgstr "لمزيد من تسجيل طلاب اضغط    اضافة طالب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_full_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_full_name
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_full_name
+msgid "Mother Full Name"
+msgstr "الاسم الكامل للوالدة :"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_full_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_full_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_full_name_arabic
+msgid "Mother Full Name Arabic"
+msgstr "الاسم الكامل للوالدة باللغة العربية :"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+msgid "Mother Infomration"
+msgstr "معلومات الوالدة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Mother Information"
+msgstr "معلومات الوالدة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Mother Is Absent"
+msgstr "الوالدة غير موجودة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"Mother Is Legal\n"
+"\t\t\t\t\t\t\t\t\t\tGuardian"
+msgstr "الوالدة هي ولي الأمر القانوني"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_tree
+msgid "Mother Name"
+msgstr "الاسم الكامل للوالدة :"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_degree_education
+msgid "Mother Education"
+msgstr "تعليم الأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_email
+msgid "Mother Email"
+msgstr "البريد الإلكتروني للأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_employment
+msgid "Mother Employment"
+msgstr "توظيف الأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_employer_location
+msgid "Mother Employment Location"
+msgstr "مكان عمل الأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_landline_number
+msgid "Mother Home Phone"
+msgstr "هاتف المنزل الأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_marital_status
+msgid "Mother Marital Status"
+msgstr "الحالة الاجتماعية للأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_mobile_no
+msgid "Mother Mobile Number"
+msgstr "رقم موبايل الأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_national_id
+msgid "Mother National ID"
+msgstr "الرقم القومي للأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_nationality
+msgid "Mother Nationality"
+msgstr "جنسية الأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_passport
+msgid "Mother Passport No"
+msgstr "رقم جواز الأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_land_line_no
+msgid "Mother Work Phone"
+msgstr "هاتف عمل الأم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__mother_is_absent
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_is_absent
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_is_absent
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+msgid "Mother is Absent"
+msgstr "الوالدة غير موجودة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__head_person__mother
+msgid "Mother is Contact Head"
+msgstr "الأم هي جهة الاتصال"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+msgid "Mother is Guardian"
+msgstr "الوالدة هي ولي الأمر القانوني"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__legal_guardian__mother_is_legal_guardian
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__legal_guardian__mother_is_legal_guardian
+msgid "Mother is the legal guardian"
+msgstr "الوالدة هي ولي الأمر القانوني"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_fee_payment_wizard__operation_type__multiple_records
+msgid "Multiple Records"
+msgstr " طلبات متعددة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__religion__muslim
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__religion__muslim
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Muslim"
+msgstr "مسلم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__name
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_md_class_section_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_school_classes_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_courses_repository_filter
+msgid "Name"
+msgstr "الاسم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+msgid "Name in Arabic"
+msgstr "الاسم (عربي)"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__application_for__national
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__application_for__national
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "National"
+msgstr "الرقم القومي "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__national_id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_national_id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_national_id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_national_id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__national_id
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_national_id
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_national_id
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_national_id
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+msgid "National ID"
+msgstr "الرقم القومي "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__nationality
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_nationality
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_nationality
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_nationality
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__nationality
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_nationality
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_nationality
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_nationality
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Nationality"
+msgstr "الجنسية:"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Next (Confirm Admission)"
+msgstr "التالي (تأكيد طلب الالتحاق)"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Next (Pending for Documents)"
+msgstr "التالي (انتظار المستندات)"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Next (Pending for Interview)"
+msgstr "التالي (انتظار مقابلة)"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Next (Pending for Payment)"
+msgstr "التالي (انتظار الدفع)"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_class_course__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_class_section__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_school_class__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط التالي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_class_course__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_class_section__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_school_class__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__activity_summary
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط التالي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_class_course__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_class_section__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_school_class__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__activity_type_id
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط التالي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+msgid "Next Invoice"
+msgstr "الفاتورة التالية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+msgid "No"
+msgstr "رقم"
+
+#. module: sms_core
+#: code:addons/sms_core/wizard/warning_email_fee_overdue.py:0
+#, python-format
+msgid "No Overdue records found"
+msgstr "لم يتم العثور على سجلات متأخرة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__sibing_status__no_siblings
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__sibing_status__no_siblings
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "No Siblings"
+msgstr "لا يوجد اخوة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__no_of_installments
+msgid "No of Installments"
+msgstr "عدد الأقساط"
+
+#. module: sms_core
+#: code:addons/sms_core/wizard/pay_student_fee_wizard.py:0
+#, python-format
+msgid "No unpaid records found"
+msgstr "لم يتم العثور على سجلات غير مدفوعة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"Non\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t\tMuslim"
+msgstr "غير مسلم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"Non\n"
+"\t\t\t\t\t\t\t\t\t\t\tMuslim"
+msgstr "غير مسلم"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__religion__non_muslim
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__religion__non_muslim
+msgid "Non Muslim"
+msgstr "غير مسلم"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__payment_status__not_paid
+msgid "Not Paid"
+msgstr "غير مدفوع"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__class_section__cls_sec_lms_status__not_synced
+#: model:ir.model.fields.selection,name:sms_core.selection__school_class__cls_lms_status__not_synced
+#: model:ir.model.fields.selection,name:sms_core.selection__schools_list__lms_status__not_synced
+msgid "Not Synced"
+msgstr "غير مركزي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الإجراءات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__attachment_docs
+msgid "Number of Attachments"
+msgstr "عدد المرفقات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_class_course__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_class_section__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_course_repository__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_fee_policy__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_school_class__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_schools_list__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_student_fee__message_needaction_counter
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب إجراء"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_class_course__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_class_section__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_course_repository__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_fee_policy__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_school_class__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_schools_list__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_student_fee__message_has_error_counter
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي حدث خطأ في ارسالها"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_class_course__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_class_section__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_course_repository__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_fee_policy__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_school_class__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_schools_list__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_student_fee__message_unread_counter
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_overdue_warning_email_wizard__email_status__ok
+msgid "Ok"
+msgstr "موافق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__operation_type
+msgid "Operation"
+msgstr "العملية "
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__gender__other
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__reason__other
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__gender__other
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__legal_guardian__other
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__legal_guardian__other
+#: model:ir.model.fields.selection,name:sms_core.selection__sync_lms_wizard__reason__other
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Other"
+msgstr "أخرى"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Over Due"
+msgstr "متأخرات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__is_overdue
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__is_overdue
+msgid "Overdue"
+msgstr "متأخر"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_send_overdue_email
+msgid "Overdue Warning Email"
+msgstr "تحذير للمتأخرات"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__payment_status__paid
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_collection_dues_wizard__filter_status__paid
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_payment_wizard_line__status__paid
+#: model:ir.model.fields.selection,name:sms_core.selection__student_fee__status__paid
+msgid "Paid"
+msgstr "مدفوع"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__parent_id
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__parent_id
+msgid "Parent"
+msgstr "الأبوين"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "Parent LMS Info"
+msgstr "معلومات الوالدين في LMS"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__md_parent_username
+msgid "Parent User Name"
+msgstr "اسم المستخدم الوالدين"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+msgid "Parents Child Details"
+msgstr "عرض التفاصيل"
+
+#. module: sms_core
+#: model:ir.actions.report,name:sms_core.action_report_parent_guardian_info
+msgid "Parents Guardian information report"
+msgstr "تقرير معلومات ولي الأمر"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_reports_wizard__report_type__parents_detail_report
+msgid "Parents detail"
+msgstr "معلومات الوالدين"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Parents/Guardian Info"
+msgstr "معلومات الوالدين / ولي الأمر"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__md_password
+msgid "Password"
+msgstr "كلمة المرور"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+msgid "Pay Fee"
+msgstr "رسم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+msgid "Refund Fee"
+msgstr "تاكيد الإسترجاع"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_student_fee_payment
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+msgid "Pay Student Fee"
+msgstr "رسوم تسجيل طالب"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_fee_payment_wizard__mode__pay_student_fee
+msgid "Pay Students Fee"
+msgstr "رسوم تسجيل طلاب"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_fee_payment_wizard__mode__refund_student_fee
+msgid "Refund Students Fee"
+msgstr "استرجاع المصروفات"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__admission_list_wizard__state__payment
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__state__payment
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_studen_fee_form
+msgid "Payment"
+msgstr "دفعة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_studen_fee_form
+msgid "Refund"
+msgstr "استرجاع"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__payment_date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__payment_date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__payment_date
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid "Payment Date"
+msgstr "تاريخ السداد"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+msgid "Refund Date"
+msgstr "تاريخ الاسترجاع"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__payment_status
+msgid "Payment Status"
+msgstr "حالة السداد"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_academic_student_pending_payment
+#: model:ir.ui.menu,name:sms_core.menu_pending_payment_stu_acc
+#: model:ir.ui.menu,name:sms_core.menu_pending_payment_stu_aff
+msgid "Pending Payment"
+msgstr "في انتظار الدفع"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_pending_payments
+msgid "Pending Payments"
+msgstr "دفعات مؤجلة"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_admission_payment_pending
+msgid "Pending for Payment"
+msgstr "معلق لدفع المصروفات"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "Personal Infomration"
+msgstr "معلومات شخصية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Personal Information"
+msgstr "معلومات شخصية"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__schools_list__school_type__pre_school
+msgid "Pre School"
+msgstr "المدرسة السابقة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__prevous_school
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__prevous_school
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Previous School"
+msgstr "المدرسة السابقة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__schools_list__school_type__primary
+msgid "Primary"
+msgstr "المرحلة الإبتدائية"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__primary_language
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__primary_language
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Primary Language"
+msgstr "اللغة الاساسية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admission_list_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_fee_collection_dues_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_reports_wizard
+msgid "Print"
+msgstr "طباعة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid ""
+"Printed By:\n"
+"\t\t\t\t\t\t\t\t<br/>"
+msgstr "مطبوع بوسطة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+msgid ""
+"Printed By:\n"
+"\t\t\t\t\t\t\t<br/>"
+msgstr "مطبوع بوسطة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+msgid ""
+"Printed Date:\n"
+"\t\t\t\t\t\t\t<br/>"
+msgstr "تاريخ الطباعة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid "Printed Date:<br/>"
+msgstr "تاريخ الطباعة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+msgid ""
+"Printed On: \n"
+"\t\t\t\t\t\t\t\t<br/>"
+msgstr "مطبوع في"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_sync_lms_wizard
+msgid "Procced"
+msgstr "اجراء"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__reason
+#: model:ir.model.fields,field_description:sms_core.field_admission_reject_reason_wizard__adm_reject_reason
+#: model:ir.model.fields,field_description:sms_core.field_sync_lms_wizard__reason
+msgid "Reason"
+msgstr "السبب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_reject_std_admission_wizard
+msgid "Reason of Rejection"
+msgstr "سبب الرفض"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Reject"
+msgstr "رفض"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_reject_admission_wizard
+#: model_terms:ir.ui.view,arch_db:sms_core.view_reject_std_admission_wizard
+msgid "Reject Admission"
+msgstr "رفض الطلب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_reject_std_admission_wizard
+msgid "Reject Reason"
+msgstr "سبب الرفض"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__admission_list_wizard__state__rejected
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__state__rejected
+#: model:ir.ui.menu,name:sms_core.menu_admissions_rejected_list
+msgid "Rejected"
+msgstr "تم الرفض"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__rejected_by
+msgid "Rejected By"
+msgstr "تم الرفض بواسطة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Relation to Child"
+msgstr "علاقته بالطالب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__relation_to_child
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__relation_to_child
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__relation_to_child
+msgid "Relation to The Child"
+msgstr "علاقته بالطالب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__religion
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__religion
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Religion"
+msgstr "الديانة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+msgid "Remove students from the list if their fee is still not paid."
+msgstr "قم بإزالة الطلاب من القائمة إذا لم يتم دفع رسومهم."
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__report_type
+msgid "Report Type"
+msgstr "نوع التقرير"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_all_student_report_id
+msgid "Reports"
+msgstr "التقارير "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_class_course__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_class_section__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_school_class__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__activity_user_id
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__activity_user_id
+msgid "Responsible User"
+msgstr "المستخدم المسؤول"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid "S.No"
+msgstr "رقم مسلسل"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ في ارسال الرسالة القصيرة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Save"
+msgstr "حفظ "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__school_id
+#: model:ir.model.fields,field_description:sms_core.field_admit_student_school_wizard__school_id
+#: model:ir.model.fields,field_description:sms_core.field_school_class__school_id
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__school_name
+#: model:ir.model.fields,field_description:sms_core.field_student_reports_wizard__school_id
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_school_classes_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_list_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.view_admit_student_school_wizard
+msgid "School"
+msgstr "المدرسة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__school_class_ids
+msgid "School Class"
+msgstr "الفصل"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__school_id
+msgid "School ID"
+msgstr "رقم المعرّف للمدرسة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__name
+msgid "School Name"
+msgstr "اسم المدرسة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__school_type
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_filter
+msgid "School Type"
+msgstr "نوع المدرسة"
+
+#. module: sms_core
+#: model:ir.model.constraint,message:sms_core.constraint_schools_list_name_uniq
+msgid "School with same name already exists !"
+msgstr "المدرسة ذات نفس الاسم موجود بالفعل!"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_schools_list
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_courses_tree
+msgid "Schools"
+msgstr "المدارس"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_all_schools
+msgid "Schools List"
+msgstr "قائمة المدارس"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+msgid "Search Admissions"
+msgstr "بحث طلبات الالتحاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_md_class_section_filter
+msgid "Search Class"
+msgstr "بحث الفصول"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_class_course_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_courses_repository_filter
+msgid "Search Course"
+msgstr "بحث كورس"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_filter
+msgid "Search Family"
+msgstr "بحث عن العائلة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Search Fee"
+msgstr "بحث رسوم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_filter
+msgid "Search Fee Installment"
+msgstr "بحث اقساط رسوم"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_filter
+msgid "Search Fee Policy"
+msgstr "بحث سياية المصروفات"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_school_classes_filter
+msgid "Search Grade"
+msgstr "بحث الصف الدراسي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_courses_filter
+msgid "Search School"
+msgstr "بحث عن المدرسة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+msgid "Search Student"
+msgstr "بحث عن طالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_class_filter
+msgid "Search Student Class"
+msgstr "بحث فصل طالب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__second_language
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__second_language
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Second Language"
+msgstr "اللغة الثانية"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"Second Middle\n"
+"\t\t\t\t\t\t\t\t\t\t\t\tName"
+msgstr "الاسم الأوسط "
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid ""
+"Second Middle\n"
+"\t\t\t\t\t\t\t\t\t\t\t\tName(Arabic)"
+msgstr "الاسم الأوسط بالعربي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__second_middle_name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__second_middle_name
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Second Middle Name"
+msgstr "الاسم الأوسط "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__second_middle_name_arabic
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__second_middle_name_arabic
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Second Middle Name Arabic"
+msgstr "الاسم الأوسط بالعربي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Second Middle Name(Arabic)"
+msgstr "الاسم الأوسط بالعربي"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__schools_list__school_type__secondary
+msgid "Secondary"
+msgstr "ثانوي "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__class_section_id
+#: model:ir.model.fields,field_description:sms_core.field_student_class__class_section_id
+msgid "Section"
+msgstr "القسم"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__semester_fee
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_policy_line__fee_type__semester_fee
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_filter
+msgid "Semester Fee"
+msgstr "رسم ترم دراسي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_send_fee_overdue_email_wizard
+msgid "Send Email"
+msgstr "إرسال بريد إلكتروني"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.view_send_fee_overdue_email_wizard
+msgid "Send Warnining Email"
+msgstr "إرسال بريد إلكتروني تحذيري"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_class_section__sequence_no
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__sequence
+#: model:ir.model.fields,field_description:sms_core.field_school_class__sequence
+msgid "Sequence No"
+msgstr "المسلسل"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_masterdata_class_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_list_form
+msgid "Short intro of the school"
+msgstr "توضيح مختصر للمدرسة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_filter
+msgid "Show In-Active Schools"
+msgstr "عرض المدارس الغير مفعلة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Show Paid Fee"
+msgstr "عرض المسدين المصروفات"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Show Unpaid Fee"
+msgstr "عرض الغير مسدين المصروفات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__sibling_disc
+msgid "Sibl Dis"
+msgstr "خصم الأخوة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+msgid "Sibligs Discount %"
+msgstr "نسبة خصم الأخوة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__siblings_discount
+msgid "Sibling Discount"
+msgstr "نسبة خصم الأخوة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__sibing_status
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__sibing_status
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+msgid "Sibling Status"
+msgstr "حالة الأخوة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__father_marital_status__single
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__guardian_marital_status__single
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__mother_marital_status__single
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__father_marital_status__single
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__guardian_marital_status__single
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__mother_marital_status__single
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Single"
+msgstr "أعزب"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_fee_payment_wizard__operation_type__single_record
+msgid "Single Record"
+msgstr "سجل فردي"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__sibing_status__staff_child
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__sibing_status__staff_child
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Staff Child"
+msgstr "أبناء عاملين"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__state
+#: model:ir.model.fields,field_description:sms_core.field_admission_list_wizard__state
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__state
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_std_fee_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_class_filter
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_courses_filter
+msgid "State"
+msgstr "الحالة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__status
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__state
+#: model:ir.model.fields,field_description:sms_core.field_student_class__status
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__course_status
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__status
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_parent_guardian_info_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Status"
+msgstr "الحالة"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__activity_state
+#: model:ir.model.fields,help:sms_core.field_class_course__activity_state
+#: model:ir.model.fields,help:sms_core.field_class_section__activity_state
+#: model:ir.model.fields,help:sms_core.field_course_repository__activity_state
+#: model:ir.model.fields,help:sms_core.field_fee_policy__activity_state
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__activity_state
+#: model:ir.model.fields,help:sms_core.field_school_class__activity_state
+#: model:ir.model.fields,help:sms_core.field_schools_list__activity_state
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__activity_state
+#: model:ir.model.fields,help:sms_core.field_student_fee__activity_state
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الحالة بناء على الأنشطة\n"
+"تأخر : تمرير تاريخ الاستحقاق بالفعل\n"
+"اليوم: تاريخ النشاط هو اليوم\n"
+"المخطط لها: الأنشطة المستقبلية. "
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_payment_wizard_line__student_id
+#: model:ir.model.fields,field_description:sms_core.field_student_class__student_id
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__student_id
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__student_id
+#: model_terms:ir.ui.view,arch_db:sms_core.fee_collection_dues_report_templet
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_student_fee_filter
+msgid "Student"
+msgstr "طالب "
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sms_fee_reg_head_id
+msgid "Students and Fees"
+msgstr "الطلاب والمصاريف"
+
+#. module: sms_core
+#: model:res.groups,name:sms_core.group_manager_sms_fee
+msgid "Student Accounts Manager"
+msgstr "مدير حسابات الطلاب"
+
+#. module: sms_core
+#: model:res.groups,name:sms_core.group_officer_sms_fee
+msgid "Student Accounts Officer"
+msgstr "مسئول حسابات الطلاب"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_student_admission_form
+msgid "Student Admission Form"
+msgstr "نموذج الالتحاق"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_tree
+msgid "Student Admission Register"
+msgstr "تسجيل طلب التحاق طالب"
+
+#. module: sms_core
+#: model:res.groups,name:sms_core.group_manager_sms_studentaffairs
+msgid "Student Affairs Manager"
+msgstr "مدير شئون الطلاب"
+
+#. module: sms_core
+#: model:res.groups,name:sms_core.group_officer_sms_studentaffairs
+msgid "Student Affairs Officer"
+msgstr "مسئول شئون الطلاب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__student_class_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_courses__std_class_id
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_class_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_class_tree
+msgid "Student Class"
+msgstr "فصل طالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_class_form
+msgid "Student Class Form"
+msgstr "نموذج فصول طلاب"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_all_student_class
+msgid "Student Classes"
+msgstr "فصول الطلاب"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_all_student_courses
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__student_courses_ids
+msgid "Student Courses"
+msgstr "كورسات الطلاب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_courses_form
+msgid "Student Courses Form"
+msgstr "نموذج كورسات الطلاب"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_all_student_families_id
+msgid "Student Family"
+msgstr "عائلة الطالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+msgid "Student Family Form"
+msgstr "نموذج عائلة الطالب"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_sms_all_student_fee
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__student_fee_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__student_fee_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_fee_payment_wizard__student_fee_ids
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_student_fee_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_form
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+msgid "Student Fee"
+msgstr "رسوم تسجيل طالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+msgid "Student Fee Form"
+msgstr "نموذج رسوم تسجيل طالب"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_all_student_fee_id
+msgid "Student Fee Register"
+msgstr "رسوم تسجيل طالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "Student Form"
+msgstr "نموذج بيانات الطالب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__student_id
+msgid "Student ID"
+msgstr "رقم المعرّف للطالب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__name
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__name
+#: model_terms:ir.ui.view,arch_db:sms_core.hr_kanban_view_academic_student
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Student Name"
+msgstr "اسم الطالب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "Student Name Arabic"
+msgstr "اسم الطالب بالعربي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_tree
+msgid "Student Register"
+msgstr "تسجيل طالب"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_student_reports_wizard
+#: model:ir.ui.menu,name:sms_core.menu_sms_std_report_head_id
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_reports_wizard
+msgid "Student Reports"
+msgstr "تقارير الطلاب"
+
+#. module: sms_core
+#: model:ir.actions.report,name:sms_core.action_report_student_info_list
+msgid "Student information report"
+msgstr "تقرير معلومات الطلاب"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_class_section__student_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_collection_dues_wizard__student_id
+#: model:ir.model.fields,field_description:sms_core.field_school_class__students_ids
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__school_students_ids
+#: model:ir.ui.menu,name:sms_core.menu_all_acd_std_fee_id
+#: model:ir.ui.menu,name:sms_core.menu_sms_students_head_id
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_md_class_section_form
+msgid "Admitted Students"
+msgstr "الطلاب المقيدين"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_academic_student_all
+msgid "Students (Active)"
+msgstr "الطلاب النشطاء"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_academic_student_inactive
+msgid "Students (InActive)"
+msgstr "طالب غير نشط"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_academic_student_withdrawal
+msgid "Students (Withdrawan)"
+msgstr "طلاب تم سحب ملفهم"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sms_student_affairs_root
+msgid "Student Affairs"
+msgstr "شئون الطلاب"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_student_family_id_all
+msgid "Students Families"
+msgstr "عائلات الطلاب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_student_info_list_template
+msgid "Students List"
+msgstr "كشف اسماء الطلاب"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_reports_wizard__report_type__student_detail_report
+msgid "Students detail"
+msgstr "تفاصيل الطلاب"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Submit Application"
+msgstr "تسجيل طلب تقديم"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_sync_lms
+msgid "Sycn LMS"
+msgstr "تزامن LMS"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_class_section__sync
+msgid "Sync"
+msgstr "تزامن"
+
+#. module: sms_core
+#: model:ir.actions.server,name:sms_core.cohort_student_sync_with_erp_ir_actions_server
+#: model:ir.cron,cron_name:sms_core.cohort_student_sync_with_erp
+#: model:ir.cron,name:sms_core.cohort_student_sync_with_erp
+msgid "Sync Cohorts Student "
+msgstr "تزامن طالب الفراغ"
+
+#. module: sms_core
+#: model:ir.actions.act_window,name:sms_core.action_view_sync_lms_wizard
+msgid "Sync Lms"
+msgstr "تزامن LMS"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_sync_lms_wizard
+msgid "Sync Lms wizard"
+msgstr "معالج تزامن LMS"
+
+#. module: sms_core
+#: model:ir.actions.server,name:sms_core.sync_erp_lms_id_ir_actions_server
+#: model:ir.cron,cron_name:sms_core.sync_erp_lms_id
+#: model:ir.cron,name:sms_core.sync_erp_lms_id
+msgid "Sync Schools Grades Classes "
+msgstr "مزامنة الفصول والصفوف الدراسية بالمرسة"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__class_section__cls_sec_lms_status__synced
+#: model:ir.model.fields.selection,name:sms_core.selection__school_class__cls_lms_status__synced
+#: model:ir.model.fields.selection,name:sms_core.selection__schools_list__lms_status__synced
+msgid "Synced"
+msgstr "غير مركزي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.student_thanks_ir_ui_view
+#: model_terms:website.page,arch_db:sms_core.student_thanks
+msgid "Thanks!"
+msgstr "شكرا"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.student_thanks_ir_ui_view
+#: model_terms:website.page,arch_db:sms_core.student_thanks
+msgid ""
+"The application is\n"
+"\t\t\t\t\t\t\t\t\t\tsuccessfully submitted for review. Further instructions "
+"are\n"
+"\t\t\t\t\t\t\t\t\t\tbeing communicated via email."
+msgstr ""
+"التطبيق \n"
+"هو قدم بنجاح للمراجعة. مزيد من التعليمات\n"
+"يجري توصيلها عبر البريد الإلكتروني."
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_student_fee_tree
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_fee_policy_line_form
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__total_amount
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_acd_student_fee_form
+msgid "Total Dues"
+msgstr "الإجمالي المستحق"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__total_fee_charged
+msgid "Total Fee"
+msgstr "الإجمالي الرسوم"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__discount_given
+msgid ""
+"Total discount diven against this installment.Showing for paid fee only"
+msgstr "مجموع الخصم المعطى ضد هذه الدفعة. أشعر بالرسوم المدفوعة فقط"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_class_course__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_class_section__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_course_repository__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_fee_policy__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_school_class__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_schools_list__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_student_fee__activity_exception_decoration
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "نوع النشاط الاستثنائي المسجل."
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__state__undecided
+#: model:ir.ui.menu,name:sms_core.menu_admissions_undecided
+msgid "Undecided"
+msgstr "لم يتخذ قرار"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__uniform_fee
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_policy_line__fee_type__uniform_fee
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_filter
+msgid "Uniform Fee"
+msgstr "رسوم الزي المدرسي"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_collection_dues_wizard__filter_status__unpaid
+#: model:ir.model.fields.selection,name:sms_core.selection__fee_payment_wizard_line__status__unpaid
+#: model:ir.model.fields.selection,name:sms_core.selection__student_fee__status__unpaid
+msgid "Unpaid"
+msgstr "غير مدفوع"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_unread
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_unread
+msgid "Unread Messages"
+msgstr "رسائل غير مقروءة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_class_course__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_class_section__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_school_class__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__message_unread_counter
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عداد الرسائل غير المقروءة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+msgid "Update Fee"
+msgstr "تحديث الرسوم"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_fee_payment_wizard__mode__update_fee_register
+#: model_terms:ir.ui.view,arch_db:sms_core.view_student_fee_payment_wizard
+msgid "Update Fee Register"
+msgstr "تحديث رسوم التسجيل"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__md_username
+msgid "User Name"
+msgstr "اسم المستخدم "
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_fee_policy_form
+msgid "Warning"
+msgstr "تحذير"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_overdue_warning_email_wizard__warning_date
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__warning_date
+msgid "Warning Date"
+msgstr "تاريخ التحذير"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__warning_email
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__warning_email_date
+#: model_terms:ir.ui.view,arch_db:sms_core.view_send_fee_overdue_email_wizard
+msgid "Warning Email"
+msgstr "البريد الإلطتروني للتحذير"
+
+#. module: sms_core
+#: model:ir.actions.server,name:sms_core.fee_overdue_warning_email_ir_actions_server
+#: model:ir.cron,cron_name:sms_core.fee_overdue_warning_email
+#: model:ir.cron,name:sms_core.fee_overdue_warning_email
+msgid "Warning Overdue Email"
+msgstr "البريد الإلكتروني التحذيرللمتأخرات"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_course__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_class_section__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_course_repository__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_fee_policy_line__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_school_class__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_schools_list__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__website_message_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع"
+
+#. module: sms_core
+#: model:ir.model.fields,help:sms_core.field_academic_student__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_class_course__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_class_section__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_course_repository__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_fee_policy__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_fee_policy_line__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_school_class__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_schools_list__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_student_admission_form__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_student_fee__website_message_ids
+#: model:ir.model.fields,help:sms_core.field_student_parent_guardian_info__website_message_ids
+msgid "Website communication history"
+msgstr "سجل تواصل الموقع"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__father_marital_status__widow
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__guardian_marital_status__widow
+#: model:ir.model.fields.selection,name:sms_core.selection__student_admission_form__mother_marital_status__widow
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__father_marital_status__widow
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__guardian_marital_status__widow
+#: model:ir.model.fields.selection,name:sms_core.selection__student_parent_guardian_info__mother_marital_status__widow
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Widow/widower"
+msgstr "أرمل/أرملة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+msgid "Withdraw Student"
+msgstr " سحب ملف الطالب"
+
+#. module: sms_core
+#: model:ir.ui.menu,name:sms_core.menu_all_inactive_acad_student_id
+msgid "Withdrawan Students"
+msgstr "طلاب تم سحب ملفهم"
+
+#. module: sms_core
+#: model:ir.model.fields.selection,name:sms_core.selection__academic_student__state__withdrawn
+#: model:ir.model.fields.selection,name:sms_core.selection__student_class__status__withdrawn
+#: model:ir.model.fields.selection,name:sms_core.selection__student_courses__course_status__withdrawn
+msgid "Withdrawn"
+msgstr "سحب الملف"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__withdraw_by
+msgid "Withdrawn By"
+msgstr "سحب الملف بواسطة"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__father_land_line_no
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__guardian_land_line_no
+#: model:ir.model.fields,field_description:sms_core.field_student_admission_form__mother_land_line_no
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__father_land_line_no
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__guardian_land_line_no
+#: model:ir.model.fields,field_description:sms_core.field_student_parent_guardian_info__mother_land_line_no
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "Work Phone"
+msgstr "هاتف عمل:"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_academic_student
+msgid "academic.student"
+msgstr "طالب اكاديمي"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_admission_reject_reason_wizard
+msgid "admission.reject.reason.wizard"
+msgstr "معالج سبب رفض طلب التحاق"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_admit_student_school_wizard
+msgid "admit.student.school.wizard"
+msgstr "معالج قبول طلب التحاق بالمدرسة"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_class_course
+msgid "class.course"
+msgstr "كورس فصل"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_class_section
+msgid "class.section"
+msgstr "كورس قسم"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_course_repository
+msgid "course.repository"
+msgstr "مستودع الدورة"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g. 16-digit National ID"
+msgstr "e.g. 16-digit National ID"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g. A"
+msgstr "e.g. A"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+msgid "e.g. Address..."
+msgstr "e.g. Address..."
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g. Arabic"
+msgstr "e.g. Arabic"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g. English"
+msgstr "e.g. English"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_schools_list_form
+msgid "e.g. schoolname.com"
+msgstr "e.g. schoolname.com"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.175 El Nozha St., El Hegaz Sq. Heliopolis"
+msgstr "e.g.175 El Nozha St., El Hegaz Sq. Heliopolis"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Abeer Babr"
+msgstr "e.g.Abeer Babr"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Ahmed Ali"
+msgstr "e.g.Ahmed Ali"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Alexandria"
+msgstr "e.g.Alexandria"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Anipe"
+msgstr "e.g.Anipe"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Business Man"
+msgstr "e.g.Business Man"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Cairo"
+msgstr "e.g.Cairo"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Master of Arts (M.A.)"
+msgstr "e.g.Master of Arts (M.A.)"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Nephew"
+msgstr "e.g.Nephew"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Omar"
+msgstr "e.g.Omar"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.Teacher"
+msgstr "e.g.Teacher"
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.create_admission
+msgid "e.g.example@gmail.com"
+msgstr "e.g.example@gmail.com"
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_fee_collection_dues_wizard
+msgid "fee.collection.dues.wizard"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_fee_overdue_warning_email_wizard
+msgid "fee.overdue.warning.email.wizard"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_fee_payment_wizard_line
+msgid "fee.payment.wizard.line"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_fee_policy_line
+msgid "fee.policy.line"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_report_sms_core_fee_collection_dues_report_templet
+msgid "report.sms_core.fee_collection_dues_report_templet"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_report_sms_core_report_admission_list_template
+msgid "report.sms_core.report_admission_list_template"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_report_sms_core_report_parent_guardian_info_template
+msgid "report.sms_core.report_parent_guardian_info_template"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_report_sms_core_report_std_adm_biodata_template
+msgid "report.sms_core.report_std_adm_biodata_template"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_report_sms_core_report_student_info_list_template
+msgid "report.sms_core.report_student_info_list_template"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_school_class
+msgid "school.class"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_schools_list
+msgid "schools.list"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.actions.report,print_report_name:sms_core.fee_collection_dues_report
+msgid "sms_core.fee_collection_dues_report_templet"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.actions.report,print_report_name:sms_core.action_report_admission_list
+msgid "sms_core.report_admission_list_template"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.actions.report,print_report_name:sms_core.action_report_parent_guardian_info
+msgid "sms_core.report_parent_guardian_info_template"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.actions.report,print_report_name:sms_core.action_std_admission_biodata_report
+msgid "sms_core.report_std_adm_biodata_template"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.actions.report,print_report_name:sms_core.action_report_student_info_list
+msgid "sms_core.report_student_info_list_template"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_student_class
+msgid "student.class"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_student_courses
+msgid "student.courses"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_student_fee
+msgid "student.fee"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_student_fee_payment_wizard
+msgid "student.fee.payment.wizard"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_student_parent_guardian_info
+msgid "student.parent.guardian.info"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model,name:sms_core.model_student_reports_wizard
+msgid "student.reports.wizard"
+msgstr ""
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.report_admission_list_template
+msgid "to"
+msgstr ""
+
+#. module: sms_core
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_academic_student_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_admission_form
+#: model_terms:ir.ui.view,arch_db:sms_core.sms_core_student_family_form
+msgid "xxxxxxxxxxxxx"
+msgstr ""
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_academic_student__siblings_ids
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__siblings_ids
+msgid "Siblings"
+msgstr "الاشقاء"
+
+#. module: sms_core
+#: model:ir.model.fields,field_description:sms_core.field_student_fee__parent_employee_ids
+msgid "Parent Employees"
+msgstr "الاب / الام العامل(ة) في المدسة"
+

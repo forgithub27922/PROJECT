@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Set new Reports -->
+        <report id="grimm_reports.grimm_saleorder_report"
+                name="grimm_reports.report_saleorder_grimm"
+                file="grimm_reports.report_saleorder_grimm"
+                model="sale.order"
+                report_type="qweb-pdf"
+                string="Grimm Sale Order"
+                menu="True"/>
+
+        <report id="sale.report_sale_order"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="sale.report_saleorder"
+                name="sale.report_saleorder"
+                string="Quotation / Order"
+                menu="False"/>
+
+        <report id="grimm_reports.grimm_invoice_report"
+                name="grimm_reports.report_invoice_grimm"
+                file="grimm_reports.report_invoice_grimm"
+                model="account.move"
+                report_type="qweb-pdf"
+                string="Grimm Invoice"
+                menu="True"
+                attachment_use="True"
+                attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"/>
+        <!-- Mahn Stuffen START -->
+        <report id="grimm_reports.grimm_invoice_report_first"
+                name="grimm_reports.report_invoice_grimm_first"
+                file="grimm_reports.report_invoice_grimm_first"
+                model="account.move"
+                report_type="qweb-pdf"
+                string="Mahnung / Zahlungserinnerung"
+                menu="True"
+                attachment_use="True"
+                attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"/>
+
+        <!-- Mahn Stuffen END -->
+
+        <report id="grimm_reports.claim_warranty_report"
+                name="grimm_reports.report_claim_warranty"
+                file="grimm_reports.report_claim_warranty"
+                model="crm.claim"
+                report_type="qweb-pdf"
+                string="Grimm Warranty Claim"
+                menu="True"/>
+
+            <report id="grimm_reports.report_damage_report"
+              name="grimm_reports.report_damage_report"
+              file="grimm_reports.report_damage_report"
+              model="crm.claim"
+              report_type="qweb-pdf"
+              string="Grimm Damage Report"
+              menu="True"/>
+
+        <report id="grimm_reports.service_order_report"
+                name="grimm_reports.report_service_order"
+                file="grimm_reports.report_service_order"
+                model="project.task"
+                report_type="qweb-pdf"
+                string="Grimm Service Order"
+                menu="True"/>
+
+        <report id="account.account_invoices"
+                model="account.move"
+                string="Invoices"
+                report_type="qweb-pdf"
+                name="account.report_invoice"
+                file="account.report_invoice"
+                menu="False"/>
+
+        <report id="grimm_reports.grimm_delivery_report"
+                name="grimm_reports.report_delivery_grimm"
+                file="grimm_reports.report_delivery_grimm"
+                model="stock.picking"
+                report_type="qweb-pdf"
+                string="Grimm Delivery Slip"
+                menu="True"/>
+
+        <report id="stock.action_report_delivery"
+                string="Delivery Slip"
+                model="stock.picking"
+                report_type="qweb-pdf"
+                name="stock.report_deliveryslip"
+                file="stock.report_deliveryslip"
+                menu="False"/>
+
+        <report id="grimm_reports.grimm_purchase_report"
+                name="grimm_reports.report_purchase_grimm"
+                file="grimm_reports.report_purchase_grimm"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                string="Grimm Purchase Order"
+                menu="True"/>
+
+        <report id="grimm_reports.grimm_service_begleitschein_report"
+                name="grimm_reports.report_service_begleitschein_grimm"
+                file="grimm_reports.report_service_begleitschein_grimm"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                string="Service-Begleitschein"
+                print_report_name="'Begleitschein_%s' % (object.name)"
+                menu="True"/>
+
+        <report id="purchase.action_report_purchase_order"
+                string="Purchase Order"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                name="purchase.report_purchaseorder"
+                file="purchase.report_purchaseorder"
+                menu="False"/>
+
+        <report id="grimm_reports.grimm_quotation_report"
+                name="grimm_reports.report_quotation_grimm"
+                file="grimm_reports.report_quotation_grimm"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                string="Grimm Request for Quotation"
+                menu="True"/>
+
+        <report id="purchase.report_purchase_quotation"
+                string="Request for Quotation"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                name="purchase.report_purchasequotation"
+                file="purchase.report_purchasequotation"
+                menu="False"/>
+
+        <report id="grimm_reports.grimm_delivery_notice_report"
+                name="grimm_reports.report_delivery_notice_grimm"
+                file="grimm_reports.report_delivery_notice_grimm"
+                model="sale.order"
+                report_type="qweb-pdf"
+                string="Grimm Lieferanzeige"/>
+
+        <report id="grimm_reports.grimm_project_description_report"
+                name="grimm_reports.report_project_description_grimm"
+                file="grimm_reports.report_project_description_grimm"
+                model="sale.order"
+                report_type="qweb-pdf"
+                string="GRIMM Projektschein"/>
+
+        <report id="grimm_reports.grimm_wartungsauftrag_report"
+                name="grimm_reports.report_wartungsauftrag_grimm"
+                file="grimm_reports.report_wartungsauftrag_grimm"
+                model="sale.order"
+                report_type="qweb-pdf"
+                string="Service-/Wartungsauftrag"/>
+
+        <report id="action_report_inventory_signature"
+                string="Lager Zälhliste"
+                model="stock.inventory"
+                report_type="qweb-pdf"
+                name="grimm_reports.report_inventory_signature"
+                file="grimm_reports.report_inventory_signature"
+                print_report_name="'Inventory - %s' % (object.name)"/>
+
+        <report id="stock.action_report_inventory"
+                string="Inventory"
+                model="stock.inventory"
+                report_type="qweb-pdf"
+                name="grimm_reports.report_inventory"
+                file="grimm_reports.report_inventory"
+                print_report_name="'Inventory - %s' % (object.name)"/>
+
+        <report id="action_report_valuation"
+                string="Lager Bestandsbewertung"
+                model="stock.inventory"
+                report_type="qweb-pdf"
+                name="grimm_reports.report_inventory_valuation"
+                file="grimm_reports.report_inventory_valuation"
+                print_report_name="'Inventory - %s' % (object.name)"/>
+
+        <report id="sale.action_report_pro_forma_invoice"
+                string="PRO-FORMA Invoice"
+                model="sale.order"
+                report_type="qweb-pdf"
+                groups="sale.group_proforma_sales"
+                file="grimm_reports.report_saleorder_pro_forma"
+                name="grimm_reports.report_saleorder_pro_forma"
+                print_report_name="'PRO-FORMA - %s' % (object.name)"
+                menu="False"
+        />
+
+        <record id="paperformat_lowmargin" model="report.paperformat">
+            <field name="name">Grimm A4</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">11</field>
+            <field name="margin_bottom">23</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">3.5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="paperformat_endless" model="report.paperformat">
+            <field name="name">Grimm Endlospapier</field>
+            <field name="default" eval="True"/>
+            <field name="format">custom</field>
+            <field name="page_height">305</field>
+            <field name="page_width">216</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">17</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="grimm_reports.grimm_saleorder_report" model="ir.actions.report">
+            <field name="paperformat_id" ref="grimm_reports.paperformat_lowmargin"/>
+            <field name="name">Grimm Sale Order</field>
+        </record>
+
+        <!--<record id="grimm_reports.grimm_invoice_report" model="ir.actions.report">
+          <field name="paperformat_id" ref="grimm_reports.paperformat_lowmargin" />
+        </record>
+
+        <record id="grimm_reports.grimm_delivery_report" model="ir.actions.report">
+          <field name="paperformat_id" ref="grimm_reports.paperformat_lowmargin" />
+        </record>
+
+        <record id="grimm_reports.grimm_purchase_report" model="ir.actions.report">
+          <field name="paperformat_id" ref="grimm_reports.paperformat_lowmargin" />
+        </record>
+
+        <record id="grimm_reports.grimm_quotation_report" model="ir.actions.report">
+          <field name="paperformat_id" ref="grimm_reports.paperformat_lowmargin" />
+        </record>
+
+        <record id="grimm_reports.grimm_delivery_notice_report" model="ir.actions.report">
+          <field name="paperformat_id" ref="grimm_reports.paperformat_lowmargin" />
+        </record>
+
+        <record id="grimm_reports.claim_warranty_report" model="ir.actions.report">
+          <field name="paperformat_id" ref="grimm_reports.paperformat_lowmargin" />
+        </record>
+
+        <record id="grimm_reports.report_damage_report" model="ir.actions.report">
+          <field name="paperformat_id" ref="grimm_reports.paperformat_lowmargin" />
+        </record>
+
+        <record id="grimm_reports.service_order_report" model="ir.actions.report">
+          <field name="paperformat_id" ref="grimm_reports.paperformat_endless" />
+        </record>-->
+
+
+        <record id="action_sale_order_report" model="ir.actions.act_window">
+            <field name="name">Sale Orders confirm</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree, form</field>
+            <field name="context">{'__ready_to_confirm':1}</field>
+            <!--<field name="search_view_id" ref="view_account_invoice_report_search"/>-->
+            <field name="help">From this report, you can have an overview of the sale orders, which you can confirm.
+            </field>
+        </record>
+
+
+        <menuitem name="Sale Orders confirm" action="action_sale_order_report" id="menu_action_sale_order_report"
+                  parent="account.menu_finance_reports" sequence="20"/>
+    </data>
+</odoo>

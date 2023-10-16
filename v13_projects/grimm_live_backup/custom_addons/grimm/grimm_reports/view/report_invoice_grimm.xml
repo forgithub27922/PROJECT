@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_document_grimm">
+            <t t-call="grimm_reports.grimm_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
+                <t t-set="is_last_invoice" t-value="doc.is_last_invoice()"/>
+                <t t-set="last_invoice_amount" t-value="doc.get_amount_untax_taxed_total()"/>
+                <div class="page" style="margin-left:-75px;">
+                    <div class="folding_line1"/>
+                    <div class="folding_line2"/>
+                    <div class="folding_line3"/>
+                    <div class="container">
+                        <table style="width:100%;">
+                            <tr class="info_row">
+                                <td class="grimm_info">
+                                    <hr class="top"/>
+                                    Geben Sie
+                                    <span class="regular">bei Zahlung und Schriftverkehr</span>
+                                    bitte unbedingt die
+                                    <br/>
+                                    angegebene
+                                    <span class="regular">Rechnungs-Nr.</span>
+                                    und Ihre
+                                    <span class="regular">Kunden-Nr.</span>
+                                    an!
+                                    <hr class="bottom"/>
+                                </td>
+                                <td class="grimm_info_col2"/>
+                                <td colspan="2">
+                                    <span t-field="doc.company_id.report_logo_header"/>
+                                    <!--<table style="width:100%;">
+                                      <tr>
+                                        <td colspan="2">
+                                          <img src='/grimm_reports/static/src/img/grimm_logo2.png' height="35"/>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="company_info" style="font-weight: 200;">
+                                          GRIMM Gastronomiebedarf GmbH
+                                          <br/>
+                                          Artilleriepark 9
+                                          <br/>
+                                          14624 Dallgow-Döberitz
+                                          <br/>
+                                        </td>
+                                        <td class="company_info right" style="font-weight: 200;">
+                                          shop@grimm-gastrobedarf.de
+                                          <br/>
+                                          service@grimm-gastrobedarf.de
+                                          <br/>
+                                          T +49 030 / 34 50 60 8 0
+                                          <br/>
+                                          F +49 030 / 34 50 60 8 19
+                                          <br/>
+                                        </td>
+                                      </tr>
+                                    </table>-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr class="info_row">
+                                <td style="padding-left:25px">
+                                    <span class="sichtfenster">
+                                        GRIMM Gastronomiebedarf GmbH
+                                        ·
+                                        <span t-if="doc.company_id.street" t-field="doc.company_id.street"/>
+                                        ·
+                                        <span t-if="doc.company_id.zip" t-field="doc.company_id.zip"/>
+                                        <span t-if="doc.company_id.city" t-field="doc.company_id.city"/>
+                                    </span>
+                                </td>
+                                <td></td>
+                                <td colspan="2" class="order-head bold">
+                                    <span t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'posted') and not is_last_invoice"
+                                    t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Invoice</t>
+                                    </span>
+                                    <span t-if="doc.type == 'out_invoice' and doc.state == 'proforma'"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Proforma-Invoice</t>
+                                    </span>
+                                    <span t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Proforma-Invoice</t>
+                                    </span>
+                                    <span t-if="doc.type == 'out_invoice' and doc.state == 'draft' and doc.prepayment_order_state == 'prepayment'"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Proforma-Invoice</t>
+                                    </span>
+                                    <span t-if="doc.type == 'out_invoice' and doc.state == 'draft' and doc.prepayment_order_state != 'prepayment'"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Draft Invoice</t>
+                                    </span>
+                                    <span t-if="doc.type == 'out_invoice' and doc.state == 'cancel'"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Cancelled Invoice</t>
+                                    </span>
+                                    <span t-if="doc.type == 'out_refund'"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Rechnungskorrektur</t>
+                                    </span>
+                                    <span t-if="doc.type == 'in_refund'"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Vendor Refund</t>
+                                    </span>
+                                    <span t-if="doc.type == 'in_invoice'"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Vendor Bill</t>
+                                    </span>
+                                    <span t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'posted') and is_last_invoice"
+                                          t-attf-style="color:{{doc.company_id.theme_color}};">
+                                        <span t-if="doc_title" t-esc="doc_title" style="white-space: nowrap;"/>
+                                        <t t-if="not doc_title">Schlussrechung</t>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <t t-if="not doc.partner_id.parent_partner_print">
+                                    <td class="address" style="padding-left:25px">
+                                        <div style="font-weight: 200;">
+                                            <t t-if="doc.partner_id.parent_id">
+                                                <t t-if="doc.partner_id.parent_id.name != doc.partner_id.name">
+                                                    <div t-field="doc.partner_id.parent_id.name"/>
+                                                </t>
+                                            </t>
+                                            <div t-field="doc.partner_id.name"/>
+                                            <div t-if="doc.partner_id.company" t-field="doc.partner_id.company"/>
+                                            <!--                      Deaktiviert wegen Odoo 11 Umstellung-->
+                                            <!--                      <t t-if="doc.partner_id.company">-->
+                                            <!--                        <div t-field="doc.partner_id.company"/>-->
+                                            <!--                      </t>-->
+                                            <div t-field="doc.partner_id.street"/>
+                                            <t t-if="doc.partner_id.street2">
+                                                <div t-field="doc.partner_id.street2"/>
+                                            </t>
+                                            <div>
+                                                <span t-field="doc.partner_id.zip"/>&#160;<span
+                                                    t-field="doc.partner_id.city"/>
+                                            </div>
+                                            <div t-field="doc.partner_id.country_id"/>
+                                        </div>
+                                    </td>
+                                </t>
+                                <t t-if="doc.partner_id.parent_partner_print">
+                                    <td class="address" style="padding-left:25px">
+                                        <div style="font-weight: 200;">
+                                            <div t-field="doc.partner_id.name"/>
+                                            <div t-if="doc.partner_id.company" t-field="doc.partner_id.company"/>
+                                            <!--                      <t t-if="doc.partner_id.company">-->
+                                            <!--                        <div t-field="doc.partner_id.company"/>-->
+                                            <!--                      </t>-->
+                                            <div t-field="doc.partner_id.street"/>
+                                            <t t-if="doc.partner_id.street2">
+                                                <div t-field="doc.partner_id.street2"/>
+                                            </t>
+                                            <div>
+                                                <span t-field="doc.partner_id.zip"/>&#160;<span
+                                                    t-field="doc.partner_id.city"/>
+                                            </div>
+                                            <div t-field="doc.partner_id.country_id"/>
+                                        </div>
+                                    </td>
+                                </t>
+                                <td></td>
+                                <!--GRIMM START-->
+                                <td cospan="2">
+                                    <table width="100%">
+                                        <tr>
+                                            <td style="padding-right: 10px;">
+                                                <b>Rechnungs-NR.</b>
+                                            </td>
+                                            <td>
+                                                <b>
+                                                    <t t-if="doc.state == 'open' or doc.state == 'posted'">
+                                                        <div t-field="doc.name"/>
+                                                    </t>
+                                                    <t t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">
+                                                        <div t-field="doc.invoice_origin"/>
+                                                    </t>
+                                                </b>
+                                            </td>
+                                        </tr>
+
+                                        <t t-if="doc.invoice_origin and (doc.state == 'open' or doc.state == 'draft' or doc.state == 'posted')">
+                                            <tr>
+                                                <td>Auftragsnummer</td>
+                                                <td>
+                                                    <div t-field="doc.invoice_origin"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+                                        <t t-if="doc.sale_order_id and doc.sale_order_id.order_confirm_date and doc.invoice_origin and (doc.state == 'draft' or doc.state == 'posted')">
+                                            <tr>
+                                                <td>
+                                                    <div>Auftragsdatum</div>
+                                                </td>
+                                                <td>
+                                                    <div t-field="doc.sale_order_id.order_confirm_date"
+                                                         t-options="{'widget': 'date', 'format':'dd.MM.yyyy'}"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <t t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'posted')">
+                                            <tr>
+                                                <td>
+                                                    <div>Rechnungsdatum</div>
+                                                </td>
+                                                <td>
+                                                    <div t-field="doc.invoice_date"
+                                                         t-field-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+
+                                        <t t-if="doc.type == 'out_invoice'">
+                                            <tr>
+                                                <td>
+                                                    <div>Belegdatum</div>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="doc.create_date.strftime('%d.%m.%Y')"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+
+
+                                        <t t-if="doc.type == 'out_refund'">
+                                            <tr>
+                                                <td>
+                                                    <div>Belegdatum</div>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="doc.create_date.strftime('%d.%m.%Y')"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div>Rechnungsdatum</div>
+                                                </td>
+                                                <td>
+                                                    <div t-field="doc.invoice_date"
+                                                         t-field-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div>Referenzbeleg</div>
+                                                </td>
+                                                <td>
+                                                    <span t-esc="doc.reversed_entry_id.name or doc.invoice_origin"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </table>
+                                </td>
+                                <!--GRIMM END-->
+                                <!--<td class="header" style="font-weight: 200;">
+                                    <div style="padding: 1%;"></div>
+                                    <b>
+                                        <div>Rechnungs-NR.</div>
+                                    </b>
+                                    <t t-if="doc.invoice_origin and (doc.state == 'open' or doc.state == 'draft' or doc.state == 'posted')">
+                                        <div>Auftragsnummer</div>
+                                    </t>
+                                    <t t-if="doc.sale_order_id and doc.sale_order_id.order_confirm_date and doc.invoice_origin and (doc.state == 'draft' or doc.state == 'posted')">
+                                        <div>Auftragsdatum</div>
+                                    </t>
+                                    <t t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'posted')">
+                                        <div>Rechnungsdatum</div>
+                                    </t>
+                                    <t t-if="doc.type == 'out_invoice'">
+                                        <div>Belegdatum</div>
+                                    </t>
+                                    <t t-if="doc.type == 'out_refund'">
+                                        <div>Belegdatum</div>
+                                        <div>Rechnungsdatum</div>
+                                        <div>Referenzbeleg</div>
+                                    </t>
+                                </td>
+                                <td class="header" style="font-weight: 200;">
+                                    <div style="padding: 1%;"/>
+                                    <t t-if="doc.state == 'open' or doc.state == 'posted'">
+                                        <b>
+                                            <div t-field="doc.name"/>
+                                        </b>
+                                    </t>
+                                    <t t-if="doc.state == 'open' or doc.state == 'draft' or doc.state == 'posted'">
+                                        <b>
+                                            <div t-field="doc.invoice_origin"/>
+                                        </b>
+                                    </t>
+                                    <t t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">
+                                        <b>
+                                            <div t-field="doc.invoice_origin"/>
+                                        </b>
+                                    </t>
+                                    <t t-if="doc.type == 'out_invoice' and doc.state == 'draft'">
+                                        <b>
+                                            <div>Entwurf</div>
+                                        </b>
+                                    </t>
+                                    <t t-if="doc.sale_order_id and doc.sale_order_id.order_confirm_date and doc.invoice_origin and (doc.state == 'draft' or doc.state == 'posted')">
+                                        <div t-field="doc.sale_order_id.order_confirm_date"
+                                             t-options="{'widget': 'date', 'format':'dd.MM.yyyy'}"/>
+                                    </t>
+                                    <t t-if="doc.type == 'out_invoice' and (doc.state == 'open' or doc.state == 'posted')">
+                                        <div t-field="doc.invoice_date" t-field-options='{"widget": "date"}'/>
+                                    </t>
+                                    <t t-if="doc.type == 'out_refund'">
+                                        <span t-esc="doc.create_date.strftime('%d.%m.%Y')"/>
+                                        <div t-field="doc.invoice_date" t-field-options='{"widget": "date"}'/>
+                                        <div>
+                                            <span t-esc="doc.reversed_entry_id.name or doc.invoice_origin"/>
+                                        </div>
+                                    </t>
+                                    <t t-if="not doc.type == 'out_refund'">
+                                        <div t-field="doc.create_date"
+                                             t-options="{'widget': 'date', 'format':'dd.MM.yyyy'}"/>
+                                    </t>
+                                </td>-->
+                            </tr>
+                            <tr>
+                                <td colspan="4"></td>
+                            </tr>
+                            <t t-foreach="[1, 2]" t-as="i">
+                                <tr>
+                                    <td>&#160;</td>
+                                </tr>
+                            </t>
+                            <!--<t t-if="doc.sale_order_id and doc.sale_order_id.prepayment and doc.type in ['out_invoice']">
+                                <tr>
+                                  <td colspan="2"></td>
+                                  <td>
+                                    Überweisen per App
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td colspan="2"></td>
+                                  <td>
+                                    <img t-attf-src="data:image/*;base64,{{doc._get_invoice_qrcode(border=1,box_size=2)}}" t-att-alt="doc.name" />
+                                  </td>
+                                </tr>
+                            </t>-->
+                            <tr>
+                                <td colspan="2">
+                                    <table class="delivery_table">
+                                        <tr>
+                                            <td style="width: 4.5%;"><![CDATA[&nbsp;]]></td>
+                                            <td style="width: 50%;">
+                                                <t t-if="doc.delivery_address_header">
+                                                    <b t-field="doc.delivery_address_header"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <b>Leistungs-/Lieferort</b>
+                                                </t>
+                                            </td>
+                                            <td>
+                                                <t t-if="doc.beneficiary">
+                                                    <b>Beneficiary</b>
+                                                </t>
+                                                <t t-else="">
+                                                    <b><![CDATA[&nbsp;]]></b>
+                                                </t>
+                                            </td>
+                                            <td><![CDATA[&nbsp;&nbsp;]]></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td colspan="2"/>
+                            </tr>
+                            <t t-if="doc.type != 'out_refund'">
+                                <tr>
+                                    <td colspan="2" class="address">
+                                        <table class="delivery_table">
+                                            <tr>
+                                                <td class="address div_address_flex">
+                                                    <t t-if="doc.partner_shipping_id">
+                                                        <t t-if="not doc.partner_shipping_id.parent_partner_print">
+                                                            <t t-if="doc.partner_id.id != doc.partner_shipping_id.id">
+                                                                <div style="font-weight: 200;">
+                                                                    <t t-if="doc.partner_shipping_id.parent_id">
+                                                                        <t t-if="doc.partner_shipping_id.parent_id.name != doc.partner_shipping_id.name">
+                                                                            <div t-field="doc.partner_shipping_id.parent_id.name"/>
+                                                                        </t>
+                                                                    </t>
+                                                                    <div t-field="doc.partner_shipping_id.name"/>
+                                                                    <div t-field="doc.partner_shipping_id.street"/>
+                                                                    <t t-if="doc.partner_shipping_id.street2">
+                                                                        <div t-field="doc.partner_shipping_id.street2"/>
+                                                                    </t>
+                                                                    <div>
+                                                                        <span t-field="doc.partner_shipping_id.zip"/>&#160;<span
+                                                                            t-field="doc.partner_shipping_id.city"/>
+                                                                    </div>
+                                                                    <div t-field="doc.partner_shipping_id.country_id"/>
+                                                                </div>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <div>entpricht Rechnungsadresse</div>
+                                                            </t>
+                                                        </t>
+                                                        <t t-if="doc.partner_shipping_id.parent_partner_print">
+                                                            <t t-if="doc.partner_id.id != doc.partner_shipping_id.id">
+                                                                <div style="font-weight: 200;">
+                                                                    <div t-field="doc.partner_shipping_id.name"/>
+                                                                    <t t-if="doc.partner_shipping_id.company">
+                                                                        <div t-field="doc.partner_shipping_id.company"/>
+                                                                    </t>
+                                                                    <div t-field="doc.partner_shipping_id.street"/>
+                                                                    <t t-if="doc.partner_shipping_id.street2">
+                                                                        <div t-field="doc.partner_shipping_id.street2"/>
+                                                                    </t>
+                                                                    <div>
+                                                                        <span t-field="doc.partner_shipping_id.zip"/>&#160;<span
+                                                                            t-field="doc.partner_shipping_id.city"/>
+                                                                    </div>
+                                                                    <div t-field="doc.partner_shipping_id.country_id"/>
+                                                                </div>
+                                                            </t>
+                                                            <t t-else="">
+                                                                <div>entpricht Rechnungsadresse</div>
+                                                            </t>
+                                                        </t>
+                                                    </t>
+                                                    <t t-if="not doc.partner_shipping_id">
+                                                        <div>Lieferadresse entpricht Rechnungsadresse</div>
+                                                    </t>
+                                                </td>
+                                                <td class="address div_address_flex">
+                                                    <t t-if="doc.beneficiary">
+                                                        <t t-if="not doc.beneficiary.parent_partner_print">
+                                                            <div style="font-weight: 200;">
+                                                                <t t-if="doc.beneficiary.parent_id">
+                                                                    <div t-field="doc.beneficiary.parent_id.name"/>
+                                                                </t>
+                                                                <div t-field="doc.beneficiary.name"/>
+                                                                <t t-if="doc.beneficiary.company">
+                                                                    <div t-field="doc.beneficiary.company"/>
+                                                                </t>
+                                                                <div t-field="doc.beneficiary.street"/>
+                                                                <t t-if="doc.beneficiary.street2">
+                                                                    <div t-field="doc.beneficiary.street2"/>
+                                                                </t>
+                                                                <div>
+                                                                    <span t-field="doc.beneficiary.zip"/>&#160;<span
+                                                                        t-field="doc.beneficiary.city"/>
+                                                                </div>
+                                                                <div t-field="doc.beneficiary.country_id"/>
+                                                            </div>
+                                                        </t>
+                                                        <t t-if="doc.beneficiary.parent_partner_print">
+
+                                                            <div style="font-weight: 200;">
+                                                                <div t-field="doc.beneficiary.name"/>
+                                                                <t t-if="doc.beneficiary.company">
+                                                                    <div t-field="doc.beneficiary.company"/>
+                                                                </t>
+                                                                <div t-field="doc.beneficiary.street"/>
+                                                                <t t-if="doc.beneficiary.street2">
+                                                                    <div t-field="doc.beneficiary.street2"/>
+                                                                </t>
+                                                                <div>
+                                                                    <span t-field="doc.beneficiary.zip"/>&#160;<span
+                                                                        t-field="doc.beneficiary.city"/>
+                                                                </div>
+                                                                <div t-field="doc.beneficiary.country_id"/>
+                                                            </div>
+                                                        </t>
+                                                    </t>
+                                                    <t t-if="not doc.beneficiary">
+                                                        <div><![CDATA[&nbsp;]]></div>
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <!-- GRIMM START -->
+                                    <td colspan="2">
+                                        <table width="100%">
+                                            <tr>
+                                                <td colspan="2">
+                                                    <div style="font-weight: bold;">Kundendaten</div>
+                                                </td>
+                                            </tr>
+                                            <t t-if="doc.partner_id.ref or doc.partner_id.parent_id">
+                                                <tr style="border-top: 0.1em solid rgba(112,111,111,0.5);">
+                                                    <td style="padding-right: 10px;">
+                                                        <div style="font-weight: bold;">Kunden-Nr.</div>
+                                                    </td>
+                                                    <td style="padding-right: 10px;">
+                                                        <div t-esc="doc.partner_id.ref or doc.partner_id.parent_id.ref"
+                                                             class="header-spacer"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="doc.type not in ['entry'] and doc.sale_order_id.client_order_ref">
+                                                <tr>
+                                                    <td style="padding-right: 10px;">
+                                                        <div>Kunden-Referenz</div>
+                                                    </td>
+                                                    <td style="padding-right: 10px;">
+                                                        <span t-field="doc.sale_order_id.client_order_ref"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="doc.partner_id.vat">
+                                                <tr>
+                                                    <td style="padding-right: 10px;">
+                                                        <div>Kunden Ust-ID</div>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="doc.partner_id.vat"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                            <t t-if="not doc.type == 'out_refund'">
+                                                <tr>
+                                                    <td style="padding-right: 10px;">
+                                                        <div>Auftragsdatum</div>
+                                                    </td>
+                                                    <td>
+                                                        <t t-if="doc.type == 'out_invoice' and doc.state in ['draft', 'proforma2']">
+                                                            <span t-esc="doc.create_date.strftime('%d.%m.%Y')"/>
+                                                        </t>
+                                                        <t t-if="doc.type not in ['entry'] and not doc.state in ['proforma2','draft']">
+                                                            <div t-field="doc.origin_create_date"
+                                                                 t-field-options='{"widget": "date"}'/>
+                                                        </t>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </td>
+                                    <!-- GRIMM END -->
+                                    <!--<td>
+                                        <div style="font-weight: bold;">Kundendaten</div>
+                                        <div style="font-weight: 200; border-top: 0.1em solid rgba(112,111,111,0.5);"></div>
+                                        <t t-if="doc.partner_id.ref or doc.partner_id.parent_id">
+                                            <div style="font-weight: bold;">Kunden-Nr.</div>
+                                        </t>
+                                        <t t-if="doc.type not in ['entry'] and doc.sale_order_id.client_order_ref">
+                                            <span>Kunden-Referenz</span>
+                                            <br/>
+                                        </t>
+                                        <t t-if="doc.partner_id.vat">
+                                            <span>Kunden Ust-ID</span>
+                                            <br/>
+                                        </t>
+                                        <t t-if="not doc.type == 'out_refund'">
+                                            <div>Auftragsdatum</div>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <div><![CDATA[&nbsp;]]></div>
+                                        <div style="border-top: 0.1em solid rgba(112,111,111,0.5);"></div>
+                                        <t t-if="not doc.partner_id.parent_id">
+                                            <div t-field="doc.partner_id.ref" class="header-spacer"/>
+                                        </t>
+                                        <t t-if="doc.partner_id.parent_id">
+                                            <div t-field="doc.partner_id.parent_id.ref" class="header-spacer"/>
+                                        </t>
+                                        <t t-if="doc.type not in ['entry'] and doc.sale_order_id.client_order_ref">
+                                            <span t-field="doc.sale_order_id.client_order_ref"/>
+                                            <br/>
+                                        </t>
+                                        <t t-if="doc.partner_id.vat">
+                                            <span t-field="doc.partner_id.vat"/>
+                                            <br/>
+                                        </t>
+                                        <t t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">
+                                            <span t-esc="doc.create_date.strftime('%d.%m.%Y')"/>
+                                        </t>
+                                        <t t-if="doc.type == 'out_invoice' and doc.state == 'draft'">
+                                            <span t-esc="doc.create_date.strftime('%d.%m.%Y')"/>
+                                        </t>
+                                        <t t-if="doc.type not in ['entry'] and not doc.state == 'proforma2' and not doc.state == 'draft'">
+                                            <div t-field="doc.origin_create_date" t-field-options='{"widget": "date"}'/>
+                                        </t>
+                                    </td>-->
+                                </tr>
+                            </t>
+                            <tr>
+                                <td rowspan="3" style="font-weight: 200;" class="salutation_text">
+                                    <br/>
+                                    <t t-if="doc.type == 'out_invoice' and doc.state == 'proforma2'">
+                                        <p t-raw="doc.salutation_text"/>
+                                    </t>
+                                    <t t-if="doc.type == 'out_invoice' and doc.state != 'proforma2'">
+                                        <p t-raw="doc.salutation_text_val"/>
+                                    </t>
+                                    <t t-if="doc.type == 'out_refund'">
+                                        <p t-raw="doc.salutation_text_refund"/>
+                                    </t>
+                                </td>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <t t-call="grimm_reports.grimm_customer_user"/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                        </table>
+                        <t t-set="is_discount" t-value="doc._get_discount_information()"/>
+                        <t t-set="discount_span" t-value="2"/>
+                        <t t-if="is_discount">
+                            <t t-set="discount_span" t-value="3"/>
+                        </t>
+                        <t t-set="delivery_date_buffer" t-value="False"/>
+                        <table class="table table-condensed" style="border-collapse: collapse;table-layout:fixed;">
+                            <thead>
+                                <tr>
+                                    <th style="width: 10%;border-top: none;">Pos.</th>
+                                    <th style="width: 50%;border-top: none;">Artikel/Leistung</th>
+                                    <th style="border-top: none;width:10%;" class="quantity">Menge</th>
+                                    <th style="border-top: none; width: 20%;" class="text-right">Einzelpreis-Netto</th>
+                                    <t t-if="is_discount">
+                                        <th class="text-right" style="border-top: none; width: 20%;">Rabatt (%)</th>
+                                    </t>
+                                    <th class="text-right" style="border-top: none; width:15%;">Gesamt-Netto</th>
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <!--<t t-foreach="doc.invoice_line_ids.sorted(key=lambda a: a.line_no_stored if a.line_no_stored else '')" t-as="l">-->
+                                <t t-foreach="doc.get_sorted_line()" t-as="l">
+                                    <tr t-if="l.quantity and l.product_id and not (is_last_invoice and l.quantity &lt; 0)">
+                                        <td>
+                                            <t t-if="l.line_no_stored">
+                                                <span t-esc="l.line_no_stored"/>
+                                            </t>
+                                            <t t-if="not l.line_no_stored">
+                                                <span t-esc="l_index+1"/>
+                                            </t>
+                                        </td>
+                                        <td>
+                                            <b>
+                                                <div t-field="l.product_id.name" class="regular"/>
+                                            </b>
+                                            GRIMM-SKU <span class="blue">&amp;rsaquo;</span>&amp;nbsp;
+                                            <span t-field="l.product_id.barcode"/>
+                                            <t t-if="doc.print_internal_ref">
+                                                <br/>Art.-Nr.: <span class="blue">&amp;rsaquo;</span>&amp;nbsp;
+                                                <span t-field="l.product_id.default_code"/>
+                                            </t>
+                                            <div class="light" style="font-weight: 200;">
+                                                <t t-if="l.product_id.product_brand_id">
+                                                    <span t-field="l.product_id.product_brand_id.name" class="regular"/>
+                                                    <br/>
+                                                </t>
+                                                <span t-field="l.name"/>
+                                                <br/>
+                                                <t t-if="l.product_id.connection_ids">
+                                                    <t t-foreach="l.product_id.connection_ids" t-as="con">
+                                                        <span t-field="con.connection_medium"/>
+                                                        <span t-field="con.connection_spec"/>
+                                                        <span t-field="con.connection_value"/>
+                                                        <span t-field="con.connection_unit"/>
+                                                        <br/>
+                                                    </t>
+                                                </t>
+                                                <t t-if="l.product_id.weight">
+                                                    Gewicht:
+                                                    <span t-field="l.product_id.weight"/>
+                                                </t>
+                                                <t t-if="l.product_id.net_weight">
+                                                    /
+                                                    <span t-field="l.product_id.net_weight"/>
+                                                </t>
+                                                <t t-if="l.product_id.width">
+                                                    <br/>Maße in mm:
+                                                    <span class="blue">&amp;rsaquo;</span>
+                                                    B
+                                                    <span t-esc="int(float(l.product_id.width))"/>
+                                                </t>
+                                                <t t-if="l.product_id.depth">
+                                                    T
+                                                    <span t-esc="int(float(l.product_id.depth))"/>
+                                                </t>
+                                                <t t-if="l.product_id.height">
+                                                    H
+                                                    <span t-esc="int(float(l.product_id.height))"/>
+                                                </t>
+                                                <t t-if="l.product_id.warranty">
+                                                    <br/>Garantie:
+                                                    <span t-field="l.product_id.warranty" class="regular"/>
+                                                    Monate
+                                                </t>
+                                                <t t-if="l.product_id.warranty_type">
+                                                    -
+                                                    <span t-field="l.product_id.warranty_type" class="regular"/>
+                                                </t>
+                                                <t t-if="l.product_id.attribute_data_ids">
+                                                    <t t-foreach="l.product_id.attribute_data_ids.sorted(key=lambda a: a.print_seq)"
+                                                       t-as="a">
+                                                        <t t-if="a.print_attrib == true">
+                                                            <br/>
+                                                            <span t-field="a.attr_id.name"/>
+                                                            <span t-field="a.value_id.name"/>
+                                                        </t>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                            <div>
+                                                <t t-set="delivery_date_row" t-if="l.product_id"
+                                                   t-value="doc._get_delivery_date(str(l.product_id.id))"/>
+                                                <t t-if="delivery_date_row">
+                                                    <t t-if="l.product_id.id not in [13686, 13687, 222447]">
+                                                        <b>
+                                                            <span t-esc="delivery_date_row"/>
+                                                        </b>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="''"/>
+                                                    </t>
+                                                    <t t-set="delivery_date_buffer" t-value="delivery_date_row"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <t t-if="l.product_id.id not in [13686, 13687, 222447]">
+                                                        <b>
+                                                            <span t-esc="delivery_date_buffer"/>
+                                                        </b>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <span t-esc="''"/>
+                                                    </t>
+                                                </t>
+                                            </div>
+                                        </td>
+                                        <td class="quantity">
+                                            <t t-if="l.quantity">
+                                                <t t-if="l.quantity.is_integer()">
+                                                    <span t-esc="'%.0f'%l.quantity"/>
+                                                </t>
+                                                <t t-if="not l.quantity.is_integer()">
+                                                    <span t-esc="'%.2f'%l.quantity"/>
+                                                </t>
+                                            </t>
+                                            <span groups="product.group_uom" t-field="l.uom_id"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <!--<span t-field="l.price_unit"/>-->
+                                            <t t-esc="doc.format_number(l.price_unit)"/>
+                                        </td>
+                                        <t t-if="is_discount">
+                                            <td class="text-right">
+                                                <span t-esc="'%.2f'%l.discount"/>
+                                            </td>
+                                        </t>
+                                        <td class="text-right">
+                                            <span t-field="l.price_subtotal"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                                <tr class="grimm-invoice-line">
+                                    <td><!--Zahlungsart--></td>
+                                    <td>
+                                        <ul class="light">
+                                            <!--<li>
+                                              <span t-field="doc.sale_order_id.payment_mode_id.note"/>
+                                            </li>-->
+                                        </ul>
+                                        <!--<t t-if="doc.payment_mode_id.name==banktransfer">
+                                          Mittelbrandenburgische Sparkasse<br/>
+                                          IBAN: DE44 1605 0000 1000 8709 83<br/>
+                                        </t>-->
+                                    </td>
+                                    <td class="sum-left" t-att-colspan="discount_span" style="padding-left:0px;">
+                                        <div class="sum-left regular">Nettobetrag</div>
+                                        <t t-if="doc.amount_tax &gt; 0">
+                                            <div class="sum-left regular">
+                                                <span t-esc="doc._get_tax_decription()"/>
+                                            </div>
+                                        </t>
+                                        <!--<t t-foreach="doc.invoice_line_ids" t-as="tax_line">
+                                            <div class="sum-left regular" style="white-space: nowrap;"
+                                                 t-field="tax_line.tax_line_id.description"/>
+                                        </t>-->
+                                        <div class="sum-left blue-sum-left regular"
+                                             t-attf-style="background-color:{{doc.company_id.theme_color}};">
+                                            Gesamt-Brutto
+                                        </div>
+                                    </td>
+                                    <td class="sum-right" style="padding-right:0px;">
+                                        <t t-if="not is_last_invoice">
+                                            <div t-field="doc.amount_untaxed" class="sum-right regular"/>
+                                            <t t-if="doc.amount_tax &gt; 0">
+                                                <div t-field="doc.amount_tax" class="sum-right regular"/>
+                                            </t>
+                                            <!--<t t-foreach="doc.invoice_line_ids" t-as="tax_line">
+                                                <div t-esc="tax_line.tax_line_id.amount"
+                                                     t-esc-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'
+                                                     class="sum-right regular"/>
+                                            </t>-->
+                                            <div t-field="doc.amount_total"
+                                                 class="sum-right text-right blue-sum regular"
+                                                 t-attf-style="background-color:{{doc.company_id.theme_color}};"/>
+                                        </t>
+
+                                        <t t-if="is_last_invoice">
+                                            <div t-esc="last_invoice_amount[0]" class="sum-right regular"/>
+                                            <div t-esc="last_invoice_amount[1]" class="sum-right regular"/>
+                                            <!--<t t-foreach="doc.invoice_line_ids" t-as="tax_line">
+                                                <div t-esc="tax_line.tax_line_id.amount"
+                                                     t-esc-options='{"widget": "monetary", "display_currency": "res_company.currency_id"}'
+                                                     class="sum-right regular"/>
+                                            </t>-->
+                                            <div t-esc="last_invoice_amount[2]"
+                                                 class="sum-right text-right blue-sum regular"
+                                                 t-attf-style="border-left: 1px solid #009ee3;background-color:{{doc.company_id.theme_color}};"/>
+                                        </t>
+
+                                    </td>
+                                </tr>
+                                <!--<tr>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" style="color:black;">
+                                        <hr style="width: 100%; color: black;"/>
+                                    </td>
+                                </tr>-->
+                                <t t-if="doc.type not in ['entry'] and doc.sale_order_id">
+                                    <t t-if="doc.sale_order_id.asset_ids">
+                                        <tr style="font-weight: 200;">
+                                            <td>Gerät(e):</td>
+                                            <td colspan="2">
+                                                <ul class="asset-sale-order">
+                                                    <t t-foreach="doc.sale_order_id.asset_ids" t-as="asset">
+                                                        <li>Gerät:
+                                                            <span t-field="asset.name"/>
+                                                        </li>
+                                                        <li>
+                                                            <span t-field="asset.brand"/>
+                                                        </li>
+                                                        <t t-if="asset.serial_number">
+                                                            <li>Seriennummer:
+                                                                <span t-field="asset.serial_number"/>
+                                                            </li>
+                                                        </t>
+                                                        <t t-if="asset.customer_inventory_no">
+                                                            <li>Kunden Inventarnummer:
+                                                                <span t-field="asset.customer_inventory_no"/>
+                                                            </li>
+                                                        </t>
+                                                        <t t-if="asset.location_ids">
+                                                            <t t-foreach="asset.location_ids" t-as="loc">
+                                                                <li class="header_row1">Aufstellungsort Beschreibung:
+                                                                    <br/>
+                                                                    <t t-if="loc.name">
+                                                                        <span t-field="loc.name"/>
+                                                                    </t>
+                                                                    <t t-if="loc.placement">
+                                                                        <span t-field="loc.placement"/>
+                                                                    </t>
+                                                                </li>
+                                                            </t>
+                                                        </t>
+                                                    </t>
+                                                </ul>
+                                            </td>
+                                            <td/>
+                                        </tr>
+                                    </t>
+                                </t>
+                                <!--<tr>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                </tr>-->
+
+                                <!-- Commented below block on requirement of OD-560 -->
+                                <!--<t t-if="doc.delivery_dates">
+                                  <t t-if="doc.team_id and doc.team_id.name != 'Service'">
+                                    <tr>
+                                      <td colspan="2">
+                                        Die Lieferung erfolgt voraussichtlich in der<span t-field="doc.delivery_dates"/>.
+                                      </td>
+                                    </tr>
+                                  </t>
+                                </t>-->
+                            </tbody>
+                        </table>
+
+
+                        <t t-if="is_last_invoice">
+                            <table class="table table-condensed"
+                                   style="border-collapse: collapse;table-layout:fixed;page-break-inside: avoid;">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10%;border-top: none;">Pos.</th>
+                                        <th style="width: 50%;border-top: none;" class="text-left">Artikel/Leistung</th>
+                                        <th style="border-top: none;width:10%;white-space: nowrap;"
+                                            class="text-right quantity">Betrag-Netto
+                                        </th>
+                                        <th style="border-top: none; width: 20%;" class="text-right">USt-Satz</th>
+                                        <th style="border-top: none; width: 20%;" class="text-center">USt</th>
+                                        <th style="border-top: none; width: 20%;" class="text-right">Gesamt-Brutto</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="sale_tbody">
+                                    <t t-set="inv_net_total" t-value="0.0"/>
+                                    <t t-set="inv_tax_total" t-value="0.0"/>
+                                    <t t-set="inv_gross_total" t-value="0.0"/>
+                                    <t t-set="pay_ind" t-value="0"/>
+                                    <t t-foreach="doc.get_pevious_invices()" t-as="inv">
+                                        <t t-set="inv_net_total" t-value="inv_net_total+float(inv.amount_untaxed)"/>
+                                        <t t-set="inv_tax_total"
+                                           t-value="inv_tax_total+float(inv.amount_by_group[0][1])"/>
+                                        <t t-set="inv_gross_total" t-value="inv_gross_total+float(inv.amount_total)"/>
+                                        <t t-set="pay_ind" t-value="pay_ind+1"/>
+                                        <tr>
+                                            <td>
+                                                <t t-esc="pay_ind"></t>
+                                            </td>
+                                            <td class="text-left">
+                                                <t t-foreach="inv.get_payment_data()" t-as="payment">geleistete
+                                                    Teilzahlung vom
+                                                    <t t-esc="payment.get('date').strftime('%d.%m.%Y')"/>
+                                                    <br/>
+                                                    <t t-esc="payment.get('name').replace('Kundenzahlung','Rechnungs-Nr.').replace('Customer Payment','Rechnungs-Nr.')"/>
+                                                </t>
+                                            </td>
+                                            <td class="text-right" style="white-space: nowrap;">
+                                                <span t-field="inv.amount_untaxed"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="inv._get_tax_decription().replace('USt','')"/>
+                                            </td>
+                                            <td class="text-right" style="white-space: nowrap;">
+                                                <span t-esc="inv.amount_by_group[0][3]"/>
+                                            </td>
+                                            <td class="text-right" style="white-space: nowrap;">
+                                                <span t-field="inv.amount_total"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <tr class="grimm-invoice-line">
+                                        <td/>
+                                        <td class="text-left" style="vertical-align: middle;">
+                                            Summe geleistete Zahlungen
+                                        </td>
+                                        <td class="text-right" style="white-space: nowrap;vertical-align: middle;">
+                                            <t t-esc="doc.format_number(inv_net_total)"/>
+                                        </td>
+                                        <td colspan="2" class="text-right"
+                                            style="white-space: nowrap;vertical-align: middle;">
+                                            <t t-esc="doc.format_number(inv_tax_total)"/>
+                                        </td>
+                                        <td class="text-right" style="white-space: nowrap;vertical-align: middle;">
+                                            <t t-esc="doc.format_number(inv_gross_total)"/>
+                                        </td>
+                                    </tr>
+
+                                    <!--<tr>
+                                      <td/>
+                                      <td class="text-left">
+                                        Gesamtbetrag EUR
+                                      </td>
+                                      <td class="text-right" style="white-space: nowrap;"><t t-esc="doc.format_number(inv_net_total+doc.amount_untaxed)"/></td>
+                                      <td colspan="2" class="text-right" style="white-space: nowrap;"><t t-esc="doc.format_number(inv_tax_total+doc.amount_by_group[0][1])"/></td>
+                                      <td class="text-right" style="white-space: nowrap;"><t t-esc="doc.format_number(inv_gross_total+doc.amount_total)"/></td>
+                                    </tr>-->
+
+                                    <tr style="font-weight: bold;">
+                                        <td/>
+                                        <td class="text-left blue-sum-left regular"
+                                            t-attf-style="vertical-align: middle;border-right: 1px solid #009ee3;text-align: center;background-color:{{doc.company_id.theme_color}};white-space: nowrap;">
+                                            noch zu leistende Schlusszahlung
+                                        </td>
+                                        <td class="text-right blue-sum-right"
+                                            t-attf-style="vertical-align: middle;border-left: 1px solid #009ee3;border-right: 1px solid #009ee3;background-color:{{doc.company_id.theme_color}};white-space: nowrap;color:white;">
+                                            <span t-field="doc.amount_untaxed"/>
+                                        </td>
+                                        <td colspan="2" class="text-right blue-sum-right"
+                                            t-attf-style="vertical-align: middle;border-left: 1px solid #009ee3;border-right: 1px solid #009ee3;background-color:{{doc.company_id.theme_color}};white-space: nowrap;color:white;">
+                                            <t t-esc="doc.amount_by_group[0][3]"/>
+                                        </td>
+                                        <td class="text-right sum-right blue-sum regular"
+                                            t-attf-style="vertical-align: middle;border-left: 1px solid #009ee3;background-color:{{doc.company_id.theme_color}};white-space: nowrap;">
+                                            <span t-field="doc.amount_total" style="text-decoration: underline;"/>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                            <hr/>
+                        </t>
+
+
+                        <table class="table table-condensed" style="border-collapse: collapse;">
+                            <t t-if="not doc.payment_mode_id.name == 'payone_ratepay'">
+                                <tr>
+                                    <td>Zahlungsart</td>
+                                    <td>
+                                        <ul class="light">
+                                            <li>
+                                                <t t-if="doc.type not in ['entry'] and doc.sale_order_id.payment_mode_id.id in [19,12]">
+                                                    <span>auf Rechnung</span>
+                                                </t>
+                                                <t t-if="doc.type not in ['entry'] and not doc.sale_order_id.payment_mode_id.id in [19,12]">
+                                                    <span t-field="doc.sale_order_id.payment_mode_id.note"/>
+                                                </t>
+                                            </li>
+                                        </ul>
+                                        <t t-if="doc.payment_mode_id.name==banktransfer">
+                                            Mittelbrandenburgische Sparkasse
+                                            <br/>
+                                            IBAN: DE44 1605 0000 1000 8709 83
+                                            <br/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr t-if="doc.payment_term_id.note or doc.invoice_date_due">
+                                    <t t-if="not doc.invoice_payment_state == 'paid' and doc.payment_mode_id.id not in [11,9,13,8]">
+                                        <td>Zahlungsbedingungen</td>
+                                        <td>
+                                            <ul class="light">
+                                                <li t-if="doc.payment_term_id.note">
+                                                    <span t-if="doc.payment_term_id.note"
+                                                          t-field="doc.payment_term_id.note"/>
+                                                </li>
+                                                <li t-if="not doc.payment_term_id.note and doc.invoice_date_due">
+                                                    <span t-field="doc.invoice_date_due"/>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                    </t>
+                                </tr>
+                            </t>
+                            <t t-if="doc.payment_mode_id.name == 'payone_ratepay' and doc.type in ['out_invoice']">
+                                <tr>
+                                    <td colspan="5">
+                                        <table style="border-radius:25px;background-color:#D3D3D3;">
+                                            <tr>
+                                                <td colspan="2" style="padding-left: 15px;">
+                                                    <b>Ihre gewählte Zahlungsweise: RatePAY-Rechnung</b>
+                                                    <br/>
+                                                    Der Rechnungsbetrag in Höhe von
+                                                    <b>
+                                                        <span t-field="doc.amount_total"/>
+                                                    </b>
+                                                    muss bis spätestens
+                                                    <b>
+                                                        <span t-esc="doc._get_payment_date()"/>
+                                                    </b>
+                                                    auf unserem Konto eingegangen sein. Es gelten folgende
+                                                    Zahlungsbedingungen 14 Tage nach
+                                                    Rechnungsdatum ohne Abzug.
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-left: 15px;">
+                                                    <b>Kontodaten</b>
+                                                    <br/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-left: 15px;">Kontoinhaber</td>
+                                                <td style="padding-left: 15px;">GRIMM - RatePAY GmbH</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-left: 15px;">Bank</td>
+                                                <td style="padding-left: 15px;">Commerzbank AG Berlin</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-left: 15px;">IBAN</td>
+                                                <td style="padding-left: 15px;">DE85 1004 0000 0190 8615 00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding-left: 15px;">
+                                                    <b>Verwendungszweck</b>
+                                                    <br/>
+                                                </td>
+                                                <td>
+                                                    <b>
+                                                        <span t-if="doc.sale_order_id">
+                                                            <span t-if="doc.sale_order_id.shop_payment_ref"
+                                                                  t-field="doc.sale_order_id.shop_payment_ref"/>
+                                                        </span>
+                                                    </b>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-left: 15px;font-size:10px;">
+                                                    ﻿ Der Verkäufer hat die fällige Kaufpreisforderung aus Ihrer
+                                                    Bestellung einschließlich
+                                                    etwaiger Nebenforderungen an die RatePAY GmbH abgetreten.
+                                                    <br/>
+                                                    Forderungsinhaber ist damit die RatePAY GmbH. Eine
+                                                    schuldbefreiende Leistung ist durch Sie
+                                                    nur an die RatePAY GmbH möglich.
+                                                    <br/>
+
+                                                    Es gelten die zusätzlichen AGB für RATEPAY-Zahlungsarten und die
+                                                    Datenschutzhinweise der
+                                                    RatePAY GmbH
+                                                    <u>https://www.ratepay.com/legal/</u>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-left: 15px;font-size:10px;">
+                                                    <span>&amp;nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="padding-left: 15px;font-size:10px;">
+                                                    <t t-if="datetime.date.today() &gt; datetime.datetime.strptime('2022-12-31', '%Y-%m-%d').date()">
+                                                        RatePAY
+                                                        GmbH | Ritterstraße 12-14 |
+                                                        10587 Berlin Geschäftsführung: Nina Pütz, Sabrina Flunkert-Glinzer,
+                                                        Amtsgericht Berlin
+                                                        Charlottenburg | HRB 124156 B | USt-IdNr. DE270098222
+                                                    </t>
+                                                    <t t-if="not datetime.date.today() &gt; datetime.datetime.strptime('2022-12-31', '%Y-%m-%d').date()">
+                                                        RatePAY
+                                                        GmbH | Franklinstr. 28-29 |
+                                                        10587 Berlin Geschäftsführung: Nina Pütz, Sabrina Flunkert-Glinzer,
+                                                        Amtsgericht Berlin
+                                                        Charlottenburg | HRB 124156 B | USt-IdNr. DE270098222
+                                                    </t>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </t>
+                            <!--<t t-set="payment_ids"
+                               t-value="doc.invoice_line_ids.filtered(lambda x: x.payment_id.state not in ['cancelled'])"/>
+                            <t t-if="payment_ids">
+                                <tr>
+                                    <td class="delivery-box-left">Received Payment</td>
+                                    <td class="delivery-box-right">
+                                        <t t-foreach="payment_ids" t-as="payment_line">
+                                            <div style="font-weight: 200;">
+                                                <span t-field="payment_line.payment_id.payment_date"/>:
+                                                <span t-field="payment_line.payment_id.amount"/>
+                                            </div>
+                                        </t>
+                                    </td>
+                                    <td/>
+                                    <td/>
+                                    <td/>
+                                </tr>
+                            </t>-->
+                            <t t-set="payment_ids" t-value="doc._get_reconciled_info_JSON_values()"/>
+                            <t t-if="payment_ids">
+                                <t t-foreach="payment_ids" t-as="payment_line">
+                                    <tr>
+                                        <!--<td class="delivery-box-left">Received Payment</td>
+                                        <td class="delivery-box-right">
+                                            <t t-foreach="payment_ids" t-as="payment_line">
+                                                <div style="font-weight: 200;">
+                                                    <span t-esc="datetime.datetime.strptime(str(payment_line['date']), '%Y-%m-%d').strftime('%d.%m.%Y') if payment_line['date'] else 'XX.YY.ZZZZ'"/>
+                                                    <b>
+                                                        <span t-esc="'%.2f'% payment_line['amount']"/>
+                                                        <span t-field="doc.currency_id.symbol"/>
+                                                    </b>
+                                                </div>
+                                            </t>
+                                        </td>-->
+                                        <td class="delivery-box-left">Payment already received on
+                                            <span t-esc="datetime.datetime.strptime(str(payment_line['date']), '%Y-%m-%d').strftime('%d.%m.%Y') if payment_line['date'] else 'XX.YY.ZZZZ'"/>
+                                        </td>
+                                        <td class="delivery-box-right">
+
+                                            <div style="font-weight: 200;">
+                                                <b>Total gross
+                                                    <!--<span t-esc="round(float(payment_line['amount']),2)"/>-->
+                                                    <!--Total gross<span t-esc="'%.2f'% payment_line['amount']" />-->
+                                                    <span t-esc="float(payment_line['amount'])"
+                                                          t-options='{"widget": "float", "precision": 2}'/>
+                                                    <span t-field="doc.currency_id.symbol"/>
+                                                </b>
+                                            </div>
+
+                                        </td>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                    </tr>
+                                </t>
+                            </t>
+                            <tr>
+                                <td/>
+                            </tr>
+
+                            <!--
+                            <t t-if="doc.payment_mode_id.note!='auf Rechnung'">
+                              <t t-if="doc.payment_mode_id.note!='Vorkasse' and doc.type != 'out_refund'">
+                                <t t-if="doc.payment_mode_id.paypal_plus_type!='paypal_plus_invoice'">
+                                <tr>
+                                  <td colspan="2">
+                                    Zahlung bereits<t t-if="doc.payment_dates"> am <span t-field="doc.payment_dates"/></t> erhalten
+                                    <br/>
+                                  </td>
+                                </tr>
+                                  </t>
+                              </t>
+                            </t>
+                            -->
+                            <t t-if="doc.partner_id.country_id">
+                                <t t-if="doc.partner_id.country_id.code == 'CH'">
+                                    <tr/>
+                                    <tr/>
+                                    <tr style="font-weight: 200; border:0">
+                                        <td colspan="5" style="border:0">
+                                            <table style="border: none">
+                                                <tr style="border: none">
+                                                    <td style="width:40%"/>
+                                                    <td style="width:60%"/>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <br/>
+                                                        <span>Zoll- / EORI- Nummer GRIMM Gastronomiebedarf GmbH:
+                                                            DE5877156
+                                                        </span>
+                                                        <br/>
+                                                        <span>Der Ausführer der Waren, auf die sich dieses
+                                                            Handelspapier bezieht, erklärt, daß
+                                                            diese Waren, soweit nicht anders angegeben,
+                                                            präferenzgegünstigte EEC (EU) -
+                                                            Ursprungserwaren sind.
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-bottom: 1px solid black">
+                                                        <br/>
+                                                        <br/>
+                                                    </td>
+                                                    <td/>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Ort, Datum</span>
+                                                    </td>
+                                                    <td/>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-bottom: 1px solid black">
+                                                        <br/>
+                                                        <br/>
+                                                    </td>
+                                                    <td/>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Unterschrift und Stempel</span>
+                                                    </td>
+                                                    <td/>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-bottom: 1px solid black">
+                                                        <br/>
+                                                        <br/>
+                                                    </td>
+                                                    <td/>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <span>Name des Unterzeichnenden in Druckschrift</span>
+                                                    </td>
+                                                    <td/>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_invoice_grimm">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="grimm_reports.report_invoice_document_grimm" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+        <template id="report_invoice_grimm_first">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-if="doc.grimm_followup_level_id">
+                        <t t-set="doc_title" t-value="doc.grimm_followup_level_id.report_title"/>
+                    </t>
+                    <t t-call="grimm_reports.report_invoice_document_grimm" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

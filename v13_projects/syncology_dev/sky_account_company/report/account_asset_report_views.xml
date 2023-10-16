@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- base_accounting_kit Inherit Form view of Assets Analysis-->
+    <record id="inherit_view_asset_asset_report_search" model="ir.ui.view">
+        <field name="name">inherit.asset.asset.report.search</field>
+        <field name="model">asset.asset.report</field>
+        <field name="inherit_id" ref="base_accounting_kit.view_asset_asset_report_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+            <xpath expr="//search/group[2]/filter[@name='company']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+    <t t-name="iframe_image_360">
+        <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+            <ul class="carousel-indicators">
+                <t t-set="pos" t-value="0"></t>
+                <t t-foreach="image_server" t-as="i">
+                    <t t-if="pos == 0">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    </t>
+                    <t t-else="">
+                        <li data-target="#myCarousel" t-att-data-slide-to="pos"></li>
+                    </t>
+                    <t t-set="pos" t-value="pos + 1"></t>
+                </t>
+            </ul>
+
+            <div class="carousel-inner">
+                <t t-set="position" t-value="0"></t>
+                <t t-foreach="image_server" t-as="j">
+                    <t t-set="setactive" t-value="'carousel-item'"></t>
+                    <t t-if="position == 0">
+                        <t t-set="setactive" t-value="'carousel-item active'"></t>
+                    </t>
+                    <div t-att-class="setactive" style="margin: 10%;">
+                        <iframe t-att-src="j" marginwidth="0" marginheight="0" frameborder="no"
+                                    style="height: 600px; width: 100%; border-width:0px;"></iframe>
+                    </div>
+                    <t t-set="position" t-value="position + 1"></t>
+                </t>
+            </div>
+
+            <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+                <i class="fa fa-arrow-left fa-5x text-muted"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+                <span class="fa fa-arrow-right fa-5x text-muted"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </t>
+
+    <t t-extend="FieldBinaryImage-img">
+        <t t-jquery="img" t-operation="after">
+            <table>
+                <tbody>
+                    <tr>
+                        <t t-if="image==1">
+                            <td><img class="img img-responsive" border="1" style="width: 28px;"
+                             src="/grimm_ui/static/src/img/standard.png"/></td>
+                            <td><span><![CDATA[&nbsp;&nbsp;]]></span></td>
+                        </t>
+                        <t t-if="img_360==1">
+                            <td><img class="img img-responsive" border="1" style="width: 28px;"
+                             src="/grimm_ui/static/src/img/grimm_360.png"/></td>
+                        </t>
+                    </tr>
+                </tbody>
+            </table>
+        </t>
+    </t>
+</templates>

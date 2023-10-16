@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_gteg_product_code","GTEG Product Code public Access","model_gteg_product_code","",1,1,1,1
+"access_gteg_payment_import","GTEG Payment Import public Access","model_gteg_payment_import","",1,1,1,1
+"access_gteg_invoice_import","GTEG Invoice Import public Access","model_gteg_invoice_import","",1,1,1,1

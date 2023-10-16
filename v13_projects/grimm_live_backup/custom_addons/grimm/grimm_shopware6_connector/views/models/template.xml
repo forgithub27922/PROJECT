@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+      <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="grimm_custom_product_template_list">
+            <field name="name">Custom Products Template</field>
+            <field name="model">grimm_custom_product.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="technical_name"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_grimm_custom_products" model="ir.actions.act_window">
+            <field name="name">Custom Product Templates</field>
+            <field name="res_model">grimm_custom_product.template</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="grimm_custom_product_template_list"/>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_custom_product_template_form_view">
+            <field name="name">grimm_custom_product.template.form.view</field>
+            <field name="model">grimm_custom_product.template</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Record">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="active"/>
+                            <!--<field name="image" widget="image" style="box-shadow: rgba(0,0,0,0.8) 0 0 10px; width:200px;"/>
+                            <field name="step_by_step_mode"/>-->
+                            <field name="options_auto_collapse"/>
+                            <!--<field name="need_confirmation"/>-->
+                            <field name="technical_name"/>
+                            <field name="description"/>
+                        </group>
+                        <h2>Optionen</h2>
+                        <field name="option_ids" />
+                        <notebook>
+                            <page name="shopware6_binding" string="Shopware6 Bindings">
+                                <button name="export_to_shopware6" type="object" class="oe_highlight" string="Export Record" attrs="{'invisible': [('is_shopware6_exported', '=', True)]}"/>
+                                <field name="is_shopware6_exported" invisible="1"/>
+                                <group>
+                                    <field name="shopware6_bind_ids" nolabel="1" colspan="4">
+                                        <tree>
+                                            <field name="backend_id"/>
+                                            <field name="shopware6_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

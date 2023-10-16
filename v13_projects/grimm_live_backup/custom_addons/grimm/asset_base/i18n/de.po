@@ -1,0 +1,983 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* asset_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-25 15:52+0000\n"
+"PO-Revision-Date: 2017-01-26 21:46+0100\n"
+"Last-Translator: Ronald Hanke <ronald.hanke@openfellas.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.9\n"
+
+#. module: asset_base
+#: selection:grimm.asset.asset,condition:0
+msgid "1 Star"
+msgstr "1 Sterne"
+
+#. module: asset_base
+#: selection:grimm.asset.asset,condition:0
+msgid "2 Star"
+msgstr "2 Sterne"
+
+#. module: asset_base
+#: selection:grimm.asset.asset,condition:0
+msgid "3 Star"
+msgstr "3 Sterne"
+
+#. module: asset_base
+#: selection:grimm.asset.asset,condition:0
+msgid "4 Star"
+msgstr "4 Sterne"
+
+#. module: asset_base
+#: selection:grimm.asset.asset,condition:0
+msgid "5 Star"
+msgstr "5 Sterne"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_res_partner_form_assets
+msgid "<span class=\"o_stat_text\">Assets</span>"
+msgstr "<span class=\"o_stat_text\">Geräte</span>"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_active_model_name
+msgid "Active model"
+msgstr "Aktives Modell"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_default_code
+msgid "Article Number"
+msgstr "Artikelnummer"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_asset
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_asset_id
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+msgid "Asset"
+msgstr "Gerät"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+msgid "Asset Attachments"
+msgstr "Geräte Anlagen"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_category
+msgid "Asset Category"
+msgstr "Geräte Kategorie"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnection_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnectionspec_name
+msgid "Asset Connection"
+msgstr "Geräteanbindung"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_facility
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_asset_facility_id
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_search
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_facility_form
+msgid "Asset Facility"
+msgstr "Gerät Gebäude"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_group
+msgid "Asset Group"
+msgstr "Gerätegruppe"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_library
+msgid "Asset Library"
+msgstr "Geräte Bibliothek"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_owner
+msgid "Asset Owner"
+msgstr "Gerätebesitzer"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetpower_name
+msgid "Asset Power"
+msgstr "Geräteleistung"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_qualification
+msgid "Asset Qualification"
+msgstr "Gerätezustand"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_tag
+msgid "Asset Tag"
+msgstr "Geräte Tag"
+
+#. module: asset_base
+#: code:addons/asset_base/models/asset_facility.py:68
+#: model:ir.actions.act_window,name:asset_base.action_assets_tree
+#: model:ir.actions.act_window,name:asset_base.action_grimm_asset_asset_tree
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_asset_ids
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_asset_ids_count
+#: model:ir.ui.menu,name:asset_base.menu_action_grimm_asset_asset
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_tree
+#, python-format
+msgid "Assets"
+msgstr "Geräte"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_facility_tree
+msgid "Assets facilities"
+msgstr "Geräte Gebäude"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_attachment_ids
+msgid "Attachments"
+msgstr "Dateianhänge"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_brand
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_brand_id
+#: model:ir.model.fields,field_description:asset_base.field_product_product_product_brand_id
+#: model:ir.model.fields,field_description:asset_base.field_product_template_product_brand_id
+msgid "Brand"
+msgstr "Marke"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_change_partners_wizard
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_category_ids
+msgid "Categories"
+msgstr "Kategorien"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+msgid "Change Owner"
+msgstr "Adresse ändern"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_facility_form
+msgid "Change Partners"
+msgstr "Besitzer ändern"
+
+#. module: asset_base
+#: model:ir.actions.act_window,name:asset_base.action_change_partners_wizard
+msgid "Change Partners Wizard"
+msgstr "Assistent: Besitzer ändern"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_change_asset_ownership
+#: model:ir.model,name:asset_base.model_change_asset_ownership_wizard
+msgid "Change asset ownership wizard"
+msgstr "Gerätebesitzer ändern"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_change_partners_wizard
+msgid "Change partners wizard"
+msgstr "Assistent: Besitzer ändern"
+
+#. module: asset_base
+#: model:ir.actions.act_window,help:asset_base.action_grimm_asset_asset_tree
+msgid "Click to create a new asset."
+msgstr "Klicken Sie hier, um ein neues Gerät anzulegen."
+
+#. module: asset_base
+#: model:ir.actions.act_window,help:asset_base.action_grimm_asset_facility_tree
+msgid "Click to create a new object address."
+msgstr "Klicken um eine neue Object Adresse anzulegen."
+
+#. module: asset_base
+#: model:ir.actions.act_window,help:asset_base.spareparts_product_action
+msgid "Click to define a new Spare Parts."
+msgstr "Klicken Sie hier, um neue Ersatzteile anzulegen."
+
+#. module: asset_base
+#: model:ir.actions.act_window,help:asset_base.tools_product_action
+msgid "Click to define a new Tool."
+msgstr "Klicken Sie hier, um ein neues Werkzeug anzulegen."
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag_color
+msgid "Color Index"
+msgstr "Farbkennzeichnung"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_condition
+msgid "Condition"
+msgstr "Zustand"
+
+#. module: asset_base
+#: model:ir.ui.menu,name:asset_base.menu_grimm_config
+msgid "Configuration"
+msgstr "Einstellungen"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_change_partners_wizard
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_connection
+msgid "Connection"
+msgstr "Anschlussmedium"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_partner_contact
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_contact
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_partner_contact
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_category_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_type_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetbuilding_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnection_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnectionspec_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetfloor_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetpower_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetroom_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_create_uid
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_create_uid
+msgid "Created by"
+msgstr "Angelegt von"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_category_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_type_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetbuilding_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnection_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnectionspec_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetfloor_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetpower_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetroom_create_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_create_date
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_create_date
+msgid "Creation Date"
+msgstr "Erzeugt am"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_customer_inventory_no
+msgid "Customer Inventory No"
+msgstr "Inventarnummer Kunde"
+
+#. module: asset_base
+#: model:ir.model.fields,help:asset_base.field_grimm_asset_asset_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr "Datum der letzten Nachricht."
+
+#. module: asset_base
+#: model:ir.model.fields,help:asset_base.field_grimm_owner_history_create_date
+msgid "Date on which link is created."
+msgstr "Datum an dem die Verknüpfung angelegt wurde."
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_partner_delivery
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_delivery
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_partner_delivery
+msgid "Delivery"
+msgstr "Lieferung"
+
+#. module: asset_base
+#: model:ir.model.fields,help:asset_base.field_grimm_asset_asset_condition
+msgid "Describes the condition of an asset."
+msgstr "Beschreibt den Zustand eines Gerätes."
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_category_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_type_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetbuilding_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnection_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnectionspec_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetfloor_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetpower_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetroom_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_display_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_display_name
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_hr_employee
+msgid "Employee"
+msgstr "Mitarbeiter"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification_employee_ids
+msgid "Employees"
+msgstr "Personal"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_res_partner_previous_assets_count
+msgid "Ex Assets"
+msgstr "Inaktive Geräte"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_previous_owners_count
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_previous_owners_count
+msgid "Ex Owners"
+msgstr "Vorherige Besitzer"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_exploded_drawing
+msgid "Exploded drawing"
+msgstr "Explosionszeichung"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_facility_id
+msgid "Facility"
+msgstr "Objekt"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+msgid "Features"
+msgstr "Beschreibung"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_follower_ids
+msgid "Followers"
+msgstr "Beobachter"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Beobachter (Kanäle)"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Beobachter (Partner)"
+
+#. module: asset_base
+#: model:ir.ui.menu,name:asset_base.menu_grimm_parent
+msgid "Grimm"
+msgstr "Service"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_search
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_facility_search
+msgid "Group By"
+msgstr "Gruppiere nach"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_height
+msgid "Height"
+msgstr "Höhe"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_category_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_type_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetbuilding_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnection_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnectionspec_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetfloor_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetpower_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetroom_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_id
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_id
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_id
+msgid "ID"
+msgstr "ID"
+
+#. module: asset_base
+#: model:ir.model.fields,help:asset_base.field_grimm_asset_asset_message_unread
+msgid "If checked new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: asset_base
+#: model:ir.model.fields,help:asset_base.field_grimm_asset_asset_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_search
+msgid "Inactive"
+msgstr "Inaktiv"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+msgid "Information"
+msgstr "Garantie"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_internal_cat
+msgid "Internal Category"
+msgstr "Interne Kategorie"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_partner_invoice
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_invoice
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_partner_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_is_follower
+msgid "Is Follower"
+msgstr "Ist Beobachter"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_active
+msgid "Is active?"
+msgstr "Aktiv?"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_last_post
+msgid "Last Message Date"
+msgstr "Letzte Benachrichtigung"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_category___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_type___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetbuilding___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnection___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnectionspec___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetfloor___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetpower___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetroom___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history___last_update
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand___last_update
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_category_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_type_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetbuilding_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnection_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnectionspec_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetfloor_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetpower_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetroom_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_write_uid
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_category_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_type_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetbuilding_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnection_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetconnectionspec_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetfloor_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetpower_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetroom_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_write_date
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_write_date
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_length
+msgid "Length"
+msgstr "Länge"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_location_name
+msgid "Value"
+msgstr "Ort"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_location_value_placement
+msgid "Placement"
+msgstr "Angaben"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_location_concat
+msgid "Location"
+msgstr "Aufstellungsort"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_location_description
+msgid "Location Description"
+msgstr "Aufstellungsort Beschreibung"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_building
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetbuilding_name
+msgid "Location String 1"
+msgstr "Aufstellungsort 1"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_floor
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetfloor_name
+msgid "Location String 2"
+msgstr "Aufstellungsort 2"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_room
+#: model:ir.model.fields,field_description:asset_base.field_grimm_assetroom_name
+msgid "Location String 3"
+msgstr "Aufstellungsort 3"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_lump_sum
+msgid "Lump sum"
+msgstr "Pauschalpreis"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_has_maintenance
+#: model:ir.ui.menu,name:asset_base.menu_grimm_maintenance
+msgid "Maintenance"
+msgstr "Wartung"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_manufacture_date
+msgid "Manufacture Date"
+msgstr "Herstellungsdatum"
+
+#. module: asset_base
+#: model:ir.ui.menu,name:asset_base.menu_grimm_master_data
+msgid "Master Data"
+msgstr "Stammdaten"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_matchcode
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_matchcode
+msgid "Match code"
+msgstr "Match code"
+
+#. module: asset_base
+#: sql_constraint:grimm.asset.library:0
+msgid "Matchcode must be unique !"
+msgstr "Matchcode muss eindeutig sein!"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_ids
+msgid "Messages"
+msgstr "Mitteilungen"
+
+#. module: asset_base
+#: code:addons/asset_base/wizard/change_partners_wizard.py:72
+#, python-format
+msgid "Missing data for active model or active id"
+msgstr "Fehlender Datensatz für das aktive Dokument oder die aktive Datenbank Id"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_model_name
+msgid "Model name"
+msgstr "Modell Name"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_category_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_qualification_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_tag_name
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_name
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_name
+msgid "Name"
+msgstr "Bezeichnung"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: asset_base
+#: model:ir.model.fields,help:asset_base.field_grimm_asset_asset_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: asset_base
+#: model:ir.model.fields,help:asset_base.field_grimm_asset_asset_message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_partner_object
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_object
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_partner_object
+msgid "Object"
+msgstr "Objekt"
+
+#. module: asset_base
+#: model:ir.actions.act_window,name:asset_base.action_grimm_asset_facility_tree
+#: model:ir.ui.menu,name:asset_base.menu_action_grimm_asset_facility
+msgid "Object Address"
+msgstr "Objekt Adresse"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_partner_owner
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_owner
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_facility_partner_owner
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_partner_id
+msgid "Owner"
+msgstr "Besitzer"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_owner_history
+msgid "Owner History"
+msgstr "Besitzer Historie"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_res_partner
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_facility_search
+msgid "Partner"
+msgstr "Partner"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_placing_date
+msgid "Placing Date"
+msgstr "Aufstellungsdatum"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_power
+msgid "Power"
+msgstr "Power"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_product_attachment_ids
+#: model:ir.model.fields,field_description:asset_base.field_product_product_product_attachment_ids
+#: model:ir.model.fields,field_description:asset_base.field_product_template_product_attachment_ids
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_product_template_form_view_inherit
+msgid "Product Attachments"
+msgstr "Artikel Anlagen"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_product_template_form_view_inherit
+msgid "Product Brand"
+msgstr "Produkt Marke"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_product_ids
+msgid "Products"
+msgstr "Produkte"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_hr_employee_qualification_id
+msgid "Qualification id"
+msgstr "Qualtifizierung ID"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_qualification_ids
+msgid "Qualifications"
+msgstr "Qualifizierungen"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_quantity
+msgid "Quantity"
+msgstr "Anzahl"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_owner_history_record_id
+msgid "Record id"
+msgstr "Datensatz Id"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_service_part_product_product_id
+msgid "Related Product"
+msgstr "Verknüpfte Produkte"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_revision
+msgid "Revision"
+msgstr "Revision"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_product_price
+msgid "Sales Price"
+msgstr "Verkaufspreis"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_search
+msgid "Search Assets"
+msgstr "Suche Geräte"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_facility_search
+msgid "Search Object Address"
+msgstr "Suche Objekt Adresse"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_serial_number
+msgid "Serial Number"
+msgstr "Seriennummer"
+
+#. module: asset_base
+#: model:ir.ui.menu,name:asset_base.menu_grimm_service
+msgid "Service"
+msgstr "Service"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_product_product_is_service_part
+#: model:ir.model.fields,field_description:asset_base.field_product_template_is_service_part
+msgid "Service Part"
+msgstr "Wartungsmaterial"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_service_part_product
+msgid "Service Part and Quantity"
+msgstr "Wartungsmaterial und Menge"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_product_product_service_part_ids
+#: model:ir.model.fields,field_description:asset_base.field_product_template_service_part_ids
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_product_template_form_view_inherit
+#: model:ir.ui.view,arch_db:asset_base.view_service_part_product_form
+msgid "Service Parts"
+msgstr "Wartungsmaterial"
+
+#. module: asset_base
+#: model:ir.ui.view,arch_db:asset_base.view_service_part_product_tree
+msgid "Service Parts and Quantities"
+msgstr "Wartungsmaterialien und Mengen"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_product_product_is_spare_part
+#: model:ir.model.fields,field_description:asset_base.field_product_template_is_spare_part
+msgid "Spare Part"
+msgstr "Ersatzteil"
+
+#. module: asset_base
+#: model:ir.actions.act_window,name:asset_base.spareparts_product_action
+#: model:ir.model.fields,field_description:asset_base.field_product_product_spare_part_ids
+#: model:ir.model.fields,field_description:asset_base.field_product_template_spare_part_ids
+#: model:ir.ui.menu,name:asset_base.spareparts_grimm_menu
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_product_template_form_view_inherit
+msgid "Spare Parts"
+msgstr "Ersatzteile"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_spare_parts_ids
+msgid "Spare parts"
+msgstr "Ersatzteile"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_spec
+msgid "Spec"
+msgstr "Spez"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_supplier_ids
+msgid "Suppliers"
+msgstr "Lieferanten"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_tags
+msgid "Tags"
+msgstr "Stichwörter"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_description
+msgid "Technical Features"
+msgstr "Technische Eigenschaften"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_product_product_is_tool
+#: model:ir.model.fields,field_description:asset_base.field_product_template_is_tool
+msgid "Tool"
+msgstr "Werkzeug"
+
+#. module: asset_base
+#: model:ir.actions.act_window,name:asset_base.tools_product_action
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_tools_ids
+#: model:ir.model.fields,field_description:asset_base.field_product_product_tool_ids
+#: model:ir.model.fields,field_description:asset_base.field_product_template_tool_ids
+#: model:ir.ui.menu,name:asset_base.tools_grimm_menu
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_form
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_product_template_form_view_inherit
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#. module: asset_base
+#: model:ir.ui.menu,name:asset_base.menu_grimm_tools_products
+msgid "Tools / Parts"
+msgstr "Material"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_res_partner_total_assets
+msgid "Total assets"
+msgstr "Anzahl der Geräte"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_product_product_service_part_lump_sums
+msgid "Total lump sum"
+msgstr "Pauschale Summe"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_product_id
+msgid "Typ/Model"
+msgstr "Typ/Model"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_type_name
+msgid "Type"
+msgstr "Typ"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_unread
+msgid "Unread Messages"
+msgstr "Ungelesene Mitteilungen"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Zähler der ungelelesen Nachrichten"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_change_partners_wizard_update_children
+msgid "Update Lower Levels"
+msgstr "Aktualisieren verknüpfter Datensätze"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_warranty_type
+#: model:ir.model.fields,field_description:asset_base.field_grimm_product_brand_warranty_type
+#: model:ir.ui.view,arch_db:asset_base.view_grimm_asset_asset_search
+msgid "Warranty Type"
+msgstr "Garantietyp"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_location_name
+msgid "Value"
+msgstr "Ort"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_library_width
+msgid "Width"
+msgstr "Breite"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_survey_id
+msgid "Work Survey"
+msgstr "Arbeitscheckliste"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_tagnames
+msgid "grimm.asset.tag"
+msgstr "grimm.asset.tag"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_asset_type
+msgid "grimm.asset_type"
+msgstr "grimm.asset_type"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_assetbuilding
+msgid "grimm.assetbuilding"
+msgstr "grimm.assetbuilding"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_assetconnection
+msgid "grimm.assetconnection"
+msgstr "grimm.assetconnection"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_assetconnectionspec
+msgid "grimm.assetconnectionspec"
+msgstr "grimm.assetconnectionspec"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_assetfloor
+msgid "grimm.assetfloor"
+msgstr "grimm.assetfloor"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_assetpower
+msgid "grimm.assetpower"
+msgstr "grimm.assetpower"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_assetroom
+msgid "grimm.assetroom"
+msgstr "grimm.assetroom"
+
+#. module: asset_base
+#: model:ir.model,name:asset_base.model_grimm_product_brand
+msgid "grimm.product.brand"
+msgstr "grimm.product.brand"
+
+#. module: asset_base
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_object_city
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_object_street
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_owner_city
+#: model:ir.model.fields,field_description:asset_base.field_grimm_asset_asset_partner_owner_street
+msgid "res.partner"
+msgstr "res.partner"

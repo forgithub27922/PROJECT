@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="import_assets_backend" name="import assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript"
+                    src="/sky_hr_attendance_custom/static/src/js/import_attendance_button_controller.js"></script>
+            <script type="text/javascript" src="/sky_hr_attendance_custom/static/src/js/import_button_view.js"></script>
+        </xpath>
+    </template>
+
+</odoo>

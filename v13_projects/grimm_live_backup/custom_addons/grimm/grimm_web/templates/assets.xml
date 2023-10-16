@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <template id="assets_backend" name="grimm_web_assets" inherit_id="web.assets_backend">
+    <xpath expr="." position="inside">
+      <link rel="stylesheet" href="/grimm_web/static/src/scss/preview.scss"/>
+      <link rel="stylesheet" href="/grimm_web/static/lib/handsontable/handsontable.css"/>
+      <script type="text/javascript" src="/grimm_web/static/lib/PapaParse/papaparse.js"></script>
+      <script type="text/javascript" src="/grimm_web/static/lib/handsontable/handsontable.js"></script>
+      <script type="text/javascript" src="/grimm_web/static/src/js/account_move_doc.js"></script>
+      <script type="text/javascript" src="/grimm_web/static/src/js/document_viewer.js"></script>
+    </xpath>
+  </template>
+</odoo>

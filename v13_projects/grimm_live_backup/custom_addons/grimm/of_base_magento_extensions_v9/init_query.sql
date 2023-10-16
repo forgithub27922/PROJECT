@@ -1,0 +1,2 @@
+ALTER TABLE magento_product_attribute_value DROP CONSTRAINT IF EXISTS magento_product_attribute_value_magento_uniq;
+ALTER TABLE product_attribute_value DROP CONSTRAINT IF EXISTS value_company_uniq;

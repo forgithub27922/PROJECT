@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_delete_student_wizard" model="ir.ui.view">
+			<field name="name">delete.student.wizard</field>
+			<field name="model">delete.student.wizard</field>
+			<field name="arch" type="xml">
+				<form>
+					<group>
+						<field name="academic_student_installment_ids" nolabel="1" domain="[('fee_policy_line_id', '=', active_id), ('fee_status', '=', 'unpaid')]">
+							<tree editable="bottom">
+								<field name="student_id" optional="show" readonly="1"/>
+								<field name="name" optional="show" readonly="1"/>
+								<field name="school_id" optional="show" readonly="1"/>
+								<field name="class_id" string="Grade" optional="show" readonly="1"/>
+								<field name="class_section_id" string="Class" optional="show" readonly="1"/>
+								<field name="national_id" optional="show" readonly="1"/>
+								<field name="gender" optional="show" readonly="1"/>
+								<field name="religion" optional="show" readonly="1"/>
+								<field name="passport_id" readonly="1" />
+								<field name="state" readonly="1" />
+								<field name="birth_date" optional="hide" readonly="1"/>
+								<field name="birth_place" optional="hide" readonly="1"/>
+								<field name="city" optional="hide" readonly="1"/>
+								<field name="address" optional="hide" readonly="1"/>
+								<field name="primary_language" optional="hide" readonly="1"/>
+								<field name="second_language" optional="hide" readonly="1"/>
+								<field name="father_full_name_arabic" optional="hide" readonly="1"/>
+								<field name="father_landline_number" optional="hide" readonly="1"/>
+								<field name="father_land_line_no" optional="hide" readonly="1"/>
+								<field name="father_national_id" optional="hide" readonly="1"/>
+								<field name="mother_full_name_arabic" optional="hide" readonly="1"/>
+								<field name="mother_landline_number" optional="hide" readonly="1"/>
+								<field name="mother_land_line_no" optional="hide" readonly="1"/>
+								<field name="mother_national_id" optional="hide" readonly="1"/>
+								<field name="guardian_full_name_arabic" optional="hide" readonly="1"/>
+								<field name="guardian_landline_number" optional="hide" readonly="1"/>
+								<field name="guardian_land_line_no" optional="hide" readonly="1"/>
+								<field name="guardian_national_id" optional="hide" readonly="1"/>
+							</tree>
+						</field>
+					</group>
+					<footer>
+						<button name="delete_student" type="object" string="Delete Student"
+							class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_delete_student_wizard" model="ir.actions.act_window">
+			<field name="name">Delete Student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">delete.student.wizard</field>
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+
+	</data>
+</odoo>

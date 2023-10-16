@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract support@openfellas.com
+#
+##############################################################################
+-->
+<openerp>
+    <data>
+        <record id="datev_export_view" model="ir.ui.view">
+             <field name="name">Export data to Datev</field>
+             <field name="model">datev.export</field>
+             <field name="type">form</field>
+            <field name="priority" eval="2"/>
+             <field name="arch" type="xml">
+                 
+                <form string="Export" version="7.0">
+                    <field name="state" invisible="1" />
+                    <header attrs="{'invisible' : [('state', '==', 'get')]}">
+                        <button name="do_export_file" string="Export Invoices" class="oe_highlight" type="object" />
+                    </header>
+                    <group string="Save Datev file" attrs="{'invisible' : [('state', '==', 'choose')]}">
+                        <field name="filename"/>
+                        <newline/>
+                        <field name="file" filename="filename"/>
+                    </group>
+                    <group name="response_message" attrs="{'invisible' : [('state', '==', 'choose')]}">
+                        <field name="response_message" nolable="1" />
+                    </group>
+                    <footer >
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+             </field>
+         </record>
+
+        <!--<act_window name="Export to Datev"
+            res_model="datev.export"
+            src_model="account.invoice"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="act_datev_export"/>-->
+
+        <act_window
+           id="act_datev_export"
+           name="Export to Datev"
+           view_mode='form'
+           res_model="datev.export"/>
+
+        <record id="view_datev_export_options" model="ir.ui.view">
+             <field name="name">Export data to Datev</field>
+             <field name="model">datev.export.options</field>
+             <field name="type">form</field>
+             <field name="arch" type="xml">
+                <form string="Export Invoices to Datev file" version="7.0">
+
+                        <button name="do_export_file" string="Export Invoices" states="choose" class="oe_highlight" type="object" />
+
+                    <field name="state" invisible="1" />
+                    <group>
+                        <group attrs="{'invisible' : [('state', '==', 'get')]}">
+                            <!--<field name="company_id"/>-->
+                            <field name='in_invoice'/>
+                            <field name='out_invoice'/>
+                            <field name='in_refund'/>
+                            <field name='out_refund'/>
+                            <field name='date_start'/>
+                            <field name='date_stop'/>
+                        </group>
+                        <group string="Result File" attrs="{'invisible' : [('state', '==', 'choose')]}">
+                            <field name="datev_filename" />
+                            <field name="datev_file" filename="datev_filename" />
+                        </group>
+                    </group>
+                    <group name="response_message" attrs="{'invisible' : [('state', '==', 'choose')]}">
+                        <field name="response_message" nolable="1" />
+                    </group>
+                    <footer>
+                        <button string="Cancel" class="oe_link" special="cancel" />
+                    </footer>
+                </form>
+             </field>
+         </record>
+
+        <record id="action_datev_export_options" model="ir.actions.act_window">
+            <field name="name">Export Invoices to Datev file</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">datev.export.options</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem
+            name="Export Invoices to Datev File"
+            parent="account.menu_finance_entries"
+            action="action_datev_export_options"
+            id="menu_account_datev_export_options_60"
+            sequence="120"
+            icon="STOCK_EXECUTE"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_configuration_form_view_extension" model="ir.ui.view">
+            <field name="name">report.configuration.form.view.inherit</field>
+            <field name="model">sale.layout_category</field>
+            <field name="arch" type="xml">
+                <form string="Report Configuration" modifiers="{}">
+                    <group modifiers="{}">
+                        <field name="cat_name" modifiers="{'required':true}"/>
+                        <field name="name" modifiers="{'required':true}"/>
+                        <field name="big_title" modifiers="{}"/>
+                        <field name="sub_counter" modifiers="{}"/>
+                        <field name="add_to_total" modifiers="{}"/>
+                        <field name="subtotal" widget="checkbox" modifiers="{}"/>
+                        <field name="pagebreak_before" modifiers="{}"/>
+                        <field name="pagebreak" widget="checkbox" modifiers="{}"/>
+                        <field name="sequence" modifiers="{'required':true}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="report_configuration_tree_view_extension" model="ir.ui.view">
+            <field name="name">report.configuration.tree.view.inherit</field>
+            <field name="model">sale.layout_category</field>
+            <field name="arch" type="xml">
+                <tree string="Product Postalcode">
+                    <field name="cat_name" modifiers="{'required':true}"/>
+                    <field name="name" modifiers="{'required':true}"/>
+                    <field name="big_title" modifiers="{}"/>
+                    <field name="sub_counter" modifiers="{}"/>
+                    <field name="add_to_total" modifiers="{}"/>
+                    <field name="subtotal" widget="checkbox" modifiers="{}"/>
+                    <field name="pagebreak_before" modifiers="{}"/>
+                    <field name="pagebreak" widget="checkbox" modifiers="{}"/>
+                    <field name="sequence" modifiers="{'required':true}"/>
+                </tree>
+            </field>
+        </record>
+
+      <record id="action_sale_layout_category" model="ir.actions.act_window">
+            <field name="name">Report Layout Categories</field>
+            <field name="res_model">sale.layout_category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="report_configuration_tree_view_extension"/>
+        </record>
+
+        <menuitem id="sale_layout_category_menu"
+                name="Report Layout Categories"
+                parent="sale.menu_sales_config"
+                sequence="40"
+                action="action_sale_layout_category"/>
+    </data>
+</odoo>

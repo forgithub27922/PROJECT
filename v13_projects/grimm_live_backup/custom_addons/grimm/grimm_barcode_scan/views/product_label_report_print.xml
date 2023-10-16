@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+    <template id="product_label_print_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="grimm_tools.print_label_layout">
+                    <div class="page">
+                        <br/>
+                        <table style="width:100%;margin-left:-25px;font-size:20px;margin-top:1px;">
+                            <tr><td><center style="font-size:22px;"><b><span t-field="doc.default_code"/></b></center></td></tr>
+                            <tr><td><center style="font-size:24px;padding-bottom: 2px;"><b><span t-field="doc.name"/></b></center></td></tr>
+                            <tr>
+                                <td>
+<!--                                    <br/>-->
+                                    <center>
+                                        <span t-if="doc.barcode">
+                                            <img t-if="doc.barcode" t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', doc.barcode)"/>
+                                            <br/>
+                                            <span style="font-size:10px;" t-field="doc.barcode"/>
+                                        </span>
+                                        <span t-if="not doc.barcode">
+                                            <img t-if="doc.default_code" t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', doc.default_code)"/>
+                                            <br/>
+                                            <span t-if="doc.default_code" style="font-size:10px;" t-field="doc.default_code"/>
+                                        </span>
+                                    </center>
+                                </td>
+                            </tr>
+                            <!--<tr><td><br/><center><span t-field="doc.company_id.name"/></center></td></tr>-->
+                        </table>
+                        <p style="page-break-after:always;"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+   <report
+        id="product_label_print_report"
+        model="product.product"
+        string="Grimm Product Label"
+        report_type="qweb-pdf"
+        name="grimm_barcode_scan.product_label_print_template"
+        file="grimm_barcode_scan.product_label_print_template"
+        menu="False"
+    />
+    </data>
+
+</odoo>

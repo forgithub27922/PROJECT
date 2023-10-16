@@ -1,0 +1,588 @@
+<odoo>
+    <!-- Form view of Time Tracking -->
+    <record id="view_time_tracking_form" model="ir.ui.view">
+        <field name="name">view.time.tracking.form</field>
+        <field name="model">time.tracking</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="%(sky_hr_time_tracking.action_working_schedule)d" type="action" states="open"
+                            string="Change Working Schedule"/>
+                    <button name="open_tacking" string="Open" type="object" states="draft"/>
+                    <button name="close_tacking" string="Close" type="object" states="open"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                    <h1>
+                        <field name="name" required="1" colspan="4"
+                               attrs="{'readonly': [('state', 'in', ('open', 'close'))]}"/>
+                    </h1>
+                    <group name="grp_mn" colspan="4" col="4">
+                        <field name="employee_id" required="1" coslpan="4"
+                               attrs="{'readonly': [('state', 'in', ('open', 'close'))]}"/>
+                        <field name="schedule_id" required="1" coslapn="4"
+                               attrs="{'readonly': [('state', 'in', ('open', 'close'))]}"/>
+                        <field name="parent_id" invisible="1"/>
+                        <field name="department_id" invisible="1"/>
+                        <field name="job_id" invisible="1"/>
+                        <field name="month" required="1" attrs="{'readonly': [('state', 'in', ('open', 'close'))]}"/>
+                        <field name="year" required="1" attrs="{'readonly': [('state', 'in', ('open', 'close'))]}"/>
+                    </group>
+                    <group name="grp_dt" colspan="4" col="4">
+                        <field name="start_date" readonly="1" force_save="1"/>
+                        <field name="end_date" readonly="1" force_save="1"/>
+                    </group>
+                    <notebook>
+                        <page name="pg_lines" string="Tracking Lines">
+                            <field name="tracking_line_ids" readonly="1"/>
+                        </page>
+                        <page name="pg_notes" string="Notes">
+                            <field name="notes" attrs="{'readonly': [('state', 'in', ('open','close'))]}"/>
+                        </page>
+                    </notebook>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Time Tracking -->
+    <record id="view_time_tracking_tree" model="ir.ui.view">
+        <field name="name">view.time.tracking.tree</field>
+        <field name="model">time.tracking</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="employee_arabic_name"/>
+                <field name="schedule_id"/>
+                <field name="month_year"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Time Tracking -->
+    <record id="view_time_tracking_search" model="ir.ui.view">
+        <field name="name">view.time.tracking.search</field>
+        <field name="model">time.tracking</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="schedule_id"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="month_year"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="state"/>
+                <filter name="fil_open_tracking" string="Open Tracking" domain="[('state','=','open')]"/>
+                <filter name="fil_close_tracking" string="Close Tracking" domain="[('state','=','close')]"/>
+                <filter name="grp_by_emp" string="Employee" domain="[]" context="{'group_by':'employee_id'}"/>
+                <filter name="grp_by_month" string="Month" domain="[]" context="{'group_by':'month'}"/>
+                <filter name="grp_by_year" string="Year" domain="[]" context="{'group_by':'year'}"/>
+                <filter name="grp_by_month_year" string="Month-Year" domain="[]" context="{'group_by':'month_year'}"/>
+                <filter name="grp_by_state" string="State" domain="[]" context="{'group_by':'state'}"/>
+                <filter name="grp_by_batch" string="Batch" domain="[]" context="{'group_by':'tracking_batch_id'}"/>
+                <filter name="grp_manager" string="Manager" context="{'group_by':'parent_id'}"/>
+                <filter name="grp_department" string="Department" context="{'group_by':'department_id'}"/>
+                <filter name="grp_job" string="Job" context="{'group_by':'job_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Time Tracking -->
+    <record id="action_time_tracking" model="ir.actions.act_window">
+        <field name="name">Time Tracking</field>
+        <field name="res_model">time.tracking</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus of Time Tracking -->
+    <menuitem id="menu_time_tracking_main"
+              name="Time Tracking"
+              groups="sky_hr_custom.grp_no_menu"/>
+    <menuitem id="menu_time_tracking_sub"
+              name="Tracking"
+              parent="menu_time_tracking_main"
+              sequence="1"
+              groups="base.group_user"/>
+    <menuitem id="menu_time_tracking_reporting"
+              name="Reporting"
+              parent="menu_time_tracking_main"
+              sequence="2"
+              groups="sky_hr_time_tracking.group_time_tracking_manager"/>
+    <menuitem id="menu_time_tracking_config"
+              name="Configuration"
+              parent="menu_time_tracking_main"
+              sequence="3"
+              groups="sky_hr_time_tracking.group_time_tracking_manager"/>
+
+    <!-- Menu of Employee Time Tracking -->
+    <menuitem id="menu_time_tracking"
+              action="action_time_tracking"
+              parent="menu_time_tracking_sub"
+              sequence="3"
+              groups="sky_hr_time_tracking.group_time_tracking_user,sky_hr_time_tracking.group_time_tracking_manager"/>
+
+
+    <!-- Menu of Time Tracking Lines -->
+    <menuitem id="menu_time_tracking"
+              action="action_time_tracking"
+              parent="sky_hr_attendance_custom.menu_hr_attendance_main"
+              sequence="3"
+              groups="sky_hr_time_tracking.group_time_tracking_user,sky_hr_time_tracking.group_time_tracking_manager"/>
+
+    <!-- Menu of Work Schedules -->
+    <menuitem id="menu_work_schedule"
+              name="Work Schedules"
+              action="resource.action_resource_calendar_form"
+              parent="menu_time_tracking_config"
+              sequence="4"
+              groups="sky_hr_time_tracking.group_time_tracking_manager"/>
+
+    <!-- Form view of Tracking Lines -->
+    <record id="view_time_tracking_line_form" model="ir.ui.view">
+        <field name="name">view.time.tracking.line.form</field>
+        <field name="model">time.tracking.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <widget name="web_ribbon" title="Locked" bg_color="bg-danger"
+                            attrs="{'invisible':[('lock','!=',True)]}"/>
+                    <group name="grp_main" colspan="4" col="6">
+                        <field name="date"/>
+                        <field name="day"/>
+                        <br/>
+                        <field name="planned_start_time" widget="float_time"/>
+                        <field name="actual_start_time" widget="float_time"/>
+                        <field name="diff_start_time" widget="float_time"/>
+                        <field name="planned_end_time" widget="float_time"/>
+                        <field name="actual_end_time" widget="float_time"/>
+                        <field name="diff_end_time" widget="float_time"/>
+                        <field name="planned_hours" widget="float_time"/>
+                        <field name="actual_hours" widget="float_time"/>
+                        <field name="diff_working_hours" widget="float_time"/>
+                        <field name="planned_break_hours" widget="float_time"/>
+                        <field name="actual_break_hours" widget="float_time"/>
+                        <field name="diff_break_hours" widget="float_time"/>
+                        <field name="name"/>
+                        <field name="exception_hours" widget="float_time" invisible="1"/>
+                        <field name="lock" invisible="1"/>
+
+                    </group>
+                    <notebook>
+                        <page name="pg_attendance" string="Attendances">
+                            <field name="attendance_ids"/>
+                        </page>
+                        <page name="pg_exceptions" string="Exceptions" invisible="1">
+                            <field name="exception_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Tracking Lines -->
+    <record id="view_time_tracking_line_tree" model="ir.ui.view">
+        <field name="name">view.time.tracking.line.tree</field>
+        <field name="model">time.tracking.line</field>
+        <field name="arch" type="xml">
+            <tree decoration-warning="week_off == True" decoration-danger="diff_working_hours > 0.0">
+                <field name="week_off" invisible="1"/>
+                <field name="date"/>
+                <field name="day"/>
+                <field name="planned_start_time" widget="float_time"/>
+                <field name="planned_end_time" widget="float_time"/>
+                <field name="actual_start_time" widget="float_time"/>
+                <field name="actual_end_time" widget="float_time"/>
+                <field name="diff_start_time" widget="float_time"/>
+                <field name="diff_end_time" widget="float_time"/>
+                <field name="planned_hours" widget="float_time"/>
+                <field name="actual_hours" widget="float_time"/>
+                <field name="diff_working_hours" widget="float_time"/>
+                <field name="overtime_hours" widget="float_time"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Form view of Tracking Lines Main-->
+    <record id="view_time_tracking_line_form_main" model="ir.ui.view">
+        <field name="name">view.time.tracking.line.form.main</field>
+        <field name="model">time.tracking.line</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <sheet>
+                    <widget name="web_ribbon" title="Locked" bg_color="bg-danger"
+                            attrs="{'invisible':[('lock','!=',True)]}"/>
+                    <field name="lock" invisible="1"/>
+                    <group name="grp_main" colspan="4" col="6">
+                        <field name="employee_id"/>
+                        <field name="date"/>
+                        <field name="day"/>
+                        <br/>
+                        <field name="planned_start_time" widget="float_time"/>
+                        <field name="actual_start_time" widget="float_time"/>
+                        <field name="diff_start_time" widget="float_time"/>
+                        <field name="planned_end_time" widget="float_time"/>
+                        <field name="actual_end_time" widget="float_time"/>
+                        <field name="diff_end_time" widget="float_time"/>
+                        <field name="planned_hours" widget="float_time"/>
+                        <field name="actual_hours" widget="float_time"/>
+                        <field name="diff_working_hours" widget="float_time"/>
+                        <field name="planned_break_hours" widget="float_time"/>
+                        <field name="actual_break_hours" widget="float_time"/>
+                        <field name="diff_break_hours" widget="float_time"/>
+                        <field name="exception_hours" widget="float_time"/>
+                        <field name="name"/>
+                    </group>
+                    <notebook>
+                        <page name="pg_attendance" string="Attendances">
+                            <field name="attendance_ids"/>
+                        </page>
+                        <page name="pg_exceptions" string="Exceptions" invisible="1">
+                            <field name="exception_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Tree view of Tracking Lines -->
+    <record id="view_time_tracking_line_tree_main" model="ir.ui.view">
+        <field name="name">view.time.tracking.line.tree.main</field>
+        <field name="model">time.tracking.line</field>
+        <field name="arch" type="xml">
+            <tree decoration-warning="week_off == True" decoration-danger="diff_working_hours > 0.0" create="0" edit="0" delete="0">
+                <field name="employee_id"/>
+                <field name="week_off" invisible="1"/>
+                <field name="date"/>
+                <field name="day"/>
+                <field name="planned_start_time" widget="float_time"/>
+                <field name="planned_end_time" widget="float_time"/>
+                <field name="actual_start_time" widget="float_time"/>
+                <field name="actual_end_time" widget="float_time"/>
+                <field name="diff_start_time" widget="float_time"/>
+                <field name="diff_end_time" widget="float_time"/>
+                <field name="planned_hours" widget="float_time"/>
+                <field name="actual_hours" widget="float_time"/>
+                <field name="diff_working_hours" widget="float_time"/>
+                <field name="overtime_hours" widget="float_time"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Search view of Tracking Lines -->
+    <record id="view_time_tracking_line_search" model="ir.ui.view">
+        <field name="name">view.time.tracking.line.search</field>
+        <field name="model">time.tracking.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="date"/>
+                <field name="day"/>
+                <field name="employee_id"/>
+                <filter name="today_tracking" string="Today" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                <filter name="current_month_tracking" string="Current Month" domain="[
+                    ('date', '&gt;=', (context_today()).strftime('%Y-%m-01')),
+                    ('date', '&lt;', (context_today() + relativedelta(months=1)).strftime('%Y-%m-01'))]"/>
+                <filter name="grp_by_emp" string="Employee" context="{'group_by':'employee_id'}"/>
+                <filter name="grp_by_date" string="Date" context="{'group_by':'date'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Tracking Lines -->
+    <record id="action_time_tracking_lines" model="ir.actions.act_window">
+        <field name="name">Tracking Lines</field>
+        <field name="res_model">time.tracking.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'form_view_ref':'sky_hr_time_tracking.view_time_tracking_line_form_main',
+            'tree_view_ref':'sky_hr_time_tracking.view_time_tracking_line_tree_main'}</field>
+    </record>
+
+    <!-- Menu of Time Tracking Lines -->
+    <menuitem id="menu_time_tracking_lines"
+              action="action_time_tracking_lines"
+              parent="sky_hr_attendance_custom.menu_hr_attendance_main"
+              sequence="2"
+              groups="sky_hr_time_tracking.group_time_tracking_user,sky_hr_time_tracking.group_time_tracking_manager"/>
+
+    <!-- Inherited Tree view of Work Schedule Attendance-->
+    <record id="view_resource_calendar_attendance_tree_time_tracking_inherit" model="ir.ui.view">
+        <field name="name">resource.calendar.attendance.tree</field>
+        <field name="model">resource.calendar.attendance</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_attendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='hour_to']" position="after">
+                <field name="break_hours" widget="float_time"/>
+                <field name="total_hours" widget="float_time"/>
+                <field name="working_hours" widget="float_time"/>
+            </xpath>
+            <xpath expr="//field[@name='date_from']" position="replace"/>
+            <xpath expr="//field[@name='date_to']" position="replace"/>
+            <xpath expr="//field[@name='week_type']" position="replace"/>
+        </field>
+    </record>
+
+    <!-- Inherited Form view of Work Schedule Attendance-->
+    <record id="view_resource_calendar_attendance_form_time_tracking_inherit" model="ir.ui.view">
+        <field name="name">resource.calendar.attendance.form</field>
+        <field name="model">resource.calendar.attendance</field>
+        <field name="inherit_id" ref="resource.view_resource_calendar_attendance_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='day_period']" position="before">
+                <field name="break_hours" widget="float_time"/>
+                <field name="total_hours" widget="float_time"/>
+                <field name="working_hours" widget="float_time"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited Form view of Work Schedule -->
+    <record id="resource_calendar_form" model="ir.ui.view">
+        <field name="name">resource.calendar.form</field>
+        <field name="model">resource.calendar</field>
+        <field name="inherit_id" ref="resource.resource_calendar_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='global_leaves']" position="replace">
+                <page name="pg_weekoffs" string="Week Offs">
+                    <field name="week_off_ids"/>
+                </page>
+            </xpath>
+            <xpath expr="//button[@name=%(resource.resource_calendar_leaves_action_from_calendar)d]" position="replace"/>
+            <xpath expr="//button[@name='%(resource.resource_resource_action_from_calendar)d']" position="attributes">
+                <attribute name="string">Employees</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='working_hours']/button[@name='switch_calendar_type']" position="replace"/>
+        </field>
+    </record>
+
+    <!-- Form view of Work Schedule Week Offs -->
+    <record id="view_resource_calendar_weekoff_form" model="ir.ui.view">
+        <field name="name">view.resource.calendar.weekoff.form</field>
+        <field name="model">resource.calendar.weekoff</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="grp_main" colspan="4" col="4">
+                        <field name="week_day" required="1"/>
+                        <field name="week_1"/>
+                        <field name="week_2"/>
+                        <field name="week_3"/>
+                        <field name="week_4"/>
+                        <field name="week_5"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Work Schedule Week Offs -->
+    <record id="view_resource_calendar_weekoff_tree" model="ir.ui.view">
+        <field name="name">view.resource.calendar.weekoff.tree</field>
+        <field name="model">resource.calendar.weekoff</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="week_day" required="1"/>
+                <field name="week_1"/>
+                <field name="week_2"/>
+                <field name="week_3"/>
+                <field name="week_4"/>
+                <field name="week_5"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form view of Tracking Batch -->
+    <record id="view_time_tracking_batch_form" model="ir.ui.view">
+        <field name="name">view.time.tracking.form</field>
+        <field name="model">time.tracking.batch</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="generate_batch_tracking" string="Generate Tracking" type="object" states="draft"/>
+                    <button name="reset_batch" string="Reset" type="object" states="in_progress,done"/>
+                    <button name="compute_batch" string="Compute" type="object" states="in_progress"/>
+                    <button name="complete_batch" string="Complete" type="object" states="in_progress"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <h1><field name="name" required="1"/></h1>
+                    <group name="grp_main" colspan="4" col="4">
+                        <field name="month" required="1"/>
+                        <field name="year" required="1"/>
+                        <field name="company_id" required="1"/>
+                    </group>
+                    <notebook>
+                        <page name="pg_dept" string="Departments">
+                            <field name="department_ids"/>
+                        </page>
+                        <page name="pg_emp" string="Employees">
+                            <field name="employee_ids"/>
+                        </page>
+                        <page name="pg_tracking" string="Tracking">
+                            <field name="tracking_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Tracking Batch -->
+    <record id="view_time_tracking_batch_tree" model="ir.ui.view">
+        <field name="name">view.time.tracking.batch.tree</field>
+        <field name="model">time.tracking.batch</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state=='draft'" decoration-success="state=='in_progress'" decoration-muted="state=='done'">
+                <field name="name"/>
+                <field name="month_year"/>
+                <field name="company_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Tracking Batch -->
+    <record id="view_time_tracking_batch_search" model="ir.ui.view">
+        <field name="name">view.time.tracking.batch.search</field>
+        <field name="model">time.tracking.batch</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="month"/>
+                <field name="year"/>
+                <field name="month_year"/>
+                <field name="state"/>
+                <field name="company_id"/>
+                <field name="department_ids"/>
+                <field name="employee_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Tracking Batch -->
+    <record id="action_time_tracking_batch" model="ir.actions.act_window">
+        <field name="name">Time Tracking Batches</field>
+        <field name="res_model">time.tracking.batch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu of Time Tracking Batch -->
+    <menuitem id="menu_time_tracking_batch"
+              action="action_time_tracking_batch"
+              parent="menu_time_tracking_sub"
+              sequence="4"
+              groups="sky_hr_time_tracking.group_time_tracking_user,sky_hr_time_tracking.group_time_tracking_manager"/>
+
+    <!-- Form view of Time Exception -->
+    <record id="view_time_exception_form" model="ir.ui.view">
+        <field name="name">view.time.exception.form</field>
+        <field name="model">hr.time.exception</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="confirm_exception" string="Apply" type="object"
+                            groups="base.group_user"
+                            states="draft"/>
+                    <button name="validate_exception" string="Validate" type="object"
+                            groups="sky_hr_time_tracking.group_time_tracking_user"
+                            states="confirmed"/>
+                    <button name="approve_exception" string="Approve" type="object"
+                            groups="sky_hr_time_tracking.group_time_tracking_manager"
+                            states="validated"/>
+                    <button name="reject_exception" string="Reject" type="object"
+                            groups="sky_hr_time_tracking.group_time_tracking_user,sky_hr_time_tracking.group_time_tracking_manager"
+                            states="confirmed,validated"/>
+                    <button name="cancel_exception" string="Cancel" type="object"
+                            groups="base.group_user"
+                            states="draft,confirmed"/>
+                    <button name="draft_exception" string="Set to Draft" type="object"
+                            groups="base.group_user"
+                            states="canceled"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group name="grp_main" colspan="4" col="4">
+                        <field name="employee_id" required="1"/>
+                        <field name="date" required="1"/>
+                        <field name="name" required="1" colspan="4"/>
+                        <field name="start_time" required="1" widget="float_time"/>
+                        <field name="end_time" required="1" widget="float_time"/>
+                        <field name="duration" widget="float_time"/>
+                        <field name="company_id"/>
+                    </group>
+                    <notebook>
+                        <page name="pg_notes" string="Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Time Exception -->
+    <record id="view_time_exception_tree" model="ir.ui.view">
+        <field name="name">view.time.exception.tree</field>
+        <field name="model">hr.time.exception</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="name"/>
+                <field name="start_time" widget="float_time"/>
+                <field name="end_time" widget="float_time"/>
+                <field name="duration" widget="float_time"/>
+                <field name="company_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Time Exception -->
+    <record id="view_time_exception_search" model="ir.ui.view">
+        <field name="name">view.time.exception.search</field>
+        <field name="model">hr.time.exception</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="employee_id"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="duration"/>
+                <field name="state"/>
+                <field name="company_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Time Exception -->
+    <record id="action_time_exception" model="ir.actions.act_window">
+        <field name="name">Time Exceptions</field>
+        <field name="res_model">hr.time.exception</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu of Time Exceptions -->
+    <menuitem id="menu_time_exception"
+              action="action_time_exception"
+              parent="menu_time_tracking_sub"
+              groups="base.group_user"/>
+
+    <!-- Giving Access Right of Configuration menu of Human Resource to Time Tracking manager -->
+    <menuitem id="sky_hr_custom.menu_hr_config" name="Configuration" parent="sky_hr_custom.menu_human_resource_main"
+                  groups="sky_hr_time_tracking.group_time_tracking_manager"/>
+
+    <!-- Giving Access Right of working schedules under Configuration menu to Time Tracking manager -->
+    <menuitem id="menu_working_schedule" name="Working Schedules" parent="sky_hr_custom.menu_hr_config"
+                  groups="sky_hr_time_tracking.group_time_tracking_manager"/>
+
+</odoo>

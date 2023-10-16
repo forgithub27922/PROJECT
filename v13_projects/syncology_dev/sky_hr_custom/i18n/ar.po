@@ -1,0 +1,1114 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_hr_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-23 09:33+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sky_hr_custom
+#: code:addons/sky_hr_custom/models/hr_employee.py:0
+#, python-format
+msgid ""
+"An employee with the following National ID/Passport Number '%s' / '%s' "
+"exists."
+msgstr "مسجل مسبقا '%s' / '%s' الرقم القومي/رقم جواز السفر الاتي"
+
+#. module: sky_hr_custom
+#: model:ir.actions.report,print_report_name:sky_hr_custom.action_employee_report_pdf
+msgid "'Employee Report'"
+msgstr "'تقرير الموظف'"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<b>Annual Bonus:</b>"
+msgstr "المكافأة السنوية:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<b>Hourly Rate:</b>"
+msgstr "المعدل بالساعة:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<b>Next Salary Date:</b>"
+msgstr "تاريخ الراتب التالي:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<b>Salary Schedule:</b>"
+msgstr "جدول الراتب:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<b>Salary:</b>"
+msgstr "مرتب:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<b>Starting Date:</b>"
+msgstr "تاريخ البدء:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<b>Timezone:</b>"
+msgstr "وحدة زمنية:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<b>Work Hours:</b>"
+msgstr "ساعات العمل:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<span>Employee Report</span>"
+msgstr "تقرير الموظف"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<span>False</span>"
+msgstr "خطأ شنيع"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "<span>True</span>"
+msgstr "صحيح"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__academic_qualification
+msgid "Academic Qualification"
+msgstr "المؤهل العلمي"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__address_rec
+msgid "Address"
+msgstr "العنوان"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Address:"
+msgstr "العنوان:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__annual_bonus
+msgid "Annual Bonus"
+msgstr "المكافأة السنوية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+msgid "Allowance"
+msgstr "مخصص"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__applicant_id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__applicant_id
+msgid "Applicant"
+msgstr "طالب وظيفة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__barcode
+msgid "Badge ID"
+msgstr "رقم الشارة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Bank Account Number:"
+msgstr "رقم الحساب المصرفي:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__changing_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_job_history_line__changing_date
+msgid "Changing Date"
+msgstr "تاريخ التغيير"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__city_id
+msgid "City"
+msgstr "مدينة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "City:"
+msgstr "مدينة:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__code
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__code
+msgid "Code"
+msgstr "رمز"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__company_id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__company_id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__company_id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__company_id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__company_id
+msgid "Company"
+msgstr "شركة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Company:"
+msgstr "شركة:"
+
+#. module: sky_hr_custom
+#: model:ir.ui.menu,name:sky_hr_custom.menu_hr_config
+msgid "Configuration"
+msgstr "ترتيب"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__contract_date
+msgid "Contract Date"
+msgstr "تاريخ العقد"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Contract Date:"
+msgstr "تاريخ العقد:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__contract_type_id
+msgid "Contract Type"
+msgstr "نوع العقد"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Contract Type:"
+msgstr "نوع العقد:"
+
+#. module: sky_hr_custom
+#: model:ir.actions.act_window,name:sky_hr_custom.action_hr_emp_contract_type
+#: model:ir.model,name:sky_hr_custom.model_hr_employee_contract_type
+#: model:ir.ui.menu,name:sky_hr_custom.menu_hr_emp_contract_type
+msgid "Contract Types"
+msgstr "أنواع العقود"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__contract_job_id
+msgid "Contracting Job"
+msgstr "وظيفة متعاقدة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Contracting Job:"
+msgstr "وظيفة المقاولات:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__create_uid
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__create_uid
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__create_uid
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__create_uid
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__create_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__create_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__create_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__create_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+msgid "Cuts"
+msgstr "التخفيضات"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Date of Birth:"
+msgstr "تاريخ الولادة:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__release_date
+msgid "Date of Release"
+msgstr "تاريخ الإفراج"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Date of Release:"
+msgstr "تاريخ الإفراج:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__social_security_date
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Date of Social Security"
+msgstr "تاريخ الضمان الاجتماعي"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__date_work_certi
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Date of Work Certificate"
+msgstr "شهادة تاريخ العمل"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__status__demotion
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__job_history_line__status__demotion
+msgid "Demotion"
+msgstr "التخفيض"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Department"
+msgstr " قسم، أقسام"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Department:"
+msgstr " قسم، أقسام:"
+
+#. module: sky_hr_custom
+#: model:res.groups,name:sky_hr_custom.grp_discuss
+msgid "Discuss"
+msgstr "مناقشة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__display_name
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__display_name
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__display_name
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__display_name
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__display_name
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__display_name
+#: model:ir.model.fields,field_description:sky_hr_custom.field_report_sky_hr_custom_report_employee__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__marital_status__divorced
+msgid "Divorced"
+msgstr "مطلق"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__general_service_status__done
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__military_status__done
+msgid "Done"
+msgstr "تم"
+
+#. module: sky_hr_custom
+#: model:ir.model,name:sky_hr_custom.model_hr_education
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__education_ids
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Education"
+msgstr "تعليم"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__emp_email
+msgid "Email ID"
+msgstr "الايميل الخاص"
+
+#. module: sky_hr_custom
+#: model:ir.model,name:sky_hr_custom.model_hr_employee
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__employee_id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__employee_id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Employee Image"
+msgstr "صورة الموظف"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Employee Name"
+msgstr "اسم الموظف"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Employee Name(Arabic)"
+msgstr "اسم الموظف (عربي)"
+
+#. module: sky_hr_custom
+#: model:ir.actions.report,name:sky_hr_custom.action_employee_report_pdf
+#: model:ir.model,name:sky_hr_custom.model_report_sky_hr_custom_report_employee
+msgid "Employee Report"
+msgstr "تقرير الموظف"
+
+#. module: sky_hr_custom
+#: model:ir.actions.act_window,name:sky_hr_custom.action_employee_status
+#: model:ir.model,name:sky_hr_custom.model_hr_employee_status
+#: model:ir.ui.menu,name:sky_hr_custom.menu_employee_status
+msgid "Employee Status"
+msgstr "حالة الموظف"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_kanban_view
+msgid "Employee's First Arabic Name"
+msgstr "الاسم الأول للموظف باللغة العربية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_kanban_view
+msgid "Employee's Fourth Arabic Name"
+msgstr "الاسم الرابع للموظف باللغة العربية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_kanban_view
+msgid "Employee's Fourth Name"
+msgstr "الاسم الرابع للموظف"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_kanban_view
+msgid "Employee's Second Arabic Name"
+msgstr "الاسم الثاني للموظف باللغة العربية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_kanban_view
+msgid "Employee's Second Name"
+msgstr "الاسم الثاني للموظف"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_kanban_view
+msgid "Employee's Third Arabic Name"
+msgstr "الاسم العربي الثالث للموظف"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_kanban_view
+msgid "Employee's Third Name"
+msgstr "الاسم الثالث للموظف"
+
+#. module: sky_hr_custom
+#: model:ir.ui.menu,name:sky_hr_custom.menu_hr_emp_custom
+msgid "Employees"
+msgstr "الموظفين"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__name
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Employer Name"
+msgstr "اسم الموظف"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__end_date
+msgid "Graduation Date"
+msgstr "تاريخ التخرج"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__end_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__end_date
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: sky_hr_custom
+#: model:ir.model,name:sky_hr_custom.model_hr_experience
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__experience_ids
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Experience"
+msgstr "خبرة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Family Information"
+msgstr "معلومات العائلة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__fellowship_fund
+msgid "Fellowship Fund"
+msgstr "صندوق الزمالة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__fellowship_cut_value
+msgid "Fellowship Fund cut value"
+msgstr "قيمة خصم صندوق الزمالة"
+
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__gender_rec__female
+msgid "Female"
+msgstr "أنثى"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+msgid "First Name"
+msgstr "الاسم الاول"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__first_name_arabic
+msgid "First Name (Arabic)"
+msgstr "الاسم الاول (عربي)"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "First Name (Arabic):"
+msgstr "الاسم الاول (عربي):"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "First Name :"
+msgstr "الاسم الاول :"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__fourth_name
+msgid "Fourth Name"
+msgstr "الاسم الرابع"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__fourth_name_arabic
+msgid "Fourth Name (Arabic)"
+msgstr "الاسم الرابع (عربي)"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Fourth Name (Arabic):"
+msgstr "الاسم الرابع (عربي):"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Fourth Name :"
+msgstr "الاسم الرابع:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__gender_rec
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Gender:"
+msgstr "الجنس:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__general_service_status
+msgid "General Service Status"
+msgstr "حالة الخدمة العامة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "General Service Status:"
+msgstr "حالة الخدمة العامة:"
+
+#. module: sky_hr_custom
+#: model:ir.model,name:sky_hr_custom.model_hr_department
+msgid "HR Department"
+msgstr "قسم الموارد البشرية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Health Insurance"
+msgstr "تأمين صحي"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__health_insurance_card_number
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Health Insurance Card Number"
+msgstr "رقم بطاقة التأمين الصحي"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__hide_sal
+msgid "Hide Salary"
+msgstr "إخفاء الراتب"
+
+#. module: sky_hr_custom
+#: model:ir.ui.menu,name:sky_hr_custom.menu_human_resource_main
+msgid "Human Resources"
+msgstr "الموارد البشرية"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_report_sky_hr_custom_report_employee__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,help:sky_hr_custom.field_hr_employee__barcode
+msgid "ID used for employee identification."
+msgstr "بطاقة الهوية المستخدمة للتعرف على الموظف."
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__incoming_no
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Incoming Number"
+msgstr "رقم وارد"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__institute
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__institute_name
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Institute"
+msgstr "معهد"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__insurance
+msgid "Insurance"
+msgstr "مؤمن عليه"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Insurance Information"
+msgstr "معلومات التأمين"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__ins_cut_value
+msgid "Insurance cut value"
+msgstr "قيمه خصم التأمين"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__is_confidential
+msgid "Is Confidential"
+msgstr "سري"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+msgid "Job History"
+msgstr "تاريخ العمل"
+
+#. module: sky_hr_custom
+#: model:ir.model,name:sky_hr_custom.model_job_history_line
+msgid "Job History Model"
+msgstr "نموذج التاريخ الوظيفي"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Job Position"
+msgstr "وظيفه"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Job Position:"
+msgstr "وظيفه:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__lms_allowance
+msgid "LMS Allowance"
+msgstr "بدل إل إم إس"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Labour Office"
+msgstr "مكتب العمل"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education____last_update
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type____last_update
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status____last_update
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience____last_update
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training____last_update
+#: model:ir.model.fields,field_description:sky_hr_custom.field_report_sky_hr_custom_report_employee____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__write_uid
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__write_uid
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__write_uid
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__write_uid
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__write_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__write_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__write_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__write_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Leave Balance:"
+msgstr "رصيد الاجازات:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Leave Days:"
+msgstr "أيام الإجازة:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__gender_rec__male
+msgid "Male"
+msgstr "ذكر"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Manager:"
+msgstr "مدير:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__marital_status
+msgid "Marital Status"
+msgstr "الحالة الإجتماعية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Marital Status:"
+msgstr "الحالة الإجتماعية:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__marital_status__married
+msgid "Married"
+msgstr "متزوج"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__medical_check_done
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Medical Check Done?"
+msgstr "الفحص الطبي تم؟"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__military_status
+msgid "Military Status"
+msgstr "الحالة العسكرية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Military Status:"
+msgstr "الحالة العسكرية:"
+
+#. module: sky_hr_custom
+#: model:ir.actions.act_window,name:sky_hr_custom.action_employee_my_profile
+#: model:ir.ui.menu,name:sky_hr_custom.menu_emp_my_profile
+msgid "My Profile"
+msgstr "ملفي"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__name
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_contract_type__name
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__name
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Name"
+msgstr "اسم"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__national_id
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+msgid "National ID"
+msgstr "الرقم القومي"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "National ID:"
+msgstr "الرقم القومي:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Nationality (Country):"
+msgstr "بلد الجنسية):"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__new_job_position
+#: model:ir.model.fields,field_description:sky_hr_custom.field_job_history_line__new_job_position
+msgid "New Job Position"
+msgstr "وظيفة جديدة"
+
+#. module: sky_hr_custom
+#: model:res.groups,name:sky_hr_custom.grp_no_menu
+msgid "No Menu"
+msgstr "لا توجد قائمة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__other_allowance
+msgid "Other Allowance"
+msgstr "بدلات أخرى"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__other_cut
+msgid "Other cut"
+msgstr "خصومات أخرى"
+
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__spouse_academic_qualification
+msgid "Partner Academic Qualification"
+msgstr "المؤهل الأكاديمي للشريك"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Partner Academic Qualification:"
+msgstr "المؤهل الأكاديمي للشريك:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+msgid "Partner Date of Birth"
+msgstr "تاريخ ميلاد الشريك"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__spouse_employment
+msgid "Partner Employment"
+msgstr "توظيف الشريك"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__spouse_employment_location
+msgid "Partner Employment Location"
+msgstr "موقع توظيف الشريك"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Partner Employment Location:"
+msgstr "موقع توظيف الشريك:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Partner Employment:"
+msgstr "توظيف الشريك:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__spouse_national_id
+msgid "Partner National ID"
+msgstr "الرقم القومي للشريك"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Partner National ID:"
+msgstr "الرقم القومي للشريك:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__spouse_place_of_birth
+msgid "Partner Place of Birth"
+msgstr "مكان ميلاد الشريك"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Partner Place of Birth:"
+msgstr "مكان ميلاد الشريك:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Passport No:"
+msgstr "رقم جواز السفر:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Percentage"
+msgstr "النسبة المئوية"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__percentage
+msgid "Percentage(%)"
+msgstr "النسبة المئوية(٪)"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__phone_number
+msgid "Phone Number"
+msgstr "رقم التليفون"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Phone Number:"
+msgstr "رقم التليفون:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__birth_place
+msgid "Place of Birth"
+msgstr "مكان الولادة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Place of Birth:"
+msgstr "مكان الولادة:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__job_id
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Position"
+msgstr "موضع"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Private Information"
+msgstr "معلومات خاصة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__status__promotion
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__job_history_line__status__promotion
+msgid "Promotion"
+msgstr "ترقية وظيفية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+msgid "Qualification & Experience"
+msgstr "المؤهلات والخبرة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__reason_no_insurance
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Reason for No Insurance"
+msgstr "سبب عدم وجود تأمين"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__general_service_status__relieved
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__military_status__relieved
+msgid "Relieved"
+msgstr "معفي"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__religion
+msgid "Religion"
+msgstr "دين"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Religion:"
+msgstr "دين:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__salary
+msgid "Salary"
+msgstr "مرتب"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Salary Information"
+msgstr "معلومات الراتب"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Schedule"
+msgstr "برنامج"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__middle_name
+msgid "Second Name"
+msgstr "الاسم الثاني"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__middle_name_arabic
+msgid "Second Name (Arabic)"
+msgstr "الاسم الثاني (عربي)"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Second Name (Arabic):"
+msgstr "الاسم الثاني (عربي)"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Second Name :"
+msgstr "الاسم الثاني :"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__senior_allowance
+msgid "Senior Allowance"
+msgstr "بدل سنيور"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee_status__sequence
+msgid "Sequence"
+msgstr "تسلسل"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Social Security"
+msgstr "الضمان الاجتماعي"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__social_security_number
+msgid "Social Security Number"
+msgstr "رقم الحماية الاجتماعية"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Social Security Number:"
+msgstr "رقم الحماية الاجتماعية:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Spouse Birthdate:"
+msgstr "تاريخ ميلاد الزوج:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Spouse Complete Name:"
+msgstr "الاسم الكامل للزوج:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__supervision_maintenance_allowance
+msgid "Supervision and maintenance Allowance"
+msgstr "بدل إشراف وصيانة"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__staff_children_cut
+msgid "Staffs children cut"
+msgstr "خصم ابناء العاملين"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_education__start_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_experience__start_date
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__start_date
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__starting_date
+msgid "Starting Date"
+msgstr "تاريخ البدء"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__status
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__status_id
+#: model:ir.model.fields,field_description:sky_hr_custom.field_job_history_line__status
+msgid "Status"
+msgstr "حالة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Subordinates"
+msgstr "المرؤوسين"
+
+#. module: sky_hr_custom
+#: code:addons/sky_hr_custom/models/hr_employee.py:0
+#, python-format
+msgid "The Health Insurance Card Number should be digits only!"
+msgstr "يجب أن يتكون رقم بطاقة التأمين الصحي من أرقام فقط!"
+
+#. module: sky_hr_custom
+#: code:addons/sky_hr_custom/models/hr_employee.py:0
+#, python-format
+msgid "The Incoming Number should be digits only!"
+msgstr "يجب أن يتكون الرقم الوارد من أرقام فقط!"
+
+#. module: sky_hr_custom
+#: code:addons/sky_hr_custom/models/hr_employee.py:0
+#, python-format
+msgid "The Social Security Number should be digits only!"
+msgstr "يجب أن يتكون رقم الضمان الاجتماعي من أرقام فقط!"
+
+#. module: sky_hr_custom
+#: code:addons/sky_hr_custom/models/hr_qualification.py:0
+#, python-format
+msgid "The Start Date must be prior to End Date!"
+msgstr "يجب أن يكون تاريخ البدء قبل تاريخ الانتهاء!"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__last_name
+msgid "Third Name"
+msgstr "الاسم الثالث"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__last_name_arabic
+msgid "Third Name (Arabic)"
+msgstr "الاسم الثالث (عربي)"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Third Name (Arabic):"
+msgstr "الاسم الثالث (عربي):"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Third Name :"
+msgstr "الاسم الثالث (عربي):"
+
+#. module: sky_hr_custom
+#: model:ir.model,name:sky_hr_custom.model_hr_training
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__training_ids
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_training__name
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.hr_employee_view_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Training"
+msgstr "تمرين"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__transition_allowance
+msgid "Transition Allowance"
+msgstr "بدل انتقال"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__travel_allowance_driver
+msgid "Travel Allowance For Drivers"
+msgstr "بدل سفر السائقين"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__gender_rec__transgender
+msgid "Trans-Gender"
+msgstr "عبر الجنس"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__general_service_status__uncharged
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__military_status__uncharged
+msgid "Uncharged"
+msgstr "غير مكلف"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__marital_status__unmarried
+msgid "Unmarried"
+msgstr "اعزب"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Vacation Balance"
+msgstr "رصيد الاجازة"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Vacation Days:"
+msgstr "أيام الإجازة:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields.selection,name:sky_hr_custom.selection__hr_employee__marital_status__widowed
+msgid "Widowed"
+msgstr "ارمل"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_employee__spouse_with_children
+msgid "With Children?"
+msgstr "مع الاطفال؟"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "With Children?:"
+msgstr "مع الاطفال؟:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Work Email:"
+msgstr "البريد الإلكتروني العمل:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Work Information"
+msgstr "معلومات العمل"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Work Location:"
+msgstr "مكان العمل:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Work Mobile:"
+msgstr "جوال العمل:"
+
+#. module: sky_hr_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_custom.report_employee
+msgid "Work Phone:"
+msgstr "هاتف عمل:"
+
+#. module: sky_hr_custom
+#: model:ir.model.fields,field_description:sky_hr_custom.field_hr_department__working_schedule_id
+msgid "Working Schedule"
+msgstr "جدول العمل"
+
+#. module: sky_hr_custom
+#: model:ir.ui.menu,name:sky_hr_custom.menu_working_schedule
+msgid "Working Schedules"
+msgstr "جداول العمل"

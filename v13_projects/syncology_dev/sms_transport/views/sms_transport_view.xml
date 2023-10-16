@@ -1,0 +1,737 @@
+<odoo>
+	<data>
+		<!-- Transport Student -->
+		<record model="ir.ui.view" id="trn_register_student_transport_form">
+			<field name="name">register.student.transport.form</field>
+			<field name="model">register.student.transport</field>
+			<field name="arch" type="xml">
+				<form string="Trasport Registration Form">
+					<header>
+						<button name="set_to_draft" string="Set to Draft" type="object" class="oe_highlight" attrs="{'invisible':[('state', 'in', ('draft','registered'))]}" />
+						<field name="state" widget="statusbar" statusbar_visible="draft,registered,withdrawal" readonly="1" />
+						<button name="confirm_registration" string="Register Now" states="draft" type="object" class="oe_highlight" groups="" />
+						<button name="withdraw_from_transport" string="Withdraw Transport" states="registered" type="object" class="btn-warning" groups="" />
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="name" readonly="1" force_save="1" />
+							</h1>
+							<span>Transport Registration Form
+							</span>
+						</div>
+
+						<group>
+							<group>
+								<field name="student_id" attrs="{'readonly':[('state','!=','draft')]}" options="{'no_create':True,'no_edit':True,'no_open':True }" required="1" />
+								<field name="bus_id" options="{'no_create':True,'no_edit':True,'no_open':True }" required="1" />
+								<field name="count_in" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+								<field name="count_out" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+								<field name="active" invisible="1"/>
+							</group>
+							<group>
+								<field name="class_grade" required="1" options="{'no_create':True,'no_edit':True,'no_open':True }"/>
+								<field name="family_condition" required="1" />
+								<field name="primary_handover" required="1" />
+								<field name="secondary_handover" required="1" />
+								<field name="installment_id" required="1"/>
+							</group>
+						</group>
+						<notebook>
+							<page string="Address" name="contact_info">
+								<group>
+									<group string="">
+										<field name="city" required="1" />
+										<field name="main_street" required="1" />
+									</group>
+									<group>
+										<field name="bystreet" required="1" />
+									</group>
+									<label for="more_details" class="oe_edit_only" />
+									<field name="more_details" required="1" />
+								</group>
+							</page>
+							<page string="Contact Information" name="contact_info">
+								<group>
+									<group string="">
+										<field name="father_mobile" />
+										<field name="mother_mobile" />
+									</group>
+									<group>
+										<field name="guardian_mobile" />
+										<!--<field name="email"  />-->
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+						<field name="activity_ids" widget="mail_activity" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="trn_register_student_transport_tree">
+			<field name="name">register.student.transport.tree</field>
+			<field name="model">register.student.transport</field>
+			<field name="arch" type="xml">
+				<tree string="Student" decoration-info="state == 'registered'" decoration-danger="state == 'withdrawal'">
+					<field name="name" />
+					<field name="student_id" />
+					<field name="student_name_arabic" />
+					<field name="class_grade" />
+					<field name="bus_id" />
+					<field name="guardian_mobile" />
+					<field name="city" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="trn_register_student_transport_filter" model="ir.ui.view">
+			<field name="name">register.student.transport.filter</field>
+			<field name="model">register.student.transport</field>
+			<field name="arch" type="xml">
+				<search string="Search Transport Student ">
+					<field name="name" />
+					<field name="student_id" />
+					<field name="student_name_arabic" />
+					<field name="class_grade" />
+					<field name="bus_id" />
+					<field name="primary_handover" />
+					<field name="secondary_handover" />
+					<field name="family_condition" />
+					<field name="city" />
+					<field name="father_mobile" />
+					<field name="mother_mobile" />
+					<field name="guardian_mobile" />
+					<field name="main_street" />
+					<field name="bystreet" />
+					<field name="more_details" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_trn_register_student_transport_draft">
+			<field name="name">Transport Student(Draft)</field>
+			<field name="res_model">register.student.transport</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','draft')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="trn_register_student_transport_tree" />
+			<field name="search_view_id" ref="trn_register_student_transport_filter" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_trn_register_student_transport_registered">
+			<field name="name">Transport Student(Registered)</field>
+			<field name="res_model">register.student.transport</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','registered')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="trn_register_student_transport_tree" />
+			<field name="search_view_id" ref="trn_register_student_transport_filter" />
+		</record>
+		<record model="ir.actions.act_window" id="action_trn_register_student_transport_withdrawal">
+			<field name="name">Transport Student(Withdrawal)</field>
+			<field name="res_model">register.student.transport</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','withdrawal')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="trn_register_student_transport_tree" />
+			<field name="search_view_id" ref="trn_register_student_transport_filter" />
+		</record>
+		<!-- Transport Student End -->
+
+
+		<!-- Transport Route -->
+		<record model="ir.ui.view" id="transport_route_form">
+			<field name="name">transport.route.form</field>
+			<field name="model">transport.route</field>
+			<field name="arch" type="xml">
+				<form string="Trasport Route Form">
+					<sheet>
+						<div class="oe_title">
+							<h1>Route</h1>
+							<span>Use this form for routes creation.
+							</span>
+						</div>
+						<group>
+							<group>
+								<field name="name" required="1" placeholder="Route" class="oe_inline" />
+								<field name="active" />
+							</group>
+							<group>
+								<field name="start_point" required="1" />
+								<field name="end_point" required="1" />
+							</group>
+							<group>
+								<field name="stops_ids" widget="many2many_tags" required="1" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							</group>
+							<group>
+								<field name="busses_ids" widget="many2many_tags" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="transport_route_tree">
+			<field name="name">transport.route.tree</field>
+			<field name="model">transport.route</field>
+			<field name="arch" type="xml">
+				<tree string="Transport Route">
+					<field name="name" />
+					<field name="start_point" />
+					<field name="end_point" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="transport_route_filter" model="ir.ui.view">
+			<field name="name">transport.route.filter</field>
+			<field name="model">transport.route</field>
+			<field name="arch" type="xml">
+				<search string="Search Route">
+					<field name="name" />
+					<field name="start_point" />
+					<field name="end_point" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_transport_route">
+			<field name="name">Transport Route</field>
+			<field name="res_model">transport.route</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="transport_route_tree" />
+			<field name="search_view_id" ref="transport_route_filter" />
+		</record>
+		<!-- Transport Route End -->
+
+
+		<!-- Transport Route Stop -->
+		<record model="ir.ui.view" id="transport_route_stop_form">
+			<field name="name">transport.route.stop.form</field>
+			<field name="model">transport.route.stop</field>
+			<field name="arch" type="xml">
+				<form string="Trasport Route Form">
+					<sheet>
+						<div class="oe_title">
+							<h1>Stop Form</h1>
+						</div>
+						<group>
+							<group>
+								<field name="name" required="1" />
+							</group>
+							<group>
+								<field name="active" required="1" />
+							</group>
+							<group>
+								<field name="rout_ids" widget="many2many_tags" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="transport_route_stop_tree">
+			<field name="name">transport.route.stop.tree</field>
+			<field name="model">transport.route.stop</field>
+			<field name="arch" type="xml">
+				<tree string="Route Stop">
+					<field name="name" />
+					<field name="active" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="transport_stop_filter" model="ir.ui.view">
+			<field name="name">transport.route.stop.filter</field>
+			<field name="model">transport.route.stop</field>
+			<field name="arch" type="xml">
+				<search string="Search Route Stop">
+					<field name="name" />
+					<field name="active" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_transport_route_stop">
+			<field name="name">Transport Stop</field>
+			<field name="res_model">transport.route.stop</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="transport_route_stop_tree" />
+			<field name="search_view_id" ref="transport_stop_filter" />
+		</record>
+		<!-- Transport Stop End -->
+
+
+		<!-- Transport Scheduling -->
+		<record model="ir.ui.view" id="transport_scheduling_form">
+			<field name="name">transport.scheduling.form</field>
+			<field name="model">transport.scheduling</field>
+			<field name="arch" type="xml">
+				<form string="Trasport Scheduling Form">
+					<header>
+						<field name="state" widget="statusbar" statusbar_visible="draft,active,closed,cancel" readonly="1" />
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="name"  />
+							</h1>
+							<span>Transport Scheduling</span>
+						</div>
+
+						<group>
+							<group>
+								<field name="schedule_days" required="1" />
+								<field name="bus_id" required="1" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+								<field name="routes_ids" widget="many2many_tags" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							</group>
+							<group>
+								<field name="driver_id" required="1"/>
+								<field name="driver_phone_no"/>
+								<field name="supervisor_id" required="1"/>
+								<field name="supervisor_phone_no"/>
+							</group>
+						</group>
+						<notebook>
+							<page string="Students">
+								<field name="students_ids" widget="one2many_list" required="1">
+									<tree string="Student">
+										<field name="name" />
+										<field name="student_id" />
+										<field name="class_grade" />
+										<field name="bus_id" />
+										<field name="guardian_mobile" />
+										<field name="city" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="transport_scheduling_tree">
+			<field name="name">transport.scheduling.tree</field>
+			<field name="model">transport.scheduling</field>
+			<field name="arch" type="xml">
+				<tree string="Transport Route">
+					<field name="name" />
+					<field name="schedule_days" />
+					<field name="bus_id" />
+					<field name="driver_id" />
+					<field name="supervisor_id" />
+					<field name="state" />
+
+				</tree>
+			</field>
+		</record>
+
+		<record id="transport_scheduling_filter" model="ir.ui.view">
+			<field name="name">transport.scheduling.filter</field>
+			<field name="model">transport.scheduling</field>
+			<field name="arch" type="xml">
+				<search string="Search Scheduling">
+					<field name="schedule_days" />
+					<field name="bus_id" />
+					<field name="driver_id" />
+					<field name="supervisor_id" />
+					<field name="state" />
+					<group expand="0" string="Group By">
+						<filter string="Schedule Date" name="schedule_days" domain="[]" context="{'group_by':'schedule_days'}" />
+						<filter string="Bus" name="bus_id" domain="[]" context="{'group_by':'bus_id'}" />
+						<filter string="Driver" name="driver_id" domain="[]" context="{'group_by':'driver_id'}" />
+						<filter string="Supervisor" name="supervisor_id" domain="[]" context="{'group_by':'supervisor_id'}" />
+					</group>
+
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_transport_scheduling">
+			<field name="name">Transport Scheduling</field>
+			<field name="res_model">transport.scheduling</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="transport_scheduling_tree" />
+			<field name="search_view_id" ref="transport_scheduling_filter" />
+		</record>
+		<!-- Transport Route End -->
+
+		<!-- Transport Complaint Management -->
+		<record model="ir.ui.view" id="transport_complaint_management_form">
+			<field name="name">transport.complaint.management.form</field>
+			<field name="model">transport.complaint.management</field>
+			<field name="arch" type="xml">
+				<form string="Transport Complaints Form">
+					<header>
+						<button name="resolved_complaint" string="Resolved" states="received" type="object" class="btn-primary" groups="" />
+						<button name="cancel_complaint" string="Cancel" confirm="Are you sure you want to cancel this complaint" states="received,resolved" type="object" class="btn-danger" groups="" />
+						<field name="state" widget="statusbar" statusbar_visible="received,resolved,closed" readonly="1" />
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<h1><field name="complaint_no" readonly="1" force_save="1" /></h1>
+						</div>
+						<group>
+							<group>
+								<field name="student_name" placeholder="e.g.Ahmad" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							</group>
+							<group>
+								<field name="date" placeholder="e.g. 30 june 2021" />
+							</group>
+						</group>
+					<group col="2">
+						<group string="Vehicle Information">
+							<field name="bus_number" required="1" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							<field name="period" required="1" />
+							<field name="driver_name" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							<field name="driver_phone" />
+							<field name="supervisor_name" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							<field name="supervisor_phone" />
+
+						</group>
+						<group string="Other Information">
+							<field name="complaint_reporter_id" required="1"/>
+							<field name="severity" required="1" />
+							<field name="complain_from" required="1" />
+							<field name="complain_against" required="1" />
+							<field name="escalated" required="1" />
+						</group>
+					</group>
+					<group>
+						<field name="complain" required="1" />
+					</group>
+					<group>
+						<field name="resolve" attrs="{'invisible': ['|',('resolve_type','!=', 'check'),('state', '!=', 'resolved')]}"/>
+						<field name="resolve_type" invisible="1"/>
+					</group>
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+					<field name="activity_ids" widget="mail_activity" />
+					<field name="message_ids" widget="mail_thread" />
+				</div>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="transport_complaint_management_tree">
+		<field name="name">transport.complaint.management.tree</field>
+		<field name="model">transport.complaint.management</field>
+		<field name="arch" type="xml">
+			<tree string="Complaint Form">
+				<field name="date" />
+				<field name="complaint_no" />
+				<field name="bus_number" />
+				<field name="student_name" />
+				<field name="student_name_arabic" />
+				<field name="driver_name" />
+				<field name="supervisor_name" />
+				<field name="severity" />
+				<field name="state" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="transport_complaint_management_filter" model="ir.ui.view">
+		<field name="name">transport.complaint.management.filter</field>
+		<field name="model">transport.complaint.management</field>
+		<field name="arch" type="xml">
+			<search string="Complaint Form">
+				<field name="student_name" />
+				<field name="student_name_arabic" />
+				<field name="bus_number" />
+				<field name="driver_name" string="Driver" />
+				<field name="supervisor_name" />
+				<field name="escalated" string="Escalated" />
+				<field name="severity" />
+				<field name="state" />
+			</search>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="action_transport_complaint_management_received">
+		<field name="name">Complaint</field>
+		<field name="res_model">transport.complaint.management</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="domain">[('state','=','received')]</field>
+		<field name="context">{'default_resolve_type': 'uncheck'}</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="transport_complaint_management_tree" />
+		<field name="search_view_id" ref="transport_complaint_management_filter" />
+	</record>
+
+	<record model="ir.actions.act_window" id="action_transport_complaint_management_resolved">
+		<field name="name">Complaint</field>
+		<field name="res_model">transport.complaint.management</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="domain">[('state','=','resolved')]</field>
+		<field name="context">{'default_resolve_type': 'check'}</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="transport_complaint_management_tree" />
+		<field name="search_view_id" ref="transport_complaint_management_filter" />
+	</record>
+	<record model="ir.actions.act_window" id="action_transport_complaint_management_closed">
+		<field name="name">Complaint</field>
+		<field name="res_model">transport.complaint.management</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="domain">[('state','=','closed')]</field>
+		<field name="context">{'default_resolve_type': 'uncheck'}</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="transport_complaint_management_tree" />
+		<field name="search_view_id" ref="transport_complaint_management_filter" />
+	</record>
+	<record model="ir.actions.act_window" id="action_transport_complaint_management_escalated">
+		<field name="name">Complaint</field>
+		<field name="res_model">transport.complaint.management</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="domain">[('escalated','=',True),('state','!=','closed')]</field>
+		<field name="context">{'default_resolve_type': 'uncheck'}</field>
+		<field name="view_mode">tree,form</field>
+		<field name="view_id" ref="transport_complaint_management_tree" />
+		<field name="search_view_id" ref="transport_complaint_management_filter" />
+	</record>
+
+
+
+
+
+
+	<!-- Transport Complaint Management End -->
+
+
+	<!--Driver/supervisor -->
+
+	<record id="hr_employee_form_inherited" model="ir.ui.view">
+		<field name="name">hr.employee.form</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="sky_hr_custom.hr_employee_view_form"/>
+		<field name="arch" type="xml">
+
+			<xpath expr="//field[@name='department_id']" position="after">
+				<field name="extra_activity_id"/>
+			</xpath>
+
+<!--			<xpath expr="//notebook/page[@name='hr_settings']" position="after">-->
+<!--				<page string="Vehicles" invisible="1">-->
+<!--					<field name="buses_ids" widget="one2many_list">-->
+<!--						<tree>-->
+<!--							<field name="name"/>-->
+<!--							<field name="period"/>-->
+<!--							<field name="route"/>-->
+<!--							<field name="veh_std_count"/>-->
+<!--							<field name="state"/>-->
+<!--						</tree>-->
+<!--					</field>-->
+<!--				</page>-->
+<!--			</xpath>-->
+
+		</field>
+	</record>
+
+	<!-- Inherited tree view of hr employee for transport -->
+	<record id="view_driver_supervisor_tree" model="ir.ui.view">
+		<field name="name">view.driver.supervisor.tree</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="sky_hr_custom.hr_employee_view_tree"/>
+		<field name="arch" type="xml">
+			<xpath expr="//tree" position="attributes">
+				<attribute name="create">0</attribute>
+				<attribute name="export_xlsx">0</attribute>
+			</xpath>
+			<xpath expr="//field[@name='department_id']" position="after">
+				<field name="extra_activity_id"/>
+			</xpath>
+		</field>
+	</record>
+    
+    <record id="view_driver_supervisor_filter" model="ir.ui.view">
+            <field name="name">hr.employee.search11</field>
+            <field name="model">hr.employee</field>
+			<field name="priority" eval="1"/>
+            <field name="arch" type="xml">
+                <search string="Employees">
+                    <field name="name" string="Employee" filter_domain="['|','|', '|', '|', '|', '|', '|', '|', '|', '|',
+                   ('name', 'ilike', self), ('middle_name', 'ilike', self), ('work_email', 'ilike', self),
+                   ('last_name', 'ilike', self), ('fourth_name', 'ilike', self),
+                   ('display_name', 'ilike', self), ('full_name_arabic', 'ilike', self),
+                   ('first_name_arabic', 'ilike', self), ('middle_name_arabic', 'ilike', self),
+                   ('last_name_arabic', 'ilike', self), ('fourth_name_arabic', 'ilike', self)]"/>
+                    <field name="category_ids" groups="hr.group_hr_user"/>
+                    <field name="job_id"/>
+                    <separator/>
+                    <filter string="Unread Messages" name="message_needaction" domain="[('message_needaction', '=', True)]"/>
+                    <separator/>
+                    <filter invisible="1" string="Late Activities" name="activities_overdue"
+                        domain="[('activity_ids.date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Today Activities" name="activities_today"
+                        domain="[('activity_ids.date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+                    <filter invisible="1" string="Future Activities" name="activities_upcoming_all"
+                        domain="[('activity_ids.date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))]"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_manager" string="Manager" domain="[]" context="{'group_by': 'parent_id'}"/>
+                        <filter name="group_department" string="Department" domain="[]" context="{'group_by': 'department_id'}"/>
+                        <filter name="group_job" string="Job" domain="[]" context="{'group_by': 'job_id'}"/>
+                    </group>
+                </search>
+             </field>
+        </record>
+
+	<record model="ir.actions.act_window" id="action_transport_driver">
+		<field name="name">Driver</field>
+		<field name="res_model">hr.employee</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree</field>
+		<field name="context">{'employee_driver':True}</field>
+		<field name="view_id" ref="view_driver_supervisor_tree" />
+		<field name="search_view_id" ref="view_driver_supervisor_filter"/>
+	</record>
+	<record model="ir.actions.act_window" id="action_transport_supervisor">
+		<field name="name">Supervisor</field>
+		<field name="res_model">hr.employee</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_mode">tree</field>
+		<field name="context">{'employee_supervisor':True}</field>
+		<field name="view_id" ref="view_driver_supervisor_tree" />
+		<field name="search_view_id" ref="view_driver_supervisor_filter"/>
+	</record>
+	<!--Driver/supervisor End -->
+
+        <!--Extra Activity -->
+		<record id="view_extra_activity_form" model="ir.ui.view">
+			<field name="name">view.extra.activity.form</field>
+			<field name="model">extra.activity</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group colspan="4" col="4">
+							<field name="name" required="True"/>
+							<field name="code"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+	<record model="ir.ui.view" id="transport_complaint_reporter_form">
+			<field name="name">transport.complaint.reporter.form</field>
+			<field name="model">complaint.reporter</field>
+			<field name="arch" type="xml">
+				<form string="Complaint Reporter">
+					<sheet>
+						<group>
+							<field name="name"/>
+							<field name="code"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_extra_activity_tree" model="ir.ui.view">
+			<field name="name">view.extra.activity.tree</field>
+			<field name="model">extra.activity</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="code"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="transport_complaint_reporter_tree">
+			<field name="name">transport.complaint.reporter.tree</field>
+			<field name="model">complaint.reporter</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="code"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="action_extra_activity" model="ir.actions.act_window">
+			<field name="name">Extra Activity</field>
+			<field name="res_model">extra.activity</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		
+		<record id="transport_complaint_reporter_search" model="ir.ui.view">
+			<field name="name">transport.complaint.reporter.search</field>
+			<field name="model">complaint.reporter</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_transport_complaint_reporter">
+			<field name="name">Complaint Reporter</field>
+			<field name="res_model">complaint.reporter</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+    <!-- Form view of Scheduling Days -->
+    <record id="view_scheduling_days_form" model="ir.ui.view">
+        <field name="name">view.scheduling.days.form</field>
+        <field name="model">sms.scheduling.days</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="name" required="1"/>
+						<field name="code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Scheduling Days -->
+    <record id="view_scheduling_days_tree" model="ir.ui.view">
+        <field name="name">view.scheduling.days.tree</field>
+        <field name="model">sms.scheduling.days</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+				<field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action of Scheduling Days -->
+    <record id="action_scheduling_days" model="ir.actions.act_window">
+        <field name="name">Scheduling Days</field>
+        <field name="res_model">sms.scheduling.days</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+	<!-- Action Transport Config Setting-->
+    <record id="transport_config_settings_action" model="ir.actions.act_window">
+		<field name="name">Settings</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">res.config.settings</field>
+		<field name="view_id" ref="res_config_settings_view_form"/>
+		<field name="view_mode">form</field>
+		<field name="target">inline</field>
+		<field name="context">{'module': 'sms_transport', 'bin_size': False}</field>
+	</record>
+
+</data>
+</odoo>

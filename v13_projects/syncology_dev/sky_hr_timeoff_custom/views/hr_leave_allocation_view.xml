@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Hr Leave Allocation Tree View -->
+        <record id="hr_leave_allocation_tree_view" model="ir.ui.view">
+            <field name="name">hr.leave.allocation.tree.view</field>
+            <field name="model">hr.leave.allocation</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='employee_id']" position="after">
+                    <field name="employee_arabic_name" />
+                </xpath>
+                <xpath expr="/tree/field[@name='holiday_status_id']" position="after">
+                    <field name="leave_type" invisible="1"/>
+                </xpath>
+<!--                <xpath expr="/tree/field[@name='holiday_status_id']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+
+        <!-- Hr Leave Allocation Form View -->
+        <record id="hr_leave_allocation_form_view" model="ir.ui.view">
+            <field name="name">hr.leave.allocation.form.view</field>
+            <field name="model">hr.leave.allocation</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='holiday_status_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//form/sheet/group/group/field[@name='name']" position="after">
+                    <group>
+                        <field name="leave_type" invisible="1"/>
+                        <field name="type_request_unit" readonly="0" force_save="1"/>
+                        <field name="holiday_status_id" context="{'employee_id':employee_id}" required="1" string="Type"/>
+                        <field name="emp_parent_id" invisible="1"/>
+                        <field name="department_id" invisible="1"/>
+                        <field name="job_id" invisible="1"/>
+                    </group>
+                </xpath>
+
+                <xpath expr="//field[@name='holiday_status_id']" position="after">
+                    <br/>
+                </xpath>
+                <xpath expr="//field[@name='allocation_type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/group/group/field[@name='holiday_status_id']" position="attributes">
+                    <attribute name="domain">[('leave_type', '=', leave_type)]</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_hr_leave_allocation_filter_inherit" model="ir.ui.view">
+            <field name="name">hr.holidays.filter_allocations.inherit</field>
+            <field name="model">hr.leave.allocation</field>
+            <field name="inherit_id" ref="hr_holidays.view_hr_leave_allocation_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search/field[@name='employee_id']" position="after">
+                    <filter name="employee_arabic_name" />
+                </xpath>
+                <xpath expr="//group[1]" position="after">
+                    <filter name="grp_manager" string="Manager" context="{'group_by':'emp_parent_id'}"/>
+                    <filter name="grp_department" string="Department" context="{'group_by':'department_id'}"/>
+                    <filter name="grp_job" string="Job" context="{'group_by':'job_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Hr Leave Allocation Form View -->
+        <record id="hr_leave_allocation_form_view_allocation_type_inherit" model="ir.ui.view">
+            <field name="name">hr.leave.allocation.form.view.allocation.type.inherit</field>
+            <field name="model">hr.leave.allocation</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_allocation_view_form_manager"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='allocation_type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//group[@name='alloc_right_col']/field[@name='holiday_type']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//form/sheet/group/group/field[@name='name']" position="attributes">
+                    <attribute name="placeholder">Short Description e.g. Personal Work</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Action for Leave Allocation -->
+        <record id="hr_holidays.hr_leave_allocation_action_approve_department" model="ir.actions.act_window">
+            <field name="name">Leave Allocations</field>
+            <field name="res_model">hr.leave.allocation</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+            <field name="context">{'default_leave_type':'leave'}</field>
+            <field name="domain">[('leave_type', '=', 'leave')]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new leave allocation
+                </p><p>
+                    HR Officers allocate leaves to employees (e.g. paid leave request).<br/>
+                </p>
+            </field>
+        </record>
+
+        <!-- Action for Vacation Allocation -->
+        <record id="action_hr_vacation_allocation" model="ir.actions.act_window">
+            <field name="name">Vacation Allocations</field>
+            <field name="res_model">hr.leave.allocation</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+            <field name="context">{'default_leave_type':'vacation'}</field>
+            <field name="domain">[('leave_type', '=', 'vacation')]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new leave allocation
+                </p><p>
+                    HR Officers allocate vacations to employees (e.g. paid leave request).<br/>
+                </p>
+            </field>
+        </record>
+
+        <!-- Menu for Vacation Allocations -->
+        <menuitem id="vacation_allocation_menu"
+                  name="Vacation Allocation"
+                  parent="vacation_requests_main_menu"
+                  sequence="2"
+                  action="action_hr_vacation_allocation"
+                  groups="hr_holidays.group_hr_holidays_user,hr_holidays.group_hr_holidays_manager"/>
+
+        <!-- Menu for Leave Allocations -->
+        <menuitem id="lave_allocation_menu"
+                  name="Leave Allocation"
+                  parent="leave_requests_main_menu"
+                  sequence="2"
+                  action="hr_holidays.hr_leave_allocation_action_approve_department"
+                  groups="hr_holidays.group_hr_holidays_user,hr_holidays.group_hr_holidays_manager"/>
+
+    </data>
+</odoo>

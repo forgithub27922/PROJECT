@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+
+		<!-- Root Menus-->
+		<menuitem name="Admission" id="academic_activities_root" sequence="1" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission"/>
+		
+		<!-- Admissions -->
+		<menuitem name="Applications" id="menu_sms_core_admission_root" parent="academic_activities_root" sequence="1" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Admissions Process" id="menu_sms_admission_head_id" parent="menu_sms_core_admission_root" sequence="1" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="All Applications" id="menu_admission_all_list" parent="menu_sms_admission_head_id" action="action_sms_admission_in_all" sequence="1" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="In Review" id="menu_admission_in_review_list" parent="menu_sms_admission_head_id" action="action_sms_admission_in_review" sequence="2" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Interview" id="menu_admission_to_interview_list" parent="menu_sms_admission_head_id" action="action_sms_admission_in_interview" sequence="3" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Documents Submission" id="menu_admission_documents_submit" parent="menu_sms_admission_head_id" action="action_admission_submit_documents" sequence="4" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Pending for Payment" id="menu_admission_payment_pending" parent="menu_sms_admission_head_id" action="action_admission_submit_payments" sequence="5" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Admitted" id="menu_admission_admitted_list" parent="menu_sms_admission_head_id" action="action_admission_approved" sequence="6" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Rejected" id="menu_admissions_rejected_list" parent="menu_sms_admission_head_id" action="action_admission_rejected" sequence="7" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Cancelled" id="menu_admissions_cancelled_list" parent="menu_sms_admission_head_id" action="action_admission_cancelled" sequence="8" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_officer_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		
+		<menuitem name="Undecided" id="menu_admissions_undecided" parent="menu_sms_admission_head_id" action="action_admission_undecided" sequence="8" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Admission Reports" id="menu_sms_admission_reports_head_id" parent="academic_activities_root" sequence="10" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Admission List" id="menu_admission_list_report" parent="menu_sms_admission_reports_head_id" action="action_admission_list_wizard" sequence="1" groups="base.group_system,sms_core.group_manager_sms_admission,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<!--Configuration -->
+		<menuitem name="Student Affairs" id="menu_sms_student_affairs_root" sequence="2" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Configuration" parent="menu_sms_student_affairs_root" id="menu_sms_configuration_head_id" sequence="20" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Schools" id="menu_schools_list" parent="menu_sms_configuration_head_id" action="action_sms_all_schools" sequence="1" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Grades" id="menu_masterdata_classes" parent="menu_sms_configuration_head_id" action="action_sms_all_classes" sequence="2" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Classes" id="menu_masterdata_sections" parent="menu_sms_configuration_head_id" action="action_sms_md_all_sections" sequence="3" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<!--<menuitem name="Courses" id="menu_active_courses" parent="menu_sms_configuration_head_id" action="action_sms_class_courses" sequence="4" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Courses Repository" id="menu_courses_repository_id" parent="menu_sms_configuration_head_id" action="action_courses_repository" sequence="5" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />-->
+		<menuitem name="Sync LMS" id="menu_sync_lms" parent="menu_sms_configuration_head_id" action="action_sync_lms" sequence="4" groups="sms_core.group_lms_sync" />
+		<!-- Student Affairs -->
+		<menuitem name="Students" parent="menu_sms_student_affairs_root" id="menu_sms_students_head_id" sequence="0" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Active Students" id="menu_all_academic_student_id" parent="menu_sms_students_head_id" action="action_academic_student_all" sequence="1" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Inactive Students" id="menu_all_academic_student_inactive_id" parent="menu_sms_students_head_id" action="action_academic_student_inactive" sequence="2" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Withdrawan Students" id="menu_all_inactive_acad_student_id" parent="menu_sms_students_head_id" action="action_academic_student_withdrawal" sequence="2" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Student Family" id="menu_all_student_families_id" parent="menu_sms_students_head_id" action="action_student_family_id_all" sequence="3" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Pending Payment" id="menu_pending_payment_stu_aff" parent="menu_sms_students_head_id" action="action_academic_student_pending_payment" sequence="2" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,sms_core.group_officer_sms_studentaffairs"/>
+
+		<menuitem name="Student Reports" parent="menu_sms_student_affairs_root" id="menu_sms_std_report_head_id" sequence="1" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<menuitem name="Reports" id="menu_all_student_report_id" parent="menu_sms_std_report_head_id" action="action_student_reports_wizard" sequence="1" groups="base.group_system,sms_core.group_manager_sms_studentaffairs,group_officer_sms_studentaffairs" />
+		<!-- Fee Management -->
+		<menuitem name="Student Accounting" id="menu_sms_fee_management_root" sequence="3" groups="base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Students" parent="menu_sms_fee_management_root" id="menu_sms_fee_students" sequence="3" groups="base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Admitted Students" id="menu_all_acd_std_fee_id" parent="menu_sms_fee_students" action="action_acd_std_fee_all" sequence="1" groups="base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Pending Payment" id="menu_pending_payment_stu_acc" parent="menu_sms_fee_students" action="action_pending_payments" sequence="2" groups="base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Fees" parent="menu_sms_fee_management_root" id="menu_sms_fee_configuration_head_id" sequence="1" groups="base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Student Fee Register" id="menu_all_student_fee_id" parent="menu_sms_fee_configuration_head_id" action="action_sms_all_student_fee" sequence="2" groups="base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+
+		<menuitem name="Instalments" id="menu_all_fee_policy_line_id" parent="menu_sms_fee_configuration_head_id" action="action_sms_all_fee_policy_lines" sequence="2" groups="-base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+
+		<menuitem name="Fee Reports" parent="menu_sms_fee_management_root" id="menu_sms_fee_reports_head_id" sequence="2" groups="base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Fee collection/Outstanding Report" id="menu_fee-collection_dues_report_id" parent="menu_sms_fee_reports_head_id" action="action_fee_reports_wizard" sequence="1" groups="base.group_system,sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" />
+		<menuitem name="Configuration" id="menu_fee_configuration" parent="menu_sms_fee_management_root" sequence="5" groups="sms_core.group_manager_sms_fee"/>
+		<menuitem name="Fee Type" id="menu_fee_type" parent="menu_fee_configuration" action="action_fee_type" sequence="1" groups="sms_core.group_manager_sms_fee"/>
+		<menuitem name="Activate/Deactivate LMS"  id="menu_activate_deactivate_lms" parent="menu_fee_configuration" groups="sms_core.group_lms_sync"  action="action_activate_deactivate_lms_wizard"/>
+		<menuitem name="Website"
+            id="website.menu_website_configuration"
+            sequence="9"
+            groups="base.group_no_one"
+            web_icon="website,static/description/icon.png"/>
+	</data>
+</odoo>

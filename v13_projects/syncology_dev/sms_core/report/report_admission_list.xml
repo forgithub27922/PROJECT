@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_admission_list_template">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<div class="text-center">
+						<h2>Applications</h2>
+					</div><br/>
+					<!--=================================================Header table Starts======================================= -->
+					<table class="table table-condensed">
+						<tbody>
+
+							<tr>
+								<td style="width:15%">
+									<strong>School</strong>
+									<br />
+									<strong>Class</strong>
+									<br />
+									<strong>Applications</strong>
+								</td>
+								<td style="width:35%">
+									<b>
+										<span> All Schools</span>
+									</b>
+									<br />
+									<b>
+										<span> All Classes</span>
+									</b>
+									<br />
+									<b>
+										<span t-esc="total_admissions" />
+									</b>
+
+								</td>
+								<td style="width:15%">
+									<strong>Period</strong>
+									<br />
+									<strong>Filters</strong>
+
+								</td>
+								<td style="width:35%">
+									<i>
+										<span t-esc="date_from" /> &#160;to 
+										<span t-esc="date_to" />
+									</i>
+									<br />
+									<b>
+										<i>
+											<!--<span t-esc="statefilter" />-->
+											<span>All States</span>
+										</i>
+									</b>
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+					<!--=================================================Header table Starts======================================= -->
+					<br />
+					<br />
+					
+					<!--=================================================Header table Ends======================================= -->
+					<table class="table table-condensed">
+						<thead>
+							<tr valign="top">
+								<th style="width:20px">S.No</th>
+								<th style="width:140px">Student</th>
+								<th style="width:80px">Class</th>
+								<th style="width:80px">School</th>
+								<th style="width:100px">Applied</th>
+								<th style="width:140px">Admitted</th>
+								<th style="width:60px">Status</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<t t-set="i" t-value="1" />
+							<tr t-foreach="docs.sorted(key=lambda x: x.date_of_apply)" t-as='o'>
+
+								<td class="temptwo_table_celldata" style="width:20px">
+									<span t-esc="i" />
+								</td>
+								<td class="temptwo_table_celldata" style="width:130px">
+									<span t-field="o.full_name" />
+								</td>
+								<td class="temptwo_table_celldata" style="width:80px">
+
+									<t t-if="o.class_id">
+										<span t-field="o.class_id" />
+									</t>
+									<t t-else="">
+										<span>--</span>
+									</t>
+
+								</td>
+								<td class="temptwo_table_celldata" style="width:100px">
+									<span t-field="o.school_id" />
+								</td>
+								<td class="temptwo_table_celldata" style="width:100px">
+									<span t-field="o.date_of_apply" />
+								</td>
+								<td class="temptwo_table_celldata" style="width:130px">
+
+									<t t-if="o.date_of_admission">
+										<span t-field="o.date_of_admission" />
+									</t>
+									<t t-else="">
+										<span>--</span>
+									</t>
+
+								</td>
+								<td class="temptwo_table_celldata" style="width:60px">
+									<span t-field="o.state" />
+								</td>
+								<t t-set="i" t-value="i+1" />
+							</tr>
+
+						</tbody>
+					</table>
+
+					<br />
+					<div>
+						<div style="float:left;">
+								Printed Date:<br />
+							<t t-esc="time.strftime('%d-%b-%Y')" />
+						</div>
+						<div style="float:right;">
+								Printed By:
+								<br />
+							<t t-esc="request.env.user.name" />
+						</div>
+					</div>
+
+				</div>
+			</t>
+		</t>
+	</template>
+
+	<report id="action_report_admission_list" string="Admission List Report" model="student.admission.form" report_type="qweb-pdf" menu="False" name="sms_core.report_admission_list_template" file="sms_core.report_admission_list_template" print_report_name="sms_core.report_admission_list_template" />
+
+</odoo>

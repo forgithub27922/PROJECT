@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+      <field name="name">res.config.settings.view.form.inherit.price.alarm</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//div[@data-key='sale_management']/div[2]" position="inside">
+          <div class="col-xs-12 col-md-6 o_setting_box">
+            <div class="o_setting_left_pane"/>
+            <div class="o_setting_right_pane">
+              <div class="mt16">
+                <label for="price_rising_alarm_percent" class="o_light_label"/>
+                <field name="price_rising_alarm_percent" class="oe_inline"/>
+              </div>
+              <div class="mt16">
+                <label for="price_cutting_alarm_percent" class="o_light_label"/>
+                <field name="price_cutting_alarm_percent" class="oe_inline"/>
+              </div>
+              <div class="mt16">
+                <label for="price_alarm_emails" class="o_light_label"/>
+                <field name="price_alarm_emails" class="oe_inline"/>
+              </div>
+              <div class="mt16">
+                <label for="cost_price_list_id" class="o_light_label"/>
+                <field name="cost_price_list_id" class="oe_inline"/>
+              </div>
+            </div>
+          </div>
+        </xpath>
+
+      </field>
+    </record>
+  </data>
+</odoo>

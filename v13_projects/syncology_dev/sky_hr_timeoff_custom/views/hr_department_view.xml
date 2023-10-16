@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Inherited Form view of Hr Department -->
+    <record id="view_hr_department_inherit" model="ir.ui.view">
+        <field name="name">view.hr.department.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group[1]" position="after">
+                <group name="grp_leave_allocation" colspan="4" col="4">
+                    <separator name="sep_alloc" string="Leave / Vacation Allocation" colspan="4"/>
+                    <field name="leave_alloc_days"/>
+                    <field name="vacation_alloc_days"/>
+                    <separator name="sep_allowance" string="Leave / Vacation Allowance" colspan="4"/>
+                    <field name="leave_monthly_allowance"/>
+                    <field name="vacation_monthly_allowance"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

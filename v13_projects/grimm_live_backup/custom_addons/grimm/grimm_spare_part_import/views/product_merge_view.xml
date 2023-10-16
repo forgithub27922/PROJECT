@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="product_merge_wizard" model="ir.ui.view">
+            <field name="name">product_merge</field>
+            <field name="model">product.merge</field>
+            <field name="arch" type="xml">
+                <form string="Label Printer">
+                    <sheet>
+                        <label for="product_id" class="oe_edit_only"/>
+                        <h1>
+                            <field name="product_id" class="oe_inline" domain="[('product_variant_count','&lt;',2)]" />
+                        </h1>
+                        <group>
+                            <field name="attribute_ids" widget="many2many_tags" context="{'display_techname': True}"/>
+                            <field name="merge_lines">
+                                <tree editable="bottom">
+                                    <field name="product_id" domain="[('product_tmpl_id','not in',[parent.product_id]),('product_template_attribute_value_ids','=',False)]"/>
+                                    <field name="value_ids"  required="1" widget="many2many_tags" domain="[('attribute_id','in',parent.attribute_ids)]"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <footer>
+                            <button name="start_assignment" string="Start" type="object" class="oe_highlight"/>
+                            <button string="Cancel" class="oe_link" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_merge_wizard" model="ir.actions.act_window">
+            <field name="name">Assign Variant</field>
+            <field name="res_model">product.merge</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="product_merge_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="product_merge_convert"
+                name="Assign Variants"
+                parent="sale.product_menu_catalog"
+                sequence="40"
+                action="action_product_merge_wizard"/>
+
+        <record id="action_ir_action_assign_variant_product_template" model="ir.actions.server">
+        <field name="name">Assign Variants</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="binding_model_id" ref="product.model_product_template"/>
+        <field name="state">code</field>
+        <field name="code">cr = env.cr
+context = dict(env.context)
+action = model.open_assign_variant_wizard(context.get('active_ids', []))
+        </field>
+    </record>
+    </data>
+</openerp>

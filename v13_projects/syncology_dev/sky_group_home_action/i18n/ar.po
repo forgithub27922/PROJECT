@@ -1,0 +1,41 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_group_home_action
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-22 12:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_group_home_action
+#: model:ir.model,name:sky_group_home_action.model_res_groups
+msgid "Access Groups"
+msgstr "مجموعات الوصول"
+
+#. module: sky_group_home_action
+#: model:ir.model.fields,field_description:sky_group_home_action.field_res_groups__action_priority
+msgid "Action Priority"
+msgstr "أولوية العمل"
+
+#. module: sky_group_home_action
+#: model_terms:ir.ui.view,arch_db:sky_group_home_action.create_user_view_form
+msgid "Group ids"
+msgstr "معرفات المجموعة"
+
+#. module: sky_group_home_action
+#: model:ir.model.fields,field_description:sky_group_home_action.field_res_groups__home_action_id
+msgid "Home Action"
+msgstr "المنزل العمل"
+
+#. module: sky_group_home_action
+#: model:ir.model,name:sky_group_home_action.model_res_users
+msgid "Users"
+msgstr "المستخدمون"

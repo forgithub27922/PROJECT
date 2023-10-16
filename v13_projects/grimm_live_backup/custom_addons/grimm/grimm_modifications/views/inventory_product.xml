@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="grimm_view_inventory_product_template_tree" model="ir.ui.view">
+        <field name="name">product.template.inventory</field>
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <tree string="Products">
+                <field name="default_code"/>
+                <field name="barcode"/>
+<!--                <field name="is_photo_done"/>-->
+                <field name="name"/>
+                <field name="seller_ids" widget="many2many_tags"/>
+                <field name="supplier_article_numbers"/>
+                <field name="categ_id"/>
+<!--                <field name="forecast_triplet"/>-->
+                <field name="weight"/>
+                <field name="is_pack" string="Pack"/>
+                <field name="pack_products"/>
+                <field name="stock_locations"/>
+<!--                <field name="package_id"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <record id="stock.product_template_action_product" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="stock.product_template_search_form_view_stock"/>
+        <field name="context">{"search_default_consumable": 1, 'default_type': 'product'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new product
+            </p>
+        </field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('grimm_view_inventory_product_template_tree')})]"/>
+    </record>
+</odoo>

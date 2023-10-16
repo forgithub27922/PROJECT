@@ -1,0 +1,61 @@
+<odoo>
+    <!-- Inherited view of Time Tracking to accommodate Public Holidays -->
+    <record id="sky_hr_time_tracking.view_time_tracking_line_tree" model="ir.ui.view">
+        <field name="name">view.time.tracking.line.tree</field>
+        <field name="model">time.tracking.line</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="pub_holiday == True"
+                  decoration-warning="week_off == True"
+                  decoration-primary="vacation == True"
+                  decoration-success="leave == True"
+                  decoration-bf="overtime_hours > 0.0"
+                  decoration-danger="pub_holiday == False and week_off == False and vacation == False and leave == False and (diff_start_time > 0.0 or diff_end_time > 0.0 or diff_working_hours > 0.0)">
+                <field name="week_off" invisible="1"/>
+                <field name="pub_holiday" invisible="1"/>
+                <field name="leave" invisible="1"/>
+                <field name="vacation" invisible="1"/>
+                <field name="date"/>
+                <field name="day"/>
+                <field name="planned_start_time" widget="float_time"/>
+                <field name="planned_end_time" widget="float_time"/>
+                <field name="actual_start_time" widget="float_time"/>
+                <field name="actual_end_time" widget="float_time"/>
+                <field name="diff_start_time" widget="float_time"/>
+                <field name="diff_end_time" widget="float_time"/>
+                <field name="planned_hours" widget="float_time"/>
+                <field name="actual_hours" widget="float_time"/>
+                <field name="diff_working_hours" widget="float_time"/>
+                <field name="overtime_hours" widget="float_time"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action of Time Tracking Lines -->
+    <record id="action_time_tracking_from_emp" model="ir.actions.act_window">
+        <field name="name">Time Tracking Lines</field>
+        <field name="res_model">time.tracking.line</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <!-- Inherited view of employee to add tracking lines -->
+    <record id="view_emp_form_time_tracking_line_inherit" model="ir.ui.view">
+            <field name="name">view.emp.form.time.tracking.line.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="sky_hr_attendance_custom.view_emp_form_att_inherit"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/div[@name='button_box2']" position="inside">
+                    <button name="%(action_time_tracking_from_emp)d"
+                        string="Tracking Lines"
+                        class="oe_stat_button"
+                        icon="fa-clock-o"
+                        type="action"
+                        context="{'search_default_employee_id': id, 'search_default_current_month_tracking': 1}"
+                        groups="base.group_user"
+                        help="Time Tracking Lines of Employee"/>
+                </xpath>
+            </field>
+    </record>
+
+
+</odoo>

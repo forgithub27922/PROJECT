@@ -1,0 +1,245 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_gteg_supplier_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-06 10:00+0000\n"
+"PO-Revision-Date: 2020-07-06 10:00+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_gteg_supplier_invoice
+#: selection:gteg.invoice.import,tax_position:0
+msgid "16% and 5% Taxes will apply"
+msgstr "Es werden 16% und 5% Steuern erhoben"
+
+#. module: grimm_gteg_supplier_invoice
+#: selection:gteg.invoice.import,tax_position:0
+msgid "19% and 7% Taxes will apply"
+msgstr "Es werden Steuern in Höhe von 19% und 7% erhoben"
+
+#. module: grimm_gteg_supplier_invoice
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:68
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:110
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:162
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:242
+#, python-format
+msgid "<center><h2 style='color:red;'>Please upload .zip file.</h2></center>"
+msgstr "<center><h2 style='color:red;'>Bitte laden Sie die ZIP-Datei hoch.</h2></center>"
+
+#. module: grimm_gteg_supplier_invoice
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:107
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:239
+#, python-format
+msgid "<center><h2 style='color:red;'>Please upload valid file.</h2></center>"
+msgstr "<center><h2 style='color:red;'>Bitte laden Sie eine gültige Datei hoch.</h2></center>"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_csv_file
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_csv_file
+msgid "Browse File"
+msgstr "Datei durchsuchen"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.ui.view,arch_db:grimm_gteg_supplier_invoice.gteg_import_wizard
+#: model:ir.ui.view,arch_db:grimm_gteg_supplier_invoice.gteg_payment_import_wizard
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_code
+msgid "Code"
+msgstr "Code"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_create_uid
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_create_uid
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_create_date
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_create_date
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_display_name
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_display_name
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_gteg_filename
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_gteg_filename
+msgid "File name"
+msgstr "Dateiname"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.ui.menu,name:grimm_gteg_supplier_invoice.gteg_product_code_menu
+msgid "GTEG EDI Code"
+msgstr "GTEG EDI Code"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.actions.act_window,name:grimm_gteg_supplier_invoice.action_gteg_product_code
+msgid "GTEG EDI code"
+msgstr "GTEG EDI code"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_account_invoice_gteg_file_no
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_magento_account_invoice_gteg_file_no
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_magento_order_shipment_gteg_file_no
+msgid "GTEG File No"
+msgstr "GTEG File No"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.ui.menu,name:grimm_gteg_supplier_invoice.gteg_import_ionvoice_menu
+msgid "GTEG Invoice Import"
+msgstr "GTEG Rechnungsimport"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.actions.act_window,name:grimm_gteg_supplier_invoice.action_import_gteg_wizard
+msgid "GTEG Invoice Import File"
+msgstr "GTEG Rechnungsimportdatei"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.ui.menu,name:grimm_gteg_supplier_invoice.gteg_import_payment_menu
+msgid "GTEG Payment Import"
+msgstr "GTEG Payment Import"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.actions.act_window,name:grimm_gteg_supplier_invoice.action_import_gteg_payment_wizard
+msgid "GTEG Payment Import File"
+msgstr "GTEG Payment Import File"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.ui.view,arch_db:grimm_gteg_supplier_invoice.view_gteg_product_code_tree
+msgid "GTEG Product Code"
+msgstr "GTEG Product Code"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_id
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_id
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_gteg_supplier_invoice
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:195
+#, python-format
+msgid "INV Already Imported"
+msgstr "INV Already Imported"
+
+#. module: grimm_gteg_supplier_invoice
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:195
+#, python-format
+msgid "INV HEADER"
+msgstr "INV HEADER"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.ui.view,arch_db:grimm_gteg_supplier_invoice.gteg_import_wizard
+#: model:ir.ui.view,arch_db:grimm_gteg_supplier_invoice.gteg_payment_import_wizard
+msgid "Import"
+msgstr "Import"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model,name:grimm_gteg_supplier_invoice.model_account_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import___last_update
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import___last_update
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_write_uid
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_write_uid
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_write_date
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_write_date
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_name
+msgid "Name"
+msgstr "Name"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_order_id
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_order_id
+msgid "Order"
+msgstr "Order"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.ui.view,arch_db:grimm_gteg_supplier_invoice.gteg_payment_import_wizard
+msgid "Payment Import"
+msgstr "Payment Import"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_product_code_product_id
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.ui.view,arch_db:grimm_gteg_supplier_invoice.gteg_import_wizard
+msgid "Product Bundle"
+msgstr "Product Bundle"
+
+#. module: grimm_gteg_supplier_invoice
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:108
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:139
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:240
+#: code:addons/grimm_gteg_supplier_invoice/models/invoice.py:408
+#, python-format
+msgid "Something went wrong with file or file is not valid.\n"
+"\n"
+""
+msgstr "Bei der Datei ist ein Fehler aufgetreten, oder die Datei ist ungültig.\n"
+"\n"
+""
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_tax_position
+msgid "Tax Position"
+msgstr "Steuerposition"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_invoice_import_upload_info
+#: model:ir.model.fields,field_description:grimm_gteg_supplier_invoice.field_gteg_payment_import_upload_info
+msgid "Upload Information"
+msgstr "Informationen hochladen"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model,name:grimm_gteg_supplier_invoice.model_gteg_invoice_import
+msgid "gteg.invoice.import"
+msgstr "gteg.invoice.import"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model,name:grimm_gteg_supplier_invoice.model_gteg_payment_import
+msgid "gteg.payment.import"
+msgstr "gteg.payment.import"
+
+#. module: grimm_gteg_supplier_invoice
+#: model:ir.model,name:grimm_gteg_supplier_invoice.model_gteg_product_code
+msgid "gteg.product.code"
+msgstr "gteg.product.code"
+

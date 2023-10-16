@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <template id="assets_backend" name="mail assets" inherit_id="web.assets_backend">
+      <xpath expr="." position="inside">
+        <!--<script type="text/javascript" src="/mail/static/src/js/thread.js"/>
+        <script type="text/javascript" src="/grimm_crm/static/src/js/chat_manager.js"/>
+        <script type="text/javascript" src="/grimm_crm/static/src/js/chatter.js"/>-->
+        <script type="text/javascript" src="/grimm_crm/static/src/js/thread.js"/>
+
+        <link rel="stylesheet" href="/grimm_crm/static/src/less/thread.less" type="text/less" />
+      </xpath>
+    </template>
+  </data>
+</openerp>

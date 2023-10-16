@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="reject_admission_reason_email" model="mail.template">
+        <field name="name">SYNC_Reject admission reason</field>
+        <field name="model_id" ref="sms_core.model_admission_reject_reason_wizard"/>
+        <field name="body_html" type="html">
+                    <br/>
+                    <div>
+                        <p>
+                            We regret to inform you that ${object.admission_id.full_name} cannot join us for the following reasons:<br/>
+                            ${object.adm_reject_reason} <br/> We are sure that many schools out there will be lucky to have
+                            ${object.admission_id.full_name}, yet It was an honor that you chose us first. Thank you and we wish you and
+                            ${object.admission_id.full_name} all the best.
+                        </p>
+                    </div>
+                <br/>
+        </field>
+    </record>
+</odoo>

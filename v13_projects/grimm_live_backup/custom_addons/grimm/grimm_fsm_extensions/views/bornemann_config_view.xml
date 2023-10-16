@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="view_bornemann_config_form" model="ir.ui.view">
+            <field name="name">bornemann_config.form</field>
+            <field name="model">bornemann.config</field>
+            <field name="arch" type="xml">
+                <form string="Bornemann Backend">
+                    <header>
+                      <button name="synchronize_metadata"
+                        type="object"
+                        class="oe_highlight"
+                        string="Synchronize Metadata"/>
+                    </header>
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline" />
+                        </h1>
+                        <group name="shopware6" string="Shopware6 Configuration">
+                            <notebook>
+                                <page string="API" name="api">
+                                    <group colspan="4" col="4">
+                                        <field name="location" placeholder="e.g. http://my.server.com" colspan="4"/>
+                                        <field name="token" colspan="4"/>
+                                        <field name="is_print_log" colspan="2" widget="boolean_toggle"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                        <notebook>
+                            <page name="import" string="Imports">
+                                <p class="oe_grey oe_inline">
+                                    By clicking on the buttons,
+                                    you will initiate the synchronizations
+                                    with Shopware6.
+                                    Note that the import or exports
+                                    won't be done directly,
+                                    they will create 'Jobs'
+                                    executed as soon as possible.
+                                </p>
+                                <p class="oe_grey oe_inline">
+                                    Once imported,
+                                    some types of records,
+                                    like the products or categories,
+                                    need a manual review.
+                                    You will find the list
+                                    of the new records to review
+                                    in the menu 'Connectors > Checkpoint'.
+                                </p>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_bornemann_config_tree" model="ir.ui.view">
+            <field name="name">bornemann_config.tree</field>
+            <field name="model">bornemann.config</field>
+            <field name="arch" type="xml">
+                <tree string="Bornemann Backend">
+                    <field name="name"/>
+                    <field name="location"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_bornemann_config" model="ir.actions.act_window">
+            <field name="name">Bornemann Config</field>
+            <field name="res_model">bornemann.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_bornemann_config_tree"/>
+        </record>
+
+    <menuitem id="bornemann_config_menu"
+            name="Bornemann Config"
+            parent="fleet.fleet_configuration"
+            sequence="40"
+            action="action_bornemann_config"
+            />
+
+    <!--<menuitem id="backend_shopware_target"
+            name="Shopware6 Backend"
+            parent="backend_shopware6"
+            sequence="40"
+            action="action_shopware_backend"/>-->
+</data>
+</openerp>

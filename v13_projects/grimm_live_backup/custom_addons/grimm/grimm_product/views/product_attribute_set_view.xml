@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+  <data>
+
+    <record id="of_product_attribute_set_form_view" model="ir.ui.view">
+      <field name="name">of.product.attribute.set.view</field>
+      <field name="model">product.attribute.set</field>
+      <field name="arch" type="xml">
+        <form string="Product Attribute Set">
+          <sheet>
+            <group>
+              <group name="base_data1">
+                <field name="name"/>
+                <field name="description"/>
+              </group>
+              <group name="base_data2">
+              </group>
+            </group>
+
+            <separator string="Product attributes"/>
+            <field name="product_attribute_ids" nolabel="1">
+              <tree colors="blue:variant_attribute==True">
+                <field name="name"/>
+                <field name="variant_attribute" invisible="1"/>
+              </tree>
+            </field>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="of_product_attribute_set_tree_view" model="ir.ui.view">
+      <field name="name">of.product.attribute.set.tree.view</field>
+      <field name="model">product.attribute.set</field>
+      <field name="arch" type="xml">
+        <tree string="Product Attribute Set">
+          <field name="name"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="of_product_attr_set_action" model="ir.actions.act_window">
+      <field name="name">Product Attribute Sets</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">product.attribute.set</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" eval="False"/>
+    </record>
+
+    <menuitem action="of_product_attr_set_action" id="of_menu_product_attr_sets" parent="sale.prod_config_main"
+              string="Product Attribute Set"/>
+
+  </data>
+</odoo>

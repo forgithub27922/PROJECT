@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="inherit_partner_view_form" model="ir.ui.view">
+        <field name="name">inherit.partner.view.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="is_employee"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_view_res_partner_filter" model="ir.ui.view">
+            <field name="name">inherit.res.partner.select</field>
+            <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='inactive']" position="after">
+                <filter string="Employees" name="employees" domain="[('is_employee', '=', True)]"/>
+                <filter string="Non-Employees" name="non-employees" domain="[('is_employee', '=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="product_price_history_tree_view" model="ir.ui.view">
+    <field name="name">product.price.history.tree.view</field>
+    <field name="model">product.price.history</field>
+    <field name="arch" type="xml">
+      <tree string="Price History">
+        <field name="product_id"/>
+        <field name="datetime"/>
+        <field name="cost"/>
+        <field name="sale_price"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="product_price_history_form_view" model="ir.ui.view">
+    <field name="name">product.price.history.form.view</field>
+    <field name="model">product.price.history</field>
+    <field name="arch" type="xml">
+      <form string="Price History">
+        <group>
+          <field name="product_id"/>
+          <field name="datetime"/>
+          <field name="cost"/>
+          <field name="sale_price"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <record id="product_price_history_view_action" model="ir.actions.act_window">
+    <field name="name">Price History</field>
+    <field name="res_model">product.price.history</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <!--<record id="recreate_all_price_histories_for_all_products" model="ir.actions.server">-->
+  <!--<field name="name">Recalculate Price Histories</field>-->
+  <!--<field name="model_id" ref="grimm_pricelist.model_product_price_history"/>-->
+  <!--<field name="state">code</field>-->
+  <!--<field name="code">action = self.recalculate(cr, uid, context.get('active_ids', []), context=context)</field>-->
+  <!--<field name="view_mode">list,form</field>-->
+  <!--</record>-->
+
+  <!--<record id="recalculate_all_price_histories" model="ir.values">-->
+  <!--<field eval="'client_action_multi'" name="key2"/>-->
+  <!--<field eval="'product.price.history'" name="model"/>-->
+  <!--<field name="name">Recalculate Price Histories</field>-->
+  <!--<field eval="'ir.actions.server,%d'%recreate_all_price_histories_for_all_products" name="value"/>-->
+  <!--</record>-->
+
+  <menuitem
+      action="product_price_history_view_action"
+      id="menu_product_price_history"
+      parent="sale.menu_product_pricelist_main"
+      name="Price History"
+      sequence="20"/>
+
+  <record id="product_price_list_view_action" model="ir.actions.act_window">
+    <field name="name">Price List</field>
+    <field name="res_model">product.pricelist</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <menuitem
+      action="product_price_list_view_action"
+      id="menu_product_price_list"
+      parent="sale.menu_product_pricelist_main"
+      name="Price List"
+      sequence="20"/>
+
+
+</odoo>

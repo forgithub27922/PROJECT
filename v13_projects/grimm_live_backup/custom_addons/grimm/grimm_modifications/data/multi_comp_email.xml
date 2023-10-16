@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="email_template_edi_purchase_done_partenics" model="mail.template">
+            <field name="name">Bestellung Partenics</field>
+            <field name="email_from">office@partenics.de</field>
+            <field name="subject">Auftrag von PARTENICS (Ref ${object.name or 'n/a' })</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_name">PO_${(object.name or '').replace('/','_')}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+             <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+
+    <p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;"><br></p>
+    <p>Sehr geehrte Damen und Herren,</p><p>hiermit erhalten Sie unsere ${object.state in ('draft', 'sent') and 'Bestellung' or 'Bestellung'} im Anhang. Bitte schicken Sie die Bestellbestätigung als Antwort auf diese Email oder schicken diese an einkauf@partenics.de</p><p style="margin-left: 30px; border-left: 1px solid rgb(142, 0, 0);">&nbsp;&nbsp;<strong>REFERENZ</strong><br>&nbsp; Unsere Firmierung:&nbsp;<strong>${object.company_id.name}</strong><br>&nbsp;&nbsp;Unsere Kundennummer:&nbsp;<strong>${object.partner_id.ref}</strong><br>&nbsp;&nbsp;Bestellnummer:&nbsp;<strong>${object.name}</strong><br>&nbsp;&nbsp;Bestellmenge gesamt:&nbsp;<strong>${object.amount_total} ${object.currency_id.name}</strong><br>&nbsp;&nbsp;Bestelldatum: ${object.date_order}<br>
+% if object.origin:
+&nbsp;&nbsp;Bestellreferenz: ${object.origin}<br>
+% endif
+% if object.partner_ref:
+&nbsp;&nbsp;Ihr Zeichen: ${object.partner_ref}</p><p style="margin-left: 30px; border-left: 1px solid rgb(142, 0, 0);">
+% endif
+% if object.create_uid:
+&nbsp;&nbsp;Ihr Kontakt:&nbsp;<a href="mailto:$%7Bobject.create_uid.email%20or%20''%7D?subject=Order%20${object.name}" style="background-color: rgb(255, 255, 255); color: rgb(33, 183, 153); text-decoration-style: solid;">${object.create_uid.name}</a>&nbsp;
+% endif
+<br></p><br><p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p><p>Vielen Dank!</p><div><br></div></div>
+           ]]>
+            </field>
+        </record>
+
+        <record id="email_template_edi_purchase_partenics" model="mail.template">
+            <field name="name">Partenics Preisanfrage</field>
+            <field name="email_from">office@partenics.de</field>
+            <field name="subject">${object.company_id.name} Anfrage ${object.name or 'n/a' }</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_name">Anfrage_${(object.name or '').replace('/','_')}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+              <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                 <p>Sehr geehrte Damen und Herren,</p>
+                 <p>Hiermit senden wir Ihnen eine Preisanfrage:</p>
+                 <p style="border-left: 1px solid #8e0000; margin-left: 30px;">
+                 <p><strong>Referenz:</strong><br />
+                 <p>Bestellnummer: <strong>${object.name}</strong></p>
+                 <p>Bestelldatum: ${object.date_order}</p>
+                  % if object.origin:
+                   <p>Bestellreferenz: ${object.origin}</p>
+                  % endif
+                  % if object.partner_ref:
+                    <p>Kundenreferenz: ${object.partner_ref}</p>
+                  % endif
+                  % if object.create_uid:
+                    <p>Ihr Kontakt: <a href="mailto:${object.create_uid.email or ''}?subject=Order%20${object.name}">${object.create_uid.name}</a></p>
+                  % endif
+                 </p>
+
+                 <p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>
+                 <p>Vielen Dank!</p>
+              </div>
+              ]]></field>
+        </record>
+
+        <record id="email_template_edi_sale_partenics" model="mail.template">
+            <field name="name">Partenics Angebot/Auftrag</field>
+            <field name="email_from">office@partenics.de</field>
+            <field name="subject">
+                % if object.state in ['draft','sent']:
+                Angebot ${object.number or object.name or 'n/a' } ${object.company_id.name} von GRIMM Gastrobedarf
+                % else:
+                Auftragsbestätigung ${object.number or object.name or 'n/a' } ${object.company_id.name} von GRIMM
+                Gastrobedarf
+                % endif
+            </field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_template" ref="grimm_reports.grimm_saleorder_report"/>
+            <field name="report_name">
+                % if object.state in ['draft','sent']:
+                Angebot_${(object.number or object.name or '')}
+                % else:
+                Auftragsbestätigung_${(object.number or object.name or '')}
+                % endif
+            </field>
+            <field name="user_signature" eval="False"/>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+              <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:
+                  <p>Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>
+                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:
+                  <p>Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>
+                % else:
+                  <p>Sehr geehrte Damen und Herren,</p>
+                % endif
+                % if object.state in ('draft', 'sent'):
+                  <p><span style="line-height: 14.95px">nachfolgend erhalten Sie das angefragte Angebot. Wir freuen uns auf eine Zusammenarbeit.</span></p>
+                  <p><span style="line-height: 14.95px">Wenn Sie noch Fragen haben sollten, stehen wir Ihnen gerne zur Verfügung.</span></p>
+                  <p><strong>Zusammenfassung:<br></strong></p>
+                  <p>Bestellnummer:&nbsp;<strong>${object.name}</strong></p>
+                  <p>Angebotssumme:&nbsp;<strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></p>
+                  <p>Angebotsdatum: ${format_tz(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang})}</p>
+                % else:
+                  <p><span style="line-height: 14.95px">besten Dank für Ihre Bestellung, hiermit schicken wir Ihnen Ihre Auftragsbestätigung.</span></p>
+                  <p><strong>Zusammenfassung:<br></strong></p>
+                  <p>Bestellnummer:&nbsp;<strong>${object.name}</strong></p>
+                  <p>Auftragssumme:&nbsp;<strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></p>
+                  <p>Auftragsdatum:&nbsp;${format_tz(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang})}</p>
+                % endif
+                % if object.client_order_ref:
+                  Ihre Referenz: ${object.client_order_ref}
+                % endif
+              </div>
+              ]]></field>
+        </record>
+
+        <record id="email_template_edi_invoice_partenics" model="mail.template">
+            <field name="name">Partenics Vorkassenrechnung</field>
+            <field name="email_from">office@partenics.de</field>
+            <field name="subject">${object.company_id.name} Anfrage ${object.name or 'n/a' }</field>
+            <field name="partner_to">${object.partner_id.id}</field>
+            <field name="model_id" ref="account.model_account_move"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_name">Vorkasse_${(object.invoice_origin or '').replace('/','_')}</field>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+              <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:
+                <p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>
+                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:
+                <p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>
+                % else:
+                <p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">Sehr geehrte Damen und Herren,</p>
+                % endif
+
+                    <p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;">im Anhang erhalten Sie Ihre ${object.state in ('draft', 'sent')}(Proforma)Rechnung.</p>
+
+                    <p style="font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;border-left: 1px solid #8e0000; margin-left: 30px;">
+                       &nbsp;&nbsp;<strong>REFERENCES</strong><br>
+
+                       % if object.number:
+                       &nbsp;&nbsp;Invoice number: <strong>${object.number or object.invoice_origin}</strong><br>
+                       % endif
+                       &nbsp;&nbsp;Order reference: ${object.invoice_origin}<br>
+                       &nbsp;&nbsp;Invoice total: <strong>${format_amount(object.amount_total,object.currency_id)} ${object.currency_id.name}</strong><br>
+
+                       &nbsp;&nbsp;Invoice date: ${object.date_invoice or object.create_date.split(' ')[0]}<br>
+
+
+
+
+                       % if object.user_id:
+                       &nbsp;&nbsp;Your contact: <a href="mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number or object.invoice_origin}" style="text-decoration-line:none;color:rgb(33, 183, 153);text-decoration-style:solid;text-decoration-color:-moz-use-text-color;">${object.user_id.name}</a>
+                       % endif
+                    </p>
+
+               </div>
+              ]]></field>
+        </record>
+
+        <record id="email_template_warranty_claim_partenics" model="mail.template">
+          <field name="name">Partenics Gewährleistungsantrag</field>
+          <field name="email_from">office@partenics.de</field>
+          <field name="subject">Gewährleistungsantrag (Ref ${object.number or object.origin or 'n/a'})
+            ${object.company_id.name}
+          </field>
+          <field name="partner_to">${object.partner_id.id}</field>
+          <field name="model_id" ref="crm_claim.model_crm_claim"/>
+          <field name="auto_delete" eval="True"/>
+          <field name="report_template" ref="grimm_reports.claim_warranty_report"/>
+          <field name="report_name">Gewährleistung_${(object.number or object.origin or '').replace('/','_')}</field>
+          <field name="lang">${object.partner_id.lang}</field>
+          <field name="body_html"><![CDATA[
+            <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:
+                <p>Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>
+                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:
+                <p>Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>
+                % else:
+                <p>Sehr geehrte Damen und Herren,</p>
+                % endif
+                <br>
+            </div>
+                  ]]></field>
+        </record>
+
+        <!--<record id="email_template_damage_report_partenics" model="mail.template">
+          <field name="name">Partenics Schadensbericht</field>
+          <field name="email_from">office@partenics.de</field>
+          <field name="subject">Schadensbericht (Ref ${object.number or object.origin or 'n/a'}) ${object.company_id.name}
+          </field>
+          <field name="partner_to">${object.partner_id.id}</field>
+          <field name="model_id" ref="crm_claim.model_crm_claim"/>
+          <field name="auto_delete" eval="True"/>
+          <field name="report_template" ref="grimm_reports.report_damage_report"/>
+          <field name="report_name">Schadensbericht_${(object.number or object.origin or '').replace('/','_')}</field>
+          <field name="lang">${object.partner_id.lang}</field>
+          <field name="body_html"><![CDATA[
+            <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:
+                <p>Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>
+                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:
+                <p>Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>
+                % else:
+                <p>Sehr geehrte Damen und Herren,</p>
+                % endif
+                <br>
+            </div>
+                  ]]></field>
+        </record>-->
+
+        <record id="email_template_delivery_notice_partenics" model="mail.template">
+          <field name="name">Partenics Lieferanzeige</field>
+          <field name="email_from">office@partenics.de</field>
+          <field name="subject">Lieferanzeige (Ref ${object.number or object.name or 'n/a' }) ${object.company_id.name}
+          </field>
+          <field name="partner_to">${object.partner_id.id}</field>
+          <field name="model_id" ref="sale.model_sale_order"/>
+          <field name="auto_delete" eval="True"/>
+          <field name="report_template" ref="grimm_reports.grimm_delivery_notice_report"/>
+          <field name="report_name">
+            Lieferanzeige_${(object.number or object.name or '').replace('/','_')}${object.state == '_draft' and '_draft' or ''}
+          </field>
+          <field name="lang">${object.partner_id.lang}</field>
+          <field name="body_html"><![CDATA[
+    <div style="font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+        % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:
+        <p>Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>
+        % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:
+        <p>Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>
+        % else:
+        <p>Sehr geehrte Damen und Herren,</p>
+        % endif
+        <br>
+        <p>vielen Dank für Ihre Bestellung.</p>
+        <p>Anbei senden wir Ihnen die gewünschte Lieferanzeige/ Auftragsbestätigung.</p>
+        <p>Bitte überprüfen Sie den Auftrag noch einmal auf Vollständigkeit und Richtigkeit.</p>
+
+        <div style="border-left: 1px solid #8e0000; margin-left: 30px; padding-left: 5px;">
+            <p><strong>REFERENZ</strong></p>
+            <p>Bestellnummer: ${object.name}</p>
+            <p>Bestellmenge gesamt: ${object.amount_total} ${object.currency_id.name}</p>
+            <p>Bestelldatum: ${format_tz(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang}, format='%d.%m.%Y')}</p>
+            % if object.client_order_ref:
+            <p>Ihr Referenz: ${object.client_order_ref} </p>
+            % endif
+            <p>Ihr Kontakt: <a href="mailto:${object.create_uid.email or ''}?subject=Lieferanzeige%20${object.name}">${object.create_uid.name}</a></p>
+        </div>
+        <p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>
+    </div>
+                  ]]></field>
+        </record>
+    </data>
+</odoo>

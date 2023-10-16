@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="product_advance_filter_wizard" model="ir.ui.view">
+            <field name="name">Product Advance Filter</field>
+            <field name="model">product.advance.filter</field>
+            <field name="arch" type="xml">
+                <form string="Advance Filter">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" widget="domain" options="{'model': 'product.template'}"/>
+                        </h1>
+                        <footer>
+                            <button name="fetch_products" string="Fetch Product" type="object" class="oe_highlight"/>
+                            <button string="Cancel" class="oe_link" special="cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_advance_filter_wizard" model="ir.actions.act_window">
+            <field name="name">Product Filter</field>
+            <field name="res_model">product.advance.filter</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="product_advance_filter_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <!--<menuitem id="product_advance_fileter_menuitem"
+                name="Product Filter"
+                parent="sale.product_menu_catalog"
+                sequence="40"
+                action="action_product_advance_filter_wizard"/>-->
+    </data>
+</openerp>

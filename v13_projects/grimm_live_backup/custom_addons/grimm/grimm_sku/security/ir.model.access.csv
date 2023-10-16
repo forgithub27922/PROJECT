@@ -1,0 +1,10 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_sku_oem_details","access.sku.oem.details","model_sku_oem_details","base.group_user",1,1,1,1
+"access_sku_product_name","access.sku.product.name","model_sku_product_name","base.group_user",1,1,1,1
+"access_sku_technical_details","access.sku.technical.details","model_sku_technical_details","base.group_user",1,1,1,1
+"access_sku_fits_to","access.sku.fits.to","model_sku_fits_to","base.group_user",1,1,1,1
+"access_sku_mapping","access.sku.mapping","model_sku_mapping","base.group_user",1,1,1,1
+"access_prompt_attribute_dialog","access.prompt.attribute.dialog","model_prompt_attribute_dialog","base.group_user",1,1,1,1
+"access_prompt_attribute_exists_dialog","access.prompt.attribute.exists.dialog","model_prompt_attribute_exists_dialog","base.group_user",1,1,1,1
+"access_prompt_sku.exists_dialog","access.prompt.sku.exists.dialog","model_prompt_sku_exists_dialog","base.group_user",1,1,1,1
+"access_scrape_sparepart_dialog","access.scrape.sparepart.dialog","model_scrape_sparepart_dialog","base.group_user",1,1,1,1

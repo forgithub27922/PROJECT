@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="fee_detail_email" model="ir.cron">
+            <field name="name">Deactivate LMS</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="model_id" ref="model_academic_student"/>
+            <field name="state">code</field>
+            <field name="active">0</field>
+            <field name="code">model.cron_deactive_lms()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+        
+        <record id="fee_overdue_warning_email" model="ir.cron">
+            <field name="name">Warning Overdue Email</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="model_id" ref="model_student_fee"/>
+            <field name="state">code</field>
+            <field name="active">1</field>
+            <field name="code">model.cron_warning_email()</field>
+            <field name="interval_number">30</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+        
+        
+         <record id="cohort_student_sync_with_erp" model="ir.cron">
+            <field name="name">Sync Cohorts Student </field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="model_id" ref="model_school_class"/>
+            <field name="state">code</field>
+            <field name="active">1</field>
+            <field name="code">model.sync_cohort_student_with_erp()</field>
+            <field name="interval_number">30</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+        
+        
+         <record id="sync_erp_lms_id" model="ir.cron">
+            <field name="name">Sync Schools Grades Classes </field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="model_id" ref="model_schools_list"/>
+            <field name="state">code</field>
+            <field name="active">1</field>
+            <field name="code">model.cron_sync_erp_lms()</field>
+            <field name="interval_number">30</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="set_sibling_father_mother_active_emp" model="ir.cron">
+            <field name="name">Set the Siblings and Mother Active Employee and Father Active Employee on Student</field>
+            <field name="model_id" ref="model_academic_student"/>
+            <field name="state">code</field>
+            <field name="code">model._set_sibling_father_mother_active_emp()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+        </record>
+        
+        
+</odoo>

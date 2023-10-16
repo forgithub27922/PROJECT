@@ -1,0 +1,25 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_grimm_custom_products_template,Custom Product Template,model_grimm_custom_product_template,base.group_user,1,1,1,1
+access_grimm_custom_products_option,Custom Product Option,model_grimm_custom_product_option,base.group_user,1,1,1,1
+access_grimm_custom_products_option_value,Custom Product Option Value,model_grimm_custom_product_option_value,base.group_user,1,1,1,1
+access_shopware6_grimm_custom_products_template,Shopware6 Custom Product Template,model_shopware6_grimm_custom_product_template,base.group_user,1,1,1,1
+access_shopware6_grimm_custom_products_option,Shopware6 Custom Product Option,model_shopware6_grimm_custom_product_option,base.group_user,1,1,1,1
+access_shopware6_grimm_custom_products_option,Shopware6 Custom Product Option,model_shopware6_grimm_custom_product_option,base.group_user,1,1,1,1
+access_shopware6_grimm_custom_products_option_value,Custom Product Option Value,model_shopware6_grimm_custom_product_option_value,base.group_user,1,1,1,1
+access_shopware6_brand,Shopware6 Grimm Product Brand Access,model_shopware6_grimm_product_brand,base.group_user,1,1,1,1
+access_shopware6_product_template_specifications,Shopware6 Grimm Product Template Specifications Access,model_product_template_specifications,base.group_user,1,1,1,1
+access_shopware6_accessory_part_product,Shopware6 Grimm Accssory Part Product Access,model_shopware6_accessory_part_product,base.group_user,1,1,1,1
+access_shopware6_delivery_time,Shopware6 Delivery Time,model_shopware6_delivery_time,base.group_user,1,1,1,1
+access_media_manager,Media Manager,model_media_manager,base.group_user,1,1,1,1
+access_shopware6_media_manager,Shopware6 Media Manager,model_shopware6_media_manager,base.group_user,1,1,1,1
+access_shopware6_product_update_queue,Shopware6 Product Update Queue,model_shopware6_product_update_queue,base.group_user,1,1,1,1
+"access_sales_channel_rel","Shopware6 sales_channel_rel Access","model_sales_channel_rel","",1,1,1,1
+"access_shopware6_search_keyword","Shopware6 Search Keywords Access","model_shopware6_search_keyword","",1,1,1,1
+access_shopware6_document_type,Shopware6 Document Type,model_shopware6_document_type,base.group_user,1,1,1,1
+access_shopware6_document,Shopware6 Document,model_shopware6_document,base.group_user,1,1,1,1
+access_product_mass_update_queue,Product Mass Update Queue,model_product_mass_update_queue,base.group_user,1,1,1,1
+access_category_related_product,Category Related Product,model_category_related_product,base.group_user,1,1,0,0
+access_shopware6_units,Shopware6 Units,model_shopware6_unit,base.group_user,1,1,1,1
+"access_auto_replied_email","auto_replied_email Access","model_auto_replied_email","",1,1,1,0
+"access_product_advance_filter","product_advance_filter Access","model_product_advance_filter","",1,1,1,0
+access_shopware6_shopping_prio,shopware6_shopping_prio Access,model_shopware6_shopping_prio,base.group_user,1,1,1,1

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="cancellation_application_mail" model="mail.template">
+        <field name="name">Sync_Cancel Application</field>
+        <field name="model_id" ref="sms_core.model_student_admission_form"/>
+        <field name="body_html" type="html">
+
+            <div>
+                <p>We are sorry to inform you that the application process for ${object.full_name} has
+                    been cancelled as we received no response from your side. Thanks for considering us and we hope to see
+                    you and ${object.full_name} again soon.
+                </p>
+            </div>
+
+        </field>
+    </record>
+</odoo>

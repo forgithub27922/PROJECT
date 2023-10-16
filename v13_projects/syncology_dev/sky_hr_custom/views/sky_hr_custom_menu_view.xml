@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Custom Human Resource Menu -->
+        <menuitem
+                id="menu_human_resource_main"
+                name="Human Resources"
+                sequence="31"
+        />
+
+        <!-- Custom Employees Menu under Human Resource -->
+        <menuitem
+                id="menu_hr_emp_custom"
+                name="Employees"
+                parent="menu_human_resource_main"
+                sequence="3"
+                groups="base.group_user"
+        />
+
+        <!-- Employees menu with Action -->
+        <menuitem id="hr.menu_hr_employee_user" name="Employees" parent="menu_hr_emp_custom"
+                  groups="-base.group_user,hr.group_hr_user"/>
+
+        <!-- Hiding the employees application existing menu using group -->
+        <menuitem id="hr.menu_hr_root" name="Employees"
+                  groups="-hr.group_hr_user,-base.group_user,-hr.group_hr_manager,sky_hr_custom.grp_no_menu"/>
+
+        <!-- Adding Configuration menu for Human Resource -->
+        <menuitem id="menu_hr_config" name="Configuration" sequence="100" parent="menu_human_resource_main"
+                  groups="hr.group_hr_manager"/>
+
+        <!-- Changing the parent of Jobs to be displayed under configuration of human Resource -->
+        <menuitem id="hr.menu_view_hr_job" sequence="3" name="Job Positions" parent="menu_hr_config"
+                  groups="hr.group_hr_manager,hr.group_hr_user,hr_recruitment.group_hr_recruitment_manager,hr_recruitment.group_hr_recruitment_user"/>
+
+        <!-- Changing the parent of Departments to be displayed under configuration of Human Resource -->
+        <menuitem id="hr.menu_hr_department_tree" sequence="4" name="Departments" parent="menu_hr_config"
+                  groups="hr.group_hr_manager,hr.group_hr_user,hr_recruitment.group_hr_recruitment_manager,hr_recruitment.group_hr_recruitment_user"/>
+
+        <!-- Changing parent of Working Schedule to be displayed under configuration of Human Resource -->
+        <menuitem id="menu_working_schedule"
+                  action="resource.action_resource_calendar_form"
+                  sequence="10"
+                  name="Working Schedules"
+                  parent="menu_hr_config"/>
+
+        <!-- Changing the group of discuss menu -->
+        <menuitem
+                id="mail.menu_root_discuss"
+                name="Discuss"
+                action="mail.action_discuss"
+                web_icon="mail,static/description/icon.png"
+                groups="-base.group_user,sky_hr_custom.grp_discuss"
+                sequence="1"/>
+
+        <!-- Changing the group of contact menu -->
+        <menuitem id="contacts.res_partner_menu_contacts"
+                  name="Contacts"
+                  action="contacts.action_contacts"
+                  parent="contacts.menu_contacts"
+                  groups="base.group_partner_manager,-base.group_user"
+                  sequence="2"/>
+
+    </data>
+</odoo>

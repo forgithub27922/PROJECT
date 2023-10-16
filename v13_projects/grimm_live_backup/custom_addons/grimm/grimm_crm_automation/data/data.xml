@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="grimm_offer_payment_reminder_email_template" model="mail.template">
+            <field name="name">Shop Offer Payment reminder mail template</field>
+            <field name="email_from">
+                ${(object.company_id.email or '')|safe}
+            </field>
+            <field name="subject">Payment reminder for ${object.name or ''}
+            </field>
+            <field name="email_to">${object.partner_id.email}</field>
+            <field name="model_id" ref="grimm_crm_automation.model_sale_order"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="lang">${object.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+            <p>
+                Hello dear ${object.partner_id.name or ''},
+
+                Please transfer payment for this offer ${object.name or ''}
+                <br/>
+                Thank you.
+            </p>
+              ]]></field>
+        </record>
+
+        <record id="7_days_shop_offer_payment_reminder" model="base.automation">
+            <field name="name">7 days Payment reminder for shop order </field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="template_id" ref="grimm_crm_automation.grimm_offer_payment_reminder_email_template"/>
+            <field name="state">email</field>
+            <field name="trigger">on_time</field>
+            <field name="active" eval="False"/>
+            <field name="filter_domain">
+                ['&amp;','&amp;','&amp;', ('team_id.id','=',2), ('shopware6_bind_ids','!=',False),('state','in',['draft','sent']),("payment_mode_id.id","=",3)]
+                </field>
+            <field name="trg_date_id" ref="sale.field_sale_order__date_order"/>
+            <field name="trg_date_range">7</field>
+            <field name="trg_date_range_type">day</field>
+        </record>
+
+        <record id="21_days_shop_offer_payment_reminder" model="base.automation">
+            <field name="name">21 days Payment reminder for shop order </field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="template_id" ref="grimm_crm_automation.grimm_offer_payment_reminder_email_template"/>
+            <field name="state">email</field>
+            <field name="trigger">on_time</field>
+            <field name="active" eval="False"/>
+            <field name="filter_domain">
+                ['&amp;','&amp;','&amp;', ('team_id.id','=',2), ('shopware6_bind_ids','!=',False),('state','in',['draft','sent']),("payment_mode_id.id","=",3)]
+                </field>
+            <field name="trg_date_id" ref="sale.field_sale_order__date_order"/>
+            <field name="trg_date_range">21</field>
+            <field name="trg_date_range_type">day</field>
+        </record>
+
+        <record id="30_days_shop_offer_payment_reminder" model="base.automation">
+            <field name="name">30 days Payment reminder for shop order </field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="template_id" ref="grimm_crm_automation.grimm_offer_payment_reminder_email_template"/>
+            <field name="state">email</field>
+            <field name="trigger">on_time</field>
+            <field name="active" eval="False"/>
+            <field name="filter_domain">
+                ['&amp;','&amp;','&amp;', ('team_id.id','=',2), ('shopware6_bind_ids','!=',False),('state','in',['draft','sent']),("payment_mode_id.id","=",3)]
+                </field>
+            <field name="trg_date_id" ref="sale.field_sale_order__date_order"/>
+            <field name="trg_date_range">30</field>
+            <field name="trg_date_range_type">day</field>
+        </record>
+
+        <record id="45_days_shop_offer_payment_reminder_cancel" model="base.automation">
+            <field name="name">45 Days Shop order Cancel payment remind </field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="trigger">on_time</field>
+            <field name="active" eval="False"/>
+            <field name="filter_domain">
+                ['&amp;','&amp;','&amp;', ('team_id.id','=',2), ('shopware6_bind_ids','!=',False),('state','in',['draft','sent']),("payment_mode_id.id","=",3)]
+                </field>
+            <field name="trg_date_id" ref="sale.field_sale_order__date_order"/>
+            <field name="trg_date_range">30</field>
+            <field name="trg_date_range_type">day</field>
+            <field name="code">
+for rec in records:
+    log("Order cancel due to payment remind ==> %s"% rec, level='info')
+    rec.action_cancel()
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="inherit_view_hr_job_form" model="ir.ui.view">
+        <field name="name">inherit.hr.job.form</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_view_hr_job_tree" model="ir.ui.view">
+        <field name="name">inherit.hr.job.tree</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_view_job_filter" model="ir.ui.view">
+        <field name="name">inherit.hr.job.search</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_job_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/group/filter[@name='company']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

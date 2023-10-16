@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!--    inherited tree view of hr attendance-->
+    <record id="hr_attendance_view_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.attendance.tree.inherited</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">import_attendance_view</attribute>
+                <attribute name="import">false</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='check_in']" position="attributes">
+                <attribute name="required">0</attribute>
+            </xpath>
+            <xpath expr="//tree/field[@name='check_in']" position="after">
+                <field name="parent_id" invisible="1"/>
+                <field name="department_id" invisible="1"/>
+                <field name="job_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="hr_attendance_view_inherit_filter" model="ir.ui.view">
+            <field name="name">hr_attendance_view_inherit_filter</field>
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.hr_attendance_view_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="after">
+                    <filter name="grp_manager" string="Manager" context="{'group_by':'parent_id'}"/>
+                    <filter name="grp_department" string="Department" context="{'group_by':'department_id'}"/>
+                    <filter name="grp_job" string="Job" context="{'group_by':'job_id'}"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>

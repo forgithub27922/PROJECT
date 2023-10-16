@@ -1,0 +1,1330 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_modifications
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-02-24 11:03+0000\n"
+"PO-Revision-Date: 2021-02-24 11:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_modifications
+#: model:mail.template,subject:grimm_modifications.email_template_edi_sale_partenics
+msgid ""
+"\n"
+"                % if object.state in ['draft','sent']:\n"
+"                Angebot ${object.number or object.name or 'n/a' } ${object.company_id.name} von GRIMM Gastrobedarf\n"
+"                % else:\n"
+"                Auftragsbestätigung ${object.number or object.name or 'n/a' } ${object.company_id.name} von GRIMM\n"
+"                Gastrobedarf\n"
+"                % endif\n"
+"            "
+msgstr ""
+"    % if object.state in ['draft','sent']:\n"
+"                Ihr Angebot ${object.number or object.name or 'n/a' } von Partenics GmbH\n"
+"                % else:\n"
+"                Ihre Auftragsbestätigung ${object.number or object.name or 'n/a' } von Partenics GmbH\n"
+"                % endif"
+
+#. module: grimm_modifications
+#: model:mail.template,report_name:grimm_modifications.email_template_edi_sale_partenics
+msgid ""
+"\n"
+"                % if object.state in ['draft','sent']:\n"
+"                Angebot_${(object.number or object.name or '')}\n"
+"                % else:\n"
+"                Auftragsbestätigung_${(object.number or object.name or '')}\n"
+"                % endif\n"
+"            "
+msgstr ""
+"\n"
+"                % if object.state in ['draft','sent']:\n"
+"                Angebot_${(object.number or object.name or '')}\n"
+"                % else:\n"
+"                Auftragsbestätigung_${(object.number or object.name or '')}\n"
+"                % endif\n"
+
+#. module: grimm_modifications
+#: model:mail.template,body_html:grimm_modifications.email_template_edi_purchase_partenics
+msgid ""
+"\n"
+"              <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                 <p>Sehr geehrte Damen und Herren,</p>\n"
+"                 <p>Hiermit senden wir Ihnen eine Preisanfrage:</p>\n"
+"                 <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"                 <p><strong>Referenz:</strong><br />\n"
+"                 <p>Bestellnummer: <strong>${object.name}</strong></p>\n"
+"                 <p>Bestelldatum: ${object.date_order}</p>\n"
+"                  % if object.origin:\n"
+"                   <p>Bestellreferenz: ${object.origin}</p>\n"
+"                  % endif\n"
+"                  % if object.partner_ref:\n"
+"                    <p>Kundenreferenz: ${object.partner_ref}</p>\n"
+"                  % endif\n"
+"                  % if object.create_uid:\n"
+"                    <p>Ihr Kontakt: <a href=\"mailto:${object.create_uid.email or ''}?subject=Order%20${object.name}\">${object.create_uid.name}</a></p>\n"
+"                  % endif\n"
+"                 </p>\n"
+"\n"
+"                 <p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>\n"
+"                 <p>Vielen Dank!</p>\n"
+"              </div>\n"
+"              "
+msgstr ""
+"\n"
+"              <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                 <p>Sehr geehrte Damen und Herren,</p>\n"
+"                 <p>Hiermit senden wir Ihnen eine Preisanfrage:</p>\n"
+"                 <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"                 <p><strong>Referenz:</strong><br />\n"
+"                 <p>Bestellnummer: <strong>${object.name}</strong></p>\n"
+"                 <p>Bestelldatum: ${object.date_order}</p>\n"
+"                  % if object.origin:\n"
+"                   <p>Bestellreferenz: ${object.origin}</p>\n"
+"                  % endif\n"
+"                  % if object.partner_ref:\n"
+"                    <p>Kundenreferenz: ${object.partner_ref}</p>\n"
+"                  % endif\n"
+"                  % if object.create_uid:\n"
+"                    <p>Ihr Kontakt: <a href=\"mailto:${object.create_uid.email or ''}?subject=Order%20${object.name}\">${object.create_uid.name}</a></p>\n"
+"                  % endif\n"
+"                 </p>\n"
+"\n"
+"                 <p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>\n"
+"                 <p>Vielen Dank!</p>\n"
+"              </div>\n"
+
+#. module: grimm_modifications
+#: model:mail.template,body_html:grimm_modifications.email_template_edi_sale_partenics
+msgid ""
+"\n"
+"              <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                  <p>Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                  <p>Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                  <p>Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"                % if object.state in ('draft', 'sent'):\n"
+"                  <p><span style=\"line-height: 14.95px\">nachfolgend erhalten Sie das angefragte Angebot. Wir freuen uns auf eine Zusammenarbeit.</span></p>\n"
+"                  <p><span style=\"line-height: 14.95px\">Wenn Sie noch Fragen haben sollten, stehen wir Ihnen gerne zur Verfügung.</span></p>\n"
+"                  <p><strong>Zusammenfassung:<br></strong></p>\n"
+"                  <p>Bestellnummer:&nbsp;<strong>${object.name}</strong></p>\n"
+"                  <p>Angebotssumme:&nbsp;<strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></p>\n"
+"                  <p>Angebotsdatum: ${format_tz(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang})}</p>\n"
+"                % else:\n"
+"                  <p><span style=\"line-height: 14.95px\">besten Dank für Ihre Bestellung, hiermit schicken wir Ihnen Ihre Auftragsbestätigung.</span></p>\n"
+"                  <p><strong>Zusammenfassung:<br></strong></p>\n"
+"                  <p>Bestellnummer:&nbsp;<strong>${object.name}</strong></p>\n"
+"                  <p>Auftragssumme:&nbsp;<strong>${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></p>\n"
+"                  <p>Auftragsdatum:&nbsp;${format_tz(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang})}</p>\n"
+"                % endif\n"
+"                % if object.client_order_ref:\n"
+"                  Ihre Referenz: ${object.client_order_ref}\n"
+"                % endif\n"
+"              </div>\n"
+"              "
+msgstr ""
+"\n"
+"              <div style=\"font-size:13px;font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"                % if object.state in ('draft', 'sent'):\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"line-height: 14.95px\">nachfolgend erhalten Sie das angefragte Angebot. Wir freuen uns auf eine Zusammenarbeit.</span></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"line-height: 14.95px\">Wenn Sie noch Fragen haben sollten, stehen wir Ihnen gerne zur Verfügung.</span><br><br></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><strong style=\"font-weight:bold;\">Zusammenfassung:<br></strong></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial; text-align: inherit;\">Angebotsnummer</span>:&nbsp;<strong style=\"font-weight:bold;\">${object.name}</strong></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Angebotssumme:&nbsp;<strong style=\"font-weight:bold;\">${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Angebotsdatum: ${format_datetime(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang})}</p>\n"
+"                % else:\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"line-height: 14.95px\">besten Dank für Ihre Bestellung, hiermit schicken wir Ihnen Ihre Auftragsbestätigung.</span></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><strong style=\"font-weight:bold;\"><br></strong></p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><strong style=\"font-weight:bold;\">AUFTRAGSINFORMATIONEN:<br></strong></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Auftragsnummer:&nbsp;<strong style=\"font-weight:bold;\">${object.name}</strong></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial; text-align: inherit;\">Auftrags</span>ssumme:&nbsp;<strong style=\"font-weight:bold;\">${format_amount(object.amount_total,object.pricelist_id.currency_id)}</strong></p>\n"
+"                  <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial; text-align: inherit;\">Auftrags</span>datum:&nbsp;${format_datetime(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang})}</p>\n"
+"                % endif\n"
+"                % if object.client_order_ref:\n"
+"                  Ihre Referenz: ${object.client_order_ref}\n"
+"                % endif\n"
+"              </div>\n"
+
+#. module: grimm_modifications
+#: model:mail.template,body_html:grimm_modifications.email_template_edi_invoice_partenics
+msgid ""
+"\n"
+"              <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                <p style=\"font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                <p style=\"font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                <p style=\"font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"\n"
+"                    <p style=\"font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">im Anhang erhalten Sie Ihre ${object.state in ('draft', 'sent')}(Proforma)Rechnung.</p>\n"
+"\n"
+"                    <p style=\"font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"                       &nbsp;&nbsp;<strong>REFERENCES</strong><br>\n"
+"\n"
+"                       % if object.number:\n"
+"                       &nbsp;&nbsp;Invoice number: <strong>${object.number or object.origin}</strong><br>\n"
+"                       % endif\n"
+"                       &nbsp;&nbsp;Order reference: ${object.origin}<br>\n"
+"                       &nbsp;&nbsp;Invoice total: <strong>${format_amount(object.amount_total,object.currency_id)} ${object.currency_id.name}</strong><br>\n"
+"\n"
+"                       &nbsp;&nbsp;Invoice date: ${object.date_invoice or object.create_date.split(' ')[0]}<br>\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"                       % if object.user_id:\n"
+"                       &nbsp;&nbsp;Your contact: <a href=\"mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number or object.origin}\" style=\"text-decoration-line:none;color:rgb(33, 183, 153);text-decoration-style:solid;text-decoration-color:-moz-use-text-color;\">${object.user_id.name}</a>\n"
+"                       % endif\n"
+"                    </p>\n"
+"\n"
+"               </div>\n"
+"              "
+msgstr ""
+"\n"
+"              <div style=\"font-size:13px;font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"\n"
+"                    <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\"><span style=\"font-size:10.0pt;font-family:&quot;Arial&quot;,sans-serif;\n"
+"mso-fareast-font-family:Calibri;mso-fareast-theme-font:minor-latin;mso-ansi-language:\n"
+"DE;mso-fareast-language:DE;mso-bidi-language:AR-SA\">im Anhang finden Sie die Rechnung zu Ihrer Bestellung.&nbsp;<br> Sollten Sie Fragen haben, steht Ihnen unser kompetenter Kundenservice gerne zur Verfügung. <br><br></span></p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\"><b style=\"font-weight:bold;\">RECHNUNGSINFORMATIONEN</b></p>\n"
+"\n"
+"                    <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"\n"
+"&nbsp;&nbsp;<strong>REFERENCES</strong><br>\n"
+"\n"
+"                       % if object.number:\n"
+"                       &nbsp;&nbsp;Rechnungsnummer: <strong>${object.number or object.origin}</strong><br>\n"
+"                       % endif\n"
+"                       &nbsp;&nbsp;Auftragsnummer: ${object.origin}<br>\n"
+"                       &nbsp;&nbsp;Gesamtsumme: <strong>${format_amount(object.amount_total,object.currency_id)} ${object.currency_id.name}</strong><br>\n"
+"\n"
+"                       &nbsp;&nbsp;Rechnungsdatum: ${object.date_invoice or object.create_date.split(' ')[0]}<br>\n"
+"\n"
+"                      \n"
+"\n"
+"                       \n"
+"                       % if object.user_id:\n"
+"                       &nbsp;&nbsp;Your contact: <a href=\"mailto:${object.user_id.email or ''}?subject=Invoice%20${object.number or object.origin}\" style=\"text-decoration-line:none;color:rgb(33, 183, 153);text-decoration-style:solid;text-decoration-color:-moz-use-text-color;\">${object.user_id.name}</a>\n"
+"                       % endif\n"
+"\n"
+"               </div>\n"
+
+#. module: grimm_modifications
+#: model:mail.template,body_html:grimm_modifications.email_template_edi_purchase_done_partenics
+msgid ""
+"\n"
+"             <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p style=\"font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\"><br></p>\n"
+"    <p>Sehr geehrte Damen und Herren,</p><p>hiermit erhalten Sie unsere ${object.state in ('draft', 'sent') and 'Bestellung' or 'Bestellung'} im Anhang. Bitte schicken Sie die Bestellbestätigung als Antwort auf diese Email oder schicken diese an einkauf@partenics.de</p><p style=\"margin-left: 30px; border-left: 1px solid rgb(142, 0, 0);\">&nbsp;&nbsp;<strong>REFERENZ</strong><br>&nbsp; Unsere Firmierung:&nbsp;<strong>${object.company_id.name}</strong><br>&nbsp;&nbsp;Unsere Kundennummer:&nbsp;<strong>${object.partner_id.ref}</strong><br>&nbsp;&nbsp;Bestellnummer:&nbsp;<strong>${object.name}</strong><br>&nbsp;&nbsp;Bestellmenge gesamt:&nbsp;<strong>${object.amount_total} ${object.currency_id.name}</strong><br>&nbsp;&nbsp;Bestelldatum: ${object.date_order}<br>\n"
+"% if object.origin:\n"
+"&nbsp;&nbsp;Bestellreferenz: ${object.origin}<br>\n"
+"% endif\n"
+"% if object.partner_ref:\n"
+"&nbsp;&nbsp;Ihr Zeichen: ${object.partner_ref}</p><p style=\"margin-left: 30px; border-left: 1px solid rgb(142, 0, 0);\">\n"
+"% endif\n"
+"% if object.create_uid:\n"
+"&nbsp;&nbsp;Ihr Kontakt:&nbsp;<a href=\"mailto:$%7Bobject.create_uid.email%20or%20''%7D?subject=Order%20${object.name}\" style=\"background-color: rgb(255, 255, 255); color: rgb(33, 183, 153); text-decoration-style: solid;\">${object.create_uid.name}</a>&nbsp;\n"
+"% endif\n"
+"<br></p><br><p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p><p>Vielen Dank!</p><div><br></div></div>\n"
+"           \n"
+"            "
+msgstr ""
+"\n"
+"             <div style=\"font-size:13px;font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"\n"
+"    <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\"><br></p>\n"
+"    <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte Damen und Herren,</p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">hiermit erhalten Sie unsere ${object.state in ('draft', 'sent') and 'Bestellung' or 'Bestellung'} im Anhang. Bitte schicken Sie die Bestellbestätigung als Antwort auf diese Email oder schicken diese an einkauf@partenics.de</p><p style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;margin-left: 30px; border-left: 1px solid rgb(142, 0, 0);\">&nbsp;&nbsp;<strong style=\"font-weight:bold;\">REFERENZ</strong><br>&nbsp; Unsere Firmierung:&nbsp;<strong style=\"font-weight:bold;\">${object.company_id.name}</strong><br>&nbsp;&nbsp;Unsere Kundennummer:&nbsp;<strong style=\"font-weight:bold;\">${object.partner_id.ref}</strong><br>&nbsp;&nbsp;Bestellnummer:&nbsp;<strong style=\"font-weight:bold;\">${object.name}</strong><br>&nbsp;&nbsp;Bestellmenge gesamt:&nbsp;<strong style=\"font-weight:bold;\">${object.amount_total} ${object.currency_id.name}</strong><br>&nbsp;&nbsp;Bestelldatum: ${object.date_order}<br>\n"
+"% if object.origin:\n"
+"&nbsp;&nbsp;Bestellreferenz: ${object.origin}<br>\n"
+"% endif\n"
+"% if object.partner_ref:\n"
+"&nbsp;&nbsp;Ihr Zeichen: ${object.partner_ref}</p><p style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;margin-left: 30px; border-left: 1px solid rgb(142, 0, 0);\">\n"
+"% endif\n"
+"% if object.create_uid:\n"
+"&nbsp;&nbsp;Ihr Kontakt:&nbsp;<a href=\"mailto:$%7Bobject.create_uid.email%20or%20''%7D?subject=Order%20${object.name}\" style=\"text-decoration:none;color:rgb(0, 135, 132);background-color: rgb(255, 255, 255); color: rgb(33, 183, 153); text-decoration-style: solid;\">${object.create_uid.name}</a>&nbsp;\n"
+"% endif\n"
+"<br></p><br><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Vielen Dank!</p><div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><br></div></div>\n"
+"           \n"
+
+#. module: grimm_modifications
+#: model:mail.template,body_html:grimm_modifications.email_template_warranty_claim_partenics
+msgid ""
+"\n"
+"            <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                <p>Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                <p>Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                <p>Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"                <br>\n"
+"            </div>\n"
+"                  "
+msgstr ""
+"\n"
+"            <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                <p>Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                <p>Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                <p>Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"                <br>\n"
+"            </div>\n"
+
+#. module: grimm_modifications
+#: model:mail.template,body_html:grimm_modifications.email_template_damage_report_partenics
+msgid ""
+"\n"
+"            <div style=\"font-size:13px;font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"                <br>\n"
+"            </div>\n"
+"                  "
+msgstr ""
+
+#. module: grimm_modifications
+#: model:mail.template,report_name:grimm_modifications.email_template_delivery_notice_partenics
+msgid ""
+"\n"
+"            Lieferanzeige_${(object.number or object.name or '').replace('/','_')}${object.state == '_draft' and '_draft' or ''}\n"
+"          "
+msgstr ""
+"\n"
+"            Lieferanzeige_${(object.number or object.name or '').replace('/','_')}${object.state == '_draft' and '_draft' or ''}\n"
+
+#. module: grimm_modifications
+#: model:mail.template,body_html:grimm_modifications.email_template_delivery_notice_partenics
+msgid ""
+"\n"
+"    <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"        % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"        <p>Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"        % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"        <p>Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"        % else:\n"
+"        <p>Sehr geehrte Damen und Herren,</p>\n"
+"        % endif\n"
+"        <br>\n"
+"        <p>vielen Dank für Ihre Bestellung.</p>\n"
+"        <p>Anbei senden wir Ihnen die gewünschte Lieferanzeige/ Auftragsbestätigung.</p>\n"
+"        <p>Bitte überprüfen Sie den Auftrag noch einmal auf Vollständigkeit und Richtigkeit.</p>\n"
+"\n"
+"        <div style=\"border-left: 1px solid #8e0000; margin-left: 30px; padding-left: 5px;\">\n"
+"            <p><strong>REFERENZ</strong></p>\n"
+"            <p>Bestellnummer: ${object.name}</p>\n"
+"            <p>Bestellmenge gesamt: ${object.amount_total} ${object.currency_id.name}</p>\n"
+"            <p>Bestelldatum: ${format_tz(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang}, format='%d.%m.%Y')}</p>\n"
+"            % if object.client_order_ref:\n"
+"            <p>Ihr Referenz: ${object.client_order_ref} </p>\n"
+"            % endif\n"
+"            <p>Ihr Kontakt: <a href=\"mailto:${object.create_uid.email or ''}?subject=Lieferanzeige%20${object.name}\">${object.create_uid.name}</a></p>\n"
+"        </div>\n"
+"        <p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>\n"
+"    </div>\n"
+"                  "
+msgstr ""
+"\n"
+"    <div style=\"font-size:13px;font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"        % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"        <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"        % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"        <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"        % else:\n"
+"        <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"        % endif\n"
+"        <br>\n"
+"        <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">vielen Dank für Ihre Bestellung.</p>\n"
+"        <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Anbei senden wir Ihnen die gewünschte Lieferanzeige/ Auftragsbestätigung.</p>\n"
+"        <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Bitte überprüfen Sie den Auftrag noch einmal auf Vollständigkeit und Richtigkeit.</p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Falls Sie Fragen haben, kontaktieren Sie uns einfach.<br></p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><br></p>\n"
+"\n"
+"        <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-left: 1px solid #8e0000; margin-left: 30px; padding-left: 5px;\"><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><strong style=\"font-weight:bold;\">AUFTRAGSINFORMATIONEN</strong></p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Auftragsnummer: <b style=\"font-weight:bold;\">${object.name}</b></p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Auftragssumme: <b style=\"font-weight:bold;\">${object.amount_total} ${object.currency_id.name}</b></p><p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Auftragsdatum: <b style=\"font-weight:bold;\">${format_datetime(object.date_order, tz=user.tz, context={'lang':object.partner_id.lang}, dt_format='%d.%m.%Y')}</b></p>  </div>\n"
+"        \n"
+"    </div>\n"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__supplier_invoice_count
+msgid "# Vendor Bills"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:mail.template,subject:grimm_modifications.email_template_edi_invoice_partenics
+#: model:mail.template,subject:grimm_modifications.email_template_edi_purchase_partenics
+msgid "${object.company_id.name} Anfrage ${object.name or 'n/a' }"
+msgstr "Ihre Rechnung ${object.number} von Partenics GmbH"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_partner_address_form
+msgid "&amp;nbsp;&amp;nbsp;"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_magento_product_product__forecast_triplet
+#: model:ir.model.fields,help:grimm_modifications.field_magento_product_template__forecast_triplet
+#: model:ir.model.fields,help:grimm_modifications.field_product_product__forecast_triplet
+#: model:ir.model.fields,help:grimm_modifications.field_product_template__forecast_triplet
+msgid ""
+"<b><span style='color:#00b8d9;'>Available quantity</span> (<span "
+"style='color:#36b37e;'>physical stock</span><span "
+"style='color:#ff5630'>-open customer deliveries</span><span "
+"style='color:#ff991f'> + planned order receipts</span>)</b>"
+msgstr ""
+"<b><span style='color:#00b8d9;'>Verfügbare Menge</span> (<span "
+"style='color:#36b37e;'>physischer Lagerbestand</span><span "
+"style='color:#ff5630'>-offene Kundenauslieferungen</span><span "
+"style='color:#ff991f'> + geplante Bestellzugänge</span>)</b>"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_account_move_line__line_no_stored
+msgid "APos"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_purchase_order_line__line_no
+msgid "APos."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:mail.template,report_name:grimm_modifications.email_template_edi_purchase_partenics
+msgid "Anfrage_${(object.name or '').replace('/','_')}"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "Angebot"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__attachment_ids
+msgid "Attachments"
+msgstr "Dateianhänge"
+
+#. module: grimm_modifications
+#: model:mail.template,subject:grimm_modifications.email_template_edi_purchase_done_partenics
+msgid "Auftrag von PARTENICS (Ref ${object.name or 'n/a' })"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_stock_move_line__availability
+msgid "Availability"
+msgstr "In Platz"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__birthday
+msgid "Birthday"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__default_block
+msgid "Block Reason"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_address__city
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_res_partner__city
+#: model:ir.model.fields,field_description:grimm_modifications.field_res_partner__city
+#: model:ir.model.fields,field_description:grimm_modifications.field_res_users__city
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_address__city
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__city
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_res_partner__city
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_supplier__city
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_partner_address_form
+msgid "City"
+msgstr "Stadt"
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_res_better_zip
+#: model:ir.model,name:grimm_modifications.model_res_city_zip
+msgid "City/locations completion object"
+msgstr "Stadt/Standorte-Vervollständungsobjekt"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_ir_mail_server__company_id
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__company
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: grimm_modifications
+#: code:addons/grimm_modifications/models/excel_po.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "E-Mail schreiben"
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_res_city_zip__country_id
+msgid "Country"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__created_on
+msgid "Created On"
+msgstr "Dok. Datum"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__create_uid
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__create_date
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__create_date
+msgid "Created on"
+msgstr "Dok. Datum"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__customer_payment_mode_id
+msgid "Customer Payment Mode"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__date
+msgid "Date"
+msgstr "Datum"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_grimm_purchase_report__date_order
+msgid "Date on which this document has been created"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_grimm_purchase_report__delay_pass
+msgid "Days to Deliver"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__property_delivery_carrier_id
+msgid "Default delivery method used in sales orders."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__property_delivery_carrier_id
+msgid "Delivery Method"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__display_name
+#: model:ir.model.fields,field_description:grimm_modifications.field_grimm_purchase_report__display_name
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "E-Mail Assistent"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "Engine Options"
+msgstr "Getriebeoptionen"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__previous_assets_count
+msgid "Ex Assets"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Extended Filters"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__parent_partner_print
+msgid "External Address"
+msgstr "Ohne Firmenname drucken !"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__fax
+msgid "Fax"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:res.groups,name:grimm_modifications.fleet_accident
+msgid "Fleet Accident"
+msgstr "Fleet Unfall"
+
+#. module: grimm_modifications
+#: model:res.groups,name:grimm_modifications.fleet_angebot
+msgid "Fleet Angebot"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__fleet_attach_accidents
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__fleet_attach_angebot
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__fleet_attach_reparaturen
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__fleet_attach_sondereinbauten
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__fleet_attach_steuer
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__fleet_attach_verkauf
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__fleet_attach_vertrag
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__fleet_attach_zulassung
+msgid "Fleet Attachment"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:res.groups,name:grimm_modifications.fleet_repair
+msgid "Fleet Repairs"
+msgstr "Fleet Repair"
+
+#. module: grimm_modifications
+#: model:res.groups,name:grimm_modifications.fleet_verkauf
+msgid "Fleet Sales"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:res.groups,name:grimm_modifications.fleet_sondereinbauten
+msgid "Fleet Sondereinbauten"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:res.groups,name:grimm_modifications.fleet_steuer
+msgid "Fleet Steuer"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__fleet_vehicle_accidents
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__fleet_vehicle_angebot
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__fleet_vehicle_reparature
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__fleet_vehicle_sondereinbauten
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__fleet_vehicle_steuer
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__fleet_vehicle_verkauf
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__fleet_vehicle_vertrag
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__fleet_vehicle_zulassung
+msgid "Fleet Vehicle"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:res.groups,name:grimm_modifications.fleet_vertrag
+msgid "Fleet Vertrag"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:res.groups,name:grimm_modifications.fleet_zulassung
+msgid "Fleet Zulassung"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_fleet_attachment_category
+msgid "Fleet attachment category"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__payment_responsible_id
+msgid "Follow-up Responsible"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_product_product__forecast_triplet
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_product_template__forecast_triplet
+#: model:ir.model.fields,field_description:grimm_modifications.field_product_product__forecast_triplet
+#: model:ir.model.fields,field_description:grimm_modifications.field_product_template__forecast_triplet
+msgid "Forecast"
+msgstr "Lagerbestand"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_stock_move_line__is_photo_done
+msgid "Foto"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.ui.menu,name:grimm_modifications.grimm_purchase_report
+msgid "GRIMM Delivery Performance Report"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.actions.act_window,name:grimm_modifications.grimm_action_purchase_order_report_all
+msgid "GRIMM Purchase Analysis"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__garage
+msgid "Garage"
+msgstr "Werkstatt"
+
+#. module: grimm_modifications
+#: model:mail.template,report_name:grimm_modifications.email_template_warranty_claim_partenics
+msgid ""
+"Gewährleistung_${(object.number or object.origin or '').replace('/','_')}"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:mail.template,subject:grimm_modifications.email_template_warranty_claim_partenics
+msgid ""
+"Gewährleistungsantrag (Ref ${object.number or object.origin or 'n/a'})\n"
+"            ${object.company_id.name}\n"
+"          "
+msgstr ""
+"Gewährleistungsantrag (Ref ${object.number or object.origin or 'n/a'})\n"
+"            ${object.company_id.name}\n"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Group By"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_helpdesk_team
+msgid "Helpdesk Team"
+msgstr "Helpdesk-Team"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__id
+#: model:ir.model.fields,field_description:grimm_modifications.field_grimm_purchase_report__id
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.actions.act_window,name:grimm_modifications.action_stock_inventory_development
+#: model:ir.actions.server,name:grimm_modifications.inventory_development_ir_cron_auto_check_ir_actions_server
+#: model:ir.cron,cron_name:grimm_modifications.inventory_development_ir_cron_auto_check
+#: model:ir.cron,name:grimm_modifications.inventory_development_ir_cron_auto_check
+#: model:ir.ui.menu,name:grimm_modifications.inventory_development
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.graph_view_inventory_development_report
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Inventory Development"
+msgstr "Bestandsentwicklung"
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_inventory_development_report
+msgid "Inventory development report"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__invoice_email
+msgid "Invoice Email"
+msgstr "Rechnungs-E-Mail"
+
+#. module: grimm_modifications
+#: model:ir.actions.server,name:grimm_modifications.ir_cron_auto_inoice_temporary_fix_action
+#: model:ir.actions.server,name:grimm_modifications.ir_cron_auto_invoice_temporary_fix_ir_actions_server
+#: model:ir.cron,cron_name:grimm_modifications.ir_cron_auto_invoice_temporary_fix
+#: model:ir.cron,name:grimm_modifications.ir_cron_auto_invoice_temporary_fix
+msgid "Invoice Issue Temporary Fix"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_account_move_line
+msgid "Journal Item"
+msgstr "Buchungszeile"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category____last_update
+#: model:ir.model.fields,field_description:grimm_modifications.field_grimm_purchase_report____last_update
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__write_uid
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__write_date
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__leasingablauf
+msgid "Leasingablauf"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__letzter_fahrzeugcheck
+msgid "Letzter Fahrzeugcheck"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:mail.template,subject:grimm_modifications.email_template_delivery_notice_partenics
+msgid ""
+"Lieferanzeige (Ref ${object.number or object.name or 'n/a' }) ${object.company_id.name}\n"
+"          "
+msgstr "Ihre Lieferanzeige ${object.name} von Partenics GmbH"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__location_id
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Location"
+msgstr "Lagerplatz"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__magento_address_bind_ids
+msgid "Magento Address Bindings"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__magento_bind_ids
+msgid "Magento Bindings"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_ir_mail_server
+msgid "Mail Server"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_mail_message
+msgid "Message"
+msgstr "Nachricht"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__purchase_warn_msg
+msgid "Message for Purchase Order"
+msgstr ""
+
+#. module: grimm_modifications
+#: code:addons/grimm_modifications/models/send_email_dialog.py:0
+#, python-format
+msgid "Note: %s Purchase Order(s) exist(s) in draft and purchase state."
+msgstr ""
+"Hinweis: Es gibt noch abhängige Preisanfragen/Bestellungen (%s) zum "
+"Verkaufsauftrag. Bitte diese entsprechend bearbeiten."
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__payment_responsible_id
+msgid ""
+"Optionally you can assign a user to this field, which will make him "
+"responsible for the action."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_grimm_purchase_report__date_order
+msgid "Order Date"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order Day"
+msgstr "Werte pro Tag"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order Month"
+msgstr "Werte pro Monat"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order Quarter"
+msgstr "Werte pro Quartal"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order Week"
+msgstr "Werte pro Woche"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order Year"
+msgstr "Werte pro Jahr"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order of Day"
+msgstr " Werte pro Tag"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order of Month"
+msgstr "Werte pro Monat"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order of Quarter"
+msgstr "Werte pro Quartal"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order of Week"
+msgstr "Werte pro Woche"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search_group
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.view_inventory_development_search
+msgid "Order of Year"
+msgstr "Werte pro Jahr"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_hr_employee_form
+msgid "Other Information ..."
+msgstr "Weitere Informationen"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__own_customer_ref
+msgid "Own Customer Reference"
+msgstr "Eigene Kundennummer"
+
+#. module: grimm_modifications
+#: model:mail.template,report_name:grimm_modifications.email_template_edi_purchase_done_partenics
+msgid "PO_${(object.name or '').replace('/','_')}"
+msgstr "Bestellung_${(object.name or '').replace('/','_')}"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_inventory_product_template_tree
+msgid "Pack"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_product_product__pack_products
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_product_template__pack_products
+#: model:ir.model.fields,field_description:grimm_modifications.field_product_product__pack_products
+#: model:ir.model.fields,field_description:grimm_modifications.field_product_template__pack_products
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_product_template__pack_products
+msgid "Pack Products"
+msgstr "Pack Produkt"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_account_move_line__line_no_stored
+#: model:ir.model.fields,help:grimm_modifications.field_purchase_order_line__line_no
+msgid "Positionsnummer aus Verkaufsauftrag"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.filters,name:grimm_modifications.grimm_filter_purchase_order_price_per_supplier
+msgid "Price Per Vendor"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__property_supplier_pricelist
+msgid "Price list to calculate the purchase price"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_product_pricelist
+msgid "Pricelist"
+msgstr "Preisliste"
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_grimm_purchase_report__product_id
+msgid "Product"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_stock_move_line
+msgid "Product Moves (Stock Move Line)"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_inventory_product_template_tree
+msgid "Products"
+msgstr "Produkte"
+
+#. module: grimm_modifications
+#: model_terms:ir.actions.act_window,help:grimm_modifications.grimm_action_purchase_order_report_all
+msgid ""
+"Purchase Analysis allows you to easily check and analyse your company purchase history and\n"
+"            performance. From this menu you can track your negotiation performance, the delivery performance of your\n"
+"            vendors, etc."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_purchase_order
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__purchase_warn
+msgid "Purchase Order"
+msgstr "Bestellung"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__purchase_order_count
+msgid "Purchase Order Count"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Bestellposition"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search
+msgid "Purchase Orders"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_pivot
+msgid "Purchase Orders Statistics"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.ui.menu,name:grimm_modifications.purchase_report
+msgid "Purchase Report"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_grimm_purchase_report
+msgid "Purchases Orders"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "Reparaturen"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:mail.template,subject:grimm_modifications.email_template_damage_report_partenics
+msgid ""
+"Schadensbericht (Ref ${object.number or object.origin or 'n/a'}) ${object.company_id.name}\n"
+"          "
+msgstr ""
+"Schadensbericht (Ref ${object.number or object.origin or 'n/a'}) "
+"${object.company_id.name}\n"
+
+#. module: grimm_modifications
+#: model:mail.template,report_name:grimm_modifications.email_template_damage_report_partenics
+msgid ""
+"Schadensbericht_${(object.number or object.origin or '').replace('/','_')}"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__customer_payment_mode_id
+msgid "Select the default payment mode for this customer."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__supplier_payment_mode_id
+msgid "Select the default payment mode for this supplier."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__purchase_warn
+msgid ""
+"Selecting the \"Warning\" option will notify user with the message, "
+"Selecting \"Blocking Message\" will throw an exception with the message and "
+"block the flow. The Message has to be written in the next field."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__default_block
+msgid "Set a reason to block this customers sales orders."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.actions.server,name:grimm_modifications.action_ir_cron_device_to_spare_parts
+#: model:ir.actions.server,name:grimm_modifications.shopware_ir_cron_device_to_spare_parts_ir_actions_server
+#: model:ir.cron,cron_name:grimm_modifications.shopware_ir_cron_device_to_spare_parts
+#: model:ir.cron,name:grimm_modifications.shopware_ir_cron_device_to_spare_parts
+msgid "Shopware - Device Products to Spare Parts"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_address__shopware_invoice_address_ids
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_res_partner__shopware_invoice_address_ids
+msgid "Shopware Invoice Address Bindings"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__sold_products
+msgid "Sold Products"
+msgstr "Verkaufte Produkte"
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "Sondereinbauten"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_res_city_zip__state_id
+msgid "State"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_product_product__stock_locations
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_product_template__stock_locations
+#: model:ir.model.fields,field_description:grimm_modifications.field_product_product__stock_locations
+#: model:ir.model.fields,field_description:grimm_modifications.field_product_template__stock_locations
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_product_template__stock_locations
+msgid "Stock Locations"
+msgstr "Lagerplätze"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__subscription_count
+msgid "Subscriptions"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__property_purchase_currency_id
+msgid "Supplier Currency"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__supplier_payment_mode_id
+msgid "Supplier Payment Mode"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__property_supplier_pricelist
+msgid "Supplier Price List"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__website_url
+msgid "The full URL to access the document through the website."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_account_move__reference
+#: model:ir.model.fields,help:grimm_modifications.field_magento_account_invoice__reference
+#: model:ir.model.fields,help:grimm_modifications.field_magento_order_shipment__reference
+msgid "The partner reference of this invoice."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_shopware_invoice_address__property_purchase_currency_id
+msgid ""
+"This currency will be used, instead of the default one, for purchases from "
+"the current partner"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,help:grimm_modifications.field_stock_move_line__is_photo_done
+msgid "This value displays True if photo has been done."
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__total_assets
+msgid "Total Assets"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__total_qty
+msgid "Total Qty"
+msgstr "Gesamtmenge"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__total_value
+msgid "Total Value"
+msgstr "Gesamtwert"
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_stock_picking
+msgid "Transfer"
+msgstr "Lieferung vornehmen"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__tuev_au
+msgid "TÜV / AU"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "TÜV/AU/Steuer"
+msgstr ""
+
+#. module: grimm_modifications
+#: code:addons/grimm_modifications/models/send_email_dialog.py:0
+#, python-format
+msgid "Unable to send email, please configure the sender's email address."
+msgstr ""
+"Es ist nicht möglich, E-Mails zu versenden, bitte geben Sie die E-Mail-"
+"Adresse des Absenders an."
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "Unfälle"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__valid_from
+msgid "Valid From"
+msgstr "Gültig von"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_attachment_category__valid_to
+msgid "Valid To"
+msgstr "Gültig bis"
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_fleet_vehicle
+msgid "Vehicle"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_grimm_purchase_report__partner_id
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_view_purchase_order_search
+msgid "Vendor"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_account_move__reference
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_account_invoice__reference
+#: model:ir.model.fields,field_description:grimm_modifications.field_magento_order_shipment__reference
+msgid "Vendor Reference"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_purchase_order_line__vendor_code
+msgid "Vendor code"
+msgstr "Lieferantencode"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_fleet_vehicle__vereinbarte_kilometer
+msgid "Vereinbarte Kilometer"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "Verkauf"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "Vertrag"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__website_published
+msgid "Visible on current website"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:mail.template,report_name:grimm_modifications.email_template_edi_invoice_partenics
+msgid "Vorkasse_${(object.origin or '').replace('/','_')}"
+msgstr "Rechnung  ${object.number or object.origin}"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_grimm_purchase_report__picking_type_id
+#: model:ir.model.fields,field_description:grimm_modifications.field_inventory_development_report__warehouse_id
+msgid "Warehouse"
+msgstr "Lager"
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__website_description
+msgid "Website Partner Full Description"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__website_short_description
+msgid "Website Partner Short Description"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__website_url
+msgid "Website URL"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__website_meta_description
+msgid "Website meta description"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__website_meta_keywords
+msgid "Website meta keywords"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model.fields,field_description:grimm_modifications.field_shopware_invoice_address__website_meta_title
+msgid "Website meta title"
+msgstr ""
+
+#. module: grimm_modifications
+#: model_terms:ir.ui.view,arch_db:grimm_modifications.grimm_fleet_vehicle_inherit
+msgid "Zulassung/KFZ Brief"
+msgstr ""
+
+#. module: grimm_modifications
+#: code:addons/grimm_modifications/models/account.py:0
+#, python-format
+msgid ""
+"digits 0 1 2 3 4 5 6 7 8 9\n"
+"capital letters A B C...Z\n"
+"small letters a b c... z\n"
+"special characters $ & % *+ - /\n"
+"length\tmax. 12 Zeichen"
+msgstr ""
+"Zahlen 0 1 2 3 4 5 6 7 8 9\n"
+"Großbuchstaben A B C...Z\n"
+"Kleinbuchstaben a b c... z\n"
+"Spezialzeichen $ & % *+ - /\n"
+"max. 12 Zeichen lang"
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_show_product_wizard
+msgid "show.product.wizard"
+msgstr ""
+
+#. module: grimm_modifications
+#: model:ir.model,name:grimm_modifications.model_update_brand_desc_wizard
+msgid "update.brand.desc.wizard"
+msgstr ""

@@ -1,0 +1,125 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_product_ruleset
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-10 13:57+0000\n"
+"PO-Revision-Date: 2020-01-10 13:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_product_ruleset
+#. openerp-web
+#: code:addons/grimm_product_ruleset/static/src/js/many2one.js:23
+#, python-format
+msgid "Are you sure you want to change the value of Property Set to ? Note: After changing the value of the Property Set, please press Save in order to save the changes."
+msgstr "Durch die Zuordnung eines Property Set werden alle bisherigen Attribute-Zuordnungen gelöscht. Wollen Sie das Property Set trotzdem zuordnen? Hinweis: Bitte speichern Sie nach der Neuzuordnungen bevor Sie andere Änderungen durchführen."
+
+#. module: grimm_product_ruleset
+#: model:ir.ui.view,arch_db:grimm_product_ruleset.grimm_product_ruleset_formview
+msgid "Attributes"
+msgstr "Eigenschaften"
+
+#. module: grimm_product_ruleset
+#: model:ir.actions.act_window,name:grimm_product_ruleset.action_name_config_ruleset
+msgid "Name Config Ruleset"
+msgstr "Name Config Ruleset"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_product_attribute
+msgid "Product Attribute"
+msgstr "Produktattribute"
+
+#. module: grimm_product_ruleset
+#: model:ir.ui.menu,name:grimm_product_ruleset.menu_name_config_ruleset
+msgid "Product Attribute Ruleset"
+msgstr "Product Attribute Ruleset"
+
+#. module: grimm_product_ruleset
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_magento_product_product_prod_name
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_magento_product_template_prod_name
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_product_product_prod_name
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_product_template_prod_name
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_shopware_product_template_prod_name
+msgid "Product Name"
+msgstr "Produktbezeichnung"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_product_ruleset
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_magento_product_product_ruleset_id_md
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_magento_product_template_ruleset_id_md
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_product_product_ruleset_id_md
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_product_template_ruleset_id_md
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_shopware_product_template_ruleset_id_md
+msgid "Ruleset Meta Description"
+msgstr "Ruleset Meta Description"
+
+#. module: grimm_product_ruleset
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_magento_product_product_ruleset_id_mt
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_magento_product_template_ruleset_id_mt
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_product_product_ruleset_id_mt
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_product_template_ruleset_id_mt
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_shopware_product_template_ruleset_id_mt
+msgid "Ruleset Meta Title"
+msgstr "Ruleset Meta Title"
+
+#. module: grimm_product_ruleset
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_magento_product_product_ruleset_id_prod
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_magento_product_template_ruleset_id_prod
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_product_product_ruleset_id_prod
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_product_template_ruleset_id_prod
+#: model:ir.model.fields,field_description:grimm_product_ruleset.field_shopware_product_template_ruleset_id_prod
+msgid "Ruleset Product Name"
+msgstr "Ruleset Product Name"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_name_config_attribute
+msgid "name.config.attribute"
+msgstr "name.config.attribute"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_name_config_attribute_line
+msgid "name.config.attribute.line"
+msgstr "name.config.attribute.line"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_name_config_attribute_value
+msgid "name.config.attribute.value"
+msgstr "name.config.attribute.value"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_name_config_category
+msgid "name.config.category"
+msgstr "name.config.category"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_name_config_ruleset
+msgid "name.config.ruleset"
+msgstr "name.config.ruleset"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_property_set
+msgid "property.set"
+msgstr "property.set"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_ruleset_attribute_line
+msgid "ruleset.attribute.line"
+msgstr "ruleset.attribute.line"
+
+#. module: grimm_product_ruleset
+#: model:ir.model,name:grimm_product_ruleset.model_shopware_property_line
+msgid "shopware.property.line"
+msgstr "shopware.property.line"
+

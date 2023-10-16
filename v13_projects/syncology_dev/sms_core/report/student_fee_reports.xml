@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- PDF report of Student Fee -->
+    <report id="action_student_fee_report_pdf"
+            model="student.fee"
+            string="Student Fee Report"
+            report_type="qweb-pdf"
+            name="sms_core.report_student_fee"
+            file="sms_core.report_student_fee"
+            menu="False"/>
+
+</odoo>

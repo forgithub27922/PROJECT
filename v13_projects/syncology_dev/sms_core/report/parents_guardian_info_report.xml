@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="report_parent_guardian_info_template">
+		<t t-call="web.html_container">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<div class="text-center">
+						<h2>Parents Child Details</h2>
+					</div>
+					<br />
+					<!--=================================================Header table Starts======================================= -->
+					<table class="table table-condensed">
+						<tbody>
+
+							<tr>
+								<td style="width:15%">
+									<strong>Schools</strong>
+									<br />
+									<strong>Classes</strong>
+								</td>
+								<td style="width:35%">
+									<b>
+										<span> All Schools</span>
+									</b>
+									<br />
+									<b>
+										<span> All Classes</span>
+									</b>
+								</td>
+								<td style="width:15%">
+									<strong>Students</strong>
+									<br />
+								</td>
+								<td style="width:35%">
+									<b>
+										<!-- <span t-esc="total_students" /> -->
+									</b>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+					<!--=================================================Header table Starts======================================= -->
+					<br />
+					<!--=================================================Header table Ends======================================= -->
+
+					<table class="table table-condensed">
+						<thead>
+							<tr valign="top">
+								<th style="width:20px">S.No</th>
+								<th style="width:140px">Name</th>
+								<th style="width:80px">National ID</th>
+								<th colspan="3" style="width:100px">Children</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<t t-set="i" t-value="1" />
+							<tr t-foreach="docs" t-as='o'>
+
+								<td class="temptwo_table_celldata" style="width:20px">
+									<span t-esc="i" />
+								</td>
+								<td class="temptwo_table_celldata" style="width:130px">
+									<span t-esc="o['g_name']" />
+								</td>
+								<td>
+									<span t-esc="o['national_id']" />
+								</td>
+								<td>
+									<table class="table table-condensed">
+										<thead>
+											<tr valign="top">
+												<th style="width:20px">S.No</th>
+												<th style="width:140px">Name</th>
+												<th style="width:80px">National ID</th>
+												<th style="width:80px">Class</th>
+												<th style="width:80px">Login</th>
+												<th style="width:100px">Status</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<t t-set="j" t-value="1" />
+											<tr t-foreach="o['child_dict']" t-as='p'>
+												<td class="temptwo_table_celldata" style="width:20px">
+													<span t-esc="j" />
+												</td>
+												<td class="temptwo_table_celldata" style="width:130px">
+													<span t-esc="p['std_name']" />
+												</td>
+												<td><span t-esc="p['national_id']" /></td>
+												<td><span t-esc="p['grade']" /></td>
+												<td><span t-esc="p['login']" /></td>
+												<td><span t-esc="p['status']" /></td>
+											</tr>
+											<t t-set="j" t-value="j+1" />
+										</tbody>
+									</table>
+								</td>
+								<t t-set="i" t-value="i+1" />
+							</tr>
+
+						</tbody>
+					</table>
+
+					<br />
+					<div>
+						<div style="float:left;">
+							Printed Date:
+							<br />
+							<t t-esc="time.strftime('%d-%b-%Y')" />
+						</div>
+						<div style="float:right;">
+							Printed By:
+							<br />
+							<t t-esc="request.env.user.name" />
+						</div>
+					</div>
+
+				</div>
+			</t>
+		</t>
+	</template>
+
+	<report id="action_report_parent_guardian_info"
+		string="Parents Guardian information report" model="academic.student"
+		report_type="qweb-pdf" menu="False"
+		name="sms_core.report_parent_guardian_info_template"
+		file="sms_core.report_parent_guardian_info_template"
+		print_report_name="sms_core.report_parent_guardian_info_template" />
+
+</odoo>

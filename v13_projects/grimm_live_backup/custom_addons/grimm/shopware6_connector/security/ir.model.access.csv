@@ -1,0 +1,23 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_shopware_backend","shopware_backend connector manager","model_shopware6_backend","connector.group_connector_manager",1,1,1,1
+"access_shopware_backend_read","shopware_backend public read access","model_shopware6_backend","",1,0,0,0
+"access_shopware_binding","shopware_binding connector manager","model_shopware6_binding","connector.group_connector_manager",1,1,1,1
+"access_shopware_tax_mapping","shopware_tax_mapping connector manager","model_shopware6_tax","connector.group_connector_manager",1,1,1,1
+"access_shopware_tax_mapping_read","shopware_tax mapping public read access","model_shopware6_tax","",1,0,0,0
+"access_shopware_token_read","shopware_token info public read access","model_shopware6_token","",1,1,0,0
+"access_shopware6_product_category","Shopware6 shopware_product_category Access","model_shopware6_product_category","",1,1,1,1
+"access_shopware6_res_partner","Shopware6 shopware6_res_partner Access","model_shopware6_res_partner","",1,1,1,1
+"access_shopware6_address","Shopware6 shopware6_address Access","model_shopware6_address","",1,1,1,1
+"access_shopware6_product_template","Shopware6 shopware6_product_template Access","model_shopware6_product_template","",1,1,1,1
+"access_shopware6_product_product","Shopware6 shopware6_product_product Access","model_shopware6_product_product","",1,1,1,1
+"access_shopware6_property_group","Shopware6 shopware6_property_group Access","model_shopware6_property_group","",1,1,1,1
+"access_shopware6_property_group_option","Shopware6 shopware6_property_group_option Access","model_shopware6_property_group_option","",1,1,1,1
+"access_media_foder","media_folder Access","model_media_folder","",1,1,1,1
+"access_shopware6_media_foder","Shopware6 media_folder Access","model_shopware6_media_folder","",1,1,1,1
+"access_product_media","product_media Access","model_product_media","",1,1,1,1
+"access_shopware6_product_media","Shopware6 product_media Access","model_shopware6_product_media","",1,1,1,1
+"access_shopware6_sales_channel","Shopware6 Sales Channel Access","model_sales_channel","",1,1,1,1
+"access_shopware6_product_media_file","Shopware6 product_media_file Access","model_shopware6_product_media_file","",1,1,1,1
+"access_shopware6_sale_order","Shopware6 shopware6_sale_order Access","model_shopware6_sale_order","",1,1,1,1
+"access_shopware6_sale_order_line","Shopware6 shopware6_sale_order_line Access","model_shopware6_sale_order_line","",1,1,1,1
+"access_shopware6_account_payment_mode","Shopware6 shopware6_account_payment_mode Access","model_shopware6_account_payment_mode","",1,1,1,1

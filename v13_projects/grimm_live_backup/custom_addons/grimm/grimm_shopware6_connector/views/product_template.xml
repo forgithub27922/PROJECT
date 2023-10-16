@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Add instructor field to existing view -->
+    <record model="ir.ui.view" id="grimm_product_template_template">
+        <field name="name">grimm_product_custom_product_template_id</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='variants']" position='after'>
+                <page string='Custom products'>
+                    <group>
+                        <field name="grimm_product_custom_product_template_id" string="Template"/>
+                        <field name="grimm_product_custom_product_template_technical_name" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_description" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_active" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_step_by_step_mode" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_options_auto_collapse" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_need_confirmation" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_image" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_option_ids" attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="shopware6_grimm_product_brand_form_view_inherit" model="ir.ui.view">
+        <field name="name">shopware6.grimm.product.brand.form.view.inherit</field>
+        <field name="model">grimm.product.brand</field>
+        <field name="inherit_id" ref="asset_base.grimm_product_brand_form_view"/>
+        <field name="arch" type="xml">
+            <page name="associated_products" position="after">
+                <page name="shopware6_mappings" string="Shopware6 Binding">
+                    <field name="shopware6_brand_ids" readonly="1" nolabel="1">
+                        <tree editable="bottom">
+                            <field name="backend_id"/>
+                            <field name="shopware6_id"/>
+                        </tree>
+                    </field>
+                </page>
+            </page>
+        </field>
+    </record>
+
+
+    <record id="shopware6_grimm_shopware6_product_template_form_inherit" model="ir.ui.view">
+        <field name="name">shopware6.grimm.shopware6_product_template_form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="shopware6_connector.shopware6_product_template_form"/>
+        <field name="arch" type="xml">
+            <group name="shopware6_binding" position="before">
+                <group string="Cross Selleing">
+                    <!--<field name="cross_selling_title"/>-->
+                    <field name="is_accessorypart_cross"/>
+                    <field name="is_sparepart_cross"/>
+                    <field name="is_servicepart_cross"/>
+                    <field name="search_words"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="shopware6_grimm_shopware6_product_normal_form_view" model="ir.ui.view">
+        <field name="name">shopware6.shopware6_product_normal_form_view</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="shopware6_connector.shopware6_product_normal_form_view"/>
+        <field name="arch" type="xml">
+            <group name="shopware6_binding" position="before">
+                <group string="Cross Selleing">
+                    <!--<field name="cross_selling_title"/>-->
+                    <field name="is_accessorypart_cross"/>
+                    <field name="is_sparepart_cross"/>
+                    <field name="is_servicepart_cross"/>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>

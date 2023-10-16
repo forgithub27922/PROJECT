@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="inherit_product_template_form_view" model="ir.ui.view">
+        <field name="name">inherit.product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page[@name='general_information']/group/group[2]/field[@name='company_id']"
+                   position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_product_product_tree_view" model="ir.ui.view">
+        <field name="name">inherit.product.product.tree</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_product_packaging_form_view" model="ir.ui.view">
+        <field name="name">inherit.product.packaging.form.view</field>
+        <field name="model">product.packaging</field>
+        <field name="inherit_id" ref="product.product_packaging_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group[2]/field[@name='company_id']"
+                   position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_product_packaging_tree_view" model="ir.ui.view">
+        <field name="name">inherit.product.packaging.tree.view</field>
+        <field name="model">product.packaging</field>
+        <field name="inherit_id" ref="product.product_packaging_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

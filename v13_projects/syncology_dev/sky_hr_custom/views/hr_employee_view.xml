@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+
+    <!-- A new form view of Applicant -->
+    <record id="hr_employee_view_form" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.syncology</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/header" position="inside">
+                <button name="%(action_change_job_position_wiz)d" string="Change Job Position" type="action" class="btn-primary"
+                groups="hr.group_hr_manager,hr.group_hr_user"/>
+            </xpath>
+            <xpath expr="//page[@name='public']//group[4]" position="replace">
+                    <field name="resource_calendar_id" string="Working Schedule" required="1" invisible="1"/>
+            </xpath>
+            <xpath expr="/form/header" position="inside">
+                <field name="status_id" widget="statusbar" clickable="1"/>
+            </xpath>
+            <xpath expr="//form/sheet/div/h1[1]" position="before">
+                <group colspan="4" col="4">
+                    <label for="name" string="First Name"/>
+                    <label for="middle_name"/>
+                    <label for="last_name"/>
+                    <label for="fourth_name"/>
+                    <h1>
+                        <field name="name" required="1"/>
+                    </h1>
+                    <h1>
+                        <field name="middle_name" required="1"/>
+                    </h1>
+                    <h1>
+                        <field name="last_name" required="1"/>
+                    </h1>
+                    <h1>
+                        <field name="fourth_name" required="1"/>
+                    </h1>
+                </group>
+                <group colspan="4" col="4">
+                    <label for="first_name_arabic"/>
+                    <label for="middle_name_arabic"/>
+                    <label for="last_name_arabic"/>
+                    <label for="fourth_name_arabic"/>
+                    <h1>
+                        <field name="first_name_arabic" nolabel="1" required="1"/>
+                    </h1>
+                    <h1>
+                        <field name="middle_name_arabic" required="1"/>
+                    </h1>
+                    <h1>
+                        <field name="last_name_arabic" required="1"/>
+                    </h1>
+                    <h1>
+                        <field name="fourth_name_arabic" required="1"/>
+                    </h1>
+                </group>
+            </xpath>
+            <xpath expr="//form/sheet/group/group/field[@name='mobile_phone']" position="before">
+                <field name="name" invisible="1"/>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='address_home_id']" position="before">
+                <field name="address_rec" required="1"/>
+                <field name="phone_number" required="1"/>
+                <field name="religion" required="1"/>
+                <field name="marital_status" required="1"/>
+                <field name="military_status" required="1"/>
+                <field name="general_service_status" required="1"/>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='birthday']" position="after">
+                <field name="national_id"/>
+                <field name="birth_place" required="1"/>
+                <field name="gender_rec" required="1"/>
+                <field name="city_id" required="1"/>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page[@name='personal_information']" position="after">
+                <page name="family_information" string="Family Information"
+                      attrs="{'invisible':[('marital_status','!=','married')]}">
+                    <group name=" grp_family" colsapn="4" col="4">
+                        <field name="spouse_complete_name" attrs="{'required':[('marital_status','=','married')]}"/>
+                        <field name="spouse_national_id" attrs="{'required':[('marital_status','=','married')]}"/>
+                        <field name="spouse_academic_qualification"
+                               attrs="{'required':[('marital_status','=','married')]}"/>
+                        <field name="spouse_birthdate" attrs="{'required':[('marital_status','=','married')]}"/>
+                        <field name="spouse_place_of_birth" attrs="{'required':[('marital_status','=','married')]}"/>
+                        <field name="spouse_employment" attrs="{'required':[('marital_status','=','married')]}"/>
+                        <field name="spouse_employment_location"
+                               attrs="{'required':[('marital_status','=','married')]}"/>
+                        <field name="spouse_with_children"/>
+                    </group>
+                </page>
+                <page name="pg_qual_exp" string="Qualification &amp; Experience" groups="hr.group_hr_user">
+                    <separator string="Education"/>
+                    <field name="education_ids" colspan="4">
+                        <tree editable="bottom">
+                            <field name="name" required="1"/>
+                            <field name="institute" required="1"/>
+                            <field name="end_date" required="1"/>
+                            <field name="final_grade" required="1"/>
+                        </tree>
+                    </field>
+                    <separator string="Training"/>
+                    <field name="training_ids" colspan="4">
+                        <tree editable="bottom">
+                            <field name="name" required="1"/>
+                            <field name="institute_name" required="1"/>
+                            <field name="start_date" required="1"/>
+                            <field name="end_date" required="1"/>
+                        </tree>
+                    </field>
+                    <separator string="Experience"/>
+                    <field name="experience_ids" colspan="4">
+                        <tree editable="bottom">
+                            <field name="name" required="1"/>
+                            <field name="job_id" required="1"/>
+                            <field name="start_date" required="1"/>
+                            <field name="end_date" required="1"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="pg_subordinates" string="Subordinates">
+                    <field name="child_ids" readonly="1">
+                        <tree>
+                            <field name="first_name_arabic"/>
+                            <field name="middle_name_arabic"/>
+                            <field name="last_name_arabic"/>
+                            <field name="name"/>
+                            <field name="job_id"/>
+                            <field name="department_id"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="pg_insurance" string="Insurance Information" groups="hr.group_hr_user">
+                    <group name="grp_insurance">
+                        <field name="contract_type_id"/>
+                    </group>
+                    <br/>
+                    <group name="grp_social" string="Social Security">
+                        <field name="social_security_number"/>
+                        <field name="social_security_date"/>
+                        <field name="reason_no_insurance"/>
+                    </group>
+                    <group name="grp_health" string="Health Insurance">
+                        <field name="medical_check_done"/>
+                        <field name="health_insurance_card_number"/>
+                        <field name="release_date"/>
+                    </group>
+                    <group name="grp_labour" string="Labour Office">
+                        <field name="contract_job_id"/>
+                        <field name="contract_date"/>
+                        <field name="date_work_certi"/>
+                        <field name="incoming_no"/>
+                    </group>
+                </page>
+                <page name="job_history" string="Job History">
+                    <field name="job_history_ids">
+                        <tree create="0" edit="0" default_order= "changing_date desc">
+                            <field name="new_job_position"/>
+                            <field name="changing_date"/>
+                            <field name="status"/>
+                        </tree>
+                    </field>
+                </page>
+                <page name="schedule_time" string="Schedule Time">
+                    <field name="schedule_time_ids"/>
+                </page>
+            </xpath>
+            <xpath expr="//form/sheet/group/group/field[@name='name']" position="attributes">
+                <attribute name="attrs">{'required':1}</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='spouse_birthdate']"
+                   position="attributes">
+                <attribute name="string">Partner Date of Birth</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='spouse_complete_name']"
+                   position="attributes">
+                <attribute name="string">National ID</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/div/h1/field[@name='name']" position="replace">
+            </xpath>
+            <xpath expr="//form/sheet/div/h2/field[@name='job_title']" position="replace">
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='spouse_complete_name']"
+                   position="replace">
+            </xpath>
+            <xpath expr="//form/sheet/notebook/page/group/group/field[@name='spouse_birthdate']"
+                   position="replace">
+            </xpath>
+            <xpath expr="//page[@name='personal_information']/group[1]/group[3]" position="replace">
+            </xpath>
+            <xpath expr="//form/sheet/group/group/field[@name='department_id']" position="attributes">
+                <attribute name="attrs">{'required': 1}</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/group/group/field[@name='job_id']" position="attributes">
+                <attribute name="attrs">{'required': 1,'readonly': 1}</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='phone']" position="replace"/>
+            <xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='private_email']" position="replace">
+                    <field name="emp_email" required="1"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='address_home_id']" position="attributes">
+                <attribute name="attrs">{'invisible': 1}</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='country_id']" position="attributes">
+                <attribute name="attrs">{'required': 1}</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='place_of_birth']" position="replace"/>
+            <xpath expr="//notebook/page[@name='personal_information']/group/group/field[@name='gender']" position="replace"/>
+            <xpath expr="//page[@name='personal_information']/group/group[2]/field[@name='identification_id']" position="replace"/>
+            <xpath expr="//page[@name='personal_information']/group/group[2]/field[@name='country_of_birth']" position="replace"/>
+
+            <xpath expr="//notebook/page[@name='hr_settings']" position="after">
+                <page string="Part Time">
+                    <table width="100%">
+                        <tr>
+                           <td width="15%"/>
+                            <td width="5%">SAT</td>
+                            <td width="5%">SUN</td>
+                            <td width="5%">MON</td>
+                            <td width="5%">TUE</td>
+                            <td width="5%">WED</td>
+                            <td width="5%">THU</td>
+                            <td width="5%">Deduction</td>
+                            <td width="10%">Check in</td>
+                            <td width="10%">Check out</td>
+                            <td width="10%">Notes</td>
+                        </tr>
+
+                        <tr>
+                            <td width="15%">
+                            <field name="mark_absence"/>
+                            <span>Absence</span>
+                            </td>
+                            <td width="5%"><field name="sat_absence"/></td>
+                            <td width="5%"><field name="sun_absence"/></td>
+                            <td width="5%"><field name="mon_absence"/></td>
+                            <td width="5%"><field name="tue_absence"/></td>
+                            <td width="5%"><field name="wed_absence"/></td>
+                            <td width="5%"><field name="thu_absence"/></td>
+                            <td width="5%"><field name="deduction_absence"/></td>
+                            <td width="10%"></td>
+                            <td width="10%"></td>
+                            <td width="10%"><field name="note_absence"/></td>
+                        </tr>
+
+                        <tr>
+                            <td width="15%">
+                            <field name="mark_check_in"/>
+                            <span>Check in</span>
+                            </td>
+                            <td width="5%"><field name="sat_check_in"/></td>
+                            <td width="5%"><field name="sun_check_in"/></td>
+                            <td width="5%"><field name="mon_check_in"/></td>
+                            <td width="5%"><field name="tue_check_in"/></td>
+                            <td width="5%"><field name="wed_check_in"/></td>
+                            <td width="5%"><field name="thu_check_in"/></td>
+                            <td width="5%"><field name="deduction_check_in"/></td>
+                            <td width="10%"><field name="check_in_check_in" widget="float_time"/></td>
+                            <td width="10%"></td>
+                            <td width="10%"><field name="note_check_in"/></td>
+                        </tr>
+
+                        <tr>
+                            <td width="15%">
+                            <field name="mark_check_out"/>
+                            <span>Check out</span>
+                            </td>
+                            <td width="5%"><field name="sat_check_out"/></td>
+                            <td width="5%"><field name="sun_check_out"/></td>
+                            <td width="5%"><field name="mon_check_out"/></td>
+                            <td width="5%"><field name="tue_check_out"/></td>
+                            <td width="5%"><field name="wed_check_out"/></td>
+                            <td width="5%"><field name="thu_check_out"/></td>
+                            <td width="5%"><field name="deduction_check_out"/></td>
+                            <td width="10%"></td>
+                            <td width="10%"><field name="check_out_check_out" widget="float_time"/></td>
+                            <td width="10%"><field name="note_check_out"/></td>
+                        </tr>
+
+                        <tr>
+                            <td width="15%">
+                            <field name="mark_permissions"/>
+                            <span>Permissions</span>
+                            </td>
+                            <td width="5%"><field name="sat_permissions"/></td>
+                            <td width="5%"><field name="sun_permissions"/></td>
+                            <td width="5%"><field name="mon_permissions"/></td>
+                            <td width="5%"><field name="tue_permissions"/></td>
+                            <td width="5%"><field name="wed_permissions"/></td>
+                            <td width="5%"><field name="thu_permissions"/></td>
+                            <td width="5%"><field name="deduction_permissions"/></td>
+                            <td width="10%"><field name="check_in_permissions" widget="float_time"/></td>
+                            <td width="10%"><field name="check_out_permissions" widget="float_time"/></td>
+                            <td width="10%"><field name="note_permissions"/></td>
+                        </tr>
+
+                        <tr>
+                            <td width="15%">
+                            <field name="mark_breastfeeding"/>
+                            <span>Breastfeeding Hour</span>
+                            </td>
+                            <td width="5%"><field name="sat_breastfeeding"/></td>
+                            <td width="5%"><field name="sun_breastfeeding"/></td>
+                            <td width="5%"><field name="mon_breastfeeding"/></td>
+                            <td width="5%"><field name="tue_breastfeeding"/></td>
+                            <td width="5%"><field name="wed_breastfeeding"/></td>
+                            <td width="5%"><field name="thu_breastfeeding"/></td>
+                            <td width="5%"><field name="deduction_breastfeeding"/></td>
+                            <td width="10%"><field name="check_in_breastfeeding" widget="float_time"/></td>
+                            <td width="10%"><field name="check_out_breastfeeding" widget="float_time"/></td>
+                            <td width="10%"><field name="note_breastfeeding"/></td>
+                        </tr>
+
+                        <tr>
+                            <td width="15%">
+                            <field name="mark_educational"/>
+                            <span>Educational</span>
+                            </td>
+                            <td width="5%"><field name="sat_educational"/></td>
+                            <td width="5%"><field name="sun_educational"/></td>
+                            <td width="5%"><field name="mon_educational"/></td>
+                            <td width="5%"><field name="tue_educational"/></td>
+                            <td width="5%"><field name="wed_educational"/></td>
+                            <td width="5%"><field name="thu_educational"/></td>
+                            <td width="5%"><field name="deduction_educational"/></td>
+                            <td width="10%"><field name="check_in_educational" widget="float_time"/></td>
+                            <td width="10%"><field name="check_out_educational" widget="float_time"/></td>
+                            <td width="10%"><field name="note_educational"/></td>
+                        </tr>
+
+                        <tr>
+                            <td width="15%">
+                            <field name="mark_attending_weekends"/>
+                            <span>Attending Weekends</span>
+                            </td>
+                            <td colspan="3">
+                                <field name="friday_attending_weekends"/>
+                                <span>Friday</span>
+                            </td>
+                            <td colspan="4">
+                                <field name="saturday_attending_weekends"/>
+                                <span>Saturday</span>
+                            </td>
+                            <td width="10%"><field name="check_in_attending_weekends" widget="float_time"/></td>
+                            <td width="10%"><field name="check_out_attending_weekends" widget="float_time"/></td>
+                            <td width="10%"><field name="note_attending_weekends"/></td>
+                        </tr>
+
+                        <tr>
+                            <td width="15%">
+                                <field name="mark_other"/>
+                                <span>Other</span>
+                            </td>
+                            <td colspan="10">
+                                <field name="note_other"/>
+                            </td>
+                        </tr>
+                    </table>
+
+                </page>
+                <page name="salary_info" string="Salary Information" groups="sky_hr_payroll_custom.group_payroll_manager">
+                    <group>
+                        <group name="gr_salary" string="Salary Information">
+                            <field name="hide_sal" invisible="1"/>
+                            <field name="is_confidential" groups="hr.group_hr_manager"/>
+                            <field name="salary" attrs="{'invisible':[('hide_sal','=',True)]}"/>
+                            <field name="annual_bonus"/>
+                            <field name="starting_date"/>
+                            <field name="hourly_rate"/>
+                        </group>
+                    <group>
+                        <separator string="Cuts"/>
+                        <field name="insurance"/>
+                        <field name="ins_cut_value" attrs="{'readonly': [('insurance','=',False)]}"
+                               force_save="1"/>
+                        <field name="fellowship_fund"/>
+                        <field name="fellowship_cut_value" attrs="{'readonly': [('fellowship_fund','=',False)]}"
+                               force_save="1"/>
+                        <field name="staff_children_cut"/>
+                        <field name="other_cut"/>
+                        <separator string="Allowance"/>
+                        <field name="senior_allowance"/>
+                        <field name="transition_allowance"/>
+                        <field name="lms_allowance"/>
+                        <field name="travel_allowance_driver"/>
+                        <field name="supervision_maintenance_allowance"/>
+                        <field name="other_allowance"/>
+                    </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="hr_employee_view_tree" model="ir.ui.view">
+        <field name="name">hr.employee.view.tree.syncology</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
+        <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="display_name"/>
+                    <field name="full_name_arabic"/>
+                </xpath>
+                <xpath expr="//field[@name='display_name']" position="before">
+                    <field name="id"/>
+                </xpath>
+                 <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="starting_date"/>
+                    <field name="religion"/>
+                    <field name="national_id"/>
+                </xpath>
+                <xpath expr="//field[@name='work_phone']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='work_email']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='company_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                 <xpath expr="//field[@name='national_id']" position="after">
+                     <field name="country_id" optional="hide"/>
+                     <field name="passport_id" optional="hide"/>
+                     <field name="birthday" optional="hide"/>
+                     <field name="birth_place" optional="hide"/>
+                     <field name="gender_rec" optional="hide"/>
+                     <field name="city_id" optional="hide"/>
+                     <field name="phone_number" optional="hide"/>
+                     <field name="marital_status" optional="hide"/>
+                     <field name="contract_type_id" optional="hide"/>
+                     <field name="social_security_number" optional="hide"/>
+                     <field name="medical_check_done" optional="hide"/>
+                     <field name="health_insurance_card_number" optional="hide"/>
+                     <field name="contract_job_id" optional="hide"/>
+                     <field name="contract_date" optional="hide"/>
+                </xpath>
+        </field>
+    </record>
+
+    <record id="inherited_hr_view_employee_filter" model="ir.ui.view">
+        <field name="name">hr.employee.search</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name]" position="replace">
+                <field name="display_name" string="Display Name (English)" />
+            </xpath>
+            <xpath expr="//field[@name]" position="after">
+                <field name="full_name_arabic" string="Full Name Arabic" />
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Action of Employee Profile -->
+    <record id="action_employee_my_profile" model="ir.actions.act_window">
+        <field name="name">My Profile</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="context">{'form_view_ref':'hr.view_employee_form'}</field>
+        <field name="domain">[('user_id', '=', uid)]</field>
+    </record>
+
+     <!-- Employees menu with Action -->
+    <menuitem id="menu_emp_my_profile" name="My Profile" action="action_employee_my_profile" parent="menu_hr_emp_custom" groups="base.group_user"/>
+
+    <!-- Hide Few fields in My Profile View of User-->
+    <record id="res_users_view_form_profile_hide" model="ir.ui.view">
+        <field name="name">res.users.preferences.hide.form.inherit</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="hr.res_users_view_form_profile"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='public']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='personal_information']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//page[@name='hr_settings']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited view of My Profile User -->
+    <record id="view_users_form_simple_modif" model="ir.ui.view">
+        <field name="name">res.users.preferences.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="hr_kanban_view" model="ir.ui.view">
+        <field name="name">hr.employee.kanban</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="middle_name" placeholder="Employee's Second Name"/>
+                <field name="last_name" placeholder="Employee's Third Name"/>
+                <field name="fourth_name" placeholder="Employee's Fourth Name"/><br/>
+                <field name="first_name_arabic" placeholder="Employee's First Arabic Name"/>
+                <field name="middle_name_arabic" placeholder="Employee's Second Arabic Name"/>
+                <field name="last_name_arabic" placeholder="Employee's Third Arabic Name"/>
+                <field name="fourth_name_arabic" placeholder="Employee's Fourth Arabic Name"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="actions_set_emp_arabic_name" model="ir.actions.server">
+        <field name="name">Set Employee Arabic Name</field>
+        <field name="model_id" ref="model_hr_employee"/>
+        <field name="binding_model_id" ref="model_hr_employee"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">
+            records.update_emp_full_name_arabic()
+        </field>
+    </record>
+
+    <record id="schedule_time_tree_view" model="ir.ui.view">
+        <field name="name">schedule.time.tree.view</field>
+        <field name="model">schedule.time</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="from_date" string="From"/>
+                <field name="to_date" string="To"/>
+                <field name="working_schedule_id" required="True"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

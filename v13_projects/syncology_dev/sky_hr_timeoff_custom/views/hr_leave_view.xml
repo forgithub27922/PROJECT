@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Hr Leave Tree View -->
+        <record id="hr_time_off_tree_view" model="ir.ui.view">
+            <field name="name">hr.time.off.tree.view</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='employee_id']" position="after">
+                  <field name="employee_arabic_name" />
+                </xpath>
+                <xpath expr="/tree/field[@name='name']" position="after">
+                    <field name="leave_type" invisible="1"/>
+                    <field name="request_date_from" invisible="context.get('default_leave_type') == 'vacation'"/>
+                    <field name="start_time" widget="float_time" invisible="context.get('default_leave_type') == 'vacation'"/>
+                    <field name="end_time" widget="float_time" invisible="context.get('default_leave_type') == 'vacation'"/>
+                    <field name="number_of_hours_display" invisible="context.get('default_leave_type') == 'vacation'"/>
+                </xpath>
+                <xpath expr="/tree/field[@name='duration_display']" position="attributes">
+                    <attribute name="invisible">context.get('default_leave_type') == 'leave'</attribute>
+                </xpath>
+                <xpath expr="/tree/field[@name='date_from']" position="attributes">
+                    <attribute name="invisible">context.get('default_leave_type') == 'leave'</attribute>
+                </xpath>
+                <xpath expr="/tree/field[@name='date_to']" position="attributes">
+                    <attribute name="invisible">context.get('default_leave_type') == 'leave'</attribute>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- New Hr Leave Request Form View -->
+        <record id="new_hr_time_off_form_view" model="ir.ui.view">
+            <field name="name">new.hr.time.off.form.view</field>
+            <field name="model">hr.leave</field>
+            <field name="arch" type="xml">
+                <form string="New Time Off Request">
+                    <field name="can_reset" invisible="1"/>
+                    <field name="can_approve" invisible="1"/>
+                    <field name="unpaid" invisible="1"/>
+                    <header>
+                        <button string="Confirm" name="action_confirm" states="draft" type="object"
+                                class="oe_highlight"/>
+                        <button string="Approve" name="action_approve" type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|','|', ('can_approve', '=', False), ('state', '!=', 'confirm')]}"
+                                groups="hr_holidays.group_hr_holidays_responsible,sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                        <!-- <button string="Approve" name="action_approve1" type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|','|', ('can_approve', '=', False), ('state', '!=', 'confirm')]}"
+                                groups="sky_hr_timeoff_custom.grp_timeoff_officer"/> -->
+                        <button string="Validate" name="action_validate" states="validate1" type="object" context="{'button_validate': True}"
+                                groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_responsible,sky_hr_timeoff_custom.grp_timeoff_officer" class="oe_highlight"/>
+                        <button string="Reject" name="action_reject" type="object"
+                                groups="hr_holidays.group_hr_holidays_manager,sky_hr_timeoff_custom.grp_approve_reject" states="confirm,validate,validate1" />
+                        <button string="Reset to Draft" name="action_draft" type="object"
+                                attrs="{'invisible': ['|', ('can_reset', '=', False), ('state', 'not in', ['confirm', 'refuse'])]}"/>
+                        <field name="state" widget="statusbar" statusbar_visible="confirm,validate"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Locked" bg_color="bg-danger"
+                            attrs="{'invisible':[('lock','!=',True)]}"/>
+                        <div class="oe_title" name="title">
+                            <h1>
+                                <field name="employee_id" nolabel="1" required="1" attrs="{'readonly': [('lock','=',True)]}"/>
+                            </h1>
+                            <h2>
+                                <field name="holiday_status_id" nolabel="1" domain="[('leave_type', '=', leave_type)]" attrs="{'readonly': [('lock','=',True)]}"/>
+                            </h2>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="leave_type" invisible="1"/>
+                                <field name="validation_type" invisible="1" force_save="1"/>
+                                <field name="request_date_from" attrs="{'readonly': [('lock','=',True)]}"/>
+                                <field name="number_of_days" attrs="{'readonly': [('lock','=',True)]}" invisible="1"/>
+                                <field name="start_time" widget="float_time" attrs="{'readonly': [('lock','=',True)]}"/>
+                                <field name="rejection" attrs="{'invisible': [('state', '!=', 'refuse')]}"/>
+
+                                <separator/>
+                                <field name="current_yearly_balance" readonly="1" force_save="1" />
+                                <field name="yearly_request_made" readonly="1" force_save="1"/>
+                                <field name="monthly_allowance" readonly="1" force_save="1"/>
+                                <field name="monthly_request_made" readonly="1" force_save="1"/>
+
+                                <hr/>
+                                <separator/>
+                                <field name="penalty_id" attrs="{'invisible': [('unpaid','=',False)]}"
+                                       groups="hr_holidays.group_hr_holidays_manager,sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                                <label for="penalty_value" string="Values" attrs="{'invisible': [('unpaid','=',False)]}"/>
+                                <div attrs="{'invisible': [('unpaid','=',False)]}"  class="o_row o_row_readonly o_hr_holidays_dates">
+                                    <field name="penalty_value" class="oe_inline" groups="hr_holidays.group_hr_holidays_manager,sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                                    <field name="penalty_unit" class="oe_inline" groups="hr_holidays.group_hr_holidays_manager,sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="request_date_to" attrs="{'readonly': [('lock','=',True)]}" invisible="1"/>
+                                <field name="name"  attrs="{'readonly': [('lock','=',True)]}" required="1"/>
+                                <field name="end_time" widget="float_time" attrs="{'readonly': [('lock','=',True)]}"/>
+                                <field name="number_of_hours_display"/>
+                                <field name="leave_period" required="1"/>
+                                <field name="date_from" invisible="1"/>
+                                <field name="date_to" invisible="1"/>
+                                <field name="lock" invisible="1"/>
+                                <field name="emp_parent_id" invisible="1"/>
+                                <field name="department_id" invisible="1"/>
+                                <field name="job_id" invisible="1"/>
+                            </group>
+                        </group>
+                        <group col="4">
+                            <field name="gate_start_time" widget="float_time" groups="hr_holidays.group_hr_holidays_manager, sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                            <field name="gate_end_time" widget="float_time" groups="hr_holidays.group_hr_holidays_manager, sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                        </group>
+
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_holidays_filter_inherit" model="ir.ui.view">
+            <field name="name">hr.holidays.filter.inherit</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[1]" position="after">
+                    <filter name="grp_manager" string="Manager" context="{'group_by':'emp_parent_id'}"/>
+                    <filter name="grp_department" string="Department" context="{'group_by':'department_id'}"/>
+                    <filter name="grp_job" string="Job" context="{'group_by':'job_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Hr Vacation Request Form View -->
+        <record id="hr_time_off_form_view_stats_inherit" model="ir.ui.view">
+            <field name="name">hr.time.off.form.view.stats.inherit</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='col_right']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="/form/sheet/group[1]" position="attributes">
+                    <attribute name="colspan">4</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <!-- Hr Vacation Request Form View -->
+        <record id="hr_time_off_form_view" model="ir.ui.view">
+            <field name="name">hr.time.off.form.view</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.hr_leave_view_form_manager_approve"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='holiday_status_id']" position="after">
+                    <group>
+                        <field name="leave_type" invisible="1"/>
+                        <field name="unpaid" invisible="1"/>
+                        <field name="validation_type" invisible="1" force_save="1"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='holiday_status_id']" position="attributes">
+                    <attribute name="domain">[('leave_type', '=', leave_type)]</attribute>
+                    <attribute name="attrs">{'readonly':[('lock','=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_validate']" position="attributes">
+                    <attribute name="context">{'button_validate':True}</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_approve']" position="replace">
+                    <button string="Approve" name="action_approve" type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|','|', ('can_approve', '=', False), ('state', '!=', 'confirm')]}"
+                                groups="hr_holidays.group_hr_holidays_responsible,sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                        <!-- <button string="Approve" name="action_approve1" type="object" class="oe_highlight"
+                                attrs="{'invisible': ['|','|', ('can_approve', '=', False), ('state', '!=', 'confirm'),('validation_type','not in',['hr'])]}"
+                                groups="sky_hr_timeoff_custom.grp_timeoff_officer,hr_holidays.group_hr_holidays_user"/> -->
+                </xpath>
+                <xpath expr="//button[@name='action_validate']" position="replace">
+                    <button string="Validate" name="action_validate" states="validate1" type="object" groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_responsible,sky_hr_timeoff_custom.grp_timeoff_officer" class="oe_highlight"/>
+                </xpath>
+                <xpath expr="//header/button[@name='action_refuse']" position="replace">
+                    <button string="Reject" name="action_reject" type="object"
+                            states="confirm,validate,validate1" groups="hr_holidays.group_hr_holidays_manager,sky_hr_timeoff_custom.grp_approve_reject"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="rejection" attrs="{'invisible': [('state', '!=', 'refuse')]}"/>
+                    <field name="current_yearly_balance" readonly="1" force_save="1"/>
+                    <field name="yearly_request_made" readonly="1" force_save="1"/>
+                    <field name="monthly_allowance" readonly="1" force_save="1"/>
+                    <field name="monthly_request_made" readonly="1" force_save="1"/>
+                    <hr/>
+                    <separator/>
+                    <field name="penalty_id" attrs="{'invisible': [('unpaid','=',False)]}"
+                           groups="hr_holidays.group_hr_holidays_manager,sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                    <label for="penalty_value" string="Values"/>
+                    <div attrs="{'invisible': [('unpaid','=',False)]}"  class="o_row o_row_readonly o_hr_holidays_dates">
+                        <field name="penalty_value" class="oe_inline" groups="hr_holidays.group_hr_holidays_manager,sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                        <field name="penalty_unit" class="oe_inline" groups="hr_holidays.group_hr_holidays_manager,sky_hr_timeoff_custom.grp_timeoff_officer"/>
+                    </div>
+                </xpath>
+                <xpath expr="//field[@name='employee_id']" position="attributes">
+                    <attribute name="attrs">{'required': 1,'readonly':[('lock','=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='request_date_from']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('lock','=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='request_date_to']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('lock','=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='number_of_days']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('lock','=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('lock','=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='report_note']" position="attributes">
+                    <attribute name="attrs">{'readonly':[('lock','=',True)]}</attribute>
+                </xpath>
+                <xpath expr="//group/group/div/div/field[@name='request_unit_half']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//group/group/div/div/label[@for='request_unit_half']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//group[@class='mt-0']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="lock" invisible="1"/>
+                </xpath>
+                <xpath expr="//sheet/div[1]" position="before">
+                    <widget name="web_ribbon" title="Locked" bg_color="bg-danger"
+                            attrs="{'invisible':[('lock','!=',True)]}"/>
+                </xpath>
+                <xpath expr="//group/group/div/div[3]/span" position="replace"/>
+                <xpath expr="//field[@name='number_of_hours_display']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='request_unit_hours']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//group/group/div/div/label[@for='request_unit_hours']" position="replace"/>
+
+            </field>
+        </record>
+
+        <!-- Hr Leave Search View -->
+        <record id="hr_time_off_search_view" model="ir.ui.view">
+            <field name="name">hr.time.off.search.view</field>
+            <field name="model">hr.leave</field>
+            <field name="inherit_id" ref="hr_holidays.view_hr_holidays_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search/field[@name='employee_id']" position="after">
+                    <field name="employee_arabic_name" />
+                </xpath>
+                <xpath expr="//search/filter[@name='activities_upcoming_all']" position="after">
+                    <separator/>
+                    <filter name="fil_morning_leave" string="Morning Leave" domain="[('leave_period', '=', 'morning_leave')]"/>
+                    <filter name="fil_evening_leave" string="Evening Leave" domain="[('leave_period', '=', 'evening_leave')]"/>
+                </xpath>
+
+                <xpath expr="//search/group[1]/filter[@name='group_date_from']" position="after">
+                    <separator/>
+                    <filter name="grp_by_leave_period" string="Leave Period" context="{'group_by':'leave_period'}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- Leave Request Action -->
+        <record id="hr_holidays.hr_leave_action_action_approve_department" model="ir.actions.act_window">
+            <field name="name">Leave Requests</field>
+            <field name="res_model">hr.leave</field>
+            <field name="view_mode">tree,kanban,form,calendar,activity</field>
+            <field name="domain">[('leave_type','=','leave')]</field>
+            <field name="context">{
+                'default_leave_type': 'leave',
+                'form_view_ref': 'new_hr_time_off_form_view',
+                }
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new time off request
+                </p>
+            </field>
+        </record>
+
+        <record id="hr_holidays.action_view_form_manager_approve" model="ir.actions.act_window.view">
+            <field name="sequence" eval="3"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="new_hr_time_off_form_view"/>
+            <field name="act_window_id" ref="hr_holidays.hr_leave_action_action_approve_department"/>
+        </record>
+
+        <!-- Vacation Request Action -->
+        <record id="hr_vacation_action_action_approve_department" model="ir.actions.act_window">
+            <field name="name">Vacation Requests</field>
+            <field name="res_model">hr.leave</field>
+            <field name="view_mode">tree,kanban,form,calendar,activity</field>
+            <field name="domain">[('leave_type','=','vacation')]</field>
+            <field name="context">{'default_leave_type': 'vacation',
+                'form_view_ref':'hr_holidays.hr_leave_view_form_manager_approve',
+                'tree_view_ref':'hr_holidays.hr_leave_view_tree',
+                }
+            </field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new time off request
+                </p>
+            </field>
+        </record>
+
+        <!-- Hiding the time off application existing menu using group -->
+        <menuitem
+                name="Time Off"
+                id="hr_holidays.menu_hr_holidays_root"
+                groups="-base.group_user,sky_hr_custom.grp_no_menu"/>
+
+        <menuitem
+                id="vacation_requests_main_menu"
+                name="Vacations"
+                parent="sky_hr_custom.menu_human_resource_main"
+                sequence="7"
+        />
+
+        <menuitem
+                id="vacation_request_menu"
+                name="Vacation Requests"
+                parent="vacation_requests_main_menu"
+                sequence="1"
+                action="hr_vacation_action_action_approve_department"
+        />
+
+        <menuitem
+                id="leave_requests_main_menu"
+                name="Leaves"
+                parent="sky_hr_custom.menu_human_resource_main"
+                sequence="8"
+        />
+
+        <menuitem
+                id="leave_request_menu"
+                name="Leave Requests"
+                parent="leave_requests_main_menu"
+                sequence="1"
+                action="hr_holidays.hr_leave_action_action_approve_department"
+        />
+
+        <!-- Giving Access Right of Configuration menu of Human Resource to recruitment manager -->
+        <menuitem id="sky_hr_custom.menu_hr_config" name="Configuration" parent="sky_hr_custom.menu_human_resource_main"
+                  groups="hr_holidays.group_hr_holidays_manager"/>
+
+
+    </data>
+</odoo>

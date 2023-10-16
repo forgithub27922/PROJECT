@@ -1,0 +1,23 @@
+<!--
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract support@openfellas.com
+#
+##############################################################################
+-->
+
+<openerp>
+	<data noupdate="1">
+        <record id="config_datev_export_invoice_report" model="ir.config_parameter">
+            <field name="key">datev_export.invoice_report</field>
+            <field name="value">Enter report invoice template here like reports.report_invoice</field>
+        </record>
+	</data>
+</openerp>

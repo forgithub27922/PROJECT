@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!-- Employee view extended for attendance -->
+    <record id="hr_employee_view_form_extended" model="ir.ui.view">
+        <field name="name">hr.employee.view.form.extended</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/notebook/page[@name='hr_settings']" position="before">
+                <page name="hr_attendance" string="Attendance">
+                    <group name="attendance">
+                        <field name="listed_for_fingerprint" groups="hr_attendance.group_hr_attendance_manager"/>
+                    </group>
+                    <group col="2" attrs="{'invisible':[('listed_for_fingerprint','=',True)]}">
+                        <group col="1" string="Entry">
+                            <button width="25%" name="create_sign_in_entry" class="text-center fa fa-7x o_hr_attendance_sign_in_out_icon fa-sign-in btn-success"
+                                type="object"/>
+                        </group>
+                        <group col="1" string="Exit">
+                            <button width="25%" name="create_sign_out_entry" class="text-center fa fa-7x o_hr_attendance_sign_in_out_icon fa-sign-out btn-danger"
+                                type="object"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Menu for Attendance under Human Resource -->
+    <menuitem id="menu_hr_attendance_main" sequence="10" name="Attendances" parent="sky_hr_custom.menu_human_resource_main" groups="hr_attendance.group_hr_attendance_manager,hr_attendance.group_hr_attendance_user"/>
+
+    <menuitem id="menu_hr_attendance_view_attendances" name="Attendances" parent="menu_hr_attendance_main" sequence="2" action="hr_attendance.hr_attendance_action"/>
+
+    <menuitem id="hr_attendance.menu_hr_attendance_root" name="Attendances" sequence="90" groups="sky_hr_custom.grp_no_menu,-hr_attendance.group_hr_attendance" web_icon="hr_attendance,static/description/icon.png"/>
+
+    <!-- Giving Access Right of Configuration menu of Human Resource to Attendance manager -->
+    <menuitem id="sky_hr_custom.menu_hr_config" name="Configuration" parent="sky_hr_custom.menu_human_resource_main" groups="hr_attendance.group_hr_attendance_manager"/>
+
+    <!-- Attendance Readonly View -->
+    <record id="view_hr_attendance_readonly_tree" model="ir.ui.view">
+        <field name="name">view.hr.attendance.readonly.tree</field>
+        <field name="model">hr.attendance</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <tree string="Attendance" create="0" delete="0">
+                <field name="employee_id"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="worked_hours"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action of Attendance Readonly view -->
+    <record id="action_attendance_readonly" model="ir.actions.act_window">
+        <field name="name">Attendances</field>
+        <field name="res_model">hr.attendance</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{'tree_view_ref':'sky_hr_attendance_custom.view_hr_attendance_readonly_tree'}</field>
+    </record>
+
+    <!-- Inherited View of Employee from Attendance -->
+    <record id="view_employee_form_attendance_smart_button" model="ir.ui.view">
+        <field name="name">view.employee.form.attendance.smart.button</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr_attendance.view_employee_form_inherit_hr_attendance"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='%(hr_attendance.hr_attendance_action)d']" position="replace">
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited view of employee to add attendances -->
+    <record id="view_emp_form_att_inherit" model="ir.ui.view">
+            <field name="name">view.emp.form.att.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/div[@name='button_box']" position="after">
+                    <div name="button_box2" class="oe_button_box">
+                        <button name="%(action_attendance_readonly)d"
+                            string="Attendances"
+                            class="oe_stat_button"
+                            icon="fa-clock-o"
+                            type="action"
+                            context="{'search_default_employee_id': id, 'search_default_check_in_filter': 0}"
+                            groups="base.group_user"
+                            help="Attendances of Employee"/>
+                    </div>
+                </xpath>
+            </field>
+    </record>
+
+    <!-- Giving Access Right of working schedules under Configuration menu to Attendance manager -->
+    <menuitem id="menu_working_schedule" name="Working Schedules" parent="sky_hr_custom.menu_hr_config"
+                  groups="hr_attendance.group_hr_attendance_manager"/>
+
+</odoo>

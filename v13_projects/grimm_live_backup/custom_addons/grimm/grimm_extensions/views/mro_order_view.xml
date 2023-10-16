@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record id="view_grimm_mro_order_form_inherit" model="ir.ui.view">
+      <field name="name">grimm.mro.order.form</field>
+      <field name="model">grimm.mro.order</field>
+      <field name="inherit_id" ref="mro_base.view_grimm_mro_order_form"/>
+      <field name="arch" type="xml">
+        <field name="backorder_ids" position="after">
+          <field name="task_id" invisible="True"/>
+        </field>
+        <button name="action_confirm" position="before">
+          <button name="create_task"
+                  class="oe_link"
+                  type="object"
+                  string="Create Task"
+                  attrs="{'invisible': [('task_id', '!=', False)]}"/>
+        </button>
+        <button name="action_backorders" position="before">
+          <button name="action_task"
+                  class="oe_stat_button"
+                  type="object"
+                  string="Task"
+                  icon="fa-cogs"
+                  attrs="{'invisible': [('task_id','=',False)]}"/>
+        </button>
+      </field>
+    </record>
+  </data>
+</odoo>

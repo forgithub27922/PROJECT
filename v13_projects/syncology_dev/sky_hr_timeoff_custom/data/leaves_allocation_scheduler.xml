@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Leaves Allocation  Scheduler -->
+    <record id="leave_allocation_cron_actions" model="ir.cron">
+        <field name="name">Auto Leaves allocation each year</field>
+        <field name="model_id" ref="model_hr_leave_type"/>
+        <field name="state">code</field>
+        <field name="code">model.auto_leave_allocation()</field>
+        <field name="interval_number">12</field>
+        <field name="interval_type">months</field>
+        <field name="numbercall">-1</field>
+        <field name="active" eval="True"/>
+        <field name="doall" eval="False"/>
+    </record>
+
+</odoo>

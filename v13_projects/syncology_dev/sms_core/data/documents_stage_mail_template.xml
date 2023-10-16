@@ -1,0 +1,22 @@
+<odoo>
+    <record id="document_stage_mail" model="mail.template">
+        <field name="name">SYNC_Pending for Documents</field>
+        <field name="model_id" ref="sms_core.model_student_admission_form"/>
+        <field name="body_html" type="html">
+            <div>
+                <br/>
+                <strong>Application No:</strong> ${object.application_no}
+                <br/>
+                <br/>
+                <p>We are glad to inform you that your application for <strong>${object.full_name},
+                </strong> has
+                    been selected to move to the next stage in the application process which is
+                    <strong>Submitting the legal documents</strong>.
+                    <br/>
+                    <br/>Thank You
+                </p>
+            </div>
+        </field>
+    </record>
+
+</odoo>

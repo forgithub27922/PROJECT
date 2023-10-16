@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <menuitem id="grimm_custom_product_root_menu"
+                  name="Custom Product Templates"
+                  parent="sale.product_menu_catalog"
+                  sequence="40"
+                  action="action_grimm_custom_products"/>
+
+        <record id="grimm_product_variant_new_view" model="ir.actions.act_window">
+            <field name="name">Product Variants (New)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">kanban,tree,form,activity</field>
+            <field name="context">{'form_view_ref': '__export__.ir_ui_view_5059_01ce59af'}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a new product variant
+              </p><p>
+                You must define a product for everything you sell, whether it's a physical product,
+                a consumable or a service you offer to customers.
+                The product form contains information to simplify the sale process:
+                price, notes in the quotation, accounting data, procurement methods, etc.
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="new_menu_products" action="grimm_product_variant_new_view" parent="sale.product_menu_catalog" groups="product.group_product_variant" sequence="2"/>
+    </data>
+</odoo>

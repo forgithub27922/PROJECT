@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract support@openfellas.com
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+
+        <!-- Datev Account Tax Tree View Inherit -->
+
+        <record id="datev_view_tax_tree_inherite" model="ir.ui.view">
+            <field name="name">datev_view_tax_tree_inherite</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_tree" />
+            <field name="arch" type="xml">
+                <field name="description" position="after">
+                    <field name="tax_code" />
+                    <field name="code_for_refunds" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Datev Account Tax Form View Inherit -->
+
+        <record id="datev_view_tax_form_inherit" model="ir.ui.view">
+            <field name="name">datev_view_tax_form_inherit</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="Datev Options" name="datev">
+                        <group>
+                            <group>
+                                <field name="tax_code" />
+                                <field name="code_for_refunds" />
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

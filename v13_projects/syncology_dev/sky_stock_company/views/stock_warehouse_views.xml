@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="inherit_view_warehouse_orderpoint_form" model="ir.ui.view">
+        <field name="name">inherit.stock.warehouse.orderpoint.form</field>
+        <field name="model">stock.warehouse.orderpoint</field>
+        <field name="inherit_id" ref="stock.view_warehouse_orderpoint_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group[2]/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_view_warehouse_orderpoint_tree" model="ir.ui.view">
+        <field name="name">inherit.stock.warehouse.orderpoint.tree</field>
+        <field name="model">stock.warehouse.orderpoint</field>
+        <field name="inherit_id" ref="stock.view_warehouse_orderpoint_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_view_warehouse" model="ir.ui.view">
+            <field name="name">inherit.stock.warehouse</field>
+            <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group[2]/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_view_warehouse_tree" model="ir.ui.view">
+            <field name="name">inherit.stock.warehouse.tree</field>
+            <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

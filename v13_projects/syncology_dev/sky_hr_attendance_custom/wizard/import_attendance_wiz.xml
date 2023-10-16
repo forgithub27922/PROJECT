@@ -1,0 +1,30 @@
+<odoo>
+    <!--    form view of import attendance wizard-->
+    <record id="import_attendance_wiz_form" model="ir.ui.view">
+        <field name="name">import.attendance.wiz.form</field>
+        <field name="model">import.attendance.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="xlsx_file" filename="xlsx_file_name"/>
+                        <field name="xlsx_file_name" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="import_attendance" type="object" string="Import Attendance" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    action of import attendance wizard-->
+    <record id="action_import_attendance_wizard" model="ir.actions.act_window">
+        <field name="name">Import attendance</field>
+        <field name="res_model">import.attendance.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

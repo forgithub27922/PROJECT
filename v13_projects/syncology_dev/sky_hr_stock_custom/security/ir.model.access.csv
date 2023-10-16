@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_stock_equipment_user,access.stock.equipment.user,model_stock_equipment,base.group_user,1,1,1,1
+access_stock_status_user,access.stock.status.user,model_stock_status,base.group_user,1,1,1,1

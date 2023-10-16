@@ -1,0 +1,128 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_pretext_template
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-19 09:22+0000\n"
+"PO-Revision-Date: 2018-12-19 09:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_pre_text_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_supplier_pre_text_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.purchase_order_pretext_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.sale_order_pretext_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.stock_picking_pre_text_form
+msgid "Chose a template to set the text"
+msgstr "Vorlage auswählen um den Text zu ändern"
+
+#. module: grimm_pretext_template
+#: code:addons/grimm_pretext_template/models/grimm_pretext_template.py:63
+#, python-format
+msgid "Failed to render template %r using values %r"
+msgstr "Failed to render template %r using values %r"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.menu,name:grimm_pretext_template.menu_grimm_configuration
+msgid "Grimm"
+msgstr "Grimm"
+
+#. module: grimm_pretext_template
+#: model:ir.model,name:grimm_pretext_template.model_grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.grimm_pretext_template_form_view
+#: model:ir.ui.view,arch_db:grimm_pretext_template.grimm_pretext_template_tree_view
+msgid "Grimm Pre-Text Template"
+msgstr "Grimm Vortext Vorlage"
+
+#. module: grimm_pretext_template
+#: model:ir.model,name:grimm_pretext_template.model_account_invoice
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: grimm_pretext_template
+#: model:ir.model,name:grimm_pretext_template.model_ir_model
+msgid "Models"
+msgstr "Datenmodelle"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_pre_text_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_supplier_pre_text_form
+msgid "Pre-Tex Prepayment"
+msgstr "Vortext Vorkasse"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.sale_order_pretext_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.stock_picking_pre_text_form
+msgid "Pre-Text Delivery Note"
+msgstr "Vortext Lieferschein"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_pre_text_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_supplier_pre_text_form
+msgid "Pre-Text Invoice"
+msgstr "Vortext Rechnung"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.sale_order_pretext_form
+msgid "Pre-Text Offer"
+msgstr "Vortext Angebot"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.sale_order_pretext_form
+msgid "Pre-Text Order"
+msgstr "Vortext Auftrag"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.purchase_order_pretext_form
+msgid "Pre-Text Price Inquiry"
+msgstr "Vortext Preisanfrage"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.purchase_order_pretext_form
+msgid "Pre-Text Purchase Order"
+msgstr "Vortext Beschaffung"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_pre_text_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_supplier_pre_text_form
+msgid "Pre-Text Refund"
+msgstr "Vortext Gutschrift"
+
+#. module: grimm_pretext_template
+#: model:ir.actions.act_window,name:grimm_pretext_template.grimm_pretext_template_action
+#: model:ir.ui.menu,name:grimm_pretext_template.grimm_pretext_template_menu
+msgid "Pre-Text Template"
+msgstr "Vortext Vorlage"
+
+#. module: grimm_pretext_template
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_pre_text_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.account_invoice_supplier_pre_text_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.purchase_order_pretext_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.sale_order_pretext_form
+#: model:ir.ui.view,arch_db:grimm_pretext_template.stock_picking_pre_text_form
+msgid "Pre-Texts"
+msgstr "Vortexte"
+
+#. module: grimm_pretext_template
+#: model:ir.model,name:grimm_pretext_template.model_purchase_order
+msgid "Purchase Order"
+msgstr "Beschaffungsauftrag"
+
+#. module: grimm_pretext_template
+#: model:ir.model,name:grimm_pretext_template.model_sale_order
+msgid "Quotation"
+msgstr "Angebot"
+
+#. module: grimm_pretext_template
+#: model:ir.model,name:grimm_pretext_template.model_stock_picking
+msgid "Transfer"
+msgstr "Lieferung vornehmen"
+

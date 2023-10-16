@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- sky_hr_time_tracking Inherit Form view of Tracking Batch -->
+    <record id="inherit_view_time_tracking_batch_form" model="ir.ui.view">
+        <field name="name">inherit.view.time.tracking.form</field>
+        <field name="model">time.tracking.batch</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_tracking_batch_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_time_tracking Inherit Tree view of Tracking Batch -->
+    <record id="inherit_view_time_tracking_batch_tree" model="ir.ui.view">
+        <field name="name">inherit.view.time.tracking.tree</field>
+        <field name="model">time.tracking.batch</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_tracking_batch_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_time_tracking Inherit Search view of Tracking Batch -->
+    <record id="inherit_view_time_tracking_batch_search" model="ir.ui.view">
+        <field name="name">inherit.view.time.tracking.search</field>
+        <field name="model">time.tracking.batch</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_tracking_batch_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- sky_hr_time_tracking Inherit Form view of Time Exception -->
+    <record id="inherit_view_time_exception_form" model="ir.ui.view">
+        <field name="name">inherit.view.time.exception.form</field>
+        <field name="model">hr.time.exception</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_exception_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_time_tracking Inherit Tree view of Time Exception -->
+    <record id="inherit_view_time_exception_tree" model="ir.ui.view">
+        <field name="name">inherit.view.time.exception.tree</field>
+        <field name="model">hr.time.exception</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_exception_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_time_tracking Inherit Search view of Time Exception -->
+    <record id="inherit_view_time_exception_search" model="ir.ui.view">
+        <field name="name">inherit.view.time.exception.search</field>
+        <field name="model">hr.time.exception</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_exception_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

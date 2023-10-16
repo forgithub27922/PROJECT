@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+     <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.form.inherit.sms_core</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="moodle" string="Moodle" data-key="sms.core">
+                        <h2>Moodle</h2>
+                        <div class="row mt16 o_settings_container" id="moodle_settings">
+
+                            <div class="col-12 col-lg-6 o_setting_box" id="moodle_forum">
+                                <div class="o_setting_left_pane">
+                                    <field name="synced_with_lms"/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <label for="synced_with_lms"/>
+                                    <div class="text-muted">
+                                        Synced with lms
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6"></div>
+
+                            <div class="col-12 col-lg-6 o_setting_box " id="url">
+                                <div class="o_setting_right_pane">
+                                    <label for="lms_url"/>
+                                    <div class="text-muted">
+                                        Url of lms
+                                    </div>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <field name="lms_url" attrs="{'invisible':[('synced_with_lms','=',False)],'required':[('synced_with_lms','=',True)]}"/>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-lg-6"></div>
+
+
+                            <div class="col-12 col-lg-6 o_setting_box" id="url">
+                                <div class="o_setting_right_pane">
+                                    <label for="lms_url_token"/>
+                                    <div class="text-muted">
+                                        Url token of lms
+                                    </div>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <field name="lms_url_token" attrs="{'invisible':[('synced_with_lms','=',False)],'required':[('synced_with_lms','=',True)]}"/>
+                                </div>
+                            </div>
+
+                        </div>
+                 <h2>Email</h2>
+                    <div class="row mt16 o_settings_container" name="student_year_config">
+                        <div class="col-12 col-lg-8 o_setting_box">
+                            <div class="o_setting_left_pane">
+                            </div>
+                            <div class="o_setting_right_pane">
+                                 <field name="admin_email"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </xpath>
+            </field>
+     </record>
+
+</odoo>

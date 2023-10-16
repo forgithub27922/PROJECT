@@ -1,0 +1,379 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_sku
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-10 11:01+0000\n"
+"PO-Revision-Date: 2020-03-10 11:01+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_exists_dialog_form
+msgid "<b>The following attribute does not exist in the property set of the following product!</b>"
+msgstr "<b>The following attribute does not exist in the property set of the following product!</b>"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_sku_exists_dialog_form
+msgid "<b>Vendor Product Code already exists!</b>"
+msgstr "<b>Vendor Product Code already exists!</b>"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_exists_dialog_form
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_sku_exists_dialog_form
+msgid "<strong>Note:</strong> Pressing 'Abort' terminates the further transactions."
+msgstr "<strong>Note:</strong> Pressing 'Abort' terminates the further transactions."
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_exists_dialog_form
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_sku_exists_dialog_form
+msgid "Abort"
+msgstr "Abort"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_exists_dialog_form
+msgid "Add"
+msgstr "Add"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_dialog_form
+msgid "Assign"
+msgstr "Zuweisen"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_attribute_id
+msgid "Attribute"
+msgstr "Eigenschaft"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_brand
+msgid "Brand"
+msgstr "Marke"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_brand_sku
+msgid "Brand SKU"
+msgstr "Brand SKU"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_dialog_form
+#: model:ir.ui.view,arch_db:grimm_sku.scrape_sparepart_dialog_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_create_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_create_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog_create_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_create_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_create_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_create_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_create_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_create_date
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_create_date
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog_create_date
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_create_date
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_create_date
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_create_date
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_create_date
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_display_name
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_display_name
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog_display_name
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_display_name
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_display_name
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_display_name
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_display_name
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_sku
+#. openerp-web
+#: code:addons/grimm_sku/static/src/xml/listview_buttons.xml:8
+#, python-format
+msgid "Fetches the attributes from a source"
+msgstr "Fetches the attributes from a source"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_name
+msgid "For Attribute"
+msgstr "For Attribute"
+
+#. module: grimm_sku
+#: selection:scrape.sparepart.dialog,source:0
+msgid "Gastroparts (GP)"
+msgstr "Gastroparts (GP)"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_id
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_id
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog_id
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_id
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_id
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_id
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_id
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_key
+msgid "Key"
+msgstr "Schlüssel"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog___last_update
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog___last_update
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog___last_update
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog___last_update
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping___last_update
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details___last_update
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name___last_update
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_write_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_write_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog_write_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_write_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_write_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_write_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_write_uid
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_write_date
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_write_date
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog_write_date
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_write_date
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_write_date
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_write_date
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_write_date
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_sku
+#. openerp-web
+#: code:addons/grimm_sku/static/src/xml/listview_buttons.xml:5
+#, python-format
+msgid "Map Attributes"
+msgstr "Map Attributes"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_mapping_m2m_char
+msgid "Mapping"
+msgstr "Mapping"
+
+#. module: grimm_sku
+#. openerp-web
+#: code:addons/grimm_sku/static/src/xml/listview_buttons.xml:5
+#, python-format
+msgid "Maps the scraped attributes to Partenics attributes"
+msgstr "Maps the scraped attributes to Partenics attributes"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_name
+msgid "Name"
+msgstr "Name"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_outsourced_attribute
+msgid "Outsourced Attribute"
+msgstr "Outsourced Attribute"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_partenics_attribute
+msgid "Partenics Attribute"
+msgstr "Partenics Attribute"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_dialog_form
+msgid "Please assign a matching attribute or create one for the following attribute."
+msgstr "Please assign a matching attribute or create one for the following attribute."
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_exists_dialog_form
+msgid "Press 'Add' button to add the record or press 'Skip' to skip the execution."
+msgstr "Press 'Add' button to add the record or press 'Skip' to skip the execution."
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_sku_exists_dialog_form
+msgid "Press 'Scrape Again' button to update the record or press 'Skip' to skip the execution."
+msgstr "Press 'Scrape Again' button to update the record or press 'Skip' to skip the execution."
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_product_id
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_attribute_id
+msgid "Product Attribute"
+msgstr "Produktattribute"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_product_template
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_product_id
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_sku_vendor_codes
+msgid "Product Vendor Codes"
+msgstr "Product Vendor Codes"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_prompt_attribute_dialog
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_dialog_form
+msgid "Prompt Attribute Dialog"
+msgstr "Prompt Attribute Dialog"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_exists_dialog_form
+msgid "Prompt Attribute Does Not Exists Dialog"
+msgstr "Prompt Attribute Does Not Exists Dialog"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_prompt_attribute_exists_dialog
+msgid "Prompt Attribute Exists Dialog"
+msgstr "Prompt Attribute Exists Dialog"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_sku_exists_dialog_form
+msgid "Prompt SKU Exists Dialog"
+msgstr "Prompt SKU Exists Dialog"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_prompt_sku_exists_dialog
+msgid "Prompt Sku Exists"
+msgstr "Prompt Sku Exists"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_exists_dialog_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_sku
+msgid "SKU"
+msgstr "SKU"
+
+#. module: grimm_sku
+#: model:ir.actions.act_window,name:grimm_sku.action_window_grimm_sku
+#: model:ir.actions.server,name:grimm_sku.action_ir_cron_sku_mapping
+#: model:ir.ui.menu,name:grimm_sku.menu_name_grimm_sku
+msgid "SKU Mapping"
+msgstr "SKU Mapping"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.scrape_sparepart_dialog_form
+msgid "Scrape"
+msgstr "Scrape"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_sku_exists_dialog_form
+msgid "Scrape Again"
+msgstr "Scrape Again"
+
+#. module: grimm_sku
+#. openerp-web
+#: code:addons/grimm_sku/static/src/xml/listview_buttons.xml:8
+#, python-format
+msgid "Scrape Attributes"
+msgstr "Scrape Attributes"
+
+#. module: grimm_sku
+#: model:ir.actions.server,name:grimm_sku.action_ir_action_sku_product
+msgid "Scrape Sparepart Details"
+msgstr "Scrape Sparepart Details"
+
+#. module: grimm_sku
+#: model:ir.actions.server,name:grimm_sku.action_ir_action_sku_scrape
+msgid "Scrape Sparepart Details with SKU"
+msgstr "Scrape Sparepart Details with SKU"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_scrape_sparepart_dialog
+#: model:ir.ui.view,arch_db:grimm_sku.scrape_sparepart_dialog_form
+msgid "Scrape Sparepart Dialog"
+msgstr "Scrape Sparepart Dialog"
+
+#. module: grimm_sku
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_attribute_exists_dialog_form
+#: model:ir.ui.view,arch_db:grimm_sku.prompt_sku_exists_dialog_form
+msgid "Skip"
+msgstr "Überspringen"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_attribute_dialog_source
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog_source
+#: model:ir.model.fields,field_description:grimm_sku.field_scrape_sparepart_dialog_source
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_mapping_source
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_oem_details_source
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_product_name_source
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_source
+msgid "Source"
+msgstr "Quelle"
+
+#. module: grimm_sku
+#: code:addons/grimm_sku/wizards/scrape_sparepart_dialog.py:162
+#: code:addons/grimm_sku/wizards/scrape_sparepart_dialog.py:193
+#, python-format
+msgid "Spare part is not available for the SKU '%s'.\n"
+"Note: Please make sure the SKU is present under 'OEM-Teilenummer' or 'Technische Parameter'."
+msgstr "Spare part is not available for the SKU '%s'.\n"
+"Note: Please make sure the SKU is present under 'OEM-Teilenummer' or 'Technische Parameter'."
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_sku_technical_details_value
+msgid "Value"
+msgstr "Ort"
+
+#. module: grimm_sku
+#: model:ir.model.fields,field_description:grimm_sku.field_prompt_sku_exists_dialog_name
+msgid "Vendor Product Code"
+msgstr "Artikelnummer beim Lieferant"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_sku_mapping
+msgid "sku.mapping"
+msgstr "sku.mapping"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_sku_oem_details
+msgid "sku.oem.details"
+msgstr "sku.oem.details"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_sku_product_name
+msgid "sku.product.name"
+msgstr "sku.product.name"
+
+#. module: grimm_sku
+#: model:ir.model,name:grimm_sku.model_sku_technical_details
+msgid "sku.technical.details"
+msgstr "sku.technical.details"
+

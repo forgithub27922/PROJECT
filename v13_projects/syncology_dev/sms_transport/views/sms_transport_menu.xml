@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data noupdate="0">
+
+		<!-- Root Menus-->
+		<menuitem name="Transport" id="studnet_transport_root" sequence="1" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<!-- Student -->
+		<menuitem name="Students" id="menu_registere_students_transport" parent="studnet_transport_root" sequence="3" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<menuitem name="Draft" id="menu_student_transport_draft" parent="menu_registere_students_transport" action="action_trn_register_student_transport_draft" sequence="1" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<menuitem name="Registered" id="menu_student_transport_registered" parent="menu_registere_students_transport" action="action_trn_register_student_transport_registered" sequence="2" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<menuitem name="Withdrawn" id="menu_student_transport_unregistered" parent="menu_registere_students_transport" action="action_trn_register_student_transport_withdrawal" sequence="3" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+
+		<!-- <menuitem name="Employees" id="menu_employees_transport" parent="studnet_transport_root" sequence="2" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" /> -->
+		<menuitem name="Drivers" id="menu_action_transport_driver" parent="studnet_transport_root" action="action_transport_driver" sequence="1" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+
+
+		<menuitem name="Supervisors" id="menu_action_transport_supervisor" parent="studnet_transport_root" action="action_transport_supervisor" sequence="2" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+
+		<menuitem name="Configuration" id="menu_resources_transport" parent="studnet_transport_root" sequence="12" groups="base.group_system,group_manager_sms_transport" />
+		<menuitem name="Extra Activities" id="menu_extra_activity" parent="sky_hr_custom.menu_hr_config" action="action_extra_activity"/>
+		<menuitem name="Busses" id="menu_fleet_vehicle_new" parent="menu_resources_transport" action="action_fleet_vehicle_new" sequence="1" groups="base.group_system,group_manager_sms_transport" />
+		<menuitem name="Routes" id="menu_transport_route" parent="menu_resources_transport" action="action_transport_route" sequence="2" groups="base.group_system,group_manager_sms_transport" />
+		<menuitem name="Stops" id="menu_transport_stops" parent="menu_resources_transport" action="action_transport_route_stop" sequence="2" groups="base.group_system,group_manager_sms_transport" />
+		<menuitem id="menu_scheduling_days" name="Scheduling Days" parent="menu_resources_transport" sequence="4" action="action_scheduling_days"/>
+		<menuitem id="menu_transport_config_settings" name="Settings" parent="menu_resources_transport" sequence="0" action="transport_config_settings_action"/>
+		<menuitem name="Complaint Reporter" id="menu_transport_complaint_reporter" parent="menu_resources_transport" action="action_transport_complaint_reporter" sequence="3"/>
+
+		<menuitem name="Complains" id="menu_transport_complaint_management" parent="studnet_transport_root"  sequence="4" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<menuitem name="Received" id="menu_transport_complaint_management_received" parent="menu_transport_complaint_management" action="action_transport_complaint_management_received" sequence="1" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<menuitem name="Escalated" id="menu_transport_complaint_management_escalated" parent="menu_transport_complaint_management" action="action_transport_complaint_management_escalated" sequence="2" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<menuitem name="Resolved" id="menu_transport_complaint_management_resolved" parent="menu_transport_complaint_management" action="action_transport_complaint_management_resolved" sequence="3" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<menuitem name="Closed" id="menu_transport_complaint_management_closed" parent="menu_transport_complaint_management" action="action_transport_complaint_management_closed" sequence="4" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+
+		<menuitem name="Scheduling" id="menu_transport_scheduling" parent="studnet_transport_root" action="action_transport_scheduling" sequence="5" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+
+		<menuitem name="Reports" id="menu_transport_reports" parent="studnet_transport_root" action="action_transport_scheduling" sequence="6" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+		<menuitem name="Schedule Report" id="menu_Schedule_reports" parent="menu_transport_reports" action="action_transport_schedule_wizard" sequence="6" groups="base.group_system,group_manager_sms_transport,group_officer_sms_transport" />
+
+		<menuitem
+            id="hr.menu_hr_root"
+            name="Employees"
+            groups="hr.group_hr_manager,hr.group_hr_user"
+            web_icon="hr,static/description/icon.png"
+            sequence="75"/>
+
+        <menuitem name="Fleet" id="fleet.menu_root" sequence="2" parent="sms_transport.studnet_transport_root" groups="base.group_system" web_icon="fleet,static/description/icon.png"/>
+
+		<menuitem name="Website"
+            id="website.menu_website_configuration"
+            sequence="9"
+            groups="base.group_system"
+            web_icon="website,static/description/icon.png"/>
+
+        <menuitem name="eLearning"
+	        id="website_slides.website_slides_menu_root"
+	        web_icon="website_slides,static/description/icon.png"
+	        groups="base.group_system"
+	        action="website_slides.slide_channel_action_overview"/>
+
+	    <menuitem
+	        id="mail.menu_root_discuss"
+	        name="Discuss"
+	        action="mail.action_discuss"
+	        web_icon="mail,static/description/icon.png"
+	        groups="base.group_system"
+	        sequence="1"/>
+
+	</data>
+</odoo>

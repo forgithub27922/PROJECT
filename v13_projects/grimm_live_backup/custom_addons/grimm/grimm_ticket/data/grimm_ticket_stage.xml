@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data noupdate="0">
+
+        <record id="grimm_ticket_stage_data_0" model="grimm.ticket.stage">
+            <field name="sequence">1</field>
+            <field name="name">Neu</field>
+        </record>
+
+        <record id="grimm_ticket_stage_data_1" model="grimm.ticket.stage">
+            <field name="sequence">2</field>
+            <field name="name">Bestätigt</field>
+        </record>
+
+        <record id="grimm_ticket_stage_data_2" model="grimm.ticket.stage">
+            <field name="sequence">3</field>
+            <field name="name">Erledigt</field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <report
+        id="fee_collection_dues_report"
+        string="Fee Collection Dues Report"
+        model="student.fee"
+        report_type="qweb-pdf" menu="False"
+        name="sms_core.fee_collection_dues_report_templet"
+        file="sms_core.fee_collection_dues_report_templet"
+        print_report_name="sms_core.fee_collection_dues_report_templet"
+    />
+    
+
+
+</odoo>
+
+

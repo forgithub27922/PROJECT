@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_purchase_order_origin_filter" model="ir.ui.view">
+            <field name="name">request.quotation.origin</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="origin" string="Origin"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="act_related_po" model="ir.actions.act_window">
+            <field name="name">Purchase Order</field>
+            <field name="res_model">purchase.order</field>
+            <!--      <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_todo':1, 'show_purchase': True, 'create': True}</field>
+            <field name="view_id" ref="purchase.purchase_order_tree"/>
+            <!--      <field name="search_id" ref="purchase.view_purchase_order_filter"/>-->
+        </record>
+
+
+        <record id="view_grimm_sale_order_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.sale.order.form.view.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="state" position="attributes">
+                    <attribute name="statusbar_visible">draft,sent,prepayment,sale,deliverynotice,done</attribute>
+                </field>
+
+                <xpath expr="//button[@name='action_quotation_send'][@states='sent,sale']" position="replace">
+                    <button name="action_quotation_send" string="Send by Email" type="object"
+                            states="sent,sale,prepayment"/>
+                    <button name="action_proforma_send" string="Send Proforma" type="object" states="prepayment"/>
+                    <button name="action_proforma_cancel_with_reason" string="Cancel Proforma" type="object" states="prepayment"/>
+                </xpath>
+
+                <field name="payment_term_id" position="after">
+                    <field name="prepayment"/>
+                </field>
+
+                <xpath expr="//tree" position="inside">
+                    <field name="line_no_seq" invisible="1"/>
+                </xpath>
+
+                <!--<xpath expr="//tree" position="attributes">
+                    <attribute name="default_order">line_no_seq, sequence</attribute>
+                </xpath>-->
+
+
+                <!--
+                <xpath expr="//button[@name='print_quotation'][@states='sent,sale']" position="replace">
+                </xpath>
+                <xpath expr="//button[@name='action_quotation_send'][@states='draft']" position="replace">
+                    <button name="action_quotation_send" string="Send by Email" type="object" states="draft,sent" class="btn-primary"/>
+                </xpath>
+                -->
+
+                <!--<xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(act_related_po)d" type="action" class="oe_stat_button" icon="fa-usd"
+                            context="{'search_default_origin': name,'default_origin':name}" groups="base.group_user">
+                        <field name="purchase_order_count" widget="statinfo"/>
+                    </button>
+                </xpath>-->
+
+                <field name="client_order_ref" position="replace"/>
+
+                <field name="payment_term_id" position="after">
+                    <field name="client_order_ref"/>
+                </field>
+
+                <field name="partner_shipping_id" position="after">
+                    <field name="contact"/>
+                    <field name="beneficiary"/>
+                    <field name="analytic_account_id"/>
+                    <field name="payment_mode_id" invisible="1"/>
+                    <field name="date_order"/>
+                    <field name="payment_date" widget="date"
+                           attrs="{'invisible': [('payment_mode_id','not in',[1, 8, 9, 17, 21, 10, 11, 24, 13])]}"/>
+                </field>
+
+                <field name="pricelist_id" position="replace"/>
+                <field name="validity_date" position="before">
+                    <field name="pricelist_id"/>
+                    <field name="order_subject"/>
+                    <field name="object_address"/>
+                </field>
+
+                <xpath expr="//page[1]" position="after">
+                    <page string="Assets">
+                        <field name="asset_ids"/>
+                    </page>
+                </xpath>
+
+                <xpath expr="//button[@name='action_view_invoice']" position="after">
+                    <field name="subscription_count" attrs="{'invisible':True}"/>
+                    <button class="oe_stat_button" string="Contract" icon="fa-file-text-o" name="action_view_contract"
+                            type="object" attrs="{'invisible': [('subscription_count','=',0)]}">
+                    </button>
+                </xpath>
+
+                <!--                <xpath expr="//div[@class='alert alert-info']" position="replace"/>-->
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Service">
+                        <field name="claim_id" placeholder="Claim ID"/>
+                    </page>
+                </xpath>
+
+                <!--
+                    <xpath expr="//tree[@editable='bottom']//field[@name='name']" position="after">
+                        <field name="free_description_text"/>
+                    </xpath>
+                    <xpath expr="//tree[@editable='bottom']" position="attributes">
+                        <attribute name="editable"/>
+                    </xpath>
+                -->
+
+                <xpath expr="//label[@for='customer_lead']" position="before">
+                    <label for="free_description_text"/>
+                    <div>
+                        <field name="free_description_text"/>
+                    </div>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']" position="before">
+                    <div>
+                        <!--<button name="toggle_line_number" type="object" class="oe_stat_button">
+                            <field name="manual_line_number" widget="boolean_button" options="{
+                                    'terminology': {
+                                        'string_true': 'Manuelle Positionsnummer',
+                                        'hover_true': '⇒ zum Auto-Modus',
+                                        'string_false': 'Automatisierte Positionsnummer',
+                                        'hover_false': '⇒ zum Manuel-Modus'
+                                    }
+                                }"/>
+                        </button>-->
+                        <group>
+                            <field name="manual_line_number"/>
+                        </group>
+                    </div>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+                    <field name="manual_line_number" invisible="1"/>
+                    <field name="line_no" attrs="{'readonly':True}"/>
+                    <!--<field name="line_no_manual" attrs="{'readonly':False, 'invisible':[('manual_line_number','==',False)]}"/>-->
+                    <field name="line_no_manual" attrs="{'readonly':[('manual_line_number','=',False)]}"/>
+                </xpath>
+
+                <!--<field name="subscription_id" position="attributes">-->
+                <!--<attribute name="invisible">True</attribute>-->
+                <!--</field>-->
+            </field>
+        </record>
+
+        <record id="grimm_view_purchase_order_count" model="ir.ui.view">
+            <field name="name">grimm.view.purchase.order.count</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_purchase.sale_order_form_view_inherit"/>
+            <field name="arch" type="xml">
+                <button name="action_view_purchase" position="replace">
+                    <button type="object" name="action_view_purchase" class="oe_stat_button" icon="fa-shopping-cart" groups="purchase.group_purchase_user" context="{'search_default_origin': name,'default_origin':name}" >
+                       <field name="purchase_order_count" widget="statinfo" string="Purchase Orders"/>
+                   </button>
+                </button>
+            </field>
+        </record>
+
+        <!--
+        <record id="grimm_view_order_form_with_carrier" model="ir.ui.view">
+            <field name="name">grimm.delivery.sale.order.form.view.with_carrier</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="delivery.view_order_form_with_carrier"/>
+            <field name="arch" type="xml">
+                <field name="carrier_id" position="attributes">
+                    <attribute name="required">1</attribute>
+                </field>
+            </field>
+        </record>
+        -->
+
+        <record id="view_sales_order_filter_extension" model="ir.ui.view">
+            <field name="name">Sale order search view extension</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='analytic_account_id']" position="after">
+                    <field name="product_id" string="Supplier Article Number"
+                           filter_domain="[('product_id.seller_ids.product_code','ilike',self)]"/>
+                    <field name="claim_id" string="Claims"/>
+                    <field name="asset_ids" string="Assets"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Order Extended -->
+        <record id="view_grimm_sale_order_tree_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.sale.order.tree.view.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="order_subject" string="Auftragstitel"/>
+                </xpath>
+                <xpath expr="//field[@name='main_exception_id']" position="replace"/>
+                <!--<field name="commitment_date" position="after">
+                    <field name="date_order"/>
+                </field>-->
+                <xpath expr="//field[@name='invoice_status']" position="replace">
+                    <field name="shopware6_customer_group" optional="show"/>
+                    <field name="state"/>
+                    <field name="payment_mode_id"/>
+                    <field name="invoice_status"/>
+                    <field name="customer_ref"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="sent_dn_date"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_order_form_inherit_sale_service_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.sale.service.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="priority">25</field>
+            <field name="inherit_id" ref="sale_timesheet.view_order_form_inherit_sale_timesheet"/>
+            <field name="arch" type="xml">
+
+                <!--<xpath expr="//field[@name='tasks_ids']" position="replace"/>-->
+                <xpath expr="//button[@name='action_view_task']" position="replace">
+                    <field name="tasks_ids" invisible="1"/>
+                    <button type="object" name="action_view_task" class="oe_stat_button" icon="fa-tasks"
+                            attrs="{'invisible': [('tasks_count', '=', 0)]}"
+                            context="{'default_partner_id':partner_shipping_id,'default_claim_contact':contact}"
+                            groups="base.group_user">
+                        <field name="tasks_count" widget="statinfo" string="Tasks"/>
+                    </button>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Quotation Extended -->
+        <record id="view_grimm_sale_quotation_tree_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.sale.quotation.tree.view.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="before">
+                    <field name="order_subject" string="Angebotstitel"/>
+                </xpath>
+                <!--                <field name="date_order" position="replace"/>-->
+                <!--                <field name="main_exception_id" position="replace"/>-->
+                <field name="state" position="after">
+                    <field name="date_order" widget="date"/>
+                </field>
+                <xpath expr="//field[@name='amount_total']" position="replace">
+                    <field name="amount_untaxed" sum="Total Tax not Included" widget="monetary"/>
+                    <field name="customer_ref" optional="show"/>
+                    <field name="shopware6_customer_group" optional="show"/>
+                    <field name="payment_mode_id" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_action_quotations" model="ir.actions.act_window">
+            <field name="name">Quotations</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+            <field name="search_view_id" ref="sale.sale_order_view_search_inherit_quotation"/>
+            <field name="context">{'search_default_my_quotation': 1, 'search_default_team_id':3}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new quotation, the first step of a new sale!
+                </p>
+                <p>
+                    Once the quotation is confirmed by the customer, it becomes a sales order.
+                    <br/>
+                    You will be able to create an invoice and collect the payment.
+                </p>
+            </field>
+        </record>
+
+        <record id="grimm_action_orders" model="ir.actions.act_window">
+            <field name="name">Sales Orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
+            <field name="search_view_id" ref="sale.sale_order_view_search_inherit_sale"/>
+            <field name="context">{'search_default_team_id':3}</field>
+            <field name="domain">[('state', 'not in', ('draft', 'sent', 'cancel')),('team_id','=',3)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new quotation, the first step of a new sale!
+                </p>
+                <p>
+                    Once the quotation is confirmed, it becomes a sales order.
+                    <br/>
+                    You will be able to create an invoice and collect the payment.
+                </p>
+            </field>
+        </record>
+
+        <menuitem action="grimm_extensions.grimm_action_quotations" id="service_menu_grimm_quotations" name="Quotations"
+                  parent="asset_base.menu_grimm_service" sequence="30"/>
+        <menuitem action="grimm_extensions.grimm_action_orders" id="service_menu_grimm_orders" name="Orders"
+                  parent="asset_base.menu_grimm_service"
+                  sequence="40"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_grimm_sale_purchase_link","access_grimm_sale_purchase_link","model_grimm_sale_purchase_link","base.group_user",1,1,1,1
+"access_product_warranty_type","access_product_warranty_type","grimm_product.model_product_warranty_type","base.group_user",1,1,1,1
+"access_product_connection","access_product_connection","asset_base.model_product_connection","base.group_user",1,1,1,1
+"access_account_account_grimm","account_account grimm","account.model_account_account","sales_team.group_sale_salesman",1,0,1,0
+"access_sale_layout_category","sale_layout_category grimm","model_sale_layout_category","sales_team.group_sale_salesman",1,1,1,1

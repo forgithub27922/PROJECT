@@ -1,0 +1,13 @@
+# generated from manifests external_dependencies
+acme
+astor
+cryptography
+dnspython
+josepy
+lxml
+openpyxl
+pygount
+pysftp
+raven
+xlrd
+xlwt

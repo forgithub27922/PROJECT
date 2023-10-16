@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="grp_approve_reject" model="res.groups">
+        <field name="name">Approve/Reject</field>
+    </record>
+
+    <!-- Record Rule For Employee to see himself leave request and his subordinates record -->
+    <record id="hr_holidays.hr_leave_rule_employee" model="ir.rule">
+        <field name="name">Time Off base.group_user read</field>
+        <field name="model_id" ref="model_hr_leave"/>
+        <field name="domain_force">['|', ('employee_id.user_id', '=', user.id), ('employee_id.parent_id.user_id.id', '=', user.id)]</field>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_write" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+    <record id="grp_timeoff_officer" model="res.groups">
+        <field name="name">Time Off Officer</field>
+        <field name="category_id" ref="base.module_category_human_resources_time_off"/>
+    </record>
+
+    <!-- Record Rule For timeoff officer to see leave request of validation type time off and both -->
+    <record id="timeoff_officer_rule" model="ir.rule">
+        <field name="name">Time Off Officer</field>
+        <field name="model_id" ref="model_hr_leave"/>
+        <field name="domain_force">[('validation_type','in',['hr', 'both'])]</field>
+        <field name="groups" eval="[(4,ref('sky_hr_timeoff_custom.grp_timeoff_officer'))]"/>
+    </record>
+
+    <!-- Record Rule of Leave Allocations: multi company global rule  InActive-->
+    <record id="hr_holidays.hr_leave_allocation_rule_multicompany" model="ir.rule">
+        <field name="active" eval="0"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,25 @@
+.app_drawer_stats {
+    position: absolute;
+    float: right;
+    right: 0%;
+    top: 25%;
+    color: white;
+    min-width: 12%;
+}
+
+#stat_opener {
+    z-index: 2;
+    position: fixed;
+    float: right;
+    right: 0%;
+    top: 40%;
+}
+
+#disp_stats {
+    background: rgb(37, 103, 111);
+    opacity: 0.5;
+    padding: 6px;
+    border-radius: 4px;
+    font-weight: 900;
+    border: 1px solid #00a09d;
+}

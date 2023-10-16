@@ -1,0 +1,1188 @@
+<odoo>
+	<data>
+		<!-- explicit list view definition -->
+
+		<record model="ir.ui.view" id="sms_core_student_admission_form">
+			<field name="name">student.admission.form.form</field>
+			<field name="model">student.admission.form</field>
+			<field name="arch" type="xml">
+				<form string="Admission Form" create="false">
+					<header>
+						<button name="print_report" string="Print" states="" type="object" class="oe_highlight" groups="" />
+						<button name="set_as_pending_for_interview" string="Next (Pending for Interview)" states="in_review" type="object" class="oe_highlight" groups="" />
+						<button name="set_as_pending_for_documents" string="Next (Pending for Documents)" states="interview" type="object" class="btn-warning" groups="" />
+
+<!--						<button name="%(action_admit_student_school_wizard)d" string="Next (Pending for Payment)"-->
+<!--								states="documentation" type="action" class="btn-warning"-->
+<!--								context="{'admission_id':id}" />-->
+
+						<button name="set_as_pending_for_payment" string="Next (Pending for Payment)"
+								states="documentation" type="object" class="btn-warning"
+								context="{'admission_id':id}" />
+<!--						<button name="set_as_payment_for_interview" string="Next (Confirm Admission)"-->
+<!--								states="payment" type="object" class="btn-success"/>-->
+
+						<button name="%(action_reject_admission_wizard)d" string="Reject" states="in_review,interview,documentation,payment" type="action" class="btn-danger" groups="" context="{'admission_id':id}" />
+						<button name="cancel_application" string="Cancel" confirm="Are you sure you want to cancel this admission?" states="in_review,interview,documentation,payment" type="object" class="btn-danger" groups="" />
+						<field name="state" widget="statusbar" statusbar_visible="in_review,interview,documentation,payment" readonly="1"/>
+					</header>
+					<sheet>
+						<div name="button_box" class="oe_button_box">
+							<button name="action_get_hr_attachment_view" class="oe_stat_button" icon="fa-book" type="object">
+								<field name="attachment_docs" widget="statinfo" string="Documents" />
+							</button>
+						</div>
+						<field name="student_image" widget='image' class="oe_avatar" attrs="{'readonly':[('state','=','payment')]}" options='{"zoom": true, "preview_image":"student_image"}' />
+						<div class="oe_title">
+							<h1>Admission Form</h1>
+							<span>Use this form for students registration &amp; admission.</span>
+						</div>
+						<group>
+							<group>
+								<label for="first_name" string="Student Name" />
+								<div>
+									<field name="first_name" required="1" placeholder="First Name" class="oe_inline" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+									&#x2063;
+									<field name="middle_name" placeholder="Middle Name" class="oe_inline" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+									&#x2063;
+									<field name="second_middle_name" placeholder="Second Middle Name" class="oe_inline" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+									&#x2063;
+									<field name="last_name" placeholder="Last Name" class="oe_inline" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+								</div>
+								<label for="last_name_arabic" string="Student Name Arabic" />
+								<div>
+									<field name="last_name_arabic" placeholder="Last Name Arabic" class="oe_inline" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+									&#x2063;
+									<field name="second_middle_name_arabic" placeholder="Second Middle Name Arabic" class="oe_inline" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+									&#x2063;
+									<field name="middle_name_arabic" placeholder="Middle Name Arabic" class="oe_inline" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+									&#x2063;
+									<field name="first_name_arabic" placeholder="First Name Arabic" class="oe_inline" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+								</div>
+								<field name="gender" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+							</group>
+							<group>
+
+								<field name="nationality" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+								<field name="national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':[('state','in',['payment','admitted'])]}" />
+								<field name="passport_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':[('state','in',['payment','admitted'])]}" />
+								<field name="application_for_id" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+								<field name="class_grade" attrs="{'readonly':[('state','=','admitted')]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							</group>
+						</group>
+						<group>
+
+							<group>
+								<field name="school_id" attrs="{'invisible':[('state','!=','admitted')],'readonly':[('state','=','admitted')]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+							</group>
+						</group>
+						<div class="oe_form_box_info bg-info oe_text_center" attrs="{'invisible': [('state', '!=','in_review')]}">
+							<span>Admission in progress, Click the button <strong>Pending for Interview</strong> &amp; move to next state.</span>
+						</div>
+						<div class="oe_form_box_info bg-info oe_text_center" attrs="{'invisible': [('state', '!=','interview')]}">
+							<span>Admission in progress, Click the button <strong>Pending for Documents</strong> &amp; move to next state.</span>
+						</div>
+						<div class="oe_form_box_info bg-info oe_text_center" attrs="{'invisible': [('state', '!=','documentation')]}">
+							<span>Admission in progress, Click the button <strong>Pending for Payment</strong> &amp; move to next state.</span>
+						</div>
+						<div class="oe_form_box_info bg-info oe_text_center" attrs="{'invisible': [('state', '!=','payment')]}">
+							<span>Final Step, Click the button <strong>Confirm Admission</strong> &amp; admit the student.</span>
+						</div>
+						<div class="oe_form_box_info bg-success oe_text_center" attrs="{'invisible': [('state', '!=','admitted')]}">
+							<span>Admission Successful, For more information goto <strong>Student Affairs</strong> section.</span>
+						</div>
+						<div class="oe_form_box_info bg-danger oe_text_center" attrs="{'invisible': [('state', '!=','cancelled')]}">
+							<span>Admission Cancelled.</span>
+						</div>
+						<div class="oe_form_box_info bg-danger oe_text_center" attrs="{'invisible': [('state', '!=','rejected')]}">
+							<span>Admission Rejected.</span>
+						</div>
+
+						<notebook>
+							<page string="Personal Information" name="personal_info">
+								<group>
+									<group string="">
+										<field name="birth_date" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+										<field name="birth_place" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+										<field name="city" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+										<field name="address" required="1" placeholder="e.g. Address..." attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+									</group>
+									<group>
+										<field name="religion" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+										<field name="primary_language" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+										<field name="second_language" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+										<field name="sibing_status" required="1" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+										<field name="prevous_school" attrs="{'readonly':[('state','in',['payment','admitted'])]}"/>
+									</group>
+								</group>
+							</page>
+							<page string="Parents/Guardian Info" name="parantal_info">
+								<group>
+									<group string="Father Infomration">
+                                         <field name="father_is_absent" type="checkbox"
+                                               attrs="{'readonly':[('state','=','admitted')]}"/>
+
+                                                <field name="father_first_name" required="1"
+                                                       class="oe_inline"/>
+                                                <field name="father_middle_name"
+                                                       class="oe_inline"
+                                                      />
+                                                <field name="father_last_name"
+                                                       class="oe_inline"
+                                                       />
+                                                <field name="father_fourth_name"
+                                                       class="oe_inline"
+                                                      />
+
+                                                <field name="father_first_name_arabic" required="1"
+                                                       class="oe_inline"
+                                                      />
+
+                                                <field name="father_middle_name_arabic"
+                                                       class="oe_inline"
+                                                      />
+
+                                                <field name="father_last_name_arabic"
+                                                       class="oe_inline"
+                                                       />
+
+                                                <field name="father_fourth_name_arabic"
+                                                       class="oe_inline"
+                                                       />
+
+										<field name="father_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')]}" />
+										<field name="father_passport" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')]}" />
+
+										<field name="father_nationality" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')],'required':[('father_is_absent','=',False)]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+										<field name="father_marital_status" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_degree_education" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_employment" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_employer_location" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_landline_number" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_land_line_no" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')],'required':[('father_is_absent','=',False)]}" />
+										<!-- <field name="father_mobile_no" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" widget="phone_intl" options="{'country_field': 'country_id', 'separate_dial_code': True}"/> -->
+										<field name="father_email" attrs="{'readonly':['|',('father_is_absent','=',True),('state','=','payment')],'required':[('father_is_absent','=',False)]}" />
+									</group>
+									<group string="Mother Information">
+                                        <field name="mother_is_absent" type="checkbox"
+                                               attrs="{'readonly':[('state','=','admitted')]}"/>
+                                                 <field name="mother_first_name" required="1"
+                                                       class="oe_inline"/>
+                                                <field name="mother_middle_name"
+                                                       class="oe_inline"
+                                                      />
+                                                <field name="mother_last_name"
+                                                       class="oe_inline"
+                                                       />
+                                                <field name="mother_fourth_name"
+                                                       class="oe_inline"
+                                                      />
+
+                                                <field name="mother_first_name_arabic" required="1"
+                                                      class="oe_inline"
+                                                      />
+
+                                                <field name="mother_middle_name_arabic"
+                                                       class="oe_inline"
+                                                      />
+
+                                                <field name="mother_last_name_arabic"
+                                                       class="oe_inline"
+                                                       />
+
+                                                <field name="mother_fourth_name_arabic"
+                                                       class="oe_inline"
+                                                       />
+										<field name="mother_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')]}" />
+										<field name="mother_passport" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')]}" />
+										<field name="mother_nationality" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')],'required':[('mother_is_absent','=',False)]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+										<field name="mother_marital_status" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')],'required':[('mother_is_absent','=',False)]}" />
+										<field name="mother_degree_education" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')],'required':[('mother_is_absent','=',False)]}" />
+										<field name="mother_employment" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')],'required':[('mother_is_absent','=',False)]}" />
+										<field name="mother_employer_location" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')],'required':[('mother_is_absent','=',False)]}" />
+										<field name="mother_landline_number" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')],'required':[('mother_is_absent','=',False)]}" />
+										<field name="mother_land_line_no" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')],'required':[('mother_is_absent','=',False)]}" />
+										<!-- <field name="mother_mobile_no" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" widget="phone_intl" options="{'country_field': 'country_id', 'separate_dial_code': True}"/> -->
+										<field name="mother_email" attrs="{'readonly':['|',('mother_is_absent','=',True),('state','=','payment')],'required':[('mother_is_absent','=',False)]}" />
+									</group>
+									<group string="Guardian Infomration">
+                                         <field name="legal_guardian" widget="radio"
+                                               attrs="{'readonly':[('state','=','admitted')]}"/>
+                                                 <field name="guardian_first_name"
+														attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"
+                                                       class="oe_inline"/>
+                                                <field name="guardian_middle_name"
+                                                       class="oe_inline"
+													   attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"
+                                                      />
+                                                <field name="guardian_last_name"
+                                                       class="oe_inline"
+													   attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"
+                                                       />
+                                                <field name="guardian_fourth_name"
+                                                       class="oe_inline"
+													   attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"
+                                                      />
+
+
+                                                <field name="guardian_first_name_arabic"
+													   class="oe_inline"
+													   attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"
+                                                      />
+
+                                                <field name="guardian_middle_name_arabic"
+                                                       class="oe_inline"
+													   attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"
+                                                      />
+
+                                                <field name="guardian_last_name_arabic"
+                                                       class="oe_inline"
+													   attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"
+                                                       />
+
+                                                <field name="guardian_fourth_name_arabic"
+                                                       class="oe_inline"
+													   attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"
+                                                       />
+										<field name="guardian_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')]}" />
+										<field name="guardian_passport" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')]}" />
+										<field name="guardian_nationality" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+										<field name="guardian_marital_status" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" />
+										<field name="relation_to_child" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" />
+									</group>
+									<group>
+										<br />
+										<br />
+										<br />
+										<field name="guardian_degree_education" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_employment" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_employeer_location" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_landline_number" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_land_line_no" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" />
+										<!-- <field name="guardian_mobile_no" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" widget="phone_intl" options="{'country_field': 'country_id', 'separate_dial_code': True}"/> -->
+										<field name="guardian_email" attrs="{'readonly':['|',('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian')),('state','=','payment')],'required':[('legal_guardian','=','other')]}" />
+									</group>
+								</group>
+							</page>
+							<page string="Admission Process" attrs="{'invisible':[('state','not in',['cancelled','rejected','admitted'])]}">
+								<group>
+									<group string="Admission Info">
+										<field name="application_no" readonly="1" />
+										<field name="school_id" readonly="1" />
+										<field name="class_id" readonly="1" />
+										<field name="date_of_apply" readonly="1" />
+										<field name="date_of_admission" attrs="{'invisible':[('state','!=','admitted')]}" readonly="1" />
+										<field name="admitted_by" attrs="{'invisible':[('state','!=','admitted')]}" readonly="1" />
+										<field name="date_of_reject_cancel" attrs="{'invisible':[('state','not in',['cancelled','rejected'])]}" readonly="1" />
+										<field name="rejected_by" attrs="{'invisible':[('state','not in',['cancelled','rejected'])]}" readonly="1" />
+									</group>
+									<group string="LMS Account Info">
+										<field name="mooddle_id" readonly="1" />
+										<field name="md_username" readonly="1" />
+										<field name="md_password" readonly="1" />
+										<field name="md_parent_username" readonly="1" />
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+						<field name="activity_ids" widget="mail_activity" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sms_core_student_admission_tree">
+			<field name="name">student.admission.tree</field>
+			<field name="model">student.admission.form</field>
+			<field name="arch" type="xml">
+				<tree string="Student Admission Register" decoration-info="state=='in_review'" decoration-success="state=='admitted'" decoration-danger="state=='rejected'" create="false">
+					<field name="application_no" readonly="1" />
+					<field name="full_name" />
+					<field name="full_name_arabic" />
+					<field name="national_id" />
+					<field name="passport_id" />
+					<field name="date_of_apply" />
+					<field name="school_id" string="School" />
+					<field name="class_id" string="Class" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="sms_core_student_admission_filter" model="ir.ui.view">
+			<field name="name">student.admission.filter</field>
+			<field name="model">student.admission.form</field>
+			<field name="arch" type="xml">
+				<search string="Search Admissions">
+					<field name="full_name" />
+					<field name="full_name_arabic" />
+					<field name="national_id" />
+					<field name="passport_id" />
+					<field name="school_id" />
+					<field name="class_id" />
+					<field name="father_full_name" string="Father Name" />
+					<field name="mother_full_name" string="Mother Name" />
+					<field name="guardian_full_name" string="Guardian Name" />
+					<field name="nationality" />
+					<field name="application_no" readonly="1" />
+					<field name="state" />
+					<filter string="Father is Absent" name="father_is_absent" domain="[('father_is_absent','=',True)]" />
+					<filter string="Mother is Absent" name="mother_is_absent" domain="[('mother_is_absent','=',True)]" />
+					<filter string="Father is Guardian" name="legal_guardian" domain="[('legal_guardian','=','father_is_legal_guardian')]" />
+					<filter string="Mother is Guardian" name="legal_guardian" domain="[('legal_guardian','=','mother_is_legal_guardian')]" />
+					<group expand="0" string="Group By">
+						<filter string="School" name="school_id" domain="[]" context="{'group_by':'school_id'}" />
+						<filter string="Class" name="class_id" domain="[]" context="{'group_by':'class_id'}" />
+						<filter string="Country" name="nationality" domain="[]" context="{'group_by':'nationality'}" />
+						<filter string="Sibling Status" name="sibing_status" domain="[]" context="{'group_by':'sibing_status'}" />
+						<filter string="State" name="state" domain="[]" context="{'group_by':'state'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<!-- Action admission in review -->
+		<record model="ir.actions.act_window" id="action_sms_admission_in_review">
+			<field name="name">Applications (In Review)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','in_review')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_sms_admission_in_all">
+			<field name="name">Applications (All)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="context">{
+                'default_group_by_state': 1
+            }</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+
+		<!-- Action admission in interview -->
+		<record model="ir.actions.act_window" id="action_sms_admission_in_interview">
+			<field name="name">Applications (Interview)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','interview')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+
+		<!-- Action admission in document submission-->
+		<record model="ir.actions.act_window" id="action_admission_submit_documents">
+			<field name="name">Applications (Waiting Documents)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','documentation')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+
+		<!-- Action admission in payment pending-->
+		<record model="ir.actions.act_window" id="action_admission_submit_payments">
+			<field name="name">Applications (Waiting Payments)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','payment')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+		<!-- Action admission in undecided-->
+		<record model="ir.actions.act_window" id="action_admission_undecided">
+			<field name="name">Applications (Undecided)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','undecided')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+
+
+
+		<record model="ir.actions.server" id="action_sync_lms">
+			<field name="name">'Sync LMS' Server Action</field>
+			<field name="model_id" ref="model_schools_list" />
+			<field name="type">ir.actions.server</field>
+			<field name="state">code</field>
+			<field name="code">model.menu_item_sync_erp_lms()</field>
+		</record>
+
+
+
+		<!-- Action admission in approved-->
+		<record model="ir.actions.act_window" id="action_admission_approved">
+			<field name="name">Applications (Admitted)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','admitted')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+
+		<!-- Action admission in canceled-->
+		<record model="ir.actions.act_window" id="action_admission_cancelled">
+			<field name="name">Applications (Cancelled)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','cancelled')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+
+		<!-- Action admission in rejected-->
+		<record model="ir.actions.act_window" id="action_admission_rejected">
+			<field name="name">Applications (Rejected)</field>
+			<field name="res_model">student.admission.form</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','rejected')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_admission_tree" />
+			<field name="search_view_id" ref="sms_core_student_admission_filter" />
+		</record>
+
+		<!-- Academic student section started -->
+
+		<record id="hr_kanban_view_academic_student" model="ir.ui.view">
+			<field name="name">academic.student.kanban</field>
+			<field name="model">academic.student</field>
+			<field name="arch" type="xml">
+				<kanban class="o_hr_employee_kanban">
+					<field name="student_image" />
+					<field name="full_name_arabic" />
+					<field name="full_name" />
+					<field name="school_id" />
+					<field name="class_id" />
+					<field name="moodle_status" />
+					<field name="class_section_id" />
+					<templates>
+						<t t-name="kanban-box">
+							<div class="oe_kanban_card oe_kanban_global_click o_kanban_record_has_image_fill o_hr_kanban_record">
+								<div class="o_kanban_image">
+									<field name="student_image" widget="image" class="oe_avatar"/>
+								</div>
+								<div class="oe_kanban_details">
+									<div class="o_kanban_record_top">
+										<div class="o_kanban_record_headings">
+											<strong class="o_kanban_record_title">
+												<div class="float-right" t-if="record.state.raw_value == 'admitted' and record.moodle_status.raw_value == 'active'">
+													<span class="fa fa-circle text-success" role="img" aria-label="Admitted" title="Present" name="state_admitted">
+													</span>
+												</div>
+												<div class="float-right" t-if="record.state.raw_value == 'admitted' and record.moodle_status.raw_value == 'in_active'">
+													<span class="fa fa-circle text-danger" role="img" aria-label="in_active" title="in_active" name="moodle_status_in_active">
+													</span>
+												</div>
+
+												<strong>
+													<field name="full_name" placeholder="Student Name" />
+												</strong>
+												<span class="o_kanban_record_subtitle">
+													<strong>
+														<field name="full_name_arabic" class="oe_inline"/>
+													</strong>
+												</span>
+											</strong>
+											<span t-if="record.school_id.raw_value" class="o_kanban_record_subtitle">
+												<strong>
+													<field name="school_id" />
+												</strong>
+											</span>
+											<span t-if="record.class_id.raw_value" class="o_kanban_record_subtitle">
+												<field name="class_id" />
+											</span>
+										</div>
+									</div>
+									<ul>
+										<li id="last_login" />
+										<li t-if="record.national_id.raw_value" class="o_text_overflow">
+											<field name="national_id" />
+										</li>
+										<li t-if="record.state.raw_value">
+											<field name="state" />
+										</li>
+									</ul>
+								</div>
+							</div>
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sms_core_academic_student_form">
+			<field name="name">academic.student.form</field>
+			<field name="model">academic.student</field>
+			<field name="arch" type="xml">
+				<form string="Student Form">
+					<header>
+<!--						<button name="set_admitted" string="Admitted" states="draft" type="object" class="btn-primary"/>-->
+						<button name="change_student_class" string="Change Class" states="admitted" type="object" class="btn-warning" context="{'parent_id':id}" groups="sms_core.group_manager_sms_core,sms_core.group_officer_sms_core" />
+						<button name="withdraw_student" string="Withdraw Student" confirm="Are you sure to withdraw this student?" states="admitted" type="object" class="btn-danger" groups="sms_core.group_manager_sms_core,sms_core.group_officer_sms_core" />
+<!--						<button name="%(action_view_sync_lms_wizard)d" context="{'lms_action' : 'in_active','active_std':id}" attrs="{'invisible':['|','|',('moodle_status','=','in_active'),('state','!=','admitted'),('synced_with_lms','=',False)]}" string="Deactivate LMS" type="action" class="btn-primary" groups="" />-->
+<!--						<button name="%(action_view_sync_lms_wizard)d" string="Activate LMS " context="{'lms_action' : 'active','active_std':id}" attrs="{'invisible':['|','|',('moodle_status','=','active'),('state','!=','admitted'),('synced_with_lms','=',False)]}" type="action" class="btn-primary" groups="" />-->
+						<button name="%(action_admit_student_school_wizard)d" string="Admitted" type="action" class="btn-primary" attrs="{'invisible': ['|',('payment_status', '!=','paid'),('state','!=','draft')]}"
+								context="{'admission_id':id}" invisible="context.get('hide_admit_btn',False)" groups="sms_core.group_manager_sms_studentaffairs,sms_core.group_officer_sms_studentaffairs"/>
+						<field name="state" widget="statusbar" statusbar_visible="admitted,close" readonly="1" />
+					</header>
+					<div class="oe_form_box_info bg-danger oe_text_center" attrs="{'invisible': [('moodle_status', '=','active')]}">
+						<span>In-Active</span>
+					</div>
+					<sheet>
+						<div class="oe_button_box" name="button_box">
+							<button name="" class="oe_stat_button" icon="fa-money" groups="">
+								<field name="fee_balance" widget="statinfo" string="Total Dues" />
+							</button>
+							<button name="action_dues_student_fee" context="{'std_id':id}" class="oe_stat_button" icon="fa-print" groups="" type="object">
+								<field name="due_amount" widget="statinfo" string="Next Invoice" />
+							</button>
+							<button name="action_dues_student_fee" context="{'std_id':id}" class="oe_stat_button" icon="fa-clock-o" type="object" groups="">
+								<field name="due_month" widget="statinfo" string="Dues Date" />
+							</button>
+
+						</div>
+
+
+						<field name="student_image" widget='image' class="oe_avatar" options='{"zoom": true, "preview_image":"student_image"}' />
+						<label for="first_name" string="School Name"/>
+						<div>
+							<field name="school_id"/>
+						</div>
+						<field name="company_id" invisible="1"/>
+						<field name="synced_with_lms" invisible="1"/>
+						<group>
+							<group>
+
+							<label for="first_name" string="Student Name" />
+								<div>
+									<field name="first_name" required="1" placeholder="First Name" class="oe_inline"/>
+									&#x2063;
+									<field name="middle_name" placeholder="Middle Name" class="oe_inline"/>
+									&#x2063;
+									<field name="second_middle_name" placeholder="Second Middle Name" class="oe_inline"/>
+									&#x2063;
+									<field name="last_name" placeholder="Last Name" class="oe_inline"/>
+								</div>
+								<label for="last_name_arabic" string="Student Name Arabic" />
+								<div>
+									<field name="last_name_arabic" placeholder="Last Name Arabic" class="oe_inline"/>
+									&#x2063;
+									<field name="second_middle_name_arabic" placeholder="Second Middle Name Arabic" class="oe_inline"/>
+									&#x2063;
+									<field name="middle_name_arabic" placeholder="Middle Name Arabic" class="oe_inline"/>
+									&#x2063;
+									<field name="first_name_arabic" placeholder="First Name Arabic" class="oe_inline"/>
+								</div>
+								<field name="student_id" readonly="1" force_save="1" />
+								<field name="class_id" class="alert-link"/>
+								<field name="nationality" required="1"/>
+							</group>
+							<group>
+								<field name="class_section_id" string="Class" />
+								<field name="gender" attrs="{'readonly':[('state','=','withdrawn')]}" />
+								<field name="payment_status" readonly="1"/>
+								<field name="student_admission_form_id" invisible="1"/>
+								<field name="national_id"/>
+								<field name="passport_id"/>
+								<field name="siblings_ids" widget="many2many_tags"/>
+							</group>
+						</group>
+
+						<notebook>
+							<page string="Personal Infomration" name="personal_info" attrs="{'readonly':[('state','=','withdrawn')]}">
+								<group>
+									<group string="">
+										<field name="birth_date"/>
+										<field name="birth_place"/>
+										<field name="city"/>
+										<field name="address" placeholder="e.g. Address..."/>
+									</group>
+									<group>
+										<field name="religion"/>
+										<field name="primary_language"/>
+										<field name="second_language"/>
+										<field name="sibing_status" />
+										<field name="prevous_school"/>
+									</group>
+									<group string="LMS Account Info">
+										<field name="moodle_status" />
+										<field name="reason" />
+										<field name="md_username" readonly="1" />
+										<field name="md_password" />
+										<field name="mooddle_id" readonly="1" />
+									</group>
+									<group string="Parent LMS Info">
+										<field name="md_parent_username" readonly="1" />
+									</group>
+								</group>
+							</page>
+							<page string="Parents/Guardian Info" name="parantal_info">
+								<group>
+									<group string="Father Infomration">
+										<field name="father_is_absent" type="checkbox" readonly="0"/>
+										<field name="father_active_employee" attrs="{'readonly':[('father_is_absent','=',True)]}"/>
+										<field name="father_full_name" string="Father" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_full_name_arabic" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':[('father_is_absent','=',True)]}" />
+										<field name="father_passport" placeholder="xxxxxxxxx" attrs="{'readonly':[('father_is_absent','=',True)]}" />
+										<field name="father_nationality" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+										<field name="father_marital_status" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_degree_education" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_employment" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_employer_location" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_landline_number" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+										<field name="father_land_line_no" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+										<!-- <field name="father_mobile_no" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" widget="phone_intl" options="{'country_field': 'country_id', 'separate_dial_code': True}"/> -->
+										<field name="father_email" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+									</group>
+									<group string="Mother Infomration">
+										<field name="mother_is_absent" type="checkbox"  readonly="0"/>
+										<field name="mother_active_employee" attrs="{'readonly':[('mother_is_absent','=',True)]}"/>
+										<field name="mother_full_name" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}"/>
+										<field name="mother_full_name_arabic" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}"/>
+										<field name="mother_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':[('mother_is_absent','=',True)]}"/>
+										<field name="mother_passport" placeholder="xxxxxxxxx" attrs="{'readonly':[('mother_is_absent','=',True)]}"/>
+										<field name="mother_nationality" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+										<field name="mother_marital_status" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}"/>
+										<field name="mother_degree_education" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}"/>
+										<field name="mother_employment" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}"/>
+										<field name="mother_employer_location" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+										<field name="mother_landline_number" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+										<field name="mother_land_line_no" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+										<!-- <field name="mother_mobile_no" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" widget="phone_intl" options="{'country_field': 'country_id', 'separate_dial_code': True}"/> -->
+										<field name="mother_email" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+									</group>
+									<group string="Guardian Infomration">
+										<field name="legal_guardian" widget="radio" readonly="0"/>
+										<field name="guardian_full_name" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_full_name_arabic" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+
+										<field name="guardian_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))]}" />
+										<field name="guardian_passport" placeholder="xxxxxxxxx" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))]}" />
+										<field name="guardian_nationality" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+										<field name="relation_to_child" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+
+									</group>
+									<group>
+										<br />
+										<br />
+										<br />
+										<field name="guardian_degree_education" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_employment" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_employeer_location" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_landline_number" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_land_line_no" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+										<field name="guardian_email" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+									</group>
+								</group>
+							</page>
+							<page string="Academic Info" name="academic_info">
+								<separator string="Student Class" />
+								<field name="student_classes_ids" widget="one2many_list">
+									<tree decoration-info="status == 'active'" decoration-muted="status == 'draft'" decoration-danger="status == 'closed'" create="false" edit="false" delete="false">
+										<field name="class_id" readonly="1" />
+										<field name="class_section_id" readonly="1" />
+										<field name="status" />
+									</tree>
+								</field>
+								<!-- === The Following Code is commented as student register in cohort -->
+								<!-- <separator string="Student Courses" />
+								<field name="student_courses_ids" widget="one2many_list">
+									<tree decoration-success="course_status == 'active'" decoration-muted="course_status == 'draft'" decoration-danger="course_status == 'closed'" create="false" edit="false" delete="false">
+										<field name="class_course_id" readonly="1" />
+										<field name="std_class_id" readonly="1" />
+										<field name="course_status" />
+									</tree>
+								</field> -->
+								<group>
+									<group>
+										<field name="date_of_apply" readonly="1" force_save="1" />
+									</group>
+									<group>
+										<field name="admitted_by" readonly="1" force_save="1" />
+									</group>
+								</group>
+							</page>
+							<!--<page string="Fee Register" name="fee_info" groups="base.group_system">
+								<field name="student_fee_ids" widget="one2many_list">
+									<tree decoration-info="status == 'unpaid'" decoration-success="status == 'paid'" decoration-muted="status == 'cancelled'" decoration-danger="is_overdue == True" create="false" edit="false" delete="false">
+										<field name="name" readonly="1" />
+										<field name="fee_date" readonly="1" />
+										<field name="due_date" readonly="1" />
+										<field name="total_amount" sum="Total" />
+										<field name="emp_chil_sibling_disc" sum="Total" />
+										<field name="cash_discount" sum="Total" />
+										<field name="applied_fee" sum="Total" />
+										<field name="payment_date" />
+										<field name="status" />
+										<field name="is_overdue" />
+									</tree>
+									<form>
+										<group>
+											<group>
+												<field name="name" readonly="1" />
+												<field name="fee_date" readonly="1" />
+												<field name="due_date" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="payment_date" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="is_overdue" />
+											</group>
+											<group>
+												<field name="total_amount" readonly="1" />
+												<field name="emp_chil_sibling_disc" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="cash_discount" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="applied_fee" />
+												<field name="status" />
+											</group>
+										</group>
+									</form>
+
+								</field>
+							</page>-->
+
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+						<field name="activity_ids" widget="mail_activity" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sms_core_academic_student_tree">
+			<field name="name">academic.student.tree</field>
+			<field name="model">academic.student</field>
+			<field name="arch" type="xml">
+				<tree string="Student Register" create="false" edit="false">
+					<field name="student_id" optional="show"/>
+					<field name="full_name" optional="show"/>
+					<field name="full_name_arabic" string="Student Name Arabic" optional="show"/>
+					<field name="school_id" optional="show"/>
+					<field name="class_id" string="Grade" optional="show"/>
+					<field name="class_section_id" string="Class" optional="show"/>
+					<field name="national_id" optional="show"/>
+					<field name="gender" optional="show"/>
+					<field name="religion" optional="show"/>
+					<field name="passport_id" />
+					<field name="state" />
+					<field name="birth_date" optional="hide"/>
+					<field name="birth_place" optional="hide"/>
+					<field name="city" optional="hide"/>
+					<field name="address" optional="hide"/>
+					<field name="primary_language" optional="hide"/>
+					<field name="second_language" optional="hide"/>
+					<field name="father_full_name_arabic" optional="hide"/>
+					<field name="father_landline_number" optional="hide"/>
+					<field name="father_land_line_no" optional="hide"/>
+					<field name="father_national_id" optional="hide"/>
+					<field name="mother_full_name_arabic" optional="hide"/>
+					<field name="mother_landline_number" optional="hide"/>
+					<field name="mother_land_line_no" optional="hide"/>
+					<field name="mother_national_id" optional="hide"/>
+					<field name="guardian_full_name_arabic" optional="hide"/>
+					<field name="guardian_landline_number" optional="hide"/>
+					<field name="guardian_land_line_no" optional="hide"/>
+					<field name="guardian_national_id" optional="hide"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="sms_core_academic_student_filter" model="ir.ui.view">
+			<field name="name">academic.student.filter</field>
+			<field name="model">academic.student</field>
+			<field name="arch" type="xml">
+				<search string="Search Student">
+					<field name="full_name" filter_domain="['|', '|', '|', '|', '|', '|', '|', '|', '|',
+					('first_name', 'ilike', self), ('middle_name', 'ilike', self),
+					('second_middle_name', 'ilike', self), ('last_name', 'ilike', self),
+					('full_name', 'ilike', self), ('full_name_arabic', 'ilike', self),
+					('first_name_arabic', 'ilike', self), ('middle_name_arabic', 'ilike', self),
+					('second_middle_name_arabic', 'ilike', self), ('last_name_arabic', 'ilike', self)]"/>
+					<field name="full_name_arabic" filter_domain="['|', '|', '|', '|', '|', '|', '|', '|', '|',
+                    ('first_name', 'ilike', self), ('middle_name', 'ilike', self),
+                    ('second_middle_name', 'ilike', self), ('last_name', 'ilike', self),
+                    ('full_name', 'ilike', self), ('full_name_arabic', 'ilike', self),
+                    ('first_name_arabic', 'ilike', self), ('middle_name_arabic', 'ilike', self),
+                    ('second_middle_name_arabic', 'ilike', self), ('last_name_arabic', 'ilike', self)]"/>
+					<field name="national_id" />
+					<field name="passport_id" />
+					<field name="school_id" />
+					<field name="class_id" />
+					<field name="father_full_name" string="Father Name" />
+					<field name="mother_full_name" string="Mother Name" />
+					<field name="guardian_full_name" string="Guardian Name" />
+					<field name="nationality" />
+					<field name="state" />
+					<filter string="Father is Absent" name="father_is_absent" domain="[('father_is_absent','=',True)]" />
+					<filter string="Mother is Absent" name="mother_is_absent" domain="[('mother_is_absent','=',True)]" />
+					<filter string="Father is Guardian" name="legal_guardian" domain="[('legal_guardian','=','father_is_legal_guardian')]" />
+					<filter string="Mother is Guardian" name="legal_guardian" domain="[('legal_guardian','=','mother_is_legal_guardian')]" />
+					<group expand="0" string="Group By">
+						<filter string="School" name="school_id" domain="[]" context="{'group_by':'school_id'}" />
+						<filter string="Class" name="class_section_id" domain="[]"
+								context="{'group_by':'class_section_id'}"/>
+						<filter string="Grade" name="group_by_class_id" domain="[]"
+								context="{'group_by':'class_id'}"/>
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_academic_student_all">
+			<field name="name">Students (Active)</field>
+			<field name="res_model">academic.student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','admitted'),('moodle_status','=','active')]</field>
+			<field name="context">{'search_default_group_by_class_id': 1}</field>
+			<field name="view_mode">kanban,tree,form</field>
+			<field name="view_id" ref="hr_kanban_view_academic_student" />
+			<field name="search_view_id" ref="sms_core_academic_student_filter" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_academic_student_inactive">
+			<field name="name">Students (InActive)</field>
+			<field name="res_model">academic.student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','admitted'),('moodle_status','=','in_active')]</field>
+			<field name="context">{'search_default_group_by_class_id': 1}</field>
+			<field name="view_mode">kanban,tree,form</field>
+			<field name="view_id" ref="hr_kanban_view_academic_student" />
+			<field name="search_view_id" ref="sms_core_academic_student_filter" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_academic_student_withdrawal">
+			<field name="name">Students (Withdrawan)</field>
+			<field name="res_model">academic.student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','not in',['draft','admitted'])]</field>
+			<field name="context">{'search_default_group_by_class_id': 1}</field>
+			<field name="view_mode">kanban,tree,form</field>
+			<field name="view_id" ref="hr_kanban_view_academic_student" />
+			<field name="search_view_id" ref="sms_core_academic_student_filter" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_academic_student_pending_payment">
+			<field name="name">Pending Payment</field>
+			<field name="res_model">academic.student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','draft')]</field>
+			<field name="context">{'search_default_group_by_class_id': 1}</field>
+			<field name="view_mode">kanban,tree,form</field>
+			<field name="view_id" ref="hr_kanban_view_academic_student"/>
+			<field name="search_view_id" ref="sms_core_academic_student_filter" />
+		</record>
+		<!-- Academic student ends here -->
+
+		<!-- Student Class view starts here -->
+		<record model="ir.ui.view" id="sms_core_student_class_form">
+			<field name="name">student.class.form</field>
+			<field name="model">student.class</field>
+			<field name="arch" type="xml">
+				<form string="Student Class Form">
+					<sheet>
+						<div class="oe_title">
+							<h1>Student Class</h1>
+							<!-- <span>Use this form for adding new schools.</span> -->
+						</div>
+						<group>
+							<group>
+								<field name="student_id" />
+								<field name="class_id" />
+								<field name="class_section_id" />
+								<field name="status" />
+
+
+							</group>
+							<!--<field name="std_course_ids" />-->
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sms_core_student_class_tree">
+			<field name="name">student.class.tree</field>
+			<field name="model">student.class</field>
+			<field name="arch" type="xml">
+				<tree string="Student Class">
+					<field name="student_id" />
+					<field name="class_id" />
+					<field name="status" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="sms_core_student_class_filter" model="ir.ui.view">
+			<field name="name">student.class.filter</field>
+			<field name="model">student.class</field>
+			<field name="arch" type="xml">
+				<search string="Search Student Class">
+					<field name="student_id" />
+					<field name="class_id" />
+					<field name="status" />
+					<group expand="0" string="Group By">
+						<filter string="Class" name="class_id" domain="[]" context="{'group_by':'class_id'}" />
+						<filter string="State" name="status" domain="[]" context="{'group_by':'status'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_sms_all_student_class">
+			<field name="name">Student Classes</field>
+			<field name="res_model">student.class</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_class_tree" />
+			<field name="search_view_id" ref="sms_core_student_class_filter" />
+		</record>
+
+		<!-- Students courses starts -->
+		<record model="ir.ui.view" id="sms_core_student_courses_form">
+			<field name="name">student.courses.form</field>
+			<field name="model">student.courses</field>
+			<field name="arch" type="xml">
+				<form string="Admission Form">
+					<sheet>
+						<div class="oe_title">
+							<h1>Student Courses Form</h1>
+							<!-- <span>Use this form for adding new schools.</span> -->
+						</div>
+						<group>
+							<group>
+								<field name="student_id" />
+								<field name="class_id" />
+								<field name="class_course_id" />
+								<field name="std_class_id" />
+								<field name="course_status" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sms_core_student_courses_tree">
+			<field name="name">student.courses.tree</field>
+			<field name="model">student.courses</field>
+			<field name="arch" type="xml">
+				<tree string="Schools">
+					<field name="student_id" />
+					<field name="class_id" />
+					<field name="class_course_id" />
+					<field name="std_class_id" />
+					<field name="course_status" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="sms_core_student_courses_filter" model="ir.ui.view">
+			<field name="name">student.courses.filter</field>
+			<field name="model">student.courses</field>
+			<field name="arch" type="xml">
+				<search string="Search School">
+					<field name="student_id" />
+					<field name="class_id" />
+					<field name="class_course_id" />
+					<field name="std_class_id" />
+					<field name="course_status" />
+					<group expand="0" string="Group By">
+						<filter string="Class" name="class_id" domain="[]" context="{'group_by':'class_id'}" />
+						<filter string="Class Course" name="class_course_id" domain="[]" context="{'group_by':'class_course_id'}" />
+						<filter string="State" name="course_status" domain="[]" context="{'group_by':'course_status'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_sms_all_student_courses">
+			<field name="name">Student Courses</field>
+			<field name="res_model">student.courses</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_courses_tree" />
+			<field name="search_view_id" ref="sms_core_student_courses_filter" />
+		</record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<record model="ir.ui.view" id="sms_core_student_family_form">
+			<field name="name">student.parent.guardian.info.form</field>
+			<field name="model">student.parent.guardian.info</field>
+			<field name="arch" type="xml">
+				<form string="Student Family Form" create="false">
+					<header>
+					</header>
+					<sheet>
+						<div name="button_box" class="oe_button_box">
+						</div>
+						<div class="oe_title">
+							<strong>
+								Family Contact Head
+							</strong>
+							<h1>
+								<field name="name" default_focus="1" placeholder="Name" required="1" style="{width:30%;}" />
+							</h1>
+							<strong>
+								<field name="head_person" class="alert-link" />
+							</strong>
+						</div>
+						<group>
+							<group string="Father Infomration">
+								<field name="father_is_absent" type="checkbox" />
+								<field name="father_full_name" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_full_name_arabic" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_nationality" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+								<field name="father_marital_status" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_degree_education" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_employment" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_employer_location" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_landline_number" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_land_line_no" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+								<field name="father_mobile_no" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}"/>
+								<field name="father_email" attrs="{'readonly':[('father_is_absent','=',True)],'required':[('father_is_absent','=',False)]}" />
+							</group>
+							<group string="Mother Infomration">
+								<field name="mother_is_absent" type="checkbox" />
+								<field name="mother_full_name" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_full_name_arabic" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_nationality" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+								<field name="mother_marital_status" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_degree_education" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_employment" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_employer_location" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_landline_number" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_land_line_no" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+								<field name="mother_mobile_no" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}"/>
+								<field name="mother_email" attrs="{'readonly':[('mother_is_absent','=',True)],'required':[('mother_is_absent','=',False)]}" />
+							</group>
+							<group string="Guardian Infomration">
+								<field name="legal_guardian" widget="radio" />
+								<field name="guardian_full_name" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+								<field name="guardian_full_name_arabic" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+								<field name="guardian_national_id" placeholder="xxxxxxxxxxxxx" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+								<field name="guardian_nationality" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+								<field name="relation_to_child" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+							</group>
+							<group>
+								<br />
+								<br />
+								<br />
+								<field name="guardian_degree_education" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+								<field name="guardian_employment" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+								<field name="guardian_employeer_location" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+								<field name="guardian_landline_number" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+								<field name="guardian_land_line_no" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+								<field name="guardian_mobile_no" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}"/>
+								<field name="guardian_email" attrs="{'readonly':[('legal_guardian','in',('father_is_legal_guardian','mother_is_legal_guardian'))],'required':[('legal_guardian','=','other')]}" />
+							</group>
+						</group>
+
+						<notebook>
+							<page string="Childs Information" name="childs_info">
+								<separator string="Children's Details" />
+								<field name="student_ids" widget="one2many_list">
+									<tree decoration-info="state == 'admitted'" decoration-muted="state == 'inactive'" decoration-danger="state == 'withdrawn'" create="false" edit="false" delete="false">
+										<field name="full_name" readonly="1" />
+										<field name="class_id" />
+										<field name="school_id" />
+										<field name="date_of_admission" />
+										<field name="state" />
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+						<field name="activity_ids" widget="mail_activity" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sms_core_student_family_tree">
+			<field name="name">student.parent.guardian.info.tree</field>
+			<field name="model">student.parent.guardian.info</field>
+			<field name="arch" type="xml">
+				<tree string="Family Register" create="true" edit="true">
+					<field name="name" string="Student Name" />
+					<field name="name_arabic" string="Student Name Arabic" />
+					<field name="father_full_name" string="Father Name" />
+					<field name="father_full_name_arabic" string="Father Name Arabic" />
+					<field name="mother_full_name" string="Mother Name" />
+					<field name="mother_full_name_arabic" string="Mother Name Arabic" />
+					<field name="guardian_full_name" string="Guardian Name" />
+					<field name="guardian_full_name_arabic" string="Guardian Name Arabic" />
+					<field name="legal_guardian" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="sms_core_student_family_filter" model="ir.ui.view">
+			<field name="name">student.parent.guardian.info.filter</field>
+			<field name="model">student.parent.guardian.info</field>
+			<field name="arch" type="xml">
+				<search string="Search Family">
+					<field name="name" string="Student Name" />
+					<field name="name_arabic" string="Student Name Arabic" />
+					<field name="father_full_name" string="Father Name" />
+					<field name="father_full_name_arabic" string="Father Name Arabic" />
+					<field name="mother_full_name" string="Mother Name" />
+					<field name="mother_full_name_arabic" string="Mother Name Arabic" />
+					<field name="guardian_full_name" string="Guardian Name" />
+					<field name="guardian_full_name_arabic" string="Guardian Name Arabic" />
+					<filter string="Father is Absent" name="father_is_absent" domain="[('father_is_absent','=',True)]" />
+					<filter string="Mother is Absent" name="mother_is_absent" domain="[('mother_is_absent','=',True)]" />
+					<filter string="Father is Guardian" name="legal_guardian" domain="[('legal_guardian','=','father_is_legal_guardian')]" />
+					<filter string="Mother is Guardian" name="legal_guardian" domain="[('legal_guardian','=','mother_is_legal_guardian')]" />
+					<group expand="0" string="Group By">
+						<filter string="Father Name" name="father_full_name" domain="[]" context="{'group_by':'father_full_name'}" />
+						<filter string="Mother Name" name="mother_full_name" domain="[]" context="{'group_by':'mother_full_name'}" />
+						<filter string="Guardian Name" name="guardian_full_name" domain="[]" context="{'group_by':'guardian_full_name'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_student_family_id_all">
+			<field name="name">Students Families</field>
+			<field name="res_model">student.parent.guardian.info</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sms_core_student_family_tree" />
+			<field name="search_view_id" ref="sms_core_student_family_filter" />
+		</record>
+
+
+	</data>
+</odoo>

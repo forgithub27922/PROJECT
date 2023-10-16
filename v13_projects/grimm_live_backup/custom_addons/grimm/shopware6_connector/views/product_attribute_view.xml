@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="shopware6_product_attribute_form">
+            <field name="name">product.attribute.form</field>
+            <field name="model">product.attribute</field>
+            <field name="inherit_id" ref="product.product_attribute_view_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page name="shopware6" string="Shopware6">
+                        <button name="export_to_shopware6" type="object" class="oe_highlight" string="Export Record" attrs="{'invisible': [('is_shopware6_exported', '=', True)]}"/>
+                        <field name="is_shopware6_exported" invisible="1"/>
+                        <field name="display_in_product_filter"/>
+                        <field name="display_on_product_detail_page"/>
+                        <field name="shopware6_description"/>
+                        <field name="display_type"/>
+                        <group>
+                            <field name="shopware6_bind_ids" nolabel="1" colspan="4">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="shopware6_product_attribute_value" model="ir.ui.view">
+            <field name="name">shopware6_product_attribute_value</field>
+            <field name="model">shopware6.property.group.option</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="backend_id"/>
+                    <field name="shopware6_id"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</openerp>

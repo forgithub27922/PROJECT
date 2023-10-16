@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_magento_product_warranty_map,access.magento.product.warranty.map,model_magento_product_warranty_map,base.group_user,1,1,1,1
+access_magento_order_payment_map,access.magento.order.payment.map,model_magento_payment_mode_mapping,base.group_user,1,1,1,1
+access_magento_product_brand_map,access.magento.product.brand.map,model_product_brand_magento_mapping,base.group_user,1,1,1,1
+access_magento_status,access.magento.status,model_product_magento_status,base.group_user,1,1,1,1
+access_magento_status_mapping,access.magento.status.mapping,model_product_magento_status_mapping,base.group_user,1,1,1,1
+access_product_link,access.product.link,model_product_link,base.group_user,1,1,1,1
+access_shop_price_tracking,access.shop.price.tracking,model_shop_price_tracking,,1,1,1,1

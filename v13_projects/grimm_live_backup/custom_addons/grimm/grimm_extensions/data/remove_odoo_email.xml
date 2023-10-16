@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract support@openfellas.com
+#
+##############################################################################
+-->
+
+<odoo>
+    <data noupdate="1">
+        <!--Email template -->
+        <record id="mail_template_data_notification_email_default" model="mail.template">
+            <field name="name">Notification Email - Grimm</field>
+            <field name="subject">${object.subject or (object.record_name and 'Re: %s' % object.record_name) or (object.parent_id and object.parent_id.subject and 'Re: %s' % object.parent_id.subject) or (object.parent_id and object.parent_id.record_name and 'Re: %s' % object.parent_id.record_name)}</field>
+            <field name="model_id" ref="mail.model_mail_message"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[
+
+<div itemscope="" itemtype="http://schema.org/EmailMessage">
+    <div itemprop="potentialAction" itemscope="" itemtype="http://schema.org/ViewAction">
+        % if ctx.get('button_access'):
+        <link itemprop="target" href="${ctx['button_access']['url']}">
+        <link itemprop="url" href="${ctx['button_access']['url']}">
+        % endif
+        <meta itemprop="name" content="View ${ctx['model_name']}">
+    </div>
+</div>
+<div summary="o_mail_notification" style="padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%; color:#777777">
+    <table style="width:600px; background:inherit; color:inherit" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+            <td style="padding:5px 10px 5px 5px;font-size: 30px" width="270" valign="center">
+                % if ctx.get('button_access'):
+                <a href="${ctx['button_access']['url']}" style="-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px" class="o_default_snippet_text">${ctx['button_access']['title']}</a>
+                % endif
+
+                % if ctx.get('button_follow'):
+                <a href="${ctx['button_follow']['url']}" style="-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px" class="o_default_snippet_text">${ctx['button_follow']['title']}</a>
+
+                % elif ctx.get('button_unfollow'):
+                <a href="${ctx['button_unfollow']['url']}" style="-webkit-user-select: none; padding: 5px 10px; font-size: 12px; line-height: 18px; color: #FFFFFF; border-color:#a24689; text-decoration: none; display: inline-block; margin-bottom: 0px; font-weight: 400; text-align: center; vertical-align: middle; cursor: pointer; white-space: nowrap; background-image: none; background-color: #a24689; border: 1px solid #a24689; border-radius:3px" class="o_default_snippet_text">${ctx['button_unfollow']['title']}</a>
+                % endif
+
+                % if not ctx.get('button_access') and not ctx.get('button_follow') and not ctx.get('button_unfollow') and ctx.get('model_name'):
+                <p style="padding: 5px 10px; font-size: 12px;">
+                About <strong>${ctx['model_name']}
+                % if ctx.get('record_name'):
+                : ${ctx['record_name']}
+                % endif
+                </strong>
+                </p>
+                % endif
+            </td>
+            <td style="padding:5px 15px 5px 10px; font-size: 12px;" width="270" valign="center" align="right">
+                <p>
+                </p>
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+<div style="padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%; color:#777777">
+    <table style="vertical-align:top; padding:0px; background:inherit; color:inherit" cellspacing="0" cellpadding="0">
+        <tbody><tr>
+            <td style="width:600px; padding:5px 10px 5px 5px;" valign="top">
+                <div>
+                    <hr style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0;margin:15px auto;padding:0" width="100%">
+                </div>
+            </td>
+        </tr></tbody>
+    </table>
+</div>
+<div style="padding:0px; width:600px; margin:0 auto; background: #FFFFFF repeat top /100%;color:#777777">
+    <table style="margin: 0 auto; width:600px; background:inherit; color:inherit" cellspacing="0" cellpadding="0" border="0">
+        <tbody><tr>
+            <td style="padding:5px 10px 5px 5px;font-size: 14px;">
+                ${object.body | safe}
+                % if ctx.get('tracking'):
+                    <ul>
+                    % for tracking in ctx['tracking']
+                        <li>${tracking[0]} : ${tracking[1]} -&gt; ${tracking[2]}</li>
+                    % endfor
+                    </ul>
+                % endif
+            </td>
+        </tr></tbody>
+    </table>
+</div>
+% if ctx.get('signature'):
+<div style="padding:0px; width:600px;margin:0 auto; background: #FFFFFF repeat top /100%;color:#777777">
+    <table style="margin: 0 auto; width:600px; background:inherit; color:inherit" cellspacing="0" cellpadding="0" border="0">
+        <tbody><tr>
+            <td style="padding:5px 10px 5px 5px;font-size: 14px; text-align: left;">
+                ${ctx['signature'] | safe}
+            </td>
+        </tr></tbody>
+    </table>
+</div>
+% endif
+              ]]></field>
+        </record>
+
+    </data>
+</odoo>

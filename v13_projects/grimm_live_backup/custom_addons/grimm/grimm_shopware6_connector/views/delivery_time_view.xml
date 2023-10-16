@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_shopware6_delivery_time_tree" model="ir.ui.view">
+            <field name="name">shopware6.delivery.time.tree</field>
+            <field name="model">shopware6.delivery.time</field>
+            <field name="arch" type="xml">
+                <tree string="Shopware6 Delivery Time">
+                    <field name="name"/>
+                    <field name="unit"/>
+                    <field name="min"/>
+                    <field name="max"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_shopware6_delivery_time" model="ir.actions.act_window">
+            <field name="name">Shopware6 Delivery Time</field>
+            <field name="res_model">shopware6.delivery.time</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_shopware6_delivery_time_tree"/>
+        </record>
+
+        <menuitem id="shopware6_delivery_time_menu"
+                  name="Shopware6 Delivery Time"
+                  parent="sale.prod_config_main"
+                  sequence="40"
+                  action="action_shopware6_delivery_time"/>
+
+        <record id="view_shopware6_delivery_time_form" model="ir.ui.view">
+            <field name="name">shopware6.delivery.time.form</field>
+            <field name="model">shopware6.delivery.time</field>
+            <field name="arch" type="xml">
+                <form string="Shopware6 Delivery Time">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <field name="is_shopware6_exported" invisible="1"/>
+                            <button name="export_to_shopware6" type="object" class="oe_highlight" string="Export Record" attrs="{'invisible': [('is_shopware6_exported', '=', True)]}"/>
+                        </div>
+
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <notebook>
+                            <page string="Delivery Configuration" name="api">
+                                <group colspan="4" col="4">
+                                    <field name="unit"/>
+                                    <field name="min"/>
+                                    <field name="max"/>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id" readonly="True"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="shopware6_product_template_form">
+            <field name="name">product.template.shopware6.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <header position="inside">
+                    <button name="export_to_shopware6" type="object"
+                            string="Export to Shopware6" class="oe_highlight"
+                            groups="connector.group_connector_manager"
+                    />
+                </header>
+                <notebook position="inside">
+                    <page name="shopware6" string="Shopware6">
+                        <group>
+                            <field name="shopware6_category_ids" options="{'no_create_edit': True}"/>
+                            <field name="product_media_ids" attrs="{'invisible':[('product_variant_count','&gt;',1)]}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="file_select"/>
+                                    <field name="set_as_cover"/>
+                                </tree>
+                            </field>
+                            <field name="product_tmpl_media_ids" attrs="{'invisible':[('product_variant_count','&lt;',2)]}">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="file_select"/>
+                                    <field name="set_as_cover"/>
+                                </tree>
+                            </field>
+                            <field name="shopware6_version_id"/>
+                            <field name="sales_channel_ids" widget="many2many_checkboxes"
+                                   options="{'no_create_edit': True}"/>
+
+                        </group>
+                        <group name="shopware6_binding">
+                            <separator string="Shopware6 bindings" colspan="4"/>
+                            <field name="product_variant_count" invisible="1"/>
+                            <field name="shopware6_pt_bind_ids" nolabel="1" colspan="4"
+                                   attrs="{'invisible':[('product_variant_count','=',1)]}">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+
+                            <field name="shopware6_bind_ids" nolabel="1" colspan="4"
+                                   attrs="{'invisible':[('product_variant_count','&gt;',1)]}">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <div colspan="2">
+                            <button name="button_remove_all_bindings" type="object" string="Remove all bindings"
+                                    class="oe_highlight"/>
+                            <button name="button_remove_empty_bindings" type="object" string="Remove empty bindings"
+                                    class="oe_highlight"/>
+                        </div>
+
+                    </page>
+                </notebook>
+            </field>
+        </record>
+
+        <record id="shopware6_product_normal_form_view" model="ir.ui.view">
+            <field name="name">product.product.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook" position="inside">
+                    <!-- change the invisible attribute to 0 when used
+                         in submodules -->
+                    <page string="Shopware6" name="shopware6">
+                        <group>
+                            <field name="shopware6_category_ids" widget="many2many_tags" options="{'no_create_edit': True}"/>
+                            <field name="product_media_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="file_select"/>
+                                    <field name="set_as_cover"/>
+                                </tree>
+                            </field>
+                            <field name="sales_channel_ids" widget="many2many_checkboxes"
+                                   options="{'no_create_edit': True}"/>
+                        </group>
+                        <group string="Shopware6 Bindings" name="shopware6_binding">
+                            <field name="shopware6_bind_ids" nolabel="1">
+                                <tree>
+                                    <field name="backend_id"/>
+                                    <field name="shopware6_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_shopware6_product_product_form" model="ir.ui.view">
+            <field name="name">shopware6.product.template.form</field>
+            <field name="model">shopware6.product.product</field>
+            <field name="arch" type="xml">
+                <form string="Shopware6 Product">
+                    <group>
+                        <field name="backend_id"/>
+                        <field name="shopware6_id"/>
+                        <field name="created_at" readonly="1"/>
+                        <field name="updated_at" readonly="1"/>
+                    </group>
+                    <!--<group string="Queue Jobs">
+                        <field name="queue_ids" nolabel="1">
+                            <tree decoration-success="state=='done'" decoration-danger="state=='failed'" decoration-info="state in ['pending', 'enqueued', 'started']">
+                                <field name="name"/>
+                                <field name="func_string"/>
+                                <field name="date_created"/>
+                                <field name="date_done"/>
+                                <field name="uuid"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </group>-->
+                    <!--<group string="Inventory Options">
+                        <field name="no_stock_sync"/>
+                        <div class="oe_inline">
+                            <label for="shopware_qty" class="oe_inline" />
+                            <field name="shopware_qty" readonly="1" class="oe_inline" nolabel="1"/>
+                            <button name="recompute_magento_qty" string="(recompute)" class="oe_link oe_inline" type="object"/>
+                        </div>
+                    </group>-->
+                </form>
+            </field>
+        </record>
+
+        <record id="view_shopware6_product_product_tree" model="ir.ui.view">
+            <field name="name">shopware6.product.product.tree</field>
+            <field name="model">shopware6.product.product</field>
+            <field name="arch" type="xml">
+                <tree string="Shopware6 Product">
+                    <field name="backend_id"/>
+                    <field name="shopware6_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <!--<record id="view_odoo_product_image_form" model="ir.ui.view">
+            <field name="name">odoo.product.image.form</field>
+            <field name="model">odoo.product.image</field>
+            <field name="arch" type="xml">
+                <form string="Product Image">
+                    <group>
+                        <field name="name"/>
+                        <field name="position"/>
+                        <field name="shopware6_id"/>
+                        <field name="file_select" widget="radio"/>
+                        <field name="image" filename="file_name" attrs="{'invisible': [('file_select', '=', 'url')]}"/>
+                        <field name="file_name" readonly="True" attrs="{'invisible': [('file_select', '=', 'url')]}"/>
+                        <field name="file_url" attrs="{'invisible': [('file_select', '=', 'upload')]}"/>
+                    </group>
+                    <group string="Shopware Binding">
+                        <field name="shopware_bind_ids" readonly="1">
+                            <tree>
+                                <field name="backend_id"/>
+                                <field name="shopware6_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>-->
+
+        <record id="action_export_multi_product_shopware6" model="ir.actions.server">
+            <field name="name">Export to Shopware6</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="shopware6_connector.model_product_template"/>
+            <field name="binding_model_id" ref="shopware6_connector.model_product_template"/>
+            <field name="groups_id" eval="[(4, ref('connector.group_connector_manager'))]"/>
+            <field name="state">code</field>
+            <field name="code">
+cr = env.cr
+context = dict(env.context)
+action = model.export_multi_to_shopware6(context.get('active_ids', []), context=context)
+            </field>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,1059 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_hr_recruitment_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-22 12:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b> Personal Data </b>"
+msgstr "بيانات شخصية"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Academic Qualification</b>"
+msgstr "المؤهل العلمي"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Address</b>"
+msgstr "العنوان"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>City</b>"
+msgstr "مدينة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Country</b>"
+msgstr "دولة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Date of Birth</b>"
+msgstr "تاريخ الولادة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Email</b>"
+msgstr "بريد الالكتروني"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Employer Name</b>"
+msgstr "اسم الموظف"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>End Date</b>"
+msgstr "تاريخ الانتهاء"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Experience</b>"
+msgstr "خبرة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Family Information</b>"
+msgstr "معلومات العائلة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>First Name (Arabic):</b>"
+msgstr "الاسم الاول (عربي):"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>First Name: </b>"
+msgstr "الاسم الاول:"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Fourth Name (Arabic):</b>"
+msgstr "الاسم الرابع (عربي):"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Fourth Name: </b>"
+msgstr "الاسم الرابع:"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Gender</b>"
+msgstr "الجنس"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>General Service Status</b>"
+msgstr "حالة الخدمة العامة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Marital Status</b>"
+msgstr "الحالة الإجتماعية"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Military Status</b>"
+msgstr "الحالة العسكرية"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>National ID</b>"
+msgstr "الرقم القومي"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Nationality</b>"
+msgstr "جنسية"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Partner Academic Qualification</b>"
+msgstr "المؤهل الأكاديمي للشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Partner Date of Birth</b>"
+msgstr "تاريخ ميلاد الشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Partner Employment\t</b>"
+msgstr "توظيف الشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Partner Employment Location</b>"
+msgstr "موقع توظيف الشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Partner Full Name</b>"
+msgstr "الاسم الكامل للشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Partner National ID</b>"
+msgstr "الرقم القومي للشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Partner Place of Birth</b>"
+msgstr "مكان ميلاد الشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Phone</b>"
+msgstr "هاتف"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Place of Birth</b>"
+msgstr "مكان الولادة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Position</b>"
+msgstr "موضع"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Religion</b>"
+msgstr "دين"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Second Name (Arabic): </b>"
+msgstr "الاسم الثاني (عربي):"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Second Name: </b>"
+msgstr "الاسم الثاني:"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Start Date</b>"
+msgstr "تاريخ البدء"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>State</b>"
+msgstr "ولاية"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Third Name (Arabic):</b>"
+msgstr "الاسم الثالث (عربي):"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Third Name: </b>"
+msgstr "الاسم الثالث:"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>Training </b>"
+msgstr "تمرين"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "<b>With Children?</b>"
+msgstr "مع الاطفال؟"
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,body_html:sky_hr_recruitment_custom.accept_applicant_email_template
+msgid ""
+"<div>\n"
+"                    <p>\"Congratulations. You have passed your interview for the position <b>${object.job_id.name}.</b>\n"
+"                        <br/><br/>\n"
+"                        Please expect an email from us in the coming few days for instructions on what to do next, and the documents required from your side.\n"
+"                        <br/><br/>\n"
+"                        Thanks and see you on board.\"\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,body_html:sky_hr_recruitment_custom.cancel_applicant_email_template
+#: model:mail.template,body_html:sky_hr_recruitment_custom.reject_applicant_email_template
+msgid ""
+"<div>\n"
+"                    <p>\"We are very sorry to inform you that your application to can no longer be processed, due to :\n"
+"                        <b>${object.reason}.</b>\n"
+"                        <br/>\n"
+"                        We wish you the best in your future endeavors.\"\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,body_html:sky_hr_recruitment_custom.schedule_interview_email_template
+msgid ""
+"<div>\n"
+"                    <p>\"Your application to has been moved to the next stage, which is the interview.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Date : ${object.interview_date}\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Time : ${object.interview_time}\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Location : ${object.interview_location}\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Please attend at least 10 minutes before the provided time.\"\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,body_html:sky_hr_recruitment_custom.pending_applicant_document_email_template
+msgid ""
+"<div>\n"
+"                    <p>You have been selected as <b>${object.job_id.name}</b> at\n"
+"                        <b>${object.company_id.name}</b>\n"
+"                    </p>\n"
+"\n"
+"                    <p>Kindly submit the documents before joining.</p>\n"
+"                    <p>We look forward to your on boarding.</p>\n"
+"                    <p>Thanks and Regards,</p>\n"
+"                </div>\n"
+"\n"
+"            "
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__academic_qualification
+msgid "Academic Qualification"
+msgstr "المؤهل العلمي"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#, python-format
+msgid "Accept Application"
+msgstr "قبول التطبيق"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__state__accepted
+msgid "Accepted"
+msgstr "قبلت"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__addition_rate
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__addition_rate
+msgid "Addition Rate"
+msgstr "معدل الإضافة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__address
+msgid "Address"
+msgstr "العنوان"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_1
+msgid "Alexandria"
+msgstr "الإسكندرية"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__annual_bonus
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__annual_bonus
+msgid "Annual Bonus"
+msgstr "المكافأة السنوية"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model,name:sky_hr_recruitment_custom.model_hr_applicant
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__applicant_id
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.hr_interview_view_search
+msgid "Applicant"
+msgstr "المتقدم"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "Applicant Information"
+msgstr "معلومات مقدم الطلب"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.actions.report,name:sky_hr_recruitment_custom.report_hr_applicant_pdf
+msgid "Applicant Report"
+msgstr "تقرير مقدم الطلب"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.ui.menu,name:sky_hr_recruitment_custom.menu_applications
+msgid "Applications"
+msgstr "التطبيقات"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_2
+msgid "Arish"
+msgstr "العريش"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_3
+msgid "Aswan"
+msgstr "أسوان"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_4
+msgid "Asyut"
+msgstr "أسيوط"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_5
+msgid "Banha"
+msgstr "بنها"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_6
+msgid "Beni Suef"
+msgstr "بني سويف"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__cv
+msgid "CV"
+msgstr "السيرة الذاتية"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_7
+msgid "Cairo"
+msgstr "القاهرة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.pending_document_wizard_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.view_cancel_applicant_wizard_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.view_print_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.view_reject_applicant_wizard_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.view_update_schedule_interview_wizard_form
+msgid "Cancel"
+msgstr "تجاهل"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model,name:sky_hr_recruitment_custom.model_cancel_applicant_wizard
+msgid "Cancel Applicant Wizard"
+msgstr "إلغاء معالج مقدم الطلب"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#, python-format
+msgid "Cancel Application"
+msgstr "إلغاء التطبيق"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__state__canceled
+msgid "Canceled"
+msgstr "ألغيت"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.ui.menu,name:sky_hr_recruitment_custom.menu_action_res_city
+msgid "Cities"
+msgstr "مدن"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__city_id
+msgid "City"
+msgstr "مدينة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__state__closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__company_id
+msgid "Company"
+msgstr "شركة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.hr_interview_view_form
+msgid "Complete"
+msgstr "إكمال"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_interview__state__done
+msgid "Completed"
+msgstr "مكتمل"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.pending_document_wizard_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.view_cancel_applicant_wizard_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.view_reject_applicant_wizard_form
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.view_update_schedule_interview_wizard_form
+msgid "Confirm"
+msgstr "يتأكد"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__country_id
+msgid "Country"
+msgstr "دولة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard__create_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__create_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__create_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard__create_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard__create_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__create_uid
+msgid "Created by"
+msgstr "انشأ من قبل"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard__create_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__create_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__create_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard__create_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard__create_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__create_date
+msgid "Created on"
+msgstr "تم إنشاؤها على"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_8
+msgid "Damanthur"
+msgstr "دمنثور"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_9
+msgid "Damietta"
+msgstr "دمياط"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.hr_interview_view_search
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__date_of_birth
+msgid "Date of Birth"
+msgstr "تاريخ الولادة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__department_id
+msgid "Department"
+msgstr " قسم، أقسام"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__manager_id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__manager_id
+msgid "Direct Manager"
+msgstr "المدير المباشر"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard__display_name
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__display_name
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__display_name
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard__display_name
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard__display_name
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__marital_status__divorced
+msgid "Divorced"
+msgstr "مطلق"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__general_service_status__done
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__military_status__done
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.hr_interview_view_search
+msgid "Done"
+msgstr "تم"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard__download_file
+#, python-format
+msgid "Download File"
+msgstr "تحميل الملف"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_10
+msgid "El Mahalla El Kubra"
+msgstr "المحلة الكبرى"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__experience_ids
+msgid "Experience"
+msgstr "خبرة"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_11
+msgid "Faiyum"
+msgstr "الفيوم"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__gender__female
+msgid "Female"
+msgstr "أنثى"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__fname
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard__fname
+msgid "File Name"
+msgstr "اسم الملف"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__first_name_arabic
+msgid "First Name (Arabic)"
+msgstr "الاسم الاول (عربي)"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__fourth_name
+msgid "Fourth Name"
+msgstr "الاسم الرابع"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__fourth_name_arabic
+msgid "Fourth Name (Arabic)"
+msgstr "الاسم الرابع (عربي)"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__gender
+msgid "Gender"
+msgstr "الجنس"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__general_service_status
+msgid "General Service Status"
+msgstr "حالة الخدمة العامة"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_12
+msgid "Giza"
+msgstr "الجيزة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__hourly_rate
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__hourly_rate
+msgid "Hourly Rate"
+msgstr "المعدل بالساعة"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_13
+msgid "Hurghada"
+msgstr "الغردقة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard__id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard__id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard__id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__id
+msgid "ID"
+msgstr "بطاقة تعريف"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_interview__state__in_progress
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.hr_interview_view_search
+msgid "In Progress"
+msgstr "في تقدم"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__state__draft
+msgid "In Review"
+msgstr "في مراجعة"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "Institute"
+msgstr "معهد"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model,name:sky_hr_recruitment_custom.model_hr_interview
+msgid "Interview"
+msgstr "مقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__interview_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__interview_date
+msgid "Interview Date"
+msgstr "موعد المقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__interview_date_time
+msgid "Interview Date Time"
+msgstr "موعد المقابلة التاريخ"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__interview_location
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__interview_location
+msgid "Interview Location"
+msgstr "مكان المقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,subject:sky_hr_recruitment_custom.schedule_interview_email_template
+msgid ""
+"Interview Schedule On ${object.interview_date} ${object.interview_time}"
+msgstr "${object.interview_date} ${object.interview_time} موعد المقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__interview_time
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__interview_time
+msgid "Interview Time"
+msgstr "وقت المقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.actions.act_window,name:sky_hr_recruitment_custom.action_hr_interview
+#: model:ir.ui.menu,name:sky_hr_recruitment_custom.menu_hr_int
+msgid "Interviews"
+msgstr "المقابلات"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_14
+msgid "Ismalia"
+msgstr "الإسماعيلية"
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,subject:sky_hr_recruitment_custom.accept_applicant_email_template
+msgid "Job Application In ${object.job_id.name} Accepted"
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,subject:sky_hr_recruitment_custom.cancel_applicant_email_template
+msgid "Job Application In ${object.job_id.name} Canceled"
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,subject:sky_hr_recruitment_custom.pending_applicant_document_email_template
+msgid "Job Application In ${object.job_id.name} Closed"
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:mail.template,subject:sky_hr_recruitment_custom.reject_applicant_email_template
+msgid "Job Application In ${object.job_id.name} Rejected"
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard__job_id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__job_id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard__job_id
+msgid "Job Title"
+msgstr "المسمى الوظيفي"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.ui.menu,name:sky_hr_recruitment_custom.menu_jobs_main
+msgid "Jobs"
+msgstr "وظائف"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard____last_update
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview____last_update
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document____last_update
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard____last_update
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard____last_update
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard__write_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__write_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__write_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard__write_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard__write_uid
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard__write_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__write_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__write_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_print_report_wizard__write_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard__write_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_update_schedule_interview_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_15
+msgid "Luxor"
+msgstr "الأقصر"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__gender__male
+msgid "Male"
+msgstr "ذكر"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_16
+msgid "Mansoura"
+msgstr "المنصورة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__marital_status
+msgid "Marital Status"
+msgstr "الحالة الإجتماعية"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__marital_status__married
+msgid "Married"
+msgstr "زوجت"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__military_status
+msgid "Military Status"
+msgstr "الحالة العسكرية"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_17
+msgid "Minya"
+msgstr "المنيا"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__national_id
+msgid "National ID"
+msgstr "الرقم القومي"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#, python-format
+msgid "National Id must be 14 digits!"
+msgstr "يجب أن يتكون الرقم القومي من 14 رقمًا!"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__nationality_id
+msgid "Nationality"
+msgstr "جنسية"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__next_salary_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__next_salary_date
+msgid "Next Salary Date"
+msgstr "تاريخ الراتب التالي"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__spouse_academic_qualification
+msgid "Partner Academic Qualification"
+msgstr "المؤهل الأكاديمي للشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__spouse_date_of_birth
+msgid "Partner Date of Birth"
+msgstr "تاريخ ميلاد الشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__spouse_employment
+msgid "Partner Employment"
+msgstr "توظيف الشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__spouse_employment_location
+msgid "Partner Employment Location"
+msgstr "موقع توظيف الشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__spouse_name
+msgid "Partner Full Name"
+msgstr "الاسم الكامل للشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__spouse_national_id
+msgid "Partner National ID"
+msgstr "الرقم القومي للشريك"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#, python-format
+msgid "Partner National Id must be 14 digits!"
+msgstr "يجب أن يتكون الرقم القومي للشريك من 14 رقمًا!"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__spouse_place_of_birth
+msgid "Partner Place of Birth"
+msgstr "مكان ميلاد الشريك"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__penalty_rate
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__penalty_rate
+msgid "Penalty Rate"
+msgstr "معدل الجزاء"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model,name:sky_hr_recruitment_custom.model_pending_document
+msgid "Pending Document"
+msgstr "مستند معلق"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.pending_document_wizard_form
+msgid "Pending For Document"
+msgstr "في انتظار المستند"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__state__pending_for_interview
+msgid "Pending for Interview"
+msgstr "في انتظار المقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__place_of_birth
+msgid "Place of Birth"
+msgstr "مكان الولادة"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#, python-format
+msgid "Please Enter a Valid Phone No! For e.g. +20xxxxxx"
+msgstr "الرجاء إدخال رقم هاتف صالح! على سبيل المثال +20xxxxxx"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#, python-format
+msgid "Please configure email in company!!!"
+msgstr "الرجاء تكوين البريد الإلكتروني في الشركة !!!"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_18
+msgid "Port Said"
+msgstr "بورسعيد"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model,name:sky_hr_recruitment_custom.model_print_report_wizard
+msgid "Print Report Wizard"
+msgstr "معالج تقرير الطباعة"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_19
+msgid "Qena"
+msgstr "قنا"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_cancel_applicant_wizard__reason
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_reject_applicant_wizard__reason
+msgid "Reason"
+msgstr "سبب"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#, python-format
+msgid "Reject Application"
+msgstr "رفض الطلب"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__state__rejected
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__general_service_status__relieved
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__military_status__relieved
+msgid "Relieved"
+msgstr "معفي"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__religion
+msgid "Religion"
+msgstr "دين"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.hr_interview_view_form
+msgid "Reset to Draft"
+msgstr "إعادة التعيين إلى المسودة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__salary
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__salary
+msgid "Salary"
+msgstr "مرتب"
+
+#. module: sky_hr_recruitment_custom
+#: code:addons/sky_hr_recruitment_custom/models/hr_recruitment.py:0
+#, python-format
+msgid "Schedule Interview"
+msgstr "تحديد موعد مقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_interview__state__draft
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.hr_interview_view_search
+msgid "Scheduled"
+msgstr "المقرر"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__middle_name
+msgid "Second Name"
+msgstr "الاسم الثاني"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__middle_name_arabic
+msgid "Second Name (Arabic)"
+msgstr "الاسم الثاني (عربي)"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_20
+msgid "Shibin El Kom"
+msgstr "شبين الكوم"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_21
+msgid "Shubra El Kheima"
+msgstr "شبرا الخيمة"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_22
+msgid "Sohag"
+msgstr "سوهاج"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: sky_hr_recruitment_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.hr_interview_view_form
+msgid "Start Interview"
+msgstr "ابدأ المقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__starting_date
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__starting_date
+msgid "Starting Date"
+msgstr "تاريخ البدء"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__state_id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_interview__state
+msgid "State"
+msgstr "ولاية"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__state
+msgid "Status"
+msgstr "حالة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__child_ids
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__child_ids
+msgid "Subordinates"
+msgstr "المرؤوسين"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_23
+msgid "Suez"
+msgstr "السويس"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_24
+msgid "Tanta"
+msgstr "طنطا"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__last_name
+msgid "Third Name"
+msgstr "الاسم الثالث"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__last_name_arabic
+msgid "Third Name (Arabic)"
+msgstr "الاسم الثالث (عربي)"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__training_ids
+#: model_terms:ir.ui.view,arch_db:sky_hr_recruitment_custom.report_hr_applicant
+msgid "Training"
+msgstr "تمرين"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__general_service_status__uncharged
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__military_status__uncharged
+msgid "Uncharged"
+msgstr "غير مكلف"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__marital_status__unmarried
+msgid "Unmarried"
+msgstr "اعزب"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model,name:sky_hr_recruitment_custom.model_update_schedule_interview_wizard
+msgid "Update Schedule Interview Wizard"
+msgstr "معالج تحديث جدول المقابلة"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields.selection,name:sky_hr_recruitment_custom.selection__hr_applicant__marital_status__widowed
+msgid "Widowed"
+msgstr "ارمل"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__spouse_with_children
+msgid "With Children?"
+msgstr "مع الاطفال؟"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_hr_applicant__working_schedule_id
+#: model:ir.model.fields,field_description:sky_hr_recruitment_custom.field_pending_document__working_schedule_id
+msgid "Working Schedule"
+msgstr "جدول العمل"
+
+#. module: sky_hr_recruitment_custom
+#: model:res.city,name:sky_hr_recruitment_custom.city_eg_25
+msgid "Zagazig"
+msgstr "الزقازيق"
+
+#. module: sky_hr_recruitment_custom
+#: model:ir.model,name:sky_hr_recruitment_custom.model_reject_applicant_wizard
+msgid "reject Applicant Wizard"
+msgstr "رفض معالج مقدم الطلب"

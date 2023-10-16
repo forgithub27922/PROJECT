@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+    <record id="view_grimm_asset_facility_tree" model="ir.ui.view">
+      <field name="name">grimm.asset.facility.tree</field>
+      <field name="model">grimm.asset.facility</field>
+      <field name="arch" type="xml">
+        <tree string="Assets facilities">
+          <field name="name"/>
+          <field name="partner_owner"/>
+          <field name="partner_contact"/>
+          <field name="partner_invoice"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_show_assets" model="ir.actions.act_window">
+        <field name="name">Assets</field>
+        <field name="res_model">grimm.asset.asset</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="view_id" ref="asset_base.view_grimm_asset_asset_tree"/>
+        <field name="search_view_id" ref="asset_base.view_grimm_asset_asset_search"/>
+    </record>
+
+    <record id="view_grimm_asset_facility_form" model="ir.ui.view">
+      <field name="name">grimm.asset.facility.form</field>
+      <field name="model">grimm.asset.facility</field>
+      <field name="arch" type="xml">
+        <form string="Asset Facility">
+          <header>
+          </header>
+          <sheet string="Asset Facility">
+            <div class="oe_button_box" name="button_box">
+              <button name="action_partner_history"
+                type="object"
+                class="oe_stat_button"
+                icon="fa-user-times"
+                attrs="{'invisible': [('previous_owners_count', '=', 0)]}">
+                <field name="previous_owners_count" widget="statinfo"/>
+              </button>
+              <button name="%(action_show_assets)d"
+                type="action"
+                class="oe_stat_button"
+                icon="fa-user-times"
+                context="{'search_default_asset_facility_id': [active_id],'default_asset_facility_id': active_id, 'default_partner_owner': partner_owner, 'default_partner_contact': partner_contact, 'default_partner_invoice':partner_invoice, 'default_partner_delivery':partner_delivery}">
+                <field name="asset_ids_count" widget="statinfo"/>
+              </button>
+            </div>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <group>
+                <field name="partner_owner" context="{'show_address': 1}" options='{"always_reload": True}'/>
+                <field name="partner_delivery" context="{'default_parent_id': partner_owner, 'default_company_type': 'company','default_type':'delivery','lang':'de_DE'}"/>
+              </group>
+              <group>
+                <field name="partner_invoice"/>
+                <field name="beneficiary"/>
+                <field name="partner_contact" context="{'show_address': 1}" options='{"always_reload": True}'/>
+              </group>
+            </group>
+            <button name="%(action_change_partners_wizard)d" type="action" string="Change Partners" groups="base.group_user"/>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_grimm_asset_facility_search" model="ir.ui.view">
+      <field name="name">grimm.asset.facility.search</field>
+      <field name="model">grimm.asset.facility</field>
+      <field name="arch" type="xml">
+        <search string="Search Object Address">
+          <field name="partner_owner"/>
+          <separator/>
+          <group expand="0" string="Group By">
+            <filter string="Partner" name="partner" domain="[]" context="{'group_by':'partner_owner'}"/>
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <record id="action_grimm_asset_facility_tree" model="ir.actions.act_window">
+      <field name="name">Object Address</field>
+      <field name="res_model">grimm.asset.facility</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="view_grimm_asset_facility_tree"/>
+      <field name="search_view_id" ref="view_grimm_asset_facility_search"/>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Click to create a new object address.
+        </p>
+      </field>
+    </record>
+    <menuitem action="action_grimm_asset_facility_tree" id="menu_action_grimm_asset_facility" parent="menu_grimm_master_data" sequence="20"/>
+  </data>
+</odoo>

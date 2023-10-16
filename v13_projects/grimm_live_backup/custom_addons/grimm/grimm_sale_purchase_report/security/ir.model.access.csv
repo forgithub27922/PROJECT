@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_purchase_report,sale_purchase_report,model_sale_purchase_report,sales_team.group_sale_manager,1,1,1,1
+account_invoice_in_out_report,account_invoice_in_out_report,model_account_invoice_in_out_report,sales_team.group_sale_manager,1,1,1,1

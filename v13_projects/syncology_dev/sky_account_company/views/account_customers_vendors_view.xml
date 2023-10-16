@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit Customer Vendor Tree view-->
+    <record id="inherit_customer_vendor_tree_view" model="ir.ui.view">
+        <field name="name">view.customer.vendor.tree.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Customer Vendor Form view-->
+    <record id="inherit_customer_vendor_form_view" model="ir.ui.view">
+        <field name="name">view.customer.vendor.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='misc']/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Customer Vendor Search view-->
+    <record id="inherit_customer_vendor_search_view" model="ir.ui.view">
+        <field name="name">view.customer.vendor.search.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search//filter[@name='group_company']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+            <xpath expr="//search//filter[@name='type_company']" position="attributes">
+                <attribute name="string">Schools</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

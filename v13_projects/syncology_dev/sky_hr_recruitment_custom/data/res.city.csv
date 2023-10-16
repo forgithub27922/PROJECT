@@ -1,0 +1,26 @@
+id,name,zipcode,country_id:id,state_id:id
+city_eg_1,Alexandria,,base.eg,base.state_eg_alx
+city_eg_2,Arish,,base.eg,base.state_eg_sin
+city_eg_3,Aswan,,base.eg,base.state_eg_asn
+city_eg_4,Asyut,,base.eg,base.state_eg_ast
+city_eg_5,Banha,,base.eg,base.state_eg_kb
+city_eg_6,Beni Suef,,base.eg,base.state_eg_bns
+city_eg_7,Cairo,,base.eg,base.state_eg_c
+city_eg_8,Damanthur,,base.eg,base.state_eg_bh
+city_eg_9,Damietta,,base.eg,base.state_eg_dt
+city_eg_10,El Mahalla El Kubra,,base.eg,base.state_eg_gh
+city_eg_11,Faiyum,,base.eg,base.state_eg_fym
+city_eg_12,Giza,,base.eg,base.state_eg_gz
+city_eg_13,Hurghada,,base.eg,base.state_eg_ba
+city_eg_14,Ismalia,,base.eg,base.state_eg_is
+city_eg_15,Luxor,,base.eg,base.state_eg_lx
+city_eg_16,Mansoura,,base.eg,base.state_eg_dk
+city_eg_17,Minya,,base.eg,base.state_eg_mn
+city_eg_18,Port Said,,base.eg,base.state_eg_pts
+city_eg_19,Qena,,base.eg,base.state_eg_kn
+city_eg_20,Shibin El Kom,,base.eg,base.state_eg_mnf
+city_eg_21,Shubra El Kheima,,base.eg,base.state_eg_kb
+city_eg_22,Sohag,,base.eg,base.state_eg_shg
+city_eg_23,Suez,,base.eg,base.state_eg_suz
+city_eg_24,Tanta,,base.eg,base.state_eg_gh
+city_eg_25,Zagazig,,base.eg,base.state_eg_shr

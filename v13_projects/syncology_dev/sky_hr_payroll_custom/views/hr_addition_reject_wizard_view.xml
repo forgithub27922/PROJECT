@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!-- Hr Addition Reject Wizard Form View -->
+        <record id="hr_addition_reject_wizard_form_view" model="ir.ui.view">
+            <field name="name">hr.addition.reject.wizard.form.view</field>
+            <field name="model">hr.addition.reject.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Hr Addition Reject Form">
+                    <group>
+                        <field name="reject_reason" required="1"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" class="btn-primary"
+                                name="action_confirm" type="object"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

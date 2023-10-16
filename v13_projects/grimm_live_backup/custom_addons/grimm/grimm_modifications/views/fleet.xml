@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="grimm_fleet_vehicle_inherit" model="ir.ui.view">
+            <field name="name">grimm.fleet.vehicle.inherit</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='model_year']" position="after">
+                    <field name="garage"/>
+                </xpath>
+                <xpath expr="//field[@name='car_value']" position="replace">
+                    <field name="car_value" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='residual_value']" position="replace">
+                    <field name="residual_value" invisible="1"/>
+                    <field name="leasingablauf" widget="date"/>
+                    <field name="vereinbarte_kilometer"/>
+                    <field name="letzter_fahrzeugcheck" widget="date"/>
+                    <field name="tuev_au"/>
+                </xpath>
+                <xpath expr="//form/sheet/group[1]/group[5]" position="replace">
+                    <group string="Engine Options">
+                        <field name="transmission"/>
+                        <field name="fuel_type"/>
+                    </group>
+                </xpath>
+                <xpath  expr="//form/sheet/group[last()]" position="after">
+                    <notebook>
+                        <page name="angebot" string="Angebot" groups="grimm_modifications.fleet_angebot">
+                            <field name="fleet_attach_angebot" widget="one2many_list"/>
+                        </page>
+                        <page name="vertrag" string="Vertrag" groups="grimm_modifications.fleet_vertrag">
+                            <field name="fleet_attach_vertrag" widget="one2many_list"/>
+                        </page>
+                        <page name="zulassung" string="Zulassung/KFZ Brief" groups="grimm_modifications.fleet_zulassung">
+                            <field name="fleet_attach_zulassung" widget="one2many_list"/>
+                        </page>
+                        <page name="reparaturen" string="Reparaturen/Wartung" groups="grimm_modifications.fleet_repair">
+                            <field name="fleet_attach_reparaturen" widget="one2many_list"/>
+                        </page>
+                        <page name="steuer" string="TÜV/AU/Steuer" groups="grimm_modifications.fleet_steuer">
+                            <field name="fleet_attach_steuer" widget="one2many_list"/>
+                        </page>
+                        <page name="unfaelle" string="Unfälle" groups="grimm_modifications.fleet_accident">
+                            <field name="fleet_attach_accidents" widget="one2many_list"/>
+                        </page>
+                        <page name="sondereinbauten" string="Sondereinbauten" groups="grimm_modifications.fleet_sondereinbauten">
+                            <field name="fleet_attach_sondereinbauten" widget="one2many_list"/>
+                        </page>
+                        <page name="verkauf" string="Verkauf" groups="grimm_modifications.fleet_verkauf">
+                            <field name="fleet_attach_verkauf" widget="one2many_list"/>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_fleet_vehicle_attachment_tree" model="ir.ui.view">
+            <field name="name">grimm.fleet.attachment.category.tree</field>
+            <field name="model">fleet.attachment.category</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="description"/>
+                    <field name="created_on" widget="date"/>
+                    <field name="valid_from"/>
+                    <field name="valid_to"/>
+                    <field name="attachment_ids" widget="many2many_binary"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="grimm_fleet_vehicle_attachment_form" model="ir.ui.view">
+            <field name="name">grimm.fleet.attachment.category.form</field>
+            <field name="model">fleet.attachment.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group col="4">
+                            <field name="description"/>
+                            <field name="create_date" widget="date"/>
+                        </group>
+                        <group col="4">
+                            <field name="valid_from"/>
+                            <field name="valid_to"/>
+                        </group>
+                        <group col="4">
+<!--                            <field name="fleet_vehicle"/>-->
+                            <field name="attachment_ids" widget="many2many_binary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

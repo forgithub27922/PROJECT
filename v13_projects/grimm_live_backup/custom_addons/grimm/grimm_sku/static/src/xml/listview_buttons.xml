@@ -1,0 +1,14 @@
+<templates>
+    <t t-extend="ListView.buttons">
+        <t t-jquery="div.o_list_buttons" t-operation="append">
+            <t t-if="widget.modelName == 'sku.mapping'">
+               <button type="button" class="btn btn-primary btn-sm btn-default o_button_sku" data-toggle="tooltip" title="Maps the scraped attributes to Partenics attributes">
+                    Map Attributes
+               </button>
+<!--                <button type="button" class="btn btn-primary btn-sm o_button_scrape" data-toggle="tooltip" title="Fetches the attributes from a source">-->
+<!--                    Scrape Attributes-->
+<!--               </button>-->
+            </t>
+        </t>
+    </t>
+</templates>

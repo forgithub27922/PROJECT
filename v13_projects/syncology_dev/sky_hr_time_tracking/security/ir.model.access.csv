@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_time_tracking_user,hr.time.tracking.user,model_time_tracking,sky_hr_time_tracking.group_time_tracking_user,1,0,0,0
+access_hr_time_tracking_manager,hr.time.tracking.manager,model_time_tracking,sky_hr_time_tracking.group_time_tracking_manager,1,1,1,1
+access_hr_time_tracking_line_user,hr.time.tracking.line.user,model_time_tracking_line,sky_hr_time_tracking.group_time_tracking_user,1,0,0,0
+access_hr_time_tracking_line_manager,hr.time.tracking.line.manager,model_time_tracking_line,sky_hr_time_tracking.group_time_tracking_manager,1,1,1,1
+access_resource_calendar_weekoff_user,resource.calendar.weekoff.user,model_resource_calendar_weekoff,base.group_user,1,1,1,1
+access_hr_time_tracking_batch_user,hr.time.tracking.batch.user,model_time_tracking_batch,sky_hr_time_tracking.group_time_tracking_user,1,0,0,0
+access_hr_time_tracking_batch_manager,hr.time.tracking.batch.manager,model_time_tracking_batch,sky_hr_time_tracking.group_time_tracking_manager,1,1,1,1
+access_hr_time_exception_emp,hr.time.exception.emp,model_hr_time_exception,base.group_user,1,1,1,0
+access_hr_time_exception_user,hr.time.exception.user,model_hr_time_exception,sky_hr_time_tracking.group_time_tracking_user,1,1,1,0
+access_hr_time_exception_manager,hr.time.exception.manager,model_hr_time_exception,sky_hr_time_tracking.group_time_tracking_manager,1,1,1,1

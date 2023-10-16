@@ -1,0 +1,5 @@
+# generated from manifests external_dependencies
+pdf2image
+python-stdnum
+pyzbar
+rfc6266_parser

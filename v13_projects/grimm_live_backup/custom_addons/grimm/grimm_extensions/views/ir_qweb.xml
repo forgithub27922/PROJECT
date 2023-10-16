@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="contact" inherit_id="base.contact">
+      <xpath expr="//div[@itemprop='address']" position="before">
+        <div t-if="object.company and 'company' in fields">
+          <span itemprop="name" t-field="object.company"/>
+        </div>
+      </xpath>
+    </template>
+  </data>
+</odoo>

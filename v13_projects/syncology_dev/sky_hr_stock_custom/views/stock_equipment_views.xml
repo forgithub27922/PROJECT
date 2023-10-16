@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--     form view of employee handover equipment-->
+    <record id="stock_equipment_view_form" model="ir.ui.view">
+        <field name="name">stock.equipment.view.form</field>
+        <field name="model">stock.equipment</field>
+        <field name="arch" type="xml">
+            <form create="false">
+                <sheet>
+                    <group colspan="4" col="4">
+                        <field name="unit"/>
+                        <field name="quantity"/>
+                        <field name="date"/>
+                        <field name="cost_of_damage"/>
+                        <field name="status"/>
+                        <field name="employee_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--     tree view of employee handover equipment-->
+    <record id="stock_equipment_view_tree" model="ir.ui.view">
+        <field name="name">stock.equipment.view.tree</field>
+        <field name="model">stock.equipment</field>
+        <field name="arch" type="xml">
+            <tree create="false">
+                <field name="employee_id"/>
+                <field name="employee_arabic_name"/>
+                <field name="unit"/>
+                <field name="quantity"/>
+                <field name="date"/>
+                <field name="cost_of_damage"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Employee Handover Equipment -->
+    <record id="view_stock_equipment_search" model="ir.ui.view">
+        <field name="name">view.stock.equipment.search</field>
+        <field name="model">stock.equipment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="unit"/>
+                <field name="quantity"/>
+                <field name="cost_of_damage"/>
+                <filter name="fil_date" string="Date" date="date"/>
+                <filter name="grp_by_emp" string="Employee" context="{'group_by':'employee_id'}"/>
+                <filter name="grp_by_unit" string="Unit" context="{'group_by':'unit'}"/>
+                <filter name="grp_by_date" string="Date" context="{'group_by':'date'}"/>
+                <filter name="grp_by_status" string="Status" context="{'group_by':'status'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!--     action of employee handover equipment-->
+    <record id="action_stock_equipment" model="ir.actions.act_window">
+        <field name="name">Employees Handover</field>
+        <field name="res_model">stock.equipment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--     menu of employee handover equipment-->
+    <menuitem id="menu_stock_equipment" name="Employees Handover" action="action_stock_equipment"
+              parent="stock.menu_stock_warehouse_mgmt"/>
+
+    <!--     form view of status -->
+    <record id="stock_status_view_form" model="ir.ui.view">
+        <field name="name">stock.status.view.form</field>
+        <field name="model">stock.status</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="4" col="4">
+                        <field name="name" required="1"/>
+                        <field name="code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   tree view of status -->
+    <record id="stock_status_view_tree" model="ir.ui.view">
+        <field name="name">stock.status.view.tree</field>
+        <field name="model">stock.status</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--  action of status-->
+    <record id="action_stock_status" model="ir.actions.act_window">
+        <field name="name">Status</field>
+        <field name="res_model">stock.status</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--  menu of status-->
+    <menuitem id="menu_stock_status" name="Status" action="action_stock_status"
+              parent="stock.menu_stock_config_settings"/>
+
+
+</odoo>

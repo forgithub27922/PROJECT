@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+
+{
+    'name': "Grimm Pre-Text Template",
+    'version': '0.1.0',
+    'summary': 'Text Template for Grimm Gastronomiebedarf GmbH',
+    'category': 'Tools',
+    'author': "Viet Pham, Grimm Gastronomiebedarf GmbH",
+    'website': "https://www.grimm-gastronomiebedarf.de/",
+    'license': 'OPL-1',
+    'depends': ['base',
+                'sale',
+                'sale_management',
+                'purchase',
+                'account',
+                'mail',
+                'stock',
+                ],
+    'external_dependencies': {
+        'python': [],
+    },
+    'data': [
+        'security/ir.model.access.csv',
+        'views/grimm_text_template_view.xml',
+        'views/sale_view.xml',
+        'views/purchase_view.xml',
+        'views/account_invoice_view.xml',
+        'views/stock_picking_view.xml',
+    ],
+    'demo': [],
+    'qweb': [],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+}

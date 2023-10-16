@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Inherited Employee Report Template -->
+    <template id="report_employee_inherit" inherit_id="sky_hr_custom.report_employee">
+        <xpath expr="//t[2]//table[1]/tr[2]" position="after">
+            <tr>
+                <td style="border: 1px solid white">
+                    <h5>
+                        <b>Addition Rate:</b>
+                    </h5>
+                </td>
+                <td style="border: 1px solid white">
+                    <h5>
+                        <span t-field="emp.addition_rate"/>
+                    </h5>
+                </td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid white">
+                    <h5>
+                        <b>Penalty Rate:</b>
+                    </h5>
+                </td>
+                <td style="border: 1px solid white">
+                    <h5>
+                        <span t-field="emp.penalty_rate"/>
+                    </h5>
+                </td>
+            </tr>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Form View of HR Penalty Type -->
+        <record id="view_hr_penalty_type_form" model="ir.ui.view">
+            <field name="name">view.hr.penalty.type.form</field>
+            <field name="model">hr.penalty.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="code"/>
+                            <field name="rate"/>
+                        </group>
+                        <notebook>
+                            <page name="penalty_entry_page" string="Penalty Entries">
+                                <field name="penalty_entries">
+                                    <tree editable="bottom">
+                                        <field name="actual_time"/>
+                                        <field name="actual_time_unit"/>
+                                        <field name="calculated_time"/>
+                                        <field name="calculated_time_unit"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of HR Penalty Type -->
+        <record id="view_hr_penalty_type_tree" model="ir.ui.view">
+            <field name="name">view.hr.penalty.type.tree</field>
+            <field name="model">hr.penalty.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="rate"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Hr Penalty Type Action -->
+        <record id="hr_penalty_type_action" model="ir.actions.act_window">
+            <field name="name">Penalty Type</field>
+            <field name="res_model">hr.penalty.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Hr Penalty Type Menu under configuration -->
+        <menuitem id="penalty_type_menu" name="Penalty Types" parent="sky_hr_custom.menu_hr_config" sequence="6"
+                  action="hr_penalty_type_action" groups="sky_hr_payroll_custom.group_payroll_manager"/>
+
+        <!-- Form View of HR Penalty -->
+        <record id="view_hr_penalty_form" model="ir.ui.view">
+            <field name="name">view.hr.penalty.form</field>
+            <field name="model">hr.penalty</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="penalty_pending" type="object"
+                                string="Reset To Draft" states="approved"
+                                groups="sky_hr_payroll_custom.group_payroll_officer,sky_hr_payroll_custom.group_payroll_manager"/>
+                        <button name="penalty_approved" type="object" string="Approved" states="pending"/>
+                        <button name="penalty_rejected" type="object" string="Rejected" states="pending"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <widget name="web_ribbon" title="Locked" bg_color="bg-danger"
+                                attrs="{'invisible':[('lock','!=',True)]}"/>
+                        <group colspan="2" col="4" name="grp_main">
+                            <field name="employee_id"
+                                   required="1"
+                                   attrs="{'readonly': ['|',('state', 'in', ('approved','rejected')),('lock','=',True)]}"/>
+                            <field name="date"
+                                   required="1"
+                                   attrs="{'readonly': ['|',('state', 'in', ('approved','rejected')),('lock','=',True)]}"/>
+                            <field name="penalty_type_id"
+                                   required="1"
+                                   attrs="{'readonly': ['|',('state', 'in', ('approved','rejected')),('lock','=',True)]}"/>
+                            <field name="value_type"
+                                   attrs="{'readonly': ['|',('state', 'in', ('approved','rejected')),('lock','=',True)]}"/>
+                            <field name="value" widget="float_time"
+                                   attrs="{'readonly': ['|',('state', 'in', ('approved','rejected')),
+                                   ('lock','=',True)],'invisible': [('value_type', 'not in', ('hours','minutes'))]}"/>
+                            <field name="value_amount"
+                                   attrs="{'readonly': ['|',('state', 'in', ('approved','rejected')),
+                                   ('lock','=',True)],'invisible': [('value_type', 'in', ('hours','minutes'))]}"/>
+
+                            <field name="amount" readonly="1" force_save="1"
+                                   attrs="{'invisible':[('value_type','not in',('days','hours', 'minutes'))]}"
+                                   groups="sky_hr_payroll_custom.group_payroll_manager"/>
+
+                            <field name="issued_by"
+                                   attrs="{'readonly': ['|',('state', 'in', ('approved','rejected')),('lock','=',True)]}"/>
+                            <field name="reason"
+                                   attrs="{'readonly': ['|',('state', 'in', ('approved','rejected')),('lock','=',True)]}"/>
+                            <field name="lock" invisible="1"/>
+                            <field name="parent_id" invisible="1"/>
+                            <field name="department_id" invisible="1"/>
+                            <field name="job_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of HR Penalty -->
+        <record id="view_hr_penalty_tree" model="ir.ui.view">
+            <field name="name">view.hr.penalty.tree</field>
+            <field name="model">hr.penalty</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                    <field name="employee_id"/>
+                    <field name="employee_arabic_name"/>
+                    <field name="penalty_type_id"/>
+                    <field name="value_type"/>
+                    <field name="value"/>
+                    <field name="amount" groups="sky_hr_payroll_custom.group_payroll_manager"/>
+                    <field name="issued_by"/>
+                    <field name="reason"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search view of Penalties -->
+        <record id="view_hr_penalty_search" model="ir.ui.view">
+            <field name="name">view.hr.addition.search</field>
+            <field name="model">hr.penalty</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <field name="employee_arabic_name"/>
+                    <field name="date"/>
+                    <field name="penalty_type_id"/>
+                    <field name="state"/>
+                    <filter name="fil_date" string="Date" date="date"/>
+                    <filter name="fil_state_pending" string="Pending" domain="[('state','=', 'pending')]"/>
+                    <filter name="fil_state_approved" string="Approved" domain="[('state','=', 'approved')]"/>
+                    <filter name="fil_state_rejected" string="Rejected" domain="[('state','=', 'rejected')]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="employee_id" string="Employee" context="{'group_by':'employee_id'}"/>
+                        <filter name="penalty_type_id" string="Penalty Type" context="{'group_by':'penalty_type_id'}"/>
+                        <filter name="date" string="Date" context="{'group_by':'date'}"/>
+                        <filter name="state" string="State" context="{'group_by':'state'}"/>
+                        <filter name="grp_manager" string="Manager" context="{'group_by':'parent_id'}"/>
+                        <filter name="grp_department" string="Department" context="{'group_by':'department_id'}"/>
+                        <filter name="grp_job" string="Job" context="{'group_by':'job_id'}"/>
+                    </group>
+                     
+                </search>
+            </field>
+        </record>
+
+        <!-- Hr Penalty Action -->
+        <record id="hr_penalty_action" model="ir.actions.act_window">
+            <field name="name">Penalties</field>
+            <field name="res_model">hr.penalty</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- New Hr Penalty Action -->
+        <record id="new_hr_penalty_action" model="ir.actions.act_window">
+            <field name="name">My Penalties</field>
+            <field name="res_model">hr.penalty</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+        </record>
+
+        <!-- Hr Penalty Menu -->
+        <menuitem id="penalty_menu_main" name="Penalties"
+                  parent="sky_hr_custom.menu_human_resource_main" sequence="4"/>
+
+        <menuitem id="penalty_menu" name="Penalties" parent="penalty_menu_main" sequence="2"
+                          action="hr_penalty_action"
+                  groups="sky_hr_payroll_custom.group_payroll_manager,sky_hr_payroll_custom.group_payroll_officer"/>
+
+                <!-- New Hr Penalty Menu -->
+                <menuitem id="new_penalty_menu"
+                          name="My Penalties"
+                          parent="penalty_menu_main"
+                          sequence="1"
+                          action="new_hr_penalty_action"
+                          groups="sky_hr_payroll_custom.group_payroll_manager,sky_hr_payroll_custom.group_payroll_officer,sky_hr_payroll_custom.group_payroll_user,base.group_user"
+                />
+
+        <!-- Form View of HR Penalty Entries -->
+        <record id="view_hr_penalty_entries_form" model="ir.ui.view">
+            <field name="name">view.hr.penalty.entry.form</field>
+            <field name="model">hr.penalty.entries</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group colspan="2" col="4">
+                            <field name="actual_time" widget="float_time"/>
+                            <field name="actual_time_unit"/>
+                            <field name="calculated_time" widget="float_time"/>
+                            <field name="calculated_time_unit"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View of HR Penalty Entries -->
+        <record id="view_hr_penalty_entries_tree" model="ir.ui.view">
+            <field name="name">view.hr.penalty.entry.tree</field>
+            <field name="model">hr.penalty.entries</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="actual_time" widget="float_time"/>
+                    <field name="actual_time_unit"/>
+                    <field name="calculated_time" widget="float_time"/>
+                    <field name="calculated_time_unit"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action of HR Penalty Entries -->
+         <record id="hr_penalty_entries_action" model="ir.actions.act_window">
+            <field name="name">Penalties Entries</field>
+            <field name="res_model">hr.penalty.entries</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

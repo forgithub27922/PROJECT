@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- add field for ir mail server view -->
+        <record id="ir_mail_server_form_inherit" model="ir.ui.view">
+            <field name="name">ir_mail_server_form_inherit</field>
+            <field name="model">ir.mail_server</field>
+            <field name="inherit_id" ref="base.ir_mail_server_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//group[last()]" position="after">
+                    <group col="2" string="Default Target Email">
+                        <field name="is_default_email"/>
+                        <field name="default_email" widget="email"
+                               attrs="{'invisible': [('is_default_email', '=', False)], 'required': [('is_default_email', '=', True)]}"/>
+                    </group>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- add field for ir mail server view -->
+        <record id="ir_fetch_mail_server_form_inherit" model="ir.ui.view">
+            <field name="name">ir_fetch_mail_server_form_inherit</field>
+            <field name="model">fetchmail.server</field>
+            <field name="inherit_id" ref="fetchmail.view_email_server_form"/>
+            <field name="arch" type="xml">
+
+                <field name="date" position="after">
+                    <field name="default_company_id"/>
+                </field>
+
+                <field name="object_id" position="after">
+                    <field name="ignore_auto_reply"/>
+                    <field name="ignore_mail_domain"/>
+                </field>
+
+            </field>
+        </record>
+
+        <!-- display zip code before city instead of after city -->
+        <record id="grimm_tool_res_partner_form_view_inherit" model="ir.ui.view">
+            <field name="name">grimm.tool.res.partner.form.view.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="priority">10</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="state_id" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+
+                <!--<field name="city" placeholder="City" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>-->
+                <field name="city" position="replace"/>
+                <field name="zip" position="after">
+                    &amp;nbsp;&amp;nbsp;
+                    <field name="city" placeholder="City" required="1" class="o_address_city"
+                           attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+                </field>
+                <!--<field name="category_id" position="after">
+                    <field name="customer"/>
+                    <field name="supplier"/>
+                </field>-->
+                <field name="street" position="before">
+                    <field name="company" placeholder="Company"/>
+                </field>
+                <group name="sale" position="inside">
+                    <field name="credit_limit" groups="account.group_account_manager"/>
+                    <field name="credit" groups="account.group_account_manager"/>
+                </group>
+                <field name="phone" position="after">
+                    <field name="invoice_by_post"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- add vat field in res partner form -->
+        <record id="grimm_tool_res_partner_add_vat_inherit" model="ir.ui.view">
+            <field name="name">grimm.tool.res.partner.add.vat.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="account.view_partner_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='property_account_position_id']" position="after">
+                    <field name="vat" string="VAT" placeholder="e.g. BE0477472701"
+                           attrs="{'readonly': [('parent_id','!=',False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- add field for crm lead list view -->
+        <record id="ir_crm_form_inherit" model="ir.ui.view">
+            <field name="name">crm.lead.tree.lead.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+            <field name="arch" type="xml">
+
+                <field name="team_id" position="before">
+                    <field name="stage_id"/><!--Added by Dipak for OD-573 -->
+                    <field name="user_id"/><!--Added by Dipak for OD-573 -->
+                </field>
+
+            </field>
+        </record>
+
+        <!-- exchange field position for register payment form -->
+        <record id="grimm_view_account_payment_invoice_form_inherit" model="ir.ui.view">
+            <field name="name">grimm_view_account_payment_invoice_form_inherit</field>
+            <field name="model">account.payment</field>
+            <field name="inherit_id" ref="account.view_account_payment_invoice_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//label[@for='amount']" position="replace"/>
+                <xpath expr="//div[@name='amount_div']" position="replace"/>
+                <field name="journal_id" position="after">
+                    <label for="amount"/>
+                    <div name="amount_div" class="o_row">
+                        <field name="amount"/>
+                        <field name="currency_id" options="{'no_create': True, 'no_open': True}"
+                               groups="base.group_multi_currency"/>
+                    </div>
+                </field>
+
+            </field>
+        </record>
+
+        <!-- Add payment journal id field in account payment for preselection on register payment. -->
+        <record id="grimm_account_payment_mode_form_inherit" model="ir.ui.view">
+            <field name="name">grimm_account_payment_mode_form_inherit</field>
+            <field name="model">account.payment.mode</field>
+            <field name="inherit_id" ref="account_payment_mode.account_payment_mode_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='note']" position="after">
+                    <group string="Default Payment Journal" name="payment_journal">
+                        <field name="payment_journal_id" groups="account.group_account_invoice"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Passed context in button for default selection of payment journal. -->
+        <record id="grimm_invoice_form_inherit" model="ir.ui.view">
+            <field name="name">grimm_invoice_form_inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@id='account_invoice_payment_btn']" position="replace">
+                    <button name="action_invoice_register_payment" id="account_invoice_payment_btn" type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': ['|', '|', ('state', '!=', 'posted'), ('invoice_payment_state', '!=', 'not_paid'), ('type', 'not in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund', 'out_receipt', 'in_receipt'))]}"
+                            string="Register Payment"
+                            context="{'default_journal_id': related_journal_id}"
+                            groups="account.group_account_invoice"/>
+                </xpath>
+                <field name="invoice_payment_term_id" position="after">
+                    <field name="related_journal_id" invisible="1"/>
+                </field>
+                <xpath expr="//group/field[@name='invoice_origin']" position="replace">
+                        <field name="invoice_origin" force_save="1" string="Source Document" attrs="{'invisible': [('invoice_origin', '=', False)]}"/>
+                        <button name="get_source_document" string="Open Record"
+                                attrs="{'invisible': [('invoice_origin', '=', False)]}" type="object"
+                                class="oe_inline fa fa-arrow-right oe_link"/>
+                </xpath>
+                <field name="invoice_partner_bank_id" position="after">
+                        <field name="invoice_origin" force_save="1" string="Source Document" attrs="{'invisible': [('type', 'not in', ['out_refund','in_refund'])]}"/>
+                        <button name="get_source_document" string="Open Record" attrs="{'invisible': [('type', 'not in', ['out_refund','in_refund'])]}" type="object" class="oe_inline fa fa-arrow-right oe_link"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Passed context in button for default selection of payment journal for vendor bill. -->
+        <!--        <record id="grimm_vendor_invoice_form_inherit" model="ir.ui.view">Odoo13Change-->
+        <!--            <field name="name">grimm_vendor_invoice_form_inherit</field>-->
+        <!--            <field name="model">account.move</field>-->
+        <!--            <field name="inherit_id" ref="account.invoice_supplier_form"/>-->
+        <!--            <field name="priority">1</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <xpath expr="//header" position="replace">-->
+        <!--                    <header>-->
+        <!--                        <button name="action_invoice_open" type="object" states="draft" string="Validate"-->
+        <!--                                class="oe_highlight" groups="account.group_account_invoice"/>-->
+        <!--                        <button name="%(account.action_account_invoice_payment)d" type="action" states="open"-->
+        <!--                                string="Register Payment" groups="account.group_account_invoice" class="oe_highlight"-->
+        <!--                                context="{'default_journal_id': related_journal_id}"/>-->
+        <!--                        <button name="%(account.action_account_invoice_refund)d" type='action'-->
+        <!--                                string='Ask for a Credit Note' groups="account.group_account_invoice"-->
+        <!--                                attrs="{'invisible': ['|',('type', 'in', ['in_refund','out_refund']),('state','not in',('open','paid'))]}"/>-->
+        <!--                        <button name="action_invoice_draft" states="cancel" string="Set to Draft" type="object"-->
+        <!--                                groups="account.group_account_invoice"/>-->
+        <!--                        <field name="state" widget="statusbar" statusbar_visible="draft,open,paid"/>-->
+        <!--                        <field name="related_journal_id" invisible="1"/>-->
+        <!--                    </header>-->
+        <!--                </xpath>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!-- Display cancel button for invoice in proforma and proforma2 state -->
+        <record id="grimm_customer_invoice_account_cancel_inherit" model="ir.ui.view">
+            <field name="name">grimm_customer_invoice_account_cancel_inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_draft']" position="after">
+                    <button name="action_invoice_cancel_proforma"
+                            confirm="Are you sure you want to cancel proforma invoice ? After cancel proforma invoice it will be set to draft."
+                            type="object" states="proforma,proforma2" string="Cancel proforma"
+                            help="It will cancel proforma invoice and set it to draft state."
+                            groups="account.group_account_invoice"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Added fax field in res_company form view -->
+        <record id="grimm_res_company_inherit" model="ir.ui.view">
+            <field name="name">grimm_res_company_form_inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <field name="phone" position="after">
+                    <field name="fax" placeholder="Fax"/>
+                </field>
+                <field name="partner_id" position="before">
+                    <field name="pricelist_id" placeholder="Pricelist" required="1"/>
+                </field>
+                <xpath expr="//group[@name='social_media']" position="after">
+                    <group name="company_logo" col="2">
+                        <field name="company_email_logo" widget="image" class="oe_avatar oe_left"/>
+                        <field name="company_iban"/>
+                        <field name="company_bank_name"/>
+                    </group>
+                    <group name="product_description" string="Product Description" col="2">
+                        <field name="product_desc_validation"/>
+                        <field name="valid_tags" attrs="{'invisible': [('product_desc_validation', '=', False)]}"/>
+                        <field name="remove_attrs" attrs="{'invisible': [('product_desc_validation', '=', False)]}"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_tool_res_partner_vat_inherit" model="ir.ui.view">
+            <field name="name">grimm.tool.res.partner.vat.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <field name="website" position="before">
+                    <field name="invoice_email" widget="email"/>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="email_compose_form_invoice_email">
+            <field name="name">mail.compose.message.form</field>
+            <field name="model">mail.compose.message</field>
+            <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_ids" position="replace">
+                    <field name="partner_ids" widget="many2many_tags_email" placeholder="Add contacts to notify..." context="{'force_email':True, 'show_email':True, 'active_model':model}" attrs="{'invisible': [('composition_mode', '!=', 'comment')]}"/>
+                </field>
+                <field name="subject" position="before">
+                    <field colspan="2" name="per_post_message" attrs="{'invisible': ['|',('per_post_message', '=', False),('model', '!=', 'account.move')]}" nolabel="1"/>
+                </field>
+            </field>
+        </record>
+
+        <!--<record id="grimm_purchase_order_view_inherit" model="ir.ui.view">
+            <field name="name">grimm_purchase_order_view_inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/field[@name='order_line']/tree/field[@name='product_id']"
+                       position="replace">
+                    <field name="product_id"
+                           domain="['|', ('seller_ids.name', '=', parent.partner_id), ('seller_ids.name.child_ids', '=', parent.partner_id), ('purchase_ok', '=', True)]"
+                           options="{'no_quick_create': True}"
+                           attrs="{'readonly': [('state', 'in', ('purchase', 'to approve','done', 'cancel'))]}"
+                           context="{'partner_id':parent.partner_id, 'quantity':product_qty,'uom':product_uom, 'company_id': parent.company_id, 'default_invoice_policy':'order', 'default_type':'product', 'form_view_ref': 'grimm_tools.grimm_rapid_creation_product_product'}"
+                           force_save="1"/>
+
+                </xpath>
+            </field>
+        </record>-->
+
+        <!-- Change button sequence in Sale order form view -->
+        <record id="grimm_view_order_form_inherit" model="ir.ui.view">
+            <field name="name">grimm_view_order_form_inherit</field>
+            <field name="model">sale.order</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="replace">
+                    <header>
+
+                        <field name="authorized_transaction_ids" invisible="1"/>
+                        <button name="payment_action_capture" type="object"
+                            string="Capture Transaction" class="oe_highlight"
+                            attrs="{'invisible': [('authorized_transaction_ids', '=', [])]}"/>
+                        <button name="payment_action_void" type="object" string="Void Transaction"
+                                confirm="Are you sure you want to void the authorized transaction? This action can't be undone."
+                                attrs="{'invisible': [('authorized_transaction_ids', '=', [])]}"/>
+                        <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"
+                        type="action" class="btn-primary"
+                        attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}"/>
+                    <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"
+                        type="action" context="{'default_advance_payment_method': 'percentage'}"
+                        attrs="{'invisible': ['|',('invoice_status', '!=', 'no'), ('state', '!=', 'sale')]}"/>
+                        <button name="action_quotation_send" string="Send by Email" type="object" states="draft"
+                                class="btn-primary"/>
+                        <!--<button name="print_quotation" string="Print" type="object" states="draft"
+                                class="btn-primary o_sale_print"/>-->
+                        <button name="action_quotation_send" string="Send by Email" type="object" states="sent,sale"/>
+                        <!--<button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" class="btn-primary" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}"/>-->
+                        <button name="action_confirm" id="action_confirm" string="Confirm" class="btn-primary"
+                                type="object" attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>
+                        <button name="action_confirm" string="Confirm" type="object"
+                                attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+                        <!--<button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" attrs="{'invisible': ['|', ('state', '=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}"/>
+                        <button name="action_quotation_send" string="Send by Email" type="object" states="sent,sale"/>-->
+                        <button name="action_cancel_with_reason" states="draft,sent,sale" type="object" string="Cancel"/>
+                        <button name="action_cancel" states="draft,sent,sale" type="object" string="Cancel" invisible="1"/>
+                        <button name="action_draft" states="cancel" type="object" string="Set to Quotation"/>
+                        <button name="action_done" type="object" string="Lock" states="sale" help="If the sale is locked, you can not modify it anymore. However, you will still be able to invoice or deliver."/>
+                        <button name="action_unlock" type="object" string="Unlock" states="done"
+                                groups="sales_team.group_sale_manager"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>
+
+
+                    </header>
+                    <!--                    <header>-->
+                    <!--                        <button name="action_quotation_send" string="Send by Email" type="object" states="draft"-->
+                    <!--                                class="btn-primary"/>-->
+                    <!--                        &lt;!&ndash;<button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" class="btn-primary" attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}"/>&ndash;&gt;-->
+                    <!--                        <button name="print_quotation" string="Print" type="object" states="draft"-->
+                    <!--                                class="btn-primary o_sale_print"/>-->
+                    <!--                        <button name="action_quotation_send" string="Send by Email" type="object" states="sent,sale"/>-->
+                    <!--                        <button name="action_confirm" id="action_confirm" string="Confirm Sale" class="btn-primary"-->
+                    <!--                                type="object" attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>-->
+                    <!--                        <button name="action_confirm" string="Confirm Sale" type="object"-->
+                    <!--                                attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>-->
+                    <!--                        &lt;!&ndash;<button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" attrs="{'invisible': ['|', ('state', '=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}"/>-->
+                    <!--                        <button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" attrs="{'invisible': ['|', ('state', '=', 'sent')]}" context="{'proforma': True}"/>&ndash;&gt;-->
+                    <!--                        <button name="print_quotation" string="Print" type="object" states="sent,sale"-->
+                    <!--                                class="o_sale_print"/>-->
+                    <!--                        <button name="action_cancel" states="draft,sent,sale" type="object" string="Cancel"/>-->
+                    <!--                        <button name="action_draft" states="cancel" type="object" string="Set to Quotation"/>-->
+                    <!--                        <button name="action_done" type="object" string="Lock" states="sale"-->
+                    <!--                                help="If the sale is locked, you can not modify it anymore. However, you will still be able to invoice or deliver."/>-->
+                    <!--                        <button name="action_unlock" type="object" string="Unlock" states="done"-->
+                    <!--                                groups="sales_team.group_sale_manager"/>-->
+                    <!--                        <field name="state" widget="statusbar" statusbar_visible="draft,sent,sale"/>-->
+                    <!--                    </header>-->
+                </xpath>
+                <xpath expr="//tree/field[@name='analytic_tag_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//tree[@editable='bottom']" position="attributes">
+                    <attribute name="decoration-danger">price_unit &lt;= 0</attribute>
+                </xpath>
+                <!--<xpath expr="//label[@for='analytic_tag_ids']" position="attributes">Odoo13Change
+                    <attribute name="invisible">1</attribute>
+                </xpath>-->
+                <xpath expr="//group/field[@name='analytic_tag_ids']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <!--<xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="create_rfq" type="object" class="oe_stat_button" string="Create RFQ"
+                            states="draft,sent" icon="fa-shopping-cart"
+                            context="{'search_default_origin': name,'default_origin':name}" groups="base.group_user"/>
+                </xpath>-->
+                <field name="payment_term_id" position="after">
+                    <field name="shopware6_customer_group" readonly="1" attrs="{'invisible':[('shopware6_customer_group','=', False)]}"/>
+                    <field name="cancel_reason" readonly="1" attrs="{'invisible':[('cancel_reason','=', False)]}"/>
+                    <field name="delivery_partner_id"/>
+                    <field name="track_id" attrs="{'invisible':[('delivery_partner_id','=', False)]}"/>
+                    <field name="track_link" readonly="1" attrs="{'invisible':[('delivery_partner_id','=', False)]}"/>
+                </field>
+            </field>
+        </record>
+
+        <!-- Purchase Order Form View inherited -->
+        <record id="grimm_view_purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">grimm_view_purchase_order_form_inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="priority">1</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree[@editable='bottom']" position="attributes">
+                    <attribute name="decoration-danger">price_unit &lt;= 0</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="windelta_import_wizard" model="ir.ui.view">
+            <field name="name">wizard.product.bundle.bi.form</field>
+            <field name="model">wizard.windelta.import</field>
+            <field name="arch" type="xml">
+                <form string="Product Bundle">
+                    <group>
+                        <field name="csv_file" filename="filename"/>
+                        <field name="filename" readonly="1" invisible="1"/>
+                        <field name="order_id" invisible="1"/>
+                    </group>
+                    <field name="upload_info" readonly="1"/>
+                    <footer>
+                        <button name="import_windelta" string="Import"
+                                type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="import_windelta_wizard" model="ir.actions.act_window">
+            <field name="name">WINdelta Project Import File</field>
+            <field name="res_model">wizard.windelta.import</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="windelta_import_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <record id="import_windelta_sale_order_form" model="ir.ui.view">
+            <field name="name">sale.order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page/field[@name='order_line']" position="before">
+                    <button name="grimm_tools.import_windelta_wizard" string="WINdelta Import File" type="action"
+                            context="{'default_order_id': id}" attrs="{'invisible':[('state','!=', 'draft')]}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="grimm_sale_order_line_special_price_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.sale.order.view.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/form/group/group/field[@name='product_id']" position="after">
+                    <field name="is_special_price"/>
+                    <!--                    <field name="avail_qty" readonly="1"/> OD-789-->
+                    <field name="forecast_triplet" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
+                    <field name="is_special_price"/>
+                    <!--                    <field name="avail_qty" readonly="1"/> OD-789-->
+                    <field name="forecast_triplet" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_uom_qty']" position="after">
+                    <field name="route_id" options="{'no_create': True}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_receipt_label_stock_picking" model="ir.ui.view">
+            <field name="name">grimm_receipt_label_stock_picking</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='do_print_picking']" position="after">
+                    <button name="%(grimm_tools.receipt_label_print)d" string="Receipt Label"
+                            attrs="{'invisible':[('state','!=', 'done')]}" type="action" icon="fa-print"/>
+                    <button name="brother_print" attrs="{'invisible':[('state','!=', 'done')]}"
+                            string="Brother Receipt Label" type="object" icon="fa-print"/>
+                </xpath>
+                <xpath expr="//field[@name='location_dest_id']" position="after">
+                    <field name="print_label"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_location_label_stock_location" model="ir.ui.view">
+            <field name="name">grimm_location_label_stock_location</field>
+            <field name="model">stock.location</field>
+            <field name="inherit_id" ref="stock.view_location_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@class='oe_stat_button']" position="before">
+                    <button name="brother_print" string="Location Label" attrs="{'invisible':[('barcode','=', False)]}"
+                            type="object" icon="fa-print"/>
+                </xpath>
+                <field name="return_location" position="after">
+                    <field name="print_rotation" placeholder="e.g. 90 or 180"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="ir_check_stuck_cron" model="ir.cron">
+            <field name="name">Check Blocked cron jobs</field>
+            <field eval="True" name="active"/> <!--odoo13change-->
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">4</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_queue_job" name="model_id"/>
+            <field name="state">code</field>
+            <field name="code">model._check_running_crone_job()</field>
+        </record>
+
+        <record id="ir_check_shopware_price" model="ir.cron">
+            <field name="name">Check Shopware price for Comparision</field>
+            <field eval="False" name="active"/> <!--odoo13change-->
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">7</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_product_product" name="model_id"/>
+            <field name="state">code</field>
+            <field name="code">model._check_shopware_price()</field>
+        </record>
+
+        <record id="ir_check_magento_price" model="ir.cron">
+            <field name="name">Check Magento price for Comparision</field>
+            <field eval="False" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">7</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_product_product" name="model_id"/>
+            <field name="state">code</field>
+            <field name="code">model._check_magento_price()</field>
+        </record>
+
+        <!-- Define zip code as required field -->
+        <!--<record id="grimm_res_partner_zip_inherit" model="ir.ui.view">
+          <field name="name">grimm_res_partner_zip_inherit</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
+          <field name="arch" type="xml">
+            <field name="zip" position="replace">
+              <field name="zip" placeholder="ZIP" class="o_address_zip" required="1" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+            </field>
+          </field>
+        </record>-->
+
+        <record id="delivery_carrier_rule" model="ir.rule">
+            <field name="name">Carrier multi-company</field>
+            <field name="model_id" ref="delivery.model_delivery_carrier"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]
+            </field>
+        </record>
+
+    </data>
+</openerp>

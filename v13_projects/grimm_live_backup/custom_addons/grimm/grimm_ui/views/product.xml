@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="grimm_product_template_opentab_formview" model="ir.ui.view">
+        <field name="name">grimm_product_template_opentab_formview</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
+        <field name="arch" type="xml">
+            <field name="sequence" position="before">
+                <field name="id" widget="open_tab"/>
+            </field>
+        </field>
+    </record>
+</odoo>

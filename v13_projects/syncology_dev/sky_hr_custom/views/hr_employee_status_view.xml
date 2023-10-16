@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Form view of Employee Status -->
+    <record id="view_emp_status_form" model="ir.ui.view">
+        <field name="name">view.emp.status.form</field>
+        <field name="model">hr.employee.status</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="grp_main">
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Employee Status -->
+    <record id="view_emp_status_tree" model="ir.ui.view">
+        <field name="name">view.emp.status.tree</field>
+        <field name="model">hr.employee.status</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action of Employee Status -->
+    <record id="action_employee_status" model="ir.actions.act_window">
+        <field name="name">Employee Status</field>
+        <field name="res_model">hr.employee.status</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu of Employee Status -->
+    <menuitem id="menu_employee_status" action="action_employee_status" sequence="1" parent="menu_hr_config" groups="hr.group_hr_manager,hr.group_hr_user"/>
+
+</odoo>

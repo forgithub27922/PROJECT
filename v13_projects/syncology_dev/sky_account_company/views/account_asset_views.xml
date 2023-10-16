@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- base_accounting_kit Inherit Form View of Asset category-->
+    <record model="ir.ui.view" id="inherit_view_account_asset_category_form">
+        <field name="name">inherit.view.account.asset.category.form</field>
+        <field name="model">account.asset.category</field>
+        <field name="inherit_id" ref="base_accounting_kit.view_account_asset_category_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- base_accounting_kit Inherit Tree View of Asset category-->
+    <record model="ir.ui.view" id="inherit_view_account_asset_category_tree">
+        <field name="name">inherit.view.account.asset.category.tree</field>
+        <field name="model">account.asset.category</field>
+        <field name="inherit_id" ref="base_accounting_kit.view_account_asset_category_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- base_accounting_kit Inherit Form View of Asset/Revenue Recognition-->
+    <record model="ir.ui.view" id="inherit_view_account_asset_asset_form">
+        <field name="name">inherit.account.asset.asset.form</field>
+        <field name="model">account.asset.asset</field>
+        <field name="inherit_id" ref="base_accounting_kit.view_account_asset_asset_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/group[2]/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- base_accounting_kit Inherit Tree View of Asset/Revenue Recognition-->
+    <record model="ir.ui.view" id="inherit_view_account_asset_asset_tree">
+        <field name="name">inherit.account.asset.asset.tree</field>
+        <field name="model">account.asset.asset</field>
+        <field name="inherit_id" ref="base_accounting_kit.view_account_asset_asset_purchase_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

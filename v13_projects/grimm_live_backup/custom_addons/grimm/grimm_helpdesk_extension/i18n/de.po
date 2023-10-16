@@ -1,0 +1,220 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_helpdesk_extension
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-22 13:07+0000\n"
+"PO-Revision-Date: 2019-08-22 13:07+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__sale_order_count
+msgid "# of Sales Order"
+msgstr "# des Auftrags"
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.ui.view,arch_db:grimm_helpdesk_extension.grimm_helpdesk_timesheet_view_inherit
+msgid "Additional comments"
+msgstr "Additional comments"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__brand_id
+msgid "Brand Partner"
+msgstr "Brand Partner"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__comments
+msgid "Comments"
+msgstr "Kommentare"
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.actions.act_window,help:grimm_helpdesk_extension.act_ticket_2_sale_order
+#: model_terms:ir.actions.act_window,help:grimm_helpdesk_extension.act_ticket_2_sale_order_create
+msgid "Create a Quotation for this Helpdesk Ticket."
+msgstr "Create a Quotation for this Helpdesk Ticket."
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.ui.view,arch_db:grimm_helpdesk_extension.grimm_helpdesk_ticket_view_inherit
+msgid "Create an Offer"
+msgstr "Create an Angebot"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__brand_email
+msgid "Email"
+msgstr "E-Mail"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__fsm_order_id
+msgid "FSM Order"
+msgstr "FSM Order"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__grimm_customer_number
+msgid "Grimm Customer Number"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model,name:grimm_helpdesk_extension.model_helpdesk_ticket
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_magento_sale_order__ticket_id
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_sale_order__ticket_id
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_shopware_sale_order__ticket_id
+msgid "Helpdesk Ticket"
+msgstr "Kundendienst Ticket"
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.ui.view,arch_db:grimm_helpdesk_extension.grimm_helpdesk_ticket_view_inherit
+msgid ""
+"Here display Quotation/Sale Order which related to this ticket, not related "
+"to customer."
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__invoice_date
+msgid "Invoice Date"
+msgstr "Rechnungsdatum"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__invoice_number
+msgid "Invoice Number"
+msgstr "Invoice Number"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__is_maintenance
+msgid "Is Maintenance ?"
+msgstr "Is Maintenance ?"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__manufacturer
+msgid "Manufacturer"
+msgstr "Manufacturer"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__brand_mobile
+msgid "Mobile"
+msgstr "Mobil"
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.ui.view,arch_db:grimm_helpdesk_extension.grimm_helpdesk_timesheet_view_inherit
+msgid "Open Detail Views"
+msgstr "Open Detail Views"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__order_number
+msgid "Order Number"
+msgstr "Order Number"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__brand_phone
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__product_description
+msgid "Product Description"
+msgstr "Product Description"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__product_model
+msgid "Product Model"
+msgstr "Product Model"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__product_type
+msgid "Product Type"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.actions.act_window,name:grimm_helpdesk_extension.act_ticket_2_sale_order_create
+msgid "Quotations"
+msgstr "Angebote"
+
+#. module: grimm_helpdesk_extension
+#: model:ir.actions.act_window,name:grimm_helpdesk_extension.act_ticket_2_sale_order
+msgid "Quotations and Sales"
+msgstr "Angebote und Verkäufe"
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.ui.view,arch_db:grimm_helpdesk_extension.grimm_helpdesk_ticket_view_inherit
+msgid "Quotations/Sales"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__related_invoice_ids
+msgid "Related Supplier Bill"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: code:addons/grimm_helpdesk_extension/models/helpdesk.py:0
+#: code:addons/grimm_helpdesk_extension/models/helpdesk.py:0
+#, python-format
+msgid "Related Supplier Invoices"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__role_partner
+#: model_terms:ir.ui.view,arch_db:grimm_helpdesk_extension.grimm_helpdesk_timesheet_view_inherit
+msgid "Rollenpartner"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__sale_ids
+msgid "Sale Orders"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model,name:grimm_helpdesk_extension.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag "
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__serial_number
+msgid "Serial Number"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__parts_info
+msgid "Spare Parts Info"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__supplier_invoice_count
+msgid "Supplier Invoice"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.ui.view,arch_db:grimm_helpdesk_extension.grimm_helpdesk_ticket_view_inherit
+msgid "Supplier Invoices"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,help:grimm_helpdesk_extension.field_helpdesk_ticket__related_invoice_ids
+msgid ""
+"This invoice is possible invoice based on provided information by customer "
+"like Invoice Number, Order Number."
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.ui.view,arch_db:grimm_helpdesk_extension.grimm_helpdesk_timesheet_view_inherit
+msgid "Ticket Information"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model:ir.model.fields,field_description:grimm_helpdesk_extension.field_helpdesk_ticket__construction_year
+msgid "Year of Construction"
+msgstr ""
+
+#. module: grimm_helpdesk_extension
+#: model_terms:ir.actions.act_window,help:grimm_helpdesk_extension.act_ticket_2_sale_order
+#: model_terms:ir.actions.act_window,help:grimm_helpdesk_extension.act_ticket_2_sale_order_create
+msgid ""
+"Your next actions should flow efficiently: confirm the Quotation to a Sales Order, then create the\n"
+"                    Invoice and collect the Payment."
+msgstr ""

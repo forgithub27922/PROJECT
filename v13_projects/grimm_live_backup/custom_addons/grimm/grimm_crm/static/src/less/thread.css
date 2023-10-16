@@ -1,0 +1,49 @@
+.o_mail_thread .o_thread_message {
+  -webkit-transition: background-color 200ms ease-in;
+  transition: background-color 200ms ease-in;
+}
+.o_mail_thread .o_thread_message.highlight {
+  background-color: #eee;
+  -webkit-transition: background-color 400ms ease-out;
+  transition: background-color 400ms ease-out;
+}
+.o_mail_thread .o_thread_message i.o_thread_mail_message_reply {
+  cursor: pointer;
+  opacity: 0.7;
+}
+.o_mail_thread .o_thread_message i.o_thread_mail_message_reply.fa-star {
+  opacity: 0.7;
+  color: gold;
+}
+.o_mail_thread .o_thread_message:hover i.o_thread_mail_message_reply,
+.o_mail_thread .o_thread_message.o_thread_selected_message i.o_thread_mail_message_reply {
+  opacity: 1;
+}
+.o_mail_thread .o_thread_message:hover i.o_thread_mail_message_reply:hover,
+.o_mail_thread .o_thread_message.o_thread_selected_message i.o_thread_mail_message_reply:hover {
+  opacity: 1;
+}
+.o_mail_thread .o_thread_message .o_thread_message_core .o_thread_mail_message_reply {
+  padding: 4px;
+}
+.o_mail_thread .o_thread_message .o_thread_message_sidebar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.o_mail_thread .o_thread_message .o_thread_message_sidebar .o_thread_parent_reply {
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  height: 36px;
+  width: 36px;
+  color: #999;
+  position: relative;
+}

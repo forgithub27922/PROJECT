@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="inherit_hr_employee_view_form" model="ir.ui.view">
+        <field name="name">inherit.hr.employee.view.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/div/h1[1]" position="after">
+                <field name="check_absent" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record id="inherit_hr_kanban_view" model="ir.ui.view">
+        <field name="name">inherit.hr.employee.kanban</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.hr_kanban_view_employees"/>
+        <field name="arch" type="xml">
+            <xpath expr="//ul" position="after">
+                <field name="description"/>
+            </xpath>
+        </field>
+    </record>
+
+    !-- Inherit Hr Employee search view-->
+    <record id="inherit_hr_employee_view_search_test" model="ir.ui.view">
+        <field name="name">inherit.hr.employee.search.view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='newly_hired_employee']" position="before">
+                <filter name="absent_employee" string="Absent Employee"
+                            domain="[('check_absent', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

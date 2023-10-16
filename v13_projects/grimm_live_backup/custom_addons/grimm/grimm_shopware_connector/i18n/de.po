@@ -1,0 +1,190 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_shopware_connector
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-09-27 14:47+0000\n"
+"PO-Revision-Date: 2019-09-27 14:47+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_shopware_connector
+#: model:ir.model,name:grimm_shopware_connector.model_accessory_part_product
+msgid "Accessory Part and Quantity"
+msgstr "Zubehör und Mengen"
+
+#. module: grimm_shopware_connector
+#: model:ir.model,name:grimm_shopware_connector.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_created_at
+msgid "Created At (on Shopware)"
+msgstr "Erstellt um (auf Shopware)"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_openerp_id
+msgid "Grimm Product Brand"
+msgstr "Grimm Produktmarke"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_return_instructions
+msgid "Instructions"
+msgstr "Anweisungen"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,help:grimm_shopware_connector.field_shopware_brand_return_instructions
+msgid "Instructions for product return"
+msgstr "Anweisungen für Produktrückgabe"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_accessory_part_product_ptmpl_connect_shopware
+msgid "Is Exported ?"
+msgstr "Wird exportiert?"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_magento_product_product_is_device
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_magento_product_template_is_device
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_product_product_is_device
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_product_template_is_device
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_product_template_is_device
+msgid "Is product a device ?"
+msgstr "Ist Produkt ein Gerät?"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_accessory_part_product_connect_magento
+msgid "Magento"
+msgstr "Magento"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_magento_value_map_ids
+msgid "Magento brand mappings"
+msgstr "Magento brand mappings"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_magento_product_product_manufacture_code
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_magento_product_template_manufacture_code
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_product_product_manufacture_code
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_product_template_manufacture_code
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_product_template_manufacture_code
+msgid "Manufacturer number"
+msgstr "Herstellernummer"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_name
+msgid "Name"
+msgstr "Name"
+
+#. module: grimm_shopware_connector
+#: model:ir.ui.view,arch_db:grimm_shopware_connector.connector_accessory_part_view_inherit
+msgid "Price:"
+msgstr "Preis:"
+
+#. module: grimm_shopware_connector
+#: model:ir.model,name:grimm_shopware_connector.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_product_ids
+msgid "Products"
+msgstr "Produkte"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_accessory_part_product_connect_shopware
+msgid "Shopware"
+msgstr "Shopware"
+
+#. module: grimm_shopware_connector
+#: model:ir.model,name:grimm_shopware_connector.model_shopware_brand
+msgid "Shopware Supplier"
+msgstr "Shopware Lieferant"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_grimm_product_brand_shopware_brand_ids
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_shopware_brand_ids
+msgid "Shopware Supplier Bindings"
+msgstr "Shopware Lieferant Bindings"
+
+#. module: grimm_shopware_connector
+#: model:ir.ui.view,arch_db:grimm_shopware_connector.shopware_product_brand_form_view_inherit
+msgid "Shopware mappings"
+msgstr "Shopware mappings"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_accessory_part_product_ptmpl_connect_magento
+msgid "Should export to Magento?"
+msgstr "Should export to Magento?"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_updated_at
+msgid "Updated At (on Shopware)"
+msgstr "Updated At (on Shopware)"
+
+#. module: grimm_shopware_connector
+#: model:ir.ui.view,arch_db:grimm_shopware_connector.connector_accessory_part_view_inherit
+msgid "Variants"
+msgstr "Varianten"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_warranty_duration
+msgid "Warranty Duration"
+msgstr "Garantiedauer"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,field_description:grimm_shopware_connector.field_shopware_brand_warranty_type
+msgid "Warranty Type"
+msgstr "Garantietyp"
+
+#. module: grimm_shopware_connector
+#: model:ir.model.fields,help:grimm_shopware_connector.field_shopware_brand_warranty_duration
+msgid "Warranty in month for this product/supplier relation. Only for company/supplier relation (purchase order) ; the  customer/company relation (sale order) always use the product main warranty field"
+msgstr "Garantie in Monaten für diese Produkt-/Lieferantenbeziehung. Nur für die Firmen-/Lieferantenbeziehung (Bestellung) ; die Kunden-/Firmenbeziehung (Verkaufsauftrag) verwendet immer das Feld Produkthauptleistung."
+
+#. module: grimm_shopware_connector
+#: model:ir.model,name:grimm_shopware_connector.model_grimm_product_brand
+msgid "grimm.product.brand"
+msgstr "grimm.product.brand"

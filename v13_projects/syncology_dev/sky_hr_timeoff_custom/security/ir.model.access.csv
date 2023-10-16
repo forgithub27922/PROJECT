@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr_holidays.access_hr_holidays_employee_allocation,hr.holidays.employee.allocation,hr_holidays.model_hr_leave_allocation,base.group_user,1,1,1,0
+hr_holidays.access_hr_holidays_employee_request,hr.holidays.employee.request,hr_holidays.model_hr_leave,base.group_user,1,1,1,0
+access_hr_leave_officer,access.hr.leave.officer,hr_holidays.model_hr_leave,grp_timeoff_officer,1,1,1,0
+access_leaves_by_department,leaves.by.department,sky_hr_timeoff_custom.model_leaves_by_department,base.group_user,1,1,1,1
+access_employee_leave_balance_by_type,employee.leave.balance.by.type,sky_hr_timeoff_custom.model_employee_leave_balance_by_type,base.group_user,1,1,1,0
+access_employee_vacation_balance_by_type,employee.vacation.balance.by.type,sky_hr_timeoff_custom.model_employee_vacation_balance_by_type,base.group_user,1,1,1,0

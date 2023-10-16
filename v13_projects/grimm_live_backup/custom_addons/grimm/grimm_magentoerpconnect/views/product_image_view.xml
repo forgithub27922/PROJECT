@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="product_image_tree_view" model="ir.ui.view">
+      <field name="name">Product image tree view</field>
+      <field name="model">product.image</field>
+      <field name="inherit_id" ref="of_base_magento_extensions_v9.product_image_tree_view"/>
+      <field name="arch" type="xml">
+        <field name="name" position="before">
+          <!--<field name="manual_image_data" widget='image' height="64px" resize="64px,64px"/>-->
+          <field name="manual_image_data" widget='image'/>
+        </field>
+      </field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_inventory_valuation_doc">
+            <t t-set="doc" t-value="doc.with_context({'lang':'en_US'})"/>
+            <t t-call="grimm_reports.grimm_layout">
+                <div class="page">
+                    <t t-call="grimm_reports.grimm_report_layout_header"/>
+                    <h2>Stock Valuation</h2>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <strong>Inventory</strong>
+                                </th>
+                                <th>
+                                    <strong>Date</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <span t-field="doc.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="doc.date" t-options="{'format': 'dd.MM.yyyy'}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <t t-set="locations"
+                       t-value="(doc.line_ids.mapped('location_id')).sorted(key=lambda x: x.location_id.name)"/>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th groups="stock.group_stock_multi_locations">
+                                    <strong>Location</strong>
+                                </th>
+                                <th>
+                                    <strong>Product</strong>
+                                </th>
+                                <th groups="stock.group_production_lot">
+                                    <strong>Production Lot</strong>
+                                </th>
+                                <th groups="stock.group_tracking_lot">
+                                    <strong>Package</strong>
+                                </th>
+                                <th>
+                                    <strong>Calculated Standard Price</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Quantity</strong>
+                                </th>
+                                <th class="text-right">
+                                    <strong>Price</strong>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="locations.sorted(key=lambda a: a.name)" t-as="location">
+                                <tr groups="stock.group_stock_multi_locations">
+                                    <td colspan="2">
+                                        <strong t-esc="location.name"/>
+                                    </td>
+                                    <td groups="stock.group_production_lot"></td>
+                                    <td groups="stock.group_tracking_lot"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr t-foreach="(doc.line_ids.with_context({'lang':user.lang}).sorted(key=lambda x: x.product_id.name)).filtered(lambda line: line.location_id.id == location.id)"
+                                    t-as="line">
+                                    <td groups="stock.group_stock_multi_locations"></td>
+                                    <td>
+                                        <span t-field="line.product_id"/>
+                                    </td>
+                                    <td groups="stock.group_production_lot">
+                                        <span t-field="line.prod_lot_id"/>
+                                    </td>
+                                    <td groups="stock.group_tracking_lot">
+                                        <span t-field="line.package_id"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.product_id.calculated_standard_price"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line.product_qty"/>
+                                        <span t-field="line.product_uom_id" groups="product.group_uom"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="line.product_qty * line.product_id.calculated_standard_price"
+                                              t-options='{"widget": "float", "precision": 2}'/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <div class="row pull-right">
+                        <table class="table table-condensed">
+                            <t t-set="total_qty" t-value="0"/>
+                            <tr class="border-black">
+                                <t t-foreach="locations" t-as="location">
+                                    <t t-foreach="(doc.line_ids.sorted(key=lambda x: x.product_id.default_code)).filtered(lambda line: line.location_id.id == location.id)"
+                                       t-as="line">
+                                        <t t-set="total_qty"
+                                           t-value="total_qty + (line.product_qty * line.product_id.calculated_standard_price)"/>
+                                    </t>
+                                </t>
+                                <td>
+                                    <strong>Total Price</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-esc="total_qty" t-options='{"widget": "float", "precision": 2}'/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_inventory_valuation">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="grimm_reports.report_inventory_valuation_doc" t-lang="user.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

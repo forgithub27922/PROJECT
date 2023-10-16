@@ -1,0 +1,159 @@
+.o_mobile_barcode_main_menu_container {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+
+    @include media-breakpoint-down(sm) {
+        @include o-position-absolute(0, 0, 0, 0);
+        overflow-y: auto;
+        min-height: 0;
+        justify-content: flex-start;
+    }
+}
+
+.o_mobile_barcode_main_menu {
+    width: 100%;
+    text-align: center;
+    background-color: #fff;
+    padding: 2em;
+
+    h1 {
+        margin: 0 0 2rem 0;
+    }
+
+    .message_demo_barcodes {
+        font-size: 0.9em;
+        margin: 0;
+    }
+
+    img {
+        overflow:hidden; // prevent margins colapsing with h1
+        margin-top: 3rem;
+        width: 200px;
+    }
+
+    p {
+        text-align: left;
+        margin: 3rem 0;
+    }
+
+    > button {
+        font-size: 1.2em;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    > button:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+        flex: 0 0 auto;
+        width: 550px;
+        border-radius: 10px;
+        background-color: rgba(255,255,255,0.8);
+        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+        font-size: 1.2em;
+        padding: 3em;
+    }
+}
+
+.o_stock_barcode_main_menu{
+    .o_sop_mobile_barcode_container{
+        position:  relative;
+        display: inline-block;
+        .button_scan_so, .button_product{
+            width: 100%;
+            bottom: 0px;
+            position: absolute;
+            .o_mobile_barcode_camara{
+                margin: 5px;
+                font-size: 2.2em;
+            }
+            div{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.disable_click{
+    pointer-events: none;
+}
+
+.o_inline_block{
+    display: inline-block;
+}
+
+#beleg_info{
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    margin-top: -40px;
+    z-index: 10;
+    opacity: 0;
+}
+
+.zero-padding{
+    padding: 0px!important;
+    text-align: left;
+    font-size: small;
+}
+
+.o_mobile_barcode_main_menu{
+    h1{
+        margin: 0px;
+    }
+}
+
+.o_mobile_barcode_main_menu img{
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.table-checkboxes{
+    padding-left: 0.5em;
+}
+
+.pad-bottom {
+    padding-bottom: 1em;
+}
+
+.desc-width{
+    word-wrap: break-word;
+    max-width: 1px;
+}
+
+.serv_row{
+    cursor: pointer;
+}
+
+.grimm_well{
+    border: 1px solid #b89da0;
+    border-radius: 10px;
+    padding: 0px 0px 2px 0px;
+}
+
+.table-action-checks{
+    margin-top: 18px;
+    margin-bottom: 18px;
+    border: 1px solid #b89da0;
+    border-radius: 10px;
+    tbody td:first-child, tbody td:nth-child(2){
+        border-right: 1px solid #b89da0;
+    }
+}
+
+#other_material{
+    border-radius: 10px;
+}
+
+.grimm_td_left{
+    text-align: left;
+}
+
+.grimm_fit_content {
+    width: fit-content;
+}

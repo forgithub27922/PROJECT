@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="action_partner_aged_filter" model="ir.actions.act_window">
+            <field name="name">Partner Aged Filter</field>
+            <field name="res_model">partner.aged.filter</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="label_partner_aged_filter_menu"
+                name="Partner Aged Filter"
+                parent="account_reports.account_reports_partners_reports_menu"
+                sequence="40"
+                action="action_partner_aged_filter"/>
+
+        <record id="view_partner_aged_form" model="ir.ui.view">
+            <field name="name">partner.aged.filter.form</field>
+            <field name="model">partner.aged.filter</field>
+            <field name="arch" type="xml">
+                <form string="Partner Aged Filter">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" widget="domain" options="{'model': 'account.move'}" class="oe_inline"/>
+                        </h1>
+                        <group>
+                            <field name="active"/>
+                            <field name="duration"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="grimm_account_followup_followup_line_view">
+            <field name="name">grimm_account_followup_followup_line_view</field>
+            <field name="model">account_followup.followup.line</field>
+            <field name="inherit_id" ref="account_followup.view_account_followup_followup_line_form"/>
+            <field name="arch" type="xml">
+                <field name="send_email" position="after">
+                    <field name="template_id" domain="[('model_id.model', '=', 'account.move')]"/>
+                    <field name="report_title"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="ir_cron_grimm_payment_reminder" model="ir.cron">
+            <field name="name">Grimm - Payment Reminder</field>
+            <field eval="False" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_account_move" name="model_id"/>
+            <field name="state">code</field>
+            <field name="code">model.call_grimm_payment_reminder()</field>
+        </record>
+
+        <record id="grimm_dunning_invoice_action" model="ir.actions.act_window">
+            <field name="name">Invoices Dunning Action</field>
+            <field name="res_model">account.move</field>
+            <field name="view_mode">kanban,form,tree</field>
+            <!--<field name="view_id" ref="account.view_invoice_tree"/>-->
+            <field name="search_view_id" ref="account.view_account_invoice_filter"/>
+            <field name="domain">[('grimm_followup_level_id', '!=', False),('type', '=', 'out_invoice'),('invoice_payment_state','=', 'not_paid'),('state','=', 'posted'), ('invoice_date_due','&lt;', (datetime.date.today() - relativedelta(days=1)).strftime('%Y-%m-%d'))]</field>
+            <field name="context">{'default_type': 'out_invoice'}</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Create a customer invoice
+              </p><p>
+                Create invoices, register payments and keep track of the discussions with your customers.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="menu_action_dunning_invoice"
+            action="grimm_dunning_invoice_action"
+            parent="account.menu_finance_receivables"
+            sequence="4"/>
+
+        <record id="grimm_payment_reminder_template1" model="mail.template">
+            <field name="name">Grimm Payment Reminder</field>
+            <field name="model_id" ref="grimm_payment_followup_report.model_account_move"/>
+            <field name="subject">${(object.company_id.name or '') | safe} ${(object.name or '') | safe} </field>
+            <field name="partner_to">${object.get_mahnung_partner_id()[0]}</field>
+            <field name="lang">${object.get_mahnung_partner_id()[1]}</field>
+            <field name="email_from">"Grimm Gastronomiebedarf" &lt;office@grimm-gastrobedarf.de&gt;</field>
+            <field name="body_html" type="html">
+                <table border="0" cellpadding="0" cellspacing="0"
+                       style="width:95%;background-color: white; border-collapse: collapse; ">
+                    <tr>
+                        <td valign="top" style="padding:0px 10px;">
+                            <div class="o_account_report_summary">
+                                <span>Sehr geehrte Damen und Herren,<br/>
+                                <br/>
+                                bei der nachstehend aufgeführten Rechnung konnten wir leider noch keinen Zahlungseingang feststellen.<br/>
+                                <br/>
+                                Sicherlich handelt es sich um ein Versehen. Sollten Sie allerdings Gründe haben,  die Begleichung unserer Rechnung nicht vorzunehmen, bitten wir Sie freundlich um entsprechende Information; andernfalls ersuchen wir Sie um Ausgleich innerhalb der nächsten 7 Tage.<br/>
+                                <br/>
+                                Falls Sie zwischenzeitlich die Zahlung veranlasst haben,  bitten wir Sie, dieses Schreiben als gegenstandslos zu betrachten.<br/>
+                                <br/>
+                                Wenn Sie Fragen zu Ihrem Konto haben, stehen wir Ihnen gerne zur Verfügung.<br/>
+                                <br/>
+                                Vielen Dank für Ihre Zusammenarbeit und Ihr Vertrauen.<br/>
+                                <br/>
+                                Ihre GRIMM Gastronomiebedarf GmbH<br/>
+                                </span>
+                            </div>
+
+                            <div class="table-responsive" style="margin-left:15px">
+                                <table class="o_account_reports_table table-hover" width="100%">
+                                    <thead>
+                                        <tr class="o_account_report_column_header">
+                                                <th class="o_account_report_column_header " style="font-weight:bold; font-size:16px; width:25%">
+                                                    Rechnungsnummer
+                                                </th>
+                                                <th class="o_account_report_column_header date" style="text-align:center; font-size:16px; width:25%">
+                                                    Datum
+                                                </th>
+                                                <th class="o_account_report_column_header date" style="font-weight:bold; text-align:center; font-size:16px; width:25%">
+                                                    Fälligkeit
+                                                </th>
+                                                <th class="o_account_report_column_header number" style="text-align:right; font-size:16px; width:25%">
+                                                     Mahnbetrag
+                                                </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="  " style="font-family:arial,helvetica,sans-serif; line-height:21px; font-size:16px">
+                                            <td class="o_account_report_line o_account_report_line_indent " colspan="1">
+                                                <span data-id="831700" class="o_account_reports_domain_line_2">
+                                                    ${object.name}
+                                                </span>
+                                            </td>
+                                            <td class="o_account_report_line date o_account_report_line_indent" style="text-align:center; font-size:16px; width:25%">
+                                                <span class="'o_account_report_column_value'">
+                                                    ${format_date(object.invoice_date,dt_format="dd.MM.yyyy") if object.invoice_date else ''}
+                                                </span>
+                                            </td>
+                                            <td class="o_account_report_line  date o_account_report_line_indent" style="white-space:nowrap; text-align:center">
+                                                <span class="'o_account_report_column_value'">
+                                                    ${format_date(object.invoice_date_due,dt_format="dd.MM.yyyy") if object.invoice_date_due else ''}
+                                                </span>
+                                            </td>
+                                            <td class="o_account_report_line number o_account_report_line_indent" style="text-align:right; font-size:16px; width:25%">
+                                                <span class="'o_account_report_column_value'">
+                                                    ${format_amount(object.amount_residual,object.currency_id)}
+
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr class="o_account_reports_level6 extra_charge total " style="border-top-style:double; font-family:arial,helvetica,sans-serif; line-height:21px; font-weight:bold; font-size:16px; padding-top:5px; padding-bottom:5px">
+                                            <td data-id="2" class="o_account_report_line o_account_report_line_indent " colspan="1">
+                                                    <span class="o_account_reports_caret_icon" data-id="2">
+                                                        <i class="fa fa-caret-right invisible" title="Unfolded"></i>
+                                                    </span>
+                                                    <span class="account_report_line_name">
+                                                        <span class="js_account_report_line_footnote" data-id="2">
+                                                        </span>
+                                                    </span>
+                                            </td>
+                                                <td class="o_account_report_line date o_account_report_line_indent" style="text-align:center; font-size:16px; width:25%">
+                                                    <span class="'o_account_report_column_value'"/>
+                                            </td>
+                                            <td class="o_account_report_line date o_account_report_line_indent" style="font-weight:bold; text-align:center; font-size:16px; width:25%">
+                                                <span class="'o_account_report_column_value'">Mahngebühren</span>
+                                            </td>
+                                            <td class="o_account_report_line number o_account_report_line_indent" style="text-align:right; font-size:16px; width:25%">
+                                                <span class="'o_account_report_column_value'"> 5 €</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="o_account_reports_level3 total " style="font-family:arial,helvetica,sans-serif; line-height:21px; font-weight:bold; font-size:16px; padding-top:5px; padding-bottom:5px; text-decoration:underline; color:red">
+                                            <td data-id="3" class="o_account_report_line o_account_report_line_indent " colspan="1">
+                                                <span class="o_account_reports_caret_icon" data-id="3">
+                                                    <i class="fa fa-caret-right invisible" title="Unfolded"></i>
+                                                </span>
+                                                <span class="account_report_line_name">
+                                                    <span class="js_account_report_line_footnote" data-id="3"></span>
+                                                </span>
+                                            </td>
+                                            <td class="o_account_report_line date o_account_report_line_indent" style="text-align:center; font-size:16px; width:25%">
+                                                <span class="'o_account_report_column_value'"/>
+                                            </td>
+                                            <td class="o_account_report_line date o_account_report_line_indent" style="font-weight:bold; text-align:center; font-size:16px; width:25%">
+                                                <span class="'o_account_report_column_value'">Insgesamt überfällig</span>
+                                            </td>
+                                            <td class="o_account_report_line number o_account_report_line_indent" style="text-align:right; font-size:16px; width:25%">
+                                                <span class="'o_account_report_column_value'">${object.amount_residual + 5} €</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </field>
+            <field name="auto_delete" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

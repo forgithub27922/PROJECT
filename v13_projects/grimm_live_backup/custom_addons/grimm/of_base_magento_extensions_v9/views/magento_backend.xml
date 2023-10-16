@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+    <openerp>
+        <data>
+
+            <record id="of_view_magento_backend_form" model="ir.ui.view">
+                <field name="name">of.view.magento.backend.form</field>
+                <field name="model">magento.backend</field>
+                <field name="inherit_id" ref="connector_magento.view_magento_backend_form" />
+                <field name="arch" type="xml">
+
+                    <field name="admin_location" position="after">
+                        <field name="team_webhook_url" widget="url" />
+                        <field name="admin_storeview_id" />
+                        <field name="id" invisible="1" />
+                        <field name="disable_checkpoints" />
+                    </field>
+
+                    <page name="advanced_configuration" position="after">
+                        <page name="data_syncs" string="Data synchronization">
+                            <group string="Product attributes">
+                                <field name="product_attributes_sync_type" />
+                            </group>
+                            <group string="Products">
+                                <field name="products_sync_type" />
+                                <field name="product_images_import_type" attrs="{'invisible':[('products_sync_type','=','products_odoo_master')]}" />
+                                <field name="product_images_export_type" attrs="{'invisible':[('products_sync_type','=','products_magento_master')]}" />
+                                <field name="import_categories" attrs="{'invisible':[('products_sync_type','=','products_odoo_master')]}" />
+                                <field name="synch_product_translations" />
+                            </group>
+                        </page>
+
+                        <page name="default_values" string="Default values">
+                            <group name="product_export_defaults" string="Product export default values" attrs="{'invisible':[('products_sync_type','=','products_magento_master')]}">
+                                <group colspan="2">
+                                    <field name="default_product_ctg_id" style="width:40%;"/>
+                                </group>
+
+                                <group>
+                                    <field name="product_system_val_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="backend_id" invisible="1" />
+                                            <field name="magento_attribute_id" context="{'search_system_from_backend_id':parent.id}" options="{'create_edit':False}" />
+                                            <field name="magento_attr_value_id" context="{'search_from_backend_id':parent.id, 'search_from_attr_id':magento_attribute_id}" options="{'create_edit':False}" />
+                                        </tree>
+                                    </field>
+                                </group>
+
+                            </group>
+                        </page>
+
+                    </page>
+
+                    <xpath expr="//button[@name='import_customer_groups']/../.." position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+
+                    <xpath expr="//button[@name='import_partners']/.." position="attributes">
+                        <attribute name="invisible">1</attribute>
+                    </xpath>
+
+                    <xpath expr="//sheet/notebook/page[@name='import']/group[2]" position="after">
+                        <group attrs="{'invisible':[('product_attributes_sync_type','!=','attrs_magento_master')]}">
+                            <span>Import product attribute sets</span>
+                            <button name="import_attribute_sets" type="object" class="oe_highlight" string="Import in background" />
+                        </group>
+
+                        <group attrs="{'invisible':[('product_attributes_sync_type','!=','attrs_magento_master')]}">
+                            <div>
+                                <span class="oe_inline">Import product attributes of type</span>
+
+                                <field name="import_attributes_of_type" class="oe_inline" nolabel="1" /> <br/>
+
+                                <span class="oe_inline">and from following attribute set</span>
+
+                                <field name="import_attributes_from_set" class="oe_inline" nolabel="1"
+                                       options="{'no_open':True, 'create':False, 'create_edit':False}"
+                                />
+                            </div>
+
+                            <button name="import_attributes" type="object" class="oe_highlight"  string="Import in background" />
+
+                        </group>
+                    </xpath>
+
+                    <xpath expr="//field[@name='import_products_from_date']/../.." position="after">
+                        <group name="variants_import_config_group" attrs="{'invisible':[('products_sync_type','=','products_odoo_master')]}">
+                            <div>
+                                <label for="force_import_of_variants"
+                                       string="(Force import of all variants after configurable product import?)"
+                                />
+                                <field name="force_import_of_variants" />
+                            </div>
+                        </group>
+
+                        <group attrs="{'invisible':['|',('product_images_import_type','=','no_images_sync'),('products_sync_type','!=','products_magento_master')]}">
+                            <div>
+                                <span class="oe_inline">Import images for all products</span>
+                            </div>
+                            <button name="import_product_images" type="object" class="oe_highlight"  string="Import in background" />
+                        </group>
+                    </xpath>
+
+                    <xpath expr="//field[@name='import_products_from_date']/../.." position="attributes">
+                        <attribute name="attrs">{'invisible':[('products_sync_type','=','products_odoo_master')]}</attribute>
+                    </xpath>
+
+                    <page name='advanced_configuration' position="after">
+                        <page name="mappings" string="Mappings">
+                            <separator string="Fiscal position mappings per country" />
+                            <group>
+                                <field name="fiscal_mapping_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="country_id" />
+                                        <field name="fiscal_position_id" />
+                                        <field name="backend_id" invisible="1" />
+                                    </tree>
+                                </field>
+                            </group>
+
+                            <separator string="Tax mappings" />
+                            <group>
+                                <field name="tax_mapping_ids" nolabel="1">
+                                    <tree editable="bottom">
+                                        <field name="tax_id" />
+                                        <field name="magento_tax_percent" />
+                                        <field name="backend_id" invisible="1" />
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+
+                        <page name="manual_import" string="Manual imports" invisible="0">
+                            <group>
+                                <field name="single_model_to_import" />
+                                <field name="is_product_variant" attrs="{'invisible': [('single_model_to_import','!=','product.product')]}" />
+                                <field name="single_record_magento_id" />
+                                <field name="single_variant_parent_id" attrs="{'invisible': ['|',('is_product_variant','=',False), ('single_model_to_import','!=','product.product')]}" />
+                            </group>
+                            <button name="import_single_record" type="object" string="Import" class="oe_highlight" />
+                        </page>
+
+                    </page>
+
+                </field>
+            </record>
+
+
+        </data>
+    </openerp>

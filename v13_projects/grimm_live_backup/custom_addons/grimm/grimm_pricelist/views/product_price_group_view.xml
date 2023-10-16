@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <record id="product_price_group_tree_view" model="ir.ui.view">
+    <field name="name">product.price.group.tree.view</field>
+    <field name="model">product.price.group</field>
+    <field name="arch" type="xml">
+      <tree string="Price Calculation Group" editable="top">
+        <field name="name"/>
+        <field name="description"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="product_price_group_form_view" model="ir.ui.view">
+    <field name="name">product.price.group.form.view</field>
+    <field name="model">product.price.group</field>
+    <field name="arch" type="xml">
+      <form string="Price Calculation Group">
+        <group>
+          <field name="name"/>
+          <field name="description"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <record id="product_price_group_view_action" model="ir.actions.act_window">
+    <field name="name">Price Calculation Group</field>
+    <field name="res_model">product.price.group</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+
+  <menuitem
+      action="product_price_group_view_action"
+      id="menu_product_price_group"
+      parent="sale.menu_product_pricelist_main"
+      name="Price Calculation Group"
+      sequence="20"/>
+
+</odoo>

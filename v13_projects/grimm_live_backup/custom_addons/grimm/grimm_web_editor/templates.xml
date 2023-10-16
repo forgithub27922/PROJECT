@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <template id="assets_wysiwyg" name="mail assets" inherit_id="web_editor.assets_wysiwyg">
+      <xpath expr="." position="inside">
+        <link rel="stylesheet" type="text/less" href="/grimm_web_editor/static/src/scss/web_editor.backend.scss"/>
+        <script type="text/javascript" src="/grimm_web_editor/static/src/js/html_editor.js"/>
+        <script type="text/javascript" src="/grimm_web_editor/static/src/js/summernote_overrides.js"/>
+      </xpath>
+    </template>
+  </data>
+</odoo>

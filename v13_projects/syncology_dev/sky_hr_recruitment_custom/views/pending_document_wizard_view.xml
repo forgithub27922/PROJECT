@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Pending Document Wizard Form View -->
+        <record id="pending_document_wizard_form" model="ir.ui.view">
+            <field name="name">pending.document.wizard.form</field>
+            <field name="model">pending.document</field>
+            <field name="arch" type="xml">
+                <form string="Pending For Document">
+                    <group colspan="4" col="4">
+                        <field name="job_id" required="1"/>
+                        <field name="manager_id" required="1"/>
+                        <field name="department_id" required="1"/>
+                        <field name="working_schedule_id" invisible="1"/>
+                        <hr colspan="4"/>
+                        <label for="child_ids"/>
+                        <field name="child_ids" colspan="4" nolabel="1" domain="[('id','!=',manager_id)]"/>
+                        <hr colspan="4"/>
+                        <field name="starting_date" required="1"/>
+                        <field name="salary" required="1"/>
+                        <field name="annual_bonus" required="1"/>
+                        <field name="next_salary_date"/>
+                        <field name="addition_rate"/>
+                        <field name="penalty_rate"/>
+
+                    </group>
+                    <footer>
+                        <button string="Confirm" class="btn-primary"
+                                name="action_confirm" type="object"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

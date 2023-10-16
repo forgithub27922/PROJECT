@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+<openerp>
+  <data>
+
+    <record id="of_product_template_form_view" model="ir.ui.view">
+      <field name="name">of.product.template.product.form</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="grimm_product.product_template_grimm_form"/>
+      <field name="arch" type="xml">
+
+        <header position="inside">
+          <!--<button name="export_to_magento" type="object"
+                  attrs="{'invisible':[('should_export','=',False)]}" string="Export to Magento" class="oe_highlight"
+                  groups="connector.group_connector_manager"
+          />-->
+        </header>
+
+        <field name="default_code" position="after">
+          <field name="base_default_code" attrs="{'invisible':[('has_variants','=',False)]}"/>
+          <field name="should_export" invisible="1"/>
+        </field>
+
+        <xpath expr="//notebook/page" position="after">
+          <page name="additional_imgs" string="Images">
+            <group string="Images data" name="images_data">
+              <field name="image_ids" nolabel="1" context="{'default_name': name}"/>
+            </group>
+          </page>
+        </xpath>
+
+        <xpath expr="//page[@name='general_information']" position="inside">
+          <separator string="Additional Attributes"/>
+          <group name="attribute_data" col="3" colspan="4">
+            <group name="select_attributes" string="Dropdown">
+              <field name="attribute_data_ids" nolabel="1" context="{'show_attribute':False}">
+                <tree editable="bottom" decoration-danger="is_required == True">
+                  <field name="is_required" invisible="1"/>
+                  <field name="attr_id"
+                         context="{'search_from_attr_set':parent.attribute_set_id, 'variant_only':False, 'search_from_attr_type':['select', 'configurable', 'boolean']}"
+                         options="{'create_edit':False}"/>
+                  <field name="value_id" domain="[('attribute_id','=',attr_id)]" options="{'create_edit':False}"/>
+                </tree>
+              </field>
+            </group>
+            <group name="multi_select_attributes" string="Multi Select">
+              <field name="attribute_data_multi_select_ids" nolabel="1">
+                <tree editable="bottom" decoration-danger="is_required == True">
+
+                  <field name="is_required" invisible="1"/>
+                  <!--
+                  <field name="product_tmpl_id" invisible="1"/>
+                  -->
+                  <field name="attr_id"
+                         context="{'search_from_attr_set':parent.attribute_set_id, 'search_from_attr_type':['multiselect']}"
+                         options="{'create_edit':False}"/>
+                  <field name="value_ids" widget="many2many_tags" domain="[('attribute_id','=',attr_id)]"
+                         options="{'create_edit':False}"/>
+                </tree>
+              </field>
+            </group>
+            <group name="textual_attributes" string="Text">
+              <field name="textual_attribute_data_ids" nolabel="1">
+                <tree editable="bottom" decoration-danger="is_required == True">
+
+                  <field name="is_required" invisible="1"/>
+                  <!--
+                  <field name="product_tmpl_id" invisible="1"/>-->
+                  <field name="attr_id"
+                         context="{'search_from_attr_set':parent.attribute_set_id, 'search_from_attr_type':['text', 'simple_text']}"
+                         options="{'create_edit':False}"/>
+                  <field name="value_id"/>
+                </tree>
+              </field>
+            </group>
+          </group>
+
+
+          <!--
+          <notebook>
+              <page name="dropdown" string="Dropdown">
+                  <group>
+                      <field name="attribute_data_ids" nolabel="1" context="{'show_attribute':False}" >
+                          <tree editable="bottom">
+                              <field name="attr_id" context="{'search_from_attr_set':parent.attribute_set_id, 'variant_only':False}" options="{'create_edit':False}" />
+                              <field name="value_id" domain="[('attribute_id','=',attr_id)]" />
+                          </tree>
+                      </field>
+                  </group>
+              </page>
+
+              <page name="textual" string="Textual">
+                  <group>
+                      <field name="textual_attribute_data_ids" nolabel="1">
+                          <tree editable="bottom">
+                              <field name="product_tmpl_id" invisible="1" />
+                              <field name="attr_id" context="{'search_from_attr_set':parent.attribute_set_id, 'search_from_attr_type':['text']}" />
+                              <field name="value_id" />
+                          </tree>
+                      </field>
+                  </group>
+              </page>
+
+          </notebook>
+          -->
+        </xpath>
+
+        <notebook position="inside">
+          <page name="magento" string="Magento">
+            <group>
+              <field name="magento_type" attrs="{'readonly':[('id','>',0)]}"/>
+            </group>
+
+            <group>
+
+              <separator string="Magento bindings" colspan="4"/>
+
+              <field name="magento_ptmpl_bind_ids" nolabel="1" colspan="4"
+                     attrs="{'invisible':[('magento_type','!=','configurable')]}">
+                <tree>
+                  <field name="backend_id"/>
+                  <field name="magento_id"/>
+                </tree>
+              </field>
+
+              <field name="magento_pp_bind_ids" nolabel="1" colspan="4"
+                     attrs="{'invisible':[('magento_type','=','configurable')]}">
+                <tree>
+                  <field name="backend_id"/>
+                  <field name="magento_id"/>
+                </tree>
+              </field>
+
+              <div colspan="2">
+                <button name="button_remove_all_bindings" type="object" string="Remove all bindings"
+                        class="oe_highlight"/>
+                <button name="button_remove_empty_bindings" type="object" string="Remove empty bindings"
+                        class="oe_highlight"/>
+              </div>
+
+            </group>
+
+          </page>
+        </notebook>
+
+        <xpath expr="//group[@name='description']" position="inside">
+          <separator string="Description" colspan="4"/>
+          <field name="description" colspan="4" nolabel="1" placeholder="A precise description of the Product"/>
+        </xpath>
+
+        <!--<group name="description">-->
+
+      </field>
+    </record>
+
+    <record id="of_magento_product_template_form_view" model="ir.ui.view">
+      <field name="name">of.magento.product.template.form.view</field>
+      <field name="model">magento.product.template</field>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <form string="Magento Product Template">
+          <group>
+            <field name="id" invisible="1"/>
+            <field name="magento_id" readonly="1"/>
+            <field name="magento_attribute_set_id"/>
+            <field name="magento_category_id"/>
+            <field name="arbitrary_magento_ctg_id"
+                   context="{'product_binding_id':id, 'product_binding_model':'magento.product.template'}"/>
+            <field name="created_at"/>
+            <field name="updated_at"/>
+            <field name="no_stock_sync"/>
+            <field name="manage_stock"/>
+            <field name="backorders"/>
+          </group>
+
+          <div attrs="{'invisible':[('magento_categ_ids','=',[])]}">
+            <separator string="Magento categories"/>
+            <field name="magento_categ_ids" nolabel="1">
+              <tree>
+                <field name="name"/>
+                <field name="backend_id"/>
+                <field name="magento_id"/>
+              </tree>
+            </field>
+          </div>
+
+          <div attrs="{'invisible':[('magento_image_ids','=',[])]}">
+            <separator string="Magento images"/>
+            <field name="magento_image_ids" nolabel="1">
+              <tree>
+                <field name="name"/>
+                <field name="is_base_image"/>
+                <field name="is_small_image"/>
+                <field name="is_thumbnail"/>
+                <field name="backend_id"/>
+                <field name="magento_id"/>
+                <field name="position"/>
+              </tree>
+            </field>
+          </div>
+
+          <separator string="Websites"/>
+          <field name="website_ids" nolabel="1">
+            <tree>
+              <field name="name"/>
+              <field name="code"/>
+            </tree>
+          </field>
+
+        </form>
+
+      </field>
+    </record>
+
+    <record id="of_product_normal_form_view" model="ir.ui.view">
+      <field name="name">of.product.product.form</field>
+      <field name="model">product.product</field>
+      <field name="inherit_id" ref="connector_magento.product_normal_form_view"/>
+      <field name="arch" type="xml">
+        <page name="connector" position="attributes">
+          <attribute name="string">Magento</attribute>
+        </page>
+
+        <xpath expr="//notebook/page" position="after">
+          <page name="additional_imgs" string="Variant Images" attrs="{'invisible':[('product_template_attribute_value_ids','=',[])]}">
+            <group string="Images data" name="variant_imgs_data">
+              <field name="variant_image_ids" nolabel="1"/>
+            </group>
+          </page>
+        </xpath>
+
+        <field name="product_template_attribute_value_ids" position="attributes">
+          <attribute name="readonly">1</attribute>
+        </field>
+
+        <xpath expr="//field[@name='magento_bind_ids']/.." position="after">
+          <div colspan="2">
+            <button name="button_remove_all_bindings" type="object" string="Remove all bindings" class="oe_highlight"/>
+            <button name="button_remove_empty_bindings" type="object" string="Remove empty bindings"
+                    class="oe_highlight"/>
+          </div>
+        </xpath>
+
+
+        <xpath expr="//field[@name='magento_bind_ids']/tree/field[@name='product_type']" position="after">
+          <field name="is_variant_on_magento"/>
+          <field name="magento_id"/>
+        </xpath>
+
+      </field>
+    </record>
+
+    <record id="of_view_magento_product_form" model="ir.ui.view">
+      <field name="name">of.magento.product.product.form</field>
+      <field name="model">magento.product.product</field>
+      <field name="inherit_id" ref="connector_magento.view_magento_product_form"/>
+      <field name="arch" type="xml">
+        <field name="magento_id" position="after">
+          <field name="magento_product_tmpl_id" attrs="{'invisible':[('magento_product_tmpl_id','=',False)]}"/>
+          <field name="magento_category_id"/>
+          <field name="arbitrary_magento_ctg_id"
+                 context="{'product_binding_id':id, 'product_binding_model':'magento.product.product'}"/>
+          <field name="magento_attribute_set_id"/>
+          <field name="is_variant_on_magento"/>
+        </field>
+
+        <xpath expr="//field[@name='no_stock_sync']/.." position="after">
+          <div attrs="{'invisible':[('magento_attribute_value_ids','=',[])]}">
+            <separator string="Magento attribute values"/>
+            <field name="magento_attribute_value_ids" nolabel="1">
+              <tree>
+                <field name="name"/>
+                <field name="backend_id"/>
+                <field name="magento_id"/>
+              </tree>
+            </field>
+          </div>
+          <div attrs="{'invisible':[('magento_categ_ids','=',[])]}">
+            <separator string="Magento categories"/>
+            <field name="magento_categ_ids" nolabel="1">
+              <tree>
+                <field name="name"/>
+                <field name="backend_id"/>
+                <field name="magento_id"/>
+              </tree>
+            </field>
+          </div>
+          <div attrs="{'invisible':[('magento_image_ids','=',[])]}">
+            <separator string="Magento images"/>
+            <field name="magento_image_ids" nolabel="1">
+              <tree>
+                <field name="name"/>
+                <field name="is_base_image"/>
+                <field name="is_small_image"/>
+                <field name="is_thumbnail"/>
+                <field name="backend_id"/>
+                <field name="magento_id"/>
+              </tree>
+            </field>
+          </div>
+        </xpath>
+
+      </field>
+    </record>
+
+    <record id="of_product_template_search_view" model="ir.ui.view">
+      <field name="name">of.product.template.search</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_search_view"/>
+      <field name="arch" type="xml">
+        <filter name="consumable" position="after">
+          <filter string="Configurable" name="configurable_prods"
+                  domain="[('has_variants','=',True),('magento_type','=','configurable')]"/>
+        </filter>
+      </field>
+    </record>
+
+    <!--<record id="of_product_normal_form_view_add_categids" model="ir.ui.view">-->
+    <!--<field name="name">product.normal.form</field>-->
+    <!--<field name="model">product.template</field>-->
+    <!--<field name="inherit_id" ref="product_multi_category.product_normal_form_view_add_categids"/>-->
+    <!--<field name="arch" type="xml">-->
+    <!--<field name="categ_ids" position="attributes">-->
+    <!--<attribute name="invisible">1</attribute>-->
+    <!--</field>-->
+    <!--</field>-->
+    <!--</record>-->
+
+    <record id="of_view_product_category_form" model="ir.ui.view">
+      <field name="name">of.product.category.form.magento</field>
+      <field name="model">product.category</field>
+      <field name="inherit_id" ref="connector_magento.view_product_category_form"/>
+      <field name="priority" eval="20"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='magento_bind_ids']/.." position="replace"/>
+
+        <xpath expr="/form" position="inside">
+          <notebook>
+            <page string="Magento" name="magento">
+              <field name="magento_bind_ids">
+                <tree editable="bottom">
+                  <field name="backend_id"/>
+                  <field name="magento_ctg_name"/>
+                  <field name="magento_id"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </xpath>
+
+      </field>
+    </record>
+
+  </data>
+</openerp>

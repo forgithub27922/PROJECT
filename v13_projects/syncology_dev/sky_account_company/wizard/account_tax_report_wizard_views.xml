@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- base_accounting_kit Inherit Form view of Account Tax Report-->
+    <record id="inherit_account_tax_form_view" model="ir.ui.view">
+        <field name="name">inherit.account.tax.form.view</field>
+        <field name="model">account.tax.report</field>
+        <field name="inherit_id" ref="base_accounting_kit.accounting_tax_report_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    form view of account transaction-->
+    <record id="view_account_transaction_form" model="ir.ui.view">
+        <field name="name">view.account.transaction.form</field>
+        <field name="model">account.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="draft" string="Set To Draft" type="object" states="canceled" class="btn-primary"/>
+                    <button name="post" string="Post" type="object" states="draft" class="btn-primary"/>
+                    <button name="cancel" string="Cancel" type="object" states="draft,posted" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,posted"
+                           statusbar_colors='{"draft":"blue", "posted":"green", "cancel":"red"}'/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group colspan="4" col="4">
+                        <field name="date" attrs="{'readonly':[('state','=','posted')]}"/>
+                        <field name="journal_id" domain="[('type','in',('bank','cash'))]"
+                               attrs="{'readonly':[('state','=','posted')]}"/>
+                        <field name="txn_type" attrs="{'readonly':[('state','=','posted')]}"/>
+                        <field name="move_id" readonly="1"/>
+                        <field name="currency_id"/>
+                        <field name="total_amount" readonly="1"/>
+                        <field name="ref"/>
+                    </group>
+                    <notebook>
+                        <page name="txn_line" string="Transaction Lines">
+                            <field name="txn_line_ids"
+                                   context="{'default_currency_id':currency_id}"
+                                   attrs="{'readonly':[('state','=','posted')]}">
+                                <tree>
+                                    <field name="account_id"/>
+                                    <field name="name"/>
+                                    <field name="amount"/>
+                                    <field name="currency_id" invisible="1"/>
+                                </tree>
+                                <form>
+                                    <sheet>
+                                        <group colspan="4" col="2">
+                                            <field name="account_id"/>
+                                            <field name="name"/>
+                                            <field name="amount"/>
+                                            <field name="currency_id" invisible="1"/>
+                                        </group>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    tree view of account transaction-->
+    <record id="view_account_transaction_tree" model="ir.ui.view">
+        <field name="name">view.account.transaction.tree</field>
+        <field name="model">account.transaction</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="date"/>
+                <field name="name"/>
+                <field name="ref"/>
+                <field name="journal_id"/>
+                <field name="txn_type"/>
+                <field name="currency_id"/>
+                <field name="total_amount"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Account Transactions -->
+    <record id="view_acc_txn_search" model="ir.ui.view">
+        <field name="name">view.acc.txn.search</field>
+        <field name="model">account.transaction</field>
+        <field name="arch" type="xml">
+            <search>
+                <searchpanel>
+                    <field name="journal_id" icon="fa-book"/>
+                    <field name="txn_type" icon="fa-cubes"/>
+                </searchpanel>
+                <field name="name"/>
+                <field name="ref"/>
+                <field name="journal_id"/>
+                <field name="txn_type"/>
+                <filter name="fil_send" string="Send Money" domain="[('txn_type','=','send')]"/>
+                <filter name="fil_recv" string="Receive Money" domain="[('txn_type','=','receive')]"/>
+                <separator/>
+                <filter name="fil_draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="fil_post" string="Posted" domain="[('state','=','posted')]"/>
+                <filter name="fil_cancel" string="Canceled" domain="[('state','=','canceled')]"/>
+                <filter name="grp_by_journal" string="Journal" context="{'group_by':'journal_id'}"/>
+                <filter name="grp_by_txn_type" string="Type" context="{'group_by':'txn_type'}"/>
+                <filter name="grp_by_date" string="Date" context="{'group_by':'date'}"/>
+                <filter name="grp_by_state" string="State" context="{'group_by':'state'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of account transaction-->
+    <record id="action_account_transaction" model="ir.actions.act_window">
+        <field name="name">Transactions</field>
+        <field name="res_model">account.transaction</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--  Menu of account transaction-->
+    <menuitem
+            id="menu_account_transaction"
+            name="Transactions"
+            parent="account.menu_finance_entries_accounting_miscellaneous"
+            action="action_account_transaction"
+    />
+
+</odoo>

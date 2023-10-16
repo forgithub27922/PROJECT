@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="view_media_folder_kanban" model="ir.ui.view">
+        <field name="name">media.folder.kanban</field>
+        <field name="model">media.folder</field>
+        <field name="arch" type="xml">
+            <kanban string="Media Folder">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_details oe_kanban_global_click" t-attf-style="background-color: #C1E1D2;">
+                            <div><strong><field name="name"/></strong></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="view_media_folder_form" model="ir.ui.view">
+            <field name="name">media.folder.form</field>
+            <field name="model">media.folder</field>
+            <field name="arch" type="xml">
+                <form string="Media Folder">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline" />
+                        </h1>
+                        <field name="parent_id"/>
+                        <notebook>
+                            <page name="child_ids" string="Child Folder">
+                                <field name="child_ids" mode="kanban" context="{'default_parent_id': active_id}"/>
+                            </page>
+                            <page string="Shopware6" name="shopware6">
+                                <group string="Shopware6 Bindings">
+                                    <field name="shopware6_bind_ids" nolabel="1">
+                                        <tree>
+                                            <field name="backend_id"/>
+                                            <field name="shopware6_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+</data>
+</openerp>

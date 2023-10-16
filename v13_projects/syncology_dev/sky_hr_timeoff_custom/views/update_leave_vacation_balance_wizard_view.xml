@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Update Leave/Vacation Balance Wizard View -->
+    <record id="update_leave_vacation_balance_wizard_view" model="ir.ui.view">
+        <field name="name">update.leave.vacation.balance.wizard.view</field>
+        <field name="model">update.leave.vacation.balance</field>
+        <field name="arch" type="xml">
+            <form string="Update Leave/Vacation Balance">
+                <group>
+                    <group>
+                        <field name="update_type" required="1"/>
+                        <field name="holiday_status_id" required="1" domain="[('leave_type','=',update_type)]"/>
+                    </group>
+                    <group colspan="2" col="4" string="Leaves" attrs="{'invisible': [('update_type', '=', 'vacation')]}">
+                        <field name="current_leave_balance" readonly="1" force_save="1"/>
+                        <field name="new_leave_balance"/>
+                        <field name="current_leave_monthly_allowance" readonly="1" force_save="1"/>
+                        <field name="new_leave_monthly_allowance"/>
+                    </group>
+                    <group colspan="2" col="4" string="Vacations" attrs="{'invisible': [('update_type', '=', 'leave')]}">
+                        <field name="current_vacation_balance" readonly="1" force_save="1"/>
+                        <field name="new_vacation_balance"/>
+                        <field name="current_vacation_monthly_allowance" readonly="1" force_save="1"/>
+                        <field name="new_vacation_monthly_allowance"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Confirm" class="btn-primary"
+                            name="action_confirm" type="object"/>
+                    <button string="Cancel" class="btn btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

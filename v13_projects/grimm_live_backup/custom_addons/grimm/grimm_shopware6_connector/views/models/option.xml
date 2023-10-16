@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="grimm_custom_product_option_list">
+            <field name="name">Custom Products Option</field>
+            <field name="model">grimm_custom_product.option</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view -->
+        <record model="ir.ui.view" id="grimm_custom_product_option_form_view">
+            <field name="name">grimm_custom_product.option.form.view</field>
+            <field name="model">grimm_custom_product.option</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Record">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="required" attrs="{'invisible': [('type', '=', 'checkbox')]}"/>
+                            <field name="description"/>
+                            <field name="image" invisible="1"/>
+
+                            <field name="multiselect" help="Can you put this product more than once into the basket?"/>
+                            <field name="min_qty" attrs="{'invisible': [('multiselect', '=', False)]}"/>
+                            <field name="max_qty" attrs="{'invisible': [('multiselect', '=', False)]}"/>
+
+                        </group>
+                        <!-- qty select is currently not in use -->
+                        <group>
+                            <field name="values" attrs="{'invisible': [('type', '!=', 'select')], 'required' : [('type', '!=', 'checkbox'), ('type', '!=', 'qty_select')]}" string="Options"/>
+                            <field name="value" attrs="{'invisible': [('type', '!=', 'checkbox'), ('type', '!=', 'qty_select')], 'required' : [('type', '!=', 'select')]}" string="Option"/>
+                        </group>
+                        <notebook>
+                            <page name="shopware6_binding" string="Shopware6 Bindings">
+                                <!--<button name="export_to_shopware6" type="object" class="oe_highlight" string="Export Record" attrs="{'invisible': [('is_shopware6_exported', '=', True)]}"/>
+                                <field name="is_shopware6_exported" invisible="1"/>-->
+                                <group>
+                                    <field name="shopware6_bind_ids" nolabel="1" colspan="4">
+                                        <tree>
+                                            <field name="backend_id"/>
+                                            <field name="shopware6_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

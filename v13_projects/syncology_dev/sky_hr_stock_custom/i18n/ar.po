@@ -1,0 +1,137 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_hr_stock_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-11 12:25+0000\n"
+"PO-Revision-Date: 2022-05-11 12:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status__code
+msgid "Code"
+msgstr "الكود"
+
+#. module: sky_hr_stock_custom
+#: model_terms:ir.ui.view,arch_db:sky_hr_stock_custom.hr_employee_view_form_inherit
+msgid "Company Property"
+msgstr "العهدة"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__cost_of_damage
+msgid "Cost Of Damage"
+msgstr "تلفيات"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__create_uid
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status__create_uid
+msgid "Created by"
+msgstr "تم الإنشاء بواسطة"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__create_date
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status__create_date
+msgid "Created on"
+msgstr "تم الإنشاء في"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__date
+#: model_terms:ir.ui.view,arch_db:sky_hr_stock_custom.view_stock_equipment_search
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__display_name
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status__display_name
+msgid "Display Name"
+msgstr "الإسم"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model,name:sky_hr_stock_custom.model_hr_employee
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__employee_id
+#: model_terms:ir.ui.view,arch_db:sky_hr_stock_custom.view_stock_equipment_search
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: sky_hr_stock_custom
+#: model:ir.actions.act_window,name:sky_hr_stock_custom.action_stock_equipment
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_hr_employee__equipment_ids
+#: model:ir.ui.menu,name:sky_hr_stock_custom.menu_stock_equipment
+msgid "Employees Handover"
+msgstr "عهدة الموظفين"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__id
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status__id
+msgid "ID"
+msgstr ""
+
+#. module: sky_hr_stock_custom
+#: model:ir.model,name:sky_hr_stock_custom.model_stock_immediate_transfer
+msgid "Immediate Transfer"
+msgstr "نقل فوري"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment____last_update
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status____last_update
+msgid "Last Modified on"
+msgstr "اخر تعديل في"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__write_uid
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status__write_uid
+msgid "Last Updated by"
+msgstr "اخر تحديث بواسطة"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__write_date
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status__write_date
+msgid "Last Updated on"
+msgstr "اخر تحديث في"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_status__name
+msgid "Name"
+msgstr "الإسم"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__quantity
+msgid "Quantity"
+msgstr "الكمية"
+
+#. module: sky_hr_stock_custom
+#: model:ir.actions.act_window,name:sky_hr_stock_custom.action_stock_status
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__status
+#: model:ir.ui.menu,name:sky_hr_stock_custom.menu_stock_status
+#: model_terms:ir.ui.view,arch_db:sky_hr_stock_custom.view_stock_equipment_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model,name:sky_hr_stock_custom.model_stock_equipment
+msgid "Stock Equipment"
+msgstr ""
+
+#. module: sky_hr_stock_custom
+#: model:ir.model,name:sky_hr_stock_custom.model_stock_status
+msgid "Stock Status"
+msgstr ""
+
+#. module: sky_hr_stock_custom
+#: model:ir.model,name:sky_hr_stock_custom.model_stock_picking
+msgid "Transfer"
+msgstr "الشحنة"
+
+#. module: sky_hr_stock_custom
+#: model:ir.model.fields,field_description:sky_hr_stock_custom.field_stock_equipment__unit
+#: model_terms:ir.ui.view,arch_db:sky_hr_stock_custom.view_stock_equipment_search
+msgid "Unit"
+msgstr "الوحدة"

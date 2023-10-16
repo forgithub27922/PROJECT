@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-extend="UserMenu.Actions">
+        <t t-jquery="[data-menu='documentation']" t-operation="replace"/>
+        <t t-jquery="[data-menu='support']" t-operation="replace"/>
+        <t t-jquery="[data-menu='account']" t-operation="replace"/>
+        <t t-jquery="[data-menu='shortcuts']" t-operation="replace"/>
+        <t t-jquery="[role='separator']" t-operation="replace"/>
+        <t t-jquery="a[data-menu='settings']" t-operation="replace"/>
+    </t>
+</templates>

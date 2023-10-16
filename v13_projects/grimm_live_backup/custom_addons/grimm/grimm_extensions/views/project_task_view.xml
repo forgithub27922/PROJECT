@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="act_task_2_opportunity" model="ir.actions.act_window">
+            <field name="name">Opportunity</field>
+            <field name="res_model">crm.lead</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="crm.view_crm_case_leads_filter"/>
+            <field name="view_id" ref="crm.crm_case_tree_view_leads"/>
+        </record>
+
+        <record id="view_grimm_project_task_form_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.project.task.form.view.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="%(action_delegate_task)d" type='action' class="oe_stat_button" icon="fa-user-times"
+                            string="Delegate Task" context="{'default_task_id': active_id}" groups="base.group_user"/>
+                    <button name="%(act_task_2_opportunity)d" type="action" class="oe_stat_button" icon="fa-usd"
+                            string="Create Opportunity"
+                            context="{'search_default_partner_id': partner_id,'default_partner_id':partner_id}"
+                            groups="base.group_user"/>
+                </xpath>
+                <xpath expr="//page[@name='description_page']" position="before">
+                    <page string="Assets">
+                        <field name="asset_ids" nolabel="1"/>
+                    </page>
+                </xpath>
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="claim_id"/>
+                    <field name="claim_categ_id" readonly="0"/>
+                    <field name="claim_sequence"/>
+                    <field name="location_ids">
+                        <tree>
+                            <field name="name"/>
+                            <field name="placement"/>
+                        </tree>
+                    </field>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="replace"/>
+                <xpath expr="//field[@name='project_id']" position="before">
+                    <field name="name_seq"/>
+                    <field name="partner_id"/>
+                    <field name="claim_shipping_id"/>
+                    <field name="claim_contact"/>
+                    <field name="claim_contact_mobile"/>
+                    <field name="claim_contact_phone"/>
+                    <field name="claim_contact_email"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="project_task_tree2_view_inherit" model="ir.ui.view">
+            <field name="name">project.task.tree2.view.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='project_id']" position="after">
+                    <field name="claim_categ_id"/>
+                    <field name="partner_id"/>
+                    <field name="claim_shipping_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_task_kanban_grimm" model="ir.ui.view">
+            <field name="name">project.task.kanban.grimm</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="partner_id"/>
+                    <field name="asset_internal_cat"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <br/>
+                    <field name="partner_id"/>
+                    <br/>
+                    <field name="asset_internal_cat"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_task_search_form_inherit" model="ir.ui.view">
+            <field name="name">project.task.search.form.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_search_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="claim_id" string="Claims"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_project_task_tree_inherit" model="ir.ui.view">
+            <field name="name">project.task.tree.inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_tree2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="name_seq"/>
+                    <field name="partner_id"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="contract_config_tree_view" model="ir.ui.view">
+            <field name="name">Contract Configuration</field>
+            <field name="model">contract.config</field>
+            <field name="arch" type="xml">
+                <tree string="contract Config">
+                    <field name="partner_id"/>
+                    <field name="number"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="grimm_contract_config_view_gantt" model="ir.ui.view">
+            <field name="name">grimm.contract.config.view.gantt</field>
+            <field name="model">contract.config</field>
+            <field name="arch" type="xml">
+                <gantt
+                    string="Contract"
+                    date_start="contract_start_date"
+                    date_stop="contract_end_date"
+                    default_group_by="partner_id"
+                    color="partner_id"
+                    display_unavailability="True"
+                >
+                    <field name="partner_id"/>
+
+                <templates>
+                    <div t-name="gantt-popover" class="container-fluid p-0">
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <ul class="p-0 mb-0 list-unstyled d-flex flex-row">
+                                    <li class="d-flex flex-column pr-2">
+                                        <strong>Name:</strong>
+                                        <strong>From:</strong>
+                                        <strong>To:</strong>
+                                    </li>
+                                    <li class="d-flex flex-column">
+                                        <span t-esc="display_name"/>
+                                        <span t-esc="userTimezoneStartDate.format('DD MMM, LT')"/>
+                                        <span t-esc="userTimezoneStopDate.format('DD MMM, LT')"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </templates>
+                </gantt>
+            </field>
+        </record>
+
+
+        <record id="contract_config_kanban_view" model="ir.ui.view">
+            <field name="name">Contract Config kanban</field>
+            <field name="model">contract.config</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="status">
+                    <field name="id"/>
+                    <field name="status"/>
+                    <field name="mimetype"/>
+                    <field name="create_uid"/>
+                    <field name="status"/>
+                    <field name="create_date"/>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_area oe_kanban_global_click o_kanban_attachment">
+                                <div class="row">
+                                    <div class="offset-10">
+                                        <div class="o_dropdown_kanban dropdown" groups="base.group_user">
+                                            <a role="button" class="dropdown-toggle o-no-caret btn" data-toggle="dropdown" href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                                <span class="fa fa-ellipsis-v"/>
+                                            </a>
+                                            <div class="dropdown-menu" role="menu">
+                                                <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="o_kanban_image">
+                                    <div class="o_kanban_image_wrapper">
+                                        <img class="o_kanban_image_inner_pic" t-att-src="kanban_image('media.manager', 'data', record.id.raw_value)"/>
+                                    </div>
+                                </div>-->
+                                <div class="o_kanban_image">
+                                    <div class="o_kanban_image_wrapper">
+                                        <div class="o_image o_image_thumbnail" t-att-data-mimetype="record.mimetype.value"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_details">
+                                    <div class="o_kanban_details_wrapper">
+                                        <div t-att-title="record.name.raw_value" class="o_kanban_record_title">
+                                            <field name="name" class="o_text_overflow"/>
+                                            <field name="number" class="o_text_overflow"/>
+                                        </div>
+                                        <div class="o_kanban_record_body">
+                                            <time class="oe_kanban_bottom_left">
+                                                <field name="contract_start_date" widget="date"/>  👉  <field name="contract_end_date" widget="date"/>
+                                            </time>
+                                        </div>
+                                        <div class="o_kanban_record_bottom">
+                                            <div class="oe_kanban_bottom_left">
+                                                <field name="partner_id" widget="many2one_avatar_user"/>
+                                                <field name="notice_date" invisible="True"/>
+                                            </div>
+                                            <div class="oe_kanban_bottom_right">
+                                                <field name="activity_ids" widget="kanban_activity"/>
+                                                <!--<field name="create_uid" widget="many2one_avatar_user"/>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+        <record id="contract_config_form_view" model="ir.ui.view">
+            <field name="name">Contract Config</field>
+            <field name="model">contract.config</field>
+            <field name="arch" type="xml">
+                <form string="Contract Config">
+                    <header>
+                        <button name="contract_cancel_request"
+                            type="object"
+                            class="oe_highlight"
+                            string="Cancel Contract"
+                            groups="grimm_contract_mgt.group_contract_administrator"
+                            attrs="{'invisible': [('allow_cancel', '!=', True)]}"/>
+                        <field name="allow_cancel" invisible="True"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+
+                        <!--<div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_toggle"/>
+                            </button>
+                        </div>-->
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                        <group>
+                            <field name="partner_id" class="oe_inline"/>
+                            <field name="number" class="oe_inline"/>
+                        </group>
+                        <notebook>
+                            <page name="config" string="Contractual Data">
+                                <group colspan="4" col="4">
+                                    <field name="contract_type_id"/>
+                                    <field name="object"/>
+                                    <field name="contract_start_date"/>
+                                    <field name="contract_start_date" invisible="1"/>
+                                    <!--<field name="notice_uom"/>
+                                    <field name="extension_uom"/>
+                                    <field name="notice"/>
+                                    <field name="extension"/>-->
+                                    <field name="contract_end_date"/>
+                                    <!--<field name="notice_date" readonly="True"/>-->
+                                </group>
+                                <div class="oe_inline">
+                                    <strong>Termination in <field name="notice" class="oe_inline"/> 👉 <field name="notice_uom" class="oe_inline"/> before contract end date.</strong>
+                                </div>
+                                <group>
+                                    <field name="notice_date" readonly="True"/>
+                                    <field name="auto_extend"/>
+                                </group>
+
+                                <div class="oe_inline" attrs="{'invisible': [('auto_extend', '=', False)]}">
+                                    <strong>Extension to <field name="extension" class="oe_inline"/> 👉 <field name="extension_uom" class="oe_inline"/> after contract end date.</strong>
+                                </div>
+
+                                <field name="comment"/>
+                            </page>
+                            <page name="notification" string="Notification Data">
+                                <group colspan="4" col="4">
+                                    <field name="notification_ids">
+                                        <tree>
+                                            <field name="user_ids" widget="many2many_tags"/>
+                                            <field name="notify_before_days"/>
+                                            <field name="real_notice_date"/>
+                                            <field name="is_mail_sent"/>
+                                            <!--<field name="alarm_ids" widget="many2many_tags"/>-->
+                                        </tree>
+                                        <form>
+                                            <group>
+                                                <field name="user_ids" widget="many2many_tags"/>
+                                                <!--<field name="alarm_ids" widget="many2many_tags"/>-->
+                                                <field name="notify_before_days"/>
+                                                <field name="real_notice_date" readonly="True"/>
+                                                <field name="is_mail_sent" readonly="True"/>
+                                                <!--<field name="notice_date"/>-->
+                                            </group>
+                                        </form>
+                                    </field>
+                                </group>
+                            </page>
+                            <page name="document" string="Document">
+                                <group>
+                                    <field name="document" widget="pdf_viewer" required="1" filename="document_name"/>
+                                    <field name="document_name" invisible="True"/>
+                                </group>
+                            </page>
+                            <page name="additional_document" string="Additional Documents">
+                                <field name="document_ids">
+                                    <tree editable="bottom">
+                                        <field name="document" widget="binary" required="1" filename="name"/>
+                                        <field name="name" invisible="True"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+
+                    <!--<div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>-->
+                </form>
+
+            </field>
+        </record>
+
+        <record id="grimm_contract_calendar_view" model="ir.ui.view">
+            <field name="name">Contract Config</field>
+            <field name="model">contract.config</field>
+            <field name="arch" type="xml">
+                <calendar string="Contract" form_view_id="%(grimm_contract_mgt.contract_config_form_view)d" event_open_popup="true" date_start="contract_start_date" date_stop="contract_end_date" mode="month" quick_add="True" color="partner_id">
+                    <field name="display_name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="action_contract_config" model="ir.actions.act_window">
+            <field name="name">Contract Config</field>
+            <field name="res_model">contract.config</field>
+            <field name="view_mode">kanban,tree,form,calendar,gantt</field>
+            <field name="view_id" ref="contract_config_tree_view"/>
+        </record>
+
+        <menuitem id="grimm_contract_main_menu"
+                  name="Contract"
+                  web_icon="grimm_contract_mgt,static/src/img/contract_menu.png"
+                  active="True"
+                  groups="grimm_contract_mgt.group_contract_view_only"
+                  sequence="40"/>
+        <menuitem id="grimm_contract_menu"
+                  name="Contract"
+                  parent="grimm_contract_mgt.grimm_contract_main_menu"
+                  sequence="40"/>
+
+        <menuitem id="grimm_contract_config_menu"
+                  name="Contract"
+                  parent="grimm_contract_mgt.grimm_contract_menu"
+                  sequence="40"
+                  action="grimm_contract_mgt.action_contract_config"/>
+
+        <!--<record model="ir.cron" id="ir_cron_crm_automation" forcecreate="True">
+            <field name="name">CRM - Automate Pipeline</field>
+            <field name="model_id" ref="model_crm_automation_config"/>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model._scheduler_automate_crm_pipeline()</field>
+        </record>
+
+        <record model="ir.cron" id="ir_cron_sale_automation" forcecreate="True">
+            <field name="name">Sale - Automate Activity Creation</field>
+            <field name="model_id" ref="model_sale_automation_config"/>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model._scheduler_automate_sale_pipeline()</field>
+        </record>-->
+    </data>
+</openerp>

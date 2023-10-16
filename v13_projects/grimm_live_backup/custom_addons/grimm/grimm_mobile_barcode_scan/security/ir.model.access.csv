@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_product_service_barcode","access.product.service.barcode","model_product_service_barcode","group_service_app",1,1,1,1
+"access_read_product_service_barcode","access.read.product.service.barcode","model_product_service_barcode","",1,0,0,0
+"access_service_travel","access.service.travel","model_service_travel","group_service_app",1,1,1,1
+"access_service_travel","access.service.travel","model_service_travel","",1,0,0,0
+"access_service_travel_timesheet","access.service.travel.timesheet","model_service_travel_timesheet","group_service_app",1,1,1,1
+"access_service_travel_timesheet","access.service.travel.timesheet","model_service_travel_timesheet","",1,0,0,0

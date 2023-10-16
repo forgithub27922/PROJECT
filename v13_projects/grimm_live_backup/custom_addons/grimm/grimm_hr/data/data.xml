@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <!-- Krankheit leave -->
+        <record id="grimm_sickness" model="hr.leave.type">
+            <field name="name">Krankheit</field>
+            <field name="allocation_type">no</field>
+<!--            <field name="color_name">yellow</field>-->
+            <field name="validity_start" eval="time.strftime('%Y-01-01')"/>
+            <field name="leave_notif_subtype_id" eval="ref('hr_holidays.mt_leave_sick')"/>
+            <field name="responsible_id" ref="base.user_admin"/>
+<!--            <field name="company_id" ref="l10n_be_hr_payroll.res_company_be"/>-->
+<!--            <field name="work_entry_type_id" ref="hr_payroll.work_entry_type_sick_leave"></field>-->
+        </record>
+
+        <record id="grimm_sick_rule_employee" model="ir.rule">
+            <field name="name">Grimm Sick base.group_user read</field>
+            <field name="model_id" ref="model_grimm_sick"/>
+            <field name="domain_force">[('emp_id.user_id', '=', user.id)]</field>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+
+        <record id="grimm_sick_rule_manager" model="ir.rule">
+            <field name="name">Time Off Administrator</field>
+            <field name="model_id" ref="model_grimm_sick"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('hr_holidays.group_hr_holidays_manager'))]"/>
+        </record>
+
+    </data>
+</openerp>

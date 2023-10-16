@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem
+            id="menu_action_res_city"
+            name="Cities"
+            action="base_address_city.action_res_city_tree"
+            parent="contacts.menu_localisation"
+            sequence="5"
+    />
+
+    <!-- A new form view of Applicant -->
+    <record id="hr_recruitment.hr_applicant_view_form" model="ir.ui.view">
+        <field name="name">view.applicant.form.syncology</field>
+        <field name="model">hr.applicant</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="schedule_interview" string="Schedule Interview" type="object" states="draft"/>
+                    <button name="accept_applicant" string="Accept" type="object" states="pending_for_interview"/>
+                    <button name="cancel_applicant" string="Cancel" type="object"
+                            states="draft,pending_for_interview"/>
+                    <button name="reject_applicant" string="Reject" type="object"
+                            states="draft,pending_for_interview"/>
+                    <button name="ask_for_document" string="Ask for Documents" type="object" context="{'applications': working_schedule_id}" states="accepted"/>
+                    <button name="applicant_detail_print" type="object" string="Print"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,pending_for_interview,accepted,closed"/>
+                </header>
+                <sheet>
+                    <field name="active" invisible="1"/>
+                    <group colspan="4" col="4">
+                        <label for="first_name_arabic"/>
+                        <label for="middle_name_arabic"/>
+                        <label for="last_name_arabic"/>
+                        <label for="fourth_name_arabic"/>
+                        <h1>
+                            <field name="first_name_arabic" nolabel="1" required="1"
+                                   attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        </h1>
+                        <h1>
+                            <field name="middle_name_arabic" nolabel="1" required="1"
+                                   attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        </h1>
+                        <h1>
+                            <field name="last_name_arabic" nolabel="1" required="1"
+                                   attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        </h1>
+                        <h1>
+                            <field name="fourth_name_arabic" nolabel="1" required="1"
+                                   attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        </h1>
+                    </group>
+                    <group colspan="4" col="4">
+                        <label for="partner_name" string="First Name"/>
+                        <label for="middle_name"/>
+                        <label for="last_name"/>
+                        <label for="fourth_name"/>
+                        <h1>
+                        <field name="partner_name" required="1"
+                               attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                    </h1>
+                        <h1>
+                            <field name="middle_name" nolabel="1" required="1"
+                                   attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        </h1>
+                        <h1>
+                            <field name="last_name" nolabel="1" required="1"
+                                   attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        </h1>
+                        <h1>
+                            <field name="fourth_name" nolabel="1" required="1"
+                                   attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        </h1>
+                    </group>
+                    <label for="address"/>
+                    <field name="address" colspan="4" required="1"
+                           attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                    <group colspan="4" col="4">
+                        <field name="city_id" required="1"
+                               attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        <field name="state_id"
+                               readonly="1"/>
+                        <field name="partner_phone" required="1"
+                               attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                        <field name="country_id"
+                               readonly="1"/>
+                        <field name="email_from" required="1"
+                               attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+
+
+                        <field name="company_id" required="1"/>
+                        <field name="job_id"/>
+                        <field name="department_id"/>
+                        <field name="manager_id"/>
+                        <field name="working_schedule_id" attrs="{'required' : [('state', 'in', 'accepted')]}"/>
+                        <field name="starting_date"/>
+                        <field name="salary"/>
+                        <field name="annual_bonus"/>
+                        <field name="next_salary_date" invisible="1"/>
+                        <field name="addition_rate" invisible="1"/>
+                        <field name="penalty_rate" invisible="1"/>
+                    </group>
+
+                    <notebook>
+                        <page name="pg_personal" string="Personal Information">
+                            <group name="grp_personal" colspan="4" col="4">
+                                <field name="religion" required="1"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="date_of_birth" required="1"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="gender" required="1"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="place_of_birth" required="1"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="nationality_id" required="1"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="national_id"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="passport_id"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="marital_status" required="1"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="military_status" required="1"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="general_service_status" required="1"
+                                       attrs="{'readonly' : [('state', '=', 'closed')]}"/>
+                            </group>
+                        </page>
+                        <page name="pg_family" string="Family Information"
+                              attrs="{'invisible':[('marital_status','!=','married')]}">
+                            <group name="grp_family" colsapn="4" col="4">
+                                <field name="spouse_name"
+                                       attrs="{'required':[('marital_status','=','married')], 'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="spouse_national_id"
+                                       attrs="{'required':[('marital_status','=','married')], 'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="spouse_academic_qualification"
+                                       attrs="{'required':[('marital_status','=','married')], 'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="spouse_date_of_birth"
+                                       attrs="{'required':[('marital_status','=','married')], 'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="spouse_place_of_birth"
+                                       attrs="{'required':[('marital_status','=','married')], 'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="spouse_employment"
+                                       attrs="{'required':[('marital_status','=','married')], 'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="spouse_employment_location"
+                                       attrs="{'required':[('marital_status','=','married')], 'readonly' : [('state', '=', 'closed')]}"/>
+                                <field name="spouse_with_children"
+                                       attrs="{'required':[('marital_status','=','married')], 'readonly' : [('state', '=', 'closed')]}"/>
+                            </group>
+                        </page>
+                        <page name="pg_training" string="Training">
+                            <field name="training_ids">
+                                <tree editable="bottom">
+                                    <field name="name" required="1"/>
+                                    <field name="institute_name" required="1"/>
+                                    <field name="start_date" required="1"/>
+                                    <field name="end_date" required="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="pg_experience" string="Experience">
+                            <field name="experience_ids" attrs="{'readonly' : [('state', '=', 'closed')]}">
+                                <tree editable="bottom">
+                                    <field name="name" required="1"/>
+                                    <field name="job_id" required="1"/>
+                                    <field name="start_date" required="1"/>
+                                    <field name="end_date" required="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="pg_education" string="Education">
+                            <field name="education_ids">
+                                <tree editable="bottom">
+                                    <field name="name" required="1"/>
+                                    <field name="institute" required="1"/>
+                                    <field name="start_date" required="1"/>
+                                    <field name="end_date" required="1"/>
+                                    <field name="final_grade" required="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="pg_cv" string="CV">
+                            <field name="cv" attrs="{'readonly' : [('state', '=', 'closed')]}" filename="fname"/>
+                            <field name="fname" invisible="1"/>
+                        </page>
+                        <page name="pg_subordinates" string="Subordinates">
+                            <field name="child_ids"/>
+                        </page>
+
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'open_attachments': True}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- A new tree view of Applicant -->
+    <record id="hr_recruitment.crm_case_tree_view_job" model="ir.ui.view">
+        <field name="name">view.applicant.tree.syncology</field>
+        <field name="model">hr.applicant</field>
+        <field name="arch" type="xml">
+            <tree multi_edit="1" string="Applications">
+                <field name="full_name"/>
+                <field name="full_name_arabic"/>
+                <field name="email_from"/>
+                <field name="partner_phone"/>
+                <field name="nationality_id"/>
+                <field name="national_id"/>
+                <field name="passport_id"/>
+                <field name="city_id"/>
+                <field name="state_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- New Kanban view of Applicant -->
+    <record id="hr_recruitment.hr_kanban_view_applicant" model="ir.ui.view">
+        <field name="name">view.applicant.kanban.syncology</field>
+        <field name="model">hr.applicant</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" records_draggable="0">
+                <field name="color"/>
+                <field name="state"/>
+                <field name="full_name"/>
+                <field name="full_name_arabic"/>
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="religion"/>
+                <field name="nationality_id"/>
+                <field name="national_id"/>
+                <field name="date_of_birth"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{!selection_mode ? 'oe_kanban_color_' + kanban_getcolor(record.color.raw_value) : ''}} oe_kanban_card oe_kanban_global_click oe_applicant_kanban oe_semantic_html_override">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <b class="o_kanban_record_title mt8" t-if="record.first_name_arabic.raw_value">
+                                            <b>
+                                                <field name="first_name_arabic"/>
+                                            </b>
+                                            <b>
+                                                <field name="middle_name_arabic"/>
+                                            </b>
+                                            <b>
+                                                <field name="last_name_arabic"/>
+                                            </b>
+                                            <b>
+                                                <field name="fourth_name_arabic"/>
+                                            </b>
+
+                                        </b>
+                                        <br/>
+                                        <b>
+                                            <field name="partner_name"/>
+                                        </b>
+                                        <b>
+                                            <field name="middle_name"/>
+                                        </b>
+                                        <b>
+                                            <field name="last_name"/>
+                                        </b>
+                                        <b>
+                                            <field name="fourth_name"/>
+                                        </b>
+
+                                        <br/>
+                                        <t t-if="record.partner_phone.raw_value">
+                                            <i class="fa fa-mobile mr4" role="img" aria-label="Phone" title="Phone"/>
+                                            <field name="partner_phone" widget="phone"/>
+                                            <br/>
+                                        </t>
+                                        <t t-if="record.email_from.raw_value">
+                                            <i class="fa fa-mail mr4" role="img" aria-label="Email" title="Email"/>
+                                            <field name="email_from" widget="email"/>
+                                            <br/>
+                                        </t>
+                                        <div class="o_kanban_record_bottom mt4">
+                                            <div class="oe_kanban_bottom_left">
+                                                <div class="float-left mr4" groups="base.group_user">
+                                                    <field name="gender"/>
+                                                    <br/>
+                                                    <field name="religion"/>
+                                                    <br/>
+                                                </div>
+                                            </div>
+                                            <div class="oe_kanban_bottom_right">
+                                                <div class="float-left mr4" groups="base.group_user">
+                                                    <field name="nationality_id"/>
+                                                    <br/>
+                                                    <field name="national_id"/>
+                                                    <br/>
+                                                    <field name="date_of_birth"/>
+                                                    <br/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- A new Search view of Applicant -->
+    <record id="hr_recruitment.hr_applicant_view_search_bis" model="ir.ui.view">
+        <field name="name">hr.applicant.view.search</field>
+        <field name="model">hr.applicant</field>
+        <field name="arch" type="xml">
+            <search string="Search Applicants">
+                <field name="full_name"/>
+                <field name="full_name_arabic"/>
+                <field name="email_from"/>
+                <field name="partner_phone"/>
+                <field name="gender"/>
+                <field name="religion"/>
+                <field name="nationality_id"/>
+                <field name="national_id"/>
+                <field name="marital_status"/>
+                <field name="state_id"/>
+
+                <filter string="In Review" name="draft"
+                        domain="[('state', '=', 'draft')]"/>
+                <filter string="Pending for Interview" name="pending_for_interview"
+                        domain="[('state', '=', 'pending_for_interview')]"/>
+                <filter string="Accepted" name="accepted"
+                        domain="[('state', '=', 'accepted')]"/>
+                <filter string="Closed" name="closed"
+                        domain="[('state', '=', 'closed')]"/>
+                <separator/>
+
+                <filter string="Male" name="gender"
+                        domain="[('gender', '=', 'male')]"/>
+                <filter string="Female" name="gender"
+                        domain="[('gender', '=', 'female')]"/>
+                <separator/>
+
+                <filter string="Unmarried" name="marital_status"
+                        domain="[('marital_status', '=', 'unmarried')]"/>
+                <filter string="Married" name="marital_status"
+                        domain="[('marital_status', '=', 'married')]"/>
+                <filter string="Divorced" name="marital_status"
+                        domain="[('marital_status', '=', 'divorced')]"/>
+                <filter string="Widowed" name="marital_status"
+                        domain="[('marital_status', '=', 'widowed')]"/>
+
+
+                <filter string="State" name="group_by_state"
+                        context="{'group_by':'state_id'}"/>
+                <filter string="Gender" name="group_by_gender"
+                        context="{'group_by':'gender'}"/>
+                <filter string="Nationality" name="group_by_nationality"
+                        context="{'group_by':'nationality_id'}"/>
+                <filter string="Religion" name="group_by_religion"
+                        context="{'group_by':'religion'}"/>
+                <filter string="Marital Status" name="group_by_marital_status"
+                        context="{'group_by':'marital_status'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="hr_recruitment.action_hr_job_applications">
+        <field name="name">Applications</field>
+        <field name="res_model">hr.applicant</field>
+        <field name="view_mode">kanban,tree,form,calendar</field>
+        <field name="search_view_id" ref="hr_recruitment.hr_applicant_view_search_bis"/>
+        <field name="context">{'search_default_job_id': [active_id], 'default_job_id': active_id}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No applications yet
+            </p>
+            <p>
+                Odoo helps you track applicants in the recruitment
+                process and follow up all operations: meetings, interviews, etc.
+            </p>
+            <p>
+                Applicants and their attached CV are created automatically when an email is sent.
+                If you install the document management modules, all resumes are indexed automatically,
+                so that you can easily search through their content.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu of Jobs to keep under Human Resource -->
+    <menuitem id="menu_jobs_main" name="Jobs" sequence="1" parent="sky_hr_custom.menu_human_resource_main"/>
+
+    <!-- Jobs menu to be put under above menu -->
+    <menuitem id="hr_recruitment.menu_hr_job_position" name="Jobs" parent="menu_jobs_main"
+              groups="hr_recruitment.group_hr_recruitment_manager,hr_recruitment.group_hr_recruitment_user"/>
+
+    <!-- Hide the recruitment menu by giving it no menu group -->
+    <menuitem id="hr_recruitment.menu_hr_recruitment_root" name="Recruitment"
+              groups="-hr_recruitment.group_hr_recruitment_user,sky_hr_custom.grp_no_menu"/>
+
+    <!-- Applications Menu -->
+    <menuitem id="menu_applications" name="Applications" sequence="2" parent="sky_hr_custom.menu_human_resource_main"
+              groups="hr_recruitment.group_hr_recruitment_manager,hr_recruitment.group_hr_recruitment_user"/>
+
+    <!-- All Applications Menu -->
+    <menuitem id="hr_recruitment.menu_crm_case_categ_all_app" name="Applications" parent="menu_applications"/>
+
+    <!-- Giving Access Right of Configuration menu of Human Resource to recruitment manager -->
+        <menuitem id="sky_hr_custom.menu_hr_config" name="Configuration" parent="sky_hr_custom.menu_human_resource_main"
+                  groups="hr_recruitment.group_hr_recruitment_manager"/>
+
+</odoo>

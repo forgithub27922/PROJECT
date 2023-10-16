@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+         <!--Employee's Leave Balance By type Tree View-->
+        <record id="view_employee_leave_balance_by_type_tree" model="ir.ui.view">
+            <field name="name">view.employee.leave.balance.by.type.tree</field>
+            <field name="model">employee.leave.balance.by.type</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="leave_type_id" width="40px"/>
+                    <field name="leave_balance"/>
+                    <field name="leave_monthly_allowance"/>
+                    <field name="employee_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Employee's Vacation Balance By type Tree View-->
+        <record id="view_employee_vacation_balance_by_type_tree" model="ir.ui.view">
+            <field name="name">view.employee.vacation.balance.by.type.tree</field>
+            <field name="model">employee.vacation.balance.by.type</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="leave_type_id" width="40px"/>
+                    <field name="vacation_balance"/>
+                    <field name="vacation_monthly_allowance"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Employee's Vacation Balance By type Search View-->
+        <record id="view_employee_vacation_balance_by_type_search" model="ir.ui.view">
+            <field name="name">vview.employee.vacation.balance.by.type.search</field>
+            <field name="model">employee.vacation.balance.by.type</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <filter name="grp_by_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                </search>
+            </field>
+        </record>
+
+        <!--Employee's Leave Balance By type Search View-->
+        <record id="view_employee_leave_balance_by_type_search" model="ir.ui.view">
+            <field name="name">vview.employee.leave.balance.by.type.search</field>
+            <field name="model">employee.leave.balance.by.type</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <filter name="grp_by_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                </search>
+            </field>
+        </record>
+
+
+        <!-- Action for Leave Balance by type-->
+        <record id="action_employee_leave_balance_by_type" model="ir.actions.act_window">
+            <field name="name">Employee Leave Balance By Type</field>
+            <field name="res_model">employee.leave.balance.by.type</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'tree_view_ref':'sky_hr_timeoff_custom.view_employee_leave_balance_by_type_tree',
+                    'search_view_ref':'sky_hr_timeoff_custom.view_employee_leave_balance_by_type_search'
+                }</field>
+        </record>
+
+        <!-- Action for Vacation Balance by type-->
+        <record id="action_employee_vacation_balance_by_type" model="ir.actions.act_window">
+            <field name="name">Employee Vacation Balance By Type</field>
+            <field name="res_model">employee.vacation.balance.by.type</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'tree_view_ref':'sky_hr_timeoff_custom.view_employee_vacation_balance_by_type_tree',
+                 'search_view_ref':'sky_hr_timeoff_custom.view_employee_vacation_balance_by_type_search'}</field>
+        </record>
+
+        <!-- A new form view of Applicant -->
+        <record id="hr_leave_and_vacation_view_form" model="ir.ui.view">
+            <field name="name">hr.leave.and.vacation.view.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='%(hr_holidays.act_hr_employee_holiday_request)d']" position="replace">
+                </xpath>
+                <xpath expr="//form/sheet/div[@name='button_box']" position="inside">
+                    <button name="%(hr_holidays.hr_leave_action_action_approve_department)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-calendar"
+                            attrs="{'invisible': [('show_leaves','=', False)]}"
+                            context="{'search_default_employee_id': active_id, 'default_leave_type': 'leave'}"
+                            groups="base.group_user"
+                            help="Total Leave Days">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="total_leave"/>
+                            </span>
+                            <span class="o_stat_text">
+                                Leaves
+                            </span>
+                        </div>
+                    </button>
+                     <button name="%(sky_hr_timeoff_custom.action_employee_leave_balance_by_type)d"
+                            class="oe_stat_button"
+                            icon="fa-clock-o"
+                            type="action"
+                             context="{'search_default_employee_id': active_id}"
+                             groups="base.group_user"
+                     >
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field nolabel="1" name="leave_balance" widget="statinfo"/>
+                            </span>
+                            <span class="o_stat_text">
+                                Leave Balance
+                            </span>
+                        </div>
+                    </button>
+
+                    <button name="%(sky_hr_timeoff_custom.hr_vacation_action_action_approve_department)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-calendar"
+                            attrs="{'invisible': [('show_leaves','=', False)]}"
+                            context="{'search_default_employee_id': active_id, 'default_leave_type': 'vacation'}"
+                            groups="base.group_user"
+                            help="Total Vacation Days">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field name="total_vacation"/>
+                            </span>
+                            <span class="o_stat_text">
+                                Vacations
+                            </span>
+                        </div>
+                    </button>
+                    <button name="%(sky_hr_timeoff_custom.action_employee_vacation_balance_by_type)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-calendar" width="15%"
+                            context="{'search_default_employee_id': active_id}"
+                            groups="base.group_user">
+                        <div class="o_field_widget o_stat_info">
+                            <span class="o_stat_value">
+                                <field nolabel="1" name="vacation_balance" widget="statinfo"/>
+                            </span>
+                            <span class="o_stat_text">
+                                Vacation Balance
+                            </span>
+                        </div>
+                    </button>
+                </xpath>
+                <xpath expr="//form/header" position="inside">
+                    <button name="update_leave_vacation_balance" string="Update Leave/ Vacation Balance"
+                            type="object" class="btn-primary" groups="hr.group_hr_manager,hr.group_hr_user"/>
+                </xpath>
+                <xpath expr="//group/group/field[@name='company_id']" position="after">
+                    <field name="employee_leave_balance_by_type_ids" invisible="1">
+                        <field name="leave_type_id" width="40px"/>
+                        <field name="leave_balance"/>
+                        <field name="leave_monthly_allowance"/>
+                    </field>
+                    <field name="employee_vacation_balance_by_type_ids" invisible="1">
+                        <field name="leave_type_id" width="40px"/>
+                        <field name="vacation_balance"/>
+                        <field name="vacation_monthly_allowance"/>
+                    </field>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Employee form View for Leave and Vacation Balance and Monthly ALlowance -->
+        <record id="view_employee_leave_balance_form" model="ir.ui.view">
+            <field name="name">view.employee.leave.balance.form</field>
+            <field name="model">hr.employee</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div>
+                            <group colspan="4" col="4">
+                                <label for="name" string="First Name"/>
+                                <label for="middle_name"/>
+                                <label for="last_name"/>
+                                <label for="fourth_name"/>
+                                <h1>
+                                    <field name="name" readonly="1" force_save="1"/>
+                                </h1>
+                                <h1>
+                                    <field name="middle_name" readonly="1" force_save="1"/>
+                                </h1>
+                                <h1>
+                                    <field name="last_name" readonly="1" force_save="1"/>
+                                </h1>
+                                <h1>
+                                    <field name="fourth_name" readonly="1" force_save="1"/>
+                                </h1>
+                            </group>
+                            <group colspan="4" col="4">
+                                <label for="first_name_arabic"/>
+                                <label for="middle_name_arabic"/>
+                                <label for="last_name_arabic"/>
+                                <label for="fourth_name_arabic"/>
+                                <h1>
+                                    <field name="first_name_arabic" nolabel="1" readonly="1" force_save="1"/>
+                                </h1>
+                                <h1>
+                                    <field name="middle_name_arabic" readonly="1" force_save="1"/>
+                                </h1>
+                                <h1>
+                                    <field name="last_name_arabic" readonly="1" force_save="1"/>
+                                </h1>
+                                <h1>
+                                    <field name="fourth_name_arabic" readonly="1" force_save="1"/>
+                                </h1>
+                            </group>
+                            <group  colspan="2" col="4" >
+                                <field name="leave_balance" readonly="1" force_save="1"/>
+                                <field name="vacation_balance" readonly="1" force_save="1"/>
+                                <field name="leave_monthly_allowance" readonly="1" force_save="1"/>
+                                <field name="vacation_monthly_allowance" readonly="1" force_save="1"/>
+                            </group>
+                        </div>
+                        <notebook>
+                            <page name="leaves" string="Leaves">
+                                <field name="employee_leave_balance_by_type_ids" readonly="1">
+                                    <tree>
+                                        <field name="leave_type_id" width="40px"/>
+                                        <field name="leave_balance"/>
+                                        <field name="leave_monthly_allowance"/>
+                                        <field name="employee_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="vacation" string="Vacation">
+                                <field name="employee_vacation_balance_by_type_ids" readonly="1">
+                                    <tree>
+                                        <field name="leave_type_id" width="40px"/>
+                                        <field name="vacation_balance"/>
+                                        <field name="vacation_monthly_allowance"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Employee Tree View for Leave and Vacation Balance and Monthly ALlowance -->
+        <record id="view_employee_leave_balance_tree" model="ir.ui.view">
+            <field name="name">view.employee.leave.balance.tree</field>
+            <field name="model">hr.employee</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <tree create="0" edit="0" delete="0">
+                    <field name="display_name" string="Name"/>
+                    <field name="full_name_arabic" string="Name (Arabic)"/>
+                    <field name="name" invisible="1"/>
+                    <field name="department_id" optional="hide"/>
+                    <field name="job_id" optional="hide"/>
+                    <field name="leave_balance"/>
+                    <field name="vacation_balance"/>
+                    <field name="leave_monthly_allowance"/>
+                    <field name="vacation_monthly_allowance"/>
+                    <field name="total_alloc_leave" optional="hide" string="Allocated Leaves"/>
+                    <field name="total_leave" optional="hide" string="Taken Leaves"/>
+                    <field name="total_alloc_vacation" optional="hide" string="Allocated Vacation Days"/>
+                    <field name="total_vacation" optional="hide" string="Taken Vacation Days"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Employee Search View for Leave and Vacation Balance and Monthly ALlowance -->
+        <record id="view_employee_leave_balance_search" model="ir.ui.view">
+            <field name="name">view.employee.leave.balance.search</field>
+            <field name="model">hr.employee</field>
+            <field name="priority">100</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="display_name"/>
+                    <field name="full_name_arabic"/>
+                    <field name="department_id"/>
+                    <field name="job_id"/>
+                    <filter name="grp_by_department" string="Department" context="{'group_by':'department_id'}"/>
+                    <filter name="grp_by_job" string="Job Position" context="{'group_by':'job_id'}"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action for Leave Balance -->
+        <record id="action_emp_leave_balance" model="ir.actions.act_window">
+            <field name="name">Vacation and Leave Balance</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="sky_hr_timeoff_custom.view_employee_leave_balance_search"/>
+            <field name="context">{'tree_view_ref':'sky_hr_timeoff_custom.view_employee_leave_balance_tree',
+                                    'form_view_ref':'sky_hr_timeoff_custom.view_employee_leave_balance_form'}</field>
+        </record>
+
+        <!-- Menu for Leave Balance -->
+        <menuitem id="menu_employee_leave_balance" name="Vacations &amp; Leave Balance" sequence="5" action="action_emp_leave_balance" parent="sky_hr_custom.menu_human_resource_main"/>
+
+<!--        inherited to remove time off summary from print-->
+         <record id="hr_holidays.action_hr_holidays_summary_employee" model="ir.actions.act_window">
+            <field name="name">Time Off Summary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.holidays.summary.employee</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" eval="False" />
+            <field name="binding_type">report</field>
+        </record>
+
+<!--        inherited to remove time off analysis from action-->
+        <record id="hr_holidays.act_hr_employee_holiday_request" model="ir.actions.server">
+        <field name="name">Time off Analysis</field>
+        <field name="model_id" ref="hr_holidays.model_hr_leave_report"/>
+        <field name="binding_model_id" eval="False"/>
+        <field name="state">code</field>
+        <field name="code">
+        action = model.action_time_off_analysis()
+        </field>
+    </record>
+
+    </data>
+</odoo>

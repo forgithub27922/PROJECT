@@ -1,0 +1,17 @@
+<odoo>
+  <data noupdate="1">
+    <record id="grimm_contract_default" model="sale.subscription.template">
+<!--      <field name="type">template</field>-->
+      <field name="name">Monthly Subscription</field>
+<!--      <field name="state">open</field>-->
+<!--      <field name="payment_mandatory">True</field>-->
+      <field name="recurring_interval">1</field>
+      <field name="recurring_rule_type">monthly</field>
+    </record>
+
+    <record id="automatic_mro_order_create_days_in_advance" model="ir.config_parameter">
+      <field name="key">mro_orders_create_days_before</field>
+      <field name="value">28</field>
+    </record>
+  </data>
+</odoo>

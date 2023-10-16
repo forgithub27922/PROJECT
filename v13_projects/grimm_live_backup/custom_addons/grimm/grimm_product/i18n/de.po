@@ -1,0 +1,270 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-26 16:09+0000\n"
+"PO-Revision-Date: 2019-03-26 16:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_attr_id
+msgid "Attribute"
+msgstr "Eigenschaft"
+
+#. module: grimm_product
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_form_view
+msgid "Attribute name"
+msgstr "Attribute Name"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_product_attribute_set_id
+#: model:ir.model.fields,field_description:grimm_product.field_product_template_attribute_set_id
+#: model:ir.ui.view,arch_db:grimm_product.product_template_grimm_form
+msgid "Attribute set"
+msgstr "Attribute-Set"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_value_id
+msgid "Attribute value"
+msgstr "Attribute-Wert"
+
+#. module: grimm_product
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_form_view
+msgid "Attribute values"
+msgstr "Attribute values"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_product_attribute_data_ids
+#: model:ir.model.fields,field_description:grimm_product.field_product_template_attribute_data_ids
+msgid "Attributes data"
+msgstr "Attribute Daten"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_create_uid
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_create_uid
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_create_uid
+msgid "Created by"
+msgstr "Angelegt von"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_create_date
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_create_date
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_display_name
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_display_name
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_product_has_variants
+#: model:ir.model.fields,field_description:grimm_product.field_product_template_has_variants
+msgid "Has variants?"
+msgstr "Hat Varianten?"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_id
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_id
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_product
+#: model:ir.model.fields,help:grimm_product.field_return_instruction_is_default
+msgid "If is default, will be use to set the default value in supplier infos. Be careful to have only one default"
+msgstr "Wenn Standard, wird verwendet, um den Standardwert in den Lieferanteninformationen festzulegen. Achten Sie darauf, dass Sie nur einen Standard haben."
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_grimm_product_brand_return_instructions
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_instructions
+#: model:ir.ui.view,arch_db:grimm_product.product_return_instructions_form_view
+msgid "Instructions"
+msgstr "Anweisungen"
+
+#. module: grimm_product
+#: model:ir.model,name:grimm_product.model_return_instruction
+#: model:ir.model.fields,help:grimm_product.field_grimm_product_brand_return_instructions
+#: model:ir.model.fields,help:grimm_product.field_return_instruction_instructions
+msgid "Instructions for product return"
+msgstr "Anweisungen für Produktrückgabe"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_is_default
+msgid "Is default"
+msgstr "Ist Default"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set___last_update
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data___last_update
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_write_uid
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_write_uid
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_write_date
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_write_date
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_product
+#: sql_constraint:product.attributes.data:0
+msgid "Multiple attribute values!"
+msgstr "Mehrere Attributewerte!"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_name
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_search_view
+msgid "Name"
+msgstr "Bezeichnung"
+
+#. module: grimm_product
+#: model:ir.model,name:grimm_product.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_product
+#: model:ir.actions.act_window,name:grimm_product.of_product_attribute_action
+#: model:ir.model,name:grimm_product.model_product_attribute
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_set_product_attribute_ids
+#: model:ir.ui.menu,name:grimm_product.menu_attribute_action
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_form_view
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_search_view
+msgid "Product Attribute"
+msgstr "Produktattribute"
+
+#. module: grimm_product
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_set_form_view
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_set_tree_view
+msgid "Product Attribute Set"
+msgstr "Produkt Attribute-Set"
+
+#. module: grimm_product
+#: model:ir.actions.act_window,name:grimm_product.of_product_attr_set_action
+#: model:ir.ui.menu,name:grimm_product.of_menu_product_attr_sets
+msgid "Product Attribute Sets"
+msgstr "Produkt Attribute-Sets"
+
+#. module: grimm_product
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_value_form_view
+msgid "Product Attribute Value"
+msgstr "Produkt Attributewert"
+
+#. module: grimm_product
+#: model:ir.model,name:grimm_product.model_product_template
+#: model:ir.model.fields,field_description:grimm_product.field_product_attributes_data_product_tmpl_id
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_product
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_set_form_view
+msgid "Product attributes"
+msgstr "Produktattribute"
+
+#. module: grimm_product
+#: model:ir.actions.act_window,name:grimm_product.product_return_instructions_action
+#: model:ir.ui.menu,name:grimm_product.menu_product_return_instructions_action
+msgid "Products Return Instructions"
+msgstr "Produktrückgabe-Anweisungen"
+
+#. module: grimm_product
+#: model:ir.ui.view,arch_db:grimm_product.product_return_instructions_form_view
+#: model:ir.ui.view,arch_db:grimm_product.product_return_instructions_tree_view
+msgid "Return instructions"
+msgstr "Rückgabe Anweisung"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_return_instruction_name
+msgid "Title"
+msgstr "Anrede"
+
+#. module: grimm_product
+#: model:ir.model,name:grimm_product.model_product_warranty_type
+msgid "Type for Warranty"
+msgstr "Garantie Typen"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_use_in_products
+msgid "Use in products?"
+msgstr "Benutzen in Produkten?"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_product_attribute_variant_attribute
+msgid "Use to create variant products?"
+msgstr "Benutzen um Produktvarianten zu erzeugen?"
+
+#. module: grimm_product
+#: model:ir.ui.view,arch_db:grimm_product.of_product_attribute_tree_view
+msgid "Variant Values"
+msgstr "Variantenwerte"
+
+#. module: grimm_product
+#: model:ir.ui.view,arch_db:grimm_product.product_template_grimm_form
+msgid "Warranty"
+msgstr "Garantie"
+
+#. module: grimm_product
+#: model:ir.model.fields,field_description:grimm_product.field_grimm_product_brand_warranty_duration
+#: model:ir.model.fields,field_description:grimm_product.field_product_template_warranty
+msgid "Warranty Duration"
+msgstr "Garantiedauer"
+
+#. module: grimm_product
+#: model:ir.actions.act_window,name:grimm_product.product_warranty_type_action
+#: model:ir.ui.menu,name:grimm_product.menu_product_warranty_type_action
+#: model:ir.ui.view,arch_db:grimm_product.product_product_warranty_type_tree_view
+#: model:ir.ui.view,arch_db:grimm_product.product_warranty_type_form_view
+msgid "Warranty Type"
+msgstr "Garantietyp"
+
+#. module: grimm_product
+#: model:ir.model.fields,help:grimm_product.field_grimm_product_brand_warranty_duration
+#: model:ir.model.fields,help:grimm_product.field_product_template_warranty
+msgid "Warranty in month for this product/supplier relation. Only for company/supplier relation (purchase order) ; the  customer/company relation (sale order) always use the product main warranty field"
+msgstr "Garantie in Monaten für diese Produkt-/Lieferantenbeziehung. Nur für die Firmen-/Lieferantenbeziehung (Bestellung) ; die Kunden-/Firmenbeziehung (Verkaufsauftrag) verwendet immer das Feld Produkthauptleistung."
+
+#. module: grimm_product
+#: model:ir.model,name:grimm_product.model_grimm_product_brand
+msgid "grimm.product.brand"
+msgstr "grimm.product.brand"
+
+#. module: grimm_product
+#: model:ir.model,name:grimm_product.model_product_attribute_line
+msgid "product.attribute.line"
+msgstr "product.attribute.line"
+
+#. module: grimm_product
+#: model:ir.model,name:grimm_product.model_product_attribute_set
+msgid "product.attribute.set"
+msgstr "product.attribute.set"
+
+#. module: grimm_product
+#: model:ir.model,name:grimm_product.model_product_attributes_data
+msgid "product.attributes.data"
+msgstr "product.attributes.data"
+

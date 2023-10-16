@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    Inherited Search View Of Charts Of Account  -->
+    <record id="view_account_search_inherit" model="ir.ui.view">
+        <field name="name">view.account.search.inherit</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//searchpanel[@class='account_root']" position="replace">
+                <searchpanel>
+                    <field name="group_id" icon="fa-filter"/>
+                </searchpanel>
+            </xpath>
+        </field>
+    </record>
+
+    <!--    Inherited Search View Of General Legder-->
+     <record id="view_account_move_line_filter_inherited" model="ir.ui.view">
+            <field name="name">account.move.line.search.inherit</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_account_move_line_filter_with_root_selection"/>
+            <field name="arch" type="xml">
+                <xpath expr="//searchpanel[@class='account_root']" position="replace">
+                    <searchpanel>
+                        <field name="group_id" icon="fa-filter"/>
+                    </searchpanel>
+                </xpath>
+            </field>
+     </record>
+
+    <!--       Menu Of Account Groups   -->
+    <menuitem action="account.action_account_group_tree" id="menu_action_account_group"
+              parent="account.account_account_menu" groups="account.group_account_user" sequence="2"/>
+
+    <!-- Inherited Journal Item Menu -->
+    <menuitem id="account.menu_action_account_moves_all" name="Journal Items"
+              parent="account.menu_finance_entries_accounting_miscellaneous"
+              groups="-base.group_no_one,account.group_account_manager"/>
+
+    <!--     Remove/Hide Fiscal Position Menu-->
+    <menuitem action="account.action_account_fiscal_position_form"
+              id="account.menu_action_account_fiscal_position_form"
+              parent="account.account_invoicing_menu" sequence="3"
+              groups="sky_hr_custom.grp_no_menu"/>
+
+    <!--    Remove/Hide Incoterms Menu-->
+    <menuitem action="account.action_incoterms_tree" id="account.menu_action_incoterm_open"
+              parent="account.account_invoicing_menu" sequence="4"
+              groups="-account.group_account_manager,sky_hr_custom.grp_no_menu"/>
+
+    <!--    Remove/Hide Payment Acquirer Menu-->
+    <menuitem action='payment.action_payment_acquirer' id='payment.payment_acquirer_menu'
+              parent='account.root_payment_menu' sequence='10'
+              groups="sky_hr_custom.grp_no_menu"/>
+
+    <!--    Remove/Hide Follow-up Levels Menu-->
+    <menuitem action="base_accounting_kit.action_account_followup_definition_form"
+              id="base_accounting_kit.account_followup_menu"
+              parent="account.account_management_menu" name="Follow-up Levels"
+              groups="-account.group_account_manager,sky_hr_custom.grp_no_menu" sequence="2"/>
+
+    <!--    Remove/Hide Follow-up Reports Menu-->
+    <menuitem id="base_accounting_kit.customer_statements_menu" name="Follow-up Reports"
+              parent="account.menu_finance_receivables"
+              action="base_accounting_kit.action_view_list_customer_statements" sequence="20"
+              groups="-account.group_account_user,sky_hr_custom.grp_no_menu"/>
+
+    <!--    Remove/Hide Customer Invoices Menu-->
+    <menuitem id="account.menu_action_move_out_invoice_type"
+            action="account.action_move_out_invoice_type"
+            parent="account.menu_finance_receivables"
+            sequence="1"
+            groups="sky_hr_custom.grp_no_menu"/>
+
+    <!--    Remove/Hide Vendors Bills Menu-->
+    <menuitem id="account.menu_action_move_in_invoice_type"
+            action="account.action_move_in_invoice_type"
+            parent="account.menu_finance_payables"
+            sequence="1"
+            groups="sky_hr_custom.grp_no_menu"/>
+</odoo>

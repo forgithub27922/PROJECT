@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_name_config_ruleset,access.name.config.ruleset,model_name_config_ruleset,base.group_user,1,1,1,1
+access_ruleset_attribute_line,access.ruleset.attribute.line,model_ruleset_attribute_line,base.group_user,1,1,1,1

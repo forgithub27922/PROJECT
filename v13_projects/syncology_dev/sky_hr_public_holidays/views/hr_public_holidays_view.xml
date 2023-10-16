@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form view of Public Holidays -->
+    <record id="view_public_holidays_form" model="ir.ui.view">
+        <field name="name">view.public.holidays.form</field>
+        <field name="model">hr.public.holidays.line</field>
+        <field name="arch" type="xml">
+            <form>
+                <label for="name"/>
+                <h1>
+                    <field name="name" required="1"
+                            placeholder="Descrption of the Holiday For e.g. Ramadan Eid, Chirstmas, Deewali etc."/>
+                </h1>
+                <group name="grp_main" colspoan="4" col="4">
+                    <field name="date" required="1"/>
+                    <field name="day"/>
+                    <field name="company_id" groups="base.group_multi_company" options="{'no_create':1, 'no_open':1}"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Public Holidays -->
+    <record id="view_public_holidays_tree" model="ir.ui.view">
+        <field name="name">view.public.holidays.tree</field>
+        <field name="model">hr.public.holidays.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="day"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Calendar view of Public Holidays -->
+    <record id="view_public_holidays_calendar" model="ir.ui.view">
+        <field name="name">view.public.holidays.calendar</field>
+        <field name="model">hr.public.holidays.line</field>
+        <field name="arch" type="xml">
+            <calendar date_start="date" color="company_id">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+
+    <!-- Search view of Public Holidays -->
+    <record id="view_public_holidays_search" model="ir.ui.view">
+        <field name="name">view.public.holidays.search</field>
+        <field name="model">hr.public.holidays.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="day"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <filter name="grp_by_date" string="Date" context="{'group_by':'date'}"/>
+                <filter name="grp_by_company" string="Company" context="{'group_by':'company_id'}" groups="base.group_multi_company"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Public Holidays -->
+    <record id="action_public_holidays" model="ir.actions.act_window">
+        <field name="name">Public Holidays</field>
+        <field name="res_model">hr.public.holidays.line</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+    <!-- Menu of Public Holidays -->
+    <menuitem id="menu_public_holidays" sequence="11" action="action_public_holidays" parent="sky_hr_custom.menu_hr_config"
+              groups="sky_hr_public_holidays.group_public_holidays"/>
+
+    <!-- Giving Access Right of Configuration menu of Human Resource to payroll manager -->
+        <menuitem id="sky_hr_custom.menu_hr_config" name="Configuration" parent="sky_hr_custom.menu_human_resource_main"
+                  groups="hr_holidays.group_hr_holidays_manager"/>
+
+</odoo>

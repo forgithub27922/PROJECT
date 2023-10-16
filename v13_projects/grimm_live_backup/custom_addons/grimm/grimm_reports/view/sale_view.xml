@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_grimm_sale_order_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.sale.order.view.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_template_id']" position="after">
+                    <field name="internal_cat" optional="hide"/>
+                    <field name="layout_category_id" optional="hide"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/form/group/group/field[@name='product_id']" position="after">
+                    <field name="internal_cat"/>
+                    <field name="layout_category_id"/>
+                </xpath>
+                <xpath expr="//button[@name='action_cancel']" position="before">
+                    <button name="%(grimm_delivery_notice_report)d" type="action" string="Lieferanzeige drucken"
+                            attrs="{'invisible': [['state', 'not in', ['sale', 'done']]]}"/>
+                    <button name="action_dn_sent" type="object" string="Lieferanzeige senden"
+                            attrs="{'invisible': [['state', 'not in', ['sale', 'done']]]}"/>
+                </xpath>
+                <xpath expr="//group[@name='sales_person']" position="inside">
+                    <field name="print_internal_ref"></field>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

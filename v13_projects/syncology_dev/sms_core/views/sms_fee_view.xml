@@ -1,0 +1,439 @@
+<odoo>
+	<data>
+
+		<!-- ============= Fee Policy Line View Start =============== -->
+
+		<record model="ir.ui.view" id="sms_fee_policy_line_form">
+			<field name="name">fee.policy.line.form</field>
+			<field name="model">fee.policy.line</field>
+			<field name="arch" type="xml">
+				<form string="Fee Installments">
+					<header>
+						<button name="%(action_delete_student_wizard)d" type="action" string="Delete Student" class="oe_highlight" attrs="{'invisible': [('state', '=','draft')]}"/>
+						<button name="action_post" string="Post" type="object" class="btn-primary" states="draft"/>
+						<button name="action_set_to_draft" string="Set to Draft" type="object" class="btn-primary" states="post"/>
+						<button name="%(action_update_account_wizard)d" type="action" string="Update Accounts or Journal" class="oe_highlight" states="post"/>
+
+						<field name="state" widget="statusbar" attrs="{'readonly':[('state','=','post')]}"/>
+					</header>
+					<sheet>
+
+						<div class="oe_title">
+							<h1>
+								<field name="name" invisible="1"/>
+							</h1>
+						</div>
+						<group>
+
+							<group>
+								<field name="installment_no" string="Installment Name" required="1" attrs="{'readonly':[('state','=','post')]}"/>
+								<field name="fee_type_id" required="1"  attrs="{'readonly':[('state','=','post')]}"/>
+								<field name="amount" required="1"  attrs="{'readonly':[('state','=','post')]}"/>
+
+							</group>
+							<group>
+								<field name="date" required="1"  attrs="{'readonly':[('state','=','post')]}"/>
+								<field name="due_date" required="1"  attrs="{'readonly':[('state','=','post')]}"/>
+								<field name="warning_email_date"  attrs="{'readonly':[('state','=','post')]}"/>
+								<field name="journal_id" attrs="{'readonly':[('state','=','post')]}" required="1"/>
+								<field name="from_account" attrs="{'readonly':[('state','=','post')]}" required="1"/>
+								<field name="to_account" attrs="{'readonly':[('state','=','post')]}" required="1"/>
+							</group>
+						</group>
+						<notebook>
+							<page name="pg_applied_on" string="Applied On">
+								<field name="academic_student_installment_ids"
+									   context="{'student_id':id, 'hide_admit_btn':True}"/>
+								<button name="%(action_installments_wizard)d" string="Add Students" type="action"
+										class="btn-primary" attrs="{'invisible': [('state', '=','draft')]}"/>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+						<field name="activity_ids" widget="mail_activity" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sms_fee_policy_line_tree">
+			<field name="name">fee.policy.line.tree</field>
+			<field name="model">fee.policy.line</field>
+			<field name="arch" type="xml">
+				<tree string="Fee Installments">
+					<field name="name" invisible="1"/>
+					<field name="installment_no" string="Installment Name"/>
+					<field name="date" />
+					<field name="due_date" />
+					<field name="amount" />
+					<field name="applied_fee" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="sms_fee_policy_line_filter" model="ir.ui.view">
+			<field name="name">fee.policy.line.filter</field>
+			<field name="model">fee.policy.line</field>
+			<field name="arch" type="xml">
+				<search string="Search Fee Installment">
+					<field name="installment_no" string="Installment Name"/>
+					<field name="date" />
+					<field name="due_date" />
+					<field name="amount" />
+					<field name="total_fee_charged" />
+					<filter name="missing_due_date" string="Due Date Not Set" domain="[('due_date','=',False)]" />
+					<group expand="0" string="Group By">
+						<filter string="Instalment" name="name" domain="[]" context="{'group_by':'name'}" />
+						<filter string="Due Date" name="due_date" domain="[]" context="{'group_by':'due_date'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_sms_all_fee_policy_lines">
+			<field name="name">Fee Installments</field>
+			<field name="res_model">fee.policy.line</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<!-- <field name="context">{"search_default_active":True}</field> -->
+			<field name="view_id" ref="sms_fee_policy_line_tree" />
+			<field name="search_view_id" ref="sms_fee_policy_line_filter" />
+		</record>
+
+
+		<!-- ============== Fee Type View Start ================== -->
+		<record id="fee_type_form" model="ir.ui.view">
+			<field name="name">fee.type.form</field>
+			<field name="model">fee.type</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" required="1"/>
+							<field name="code"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="fee_type_tree" model="ir.ui.view">
+			<field name="name">fee.type.tree</field>
+			<field name="model">fee.type</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="code"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_fee_type">
+			<field name="name">Fee Type</field>
+			<field name="res_model">fee.type</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<!-- ============== Student Fee View Start ================== -->
+
+		<record model="ir.ui.view" id="sms_studen_fee_form">
+			<field name="name">student.fee.form</field>
+			<field name="model">student.fee</field>
+			<field name="arch" type="xml">
+				<form string="Fee Policy" create="false">
+					<header>
+						<button name="call_fee_payment_wizard" string="Payment" attrs="{'invisible': [('status', '!=','unpaid')]}" type="object" class="btn-success" groups="" context="{'installment_id':id}"/>
+						<button name="call_refund_fee_wizard" string="Refund" attrs="{'invisible': [('status', '!=','paid')]}" type="object" class="btn-success" groups="sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee" context="{'installment_id':id}"/>
+						<button name="print_report" string="Print" type="object" class="btn-primary"/>
+						<field name="status" widget="statusbar" statusbar_visible="unpaid,paid,refunded,cancelled" readonly="1" />
+					</header>
+					<div class="oe_form_box_info bg-danger oe_text_center" attrs="{'invisible': [('is_overdue', '=',False)]}">
+						<span>Overdue</span>
+					</div>
+					<sheet>
+						<div class="oe_title">
+							<h1>
+								<field name="serial_number" readonly="1"/>
+							</h1>
+							<h1>
+								<field name="student_id"/> - <field name="name"/>
+							</h1>
+
+							<span>Student Fee Register</span>
+						</div>
+						<group>
+
+							<group>
+								<field name="fee_type_id" />
+								<field name="fee_date" attrs="{'readonly': [('status', '!=','unpaid')]}" />
+								<field name="due_date" attrs="{'readonly': [('status', '!=','unpaid')]}" />
+								<field name="warning_date" attrs="{'readonly': [('status', '!=','unpaid')]}" />
+								<field name="payment_date" attrs="{'readonly': [('status', '!=','unpaid')]}" />
+								<field name="grade_id" readonly="1" force_save="1"/>
+								<field name="admission_Date" readonly="1" force_save="1"/>
+
+								<field name="parent_employee_ids" widget="many2many_tags" readonly="1" force_save="1"/>
+								<field name="father_starting_date" readonly="1" force_save="1"/>
+								<field name="mother_starting_date" readonly="1" force_save="1"/>
+							</group>
+							<group>
+								<field name="total_amount" attrs="{'readonly': [('status', '!=','unpaid')]}" />
+								<field name="sibling_disc" attrs="{'readonly': [('status', '!=','unpaid')]}" />
+								<field name="emp_chil_disc" attrs="{'readonly': [('status', '!=','unpaid')]}" />
+								<field name="cash_discount" attrs="{'readonly': [('status', '!=','unpaid')]}" />
+								<field name="applied_fee" readonly="1" force_save="1" />
+								<field name="account_id" readonly="1"/>
+							</group>
+						</group>
+						<group>
+							<group>
+							</group>
+							<group>
+								<field name="fee_policy_line_id" attrs="{'readonly': [('status', '!=','unpaid')]}" options="{'no_create':True,'no_edit':True,'no_open':True }" />
+								<field name="is_overdue" invisible="1" />
+							</group>
+						</group>
+						<notebook>
+							<page name="siblings" string="Siblings">
+								<field name="siblings_ids" readonly="1" force_save="1"/>
+							</page>
+						</notebook>
+
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+						<field name="activity_ids" widget="mail_activity" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+
+
+		<record model="ir.ui.view" id="sms_core_fee_student_fee_tree">
+			<field name="name">student.fee.tree</field>
+			<field name="model">student.fee</field>
+			<field name="arch" type="xml">
+				<tree string="Student Fee" decoration-danger="is_overdue == True" decoration-info="status == 'unpaid'" decoration-success="status == 'paid'"  decoration-primary="status == 'refunded'" decoration-muted="status == 'cancelled'">
+					<field name="name" />
+					<field name="student_id" />
+					<field name="student_name_arabic" />
+					<field name="fee_policy_line_id" />
+					<field name="due_date" />
+					<field name="total_amount" sum="Total" />
+					<field name="sibling_disc" sum="Total" />
+					<field name="emp_chil_disc" sum="Total" />
+					<field name="cash_discount" sum="Total" />
+					<field name="applied_fee" sum="Total" />
+					<field name="status" />
+					<field name="is_overdue" />
+
+				</tree>
+			</field>
+		</record>
+
+		<record id="sms_fee_student_fee_filter" model="ir.ui.view">
+			<field name="name">student.fee.filter1</field>
+			<field name="model">student.fee</field>
+			<field name="arch" type="xml">
+				<search string="Search Fee">
+					<field name="student_id" />
+					<field name="student_name_arabic" />
+					<field name="fee_date" />
+					<field name="due_date" />
+					<field name="total_amount" />
+					<field name="status" />
+					<field name="is_overdue" />
+					<filter name="overdue" string="Over Due" domain="[('is_overdue','=',True)]" />
+					<filter name="missing_datedate" string="Due Date Not Set" domain="[('due_date','=',False)]" />
+					<filter name="show_paid_fee" string="Show Paid Fee" domain="[('status','=','paid')]" />
+					<filter name="show_unpaid_fee" string="Show Unpaid Fee" domain="[('status','=','unpaid')]" />
+					<group expand="0" string="Group By">
+						<filter string="Student" name="student_id" domain="[]" context="{'group_by':'student_id'}" />
+						<filter string="Fee Date" name="fee_date" domain="[]" context="{'group_by':'fee_date'}" />
+						<filter string="Due Date" name="due_date" domain="[]" context="{'group_by':'due_date'}" />
+						<filter string="Installment" name="fee_policy_line_id" domain="[]" context="{'group_by':'fee_policy_line_id'}" />
+						<filter string="Status" name="status" domain="[]" context="{'group_by':'status'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_sms_all_student_fee">
+			<field name="name">Student Fee</field>
+			<field name="res_model">student.fee</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_mode">tree,form</field>
+			<!-- <field name="context">{"search_default_active":True}</field> -->
+			<field name="view_id" ref="sms_core_fee_student_fee_tree" />
+			<field name="search_view_id" ref="sms_fee_student_fee_filter" />
+		</record>
+
+		<!-- =========== Academic Student View Start ============ -->
+		<record model="ir.ui.view" id="sms_core_acd_student_fee_form">
+			<field name="name">academic.student.form11</field>
+			<field name="model">academic.student</field>
+			<field name="arch" type="xml">
+				<form string="Student Fee Form" create="false">
+					<header>
+						<button name="%(action_view_sync_lms_wizard)d" context="{'lms_action' : 'in_active','active_std':id}" attrs="{'invisible':['|','|',('moodle_status','=','in_active'),('state','!=','admitted'),('synced_with_lms','=',False)]}" string="Deactivate LMS" type="action" class="btn-primary"/>
+						<button name="%(action_view_sync_lms_wizard)d" string="Activate LMS " context="{'lms_action' : 'active','active_std':id}" attrs="{'invisible':['|','|',('moodle_status','=','active'),('state','!=','admitted'),('synced_with_lms','=',False)]}" type="action" class="btn-primary"/>
+						<field name="state" widget="statusbar" statusbar_visible="close" readonly="1" invisible="1" />
+					</header>
+					<sheet>
+						<div class="oe_button_box" name="button_box">
+							<button name="" class="oe_stat_button" icon="fa-money" groups="">
+								<field name="fee_balance" widget="statinfo" string="Total Dues" />
+							</button>
+							<button name="action_dues_student_fee" context="{'std_id':id}" class="oe_stat_button" icon="fa-print" groups="" type="object">
+								<field name="due_amount" widget="statinfo" string="Next Invoice" />
+							</button>
+							<button name="action_dues_student_fee" context="{'std_id':id}" class="oe_stat_button" icon="fa-clock-o" type="object" groups="">
+								<field name="due_month" widget="statinfo" string="Dues Date" />
+							</button>
+						</div>
+
+						<field name="student_image" widget='image' class="oe_avatar" options='{"zoom": true, "preview_image":"student_image"}' />
+						<group>
+							<group>
+								<field name="full_name" readonly="1" />
+								<field name="student_id" readonly="1" force_save="1" />
+								<field name="class_id" class="alert-link" readonly="1" />
+								<field name="admitted_status" invisible="1"/>
+								<field name="moodle_status" invisible="1"/>
+								<field name="synced_with_lms" invisible="1"/>
+							</group>
+							<group>
+								<field name="full_name_arabic" readonly="1" />
+								<field name="class_section_id" readonly="1" string="Class" />
+							</group>
+						</group>
+
+						<notebook>
+							<page string="Fee Register" name="fee_info" groups="sms_core.group_manager_sms_fee,sms_core.group_officer_sms_fee">
+								<field name="student_fee_ids" widget="one2many_list">
+									<tree decoration-info="status == 'unpaid'" decoration-success="status == 'paid'" decoration-muted="status == 'cancelled'" decoration-danger="is_overdue == True" create="false" edit="false" delete="false">
+										<field name="name" readonly="1" />
+										<field name="fee_date" readonly="1" />
+										<field name="due_date" readonly="1" />
+										<field name="total_amount" sum="Total" />
+										<field name="sibling_disc" sum="Total" />
+										<field name="emp_chil_disc" sum="Total" />
+										<field name="cash_discount" sum="Total" />
+										<field name="applied_fee" sum="Total" />
+										<field name="payment_date" />
+										<field name="status" />
+										<field name="is_overdue" />
+										<button name="fee_payment" string="Payment" type="object" icon="fa-money" attrs="{'invisible': [('status', '=','paid')]}" context="{'installment_id':id}"/>
+									</tree>
+									<form>
+										<group>
+											<group>
+												<field name="name" readonly="1" />
+												<field name="fee_date" readonly="1" />
+												<field name="due_date" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="payment_date" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="is_overdue" />
+											</group>
+											<group>
+												<field name="total_amount" readonly="1" />
+												<field name="sibling_disc" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="emp_chil_disc" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="cash_discount" attrs="{'readonly':[('status','=','paid')]}" />
+												<field name="applied_fee" />
+												<field name="status" readonly="1" />
+											</group>
+										</group>
+									</form>
+
+								</field>
+							</page>
+
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
+						<field name="activity_ids" widget="mail_activity" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sms_core_acd_student_fee_tree">
+			<field name="name">academic.student.tree11</field>
+			<field name="model">academic.student</field>
+			<field name="arch" type="xml">
+				<tree string="Student Register" create="false" edit="false">
+					<field name="full_name" />
+					<field name="full_name_arabic" />
+					<field name="national_id" />
+					<field name="passport_id" />
+					<field name="school_id" />
+					<field name="class_id" string="Grade" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="sms_core_acd_std_fee_filter" model="ir.ui.view">
+			<field name="name">academic.student.filter11</field>
+			<field name="model">academic.student</field>
+			<field name="arch" type="xml">
+				<search string="Search Student">
+					<field name="full_name" />
+					<field name="full_name_arabic" />
+					<field name="national_id" />
+					<field name="passport_id" />
+					<field name="school_id" />
+					<field name="class_id" />
+					<field name="father_full_name" string="Father Name" />
+					<field name="mother_full_name" string="Mother Name" />
+					<field name="guardian_full_name" string="Guardian Name" />
+					<field name="nationality" />
+					<field name="state" />
+					<filter string="Father is Absent" name="father_is_absent" domain="[('father_is_absent','=',True)]" />
+					<filter string="Mother is Absent" name="mother_is_absent" domain="[('mother_is_absent','=',True)]" />
+					<filter string="Father is Guardian" name="legal_guardian" domain="[('legal_guardian','=','father_is_legal_guardian')]" />
+					<filter string="Mother is Guardian" name="legal_guardian" domain="[('legal_guardian','=','mother_is_legal_guardian')]" />
+					<group expand="0" string="Group By">
+						<filter string="School" name="school_id" domain="[]" context="{'group_by':'school_id'}" />
+						<filter string="Class" name="class_id" domain="[]" context="{'group_by':'class_id'}" />
+						<filter string="Country" name="nationality" domain="[]" context="{'group_by':'nationality'}" />
+						<filter string="Sibling Status" name="sibing_status" domain="[]" context="{'group_by':'sibing_status'}" />
+						<filter string="State" name="state" domain="[]" context="{'group_by':'state'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_acd_std_fee_all">
+			<field name="name">All Students (Active)</field>
+			<field name="res_model">academic.student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','admitted')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sms_core_acd_student_fee_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sms_core_acd_student_fee_form')})]" />
+			<field name="search_view_id" ref="sms_core_acd_std_fee_filter" />
+		</record>
+
+		<record model="ir.actions.act_window" id="action_pending_payments">
+			<field name="name">Pending Payments</field>
+			<field name="res_model">academic.student</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="domain">[('state','=','draft')]</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('sms_core_acd_student_fee_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('sms_core_acd_student_fee_form')})]" />
+			<field name="search_view_id" ref="sms_core_acd_std_fee_filter" />
+		</record>
+	</data>
+</odoo>

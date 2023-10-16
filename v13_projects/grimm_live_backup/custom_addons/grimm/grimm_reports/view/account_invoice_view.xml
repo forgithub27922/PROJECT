@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_grimm_account_invoice_view_inherit" model="ir.ui.view">
+            <field name="name">view.grimm.account.invoice.view.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_date']" position="after">
+                    <field name="delivery_address"/>
+                </xpath>
+                <button name="action_invoice_sent" position="attributes">
+                    <attribute name="attrs">{'invisible':['|', ('state', 'not in', ('open','proforma'))]}</attribute>
+                </button>
+
+                <!--               <xpath expr="//group/field[@name='name']" position="before">-->
+                <!--                    <group>-->
+                <!--                        <field name="delivery_address_header"/>-->
+                <!--                        <field name="print_internal_ref"/>-->
+                <!--                    </group>-->
+                <!--                </xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>

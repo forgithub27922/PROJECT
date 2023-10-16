@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <template id="worksheet_custom_page_inherit" inherit_id="industry_fsm_report.worksheet_custom_page">
+            <xpath expr="//div[@class='page']" position="replace">
+                <div class="page" style="margin-left:-15px;">
+                    <div class="folding_line1"/>
+                    <div class="folding_line2"/>
+                    <div class="folding_line3"/>
+                    <div class="container">
+
+
+                        <table style="width:100%;">
+                            <tr class="info_row">
+                                <td class="grimm_info" style="font-weight: 200; vertical-align:top;">
+                                    <hr class="top"/>
+                                    <b>
+                                        <span class="regular" style="padding-top:4mm; padding-bottom:4mm;">Wichtige
+                                            Hinweise
+                                        </span>
+                                    </b>
+                                    entnehmen Sie unseren
+                                    <t t-if="doc.company_id.id == 1">
+                                        <a href="https://www.grimm-gastrobedarf.de/agb" t-attf-style="color:{{doc.company_id.theme_color}};">AGB
+                                        </a>
+                                    </t>
+                                    <t t-if="doc.company_id.id == 3">
+                                        <a href="https://www.partenics.de/agb" t-attf-style="color:{{doc.company_id.theme_color}};">AGB
+                                        </a>
+                                    </t>
+                                    <hr class="bottom"/>
+                                </td>
+                                <td class="grimm_info_col2"/>
+                                <td colspan="2" style="padding-bottom: 15px;">
+                                    <span t-field="doc.company_id.report_logo_header"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+
+                                </td>
+                            </tr>
+                            <tr class="info_row">
+                                <td>
+                                    <span class="sichtfenster" style="font-weight: 200;">
+                                        GRIMM Gastronomiebedarf GmbH. <!--<span t-if="doc.company_id.name" t-field="doc.company_id.name"/>-->
+                                        ·
+                                        <span t-if="doc.company_id.street" t-field="doc.company_id.street"/>
+                                        ·
+                                        <span t-if="doc.company_id.zip" t-field="doc.company_id.zip"/>
+                                        <span t-if="doc.company_id.city" t-field="doc.company_id.city"/>
+                                        <br/>
+                                    <br/>
+
+                                    </span>
+                                </td>
+                                <td/>
+                                <td colspan="2" class="order-head bold">
+                                  <span t-attf-style="color:{{doc.company_id.theme_color}};">
+                                    SERVICEBERICHT
+                                    </span>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="padding: 0.25%;"/>
+                            </tr>
+                            <tr>
+                                <t t-if="not doc.partner_id.parent_partner_print">
+                                    <td class="address">
+                                        <div style="font-weight: 200;">
+                                            <t t-if="doc.partner_id.parent_id">
+                                                <t t-if="doc.partner_id.parent_id.name != doc.partner_id.name">
+                                                    <div t-field="doc.partner_id.parent_id.name"/>
+                                                </t>
+                                            </t>
+                                            <div t-field="doc.partner_id.name"/>
+                                            <t t-if="doc.partner_id.company">
+                                                <div t-field="doc.partner_id.company"/>
+                                            </t>
+                                            <div t-field="doc.partner_id.street"/>
+                                            <t t-if="doc.partner_id.street2">
+                                                <div t-field="doc.partner_id.street2"/>
+                                            </t>
+                                            <div>
+                                                <span t-field="doc.partner_id.zip"/> <span t-field="doc.partner_id.city"/>
+                                            </div>
+                                            <div t-field="doc.partner_id.country_id"/>
+                                        </div>
+                                    </td>
+                                </t>
+                                <t t-if="doc.partner_id.parent_partner_print">
+                                    <td class="address">
+                                        <div style="font-weight: 200;">
+                                            <div t-field="doc.partner_id.name"/>
+                                            <t t-if="doc.partner_id.company">
+                                                <div t-field="doc.partner_id.company"/>
+                                            </t>
+                                            <div t-field="doc.partner_id.street"/>
+                                            <t t-if="doc.partner_id.street2">
+                                                <div t-field="doc.partner_id.street2"/>
+                                            </t>
+                                            <div>
+                                                <span t-field="doc.partner_id.zip"/> <span t-field="doc.partner_id.city"/>
+                                            </div>
+                                            <div t-field="doc.partner_id.country_id"/>
+                                        </div>
+                                    </td>
+                                </t>
+                                <td/>
+                                <td class="header" colspan="2" style="font-weight: 200;">
+                                    <table width="100%" style="color: #666666;">
+                                        <tr style="border-bottom: 0.1em solid rgba(112,111,111,0.5); font-weight:bold;color: black;">
+                                            <td class="header-spacer">Ticket-NR.</td>
+                                            <td align="right">
+                                                <span t-esc="doc.name.split(' ')[0]"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              Auftrags-Nr.
+                                            </td>
+                                            <td align="right">
+                                                    <span t-if="doc.sale_order_id" t-esc="doc.sale_order_id.name"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                              Erstellt am
+                                            </td>
+                                            <td align="right">
+                                                <span t-esc="doc.create_date.strftime('%d.%m.%Y')"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="white-space: nowrap;">
+                                              Ihr Servicetechniker
+                                            </td>
+                                            <td align="right">
+                                                <span t-esc="doc.user_id.name"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4"/>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <t t-set="ticket_contact" t-value="doc.claim_contact if doc.claim_contact else doc.partner_id"/>
+                                    <t t-if="ticket_contact">
+                                        <br/>Ansprechpartner vor Ort:
+                                            <span t-field="ticket_contact.name"/>
+                                        <br/>
+                                        <table>
+                                            <tr>
+                                              <td>
+                                                <t t-if="ticket_contact.mobile">Mobile : <span t-field="ticket_contact.mobile" style="padding-right:7px"/></t>
+                                                <t t-if="ticket_contact.phone">Phone : <span t-field="ticket_contact.phone" style="padding-right:7px"/></t>
+                                                <t t-if="ticket_contact.email"><br/>E-Mail : <span t-field="ticket_contact.email"/></t>
+                                              </td>
+                                            </tr>
+                                        </table>
+                                        <br/>
+                                    </t>
+                                    <!--<t t-if="doc.partner_id.phone">
+                                        Telefonnummer:
+                                            <span t-field="doc.partner_id.phone"/>
+                                        <br/><br/>
+                                    </t>-->
+                                    <t t-if="doc.sale_order_id and doc.sale_order_id.order_subject">
+                                        <b><span t-field="doc.sale_order_id.order_subject"/></b>
+                                        <br/><br/>
+                                    </t>
+                                    <t t-if="doc.description">
+                                        <span t-field="doc.description"/>
+                                        <br/><br/>
+                                    </t>
+                                </td>
+                                <td class="address" style="border-top: 4px double black;">
+                                  <t t-if="doc.sale_order_id and doc.sale_order_id.partner_shipping_id">
+                                    <strong>Shipping address</strong><br/>
+                                    <div style="font-weight: 200;">
+                                        <div t-field="doc.sale_order_id.partner_shipping_id.name"/>
+                                        <t t-if="doc.sale_order_id.partner_shipping_id.company">
+                                            <div t-field="doc.sale_order_id.partner_shipping_id.company"/>
+                                        </t>
+                                        <div t-field="doc.sale_order_id.partner_shipping_id.street"/>
+                                        <t t-if="doc.sale_order_id.partner_shipping_id.street2">
+                                            <div t-field="doc.sale_order_id.partner_shipping_id.street2"/>
+                                        </t>
+                                        <div>
+                                            <span t-field="doc.sale_order_id.partner_shipping_id.zip"/> <span t-field="doc.sale_order_id.partner_shipping_id.city"/>
+                                        </div>
+                                        <div t-field="doc.sale_order_id.partner_shipping_id.country_id"/>
+                                    </div>
+                                    <br/>
+                                  </t>
+                                  <t t-if="doc.sale_order_id and doc.sale_order_id.partner_invoice_id">
+                                    <strong>Invoice address</strong> <br/>
+                                    <div style="font-weight: 200;">
+                                        <div t-field="doc.sale_order_id.partner_invoice_id.name"/>
+                                        <t t-if="doc.sale_order_id.partner_invoice_id.company">
+                                            <div t-field="doc.sale_order_id.partner_invoice_id.company"/>
+                                        </t>
+                                        <div t-field="doc.sale_order_id.partner_invoice_id.street"/>
+                                        <t t-if="doc.sale_order_id.partner_invoice_id.street2">
+                                            <div t-field="doc.sale_order_id.partner_invoice_id.street2"/>
+                                        </t>
+                                        <div>
+                                            <span t-field="doc.sale_order_id.partner_invoice_id.zip"/> <span t-field="doc.sale_order_id.partner_invoice_id.city"/>
+                                        </div>
+                                        <div t-field="doc.sale_order_id.partner_invoice_id.country_id"/>
+                                    </div>
+                                  </t>
+                              </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"/>
+                                <td colspan="2" class="customer-user" style="font-weight: 200;"/>
+                            </tr>
+                        </table>
+
+
+                        <t>
+                            <t t-set="order" t-value="doc.sale_order_id"/>
+                            <t t-set="timesheet_product" t-value="doc.sale_line_id"/>
+                            <t t-set="final_subtotal" t-value="0"/>
+                            <t t-set="is_any_total_discount_line" t-value="False"/>
+                            <t t-foreach="order.order_line" t-as="line">
+                                <t t-set="is_task" t-value="line in task_sale_line_ids"/>
+                                <t t-if="is_task">
+                                    <t t-set="final_subtotal" t-value="final_subtotal + line.delivered_price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                    <t t-set="final_subtotal" t-value="final_subtotal + line.delivered_price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                                    <t t-set="is_any_total_discount_line" t-value="is_any_total_discount_line or (line.discount and line.price_unit != 0 and line.delivered_price_total == 0)"/>
+                                </t>
+                                <t t-else="">
+                                    <t t-set="final_subtotal" t-value="final_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                    <t t-set="final_subtotal" t-value="final_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                                    <t t-set="is_any_total_discount_line" t-value="is_any_total_discount_line or (line.discount and line.price_unit != 0 and line.price_total == 0)"/>
+                                </t>
+                            </t>
+                            <t t-set="display_discount" t-value="any(line.discount for line in order.order_line)"/>
+
+
+                            <t t-if="doc.asset_lines">
+                                <h5>Assets</h5>
+                                <div class="table-responsive-sm">
+                                    <table class="table table-sm o_main_table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left">Brand</th>
+                                                <th class="text-left">Typ/Model</th>
+                                                <th class="text-left">Standardort</th>
+                                                <th class="text-left">Platzierung</th>
+                                                <th class="text-right">Serial Number</th>
+                                                <th class="text-right">Customer Inventory No</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="sale_tbody">
+                                            <t t-foreach="doc.asset_lines" t-as="line">
+                                                    <tr>
+                                                        <td>
+                                                            <span t-if="line.brand" t-field="line.brand"/>
+                                                        </td>
+                                                        <td>
+                                                            <span t-if="line.product_id" t-field="line.product_id.name"/>
+                                                        </td>
+                                                        <td>
+                                                            <t t-foreach="line.location_ids" t-as="location">
+                                                                <span t-field="location.name"/>
+                                                            </t>
+                                                        </td>
+                                                        <td>
+                                                            <t t-foreach="line.location_ids" t-as="location">
+                                                                <span t-field="location.placement"/>
+                                                            </t>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <span t-if="line.serial_number" t-field="line.serial_number"/>
+                                                        </td>
+                                                        <td class="text-right">
+                                                            <span t-if="line.customer_inventory_no" t-field="line.customer_inventory_no"/>
+                                                        </td>
+                                                    </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </t>
+
+
+
+                            <t t-if="doc.allow_billable and order and (final_subtotal != 0 or is_any_total_discount_line)">
+                                <br/>
+                                <h5>Time &amp; Material</h5>
+                                <div class="table-responsive-sm">
+                                    <table class="table table-sm o_main_table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left">SKU</th>
+                                                <th class="text-left">Description</th>
+                                                <th class="text-right">Quantity</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="sale_tbody">
+                                            <t t-set="current_subtotal" t-value="0"/>
+
+                                            <t t-foreach="order.order_line" t-as="line">
+                                                <t t-set="is_task" t-value="line in task_sale_line_ids"/>
+                                                <t t-if="is_task">
+                                                    <t t-set="is_total_discount" t-value="line.discount and line.price_unit != 0 and line.delivered_price_total == 0"/>
+                                                </t>
+                                                <t t-else="">
+                                                    <t t-set="is_total_discount" t-value="line.discount and line.price_unit != 0 and line.price_total == 0"/>
+                                                </t>
+                                                <t t-if="(is_task and line.delivered_price_total &gt; 0) or (not is_task and line.price_total &gt; 0) or is_total_discount">
+                                                    <t t-if="is_task">
+                                                        <t t-set="current_subtotal" t-value="current_subtotal + line.delivered_price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                                        <t t-set="current_subtotal" t-value="current_subtotal + line.delivered_price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                                                    </t>
+                                                    <t t-else="">
+                                                        <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                                                        <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                                                    </t>
+
+                                                    <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
+                                                        <t t-if="not line.display_type and not line.is_downpayment">
+                                                            <td>
+                                                                <span t-if="line" t-field="line.product_id.name"/>
+                                                                (<span t-if="line" t-field="line.product_id.default_code"/>)
+                                                            </td>
+                                                            <td>
+                                                                <span t-field="line.name"/>
+                                                            </td>
+                                                            <td class="text-right">
+                                                                <span t-if="is_task" t-esc="'%.2f'% line.qty_delivered"/>
+                                                                <span t-else="" t-field="line.product_uom_qty"/>
+                                                                <span t-field="line.product_uom" groups="uom.group_uom"/>
+                                                            </td>
+                                                        </t>
+                                                        <t t-if="line.display_type == 'line_section'">
+                                                            <td colspan="99">
+                                                                <span t-field="line.name"/>
+                                                            </td>
+                                                            <t t-set="current_section" t-value="line"/>
+                                                            <t t-set="current_subtotal" t-value="0"/>
+                                                        </t>
+                                                        <t t-if="line.display_type == 'line_note'">
+                                                            <td colspan="99">
+                                                                <span t-field="line.name"/>
+                                                            </td>
+                                                        </t>
+                                                    </tr>
+                                                </t>
+                                            </t>
+
+                                            <!--<t t-foreach="doc.free_products" t-as="free_product">
+                                                <tr>
+                                                    <td/>
+                                                    <td><span t-field="free_product.product_name"/></td>
+                                                    <td class="text-right"><span t-field="free_product.product_qty"/></td>
+                                                </tr>
+                                            </t>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </t>
+                        </t>
+
+
+                        <t t-if="doc.allow_timesheets and doc.timesheet_ids">
+                            <h5>Timesheets</h5>
+                            <div class="table-responsive-sm">
+                                <table class="table table-sm o_main_table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-left">Date</th>
+                                            <th class="text-left">Employee</th>
+                                            <th class="text-left">Description</th>
+                                            <th class="text-left">Time Spent</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="sale_tbody">
+                                        <t t-foreach="doc.timesheet_ids" t-as="line">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="line.date"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="line.employee_id.name"/>
+                                                </td>
+                                                <td class="text-left">
+                                                    <span t-field="line.display_name"/>
+                                                </td>
+                                                <td class="text-left">
+                                                    <span t-field="line.unit_amount"/>
+                                                    hour(s)
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </t>
+
+
+                        <table style="width:100%;">
+                        <tr>
+                            <td class="grimm_info" colspan="4">
+                                <u>Prüfung gemäß der VDE0701, 0702 und DGUV</u>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:25%;">Schutzleiterwiderstand</td>
+                            <td style="width:10%;"><span style="color:gray;">Ω</span>
+                                <span t-if="doc.conductor_resistance" t-field="doc.conductor_resistance"/>
+                            </td>
+                            <td colspan="2">Die genannten Arbeiten wurden ordnungsgemäß durchgeführt.</td>
+                        </tr>
+                        <tr>
+                            <td>Schutzleiterstrom</td>
+                            <td colspan="3">
+                                <span>mA</span>
+                                <span t-if="doc.conductor_current" t-field="doc.conductor_current"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Isolationswiderstand</td>
+                            <td><span style="color:gray;">Ω</span>
+                                <span t-if="doc.insulation_resistance" t-field="doc.insulation_resistance"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Berührungsstrom</td>
+                            <td>mA
+                                <span t-if="doc.touch_current" t-field="doc.touch_current"/>
+                            </td>
+                            <td colspan="2">
+                                Offene Leistungen: <t t-if="doc.fsm_done">Ja</t><t t-if="not doc.fsm_done">Nein</t><br/>
+                                <img t-if="doc.user_id.field_service_signature" t-att-src="image_data_uri(doc.user_id.field_service_signature)" style="max-height: 6rem; max-width: 100%;"/>
+                                <br/>Unterschrift des Servicetechnikers
+                                <span t-esc="doc.write_date.strftime('%d.%m.%Y')"/>
+                            </td>
+
+                        </tr>
+                    <!--</table>
+
+
+                    <table style="width:100%;page-break-inside: avoid;">-->
+                        <tr>
+                            <td class="grimm_info" colspan="2" valign="bottom">
+                                <br/><u>Wasserwerte</u>
+                            </td>
+                            <td class="grimm_info" colspan="2" style="border-top: 1px solid;">
+                                Das Gerät wurde übergeben und die Richtigkeit der Angaben werden bescheinigt.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:25%;">Schutzleiterwiderstand</td>
+                            <td style="width:10%;"><span style="color:gray;">Ω</span>
+                                <span t-if="doc.water_conductor_resistance" t-field="doc.water_conductor_resistance"/>
+                            </td>
+                            <td colspan="2">Die genannten Arbeiten wurden ordnungsgemäß durchgeführt.</td>
+                        </tr>
+                        <tr>
+                            <td>Rohwasserhärte</td>
+                            <td colspan="3">ºdH
+                                <span t-if="doc.water_hardness" t-field="doc.water_hardness"/>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Wasserzulauf Gesamthärte</td>
+                            <td>ºdH
+                                <span t-if="doc.water_total_hardness" t-field="doc.water_total_hardness"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Vollentsalzung Leitwert</td>
+                            <td>uS/cm
+                                <span t-if="doc.full_demineralisation_conductance" t-field="doc.full_demineralisation_conductance"/>
+                            </td>
+                            <td rowspan="2">
+                                <img t-if="doc.worksheet_signature" t-att-src="image_data_uri(doc.worksheet_signature)" style="max-height: 6rem; max-width: 100%;"/>
+                                <span t-field="doc.worksheet_signed_by"/>
+                            </td>
+                            <!--<td rowspan="2">
+                                <span t-esc="doc.write_date.strftime('%d.%m.%Y')"/>
+                            </td>-->
+                        </tr>
+                    </table>
+
+                        <br/>
+                        <br/>
+                        <p style="text-align: justify;border: 1px solid black;padding: 15px;page-break-inside: avoid;">
+                            Im Rahmen eines Kundendienstauftrages werden personenbezogene (Name, Anschrift, Kontaktdaten) und gerätebezogene
+(Seriennummer, Gerätestatus, etc.) Daten erhoben und verarbeitet. Die Verarbeitung dieser Daten ist zwingend für die
+Durchführung des Kundendienstauftrages erforderlich, Art. 6 Abs. 1 lit. b.) DSGVO. Darüber hinaus werden wir die o.g. Daten im
+Rahmen der Produktüberwachung und Produktbeobachtung auswerten und ggf. auch an betroffene Lieferanten übermitteln. Als
+Hersteller unterliegen wir entsprechenden Pflichten aus Produkthaftungs- und Produktsicherungsgesetzen - die Rechtsgrundlage
+für die Datenverarbeitung ist Art. 6 Abs. 1 lit. c) der DSGVO. Weiterhin werden die o.g. Daten pseudonymisiert und in
+pseudonymisierter Form ausgewertet, damit wir unsere Produkte laufend optimieren können. Die Rechtsgrundlage dafür ist Art. 6
+Abs. 1 lit. f) DSGVO, wobei die Optimierung unserer Produkte gleichzeitig unser berechtigtes Interesse begründet. Die Daten
+werden bei uns nur solange gespeichert wie sie zur Erfüllung der vorgenannten Zwecke erforderlich sind. Eine darüber
+hinausgehende Speicherung der Daten erfolgt nur, soweit wir aufgrund von rechtlichen Gründen zu einer längeren Speicherung
+verpflichtet sind. Weitere Informationen über die Verarbeitung Ihrer Daten, insbesondere zu Ihren Betroffenenrechten, finden Sie
+in unserer Datenschutzerklärung (https://www.grimm-gastrobedarf.de/datenschutz.html).
+                        </p>
+
+
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

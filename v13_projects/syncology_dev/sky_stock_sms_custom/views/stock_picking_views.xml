@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Inherited  Form View of Stock Picking -->
+    <record id="view_stock_picking_inherited" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@class='o_td_label']" position="before">
+                <field name="contact_type" attrs="{'readonly': [('state', '=', 'done')]}"/>
+            </xpath>
+            <xpath expr="//div[@class='o_td_label']" position="replace"/>
+            <xpath expr="//field[@name='partner_id']" position="replace">
+                <field name="student_id" attrs="{'invisible': [('contact_type', '!=', 'student')],
+                'required':[('contact_type', '=', 'student')],'readonly': [('state', '=', 'done')]}"/>
+                <field name="employee_id" attrs="{'invisible': [('contact_type', '!=', 'employee')],
+                'required':[('contact_type', '=', 'employee')]}"/>
+                <field name="partner_id" attrs="{'invisible': [('contact_type', '!=', 'external')],
+                'required':[('contact_type', '=', 'external')]}"/>
+            </xpath>
+             <xpath expr="//field[@name='origin']" position="after">
+                 <field name="status_id" attrs="{'invisible': [('contact_type', '!=', 'employee')],
+                 'required':[('contact_type', '=', 'employee')]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

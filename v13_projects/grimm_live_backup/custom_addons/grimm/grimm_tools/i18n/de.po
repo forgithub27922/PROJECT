@@ -1,0 +1,2610 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_tools
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-12 13:05+0000\n"
+"PO-Revision-Date: 2021-10-12 13:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_tools
+#: model:mail.template,body_html:grimm_tools.blocked_message_email_template
+msgid ""
+"\n"
+"                \n"
+"            <style type=\"text/css\" id=\"media-query\">\n"
+"      body {\n"
+"  margin: 0;\n"
+"  padding: 0; }\n"
+"\n"
+"table, tr, td {\n"
+"  vertical-align: top;\n"
+"  border-collapse: collapse; }\n"
+"\n"
+".ie-browser table, .mso-container table {\n"
+"  table-layout: fixed; }\n"
+"\n"
+"* {\n"
+"  line-height: inherit; }\n"
+"\n"
+"a[x-apple-data-detectors=true] {\n"
+"  color: inherit !important;\n"
+"  text-decoration: none !important; }\n"
+"\n"
+"[owa] .img-container div, [owa] .img-container button {\n"
+"  display: block !important; }\n"
+"\n"
+"[owa] .fullwidth button {\n"
+"  width: 100% !important; }\n"
+"\n"
+"[owa] .block-grid .col {\n"
+"  display: table-cell;\n"
+"  float: none !important;\n"
+"  vertical-align: top; }\n"
+"\n"
+".ie-browser .num12, .ie-browser .block-grid, [owa] .num12, [owa] .block-grid {\n"
+"  width: 600px !important; }\n"
+"\n"
+".ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {\n"
+"  line-height: 100%; }\n"
+"\n"
+".ie-browser .mixed-two-up .num4, [owa] .mixed-two-up .num4 {\n"
+"  width: 200px !important; }\n"
+"\n"
+".ie-browser .mixed-two-up .num8, [owa] .mixed-two-up .num8 {\n"
+"  width: 400px !important; }\n"
+"\n"
+".ie-browser .block-grid.two-up .col, [owa] .block-grid.two-up .col {\n"
+"  width: 300px !important; }\n"
+"\n"
+".ie-browser .block-grid.three-up .col, [owa] .block-grid.three-up .col {\n"
+"  width: 200px !important; }\n"
+"\n"
+".ie-browser .block-grid.four-up .col, [owa] .block-grid.four-up .col {\n"
+"  width: 150px !important; }\n"
+"\n"
+".ie-browser .block-grid.five-up .col, [owa] .block-grid.five-up .col {\n"
+"  width: 120px !important; }\n"
+"\n"
+".ie-browser .block-grid.six-up .col, [owa] .block-grid.six-up .col {\n"
+"  width: 100px !important; }\n"
+"\n"
+".ie-browser .block-grid.seven-up .col, [owa] .block-grid.seven-up .col {\n"
+"  width: 85px !important; }\n"
+"\n"
+".ie-browser .block-grid.eight-up .col, [owa] .block-grid.eight-up .col {\n"
+"  width: 75px !important; }\n"
+"\n"
+".ie-browser .block-grid.nine-up .col, [owa] .block-grid.nine-up .col {\n"
+"  width: 66px !important; }\n"
+"\n"
+".ie-browser .block-grid.ten-up .col, [owa] .block-grid.ten-up .col {\n"
+"  width: 60px !important; }\n"
+"\n"
+".ie-browser .block-grid.eleven-up .col, [owa] .block-grid.eleven-up .col {\n"
+"  width: 54px !important; }\n"
+"\n"
+".ie-browser .block-grid.twelve-up .col, [owa] .block-grid.twelve-up .col {\n"
+"  width: 50px !important; }\n"
+"\n"
+"@media only screen and (min-width: 620px) {\n"
+"  .block-grid {\n"
+"    width: 600px !important; }\n"
+"  .block-grid .col {\n"
+"    vertical-align: top; }\n"
+"    .block-grid .col.num12 {\n"
+"      width: 600px !important; }\n"
+"  .block-grid.mixed-two-up .col.num4 {\n"
+"    width: 200px !important; }\n"
+"  .block-grid.mixed-two-up .col.num8 {\n"
+"    width: 400px !important; }\n"
+"  .block-grid.two-up .col {\n"
+"    width: 300px !important; }\n"
+"  .block-grid.three-up .col {\n"
+"    width: 200px !important; }\n"
+"  .block-grid.four-up .col {\n"
+"    width: 150px !important; }\n"
+"  .block-grid.five-up .col {\n"
+"    width: 120px !important; }\n"
+"  .block-grid.six-up .col {\n"
+"    width: 100px !important; }\n"
+"  .block-grid.seven-up .col {\n"
+"    width: 85px !important; }\n"
+"  .block-grid.eight-up .col {\n"
+"    width: 75px !important; }\n"
+"  .block-grid.nine-up .col {\n"
+"    width: 66px !important; }\n"
+"  .block-grid.ten-up .col {\n"
+"    width: 60px !important; }\n"
+"  .block-grid.eleven-up .col {\n"
+"    width: 54px !important; }\n"
+"  .block-grid.twelve-up .col {\n"
+"    width: 50px !important; } }\n"
+"\n"
+"@media (max-width: 620px) {\n"
+"  .block-grid, .col {\n"
+"    min-width: 320px !important;\n"
+"    max-width: 100% !important;\n"
+"    display: block !important; }\n"
+"  .block-grid {\n"
+"    width: calc(100% - 40px) !important; }\n"
+"  .col {\n"
+"    width: 100% !important; }\n"
+"    .col > div {\n"
+"      margin: 0 auto; }\n"
+"  img.fullwidth, img.fullwidthOnMobile {\n"
+"    max-width: 100% !important; }\n"
+"  .no-stack .col {\n"
+"    min-width: 0 !important;\n"
+"    display: table-cell !important; }\n"
+"  .no-stack.two-up .col {\n"
+"    width: 50% !important; }\n"
+"  .no-stack.mixed-two-up .col.num4 {\n"
+"    width: 33% !important; }\n"
+"  .no-stack.mixed-two-up .col.num8 {\n"
+"    width: 66% !important; }\n"
+"  .no-stack.three-up .col.num4 {\n"
+"    width: 33% !important; }\n"
+"  .no-stack.four-up .col.num3 {\n"
+"    width: 25% !important; }\n"
+"  .mobile_hide {\n"
+"    min-height: 0px;\n"
+"    max-height: 0px;\n"
+"    max-width: 0px;\n"
+"    display: none;\n"
+"    overflow: hidden;\n"
+"    font-size: 0px; } }\n"
+"\n"
+"    </style>\n"
+"    <body class=\"clean-body\" style=\"margin: 0;padding: 0;-webkit-text-size-adjust: 100%;background-color: #B8CCE2\">\n"
+"  <style type=\"text/css\" id=\"media-query-bodytag\">\n"
+"    @media (max-width: 520px) {\n"
+"      .block-grid {\n"
+"        min-width: 320px!important;\n"
+"        max-width: 100%!important;\n"
+"        width: 100%!important;\n"
+"        display: block!important;\n"
+"      }\n"
+"\n"
+"      .col {\n"
+"        min-width: 320px!important;\n"
+"        max-width: 100%!important;\n"
+"        width: 100%!important;\n"
+"        display: block!important;\n"
+"      }\n"
+"\n"
+"        .col > div {\n"
+"          margin: 0 auto;\n"
+"        }\n"
+"\n"
+"      img.fullwidth {\n"
+"        max-width: 100%!important;\n"
+"      }\n"
+"\t\t\timg.fullwidthOnMobile {\n"
+"        max-width: 100%!important;\n"
+"      }\n"
+"      .no-stack .col {\n"
+"\t\t\t\tmin-width: 0!important;\n"
+"\t\t\t\tdisplay: table-cell!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.two-up .col {\n"
+"\t\t\t\twidth: 50%!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.mixed-two-up .col.num4 {\n"
+"\t\t\t\twidth: 33%!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.mixed-two-up .col.num8 {\n"
+"\t\t\t\twidth: 66%!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.three-up .col.num4 {\n"
+"\t\t\t\twidth: 33%!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.four-up .col.num3 {\n"
+"\t\t\t\twidth: 25%!important;\n"
+"\t\t\t}\n"
+"      .mobile_hide {\n"
+"        min-height: 0px!important;\n"
+"        max-height: 0px!important;\n"
+"        max-width: 0px!important;\n"
+"        display: none!important;\n"
+"        overflow: hidden!important;\n"
+"        font-size: 0px!important;\n"
+"      }\n"
+"    }\n"
+"  </style>\n"
+"  <!--[if IE]><div class=\"ie-browser\"><![endif]-->\n"
+"  <!--[if mso]><div class=\"mso-container\"><![endif]-->\n"
+"  <table class=\"nl-container\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #B8CCE2;width: 100%\" cellpadding=\"0\" cellspacing=\"0\">\n"
+"\t<tbody>\n"
+"\t<tr style=\"vertical-align: top\">\n"
+"\t\t<td style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n"
+"    <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td align=\"center\" style=\"background-color: #B8CCE2;\"><![endif]-->\n"
+"\n"
+"    <div style=\"background-color:transparent;\">\n"
+"      <div style=\"Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;\" class=\"block-grid \">\n"
+"        <div style=\"border-collapse: collapse;display: table;width: 100%;background-color:transparent;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:transparent;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"600\" style=\" width:600px; padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num12\" style=\"min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"divider mobile_hide\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"    <tbody>\n"
+"        <tr style=\"vertical-align: top\">\n"
+"            <td class=\"divider_inner\" style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-right: 5px;padding-left: 5px;padding-top: 5px;padding-bottom: 5px;min-width: 100%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                <table class=\"divider_content\" height=\"40px\" align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 0px solid transparent;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                    <tbody>\n"
+"                        <tr style=\"vertical-align: top\">\n"
+"                            <td style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 40px;line-height: 40px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                                <span>&#160;</span>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </td>\n"
+"        </tr>\n"
+"    </tbody>\n"
+"</table>\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"    <div style=\"background-color:transparent;\">\n"
+"      <div style=\"Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: white;\" class=\"block-grid \">\n"
+"        <div style=\"border-collapse: collapse;display: table;width: 100%;background-color:white;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:white;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"600\" style=\" width:600px; padding-right: 0px; padding-left: 20px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num12\" style=\"min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 20px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"                    <div align=\"left\" class=\"img-container left fixedwidth \" style=\"padding-right: 25px;  padding-left: 25px;\">\n"
+"<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr style=\"line-height:0px;line-height:0px;\"><td style=\"padding-right: 25px; padding-left: 25px;\" align=\"left\"><![endif]-->\n"
+"<div style=\"line-height:25px;font-size:1px\">&#160;</div>  <img class=\"left fixedwidth\" align=\"left\" border=\"0\" src=\"https://www.grimm-gastrobedarf.de/skin/frontend/grimm/default/images/logo/grimm-gastrobedarf-logo@2x.png\" alt=\"Image\" title=\"Image\" style=\"outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 203px\" width=\"203\">\n"
+"<div style=\"line-height:25px;font-size:1px\">&#160;</div><!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"    <div style=\"background-color:transparent;\">\n"
+"      <div style=\"Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFFFFF;\" class=\"block-grid \">\n"
+"        <div style=\"border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:#FFFFFF;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"600\" style=\" width:600px; padding-right: 35px; padding-left: 35px; padding-top:35px; padding-bottom:40px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num12\" style=\"min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:35px; padding-bottom:40px; padding-right: 35px; padding-left: 35px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"                    <div class=\"\">\n"
+"\t<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;\"><![endif]-->\n"
+"\t<div style=\"color:#017DDC;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;\">\n"
+"\t\t<div style=\"font-size:12px;line-height:14px;color:#017DDC;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;\"><p style=\"margin: 0;font-size: 14px;line-height: 17px\"><span style=\"font-size: 22px; line-height: 26px;\">Hello,</span></p></div>\n"
+"\t</div>\n"
+"\t<!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"\n"
+"                    <div class=\"\">\n"
+"\t<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 30px;\"><![endif]-->\n"
+"\t<div style=\"color:#555555;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%; padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 30px;\">\n"
+"\t\t<div style=\"font-size:12px;line-height:18px;color:#555555;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;\"><p style=\"margin: 0;font-size: 14px;line-height: 21px\"> ${object.message_info | safe} <br/>Thank you..</p></div>\n"
+"\t</div>\n"
+"\t<center><a href=\"${object.rec_link}\" style=\" background-color: #017DDC; border-radius: 15px;color: white;padding: 20px 34px;text-align: center;text-decoration: none;display: inline-block;cursor: pointer;\">Open Job</a></center>\n"
+"\t<!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"\n"
+"                    <div align=\"center\" class=\"img-container center fixedwidth \" style=\"padding-right: 0px;  padding-left: 0px;\">\n"
+"<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr style=\"line-height:0px;line-height:0px;\"><td style=\"padding-right: 0px; padding-left: 0px;\" align=\"center\"><![endif]-->\n"
+"  <img class=\"center fixedwidth\" align=\"center\" border=\"0\" src=\"https://d1oco4z2z1fhwp.cloudfront.net/templates/default/271/illo.png\" alt=\"Image\" title=\"Image\" style=\"outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 530px\" width=\"530\">\n"
+"<!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"    <div style=\"background-color:transparent;\">\n"
+"      <div style=\"Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #017DDC;\" class=\"block-grid two-up no-stack\">\n"
+"        <div style=\"border-collapse: collapse;display: table;width: 100%;background-color:#017DDC;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:#017DDC;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"300\" style=\" width:300px; padding-right: 0px; padding-left: 25px; padding-top:15px; padding-bottom:15px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num6\" style=\"max-width: 320px;min-width: 300px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 0px; padding-left: 25px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"                    <div class=\"\">\n"
+"\t<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;\"><![endif]-->\n"
+"\t<div style=\"color:#F8F8F8;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;\">\n"
+"\t\t<div style=\"font-size:12px;line-height:14px;color:#F8F8F8;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;\"><p style=\"margin: 0;font-size: 14px;line-height: 17px\"><strong>${user.company_id.name}</strong></p><p style=\"margin: 0;font-size: 14px;line-height: 17px\">${user.company_id.street}, ${user.company_id.city}</p></div>\n"
+"\t</div>\n"
+"\t<!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"              <!--[if (mso)|(IE)]></td><td align=\"center\" width=\"300\" style=\" width:300px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num6\" style=\"max-width: 320px;min-width: 300px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"\n"
+"<div align=\"right\" style=\"padding-right: 35px; padding-left: 10px; padding-bottom: 10px;\" class=\"\">\n"
+"  <div style=\"line-height:20px;font-size:1px\">&#160;</div>\n"
+"  <div style=\"display: table; max-width:196px;\">\n"
+"  <!--[if (mso)|(IE)]><table width=\"151\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"border-collapse:collapse; padding-right: 35px; padding-left: 10px; padding-bottom: 10px;\"  align=\"right\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:151px;\"><tr><td width=\"32\" style=\"width:32px; padding-right: 10px;\" valign=\"top\"><![endif]-->\n"
+"    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"32\" height=\"32\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 10px\">\n"
+"      <tbody><tr style=\"vertical-align: top\"><td align=\"left\" valign=\"middle\" style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n"
+"\n"
+"\n"
+"        <a href=\"https://de-de.facebook.com/GRIMM-Gastrobedarf-235733529803477/\"> <i class=\"fa fa-facebook-square\"></i></a>\n"
+"\n"
+"\n"
+"      <div style=\"line-height:5px;font-size:1px\">&#160;</div>\n"
+"      </td></tr>\n"
+"    </tbody></table>\n"
+"      <!--[if (mso)|(IE)]></td><td width=\"32\" style=\"width:32px; padding-right: 10px;\" valign=\"top\"><![endif]-->\n"
+"    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"32\" height=\"32\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 10px\">\n"
+"      <tbody><tr style=\"vertical-align: top\"><td align=\"left\" valign=\"middle\" style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n"
+"        <a href=\"https://www.youtube.com/c/Grimm-gastrobedarfDe\"> <i class=\"fa fa-youtube-play\"></i></a>\n"
+"      <div style=\"line-height:5px;font-size:1px\">&#160;</div>\n"
+"      </td></tr>\n"
+"    </tbody></table>\n"
+"      <!--[if (mso)|(IE)]></td><td width=\"32\" style=\"width:32px; padding-right: 0;\" valign=\"top\"><![endif]-->\n"
+"    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"32\" height=\"32\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 0\">\n"
+"      <tbody><tr style=\"vertical-align: top\"><td align=\"left\" valign=\"middle\" style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n"
+"        <a href=\"https://plus.google.com/+Grimm-gastrobedarfDe\" rel=\"publisher\"> <i class=\"fa fa-google-plus-square\"></i></a>\n"
+"      <div style=\"line-height:5px;font-size:1px\">&#160;</div>\n"
+"      </td></tr>\n"
+"    </tbody></table>\n"
+"    <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"  </div>\n"
+"</div>\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"    <div style=\"background-color:transparent;\">\n"
+"      <div style=\"Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;\" class=\"block-grid \">\n"
+"        <div style=\"border-collapse: collapse;display: table;width: 100%;background-color:transparent;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:transparent;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"600\" style=\" width:600px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num12\" style=\"min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"divider \" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"    <tbody>\n"
+"        <tr style=\"vertical-align: top\">\n"
+"            <td class=\"divider_inner\" style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-right: 5px;padding-left: 5px;padding-top: 5px;padding-bottom: 5px;min-width: 100%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                <table class=\"divider_content\" height=\"30px\" align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 0px solid transparent;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                    <tbody>\n"
+"                        <tr style=\"vertical-align: top\">\n"
+"                            <td style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 30px;line-height: 30px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                                <span>&#160;</span>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </td>\n"
+"        </tr>\n"
+"    </tbody>\n"
+"</table>\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"   <!--[if (mso)|(IE)]></td></tr></table><![endif]-->\n"
+"\t\t</td>\n"
+"  </tr>\n"
+"  </tbody>\n"
+"  </table>\n"
+"  <!--[if (mso)|(IE)]></div><![endif]-->\n"
+"\n"
+"\n"
+"</body>\n"
+"          \n"
+"            "
+msgstr ""
+"\n"
+"            \n"
+"            <style type=\"text/css\" id=\"media-query\">\n"
+"      body {\n"
+"  margin: 0;\n"
+"  padding: 0; }\n"
+"\n"
+"table, tr, td {\n"
+"  vertical-align: top;\n"
+"  border-collapse: collapse; }\n"
+"\n"
+".ie-browser table, .mso-container table {\n"
+"  table-layout: fixed; }\n"
+"\n"
+"* {\n"
+"  line-height: inherit; }\n"
+"\n"
+"a[x-apple-data-detectors=true] {\n"
+"  color: inherit !important;\n"
+"  text-decoration: none !important; }\n"
+"\n"
+"[owa] .img-container div, [owa] .img-container button {\n"
+"  display: block !important; }\n"
+"\n"
+"[owa] .fullwidth button {\n"
+"  width: 100% !important; }\n"
+"\n"
+"[owa] .block-grid .col {\n"
+"  display: table-cell;\n"
+"  float: none !important;\n"
+"  vertical-align: top; }\n"
+"\n"
+".ie-browser .num12, .ie-browser .block-grid, [owa] .num12, [owa] .block-grid {\n"
+"  width: 600px !important; }\n"
+"\n"
+".ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {\n"
+"  line-height: 100%; }\n"
+"\n"
+".ie-browser .mixed-two-up .num4, [owa] .mixed-two-up .num4 {\n"
+"  width: 200px !important; }\n"
+"\n"
+".ie-browser .mixed-two-up .num8, [owa] .mixed-two-up .num8 {\n"
+"  width: 400px !important; }\n"
+"\n"
+".ie-browser .block-grid.two-up .col, [owa] .block-grid.two-up .col {\n"
+"  width: 300px !important; }\n"
+"\n"
+".ie-browser .block-grid.three-up .col, [owa] .block-grid.three-up .col {\n"
+"  width: 200px !important; }\n"
+"\n"
+".ie-browser .block-grid.four-up .col, [owa] .block-grid.four-up .col {\n"
+"  width: 150px !important; }\n"
+"\n"
+".ie-browser .block-grid.five-up .col, [owa] .block-grid.five-up .col {\n"
+"  width: 120px !important; }\n"
+"\n"
+".ie-browser .block-grid.six-up .col, [owa] .block-grid.six-up .col {\n"
+"  width: 100px !important; }\n"
+"\n"
+".ie-browser .block-grid.seven-up .col, [owa] .block-grid.seven-up .col {\n"
+"  width: 85px !important; }\n"
+"\n"
+".ie-browser .block-grid.eight-up .col, [owa] .block-grid.eight-up .col {\n"
+"  width: 75px !important; }\n"
+"\n"
+".ie-browser .block-grid.nine-up .col, [owa] .block-grid.nine-up .col {\n"
+"  width: 66px !important; }\n"
+"\n"
+".ie-browser .block-grid.ten-up .col, [owa] .block-grid.ten-up .col {\n"
+"  width: 60px !important; }\n"
+"\n"
+".ie-browser .block-grid.eleven-up .col, [owa] .block-grid.eleven-up .col {\n"
+"  width: 54px !important; }\n"
+"\n"
+".ie-browser .block-grid.twelve-up .col, [owa] .block-grid.twelve-up .col {\n"
+"  width: 50px !important; }\n"
+"\n"
+"@media only screen and (min-width: 620px) {\n"
+"  .block-grid {\n"
+"    width: 600px !important; }\n"
+"  .block-grid .col {\n"
+"    vertical-align: top; }\n"
+"    .block-grid .col.num12 {\n"
+"      width: 600px !important; }\n"
+"  .block-grid.mixed-two-up .col.num4 {\n"
+"    width: 200px !important; }\n"
+"  .block-grid.mixed-two-up .col.num8 {\n"
+"    width: 400px !important; }\n"
+"  .block-grid.two-up .col {\n"
+"    width: 300px !important; }\n"
+"  .block-grid.three-up .col {\n"
+"    width: 200px !important; }\n"
+"  .block-grid.four-up .col {\n"
+"    width: 150px !important; }\n"
+"  .block-grid.five-up .col {\n"
+"    width: 120px !important; }\n"
+"  .block-grid.six-up .col {\n"
+"    width: 100px !important; }\n"
+"  .block-grid.seven-up .col {\n"
+"    width: 85px !important; }\n"
+"  .block-grid.eight-up .col {\n"
+"    width: 75px !important; }\n"
+"  .block-grid.nine-up .col {\n"
+"    width: 66px !important; }\n"
+"  .block-grid.ten-up .col {\n"
+"    width: 60px !important; }\n"
+"  .block-grid.eleven-up .col {\n"
+"    width: 54px !important; }\n"
+"  .block-grid.twelve-up .col {\n"
+"    width: 50px !important; } }\n"
+"\n"
+"@media (max-width: 620px) {\n"
+"  .block-grid, .col {\n"
+"    min-width: 320px !important;\n"
+"    max-width: 100% !important;\n"
+"    display: block !important; }\n"
+"  .block-grid {\n"
+"    width: calc(100% - 40px) !important; }\n"
+"  .col {\n"
+"    width: 100% !important; }\n"
+"    .col > div {\n"
+"      margin: 0 auto; }\n"
+"  img.fullwidth, img.fullwidthOnMobile {\n"
+"    max-width: 100% !important; }\n"
+"  .no-stack .col {\n"
+"    min-width: 0 !important;\n"
+"    display: table-cell !important; }\n"
+"  .no-stack.two-up .col {\n"
+"    width: 50% !important; }\n"
+"  .no-stack.mixed-two-up .col.num4 {\n"
+"    width: 33% !important; }\n"
+"  .no-stack.mixed-two-up .col.num8 {\n"
+"    width: 66% !important; }\n"
+"  .no-stack.three-up .col.num4 {\n"
+"    width: 33% !important; }\n"
+"  .no-stack.four-up .col.num3 {\n"
+"    width: 25% !important; }\n"
+"  .mobile_hide {\n"
+"    min-height: 0px;\n"
+"    max-height: 0px;\n"
+"    max-width: 0px;\n"
+"    display: none;\n"
+"    overflow: hidden;\n"
+"    font-size: 0px; } }\n"
+"\n"
+"    </style>\n"
+"    \n"
+"  <style type=\"text/css\" id=\"media-query-bodytag\">\n"
+"    @media (max-width: 520px) {\n"
+"      .block-grid {\n"
+"        min-width: 320px!important;\n"
+"        max-width: 100%!important;\n"
+"        width: 100%!important;\n"
+"        display: block!important;\n"
+"      }\n"
+"\n"
+"      .col {\n"
+"        min-width: 320px!important;\n"
+"        max-width: 100%!important;\n"
+"        width: 100%!important;\n"
+"        display: block!important;\n"
+"      }\n"
+"\n"
+"        .col > div {\n"
+"          margin: 0 auto;\n"
+"        }\n"
+"\n"
+"      img.fullwidth {\n"
+"        max-width: 100%!important;\n"
+"      }\n"
+"\t\t\timg.fullwidthOnMobile {\n"
+"        max-width: 100%!important;\n"
+"      }\n"
+"      .no-stack .col {\n"
+"\t\t\t\tmin-width: 0!important;\n"
+"\t\t\t\tdisplay: table-cell!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.two-up .col {\n"
+"\t\t\t\twidth: 50%!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.mixed-two-up .col.num4 {\n"
+"\t\t\t\twidth: 33%!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.mixed-two-up .col.num8 {\n"
+"\t\t\t\twidth: 66%!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.three-up .col.num4 {\n"
+"\t\t\t\twidth: 33%!important;\n"
+"\t\t\t}\n"
+"\t\t\t.no-stack.four-up .col.num3 {\n"
+"\t\t\t\twidth: 25%!important;\n"
+"\t\t\t}\n"
+"      .mobile_hide {\n"
+"        min-height: 0px!important;\n"
+"        max-height: 0px!important;\n"
+"        max-width: 0px!important;\n"
+"        display: none!important;\n"
+"        overflow: hidden!important;\n"
+"        font-size: 0px!important;\n"
+"      }\n"
+"    }\n"
+"  </style>\n"
+"  <!--[if IE]><div class=\"ie-browser\"><![endif]-->\n"
+"  <!--[if mso]><div class=\"mso-container\"><![endif]-->\n"
+"  <table class=\"nl-container\" style=\"border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 320px;Margin: 0 auto;background-color: #B8CCE2;width: 100%\" cellpadding=\"0\" cellspacing=\"0\">\n"
+"\t<tbody>\n"
+"\t<tr style=\"vertical-align: top\">\n"
+"\t\t<td style=\"padding:0px;word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n"
+"    <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td align=\"center\" style=\"background-color: #B8CCE2;\"><![endif]-->\n"
+"\n"
+"    <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color:transparent;\">\n"
+"      <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;\" class=\"block-grid \">\n"
+"        <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-collapse: collapse;display: table;width: 100%;background-color:transparent;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:transparent;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"600\" style=\" width:600px; padding-right: 0px; padding-left: 0px; padding-top:0px; padding-bottom:0px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num12\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:0px; padding-bottom:0px; padding-right: 0px; padding-left: 0px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"divider mobile_hide\" style=\"background-color:transparent;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"    <tbody>\n"
+"        <tr style=\"vertical-align: top\">\n"
+"            <td class=\"divider_inner\" style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-right: 5px;padding-left: 5px;padding-top: 5px;padding-bottom: 5px;min-width: 100%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                <table class=\"divider_content\" height=\"40px\" align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"background-color:transparent;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 0px solid transparent;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                    <tbody>\n"
+"                        <tr style=\"vertical-align: top\">\n"
+"                            <td style=\"padding:0px;word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 40px;line-height: 40px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                                <span>&nbsp;</span>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </td>\n"
+"        </tr>\n"
+"    </tbody>\n"
+"</table>\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"    <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color:transparent;\">\n"
+"      <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: white;\" class=\"block-grid \">\n"
+"        <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-collapse: collapse;display: table;width: 100%;background-color:white;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:white;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"600\" style=\" width:600px; padding-right: 0px; padding-left: 20px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num12\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 20px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"                    <div align=\"left\" class=\"img-container left fixedwidth \" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;padding-right: 25px;  padding-left: 25px;\">\n"
+"<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr style=\"line-height:0px;line-height:0px;\"><td style=\"padding-right: 25px; padding-left: 25px;\" align=\"left\"><![endif]-->\n"
+"<div style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;line-height:25px;font-size:1px\">&nbsp;</div>  <img class=\"left fixedwidth\" align=\"left\" border=\"0\" src=\"https://www.grimm-gastrobedarf.de/skin/frontend/grimm/default/images/logo/grimm-gastrobedarf-logo@2x.png\" alt=\"Image\" title=\"Image\" style=\"vertical-align:middle;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 203px\" width=\"203\">\n"
+"<div style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;line-height:25px;font-size:1px\">&nbsp;</div><!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"    <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color:transparent;\">\n"
+"      <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #FFFFFF;\" class=\"block-grid \">\n"
+"        <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-collapse: collapse;display: table;width: 100%;background-color:#FFFFFF;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:#FFFFFF;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"600\" style=\" width:600px; padding-right: 35px; padding-left: 35px; padding-top:35px; padding-bottom:40px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num12\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:35px; padding-bottom:40px; padding-right: 35px; padding-left: 35px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"                    <div class=\"\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">\n"
+"\t<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;\"><![endif]-->\n"
+"\t<div style=\"font-size:13px;color:#017DDC;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;\">\n"
+"\t\t<div style=\"font-size:12px;line-height:14px;color:#017DDC;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;\"><p style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;margin: 0;font-size: 14px;line-height: 17px\"><span style=\"font-size: 22px; line-height: 26px;\">Hello,</span></p></div>\n"
+"\t</div>\n"
+"\t<!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"\n"
+"                    <div class=\"\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">\n"
+"\t<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 30px;\"><![endif]-->\n"
+"\t<div style=\"font-size:13px;color:#555555;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%; padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 30px;\">\n"
+"\t\t<div style=\"font-size:12px;line-height:18px;color:#555555;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;\"><p style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;margin: 0;font-size: 14px;line-height: 21px\"> ${object.message_info | safe} <br>Thank you..</p></div>\n"
+"\t</div>\n"
+"\t<center><a href=\"${object.rec_link}\" style=\"text-decoration-thickness:initial;background-color:transparent; background-color: #017DDC; border-radius: 15px;color: white;padding: 20px 34px;text-align: center;text-decoration: none;display: inline-block;cursor: pointer;\">Open Job</a></center>\n"
+"\t<!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"\n"
+"                    <div align=\"center\" class=\"img-container center fixedwidth \" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;padding-right: 0px;  padding-left: 0px;\">\n"
+"<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr style=\"line-height:0px;line-height:0px;\"><td style=\"padding-right: 0px; padding-left: 0px;\" align=\"center\"><![endif]-->\n"
+"  <img class=\"center fixedwidth\" align=\"center\" border=\"0\" src=\"https://d1oco4z2z1fhwp.cloudfront.net/templates/default/271/illo.png\" alt=\"Image\" title=\"Image\" style=\"vertical-align:middle;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: 0;height: auto;float: none;width: 100%;max-width: 530px\" width=\"530\">\n"
+"<!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"    <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color:transparent;\">\n"
+"      <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #017DDC;\" class=\"block-grid two-up no-stack\">\n"
+"        <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-collapse: collapse;display: table;width: 100%;background-color:#017DDC;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:#017DDC;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"300\" style=\" width:300px; padding-right: 0px; padding-left: 25px; padding-top:15px; padding-bottom:15px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num6\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;max-width: 320px;min-width: 300px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:15px; padding-bottom:15px; padding-right: 0px; padding-left: 25px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"                    <div class=\"\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">\n"
+"\t<!--[if mso]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;\"><![endif]-->\n"
+"\t<div style=\"font-size:13px;color:#F8F8F8;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;\">\n"
+"\t\t<div style=\"font-size:12px;line-height:14px;color:#F8F8F8;font-family:'Cabin', Arial, 'Helvetica Neue', Helvetica, sans-serif;text-align:left;\"><p style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;margin: 0;font-size: 14px;line-height: 17px\"><strong style=\"font-weight:bold;\">${user.company_id.name}</strong></p><p style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;margin: 0;font-size: 14px;line-height: 17px\">${user.company_id.street}, ${user.company_id.city}</p></div>\n"
+"\t</div>\n"
+"\t<!--[if mso]></td></tr></table><![endif]-->\n"
+"</div>\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"              <!--[if (mso)|(IE)]></td><td align=\"center\" width=\"300\" style=\" width:300px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num6\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;max-width: 320px;min-width: 300px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"\n"
+"<div align=\"right\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;padding-right: 35px; padding-left: 10px; padding-bottom: 10px;\" class=\"\">\n"
+"  <div style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;line-height:20px;font-size:1px\">&nbsp;</div>\n"
+"  <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;display: table; max-width:196px;\">\n"
+"  <!--[if (mso)|(IE)]><table width=\"151\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"border-collapse:collapse; padding-right: 35px; padding-left: 10px; padding-bottom: 10px;\"  align=\"right\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:151px;\"><tr><td width=\"32\" style=\"width:32px; padding-right: 10px;\" valign=\"top\"><![endif]-->\n"
+"    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"32\" height=\"32\" style=\"background-color:transparent;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 10px\">\n"
+"      <tbody><tr style=\"vertical-align: top\"><td align=\"left\" valign=\"middle\" style=\"padding:0px;word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n"
+"\n"
+"\n"
+"        <a href=\"https://de-de.facebook.com/GRIMM-Gastrobedarf-235733529803477/\" style=\"text-decoration-thickness:initial;color:rgb(0, 135, 132);background-color:transparent;\"> <img src=\"/web_editor/font_to_img/61570/rgb(0,0,0)/1\" data-class=\"fa fa-facebook-square\" class=\"\" style=\"vertical-align:middle;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;height: auto; width: auto;\"></a>\n"
+"\n"
+"\n"
+"      <div style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;line-height:5px;font-size:1px\">&nbsp;</div>\n"
+"      </td></tr>\n"
+"    </tbody></table>\n"
+"      <!--[if (mso)|(IE)]></td><td width=\"32\" style=\"width:32px; padding-right: 10px;\" valign=\"top\"><![endif]-->\n"
+"    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"32\" height=\"32\" style=\"background-color:transparent;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 10px\">\n"
+"      <tbody><tr style=\"vertical-align: top\"><td align=\"left\" valign=\"middle\" style=\"padding:0px;word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n"
+"        <a href=\"https://www.youtube.com/c/Grimm-gastrobedarfDe\" style=\"text-decoration-thickness:initial;color:rgb(0, 135, 132);background-color:transparent;\"> <img src=\"/web_editor/font_to_img/61802/rgb(0,0,0)/1\" data-class=\"fa fa-youtube-play\" class=\"\" style=\"vertical-align:middle;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;height: auto; width: auto;\"></a>\n"
+"      <div style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;line-height:5px;font-size:1px\">&nbsp;</div>\n"
+"      </td></tr>\n"
+"    </tbody></table>\n"
+"      <!--[if (mso)|(IE)]></td><td width=\"32\" style=\"width:32px; padding-right: 0;\" valign=\"top\"><![endif]-->\n"
+"    <table align=\"left\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"32\" height=\"32\" style=\"background-color:transparent;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 0\">\n"
+"      <tbody><tr style=\"vertical-align: top\"><td align=\"left\" valign=\"middle\" style=\"padding:0px;word-break: break-word;border-collapse: collapse !important;vertical-align: top\">\n"
+"        <a href=\"https://plus.google.com/+Grimm-gastrobedarfDe\" rel=\"publisher\" style=\"text-decoration-thickness:initial;color:rgb(0, 135, 132);background-color:transparent;\"> <img src=\"/web_editor/font_to_img/61652/rgb(0,0,0)/1\" data-class=\"fa fa-google-plus-square\" class=\"\" style=\"vertical-align:middle;border-left-width:0px;border-bottom-width:0px;border-right-width:0px;border-top-width:0px;height: auto; width: auto;\"></a>\n"
+"      <div style=\"font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;line-height:5px;font-size:1px\">&nbsp;</div>\n"
+"      </td></tr>\n"
+"    </tbody></table>\n"
+"    <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"  </div>\n"
+"</div>\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"    <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color:transparent;\">\n"
+"      <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;Margin: 0 auto;min-width: 320px;max-width: 600px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: transparent;\" class=\"block-grid \">\n"
+"        <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-collapse: collapse;display: table;width: 100%;background-color:transparent;\">\n"
+"          <!--[if (mso)|(IE)]><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" border=\"0\"><tr><td style=\"background-color:transparent;\" align=\"center\"><table cellpadding=\"0\" cellspacing=\"0\" border=\"0\" style=\"width: 600px;\"><tr class=\"layout-full-width\" style=\"background-color:transparent;\"><![endif]-->\n"
+"\n"
+"              <!--[if (mso)|(IE)]><td align=\"center\" width=\"600\" style=\" width:600px; padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;\" valign=\"top\"><![endif]-->\n"
+"            <div class=\"col num12\" style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;min-width: 320px;max-width: 600px;display: table-cell;vertical-align: top;\">\n"
+"              <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;background-color: transparent; width: 100% !important;\">\n"
+"              <!--[if (!mso)&(!IE)]><!--><div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;\"><!--<![endif]-->\n"
+"\n"
+"\n"
+"\n"
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" class=\"divider \" style=\"background-color:transparent;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"    <tbody>\n"
+"        <tr style=\"vertical-align: top\">\n"
+"            <td class=\"divider_inner\" style=\"word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-right: 5px;padding-left: 5px;padding-top: 5px;padding-bottom: 5px;min-width: 100%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                <table class=\"divider_content\" height=\"30px\" align=\"center\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"background-color:transparent;border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 0px solid transparent;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                    <tbody>\n"
+"                        <tr style=\"vertical-align: top\">\n"
+"                            <td style=\"padding:0px;word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 30px;line-height: 30px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%\">\n"
+"                                <span>&nbsp;</span>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"            </td>\n"
+"        </tr>\n"
+"    </tbody>\n"
+"</table>\n"
+"\n"
+"              <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->\n"
+"              </div>\n"
+"            </div>\n"
+"          <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->\n"
+"        </div>\n"
+"      </div>\n"
+"    </div>\n"
+"   <!--[if (mso)|(IE)]></td></tr></table><![endif]-->\n"
+"\t\t</td>\n"
+"  </tr>\n"
+"  </tbody>\n"
+"  </table>\n"
+"  <!--[if (mso)|(IE)]></div><![endif]-->\n"
+"\n"
+"\n"
+"\n"
+"          \n"
+
+#. module: grimm_tools
+#: model:mail.template,body_html:grimm_tools.fetch_failed_email_template
+msgid ""
+"\n"
+"                \n"
+"            <style>\n"
+"    /* -------------------------------------\n"
+"        INLINED WITH htmlemail.io/inline\n"
+"    ------------------------------------- */\n"
+"    /* -------------------------------------\n"
+"        RESPONSIVE AND MOBILE FRIENDLY STYLES\n"
+"    ------------------------------------- */\n"
+"    @media only screen and (max-width: 620px) {\n"
+"      table[class=body] h1 {\n"
+"        font-size: 28px !important;\n"
+"        margin-bottom: 10px !important;\n"
+"      }\n"
+"      table[class=body] p,\n"
+"            table[class=body] ul,\n"
+"            table[class=body] ol,\n"
+"            table[class=body] td,\n"
+"            table[class=body] span,\n"
+"            table[class=body] a {\n"
+"        font-size: 16px !important;\n"
+"      }\n"
+"      table[class=body] .wrapper,\n"
+"            table[class=body] .article {\n"
+"        padding: 10px !important;\n"
+"      }\n"
+"      table[class=body] .content {\n"
+"        padding: 0 !important;\n"
+"      }\n"
+"      table[class=body] .container {\n"
+"        padding: 0 !important;\n"
+"        width: 100% !important;\n"
+"      }\n"
+"      table[class=body] .main {\n"
+"        border-left-width: 0 !important;\n"
+"        border-radius: 0 !important;\n"
+"        border-right-width: 0 !important;\n"
+"      }\n"
+"      table[class=body] .btn table {\n"
+"        width: 100% !important;\n"
+"      }\n"
+"      table[class=body] .btn a {\n"
+"        width: 100% !important;\n"
+"      }\n"
+"      table[class=body] .img-responsive {\n"
+"        height: auto !important;\n"
+"        max-width: 100% !important;\n"
+"        width: auto !important;\n"
+"      }\n"
+"    }\n"
+"\n"
+"    /* -------------------------------------\n"
+"        PRESERVE THESE STYLES IN THE HEAD\n"
+"    ------------------------------------- */\n"
+"    @media all {\n"
+"      .ExternalClass {\n"
+"        width: 100%;\n"
+"      }\n"
+"      .ExternalClass,\n"
+"            .ExternalClass p,\n"
+"            .ExternalClass span,\n"
+"            .ExternalClass font,\n"
+"            .ExternalClass td,\n"
+"            .ExternalClass div {\n"
+"        line-height: 100%;\n"
+"      }\n"
+"      .apple-link a {\n"
+"        color: inherit !important;\n"
+"        font-family: inherit !important;\n"
+"        font-size: inherit !important;\n"
+"        font-weight: inherit !important;\n"
+"        line-height: inherit !important;\n"
+"        text-decoration: none !important;\n"
+"      }\n"
+"      #MessageViewBody a {\n"
+"        color: inherit;\n"
+"        text-decoration: none;\n"
+"        font-size: inherit;\n"
+"        font-family: inherit;\n"
+"        font-weight: inherit;\n"
+"        line-height: inherit;\n"
+"      }\n"
+"      .btn-primary table td:hover {\n"
+"        background-color: #34495e !important;\n"
+"      }\n"
+"      .btn-primary a:hover {\n"
+"        background-color: #34495e !important;\n"
+"        border-color: #34495e !important;\n"
+"      }\n"
+"    }\n"
+"    </style>\n"
+"  </head>\n"
+"  <body class=\"\" style=\"background-color: #f6f6f6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;\">\n"
+"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"body\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;\">\n"
+"      <tr>\n"
+"        <td style=\"font-family: sans-serif; font-size: 14px; vertical-align: top;\">&nbsp;</td>\n"
+"        <td class=\"container\" style=\"font-family: sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto; max-width: 580px; padding: 10px; width: 580px;\">\n"
+"          <div class=\"content\" style=\"box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;\">\n"
+"\n"
+"            <!-- START CENTERED WHITE CONTAINER -->\n"
+"            <span class=\"preheader\" style=\"color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;\">This is preheader text. Some clients will show this text as a preview.</span>\n"
+"            <table class=\"main\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border-radius: 3px;\">\n"
+"\n"
+"              <!-- START MAIN CONTENT AREA -->\n"
+"              <tr>\n"
+"                <td class=\"wrapper\" style=\"font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;\">\n"
+"                  <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;\">\n"
+"                    <tr>\n"
+"                      <td style=\"font-family: sans-serif; font-size: 14px; vertical-align: top;\">\n"
+"                        <p style=\"font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;\">Hi there,</p>\n"
+"                        <p style=\"font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;\">Here odoo failed to fetch incomming email from ${object.name}.</p>\n"
+"                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"btn btn-primary\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;\">\n"
+"                          <tbody>\n"
+"                            <tr>\n"
+"                              <td align=\"left\" style=\"font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;\">\n"
+"                                  <tbody>\n"
+"                                    <tr>\n"
+"                                      <td style=\"font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #3498db; border-radius: 5px; text-align: center;\"> <a href=\"https://office.grimm-gastrobedarf.de\" target=\"_blank\" style=\"display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;\">Redirect to Odoo</a> </td>\n"
+"                                    </tr>\n"
+"                                  </tbody>\n"
+"                                </table>\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </tbody>\n"
+"                        </table>\n"
+"                        <p style=\"font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;\">Please see below failure reason.<br/><b>${object.fetch_fail_message}</b></p>\n"
+"                        <p style=\"font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;\">Thank you.</p>\n"
+"                      </td>\n"
+"                    </tr>\n"
+"                  </table>\n"
+"                </td>\n"
+"              </tr>\n"
+"\n"
+"            <!-- END MAIN CONTENT AREA -->\n"
+"            </table>\n"
+"\n"
+"            <!-- START FOOTER -->\n"
+"            <div class=\"footer\" style=\"clear: both; Margin-top: 10px; text-align: center; width: 100%;\">\n"
+"              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;\">\n"
+"                <tr>\n"
+"                  <td class=\"content-block\" style=\"font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;\">\n"
+"                    <span class=\"apple-link\" style=\"color: #999999; font-size: 12px; text-align: center;\">Grimm Gastrobedarf, Artilleriepark 9, 14624 Dallgow-Döberitz, Deutschland </span>\n"
+"                  </td>\n"
+"                </tr>\n"
+"                <tr>\n"
+"                  <td class=\"content-block powered-by\" style=\"font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;\">\n"
+"                    Powered by <a href=\"https://grimm-gastrobedarf.de\" style=\"color: #999999; font-size: 12px; text-align: center; text-decoration: none;\">Grimm Gastrobedarf</a>.\n"
+"                  </td>\n"
+"                </tr>\n"
+"              </table>\n"
+"            </div>\n"
+"            <!-- END FOOTER -->\n"
+"\n"
+"          <!-- END CENTERED WHITE CONTAINER -->\n"
+"          </div>\n"
+"        </td>\n"
+"        <td style=\"font-family: sans-serif; font-size: 14px; vertical-align: top;\">&nbsp;</td>\n"
+"      </tr>\n"
+"    </table>\n"
+"  </body>\n"
+"          \n"
+"            "
+msgstr ""
+"\n"
+"            \n"
+"            <style>\n"
+"    /* -------------------------------------\n"
+"        INLINED WITH htmlemail.io/inline\n"
+"    ------------------------------------- */\n"
+"    /* -------------------------------------\n"
+"        RESPONSIVE AND MOBILE FRIENDLY STYLES\n"
+"    ------------------------------------- */\n"
+"    @media only screen and (max-width: 620px) {\n"
+"      table[class=body] h1 {\n"
+"        font-size: 28px !important;\n"
+"        margin-bottom: 10px !important;\n"
+"      }\n"
+"      table[class=body] p,\n"
+"            table[class=body] ul,\n"
+"            table[class=body] ol,\n"
+"            table[class=body] td,\n"
+"            table[class=body] span,\n"
+"            table[class=body] a {\n"
+"        font-size: 16px !important;\n"
+"      }\n"
+"      table[class=body] .wrapper,\n"
+"            table[class=body] .article {\n"
+"        padding: 10px !important;\n"
+"      }\n"
+"      table[class=body] .content {\n"
+"        padding: 0 !important;\n"
+"      }\n"
+"      table[class=body] .container {\n"
+"        padding: 0 !important;\n"
+"        width: 100% !important;\n"
+"      }\n"
+"      table[class=body] .main {\n"
+"        border-left-width: 0 !important;\n"
+"        border-radius: 0 !important;\n"
+"        border-right-width: 0 !important;\n"
+"      }\n"
+"      table[class=body] .btn table {\n"
+"        width: 100% !important;\n"
+"      }\n"
+"      table[class=body] .btn a {\n"
+"        width: 100% !important;\n"
+"      }\n"
+"      table[class=body] .img-responsive {\n"
+"        height: auto !important;\n"
+"        max-width: 100% !important;\n"
+"        width: auto !important;\n"
+"      }\n"
+"    }\n"
+"\n"
+"    /* -------------------------------------\n"
+"        PRESERVE THESE STYLES IN THE HEAD\n"
+"    ------------------------------------- */\n"
+"    @media all {\n"
+"      .ExternalClass {\n"
+"        width: 100%;\n"
+"      }\n"
+"      .ExternalClass,\n"
+"            .ExternalClass p,\n"
+"            .ExternalClass span,\n"
+"            .ExternalClass font,\n"
+"            .ExternalClass td,\n"
+"            .ExternalClass div {\n"
+"        line-height: 100%;\n"
+"      }\n"
+"      .apple-link a {\n"
+"        color: inherit !important;\n"
+"        font-family: inherit !important;\n"
+"        font-size: inherit !important;\n"
+"        font-weight: inherit !important;\n"
+"        line-height: inherit !important;\n"
+"        text-decoration: none !important;\n"
+"      }\n"
+"      #MessageViewBody a {\n"
+"        color: inherit;\n"
+"        text-decoration: none;\n"
+"        font-size: inherit;\n"
+"        font-family: inherit;\n"
+"        font-weight: inherit;\n"
+"        line-height: inherit;\n"
+"      }\n"
+"      .btn-primary table td:hover {\n"
+"        background-color: #34495e !important;\n"
+"      }\n"
+"      .btn-primary a:hover {\n"
+"        background-color: #34495e !important;\n"
+"        border-color: #34495e !important;\n"
+"      }\n"
+"    }\n"
+"    </style>\n"
+"  </head>\n"
+"  <body class=\"\" style=\"background-color: #f6f6f6; font-family: sans-serif; -webkit-font-smoothing: antialiased; font-size: 14px; line-height: 1.4; margin: 0; padding: 0; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;\">\n"
+"    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"body\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;\">\n"
+"      <tr>\n"
+"        <td style=\"font-family: sans-serif; font-size: 14px; vertical-align: top;\">&nbsp;</td>\n"
+"        <td class=\"container\" style=\"font-family: sans-serif; font-size: 14px; vertical-align: top; display: block; Margin: 0 auto; max-width: 580px; padding: 10px; width: 580px;\">\n"
+"          <div class=\"content\" style=\"box-sizing: border-box; display: block; Margin: 0 auto; max-width: 580px; padding: 10px;\">\n"
+"\n"
+"            <!-- START CENTERED WHITE CONTAINER -->\n"
+"            <span class=\"preheader\" style=\"color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;\">This is preheader text. Some clients will show this text as a preview.</span>\n"
+"            <table class=\"main\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border-radius: 3px;\">\n"
+"\n"
+"              <!-- START MAIN CONTENT AREA -->\n"
+"              <tr>\n"
+"                <td class=\"wrapper\" style=\"font-family: sans-serif; font-size: 14px; vertical-align: top; box-sizing: border-box; padding: 20px;\">\n"
+"                  <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;\">\n"
+"                    <tr>\n"
+"                      <td style=\"font-family: sans-serif; font-size: 14px; vertical-align: top;\">\n"
+"                        <p style=\"font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;\">Hi there,</p>\n"
+"                        <p style=\"font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;\">Here odoo failed to fetch incomming email from ${object.name}.</p>\n"
+"                        <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" class=\"btn btn-primary\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; box-sizing: border-box;\">\n"
+"                          <tbody>\n"
+"                            <tr>\n"
+"                              <td align=\"left\" style=\"font-family: sans-serif; font-size: 14px; vertical-align: top; padding-bottom: 15px;\">\n"
+"                                <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;\">\n"
+"                                  <tbody>\n"
+"                                    <tr>\n"
+"                                      <td style=\"font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #3498db; border-radius: 5px; text-align: center;\"> <a href=\"https://office.grimm-gastrobedarf.de\" target=\"_blank\" style=\"display: inline-block; color: #ffffff; background-color: #3498db; border: solid 1px #3498db; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #3498db;\">Redirect to Odoo</a> </td>\n"
+"                                    </tr>\n"
+"                                  </tbody>\n"
+"                                </table>\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </tbody>\n"
+"                        </table>\n"
+"                        <p style=\"font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;\">Please see below failure reason.<br/><b>${object.fetch_fail_message}</b></p>\n"
+"                        <p style=\"font-family: sans-serif; font-size: 14px; font-weight: normal; margin: 0; Margin-bottom: 15px;\">Thank you.</p>\n"
+"                      </td>\n"
+"                    </tr>\n"
+"                  </table>\n"
+"                </td>\n"
+"              </tr>\n"
+"\n"
+"            <!-- END MAIN CONTENT AREA -->\n"
+"            </table>\n"
+"\n"
+"            <!-- START FOOTER -->\n"
+"            <div class=\"footer\" style=\"clear: both; Margin-top: 10px; text-align: center; width: 100%;\">\n"
+"              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;\">\n"
+"                <tr>\n"
+"                  <td class=\"content-block\" style=\"font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;\">\n"
+"                    <span class=\"apple-link\" style=\"color: #999999; font-size: 12px; text-align: center;\">Grimm Gastrobedarf, Artilleriepark 9, 14624 Dallgow-Döberitz, Deutschland </span>\n"
+"                  </td>\n"
+"                </tr>\n"
+"                <tr>\n"
+"                  <td class=\"content-block powered-by\" style=\"font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;\">\n"
+"                    Powered by <a href=\"https://grimm-gastrobedarf.de\" style=\"color: #999999; font-size: 12px; text-align: center; text-decoration: none;\">Grimm Gastrobedarf</a>.\n"
+"                  </td>\n"
+"                </tr>\n"
+"              </table>\n"
+"            </div>\n"
+"            <!-- END FOOTER -->\n"
+"\n"
+"          <!-- END CENTERED WHITE CONTAINER -->\n"
+"          </div>\n"
+"        </td>\n"
+"        <td style=\"font-family: sans-serif; font-size: 14px; vertical-align: top;\">&nbsp;</td>\n"
+"      </tr>\n"
+"    </table>\n"
+"  </body>\n"
+"          \n"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__copy_number
+msgid "# of Copies"
+msgstr "Anzahl der Kopien"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"%s \n"
+" Produktverkauf nur in ganzen Verpackungseinheiten möglich. Menge %s nicht möglich. \n"
+"Verkaufsmenge muss %s oder ein vielfaches von %s sein."
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_tool_res_partner_form_view_inherit
+msgid "&amp;nbsp;&amp;nbsp;"
+msgstr ""
+
+#. module: grimm_tools
+#. openerp-web
+#: code:addons/grimm_tools/static/src/xml/mail_attachment.xml:0
+#, python-format
+msgid "0 B"
+msgstr ""
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "</tbody></table>"
+msgstr ""
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "</td><td style='color:green;'>Available</td></tr>"
+msgstr "</td><td style='color:green;'>Verfügbar</td></tr>"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "</td><td style='color:red;'>Not Available</td></tr>"
+msgstr "</td><td style='color:red;'>Nicht verfügbar</td></tr>"
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_magento_sale_order_line__forecast_triplet
+#: model:ir.model.fields,help:grimm_tools.field_sale_order_line__forecast_triplet
+#: model:ir.model.fields,help:grimm_tools.field_shopware_sale_order_line__forecast_triplet
+msgid "<b><span style='color:#00b8d9;'>Available quantity</span></b>"
+msgstr "<b><span style='color:#00b8d9;'>Verfüg.Mng</span></b>"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/label_printer.py:0
+#, python-format
+msgid "<b>Printing done successfully..!!</b>"
+msgstr "<b>Der Druckvorgang wurde erfolgreich abgeschlossen..!!</b>"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/label_printer.py:0
+#, python-format
+msgid "<b>Something is wrong in Label Printer configuration..!!<br/>%s</b>"
+msgstr ""
+"<b>Die Konfiguration des Etikettendruckers ist nicht korrekt..!!<br/>%s</b>"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"<center style='background-color: forestgreen;border-radius: 10px;color: "
+"white;'><span style='margin-left:3px;margin-right:3px;'>%s</span></center>"
+msgstr ""
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"<center><h2 style='color:green;'>File is successfully "
+"uploaded.</h2></center>"
+msgstr ""
+"<center><h2 style='color:green;'>Die Datei wurde erfolgreich "
+"hochgeladen</h2></center>"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "<center><h2 style='color:red;'>Please upload file.</h2></center>"
+msgstr ""
+"<center><h2 style='color:red;'>Bitte laden Sie eine Datei "
+"hoch.</h2></center>"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"<center><h2 style='color:red;'>Please upload valid .csv file.</h2></center>"
+msgstr ""
+"<center><h2 style='color:red;'>Laden Sie eine gültige CSV-Datei "
+"hoch</h2></center>"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "<center><h2 style='color:red;'>Please upload valid file.</h2></center>"
+msgstr ""
+"<center><h2 style='color:red;'>Bitte laden Sie eine gültige Datei "
+"hoch.</h2></center>"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_product_template_package_inherit
+msgid "<span class=\"o_stat_text\">Sold</span>"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.receipt_label_print_template
+msgid "<span>1</span> Stück"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.receipt_label_print_template
+msgid "<span>1</span> Stück  (VPE ="
+msgstr ""
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"<table width='80%' align='center' class='table'><thead><tr><th scope='col' "
+"width='20%'>No. </th><th scope='col'>Article SKU</th><th "
+"scope='col'>Status</th></tr></thead><tbody>"
+msgstr ""
+"<table width='80%' align='center' class='table'><thead><tr><th scope='col' "
+"width='20%'>No. </th><th scope='col'>Artikel SKU</th><th "
+"scope='col'>Status</th></tr></thead><tbody>"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_sale_order_line__is_special_price
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_line__is_special_price
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_sale_order_line__is_special_price
+msgid "AP"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_account_move_reversal
+msgid "Account Move Reversal"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__action_by
+msgid "Action By"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__active
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.email_compose_form_invoice_email
+msgid "Add contacts to notify..."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_ir_mail_server__is_default_email
+msgid ""
+"After activating this feature all email will be target to specified email "
+"address instead actual email. This feaure will e helpfull for test email "
+"related functionality."
+msgstr ""
+"Nach der Aktivierung dieser Funktion werden alle E-Mails an die angegebene "
+"E-Mail-Adresse und nicht an die tatsächliche E-Mail-Adresse weitergeleitet. "
+"Diese Funktion ist hilfreich, um die E-Mail-Funktionalität zu testen."
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product__product_ids
+msgid "Allowed Product"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_barcode_product
+msgid "Allowed product for Inventory scan."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_company__product_desc_validation
+msgid "Apply Validation?"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_customer_invoice_account_cancel_inherit
+msgid ""
+"Are you sure you want to cancel proforma invoice ? After cancel proforma "
+"invoice it will be set to draft."
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid ""
+"Are you sure you want to void the authorized transaction? This action can't "
+"be undone."
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.receipt_label_print_template
+msgid "Artikelnr.:"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_ir_attachment
+msgid "Attachment"
+msgstr ""
+
+#. module: grimm_tools
+#. openerp-web
+#: code:addons/grimm_tools/static/src/xml/mail_attachment.xml:0
+#, python-format
+msgid "Attachment size :"
+msgstr "Größe der Anhänge :"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_sale_order_line__forecast_triplet
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_line__forecast_triplet
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_sale_order_line__forecast_triplet
+msgid "Avail.Qty"
+msgstr "Verfüg.Mng"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_base
+msgid "Base"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_product_template_search_view_extension
+msgid "Base Internal Reference"
+msgstr "Variantenstammnr"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_purchase_order__base_so_number
+msgid "Base SO Number"
+msgstr ""
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/product.py:0
+#, python-format
+msgid ""
+"Below job has been blocked since more than 30 minutes in job queue. "
+"Scheduler has already added this job in requeue, if you receive email for "
+"same job then please contact IT team <br/><br/><strong>%s</strong><br/> "
+"Please add this job in requeue or do needful.</p>"
+msgstr ""
+"Die unten stehende Bestellung wurde für mehr als 30 Minuten in der "
+"Bestellwarteschlange gesperrt. Scheduler hat diesen Job bereits in Requeue "
+"hinzugefügt. Wenn Sie eine E-Mail für denselben Job erhalten, wenden Sie "
+"sich bitte an das IT-Team. <br/><br/><strong>%s</strong><br/> Fügen Sie "
+"diesen Job zu Requeue hinzu oder führen Sie ihn nach Bedarf aus.</p>"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/product.py:0
+#, python-format
+msgid ""
+"Below job has been blocked since more than 5 minutes in job queue. So this "
+"job is automatic added in requeue.<br/><br/><strong>%s</strong><br/></p>"
+msgstr ""
+"Die unten stehende Bestellung wurde für mehr als 5 Minuten in der "
+"Bestellwarteschlange gesperrt. Dieser Job wird bei Bedarf automatisch "
+"hinzugefügt.<br/><br/><strong>%s</strong><br/></p>"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.receipt_label_print_template
+msgid "Beschreibung:"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__product_label_wizard__print_layout__b
+msgid "Big"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_users__default_block
+msgid "Block Reason"
+msgstr "Grund sperren"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/product.py:0
+#, python-format
+msgid "Blocked job added in Requeue %s"
+msgstr ""
+
+#. module: grimm_tools
+#: model:mail.template,subject:grimm_tools.blocked_message_email_template
+msgid "Blocked job added in Requeue Delete a record on Shopware"
+msgstr "Blocked Job ${object.name}!"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/product.py:0
+#, python-format
+msgid "Blocked job in Queue %s"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.actions.act_window,name:grimm_tools.action_view_product_product_print
+#: model:ir.actions.act_window,name:grimm_tools.action_view_product_template_print
+msgid "Brother Print Label"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_receipt_label_stock_picking
+msgid "Brother Receipt Label"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__csv_file
+msgid "Browse File"
+msgstr "Datei durchsuchen"
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__product_postalcode__action_by__product
+msgid "By Product"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__product_postalcode__action_by__categ
+msgid "By Product Category"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_tools.sale_order_cancel_reason_view_form
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_print_label_wizard
+#: model_terms:ir.ui.view,arch_db:grimm_tools.windelta_import_wizard
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/sale_order.py:0
+#: code:addons/grimm_tools/models/sale_order.py:0
+#: model:ir.actions.act_window,name:grimm_tools.sale_order_reject_reason_action
+#: model_terms:ir.ui.view,arch_db:grimm_tools.sale_order_cancel_reason_view_form
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_sale_order_cancel_reason_tree
+#, python-format
+msgid "Cancel Reason"
+msgstr "Grund für die Stornierung"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_customer_invoice_account_cancel_inherit
+msgid "Cancel proforma"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Capture Transaction"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_rapid_creation_product_product
+msgid "Category"
+msgstr "Kategorie"
+
+#. module: grimm_tools
+#: model:ir.actions.server,name:grimm_tools.ir_check_stuck_cron_ir_actions_server
+#: model:ir.cron,cron_name:grimm_tools.ir_check_stuck_cron
+#: model:ir.cron,name:grimm_tools.ir_check_stuck_cron
+msgid "Check Blocked cron jobs"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.actions.server,name:grimm_tools.ir_check_magento_price_ir_actions_server
+#: model:ir.cron,cron_name:grimm_tools.ir_check_magento_price
+#: model:ir.cron,name:grimm_tools.ir_check_magento_price
+msgid "Check Magento price for Comparision"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.actions.server,name:grimm_tools.ir_check_shopware_price_ir_actions_server
+#: model:ir.cron,cron_name:grimm_tools.ir_check_shopware_price
+#: model:ir.cron,name:grimm_tools.ir_check_shopware_price
+msgid "Check Shopware price for Comparision"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_tool_res_partner_form_view_inherit
+msgid "City"
+msgstr "Stadt"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_tool_res_partner_form_view_inherit
+msgid "Company"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_company__company_email_logo
+msgid "Company Email Logo"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_product_postalcode_form
+msgid "Configuration"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Create Invoice"
+msgstr "Rechnung erstellen"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Create RFQ"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product__create_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__create_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_postalcode__create_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__create_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package__create_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__create_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__create_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product__create_date
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__create_date
+#: model:ir.model.fields,field_description:grimm_tools.field_postalcode__create_date
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__create_date
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package__create_date
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__create_date
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__create_date
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_res_currency
+msgid "Currency"
+msgstr "Währung"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_fetchmail_server__default_company_id
+msgid "Default Company"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_account_payment_mode__payment_journal_id
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_account_payment_mode_form_inherit
+msgid "Default Payment Journal"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_ir_mail_server__default_email
+#: model_terms:ir.ui.view,arch_db:grimm_tools.ir_mail_server_form_inherit
+msgid "Default Target Email"
+msgstr "Standard-Ziel-E-Mail"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "Delivery Date"
+msgstr "Lieferdatum"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_rapid_creation_product_product
+msgid "Description for Customers"
+msgstr "Beschreibung für Kunden"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product__display_name
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__display_name
+#: model:ir.model.fields,field_description:grimm_tools.field_postalcode__display_name
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__display_name
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package__display_name
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__display_name
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__display_name
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_product_product__ean_number
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_product_template__ean_number
+msgid "EAN Number"
+msgstr "EAN Nummer"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_mail_thread
+msgid "Email Thread"
+msgstr "E-Mail Thread"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"Error without exception. Probably due do concurrent access update of "
+"notification records. Please see with an administrator."
+msgstr ""
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"Error without exception. Probably due do sending an email without computed "
+"recipients."
+msgstr ""
+"Fehler. Vermutlich sollte ein E-Mail versandt werden bei der keine Empfänger"
+" eingetragen sind."
+
+#. module: grimm_tools
+#: model:mail.template,subject:grimm_tools.fetch_failed_email_template
+msgid "Failed to fetch email from ${object.name}!"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_address__fax
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_res_partner__fax
+#: model:ir.model.fields,field_description:grimm_tools.field_res_company__fax
+#: model:ir.model.fields,field_description:grimm_tools.field_res_partner__fax
+#: model:ir.model.fields,field_description:grimm_tools.field_res_users__fax
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_address__fax
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_invoice_address__fax
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_res_partner__fax
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_supplier__fax
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_res_company_inherit
+msgid "Fax"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_fetchmail_server__fetch_fail_message
+msgid "Fetch Failed reason"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__filename
+msgid "File name"
+msgstr "Dateiname"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.print_label_layout_standard
+msgid "Footer"
+msgstr "Fußzeile"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_rapid_creation_product_product
+msgid "General Information"
+msgstr "Allgemeine Informationen"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.print_label_layout_standard
+msgid "Header"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product__id
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__id
+#: model:ir.model.fields,field_description:grimm_tools.field_postalcode__id
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__id
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package__id
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__id
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__id
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_magento_stock_picking__print_label
+#: model:ir.model.fields,help:grimm_tools.field_stock_picking__print_label
+msgid "If it is True it will print label after validating incomming shipment."
+msgstr ""
+"Wenn es True ist, wird das Etikett gedruckt, nachdem die eingehende Sendung "
+"validiert wurde."
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid ""
+"If the sale is locked, you can not modify it anymore. However, you will "
+"still be able to invoice or deliver."
+msgstr ""
+"Wenn der Verkauf abgeschlossen ist, können Sie diesen nicht mehr ändern. "
+"Allerdings können Sie immer noch eine Rechnung ausstellen oder eine "
+"Lieferung vornehmen."
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.windelta_import_wizard
+msgid "Import"
+msgstr "Importieren"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_fetchmail_server
+msgid "Incoming Mail Server"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_magento_product_product__ean_number
+#: model:ir.model.fields,help:grimm_tools.field_magento_product_template__ean_number
+msgid "International Article Number used for product identification."
+msgstr "Internationale Artikelnummer zur Produktidentifikation"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/ir_sequence.py:0
+#, python-format
+msgid "Invalid prefix or suffix for sequence '%s'"
+msgstr "Ungültiges Prä- oder Suffix für die Folge '%s'"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_stock_location
+msgid "Inventory Locations"
+msgstr "Inventurlager"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_address__invoice_email
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_res_partner__invoice_email
+#: model:ir.model.fields,field_description:grimm_tools.field_res_partner__invoice_email
+#: model:ir.model.fields,field_description:grimm_tools.field_res_users__invoice_email
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_address__invoice_email
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_invoice_address__invoice_email
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_res_partner__invoice_email
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_supplier__invoice_email
+msgid "Invoice Email"
+msgstr "Rechnungs-E-Mail"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_purchase_order__is_so_rfq
+#: model:ir.model.fields,field_description:grimm_tools.field_purchase_order_line__is_so_rfq
+msgid "Is SO RFQ?"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_product_product__is_package
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_product_template__is_package
+#: model:ir.model.fields,field_description:grimm_tools.field_product_product__is_package
+#: model:ir.model.fields,field_description:grimm_tools.field_product_template__is_package
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_product_template__is_package
+msgid "Is package Product ?"
+msgstr "Verkauf als VPE ?"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_customer_invoice_account_cancel_inherit
+msgid "It will cancel proforma invoice and set it to draft state."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_account_move_line
+msgid "Journal Item"
+msgstr "Buchungszeile"
+
+#. module: grimm_tools
+#: model:ir.actions.act_window,name:grimm_tools.action_label_printer
+#: model:ir.ui.menu,name:grimm_tools.label_printer_menu
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_label_printer_form
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_label_printer_tree
+msgid "Label Printer"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_label_printer
+msgid "Label printer"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product____last_update
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer____last_update
+#: model:ir.model.fields,field_description:grimm_tools.field_postalcode____last_update
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard____last_update
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package____last_update
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode____last_update
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason____last_update
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product__write_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__write_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_postalcode__write_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__write_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package__write_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__write_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__write_uid
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product__write_date
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__write_date
+#: model:ir.model.fields,field_description:grimm_tools.field_postalcode__write_date
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__write_date
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package__write_date
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__write_date
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__write_date
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_tools
+#: model:ir.actions.report,name:grimm_tools.location_receipt_label_print
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_location_label_stock_location
+msgid "Location Label"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Lock"
+msgstr "Sperre"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "Mail Delivery Failed"
+msgstr "Der E-Mail-Versand ist gescheitert"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_ir_mail_server
+msgid "Mail Server"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.receipt_label_print_template
+msgid "Menge:"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_mail_message
+msgid "Message"
+msgstr "Nachricht"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_queue_job__message_info
+msgid "Message Info"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_barcode_product__name
+#: model:ir.model.fields,field_description:grimm_tools.field_postalcode__name
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package__name
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__name
+msgid "Name"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_product_package__qty_no
+msgid "No of Package"
+msgstr "Anzahl Einheiten"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "No source document available in odoo."
+msgstr "Kein Quelldokument in odoo verfügbar."
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_invoice_form_inherit
+msgid "Open Record"
+msgstr "Datensatz öffnen"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__order_id
+msgid "Order"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__other_reason
+#: model:ir.model.fields.selection,name:grimm_tools.selection__sale_order_cancel_reason__name__other
+msgid "Other Reason"
+msgstr "Anderer Grund"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_mail_mail
+msgid "Outgoing Mails"
+msgstr "Postausgang"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_users__own_customer_ref
+msgid "Own Customer Reference"
+msgstr "Eigene Kundennummer"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_product_product__package_id
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_product_template__package_id
+#: model:ir.model.fields,field_description:grimm_tools.field_product_product__package_id
+#: model:ir.model.fields,field_description:grimm_tools.field_product_template__package_id
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_product_template__package_id
+msgid "Package"
+msgstr "Verpackung"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_account_payment_mode
+msgid "Payment Modes"
+msgstr "Zahlungsarten"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/purchase_order.py:0
+#, python-format
+msgid "Please confirm related Sale Order before Purchase Order confirmation."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_postalcode
+msgid "Postalcode"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.constraint,message:grimm_tools.constraint_postalcode_postalcode_uniq
+msgid "Postalcode with the same name already exists."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__postalcode_ids
+msgid "Postalcodes"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_ir_sequence_date_range__seq_prefix
+msgid "Prefix"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_res_users__property_supplier_pricelist
+msgid "Price list to calculate the purchase price"
+msgstr "Preislite zur Kalkulation des Einkaufspreises"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_res_company_inherit
+msgid "Pricelist"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_account_invoice__print_internal_ref
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_order_shipment__print_internal_ref
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_sale_order__print_internal_ref
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_sale_order__print_internal_ref
+msgid "Print Internal Reference"
+msgstr "Interne Referenz drucken"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_stock_picking__print_label
+#: model:ir.model.fields,field_description:grimm_tools.field_stock_picking__print_label
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_print_label_wizard
+msgid "Print Label"
+msgstr "Etikettendruck"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__print_layout
+msgid "Print Layout"
+msgstr "Drucklayout"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_stock_location__print_rotation
+msgid "Print Rotation"
+msgstr "Drucklayout"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_label_printer_form
+msgid "Printer Configuration"
+msgstr "Druckerkonfiguration"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__printer_location
+msgid "Printer Location"
+msgstr "Druckerstandort"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__printer_model
+msgid "Printer Model"
+msgstr "Druckermodell"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_label_printer__name
+msgid "Printer Name"
+msgstr "Druckername"
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_magento_account_invoice__print_internal_ref
+#: model:ir.model.fields,help:grimm_tools.field_magento_order_shipment__print_internal_ref
+#: model:ir.model.fields,help:grimm_tools.field_magento_sale_order__print_internal_ref
+#: model:ir.model.fields,help:grimm_tools.field_shopware_sale_order__print_internal_ref
+msgid "Prints Art.-Nr. in the report"
+msgstr "Drucke Art.-Nr. im Bericht"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.windelta_import_wizard
+msgid "Product Bundle"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__product_categ_id
+msgid "Product Category"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_res_company_inherit
+msgid "Product Description"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_print_label_wizard
+msgid "Product Label"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_product_label_wizard
+msgid "Product Label Wizard"
+msgstr "Produktetiketten-Assistent"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_product_template_package_inherit
+msgid "Product Package"
+msgstr "Verpackungseinheiten"
+
+#. module: grimm_tools
+#: model:ir.actions.act_window,name:grimm_tools.action_product_postalcode
+#: model:ir.ui.menu,name:grimm_tools.product_postalcode_menu
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_product_postalcode_form
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_product_postalcode_tree
+msgid "Product Postalcode"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__sale_order_cancel_reason__name__not_expectation
+msgid "Product does not meet expectations"
+msgstr "Produkt entspricht nicht Erwartungen"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_product_package
+msgid "Product package"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_product_postalcode
+msgid "Product postalcode"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_product_postalcode__product_ids
+msgid "Products"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_rapid_creation_product_product
+msgid "Purchase"
+msgstr "Einkauf"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_purchase_order
+msgid "Purchase Order"
+msgstr "Bestellung"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Bestellposition"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_stock_quant
+msgid "Quants"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_queue_job
+msgid "Queue Job"
+msgstr "Aufgabe in Warteschlange einreihen"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_sale_order_cancel_reason
+msgid "Quotation Reject Reason"
+msgstr "Angebotsablehnungsgrund"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_rapid_creation_product_product
+msgid "Rapid Product Creation"
+msgstr "Schnelle Produkterstellung"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_sale_order__cancel_reason
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order__cancel_reason
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_sale_order__cancel_reason
+msgid "Reason for cancellation"
+msgstr "Stornierungsgrund"
+
+#. module: grimm_tools
+#: model:ir.actions.report,name:grimm_tools.receipt_label_print
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_receipt_label_stock_picking
+msgid "Receipt Label"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_queue_job__rec_link
+msgid "Record Link"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_account_move__ref
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_account_invoice__ref
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_order_shipment__ref
+msgid "Reference"
+msgstr "Referenz"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_invoice_form_inherit
+msgid "Register Payment"
+msgstr "Zahlung erfasssen"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_account_move__related_journal_id
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_account_invoice__related_journal_id
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_order_shipment__related_journal_id
+msgid "Related Journal"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_company__remove_attrs
+msgid "Remove Attributes"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.actions.server,name:grimm_tools.action_server_remove_all_binding
+msgid "Remove Magento Bindings"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_res_company__remove_attrs
+msgid "Remove attributes from html tag."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_res_company__valid_tags
+msgid "Remove other tags from product description."
+msgstr ""
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"STOP. Either you haven't defined Invoice reference or reference is "
+"duplicate."
+msgstr "HALT. Entweder haben Sie keine Rechnungsreferenz definiert oder die Referenz ist doppelt vorhanden."
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__sale_order_ids
+msgid "Sale Order"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
+
+#. module: grimm_tools
+#: model:ir.actions.act_window,name:grimm_tools.grimm_action_product_sale_list
+msgid "Sales Order Lines"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_product_label_wizard__printer_id
+msgid "Select Printer"
+msgstr "Drucker auswählen"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__name
+msgid "Select Reason"
+msgstr "Grund auswählen"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Send by Email"
+msgstr "E-mail senden"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_ir_sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_ir_sequence_date_range
+msgid "Sequence Date Range"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_ir_mail_server__is_default_email
+msgid "Set Default Target Email"
+msgstr "Standard-E-Mail-Adresse festlegen"
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_res_users__default_block
+msgid "Set a reason to block this customers sales orders."
+msgstr "Definieren Sie einen Grund für die Sperrung von Kundenaufträgen."
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Set to Quotation"
+msgstr "Setze auf Angebot"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_company__pricelist_id
+msgid "Shop Pricelist"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__product_label_wizard__print_layout__s
+msgid "Small"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_users__sold_products
+msgid "Sold Products"
+msgstr "Verkaufte Produkte"
+
+#. module: grimm_tools
+#: model_terms:ir.actions.act_window,help:grimm_tools.grimm_action_product_sale_list
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_product_template_package_inherit
+msgid "Sold in the last 365 days"
+msgstr ""
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"Something went wrong with file or file is not proper.\n"
+"\n"
+msgstr ""
+"Mit der Datei ist ein Fehler aufgetreten oder die Datei ist nicht korrekt.\n"
+"\n"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"Something went wrong with file or file is not valid.\n"
+"\n"
+msgstr ""
+"Es ist ein Fehler mit der Datei aufgetreten oder die Datei ist ungültig.\n"
+"\n"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_invoice_form_inherit
+msgid "Source Document"
+msgstr "Quelldokument"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "Source Document Record"
+msgstr "Quelldokumentensatz"
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_magento_sale_order_line__is_special_price
+#: model:ir.model.fields,help:grimm_tools.field_sale_order_line__is_special_price
+#: model:ir.model.fields,help:grimm_tools.field_shopware_sale_order_line__is_special_price
+msgid "Special price is available for this Product."
+msgstr "Für dieses Produkt ist ein Sonderpreis verfügbar."
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_magento_sale_order_line__avail_qty
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_line__avail_qty
+#: model:ir.model.fields,field_description:grimm_tools.field_shopware_sale_order_line__avail_qty
+msgid "Stock"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_stock_move
+msgid "Stock Move"
+msgstr "Lagerbuchung"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.sale_order_cancel_reason_view_form
+msgid "Submit"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_ir_sequence_date_range__seq_suffix
+msgid "Suffix"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_users__property_supplier_pricelist
+msgid "Supplier Price List"
+msgstr "Einkaufspreisliste"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/sale_order.py:0
+#, python-format
+msgid "Tasks"
+msgstr "Tickets"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid ""
+"The delivery date is before the invoice date. Please check and confirm your "
+"entries."
+msgstr ""
+"Das Lieferdatum liegt vor dem Rechnungsdatum., bitte Eingaben überprüfen und"
+" bestätigen."
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_fetchmail_server__default_company_id
+msgid "This field will be set as company_id field after creation."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_res_company__pricelist_id
+msgid "This is starting point to calculate shop price."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_account_payment_mode__payment_journal_id
+msgid ""
+"This journal value will be selected when user do register payment on "
+"Invoices."
+msgstr ""
+"Dieser Journalwert wird ausgewählt, wenn der Benutzer die Zahlung auf "
+"Rechnungen registriert."
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_rapid_creation_product_product
+msgid "This note will show up on sales orders."
+msgstr "Dieser Hinweis wird in Verkaufsaufträgen angezeigt."
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_print_label_wizard
+msgid "This will print product label based on below configuration.."
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__sale_order_cancel_reason__name__expensive
+msgid "Too expensive"
+msgstr "Zu Teuer"
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__sale_order_cancel_reason__name__long_delivery
+msgid "Too long delivery time"
+msgstr "Zu lange Lieferzeit"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_stock_picking
+msgid "Transfer"
+msgstr "Lieferung vornehmen"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_sale_order_cancel_reason__type
+msgid "Type"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Unlock"
+msgstr "Entsperren"
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_wizard_windelta_import__upload_info
+msgid "Upload Information"
+msgstr "Informationen hochladen"
+
+#. module: grimm_tools
+#. openerp-web
+#: code:addons/grimm_tools/static/src/js/mail_attachment.js:0
+#, python-format
+msgid "Uploading Error"
+msgstr "Fehler beim Hochladen"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_tool_res_partner_add_vat_inherit
+msgid "VAT"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_res_company__valid_tags
+msgid "Valid Tags"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,field_description:grimm_tools.field_stock_quant__unit_value
+msgid "Value"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_rapid_creation_product_product
+msgid "Vendors"
+msgstr "Lieferanten"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_view_order_form_inherit
+msgid "Void Transaction"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.import_windelta_sale_order_form
+msgid "WINdelta Import File"
+msgstr "WINdelta Import Datei"
+
+#. module: grimm_tools
+#: model:ir.actions.act_window,name:grimm_tools.import_windelta_wizard
+msgid "WINdelta Project Import File"
+msgstr "WINdelta Project Import Datei"
+
+#. module: grimm_tools
+#: model:ir.model,name:grimm_tools.model_wizard_windelta_import
+msgid "Wizard windelta import"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__sale_order_cancel_reason__name__wrong_delivery
+msgid "Wrong delivery"
+msgstr "Falsche Lieferung"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/res_company.py:0
+#, python-format
+msgid "Wrong formating for Valid tags or remove attributes %s"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields.selection,name:grimm_tools.selection__sale_order_cancel_reason__name__wrong_product
+msgid "Wrong product ordered / does not fit"
+msgstr "Falsches Produkt bestellt / passt nicht"
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_stock_location__print_rotation
+msgid "You can define degree for print location label e.g. 90 or 180"
+msgstr ""
+"Sie können den Rotationsgrad für das Druckortsetikett definieren e.g. 90 or "
+"180"
+
+#. module: grimm_tools
+#: code:addons/grimm_tools/models/partner.py:0
+#, python-format
+msgid "You can not post Invoice with 'error article'"
+msgstr "Sie können keine Rechnung mit 'Fehlerartikel' buchen"
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_location_label_stock_location
+msgid "e.g. 90 or 180"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.grimm_tool_res_partner_add_vat_inherit
+msgid "e.g. BE0477472701"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_label_printer_form
+msgid "e.g. QL-710W"
+msgstr ""
+
+#. module: grimm_tools
+#: model_terms:ir.ui.view,arch_db:grimm_tools.view_label_printer_form
+msgid "e.g. tcp://192.168.11.139:9100"
+msgstr ""
+
+#. module: grimm_tools
+#: model:ir.model.fields,help:grimm_tools.field_magento_sale_order_line__avail_qty
+#: model:ir.model.fields,help:grimm_tools.field_sale_order_line__avail_qty
+#: model:ir.model.fields,help:grimm_tools.field_shopware_sale_order_line__avail_qty
+msgid "frei"
+msgstr ""

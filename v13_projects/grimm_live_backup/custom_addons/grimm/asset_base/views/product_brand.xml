@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+    <data>
+
+        <record id="grimm_product_brand_form_view" model="ir.ui.view">
+            <field name="name">grimm.product.brand.form.view</field>
+            <field name="model">grimm.product.brand</field>
+            <field name="arch" type="xml">
+                <form string="Product brand">
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                        <notebook>
+                            <page string="Associated products" name="associated_products">
+                                <field name="product_ids" />
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="act_product_brands" model="ir.actions.act_window">
+            <field name="name">Product Brands</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">grimm.product.brand</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" eval="False"/>
+        </record>
+
+        <menuitem action="act_product_brands" id="menu_product_brands" parent="stock.menu_product_in_config_stock" string="Product Brands" sequence="14" />
+
+
+    </data>
+</odoo>

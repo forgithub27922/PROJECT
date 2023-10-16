@@ -1,0 +1,106 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_web
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-06 12:36+0000\n"
+"PO-Revision-Date: 2020-08-06 12:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Cc:"
+msgstr "CC"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Date:"
+msgstr "Datum:"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Delete"
+msgstr "Löschen"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Document not downloadable"
+msgstr ""
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Download"
+msgstr "Herunterladen"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "From:"
+msgstr "Vom"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Messages"
+msgstr "Nachrichten"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Subject:"
+msgstr "Betreff:"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "To:"
+msgstr "An"
+
+#. module: grimm_web
+#: code:addons/grimm_web/controllers/main.py:0
+#, python-format
+msgid "Unknown Error"
+msgstr ""
+
+#. module: grimm_web
+#: code:addons/grimm_web/controllers/main.py:0
+#, python-format
+msgid "Unparsable message! The file has to be of type: message/rfc822"
+msgstr ""
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Uploaded"
+msgstr "hochgeladen"
+
+#. module: grimm_web
+#. openerp-web
+#: code:addons/grimm_web/static/src/xml/preview.xml:0
+#, python-format
+msgid "Uploading"
+msgstr "Lade hoch"

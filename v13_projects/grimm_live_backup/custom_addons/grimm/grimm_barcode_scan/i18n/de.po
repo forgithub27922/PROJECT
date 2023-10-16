@@ -1,0 +1,367 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_barcode_scan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-03 08:32+0000\n"
+"PO-Revision-Date: 2020-01-03 08:32+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_copy_number
+msgid "# of Copies"
+msgstr "Anzahl der Kopien"
+
+#. module: grimm_barcode_scan
+#: model:ir.ui.view,arch_db:grimm_barcode_scan.grimm_product_template_barcode_search_view_extension
+msgid "Barcode"
+msgstr "Strichcode"
+
+#. module: grimm_barcode_scan
+#: selection:product.label.wizard,print_layout:0
+msgid "Big"
+msgstr "Groß"
+
+#. module: grimm_barcode_scan
+#: model:ir.actions.server,name:grimm_barcode_scan.ir_create_magento_delivery_cron_ir_actions_server
+#: model:ir.cron,cron_name:grimm_barcode_scan.ir_create_magento_delivery_cron
+#: model:ir.cron,name:grimm_barcode_scan.ir_create_magento_delivery_cron
+msgid "Create Magento Delivery cron jobs"
+msgstr "Erstelle Magenot Lieferungen Con Job"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_create_uid
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_create_uid
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_create_date
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_create_date
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,help:grimm_barcode_scan.field_magento_product_product_photo_date
+#: model:ir.model.fields,help:grimm_barcode_scan.field_magento_product_template_photo_date
+#: model:ir.model.fields,help:grimm_barcode_scan.field_product_product_photo_date
+#: model:ir.model.fields,help:grimm_barcode_scan.field_product_template_photo_date
+#: model:ir.model.fields,help:grimm_barcode_scan.field_shopware_product_template_photo_date
+msgid "Date when photo has been taken."
+msgstr "Datum, an dem das Foto aufgenommen wurde."
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_display_name
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_display_name
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_product_ean_number
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_template_ean_number
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_shopware_product_template_ean_number
+msgid "EAN Number"
+msgstr "EAN Nummer"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/xml/photo_barcode.xml:8
+#, python-format
+msgid "Grimm Barcode Scanning"
+msgstr "Grimm Strichcode-Scannen"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/xml/photo_barcode.xml:28
+#, python-format
+msgid "Grimm Internal Transfer"
+msgstr "Grimm Interner Transfer"
+
+#. module: grimm_barcode_scan
+#: model:ir.actions.report,name:grimm_barcode_scan.product_label_print_report
+msgid "Grimm Product Label"
+msgstr "Grimm Produktetikett"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_id
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_id
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_barcode_scan
+#: model:ir.actions.client,name:grimm_barcode_scan.internal_transfer_action_main_menu
+msgid "Internal Transfer"
+msgstr "Interner Transfer"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,help:grimm_barcode_scan.field_product_product_ean_number
+#: model:ir.model.fields,help:grimm_barcode_scan.field_product_template_ean_number
+#: model:ir.model.fields,help:grimm_barcode_scan.field_shopware_product_template_ean_number
+msgid "International Article Number used for product identification."
+msgstr "Internationale Artikelnummer zur Produktidentifikation"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_product_product_is_photo_done
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_product_template_is_photo_done
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_product_is_photo_done
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_template_is_photo_done
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_shopware_product_template_is_photo_done
+msgid "Is Photo Done ?"
+msgstr "Ist das Foto fertig?"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_is_done
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_is_done
+msgid "Is done?"
+msgstr "Erledigt?"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer___last_update
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer___last_update
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_write_uid
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_write_uid
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_write_date
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_write_date
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/js/stock_picking.js:26
+#, python-format
+msgid "Location"
+msgstr "Lagerplatz"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_magento_backend_id
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_magento_backend_id
+msgid "Magento Backend"
+msgstr "Magento Backend"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_magento_order_id
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_magento_order_id
+msgid "Magento Order ID"
+msgstr "Magento Order ID"
+
+#. module: grimm_barcode_scan
+#: model:ir.ui.view,arch_db:grimm_barcode_scan.grimm_picking_report
+msgid "No"
+msgstr "Nein"
+
+#. module: grimm_barcode_scan
+#: code:addons/grimm_barcode_scan/controllers/main.py:73
+#, python-format
+msgid "No Internal Transfer in Ready state for corresponding product barcode %(barcode)s"
+msgstr "Keine interne Übertragung im Bereitschaftsstatus für den entsprechenden Produkt-Barcode %(barcode)s"
+
+#. module: grimm_barcode_scan
+#: code:addons/grimm_barcode_scan/controllers/main.py:51
+#, python-format
+msgid "No Product corresponding to barcode %(barcode)s"
+msgstr "Kein Produkt, das dem Strichcode entspricht %(barcode)s"
+
+#. module: grimm_barcode_scan
+#: code:addons/grimm_barcode_scan/controllers/main.py:34
+#, python-format
+msgid "No picking corresponding to barcode %(barcode)s"
+msgstr "Kein Kommissionieren nach Strichcode %(barcode)s"
+
+#. module: grimm_barcode_scan
+#: code:addons/grimm_barcode_scan/controllers/main.py:32
+#, python-format
+msgid "No picking or location corresponding to barcode %(barcode)s"
+msgstr "Keine Kommissionierung oder Platzierung entsprechend dem Strichcode %(barcode)s"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/xml/photo_barcode.xml:39
+#, python-format
+msgid "Open Operations"
+msgstr "Öffnen Sie Operations"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/xml/photo_barcode.xml:20
+#, python-format
+msgid "Open Products"
+msgstr "Produkte öffnen"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_invoice_buffer_openerp_id
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_shippment_buffer_openerp_id
+msgid "OpenERP ID"
+msgstr "OpenERP ID"
+
+#. module: grimm_barcode_scan
+#: model:ir.actions.act_window,name:grimm_barcode_scan.grimm_stock_picking_action_kanban
+msgid "Operations"
+msgstr "Vorgänge"
+
+#. module: grimm_barcode_scan
+#: model:ir.actions.client,name:grimm_barcode_scan.photo_barcode_action_main_menu
+msgid "Photo"
+msgstr "Foto"
+
+#. module: grimm_barcode_scan
+#: model:ir.actions.client,name:grimm_barcode_scan.photo_done_popup
+msgid "Photo Done"
+msgstr "Foto fertig"
+
+#. module: grimm_barcode_scan
+#: model:ir.ui.view,arch_db:grimm_barcode_scan.grimm_picking_report
+msgid "Photo Required ?"
+msgstr "Foto erforderlich?"
+
+#. module: grimm_barcode_scan
+#: code:addons/grimm_barcode_scan/controllers/main.py:49
+#, python-format
+msgid "Photo entry has been updated for <b>%(barcode)s</b> <br/> %(name)s"
+msgstr "Der Fotoeintrag wurde für aktualisiert <b>%(barcode)s</b> <br/> %(name)s"
+
+#. module: grimm_barcode_scan
+#: code:addons/grimm_barcode_scan/controllers/main.py:47
+#, python-format
+msgid "Photo has been already taken for %s."
+msgstr "Das Foto wurde bereits für aufgenommen %s."
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_product_product_photo_date
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_magento_product_template_photo_date
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_product_photo_date
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_template_photo_date
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_shopware_product_template_photo_date
+msgid "Photo taken date"
+msgstr "Aufnahmedatum des Fotos"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_print_layout
+msgid "Print Layout"
+msgstr "Drucklayout"
+
+#. module: grimm_barcode_scan
+#: model:ir.model,name:grimm_barcode_scan.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_barcode_scan
+#: model:ir.model,name:grimm_barcode_scan.model_product_label_wizard
+msgid "Product Label Wizard"
+msgstr "Produktetiketten-Assistent"
+
+#. module: grimm_barcode_scan
+#: model:ir.model,name:grimm_barcode_scan.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/js/stock_picking.js:26
+#, python-format
+msgid "Product found at following locations"
+msgstr "Produkt vorhanden auf Lagerplatz:"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/js/stock_picking.js:26
+#, python-format
+msgid "Qty"
+msgstr "Mng"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/xml/photo_barcode.xml:18
+#, python-format
+msgid "Scan a Barcode or SKU to process it."
+msgstr "Scannen Sie einen Barcode oder eine Artikelnummer, um ihn zu verarbeiten."
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/xml/photo_barcode.xml:18
+#, python-format
+msgid "Scan a product barcode or SKU to mark it as Photo done."
+msgstr "Scannen Sie ein Produkt - Barcode oder Artikelnummer, um es als foto bereit zu markieren."
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/xml/photo_barcode.xml:38
+#, python-format
+msgid "Scan a product barcode or SKU to see Internal Transfer which are in ready state."
+msgstr "Scannen Sie einen Produkt-Barcode oder eine Artikelnummer, um festzustellen, ob die interne Übertragung bereit ist."
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,field_description:grimm_barcode_scan.field_product_label_wizard_printer_id
+msgid "Select Printer"
+msgstr "Drucker auswählen"
+
+#. module: grimm_barcode_scan
+#: selection:product.label.wizard,print_layout:0
+msgid "Small"
+msgstr "Klein"
+
+#. module: grimm_barcode_scan
+#. openerp-web
+#: code:addons/grimm_barcode_scan/static/src/js/grimm_web.js:26
+#: code:addons/grimm_barcode_scan/static/src/js/grimm_web.js:79
+#: code:addons/grimm_barcode_scan/static/src/js/grimm_web.js:127
+#, python-format
+msgid "Success"
+msgstr "Erfolg"
+
+#. module: grimm_barcode_scan
+#: model:ir.model.fields,help:grimm_barcode_scan.field_magento_product_product_is_photo_done
+#: model:ir.model.fields,help:grimm_barcode_scan.field_magento_product_template_is_photo_done
+#: model:ir.model.fields,help:grimm_barcode_scan.field_product_product_is_photo_done
+#: model:ir.model.fields,help:grimm_barcode_scan.field_product_template_is_photo_done
+#: model:ir.model.fields,help:grimm_barcode_scan.field_shopware_product_template_is_photo_done
+msgid "This value displays True if photo has been done."
+msgstr "This value displays True if photo has been done."
+
+#. module: grimm_barcode_scan
+#: model:ir.ui.view,arch_db:grimm_barcode_scan.grimm_product_template_barcode_search_view_extension
+msgid "Today's Photo"
+msgstr "Das heutige Foto"
+
+#. module: grimm_barcode_scan
+#: model:ir.model,name:grimm_barcode_scan.model_stock_picking
+msgid "Transfer"
+msgstr "Lieferung vornehmen"
+
+#. module: grimm_barcode_scan
+#: model:ir.ui.view,arch_db:grimm_barcode_scan.grimm_picking_report
+msgid "Yes"
+msgstr "Ja."
+
+#. module: grimm_barcode_scan
+#: model:ir.model,name:grimm_barcode_scan.model_magento_invoice_buffer
+msgid "magento.invoice.buffer"
+msgstr "magento.invoice.buffer"
+
+#. module: grimm_barcode_scan
+#: model:ir.model,name:grimm_barcode_scan.model_magento_shippment_buffer
+msgid "magento.shippment.buffer"
+msgstr "magento.shippment.buffer"
+

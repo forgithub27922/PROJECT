@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Inherited form view of department to enable appraisal -->
+    <record id="view_dept_form_appraisal_inherit" model="ir.ui.view">
+        <field name="name">view.dept.form.appraisal.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group[1]" position="after">
+                <group name="grp_appraisal" string="Appraisal">
+                    <field name="appraisal_enable"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited view of department to enable appraisal -->
+    <record id="view_dept_tree_appraisal_inherit" model="ir.ui.view">
+        <field name="name">view.dept.tree.appraisal.inherit</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="appraisal_enable" widget="boolean_toggle"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

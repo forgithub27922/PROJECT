@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Inherited Form view of Hr Department -->
+    <record id="hr_department_form_view" model="ir.ui.view">
+        <field name="name">hr.department.form.view</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group/field[@name='parent_id']" position="after">
+                <field name="working_schedule_id" required="1"/>
+                <field name="business_hours" widget="float_time" required="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

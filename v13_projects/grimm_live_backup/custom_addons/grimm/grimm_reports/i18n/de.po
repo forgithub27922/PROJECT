@@ -1,0 +1,2645 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-11 09:15+0000\n"
+"PO-Revision-Date: 2022-08-11 09:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_reports
+#: model:mail.template,subject:grimm_reports.email_template_edi_sale
+msgid ""
+"\n"
+"              % if object.state in ['draft','sent']:\n"
+"Angebot ${object.number or object.name or 'n/a' } ${object.company_id.name} von GRIMM Gastrobedarf\n"
+"              % else:\n"
+"Auftragsbestätigung ${object.number or object.name or 'n/a' } ${object.company_id.name} von GRIMM Gastrobedarf\n"
+"              % endif\n"
+"            "
+msgstr ""
+"\n"
+"              % if object.state in ['draft','sent']:\n"
+"Angebot ${object.number or object.name or 'n/a' } ${object.company_id.name} von GRIMM Gastrobedarf\n"
+"              % else:\n"
+"Auftragsbestätigung ${object.number or object.name or 'n/a' } ${object.company_id.name} von GRIMM Gastrobedarf\n"
+"              % endif\n"
+
+#. module: grimm_reports
+#: model:mail.template,report_name:grimm_reports.email_template_edi_sale
+msgid ""
+"\n"
+"              % if object.state in ['draft','sent']:\n"
+"Angebot_${(object.number or object.name or '')}\n"
+"              % else:\n"
+"Auftragsbestätigung_${(object.number or object.name or '')}\n"
+"              % endif\n"
+"            "
+msgstr ""
+"\n"
+"              % if object.state in ['draft','sent']:\n"
+"Angebot_${(object.number or object.name or '')}\n"
+"              % else:\n"
+"Auftragsbestätigung_${(object.number or object.name or '')}\n"
+"              % endif\n"
+
+#. module: grimm_reports
+#: model:mail.template,body_html:grimm_reports.email_template_edi_purchase
+msgid ""
+"\n"
+"              <div style=\"font-family:'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                 <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"                 <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Hiermit senden wir Ihnen eine Preisanfrage:</p>\n"
+"                 <p style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-left:1px solid #8e0000;margin-left: 30px;\">\n"
+"                 </p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><strong style=\"font-weight:bolder;\">Referenz:</strong><br>\n"
+"                 </p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Bestellnummer: <strong style=\"font-weight:bolder;\">${object.name}</strong></p>\n"
+"                 <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Bestelldatum: ${object.date_order}</p>\n"
+"                  % if object.origin:\n"
+"                   <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Bestellreferenz: ${object.origin}</p>\n"
+"                  % endif\n"
+"                  % if object.partner_ref:\n"
+"                    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Kundenreferenz: ${object.partner_ref}</p>\n"
+"                  % endif\n"
+"                  % if object.create_uid:\n"
+"                    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Ihr Kontakt: <a href=\"mailto:${object.create_uid.email or ''}?subject=Order%20${object.name}\" style=\"text-decoration:none;background-color:transparent;color:rgb(0, 135, 132);\">${object.create_uid.name}</a></p>\n"
+"                  % endif\n"
+"                 <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"></p>\n"
+"\n"
+"                 <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>\n"
+"                 <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Vielen Dank!</p>\n"
+"              </div>\n"
+"              "
+msgstr ""
+"\n"
+"              <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                 <p>Sehr geehrte Damen und Herren,</p>\n"
+"                 <p>Hiermit senden wir Ihnen eine Preisanfrage:</p>\n"
+"                 <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"                 <p><strong>Referenz:</strong><br />\n"
+"                 <p>Bestellnummer: <strong>${object.name}</strong></p>\n"
+"                 <p>Bestelldatum: ${object.date_order}</p>\n"
+"                  % if object.origin:\n"
+"                   <p>Bestellreferenz: ${object.origin}</p>\n"
+"                  % endif\n"
+"                  % if object.partner_ref:\n"
+"                    <p>Kundenreferenz: ${object.partner_ref}</p>\n"
+"                  % endif\n"
+"                  % if object.create_uid:\n"
+"                    <p>Ihr Kontakt: <a href=\"mailto:${object.create_uid.email or ''}?subject=Order%20${object.name}\">${object.create_uid.name}</a></p>\n"
+"                  % endif\n"
+"                 </p>\n"
+"\n"
+"                 <p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>\n"
+"                 <p>Vielen Dank!</p>\n"
+"              </div>\n"
+
+#. module: grimm_reports
+#: model:mail.template,body_html:grimm_reports.email_template_edi_purchase_done
+msgid ""
+"\n"
+"             <div style=\"font-family:'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"                <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Hiermit senden wir Ihnen eine Bestellung:</p>\n"
+"                <p style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-left:1px solid #8e0000;margin-left: 30px;\">\n"
+"                </p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><strong style=\"font-weight:bolder;\">Referenz:</strong><br>\n"
+"                </p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Bestellnummer: <strong style=\"font-weight:bolder;\">${object.name}</strong></p>\n"
+"                <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Bestelldatum: ${object.date_order}</p>\n"
+"                 % if object.origin:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Bestellreferenz: ${object.origin}</p>\n"
+"                 % endif\n"
+"                 % if object.partner_ref:\n"
+"                   <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Kundenreferenz: ${object.partner_ref}</p>\n"
+"                 % endif\n"
+"                 % if object.create_uid:\n"
+"                   <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Ihr Kontakt: <a href=\"mailto:${object.create_uid.email or ''}?subject=Order%20${object.name}\" style=\"text-decoration:none;background-color:transparent;color:rgb(0, 135, 132);\">${object.create_uid.name}</a></p>\n"
+"                 % endif\n"
+"                <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"></p>\n"
+"\n"
+"                <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>\n"
+"                <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Vielen Dank!</p>\n"
+"             </div>\n"
+"           "
+msgstr ""
+"\n"
+"             <div style=\"font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                <p>Sehr geehrte Damen und Herren,</p>\n"
+"                <p>Hiermit senden wir Ihnen eine Bestellung:</p>\n"
+"                <p style=\"border-left: 1px solid #8e0000; margin-left: 30px;\">\n"
+"                <p><strong>Referenz:</strong><br />\n"
+"                <p>Bestellnummer: <strong>${object.name}</strong></p>\n"
+"                <p>Bestelldatum: ${object.date_order}</p>\n"
+"                 % if object.origin:\n"
+"                  <p>Bestellreferenz: ${object.origin}</p>\n"
+"                 % endif\n"
+"                 % if object.partner_ref:\n"
+"                   <p>Kundenreferenz: ${object.partner_ref}</p>\n"
+"                 % endif\n"
+"                 % if object.create_uid:\n"
+"                   <p>Ihr Kontakt: <a href=\"mailto:${object.create_uid.email or ''}?subject=Order%20${object.name}\">${object.create_uid.name}</a></p>\n"
+"                 % endif\n"
+"                </p>\n"
+"\n"
+"                <p>Falls Sie Fragen haben, kontaktieren Sie uns einfach.</p>\n"
+"                <p>Vielen Dank!</p>\n"
+"             </div>\n"
+
+#. module: grimm_reports
+#: model:mail.template,body_html:grimm_reports.email_template_damage_report_grimm
+#: model:mail.template,body_html:grimm_reports.email_template_warranty_claim_grimm
+msgid ""
+"\n"
+"<div style=\"font-size:13px;font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"    % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"    <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"    % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"    <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"    % else:\n"
+"    <p style=\"margin:0px 0px 9px 0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"    % endif\n"
+"    <br>\n"
+"</div>\n"
+"              "
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,body_html:grimm_reports.email_template_delivery_notice
+msgid ""
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">\n"
+"\n"
+"  % if object.contact:\n"
+"    % if (object.contact.company_type == 'company'):\n"
+"    Guten Tag,\n"
+"    % else:\n"
+"      % if object.contact.name:\n"
+"        Guten Tag ${object.contact.name},\n"
+"      % else:\n"
+"        Guten Tag,\n"
+"      % endif\n"
+"    % endif\n"
+"  % else\n"
+"    Guten Tag,\n"
+"  % endif\n"
+"</p>\n"
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">vielen Dank für Ihre Bestellung bei GRIMM Gastronomiebedarf.</p>\n"
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">Anbei erhalten Sie ihre Lieferanzeige mit Angabe aller relevanten Informationen</p>\n"
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">Die Originalrechnung liegt der Lieferung nicht bei, diese wird ihnen gesondert nach Auslieferung der Ware per Post oder E-Mail zugestellt.</p>\n"
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">Bitte beachten Sie, dass Lieferung ab Werk nicht Liefertag bei Ihnen bedeutet. Es kommen in der Regel noch 3-5 Versandtage dazu.</p>\n"
+"\n"
+"<table><tr>\n"
+"<td cellpadding=\"2\" cellspacing=\"2\" class=\"danger\" style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; line-height: 21px; background-color: #ed2939; padding: 10px; color: #fff;\">\n"
+"      <span>Wichtig:</span>\n"
+"    </td>\n"
+"  </tr></table>\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\"></p>\n"
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">Bitte kontrollieren Sie Ihre Ware bei der Übernahme auf Vollständigkeit und eventuelle Beschädigungen. Vermerken Sie Transportschäden oder Mängel auf dem Lieferschein oder Frachtbrief und lassen Sie sich diese unbedingt vom Fahrer gegenzeichnen. Spätere Reklamationen ohne einen entsprechenden Vermerk können leider nicht anerkannt werden!</p>\n"
+"\n"
+"<table class=\"object-info-table\"><tbody>\n"
+"  % if object.name:\n"
+"  <tr>\n"
+"<td width=\"150px\" class=\"table-label\" style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; line-height: 21px;\">Bestellnummer:</td>\n"
+"    <td class=\"table-value\" style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; line-height: 21px; font-weight: bold;\">${object.name}</td>\n"
+"  </tr>\n"
+"  % endif\n"
+"\n"
+"  % if object.client_order_ref:\n"
+"  <tr>\n"
+"<td width=\"150px\" class=\"table-label\" style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; line-height: 21px;\">Kundenreferenz:</td>\n"
+"    <td class=\"table-value\" style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; line-height: 21px; font-weight: bold;\">${object.client_order_ref}</td>\n"
+"  </tr>\n"
+"  % endif\n"
+"\n"
+"  </tbody></table>\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\"></p>\n"
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">Sie haben Fragen? Unter +49 (0) 30 - 34 50 60 80 oder <a href=\"mailto:shop@grimm-gastrobedarf.de\">shop@grimm-gastrobedarf.de</a> erreichen Sie uns zu jeder Zeit. Unsere Gastro-Experten kennen die Antwort auf Ihre Fragen rund um den Gastronomiebedarf – probieren Sie es aus.</p>\n"
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">Mit freundlichen Grüßen von vor den Toren Berlins</p>\n"
+"\n"
+"<p style=\"font-family: arial,helvetica,sans-serif; font-size: 16px; margin-bottom: 21px; line-height: 21px;\">Ihre GRIMM Gastro-Experten</p>\n"
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,body_html:grimm_reports.email_template_edi_sale
+msgid ""
+"              <div style=\"font-size:13px;font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"                  \n"
+"                % if object.state in ('draft', 'sent'):\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\"><span style=\"line-height:14.95px\">nachfolgend erhalten Sie das angefragte Angebot. Wir freuen uns auf eine Zusammenarbeit.</span></p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\"><span style=\"line-height:14.95px\">Wenn Sie noch Fragen haben sollten, stehen wir Ihnen gerne zur Verfügung.</span></p>\n"
+"                  <table style=\"border-collapse:collapse;background-color:transparent;font-size:13px;margin-block-start:0px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">\n"
+"                  <tbody><tr><td colspan=\"2\" style=\"padding:0px;\">Zusammenfassung</td></tr>\n"
+"                  <tr><td style=\"padding:0px;\">Bestellnummer:</td><td style=\"padding:0px;\"><strong style=\"font-weight:bold;\">${object.name}</strong></td></tr>\n"
+"                  <tr><td style=\"padding:0px;\">Angebotssumme:</td><td style=\"padding:0px;\"><strong style=\"font-weight:bold;\">${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></td></tr>\n"
+"                  <tr><td style=\"padding:0px;\">Angebotsdatum:</td><td style=\"padding:0px;\">${format_datetime(object.date_order, dt_format='%d.%m.%Y %H:%m:%S') if object.date_order else 'XX.YY.ZZZZ'}</td></tr>\n"
+"                  </tbody></table>\n"
+"                  \n"
+"                  \n"
+"                % else:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\"><span style=\"line-height:14.95px\">besten Dank für Ihre Bestellung, hiermit schicken wir Ihnen Ihre Auftragsbestätigung.</span></p>\n"
+"                  <table style=\"border-collapse:collapse;background-color:transparent;font-size:13px;margin-block-start:0px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">\n"
+"                  <tbody><tr><td colspan=\"2\" style=\"padding:0px;\">Zusammenfassung</td></tr>\n"
+"                  <tr><td style=\"padding:0px;\">Bestellnummer:</td><td style=\"padding:0px;\"><strong style=\"font-weight:bold;\">${object.name}</strong></td></tr>\n"
+"                  <tr><td style=\"padding:0px;\">Auftragssumme:</td><td style=\"padding:0px;\"><strong style=\"font-weight:bold;\">${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></td></tr>\n"
+"                  <tr><td style=\"padding:0px;\">Auftragsdatum:</td><td style=\"padding:0px;\">${datetime.datetime.strptime(str(object.date_order.date()), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_order else 'XX.YY.ZZZZ'}</td></tr></tbody></table>\n"
+"                  \n"
+"                  \n"
+"                  \n"
+"                % endif\n"
+"                % if object.client_order_ref:\n"
+"                  <table style=\"border-collapse:collapse;background-color:transparent;font-size:13px;margin-block-start:0px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">\n"
+"                  <tbody>\n"
+"                  <tr><td style=\"padding:0px;\">Ihre Referenz</td><td style=\"padding:0px;\"><strong style=\"font-weight:bold;\">${object.client_order_ref}</strong></td></tr>\n"
+"                  </tbody></table>\n"
+"                  \n"
+"                  \n"
+"                % endif\n"
+"                \n"
+"              </div>\n"
+"              \n"
+msgstr ""
+"              <div style=\"font-family:'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"                % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"                % else:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\">Sehr geehrte Damen und Herren,</p>\n"
+"                % endif\n"
+"                % if object.state in ('draft', 'sent'):\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"line-height:14.95px\">nachfolgend erhalten Sie das angefragte Angebot. Wir freuen uns auf eine Zusammenarbeit.</span></p>\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"line-height:14.95px\">Wenn Sie noch Fragen haben sollten, stehen wir Ihnen gerne zur Verfügung.</span></p>\n"
+"\t\t\t\t  <table style=\"border-collapse:collapse;font-size:13px;margin-block-start:0px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">\n"
+"                  <tbody><tr><td colspan=\"2\">Zusammenfassung</td></tr>\n"
+"                  <tr><td>Bestellnummer:</td><td><strong style=\"font-weight:bolder;\">${object.name}</strong></td></tr>\n"
+"                  <tr><td>Angebotssumme:</td><td><strong style=\"font-weight:bolder;\">${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></td></tr>\n"
+"                  <tr><td>Angebotsdatum:</td><td>${format_datetime(object.date_order, dt_format='%d.%m.%Y %H:%m:%S') if object.date_order else 'XX.YY.ZZZZ'}</td></tr>\n"
+"                  </tbody></table>\n"
+"                % else:\n"
+"                  <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;\"><span style=\"line-height:14.95px\">besten Dank für Ihre Bestellung, hiermit schicken wir Ihnen Ihre Auftragsbestätigung.</span></p>\n"
+"                  <table style=\"border-collapse:collapse;font-size:13px;margin-block-start:0px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">\n"
+"                  <tbody><tr><td colspan=\"2\">Zusammenfassung</td></tr>\n"
+"                  <tr><td style=\"width:150px\">Bestellnummer:</td><td><strong style=\"font-weight:bolder;\">${object.name}</strong></td></tr>\n"
+"                  <tr><td style=\"width:150px\">Auftragssumme:</td><td><strong style=\"font-weight:bolder;\">${object.amount_total} ${object.pricelist_id.currency_id.name}</strong></td></tr>\n"
+"                  <tr><td style=\"width:150px\">Auftragsdatum:</td><td>${datetime.datetime.strptime(str(object.date_order.date()), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_order else 'XX.YY.ZZZZ'}</td></tr></tbody></table>\n"
+"                % endif\n"
+"                % if object.client_order_ref:\n"
+"                    <table style=\"border-collapse:collapse;font-size:13px;margin-block-start:0px;font-family:&quot;Lucida Grande&quot;,Helvetica,Verdana,Arial,sans-serif;\">\n"
+"                  <tbody>\n"
+"                  <tr><td style=\"width:150px\">Ihre Referenz</td><td><strong style=\"font-weight:bolder;\">${object.client_order_ref}</strong></td></tr>\n"
+"                  </tbody></table>\n"
+"                % endif\n"
+"                \n"
+"              </div>\n"
+
+#. module: grimm_reports
+#: model:mail.template,subject:grimm_reports.email_template_edi_purchase_done
+msgid "${object.company_id.name} Bestellung ${object.name or 'n/a' }"
+msgstr ""
+"${object.env['res.company'].sudo().browse(1).name} Bestellung ${object.name "
+"or 'n/a' }"
+
+#. module: grimm_reports
+#: model:mail.template,subject:grimm_reports.email_template_delivery_notice
+msgid ""
+"${object.company_id.name} Lieferanzeige (Ref ${object.number or 'n/a' })"
+msgstr "Lieferanzeige ${object.name} von ${object.company_id.name}"
+
+#. module: grimm_reports
+#: model:mail.template,subject:grimm_reports.email_template_edi_purchase
+msgid ""
+"${object.env['res.company'].sudo().browse(1).name} Anfrage ${object.name or "
+"'n/a' }"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "% Ust."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "&amp;bull;"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+msgid "&amp;nbsp;"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "&amp;nbsp;&amp;nbsp;"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "&amp;nbsp;<span>on</span>&amp;nbsp;"
+msgstr "&amp;nbsp;<span>auf</span>&amp;nbsp;"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"&lt;/tbody&gt;\n"
+"                                    &lt;/table&gt;\n"
+"                                    &lt;p style=\"page-break-before:always;\"&gt; &lt;/p&gt;\n"
+"                                    &lt;table class=\"table table-condensed\"&gt;"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"&lt;/tbody&gt;\n"
+"                        &lt;/table&gt;\n"
+"                        &lt;p style=\"page-break-before:always;\"&gt; &lt;/p&gt;\n"
+"                        &lt;table class=\"table table-condensed\"&gt;"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "&lt;tbody&gt;"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,print_report_name:grimm_reports.grimm_service_begleitschein_report
+msgid "'Begleitschein_%s' % (object.name)"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,print_report_name:grimm_reports.action_report_inventory_signature
+#: model:ir.actions.report,print_report_name:grimm_reports.action_report_valuation
+msgid "'Inventory - %s' % (object.name)"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.category_template_grimm
+msgid "( not included in the total amount )"
+msgstr "( nicht im Gesamtpreis enthalten )"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm
+msgid "*** Aktionspreis nur gültig bei Auftragseingang bis <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "<b class=\"claim-header border-b\">Angeaben zum Gerät</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "<b class=\"claim-header border-b\">Genaue Fehlerbeschreibung</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "<b class=\"claim-header\">Standort des Gerätes</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid ""
+"<b class=\"claim-text\">Mitteilung an Kundendienst (nur durch den GRIMM Gastronomiebedarf\n"
+"                            Kundendienst\n"
+"                            auszufüllen)\n"
+"                        </b>\n"
+"                        <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<b>\n"
+"                                                            <span>nach Vereinbarung</span>\n"
+"                                                        </b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid ""
+"<b>\n"
+"                                        <span class=\"bold\">NR.</span>\n"
+"                                        <br/>\n"
+"                                    </b>\n"
+"                                    <span>Beleg-Datum</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<b>\n"
+"                                        <span class=\"regular\" style=\"padding-top:4mm; padding-bottom:4mm;\">Wichtige\n"
+"                                            Hinweise\n"
+"                                        </span>\n"
+"                                    </b>\n"
+"                                    entnehmen Sie unseren"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_report_layout_header
+msgid ""
+"<b>\n"
+"                            <span class=\"regular\" style=\"padding-top:4mm; padding-bottom:4mm;\">Wichtige Hinweise</span>\n"
+"                        </b>\n"
+"                        entnehmen Sie unseren"
+msgstr ""
+"<b>\n"
+"                          <span class=\"regular\" style=\"padding-top:4mm; padding-bottom:4mm;\">Wichtige Hinweise</span>\n"
+"                      </b>\n"
+"                      entnehmen Sie unseren"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "<b>&amp;nbsp;</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "<b>Beneficiary</b>"
+msgstr "<b>Leistungsempfänger</b>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"<b>Ihre gewählte Zahlungsweise: RatePAY-Rechnung</b>\n"
+"                                                    <br/>\n"
+"                                                    Der Rechnungsbetrag in Höhe von"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"<b>Kontodaten</b>\n"
+"                                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "<b>Leistungs-/Lieferort</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+msgid "<b>Lieferanschrift</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+msgid ""
+"<b>Lieferanschrift</b>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "<b>Rechnungs-NR.</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+msgid "<b>Telefonische-AVIS</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"<b>Verwendungszweck</b>\n"
+"                                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "<b>Zahlungsart</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "<b>Zahlungsbedingungen</b>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"<br/>\n"
+"                                                        <span>Zoll- / EORI- Nummer GRIMM Gastronomiebedarf GmbH:\n"
+"                                                            DE5877156\n"
+"                                                        </span>\n"
+"                                                        <br/>\n"
+"                                                        <span>Der Ausführer der Waren, auf die sich dieses\n"
+"                                                            Handelspapier bezieht, erklärt, daß\n"
+"                                                            diese Waren, soweit nicht anders angegeben,\n"
+"                                                            präferenzgegünstigte EEC (EU) -\n"
+"                                                            Ursprungserwaren sind.\n"
+"                                                        </span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid ""
+"<br/>\n"
+"                                    <span>Auftragsnummer</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+msgid ""
+"<br/>Art.-Nr.: <span class=\"blue\">\n"
+"                                                        &amp;rsaquo;</span>&amp;nbsp;"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm_with_category
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "<br/>Art.-Nr.: <span class=\"blue\">&amp;rsaquo;</span>&amp;nbsp;"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm_with_category
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "<br/>Garantie:"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"<br/>Maße in mm:\n"
+"                                                    <span class=\"blue\">&amp;rsaquo;</span>\n"
+"                                                    B"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm_with_category
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+msgid "<br/>Maße in mm: <span class=\"blue\">&amp;rsaquo;</span> B"
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,body_html:grimm_reports.email_template_proforma_invoice
+msgid ""
+"<div style=\"font-family:'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"    % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"    % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"    % else:\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrte Damen und Herren,</p>\n"
+"    % endif\n"
+"    <br>\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">nachfolgend erhalten Sie zu Ihrem Auftrag unsere Vorkasserechnung.</p>\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Wir bitten diese zeitnah zu begleichen, damit wir Ihre Ware pünktlich zustellen können.</p><br>\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Bei weiteren Fragen stehen wir Ihnen gerne zur Verfügung.</p><br>\n"
+"    <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-left:1px solid #8e0000;margin-left: 30px; padding-left: 5px;\">\n"
+"        <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\"><strong style=\"font-weight:bold;\">Zusammenfassung:</strong></p>\n"
+"        <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Bestellnummer: ${object.number or object.origin}</p>\n"
+"        <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Auftragssumme: ${format_amount(object.amount_total,object.currency_id)} </p>\n"
+"        % if object.origin_date:\n"
+"        <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Auftragsdatum: ${datetime.datetime.strptime(str(object.origin_date.date()), '%Y-%m-%d').strftime('%d.%m.%Y') if object.origin_date else 'XX.YY.ZZZZ'}</p>\n"
+"        % endif\n"
+"    </div>\n"
+"</div>\n"
+"              "
+msgstr ""
+"<div style=\"font-size:13px;font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"    % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"    % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>\n"
+"    % else:\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Sehr geehrte Damen und Herren,</p>\n"
+"    % endif\n"
+"    <br>\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+" vielen Dank für Ihre Bestellung.</p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"</p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">\n"
+"</p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">\n"
+"</p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"</p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Leider müssen wir Ihnen jedoch mitteilen, dass wir Ihnen\n"
+"keine Zahlung „auf Rechnung“ gewähren können. \n"
+"Anbei finden Sie daher unsere Vorkassen-Rechnung. </p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\"> </p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">\n"
+"\n"
+"</p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\"><b style=\"font-weight:bold;\">Die Ware wird zur schnellstmöglichen\n"
+"Lieferung freigegeben, sobald wir Ihre Zahlung verbucht haben.</b></p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"</p><p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"</p>\n"
+"    <br>\n"
+"    <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Bei weiteren Fragen stehen wir Ihnen gerne zur Verfügung.</p><br>\n"
+"    <div style=\"font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-left: 1px solid #8e0000; margin-left: 30px; padding-left: 5px;\">\n"
+"        <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\"><strong style=\"font-weight:bold;\">Zusammenfassung:</strong></p>\n"
+"        <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Bestellnummer: ${object.number or object.invoice_origin}</p>\n"
+"        <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Auftragssumme: ${format_amount(object.amount_total,object.currency_id)} </p>\n"
+"        % if object.origin_date:\n"
+"        <p style=\"margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;\">Auftragsdatum: ${datetime.datetime.strptime(str(object.origin_date.date()), '%Y-%m-%d').strftime('%d.%m.%Y') if object.origin_date else 'XX.YY.ZZZZ'}</p>\n"
+"        % endif\n"
+"    </div>\n"
+"</div>\n"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+msgid ""
+"<span class=\"bold\">Bestellungs-NR.</span>\n"
+"                                    <br/>\n"
+"                                    <span>Beleg-Datum</span>\n"
+"                                    <br/>\n"
+"                                    <span class=\"regular\">Kunden-Nr.</span>\n"
+"                                    <br/>\n"
+"                                    <span>Kundenreferenz</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+msgid ""
+"<span class=\"bold\">Zur Bestellung</span>\n"
+"                                    <br/>\n"
+"                                    <span>Beleg-Datum</span>\n"
+"                                    <br/>\n"
+"                                    <span class=\"regular\">Kunden-Nr.</span>\n"
+"                                    <br/>\n"
+"                                    <span>Kundenreferenz</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+msgid ""
+"<span class=\"regular\" style=\"padding-top:4mm; padding-bottom:4mm; font-size:11px;\">\n"
+"                                        Bei Anlieferung ist die Ware auf Transportschäden zu prüfen. Schäden\n"
+"                                        <br/>\n"
+"                                        sind schriftlich auf dem Scanner der Spedition und auf dem Lieferschein\n"
+"                                        <br/>\n"
+"                                        zu vermerken. Nachträglich angezeigte Schäden können nicht aner-\n"
+"                                        <br/>\n"
+"                                        kannt werden. Wir weisen darauf hin, dass der Spediteur verpflichtet ist,\n"
+"                                        <br/>\n"
+"                                        diese Sichtprüfung abzuwarten.\n"
+"                                    </span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid ""
+"<span class=\"regular\">Bei Rückfragen</span>\n"
+"                                    stehe ich Ihnen gerne zur Verfügung !\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid ""
+"<span class=\"regular\">NR.</span>\n"
+"                                    <br/>\n"
+"                                    <span style=\"font-weight:200;\">Beleg-Datum</span>\n"
+"                                    <br/>\n"
+"                                    <span class=\"regular\">Kunden-Nr.</span>\n"
+"                                    <br/>\n"
+"                                    <span>Kundenreferenz</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+msgid ""
+"<span class=\"regular\">Wir bitten um eine Auftragsbestätigung\n"
+"                                    </span>\n"
+"                                    <br/>\n"
+"                                    <span class=\"regular\">mit Liefertermin und Bestell-Nr!</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<span class=\"underline\">service@partenics.de</span>\n"
+"                                        <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<span class=\"underline\">shop@grimm-gastrobedarf.de</span>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid ""
+"<span style=\"-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;text-decoration:none;color:#333333;font-size:12px\">GRIMM Gastronomiebedarf GmbH | Artilleriepark 9 | 14624 Dallgow-Döberitz<br/>\n"
+"AG Potsdam, HRB 31072 | vertr. d. Dipl.-Ing. Udo Knuth, Markus Zeh | USt.-ID-Nr.: DE136780120<br/> \n"
+"Tel.: +49 (0)30 / 34 50 60 8 – 0 | E-Mail: shop@grimm-gastrobedarf.de </span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid ""
+"<span style=\"font-weight:200;\">Diese Daten bei Rückfragen angeben!</span>\n"
+"                                    <br/>"
+msgstr ""
+"<span style=\"font-weight:200;\">Diese Daten bei Rückfragen angeben!</span>\n"
+"                  <br/>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_layout_footer
+msgid ""
+"<span>\n"
+"                                        <span>Commerzbank AG Berlin</span>\n"
+"                                        <br/>\n"
+"                                        <span>Kontoinhaber: GRIMM - RatePay GmbH</span>\n"
+"                                        <br/>\n"
+"                                        <span>IBAN: DE 85 1004 0000 0190 8615 00</span>\n"
+"                                        <br/>\n"
+"                                        <span>BIC: COBADEBBXXX</span>\n"
+"                                    </span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "<span>&amp;nbsp;</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<span>+49 (0) 30 - 34 50 60 8 20</span>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<span>+49 (0) 3322 - 50 79 30</span>\n"
+"                                        <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "<span>0% Ust.</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid "<span>Anfrage-Datum</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<span>Angebotsdatum</span>\n"
+"                                                    <br/>"
+msgstr ""
+"<span>Angebotsdatum</span>\n"
+"                                        <br/>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<span>Auftragsdatum</span>\n"
+"                                                    <br/>"
+msgstr ""
+"<span>Auftragsdatum</span>\n"
+"                                        <br/>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "<span>Deutschland</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+msgid ""
+"<span>Diese Daten bei Rückfragen angeben!</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<span>Gültig bis</span>\n"
+"                                                    <br/>"
+msgstr ""
+"<span>Gültig bis</span>\n"
+"                                        <br/>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"<span>Kunden Ust-ID</span>\n"
+"                                        <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid ""
+"<span>Kunden-Nr.</span>\n"
+"                                    <br/>\n"
+"                                    <span>Kunden-Referenz</span>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid ""
+"<span>Kunden-Referenz</span>\n"
+"                                        <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "<span>Name des Unterzeichnenden in Druckschrift</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "<span>Ort, Datum</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<span>Pro-Forma Invoice #</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "<span>Rechnungsanschrift</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "<span>Unterschrift und Stempel</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "<span>auf Rechnung</span>"
+msgstr "<span> auf Rechnung</span>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Calculated Standard Price</strong>"
+msgstr "<strong>Einkaufspreis</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Date Ordered:</strong>"
+msgstr "<strong>Bestelldatum:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Date</strong>"
+msgstr "<strong>Datum</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Expiration Date:</strong>"
+msgstr "<strong>Ablaufdatum:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Fiscal Position Remark:</strong>"
+msgstr "<strong>Steuerzuordnung:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Inventory</strong>"
+msgstr "<strong>Lager</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Location</strong>"
+msgstr "<strong>Ort</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Package</strong>"
+msgstr "<strong>Verpackung</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Payment Terms:</strong>"
+msgstr "<strong>Zahlungsbedingungen:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Price</strong>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Product</strong>"
+msgstr "<strong>Produkt</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Production Lot</strong>"
+msgstr "<strong>Produktionslos</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Quantity</strong>"
+msgstr "<strong>Menge</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Quotation Date:</strong>"
+msgstr "<strong>Angebotsdatum:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Salesperson:</strong>"
+msgstr "<strong>Verkäufer:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Shipping address:</strong>"
+msgstr "<strong>Lieferanschrift:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:grimm_reports.subtotal_template
+msgid "<strong>Subtotal:</strong>"
+msgstr "<strong>Zwischensumme:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Zwischensumme</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "<strong>Total Price</strong>"
+msgstr "<strong>Gesamtpreis</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+msgid "<strong>Total Quantity</strong>"
+msgstr "<strong>Gesamtmenge</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Total</strong>"
+msgstr "<strong>Gesamt</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "<strong>Your Reference:</strong>"
+msgstr "<strong>Ihre Referenz:</strong>"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_report_layout_header
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "AGB"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_move_line__line_no_stored
+msgid "APos"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Amount"
+msgstr "Betrag"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_invoice_report__analytic_account_id
+msgid "Analytic Account"
+msgstr "Kostenstelle"
+
+#. module: grimm_reports
+#: model:mail.template,report_name:grimm_reports.email_template_edi_purchase
+msgid "Anfrage_${(object.name or '').replace('/','_')}"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Angebot"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Angebots-NR."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Anlage(n):"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Ansprechpartner"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+msgid "Art.-Nr.: <span class=\"blue\">&amp;rsaquo;</span>&amp;nbsp;"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+msgid "Artikel-Nr."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid "Artikel/Leistung"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"Aufstellungsort Beschreibung:\n"
+"                                                                    <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid ""
+"Aufstellungsort Beschreibung:\n"
+"                                                            <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Auftrag"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Auftrags-NR."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Auftragsdatum"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Auftragsnummer"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Bank"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Beleg-Datum"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Belegdatum"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_sale_order__beneficiary
+#: model:ir.model.fields,field_description:grimm_reports.field_sale_order__beneficiary
+#: model:ir.model.fields,field_description:grimm_reports.field_shopware_sale_order__beneficiary
+msgid "Beneficiary"
+msgstr "Leistungsempfänger"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+msgid "Bestellung"
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,report_name:grimm_reports.email_template_edi_purchase_done
+msgid "Bestellung_${(object.name or '').replace('/','_')}"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "Betrag EUR"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Betrag-Netto"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid ""
+"Bitte ergänzen oder korregieren Sie ggf. die Angaben und senden dieses\n"
+"                                    <br/>\n"
+"                                    angegebene\n"
+"                                    Formular unterschrieben an uns zurück."
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__button_name
+msgid "Button Name"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Cancelled Invoice"
+msgstr "Stornierte Rechnung"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid "City, Date"
+msgstr "Ort, Datum"
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_crm_claim
+msgid "Claim"
+msgstr "Forderung"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_res_company__col_1
+msgid "Column 1"
+msgstr "Spalte 1"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_res_company__col_2
+msgid "Column 2"
+msgstr "Spalte 2"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_res_company__col_3
+msgid "Column 3"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_res_company__col_4
+msgid "Column 4"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Commerzbank AG Berlin"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/models/account_invoice.py:0
+#: code:addons/grimm_reports/models/crm_claim.py:0
+#: code:addons/grimm_reports/models/crm_claim.py:0
+#: code:addons/grimm_reports/models/sale.py:0
+#, python-format
+msgid "Compose Email"
+msgstr "E-Mail schreiben"
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "DE85 1004 0000 0190 8615 00"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Datenschutz"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+msgid "Datum/Unterschrift Schreiber"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+msgid "Datum/Unterschrift Zähler"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Deliveries"
+msgstr "Lieferungen"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Delivery"
+msgstr "Lieferung"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_move__delivery_address
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_account_invoice__delivery_address
+msgid "Delivery Address"
+msgstr "Lieferadresse"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_move__delivery_address_header
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_account_invoice__delivery_address_header
+msgid "Delivery Address Header"
+msgstr "Lieferadressen-Header"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid "Delivery Slip"
+msgstr "LIEFERSCHEIN"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Dieses Angebot ist bis zum"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Disc.(%)"
+msgstr "Rabatt (%)"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Draft Invoice"
+msgstr "Entwurf Rechnung"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "E-Mail"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Einzelpreis EUR"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Einzelpreis-Netto"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_mail_compose_message
+msgid "Email composition wizard"
+msgstr "E-Mail Assistent"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Express-Lieferung in 2 Stunden für ausgewählte Artikel"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_address__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_res_partner__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_reports.field_res_partner__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_reports.field_res_users__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_reports.field_shopware_address__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_reports.field_shopware_invoice_address__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_reports.field_shopware_res_partner__parent_partner_print
+#: model:ir.model.fields,field_description:grimm_reports.field_shopware_supplier__parent_partner_print
+msgid "External Address"
+msgstr "Ohne Firmenname drucken !"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Facebook"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Fax"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Fb"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Firma"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Followup"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.actions.act_window,help:grimm_reports.action_sale_order_report
+msgid ""
+"From this report, you can have an overview of the sale orders, which you can"
+" confirm."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "GEWÄHRLEISTUNGSANTRAG"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid "GGVSEB: Punkte"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "GRIMM - RatePAY GmbH"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "GRIMM Ansprechpartner"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid ""
+"GRIMM Gastronomiebedarf GmbH\n"
+"                                        ·"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid "GRIMM Gastronomiebedarf GmbH."
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_project_description_report
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+msgid "GRIMM Projektschein"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "GRIMM-SKU <span class=\"blue\">&amp;rsaquo;</span>&amp;nbsp;"
+msgstr "GRIMM-SKU <span class=\"blue\">&amp;rsaquo;</span>&amp;nbsp;\t"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid ""
+"Geben Sie\n"
+"                                    <span class=\"regular\">bei Schriftverkehr</span>\n"
+"                                    unbedingt die angegebene\n"
+"                                    <br/>\n"
+"                                    <span class=\"regular\">Lieferschein-Nr.</span>\n"
+"                                    und Ihre\n"
+"                                    <span class=\"regular\">Kunden-Nr.</span>\n"
+"                                    an!"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"Geben Sie\n"
+"                                    <span class=\"regular\">bei Zahlung und Schriftverkehr</span>\n"
+"                                    bitte unbedingt die\n"
+"                                    <br/>\n"
+"                                    angegebene\n"
+"                                    <span class=\"regular\">Rechnungs-Nr.</span>\n"
+"                                    und Ihre\n"
+"                                    <span class=\"regular\">Kunden-Nr.</span>\n"
+"                                    an!"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Gerät(e):"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Gerät:"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Gerätebezeichnung / Art.-Nr."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Gesamt EUR"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Gesamt-Brutto"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Gesamt-Netto"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Gewicht:"
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,report_name:grimm_reports.email_template_warranty_claim_grimm
+msgid ""
+"Gewährleistung_${(object.number or object.origin or '').replace('/','_')}"
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,subject:grimm_reports.email_template_warranty_claim_grimm
+msgid ""
+"Gewährleistungsantrag (Ref ${object.number or object.origin or 'n/a'})\n"
+"        ${object.company_id.name}\n"
+"      "
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid "Goods received"
+msgstr "Ware erhalten"
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.report_damage_report
+msgid "Grimm Damage Report"
+msgstr "Grimm Schadensbericht"
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_delivery_report
+msgid "Grimm Delivery Slip"
+msgstr "Grimm Lieferschein"
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_invoice_report
+msgid "Grimm Invoice"
+msgstr "Grimm Rechnung"
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_delivery_notice_report
+msgid "Grimm Lieferanzeige"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_purchase_report
+msgid "Grimm Purchase Order"
+msgstr "Grimm Bestellung"
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_quotation_report
+msgid "Grimm Request for Quotation"
+msgstr "Grimm Preisanfrage"
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_saleorder_report
+msgid "Grimm Sale Order"
+msgstr "Grimm Angebot/Auftrag"
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.service_order_report
+msgid "Grimm Service Order"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.claim_warranty_report
+msgid "Grimm Warranty Claim"
+msgstr "Grimm Gewährleistungsantrag"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Grüße, <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Hersteller"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "IBAN"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Ig"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+msgid "Ihr Ansprechpartner"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Impressum"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "In"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Instagram"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_sale_order_line__internal_cat
+#: model:ir.model.fields,field_description:grimm_reports.field_sale_order_line__internal_cat
+#: model:ir.model.fields,field_description:grimm_reports.field_shopware_sale_order_line__internal_cat
+msgid "Internal Category"
+msgstr "Gerätekategorie"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid "Invoice Address"
+msgstr "Rechnungsadresse"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Invoices"
+msgstr "Alle Rechnungen"
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_account_invoice_report
+msgid "Invoices Statistics"
+msgstr "Statistik Rechnungen"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Invoicing address:"
+msgstr "Rechnungsadresse:"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid ""
+"Invoicing and shipping\n"
+"                                address:"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,help:grimm_reports.field_magento_sale_order_line__line_no_seq
+msgid "It will sort line based on manual number."
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_account_move_line
+msgid "Journal Item"
+msgstr "Buchungszeile"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Kauf auf Rechnung, Kreditkarte, PayPal, Amazon"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,help:grimm_reports.field_account_move__origin_create_date
+#: model:ir.model.fields,help:grimm_reports.field_magento_account_invoice__origin_create_date
+msgid "Keep empty to use the invoice date."
+msgstr "Leer lassen, um das Rechnungsdatum zu verwenden."
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Kontoinhaber"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Kunden Inventarnummer:"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Kunden Ust-ID"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid "Kunden-Nr."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Kunden-Referenz"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid "Kundendaten"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid "LA-"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.action_report_valuation
+msgid "Lager Bestandsbewertung"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.action_report_inventory_signature
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_signature_doc
+msgid "Lager Zälhliste"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Liefer Datum"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Lieferadresse entpricht Rechnungsadresse"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+msgid "Lieferanzeige"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.view_grimm_sale_order_view_inherit
+msgid "Lieferanzeige drucken"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.view_grimm_sale_order_view_inherit
+msgid "Lieferanzeige senden"
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,report_name:grimm_reports.email_template_delivery_notice
+msgid ""
+"Lieferanzeige_${(object.number or '').replace('/','_')}_${object.state == "
+"'draft' and 'draft' or ''}"
+msgstr ""
+"Lieferanzeige_${(object.name or '').replace('/','_')}_${object.state == "
+"'draft' and 'draft' or ''}"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "Lieferkosten"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "Lieferort"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "Lieferzeit"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Linkedin"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Logo"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_grimm_mro_order
+msgid "MRO Order"
+msgstr "Wartungsauftrag"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid "Menge"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Missing State"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "Mit freundlichen Grüßen"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"Mittelbrandenburgische Sparkasse\n"
+"                                            <br/>\n"
+"                                            IBAN: DE44 1605 0000 1000 8709 83\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm_with_category
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Monate"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "NR."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+msgid ""
+"Netto-Gewicht\n"
+"                                                        <span class=\"blue\">&amp;rsaquo;</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm_with_category
+msgid ""
+"Netto-Gewicht\n"
+"                        <span class=\"blue\">&amp;rsaquo;</span>"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Nettobetrag"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_sale_order_line__line_no
+msgid "Nr."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template_paynow
+msgid "Odoo"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Order"
+msgstr "Bestellung"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Order #"
+msgstr "Bestellung #"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Orders"
+msgstr "Bestellungen"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_move__origin_date
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_account_invoice__origin_date
+msgid "Origin Date"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Ort, Datum"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "PLZ / Ort"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Partenics-Team"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_move__payment_term_id
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_account_invoice__payment_term_id
+msgid "Payment Term"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Payment already received on"
+msgstr "Bereits erhaltene Zahlung am"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_project_description_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid "Pos."
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,help:grimm_reports.field_account_move_line__line_no_stored
+msgid "Positionsnummer aus Verkaufsauftrag"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_sale_order__salutation_text_dn
+msgid "Pre-Text Delivery Note"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_sale_order__salutation_text_offer
+msgid "Pre-Text Offer"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_sale_order__salutation_text_order
+msgid "Pre-Text Order"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_purchase_order__salutation_text_po
+msgid "Pre-Text Purchase Order"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "Preisanfrage"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "Preisbindefrist"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_move__print_internal_ref
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_account_invoice__print_internal_ref
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_sale_order__print_internal_ref
+#: model:ir.model.fields,field_description:grimm_reports.field_purchase_order__print_internal_ref
+#: model:ir.model.fields,field_description:grimm_reports.field_sale_order__print_internal_ref
+#: model:ir.model.fields,field_description:grimm_reports.field_shopware_sale_order__print_internal_ref
+msgid "Print Internal Reference"
+msgstr "Interne Referenz drucken"
+
+#. module: grimm_reports
+#: model:ir.model.fields,help:grimm_reports.field_account_move__print_internal_ref
+#: model:ir.model.fields,help:grimm_reports.field_magento_account_invoice__print_internal_ref
+#: model:ir.model.fields,help:grimm_reports.field_magento_sale_order__print_internal_ref
+#: model:ir.model.fields,help:grimm_reports.field_purchase_order__print_internal_ref
+#: model:ir.model.fields,help:grimm_reports.field_sale_order__print_internal_ref
+#: model:ir.model.fields,help:grimm_reports.field_shopware_sale_order__print_internal_ref
+msgid "Prints Art.-Nr. in the report"
+msgstr "Drucke Art.-Nr. im Bericht"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Proforma-Invoice"
+msgstr "Vorkasse-Rechnung"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#: model:ir.model,name:grimm_reports.model_purchase_order
+#, python-format
+msgid "Purchase Order"
+msgstr "Bestellung"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Purchase Orders"
+msgstr "Bestellungen"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Qualitätsprodukte namhafter Hersteller"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Quantity"
+msgstr "Anzahl"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Quotation #"
+msgstr "Angebot #"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Quote"
+msgstr "Angebot"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Quotes"
+msgstr "Angebote"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Rabatt (%)"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"RatePAY\n"
+"                                                    GmbH | Franklinstr. 28-29 |\n"
+"                                                    10587 Berlin Geschäftsführung: Nina Pütz, Sabrina Flunkert-Glinzer, Amtsgericht Berlin\n"
+"                                                    Charlottenburg | HRB 124156 B | USt-IdNr. DE270098222"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Rechnung"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.view_grimm_account_invoice_button_form_view_inherit
+msgid "Rechnung drucken"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.view_grimm_account_invoice_button_form_view_inherit
+msgid "Rechnung senden"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Rechnungs-Nr."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Rechnungsdatum"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Rechnungsentwurf"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#, python-format
+msgid "Rechnungskorrektur"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Referenzbeleg"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Refunds"
+msgstr "Gutschriften"
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_ir_actions_report
+msgid "Report Action"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.res_company_report_view_inherit
+msgid "Report Color Theme"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.res_company_report_view_inherit
+msgid "Report Configuration"
+msgstr "Reportkonfiguration"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.res_company_report_view_inherit
+msgid "Report Footer"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.res_company_report_view_inherit
+msgid "Report Header"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_report_company_model__report_id
+msgid "Report ID"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_ir_actions_report__button_label_ids
+msgid "Report Label"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_res_company__report_logo_header
+msgid "Report Logo and Header"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_report_company_model
+msgid "Report company model"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.company_report_label_view_inherit
+msgid "Report label based on company"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Request for Quotation"
+msgstr "Bestellung"
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Requests for Quotation"
+msgstr "Bestellung"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm_with_category
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+msgid "SKU <span class=\"blue\">&amp;rsaquo;</span>&amp;nbsp;"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_move__sale_order_id
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_account_invoice__sale_order_id
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_stock_picking__sale_order_id
+#: model:ir.model.fields,field_description:grimm_reports.field_purchase_order__sale_order_id
+#: model:ir.model.fields,field_description:grimm_reports.field_stock_picking__sale_order_id
+msgid "Sale Order"
+msgstr "Verkaufsauftrag"
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_account_move__origin_create_date
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_account_invoice__origin_create_date
+msgid "Sale Order Date"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.act_window,name:grimm_reports.action_sale_order_report
+#: model:ir.ui.menu,name:grimm_reports.menu_action_sale_order_report
+msgid "Sale Orders confirm"
+msgstr "Verkaufsaufträgen mit Rechnungen zu bestätigen"
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
+
+#. module: grimm_reports
+#: model:mail.template,subject:grimm_reports.email_template_damage_report_grimm
+msgid ""
+"Schadensbericht (Ref ${object.number or object.origin or 'n/a'}) ${object.company_id.name}\n"
+"      "
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,report_name:grimm_reports.email_template_damage_report_grimm
+msgid ""
+"Schadensbericht_${(object.number or object.origin or '').replace('/','_')}"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Schlussrechung"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.view_grimm_claim_warranty_button_form_view_inherit
+msgid "Send Damage"
+msgstr "Schadensbericht senden"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.view_grimm_claim_warranty_button_form_view_inherit
+msgid "Send Warranty"
+msgstr "Gewährleistung senden"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Serien-Nr."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Seriennummer:"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_wartungsauftrag_report
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_wartungsauftrag_doc_grimm
+msgid "Service-/Wartungsauftrag"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,name:grimm_reports.grimm_service_begleitschein_report
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_service_begleitschein_doc_grimm
+msgid "Service-Begleitschein"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.actions.report,print_report_name:grimm_reports.service_order_report
+msgid "Service_order"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Shop"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid "Signature"
+msgstr "Unterschrift"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid ""
+"Sollte es sich um einen Fehler handeln, den die Firma GRIMM Gastronomiebedarf GmbH\n"
+"                                    nicht zu vertreten\n"
+"                                    hat (z.B. Bedienungsfehler, Verunreinigungen, Anschlussfehler), erkläre ich mich\n"
+"                                    mit der\n"
+"                                    Weiterbelastung der Reparaturkosten an mich einverstanden. Der Unterzeichende\n"
+"                                    erklärt, zur Abgabe\n"
+"                                    dieser Erklärung bevollmächtigt zu sein."
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_magento_sale_order_line__line_no_seq
+msgid "Sort"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Stempel"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_doc
+msgid "Stock Inventory"
+msgstr "Lagerinventur"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_inventory_valuation_doc
+msgid "Stock Valuation"
+msgstr "Bestandsbewertung"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Straße"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Summe geleistete Zahlungen"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_project_task
+msgid "Task"
+msgstr "Aufgabe"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Taxes"
+msgstr "Steuern"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Telefon"
+msgstr ""
+
+#. module: grimm_reports
+#: model:ir.model.fields,field_description:grimm_reports.field_res_company__theme_color
+msgid "Theme Color"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid ""
+"Total\n"
+"                                    Price"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Total gross"
+msgstr "Gesamt Brutto"
+
+#. module: grimm_reports
+#: model:ir.model,name:grimm_reports.model_stock_picking
+msgid "Transfer"
+msgstr "Lieferung vornehmen"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_document_grimm
+msgid "UN"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "USt"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "USt-Satz"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.category_template_grimm
+msgid "Uncategorized"
+msgstr "Nicht kategorisiert"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document
+msgid "Unit Price"
+msgstr "Preis pro Einheit"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+msgid "Unsere Kundennr.:"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "Unterschrift"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Vendor Bill"
+msgstr "Lieferantenrechnung"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Vendor Refund"
+msgstr "Lieferantengutschrift"
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Versandkostenfrei ab 500€"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "Vertriebs-Team"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template_paynow
+msgid "View it on"
+msgstr ""
+
+#. module: grimm_reports
+#: code:addons/grimm_reports/overrides.py:0
+#: code:addons/grimm_reports/overrides.py:0
+#, python-format
+msgid "Vorkasse"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.view_grimm_account_invoice_button_form_view_inherit
+msgid "Vorkasse drucken"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.view_grimm_account_invoice_button_form_view_inherit
+msgid "Vorkasse senden"
+msgstr ""
+
+#. module: grimm_reports
+#: model:mail.template,subject:grimm_reports.email_template_proforma_invoice
+msgid ""
+"Vorkasse-Rechnung (Ref ${object.number or object.origin or 'n/a'}) "
+"${object.company_id.name} "
+msgstr ""
+"Vorkasse-Rechnung (Ref ${object.number or object.invoice_origin or 'n/a'}) "
+"${object.company_id.name}"
+
+#. module: grimm_reports
+#: model:mail.template,report_name:grimm_reports.email_template_proforma_invoice
+msgid ""
+"Vorkasse_${(object.name or object.invoice_origin or '').replace('/','_')}"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_purchase_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid ""
+"Wichtige Hinweise und Infos entnehmen Sie\n"
+"                                        unseren"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.grimm_email_template
+msgid "Xing"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "Zahlungsart"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_quotation_document_grimm
+msgid "Zahlungsbedingungen"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"auf unserem Konto eingegangen sein. Es gelten folgende\n"
+"                                                    Zahlungsbedingungen 14 Tage nach\n"
+"                                                    Rechnungsdatum ohne Abzug."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "entpricht Rechnungsadresse"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"geleistete\n"
+"                                                    Teilzahlung vom"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_saleorder_document_grimm
+msgid "gültig, danach kommen Tagespreise in Anrechnung."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm
+#: model_terms:ir.ui.view,arch_db:grimm_reports.line_template_grimm_with_category
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_delivery_notice_document_grimm
+msgid "kg"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "muss bis spätestens"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid "noch zu leistende Schlusszahlung"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid ""
+"▢ Wir bitten um Gewährleistungslieferung folgender\n"
+"                            Ersatzteile:"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid "▢ Wir bitten um Instandsetzung des Gerätes"
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_warranty_claim_document_grimm
+msgid ""
+"▢ Wir möchten die Instandsetzung\n"
+"                            selber\n"
+"                            durchführen. Bitte erteilen Sie uns eine Freigabe."
+msgstr ""
+
+#. module: grimm_reports
+#: model_terms:ir.ui.view,arch_db:grimm_reports.report_invoice_document_grimm
+msgid ""
+"﻿ Der Verkäufer hat die fällige Kaufpreisforderung aus Ihrer\n"
+"                                                    Bestellung einschließlich\n"
+"                                                    etwaiger Nebenforderungen an die RatePAY GmbH abgetreten.\n"
+"                                                    <br/>\n"
+"                                                    Forderungsinhaber ist damit die RatePAY GmbH. Eine\n"
+"                                                    schuldbefreiende Leistung ist durch Sie\n"
+"                                                    nur an die RatePAY GmbH möglich.\n"
+"                                                    <br/>\n"
+"\n"
+"                                                    Es gelten die zusätzlichen AGB für RATEPAY-Zahlungsarten und die\n"
+"                                                    Datenschutzhinweise der\n"
+"                                                    RatePAY GmbH\n"
+"                                                    <u>https://www.ratepay.com/legal/</u>"
+msgstr ""

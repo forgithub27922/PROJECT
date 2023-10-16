@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_product_create_import","product.create.import Public Access","model_product_create_import","",1,1,1,1
+"access_product_map_advance","product_map_advance Public Access","model_product_map_advance","",1,1,1,1
+"access_sparepart_import","sparepart_import Public Access","model_sparepart_import","",1,1,1,1
+"access_product_import_convert","product_import_convert Public Access","model_product_import_convert","",1,1,1,1

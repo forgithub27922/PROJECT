@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- sky_hr_time_tracking Inherit Form view of Employee Working Days Report wizard -->
+    <record id="inherit_view_emp_working_days_report_wiz_form" model="ir.ui.view">
+        <field name="name">inherit.view.emp.working.days.report.wiz.form</field>
+        <field name="model">emp.working.days.report.wiz</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_emp_working_days_report_wiz_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

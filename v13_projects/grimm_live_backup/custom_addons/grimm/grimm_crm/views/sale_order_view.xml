@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+  <data>
+    <record id="sale_order_form_view_inherit" model="ir.ui.view">
+      <field name="name">sale.order.form.view.inherit</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale_crm.sale_view_inherit123"/>
+      <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='opportunity_id']" position="replace">
+        </xpath>
+
+
+        <xpath expr="//group[@name='sales_person']" position="inside">
+          <field name="opportunity_id"/>
+        </xpath>
+
+
+      </field>
+    </record>
+  </data>
+</openerp>

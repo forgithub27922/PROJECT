@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		<record id="view_activate_deactivate_lms_wizard" model="ir.ui.view">
+			<field name="name">view.activate.deactivate.lms.wizard</field>
+			<field name="model">activate.deactivate.lms.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Activate/Deactivate LMS">
+					<field name="scheduler_active" invisible="1"/>
+					<field name="company_id" invisible="1"/>
+					<div>
+						<button name="activate" type="object" string="Activate" class="btn-primary" attrs="{'invisible':[('scheduler_active','=',True)]}"/>
+						<button string="Deactivate" name="deactivate" type="object" class="btn-primary" attrs="{'invisible':[('scheduler_active','=',False)]}"/>
+					</div>
+					<footer>
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_activate_deactivate_lms_wizard" model="ir.actions.act_window">
+			<field name="name">Activate Deactivate LMS</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">activate.deactivate.lms.wizard</field>
+			<field name="view_id" ref="view_activate_deactivate_lms_wizard" />
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+</odoo>

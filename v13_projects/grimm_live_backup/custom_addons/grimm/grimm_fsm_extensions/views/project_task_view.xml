@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <template id="grimm_fsm_sign_report_view_inherit"
+                  name="grimm_fsm_sign_report_view_inherit"
+                  inherit_id="industry_fsm_report.portal_my_worksheet">
+            <xpath expr="//div[@class='o_download_pdf btn-toolbar flex-sm-nowrap']" position="after">
+                <div class="btn-group flex-grow-1 mb-1">
+                    <a class="btn btn-secondary btn-block o_print_btn o_portal_invoice_print"
+                       t-att-href="'/web#model=project.task&amp;id=%s&amp;action=%s&amp;view_type=form' % (task.id, task.env.ref('industry_fsm.project_task_action_fsm').id)"
+                       title="Back to Ticket">
+                        <i class="fa fa-arrow-left"/>
+                        Back to Ticket
+                    </a>
+                </div>
+            </xpath>
+            <xpath expr="//t[@t-set='default_name']" position="after">
+                <t t-set="default_name" t-value="''"/>
+                <t t-set="mode" t-value="'grimm_fsm'"/>
+            </xpath>
+        </template>
+
+
+        <record id="view_users_form_add_field_service_signature" model="ir.ui.view">
+            <field name="name">field.service.signature.res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <field name="signature" position="after">
+                    <field name="field_service_signature" widget="signature"/>
+                </field>
+            </field>
+        </record>
+        <record id="project_task_parameter_view_form" model="ir.ui.view">
+            <field name="name">project.task.parameter.form</field>
+            <field name="model">project.task.parameter</field>
+            <field name="arch" type="xml">
+                <form string="Parameter">
+                    <group string="Testing according to VDE0701, 0702 and DGUV">
+                        <field name="conductor_resistance" readonly="False"/>
+                        <field name="conductor_current" readonly="False"/>
+                        <field name="insulation_resistance" readonly="False"/>
+                    </group>
+                    <group string="">
+                        <field name="touch_current" readonly="False"/>
+                    </group>
+                    <group string="Water values">
+                        <field name="water_conductor_resistance" readonly="False"/>
+                        <field name="water_hardness" readonly="False"/>
+                        <field name="water_total_hardness" readonly="False"/>
+                        <field name="full_demineralisation_conductance" readonly="False"/>
+                    </group>
+                    <footer>
+                        <button name="action_store" string="Submit" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="project_task_product_wizard_view_form" model="ir.ui.view">
+            <field name="name">task.product.wizard.form</field>
+            <field name="model">task.product.wizard</field>
+            <field name="arch" type="xml">
+                <form string="product">
+                    <group string="Product">
+                        <field name="product_name"/>
+                        <field name="product_qty"/>
+                        <!--<field name="product_price"/>-->
+                        <field name="product_number"/>
+                    </group>
+                    <footer>
+                        <button name="action_store" string="Submit" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="fsm_project_task_form_inherit" model="ir.ui.view">
+            <field name="name">fsm_project_task_form_inherit</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="industry_fsm.project_task_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='planned_date_begin']" position="attributes">
+                    <attribute name="options"/>
+                    <attribute name="widget">date</attribute>
+                </xpath>
+                <xpath expr="//field[@name='planned_date_end']" position="attributes">
+                    <attribute name="options"/>
+                    <attribute name="widget">date</attribute>
+                </xpath>
+                <xpath expr="//field[@name='timesheet_ids']" position="after">
+                    <!--<field name="asset_ids"/>-->
+                    <notebook>
+                        <page string="Parameter">
+                            <group string="Testing according to VDE0701, 0702 and DGUV">
+                                <field name="conductor_resistance"/>
+                                <field name="conductor_current"/>
+                                <field name="insulation_resistance"/>
+                            </group>
+                            <group string="">
+                                <field name="touch_current"/>
+                            </group>
+                            <group string="Water values">
+                                <field name="water_conductor_resistance"/>
+                                <field name="water_hardness"/>
+                                <field name="water_total_hardness"/>
+                                <field name="full_demineralisation_conductance"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="grimm_fsm_project_task_form_view" model="ir.ui.view">
+            <field name="name">grimm.fsm.task.form.view</field>
+            <field name="model">project.task</field>
+            <field name="arch" type="xml">
+                <form string="Task" class="o_form_project_tasks" modifiers="{}">
+                    <header modifiers="{}">
+                        <button name="action_assign_to_me" string="Assign to Me" type="object" class="oe_highlight"
+                                attrs="{'invisible' : [('user_id', '!=', False)]}"
+                                modifiers="{'invisible':[['user_id','!=',false]]}" options="{}"/>
+                        <field name="timesheet_timer_start" widget="timesheet_timer"
+                               class="text-danger ml-auto h2 ml-4 font-weight-bold" modifiers="{}" invisible="True"/>
+                        <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"
+                               class="ml-2" on_change="1" can_create="true" can_write="true" modifiers="{}"/>
+                        <field name="company_id" invisible="1" on_change="1" can_create="true" can_write="true"
+                               modifiers="{'invisible':true,'required':true}"/>
+                        <field name="display_timesheet_timer" invisible="1"
+                               modifiers="{'invisible':true,'readonly':true}"/>
+                        <field name="timesheet_timer_pause" invisible="1" modifiers="{'invisible':true}"/>
+                        <field name="allow_billable" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                        <button class="btn-primary" name="action_timer_start" type="object" string="Start"
+                                attrs="{'invisible': ['|', '|', '|', ('is_fsm', '=', True), ('total_hours_spent', '!=', 0), ('timesheet_timer_start', '!=', False), ('display_timesheet_timer', '=', False)]}"
+                                modifiers="{'invisible':['|','|','|',['is_fsm','=',true],['total_hours_spent','!=',0],['timesheet_timer_start','!=',false],['display_timesheet_timer','=',false]]}"
+                                options="{}"/>
+                        <field name="is_fsm" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                        <field name="allow_material" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                        <field name="allow_timesheets" invisible="1" on_change="1"
+                               modifiers="{'invisible':true,'readonly':true}"/>
+                        <field name="allow_billable" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                        <field name="allow_quotations" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                        <field name="fsm_done" invisible="1" modifiers="{'invisible':true}"/>
+                        <field name="subtask_count" invisible="1" modifiers="{'invisible':true}"/>
+                        <field name="invoice_count" invisible="1" modifiers="{'invisible':true}"/>
+                        <field name="is_parameter_done" invisible="1" modifiers="{'invisible':true}"/>
+
+                        <field name="fsm_to_invoice" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                        <field name="fsm_is_sent" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                        <field name="worksheet_signature" invisible="1" modifiers="{'invisible':true}"/>
+                        <!--<button name="action_preview_worksheet" type="object" string="Sign Report" class="btn-primary" attrs="{'invisible': ['|', '|', '|', '|', '|', ('allow_worksheets', '=', False), ('timesheet_timer_start', '!=', False), ('worksheet_template_id', '=', False), ('worksheet_count', '=', 0), ('worksheet_signature', '!=', False)]}" modifiers="{'invisible':['|','|','|','|','|',['allow_worksheets','=',false],['timesheet_timer_start','!=',false],['worksheet_template_id','=',false],['worksheet_count','=',0],['worksheet_signature','!=',false]]}" options="{}"/>
+                        <button name="action_send_report" type="object" string="Send Report" class="btn-primary" attrs="{'invisible': ['|', '|', '|', '|', '|',                      ('allow_worksheets', '=', False),                      ('timesheet_timer_start', '!=', False),                      ('worksheet_template_id', '=', False),                      ('worksheet_count', '=', 0),                      ('fsm_is_sent', '=', True),                     ('worksheet_signature', '=', False)]}" modifiers="{'invisible':['|','|','|','|','|',['allow_worksheets','=',false],['timesheet_timer_start','!=',false],['worksheet_template_id','=',false],['worksheet_count','=',0],['fsm_is_sent','=',true],['worksheet_signature','=',false]]}" options="{}"/>-->
+                        <button class="btn-primary" name="action_fsm_create_invoice" type="object"
+                                string="Create Invoice"
+                                attrs="{'invisible': ['|', '|', '|', '|', '|', '|', ('allow_billable', '=', False), ('is_fsm', '=', False), ('fsm_to_invoice', '=', False), ('invoice_count', '!=', 0), '&amp;', ('display_timesheet_timer', '=', True), ('timesheet_timer_start', '=', False), '&amp;', ('allow_timesheets', '=', True), ('total_hours_spent', '=', 0), '&amp;', ('allow_material', '=', True), ('material_line_product_count', '=', 0)]}"
+                                modifiers="{'invisible':['|','|','|','|','|','|',['allow_billable','=',false],['is_fsm','=',false],['fsm_to_invoice','=',false],['invoice_count','!=',0],'&amp;',['display_timesheet_timer','=',true],['timesheet_timer_start','=',false],'&amp;',['allow_timesheets','=',true],['total_hours_spent','=',0],'&amp;',['allow_material','=',true],['material_line_product_count','=',0]]}"
+                                options="{}"/>
+                        <!--<button name="action_preview_worksheet" type="object" string="Sign Report" class="btn-secondary" attrs="{'invisible': ['|', '|', '|', '|', '|', ('allow_worksheets', '=', False), ('timesheet_timer_start', '!=', False), ('worksheet_template_id', '=', False), ('worksheet_count', '=', 0), ('worksheet_signature', '=', False)]}" modifiers="{'invisible':['|','|','|','|','|',['allow_worksheets','=',false],['timesheet_timer_start','!=',false],['worksheet_template_id','=',false],['worksheet_count','=',0],['worksheet_signature','=',false]]}" options="{}"/>
+                        <button name="action_send_report" type="object" string="Send Report" class="btn-secondary" attrs="{'invisible': ['|', '|', '|', '|','|',                      ('allow_worksheets', '=', False),                      ('timesheet_timer_start', '!=', False),                      ('worksheet_template_id', '=', False),                      ('worksheet_count', '=', 0),                     '&amp;',                         ('fsm_is_sent', '=', False),                         ('worksheet_signature', '!=', False)]}" modifiers="{'invisible':['|','|','|','|','|',['allow_worksheets','=',false],['timesheet_timer_start','!=',false],['worksheet_template_id','=',false],['worksheet_count','=',0],'&amp;',['fsm_is_sent','=',false],['worksheet_signature','!=',false]]}" options="{}"/>-->
+                        <button class="btn-secondary" name="action_fsm_create_invoice" type="object"
+                                string="Create Invoice"
+                                attrs="{'invisible': ['|', '|', '|', '|', '|', '|', ('allow_billable', '=', False), ('is_fsm', '=', False), ('fsm_to_invoice', '=', False), ('invoice_count', '=', 0), '&amp;', ('display_timesheet_timer', '=', True), ('timesheet_timer_start', '=', False), '&amp;', ('allow_timesheets', '=', True), ('total_hours_spent', '=', 0), '&amp;', ('allow_material', '=', True), ('material_line_product_count', '=', 0)]}"
+                                modifiers="{'invisible':['|','|','|','|','|','|',['allow_billable','=',false],['is_fsm','=',false],['fsm_to_invoice','=',false],['invoice_count','=',0],'&amp;',['display_timesheet_timer','=',true],['timesheet_timer_start','=',false],'&amp;',['allow_timesheets','=',true],['total_hours_spent','=',0],'&amp;',['allow_material','=',true],['material_line_product_count','=',0]]}"
+                                options="{}"/>
+                        <!--<button class="btn-secondary" name="action_timer_start" type="object" string="Start" attrs="{'invisible': ['|', '|', ('total_hours_spent', '=', 0), ('timesheet_timer_start', '!=', False), ('display_timesheet_timer', '=', False)]}" modifiers="{'invisible':['|','|',['total_hours_spent','=',0],['timesheet_timer_start','!=',false],['display_timesheet_timer','=',false]]}" options="{}"/>-->
+                        <button name="action_make_billable" string="Create Sales Order" type="object"
+                                attrs="{'invisible': ['|', '|', '|', '|', '|', ('allow_billable', '=', False), ('allow_timesheets', '=', False), ('billable_type', '=', 'employee_rate'), ('partner_id', '=', False), ('sale_order_id', '!=', False), '&amp;', ('display_timesheet_timer', '=', True), ('timesheet_timer_start', '!=', False)]}"
+                                modifiers="{'invisible':['|','|','|','|','|',['allow_billable','=',false],['allow_timesheets','=',false],['billable_type','=','employee_rate'],['partner_id','=',false],['sale_order_id','!=',false],'&amp;',['display_timesheet_timer','=',true],['timesheet_timer_start','!=',false]]}"
+                                options="{}"/>
+                        <!--<button class="btn-primary btn-danger o_fsm_stop" name="action_timer_stop" type="object" string="Stop" attrs="{'invisible': ['|', '|', ('timesheet_timer_start', '=', False), ('display_timesheet_timer', '=', False), '&amp;', ('is_fsm', '=', True), ('total_hours_spent', '=', 0)]}" modifiers="{'invisible':['|','|',['timesheet_timer_start','=',false],['display_timesheet_timer','=',false],'&amp;',['is_fsm','=',true],['total_hours_spent','=',0]]}" options="{}"/>
+                        <button class="btn-primary" name="action_timer_pause" type="object" string="Pause" attrs="{'invisible': ['|', '|', ('timesheet_timer_pause', '!=', False), ('timesheet_timer_start', '=', False), ('display_timesheet_timer', '=', False)]}" modifiers="{'invisible':['|','|',['timesheet_timer_pause','!=',false],['timesheet_timer_start','=',false],['display_timesheet_timer','=',false]]}" options="{}"/>
+                        <button class="btn-primary btn-info" name="action_timer_resume" type="object" string="Resume" attrs="{'invisible': ['|', '|', ('timesheet_timer_pause', '=', False), ('timesheet_timer_start', '=', False), ('display_timesheet_timer', '=', False)]}" modifiers="{'invisible':['|','|',['timesheet_timer_pause','=',false],['timesheet_timer_start','=',false],['display_timesheet_timer','=',false]]}" options="{}"/>-->
+                        <button class="btn-secondary" name="action_fsm_create_quotation" type="object"
+                                string="New Quotation" attrs="{'invisible': [('allow_quotations', '=', False)]}"
+                                modifiers="{'invisible':[['allow_quotations','=',false]]}" options="{}"/>
+                    </header>
+                    <div role="alert" class="alert-warning p-3 text-center"
+                         attrs="{'invisible': ['|', ('is_fsm', '=', False), ('planning_overlap', '=', 0)]}"
+                         modifiers="{'invisible':['|',['is_fsm','=',false],['planning_overlap','=',0]]}">
+                        <button name="action_fsm_view_overlapping_tasks" type="object" class="btn-link pr-1"
+                                modifiers="{}" options="{}">
+                            <field name="planning_overlap" modifiers="{'readonly':true}"/>
+                            other tasks
+
+                        </button>
+                        <span class="align-middle" modifiers="{}">
+                            for this employee at the same time.
+                        </span>
+                    </div>
+                    <sheet string="Task" modifiers="{}">
+                        <div class="oe_button_box" name="button_box" modifiers="{}">
+
+                            <button name="action_next_state_techniker" type="object" icon="fa-arrow-up"
+                                    attrs="{'invisible': [('stage_id','=',22)]}" options="{}">
+                                <div class="o_stat_info">Techniker</div>
+                            </button>
+
+                            <!--<button class="oe_stat_button" name="action_timer_start" type="object" icon="fa-play"
+                                    attrs="{'invisible': ['|', '|', ('total_hours_spent', '=', 0), ('timesheet_timer_start', '!=', False), ('display_timesheet_timer', '=', False)]}"
+                                    modifiers="{'invisible':['|','|',['total_hours_spent','=',0],['timesheet_timer_start','!=',false],['display_timesheet_timer','=',false]]}"
+                                    options="{}">
+                                <div class="o_stat_info">Start</div>
+                            </button>
+
+                            <button class="oe_stat_button" name="action_timer_stop" type="object" icon="fa-stop"
+                                    attrs="{'invisible': ['|', '|', ('total_hours_spent', '=', 0), ('timesheet_timer_start', '=', False), ('display_timesheet_timer', '=', False)]}"
+                                    modifiers="{'invisible':['|','|',['total_hours_spent','=',0],['timesheet_timer_start','=',false],['display_timesheet_timer','=',false]]}"
+                                    options="{}">
+                                <div class="o_stat_info">Stop</div>
+                            </button>
+
+                            <button class="oe_stat_button" name="action_timer_pause" type="object" icon="fa-pause"
+                                    attrs="{'invisible': ['|', '|', ('timesheet_timer_pause', '!=', False), ('timesheet_timer_start', '=', False), ('display_timesheet_timer', '=', False)]}"
+                                    modifiers="{'invisible':['|','|',['timesheet_timer_pause','!=',false],['timesheet_timer_start','=',false],['display_timesheet_timer','=',false]]}"
+                                    options="{}">
+                                <div class="o_stat_info">Pause</div>
+                            </button>
+                            <button class="oe_stat_button" name="action_timer_resume" type="object" icon="fa-play"
+                                    attrs="{'invisible': ['|', '|', ('timesheet_timer_pause', '=', False), ('timesheet_timer_start', '=', False), ('display_timesheet_timer', '=', False)]}"
+                                    modifiers="{'invisible':['|','|',['timesheet_timer_pause','=',false],['timesheet_timer_start','=',false],['display_timesheet_timer','=',false]]}"
+                                    options="{}">
+                                <div class="o_stat_info">Resume</div>
+                            </button>
+
+
+                            <button class="oe_stat_button" name="action_timer_start" type="object" icon="fa-play"
+                                    help="Launch the Timer"
+                                    attrs="{'invisible': ['|', '|', '|', ('display_timesheet_timer', '=', False), ('allow_timesheets', '=', False), ('total_hours_spent', '!=', 0), ('timesheet_timer_start', '!=', False)]}"
+                                    modifiers="{'invisible':['|','|','|',['display_timesheet_timer','=',false],['allow_timesheets','=',false],['total_hours_spent','!=',0],['timesheet_timer_start','!=',false]]}"
+                                    options="{}">
+                                <div class="o_stat_info" modifiers="{}">
+
+                                    Start
+
+                                </div>
+                            </button>
+                            <button class="oe_stat_button" name="action_timer_stop" type="object" icon="fa-stop"
+                                    help="Stop the Timer"
+                                    attrs="{'invisible': ['|', '|', '|', '|', ('is_fsm', '=', False), ('display_timesheet_timer', '=', False), ('allow_timesheets', '=', False), ('total_hours_spent', '!=', 0), ('timesheet_timer_start', '=', False)]}"
+                                    modifiers="{'invisible':['|','|','|','|',['is_fsm','=',false],['display_timesheet_timer','=',false],['allow_timesheets','=',false],['total_hours_spent','!=',0],['timesheet_timer_start','=',false]]}"
+                                    options="{}">
+                                <div class="o_stat_info" modifiers="{}">
+
+                                    Stop
+
+                                </div>
+                            </button>-->
+                            <button class="oe_stat_button" name="action_log_time" type="object" icon="fa-file"
+                                    help="Stop the Timer">
+                                <div class="o_stat_info" modifiers="{}">
+                                    LOG TIME
+                                </div>
+                            </button>
+
+
+                            <button class="oe_stat_button" name="action_view_timesheets" type="object" icon="fa-clock-o"
+                                    help="Time recorded on this task"
+                                    attrs="{'invisible': ['|',('total_hours_spent', '&gt;', 0.1), '|', ('allow_timesheets', '=', False), '&amp;', ('display_timesheet_timer', '=', True), ('total_hours_spent', '=', 0)]}"
+                                    options="{}">
+                                <div class="o_stat_info" modifiers="{}">
+                                    <div modifiers="{}">
+                                        Time
+                                    </div>
+                                    <span class="o_stat_value" modifiers="{}">
+                                        <field name="total_hours_spent" widget="float_time" nolabel="1" class="mr-1"
+                                               modifiers="{'readonly':true}"/>
+                                    </span>
+                                </div>
+                            </button>
+
+                            <button class="oe_stat_button" name="action_view_timesheets" type="object"
+                                    style="background-color: green;"
+                                    help="Time recorded on this task"
+                                    attrs="{'invisible': ['|',('total_hours_spent', '&lt;=', 0), '|', ('allow_timesheets', '=', False), '&amp;', ('display_timesheet_timer', '=', True), ('total_hours_spent', '=', 0)]}"
+                                    options="{}">
+                                <i class="fa fa-fw o_button_icon fa-clock-o" style="color:white;"></i>
+                                <div class="o_stat_info" modifiers="{}">
+                                    <div style="color:white;" modifiers="{}">
+                                        Time
+                                    </div>
+                                    <span class="o_stat_value" style="color:white;" modifiers="{}">
+                                        <field name="total_hours_spent" widget="float_time" style="color:white;"
+                                               nolabel="1" class="mr-1"
+                                               modifiers="{'readonly':true}"/>
+                                    </span>
+                                </div>
+                            </button>
+
+                            <field name="is_fsm" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                            <field name="worksheet_count" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                            <field name="worksheet_template_id" invisible="1" on_change="1" can_create="true"
+                                   can_write="true" modifiers="{'invisible':true}"/>
+                            <!--<button string="Worksheet" class="oe_stat_button" name="action_fsm_worksheet" icon="fa-pencil" type="object" attrs="{'invisible': ['|', '|', '|', ('allow_worksheets', '=', False), ('is_fsm', '=', False), ('worksheet_template_id', '=', False), ('worksheet_count', '!=', 0)]}" help="Worksheet from this task" modifiers="{'invisible':['|','|','|',['allow_worksheets','=',false],['is_fsm','=',false],['worksheet_template_id','=',false],['worksheet_count','!=',0]]}" options="{}"/>
+                            <button string="Worksheet Completed" class="oe_stat_button text-success" name="action_fsm_worksheet" icon="fa-check" type="object" attrs="{'invisible': ['|', '|', '|', ('allow_worksheets', '=', False), ('is_fsm', '=', False), ('worksheet_template_id', '=', False), ('worksheet_count', '=', 0)]}" help="Worksheet from this task" modifiers="{'invisible':['|','|','|',['allow_worksheets','=',false],['is_fsm','=',false],['worksheet_template_id','=',false],['worksheet_count','=',0]]}" options="{}"/>-->
+                            <!--<button class="oe_stat_button" name="action_fsm_view_material" type="object"
+                                    icon="fa-cart-plus" help="Add materials"
+                                    context="{'form_view_ref': '__export__.ir_ui_view_5122_ce6ef5e0'}"
+                                    attrs="{'invisible': ['|',('material_line_product_count', '&gt;', 1),'|', ('partner_id', '=', False), ('allow_material', '=', False)]}"
+                                    options="{}">
+                                <div class="o_stat_info" modifiers="{}">
+                                    <span class="o_stat_value" modifiers="{}">
+                                        <field name="material_line_product_count"
+                                               class="mr-1" modifiers="{'readonly':true}"/>
+                                        Products
+                                    </span>
+                                    <field name="material_line_total_price" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}" modifiers="{'readonly':true}"/>
+                                    <field name="currency_id" invisible="True" can_create="true" can_write="true"
+                                           modifiers="{'invisible':true,'readonly':true}"/>
+                                </div>
+                            </button>-->
+
+                            <button class="oe_stat_button" style="background-color: green;"
+                                    name="action_fsm_view_material" type="object"
+                                    help="Add materials"
+                                    context="{'form_view_ref': '__export__.ir_ui_view_5122_ce6ef5e0'}"
+                                    attrs="{'invisible': ['|',('material_line_product_count', '&lt;', 2),'|', ('partner_id', '=', False), ('allow_material', '=', False)]}"
+                                    options="{}">
+                                <i class="fa fa-fw o_button_icon fa-cart-plus" style="color:white;"></i>
+                                <div class="o_stat_info" modifiers="{}">
+                                    <span class="o_stat_value" style="color:white;">
+                                        <field name="material_line_product_count" style="color:white;"
+                                               class="mr-1" modifiers="{'readonly':true}"/>
+                                        Products
+                                    </span>
+                                    <!--<field name="material_line_total_price" widget="monetary"
+                                           options="{'currency_field': 'currency_id'}" style="color:white;"
+                                           modifiers="{'readonly':true}"/>
+                                    <field name="currency_id" invisible="True" can_create="true" can_write="true"
+                                           modifiers="{'invisible':true,'readonly':true}"/>-->
+                                </div>
+                            </button>
+                            <field name="material_line_product_count" invisible="1"/>
+
+                            <button name="action_insert_parameter" style="background-color: green;" type="object"
+                                    class="oe_stat_button"
+                                    attrs="{'invisible':['|', ('total_hours_spent', '=', 0),('is_parameter_done', '=', False)]}">
+                                <!--<div class="o_stat_info">Parameter</div>-->
+                                <i class="fa fa-fw o_button_icon fa-plus" style="color:white;"></i>
+                                <div class="o_stat_info" style="color:white;">Parameter</div>
+                            </button>
+                            <button name="action_insert_parameter" icon="fa-plus" type="object"
+                                    attrs="{'invisible':['|', ('total_hours_spent', '=', 0), ('is_parameter_done', '!=', False)]}">
+                                <div class="o_stat_info">Parameter</div>
+                            </button>
+
+                            <!-- free product-->
+                            <field name="is_free_products" invisible="1"/>
+                            <button name="action_insert_free_product" icon="fa-plus" type="object" attrs="{'invisible':[('is_free_products', '=', True)]}">
+                                <div class="o_stat_info">Add parts</div>
+                            </button>
+                            <button name="action_insert_free_product" style="background-color: green;" type="object" attrs="{'invisible':[('is_free_products', '!=', True)]}">
+                                <i class="fa fa-fw o_button_icon fa-plus" style="color:white;"></i>
+                                <div class="o_stat_info" style="color:white;">Add parts</div>
+                            </button>
+                            <!-- free product-->
+
+                            <button name="action_preview_worksheet" type="object" icon="fa-file-text-o"
+                                    attrs="{'invisible': ['|', '|', '|', '|', ('allow_worksheets', '=', False), ('worksheet_signature', '!=', False), ('timesheet_timer_start', '!=', False), ('worksheet_template_id', '=', False), '&amp;', ('worksheet_count', '=', 0), '&amp;', '|', ('allow_timesheets', '=', False), ('total_hours_spent', '=', 0), '|', ('allow_material', '=', False), ('material_line_product_count', '=', 0)]}"
+                                    modifiers="{'invisible':['|','|','|','|',['allow_worksheets','=',false],['worksheet_signature','!=',false],['timesheet_timer_start','!=',false],['worksheet_template_id','=',false],'&amp;',['worksheet_count','=',0],'&amp;','|',['allow_timesheets','=',false],['total_hours_spent','=',0],'|',['allow_material','=',false],['material_line_product_count','=',0]]}"
+                                    context="{'fsm_mode': True}">
+                                <div class="o_stat_info">Sign Report</div>
+                            </button>
+
+                            <button name="action_preview_worksheet" type="object" style="background-color: green;"
+                                    class="oe_stat_button"
+                                    attrs="{'invisible': ['|', '|', '|', '|', ('allow_worksheets', '=', False), ('worksheet_signature', '=', False), ('timesheet_timer_start', '!=', False), ('worksheet_template_id', '=', False), '&amp;', ('worksheet_count', '=', 0), '&amp;', '|', ('allow_timesheets', '=', False), ('total_hours_spent', '=', 0), '|', ('allow_material', '=', False), ('material_line_product_count', '=', 0)]}"
+                                    modifiers="{'invisible':['|','|','|','|',['allow_worksheets','=',false],['worksheet_signature','=',false],['timesheet_timer_start','!=',false],['worksheet_template_id','=',false],'&amp;',['worksheet_count','=',0],'&amp;','|',['allow_timesheets','=',false],['total_hours_spent','=',0],'|',['allow_material','=',false],['material_line_product_count','=',0]]}"
+                                    options="{}">
+                                <i class="fa fa-fw o_button_icon fa-file-text-o" style="color:white;"></i>
+                                <div class="o_stat_info" style="color:white;">Sign Report</div>
+                            </button>
+
+
+                            <button name="action_send_report" type="object" icon="fa-send"
+                                    attrs="{'invisible': ['|',('fsm_is_sent', '!=', False),'|', '|', '|', '|', '|',('allow_worksheets', '=', False),('timesheet_timer_start', '!=', False),('worksheet_template_id', '=', False),'&amp;','&amp;',('worksheet_count', '=', 0),('total_hours_spent', '=', 0),('material_line_product_count', '=', 0),'&amp;',('fsm_is_sent', '=', False),('worksheet_signature', '!=', False)]}"
+                            >
+                                <div class="o_stat_info">Send Report</div>
+                            </button>
+
+                            <button name="action_send_report" type="object" style="background-color: green;"
+                                    class="oe_stat_button"
+                                    attrs="{'invisible': ['|',('fsm_is_sent', '=', False),'|', '|', '|', '|', '|',('allow_worksheets', '=', False),('timesheet_timer_start', '!=', False),('worksheet_template_id', '=', False),'&amp;','&amp;',('worksheet_count', '=', 0),('total_hours_spent', '=', 0),('material_line_product_count', '=', 0),'&amp;',('fsm_is_sent', '=', False),('worksheet_signature', '!=', False)]}"
+                            >
+                                <i class="fa fa-fw o_button_icon fa-send" style="color:white;"></i>
+                                <div class="o_stat_info" style="color:white;">Send Report</div>
+                            </button>
+
+                            <button name="action_send_report" type="object" icon="fa-send"
+                                    attrs="{'invisible': ['|', '|', '|', '|', '|',('allow_worksheets', '=', False),('timesheet_timer_start', '!=', False),('worksheet_template_id', '=', False),'&amp;','&amp;',('worksheet_count', '=', 0),('total_hours_spent', '=', 0),('material_line_product_count', '=', 0),('fsm_is_sent', '=', True),('worksheet_signature', '=', False)]}"
+                            >
+                                <div class="o_stat_info">Send Report</div>
+                            </button>
+
+                            <button name="action_next_state" type="object" icon="fa-arrow-up"
+                                    attrs="{'invisible': [('stage_id','=',47)]}" options="{}">
+                                <div class="o_stat_info">Service Büro</div>
+                            </button>
+
+
+                            <button name="action_fsm_view_quotations" type="object" class="oe_stat_button"
+                                    icon="fa-dollar"
+                                    attrs="{'invisible': ['|', ('is_fsm', '=', False), ('quotation_count', '=', 0)]}"
+                                    modifiers="{'invisible':['|',['is_fsm','=',false],['quotation_count','=',0]]}"
+                                    options="{}">
+                                <field string="Quotations" name="quotation_count" widget="statinfo"
+                                       modifiers="{'readonly':true}"/>
+                            </button>
+                            <!--<button name="action_view_invoices" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': ['|', ('allow_billable', '=', False), ('invoice_count', '=', 0)]}" modifiers="{'invisible':['|',['allow_billable','=',false],['invoice_count','=',0]]}" options="{}">
+                                <field name="invoice_count" widget="statinfo" string="Invoices" modifiers="{'readonly':true}"/>
+                            </button>-->
+                            <field string="Tickets" name="helpdesk_ticket_id" invisible="1" can_create="true"
+                                   can_write="true" modifiers="{'invisible':true,'readonly':true}"/>
+                            <button string="Helpdesk" class="oe_stat_button" name="action_view_ticket" type="object"
+                                    icon="fa-life-ring" attrs="{'invisible': [('helpdesk_ticket_id', '=', False)]}"
+                                    help="Ticket from this task"
+                                    modifiers="{'invisible':[['helpdesk_ticket_id','=',false]]}" options="{}"/>
+                        </div>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"
+                                modifiers="{'invisible':[['active','=',true]]}"/>
+                        <div class="oe_title pr-0" modifiers="{}">
+                            <h1 class="d-flex flex-row justify-content-between" modifiers="{}">
+                                <field name="priority" widget="priority" class="mr-3" modifiers="{}"/>
+                                <field name="name" class="o_task_name text-truncate" placeholder="Task Title..."
+                                       modifiers="{'required':true}"/>
+                                <field name="kanban_state" widget="state_selection" class="ml-auto"
+                                       modifiers="{'required':true}"/>
+                            </h1>
+                        </div>
+                        <group modifiers="{}">
+                            <group modifiers="{}">
+                                <field name="name_seq" modifiers="{'required':true}"/>
+                                <field name="sale_order_id" attrs="{'invisible': [('sale_order_id', '=', False)]}"/>
+                                <field name="billable_type" invisible="1" on_change="1"
+                                       modifiers="{'invisible':true,'readonly':true}"/>
+                                <field name="sale_order_id" invisible="1" on_change="1" can_create="true"
+                                       can_write="true" modifiers="{'invisible':true}"/>
+                                <!--<field name="claim_shipping_id" can_create="true" can_write="true" modifiers="{}"/>-->
+                                <field name="partner_id" string="Customer" widget="res_partner_many2one"
+                                       context="{'res_partner_search_mode': 'customer', 'show_address': 0, 'show_vat': True}"
+                                       options="{&quot;always_reload&quot;: True}"/>
+                                <field name="claim_shipping_id" widget="res_partner_many2one"
+                                       context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}"
+                                       options="{&quot;always_reload&quot;: True}"/>
+                                <!--<field name="claim_contact" on_change="1" can_create="true" can_write="true"
+                                       modifiers="{}"/>-->
+                                <field name="driving_cost"/>
+                                <field name="display_offer_prod_info" invisible="1"/>
+                                <field name="driving_km" attrs="{'invisible': [('driving_cost', '!=', 'ap002')],'required': [('driving_cost', '=', 'ap002')]}"/>
+                                <field name="claim_contact" string="Contact" widget="res_partner_many2one"
+                                       context="{'res_partner_search_mode': 'customer', 'show_address': 0, 'show_vat': True}"
+                                       options="{&quot;always_reload&quot;: True}"/>
+                                <!--<field name="claim_contact" widget="res_partner_many2one"
+                                       context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}"
+                                       options="{&quot;always_reload&quot;: True}"/>-->
+                                <field name="claim_contact_mobile" modifiers="{}"/>
+                                <field name="claim_contact_phone" modifiers="{}"/>
+                                <field name="claim_contact_email" modifiers="{}"/>
+                                <!--<field name="claim_contact_email" widget="domain" options="{'model': 'project.task'}"/>-->
+                                <field name="project_id"
+                                       domain="[('active', '=', True), ('company_id', '=', company_id)]" on_change="1"
+                                       can_create="true" can_write="true" modifiers="{}"/>
+                                <field name="active" invisible="1" modifiers="{'invisible':true}"/>
+                                <field name="user_id" class="o_task_user_field" options="{'no_open': True}"
+                                       on_change="1" can_create="true" can_write="true" modifiers="{}"/>
+                                <field name="map_direction" widget="html"/>
+                                <field name="user_ids" class="o_task_user_field" widget="many2many_tags"/>
+                                <!--<field name="partner_id" on_change="1" can_create="true" can_write="true"
+                                       modifiers="{}"/>-->
+                                <field name="sale_line_id" string="Sales Order Item" attrs="
+                    {'invisible': ['|', ('is_fsm', '=', True), ('partner_id', '=', False)]}
+                " options="{'no_create': True}" readonly="0" context="{'create': False, 'edit': False, 'delete': False}"
+                                       on_change="1" can_create="true" can_write="true"
+                                       modifiers="{'invisible':['|',['is_fsm','=',true],['partner_id','=',false]]}"/>
+                                <field name="allow_worksheets" invisible="1"
+                                       modifiers="{'invisible':true,'readonly':true}"/>
+                                <field name="is_project_map_empty" invisible="1"
+                                       modifiers="{'invisible':true,'readonly':true}"/>
+                                <field name="legend_blocked" invisible="1"
+                                       modifiers="{'invisible':true,'readonly':true}"/>
+                                <field name="legend_normal" invisible="1"
+                                       modifiers="{'invisible':true,'readonly':true}"/>
+                                <field name="legend_done" invisible="1" modifiers="{'invisible':true,'readonly':true}"/>
+                            </group>
+                            <group modifiers="{}">
+                                <field name="date_deadline" modifiers="{}"/>
+                                <label for="planned_date_begin" string="Date"/>
+                                <div class="w-100">
+                                    <div class="o_row">
+                                        <field name="planned_date_begin" widget="daterange"
+                                               options="{'related_end_date': 'planned_date_end'}"/>
+                                        <i class="fa fa-long-arrow-right mx-2" aria-label="Arrow icon" title="Arrow"/>
+                                        <field name="planned_date_end" widget="daterange"
+                                               options="{'related_start_date': 'planned_date_begin'}"/>
+                                    </div>
+                                </div>
+                                <!--<label for="meeting_from" string="From" modifiers="{}"/>
+                                <div modifiers="{}">
+                                    <field name="meeting_from" class="oe_inline" modifiers="{}"/>
+                                    <label for="meeting_to" string="to" class="oe_inline" modifiers="{}"/>
+                                    <field name="meeting_to" class="oe_inline" modifiers="{}"/>
+                                </div>-->
+                                <field name="tag_ids" widget="many2many_tags"
+                                       options="{'color_field': 'color', 'no_create_edit': True}" can_create="true"
+                                       can_write="true" modifiers="{}"/>
+                                <field name="claim_id" on_change="1" can_create="true" can_write="true" modifiers="{}"/>
+                                <field name="claim_categ_id" readonly="0" can_create="true" can_write="true"
+                                       modifiers="{}"/>
+                                <field name="claim_sequence" modifiers="{'readonly':true}"/>
+                                <field name="location_ids" modifiers="{'readonly':true}">
+                                  <tree>
+                                    <field name="name"/>
+                                    <field name="placement"/>
+                                  </tree>
+                                </field>
+                            </group>
+                        </group>
+                        <notebook modifiers="{}">
+                            <page name="description_page" string="Description" modifiers="{}">
+                                <field name="description" type="html" modifiers="{}"/>
+                                <div class="oe_clear" modifiers="{}"/>
+                            </page>
+
+                            <page string="Assets" modifiers="{}">
+                                <field name="asset_lines" nolabel="1" on_change="1" can_create="true" can_write="true"
+                                       modifiers="{}"/>
+                            </page>
+
+                            <page string="Parameter" modifiers="{}">
+                                <group string="Testing according to VDE0701, 0702 and DGUV" modifiers="{}">
+                                    <field name="conductor_resistance" modifiers="{}"/>
+                                    <field name="conductor_current" modifiers="{}"/>
+                                    <field name="insulation_resistance" modifiers="{}"/>
+                                </group>
+                                <group string="" modifiers="{}">
+                                    <field name="touch_current" modifiers="{}"/>
+                                </group>
+                                <group string="Water values" modifiers="{}">
+                                    <field name="water_conductor_resistance" modifiers="{}"/>
+                                    <field name="water_hardness" modifiers="{}"/>
+                                    <field name="water_total_hardness" modifiers="{}"/>
+                                    <field name="full_demineralisation_conductance" modifiers="{}"/>
+                                </group>
+                            </page>
+                            <page string="Additional Parts" modifiers="{}">
+                                <field name="free_products">
+                                    <tree>
+                                        <field name="product_name"/>
+                                        <field name="product_qty"/>
+                                        <!--<field name="product_price"/>-->
+                                        <field name="product_number"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="product_name"/>
+                                            <field name="product_qty"/>
+                                            <!--<field name="product_price"/>-->
+                                            <field name="product_number"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Timesheet">
+                                <field name="timesheet_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="timer_start"/>
+                                        <field name="timer_stop"/>
+                                        <field name="unit_amount" widget="timesheet_uom"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="date"/>
+                                            <field name="create_date"/>
+                                            <field name="unit_amount" widget="timesheet_uom"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <field name="analytic_account_active" invisible="1" on_change="1"
+                                   modifiers="{'invisible':true,'readonly':true}"/>
+                            <field name="allow_timesheets" invisible="1" on_change="1"
+                                   modifiers="{'invisible':true,'readonly':true}"/>
+                            <page string="Timesheets" id="timesheets_tab"
+                                  attrs="{'invisible': ['|', ('is_fsm', '=', True), ('allow_timesheets', '=', False)]}"
+                                  modifiers="{'invisible':['|',['is_fsm','=',true],['allow_timesheets','=',false]]}">
+                                <group modifiers="{}">
+                                    <group modifiers="{}">
+                                        <field name="planned_hours" widget="float_time" on_change="1" modifiers="{}"/>
+                                        <label for="subtask_planned_hours"
+                                               attrs="{'invisible': [('subtask_count', '=', 0)]}"
+                                               modifiers="{'invisible':[['subtask_count','=',0]]}"/>
+                                        <div class="o_row" attrs="{'invisible': [('subtask_count', '=', 0)]}"
+                                             modifiers="{'invisible':[['subtask_count','=',0]]}">
+                                            <field name="subtask_planned_hours" widget="float_time"
+                                                   modifiers="{'readonly':true}"/>
+                                            <span modifiers="{}">
+                                                planned hours
+                                            </span>
+                                        </div>
+                                    </group>
+                                    <group modifiers="{}">
+                                        <field name="progress" widget="progressbar" modifiers="{'readonly':true}"/>
+                                    </group>
+                                </group>
+                                <group name="timesheet_error"
+                                       attrs="{'invisible': [('analytic_account_active', '!=', False)]}"
+                                       modifiers="{'invisible':[['analytic_account_active','!=',false]]}">
+                                    <div class="alert alert-warning" role="alert" modifiers="{}">
+
+                                        You can not log timesheets on this project since is linked to an inactive
+                                        analytic account. Please change it, or reactivate the current one to timesheet
+                                        on the project.
+
+                                    </div>
+                                </group>
+                                <field name="timesheet_ids" mode="tree,kanban"
+                                       attrs="{'invisible': [('analytic_account_active', '=', False)]}"
+                                       context="{'default_project_id': project_id, 'default_name':''}" on_change="1"
+                                       modifiers="{'invisible':[['analytic_account_active','=',false]]}"/>
+                                <group attrs="{'invisible': [('analytic_account_active', '=', False)]}"
+                                       modifiers="{'invisible':[['analytic_account_active','=',false]]}">
+                                    <group class="oe_subtotal_footer oe_right" name="project_hours" modifiers="{}">
+                                        <field name="effective_hours" widget="float_time" on_change="1"
+                                               modifiers="{'readonly':true}"/>
+                                        <field name="subtask_effective_hours" widget="float_time"
+                                               attrs="{'invisible' : [('subtask_effective_hours', '=', 0.0)]}"
+                                               on_change="1"
+                                               modifiers="{'invisible':[['subtask_effective_hours','=',0]],'readonly':true}"/>
+                                        <field name="total_hours_spent" widget="float_time"
+                                               class="oe_subtotal_footer_separator"
+                                               attrs="{'invisible' : [('subtask_effective_hours', '=', 0.0)]}"
+                                               modifiers="{'invisible':[['subtask_effective_hours','=',0]],'readonly':true}"/>
+                                        <field name="remaining_hours" widget="float_time"
+                                               class="oe_subtotal_footer_separator"
+                                               attrs="{'invisible' : [('planned_hours', '=', 0.0)]}"
+                                               modifiers="{'invisible':[['planned_hours','=',0]],'readonly':true}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page name="extra_info" string="Extra Info" modifiers="{}">
+                                <group modifiers="{}">
+                                    <group modifiers="{}">
+                                        <field name="sequence" modifiers="{}"/>
+                                        <field name="email_from" invisible="1" modifiers="{'invisible':true}"/>
+                                        <field name="email_cc" modifiers="{}"/>
+                                        <field name="parent_id" domain="[('parent_id', '=', False)]"
+                                               attrs="{'invisible' : [('subtask_count', '&gt;', 0)]}" on_change="1"
+                                               can_create="true" can_write="true"
+                                               modifiers="{'invisible':[['subtask_count','&gt;',0]]}"/>
+                                        <field name="child_ids" invisible="1" on_change="1"
+                                               modifiers="{'invisible':true}"/>
+                                        <field name="subtask_project_id" invisible="1" can_create="true"
+                                               can_write="true" modifiers="{'invisible':true,'readonly':true}"/>
+                                        <field name="company_id" options="{'no_create': True}" on_change="1"
+                                               can_create="true" can_write="true" modifiers="{'required':true}"/>
+                                        <field name="displayed_image_id" can_create="true" can_write="true"
+                                               modifiers="{}"/>
+                                        <field name="project_id" domain="[('active', '=', True), ('company_id', '=', company_id)]" on_change="1" can_create="true" can_write="true"/>
+                                        <field name="worksheet_template_id"
+                                           attrs="{'invisible': [('allow_worksheets', '=', False)]}" on_change="1"
+                                           can_create="true" can_write="true"
+                                           modifiers="{'invisible':[['allow_worksheets','=',false]]}"/>
+                                    </group>
+                                    <group modifiers="{}">
+                                        <field name="date_assign" on_change="1" modifiers="{'readonly':true}"/>
+                                        <field name="date_last_stage_update" modifiers="{'readonly':true}"/>
+                                        <field name="meeting_categ_id" can_create="true" can_write="true"
+                                               modifiers="{}"/>
+                                        <field name="meeting_id" can_create="true" can_write="true" modifiers="{}"/>
+                                    </group>
+                                    <group string="Working Time to Assign"
+                                           attrs="{'invisible': [('working_hours_open', '=', 0.0)]}"
+                                           modifiers="{'invisible':[['working_hours_open','=',0]]}">
+                                        <field name="working_hours_open" string="Hours" modifiers="{'readonly':true}"/>
+                                        <field name="working_days_open" string="Days" modifiers="{'readonly':true}"/>
+                                    </group>
+                                    <group string="Working Time to Close"
+                                           attrs="{'invisible': [('working_hours_close', '=', 0.0)]}"
+                                           modifiers="{'invisible':[['working_hours_close','=',0]]}">
+                                        <field name="working_hours_close" string="Hours" modifiers="{'readonly':true}"/>
+                                        <field name="working_days_close" string="Days" modifiers="{'readonly':true}"/>
+                                    </group>
+                                    <group string="Gantt" modifiers="{}">
+                                        <field name="planned_date_begin"
+                                               attrs="{'required': [('planned_date_end', '!=', False)]}" on_change="1"
+                                               modifiers="{'required':[['planned_date_end','!=',false]]}"/>
+                                        <field name="planned_date_end"
+                                               attrs="{'required': [('planned_date_begin', '!=', False)]}" on_change="1"
+                                               modifiers="{'required':[['planned_date_begin','!=',false]]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="Scanned Products" modifiers="{}">
+                                <button name="action_transfer" string="Transfer Scanned Products to Sale Order"
+                                        type="object" class="oe_highlight" modifiers="{}" options="{}"/>
+                                <!--<field name="prod_serv_barcode" widget="one2many_list" modifiers="{}"/>
+                                <field name="service_travel" widget="one2many_list" modifiers="{}"/>-->
+                                <field name="selected_prod_ids" context="{'fsm_mode': True, 'fsm_task_id':id}">
+                                    <kanban edit="0" class="o_kanban_mobile o_fsm_material_kanban" attrs="{'invisible': [('fsm_quantity', '=', 0)]}">
+                                        <field name="id"/>
+                                        <field name="name"/>
+                                        <field name="product_template_attribute_value_ids"/>
+                                        <templates>
+                                            <t t-name="kanban-box">
+                                                <div class="o_kanban_record" style="min-height: 100px;">
+                                                    <div class="o_kanban_image">
+                                                        <img t-att-src="kanban_image('product.product', 'image_128', record.id.raw_value)" alt="Product" class="o_image_64_contain"/>
+                                                    </div>
+                                                    <div class="oe_kanban_details">
+                                                        <div class="o_kanban_record_top">
+                                                            <div class="o_kanban_record_headings">
+                                                                <strong class="o_kanban_record_title">
+                                                                    <div>
+                                                                        <strong><span t-esc="record.name.value"/></strong>
+                                                                    </div>
+                                                                </strong>
+                                                                <div class="o_kanban_tags_section">
+                                                                    <field name="product_template_attribute_value_ids" groups="product.group_product_variant"/>
+                                                                </div>
+                                                                <ul>
+                                                                    <li><strong>Price: <field name="price" widget="monetary" options="{'currency_field': 'currency_id'}"/></strong></li>
+                                                                    <field name="currency_id" invisible="True"/>
+                                                                    <field name="fsm_quantity"/>
+                                                                </ul>
+                                                            </div>
+                                                            <button type="object" class="col-12 h-100" name="fsm_add_quantity" invisible="context.get('hide_qty_buttons')" style="position: absolute;top: 0;left: 0;opacity: 0;"/>
+                                                            <div class="pull-right h-100 pt-2 flex-shrink-0" attrs="{'invisible': [('fsm_quantity', '=', 0)]}" style="z-index:1;">
+                                                                <button class="btn btn-primary p-0" invisible="context.get('hide_qty_buttons')" type="object" name="fsm_remove_quantity" style="width:30px;height:30px;"><span style="font-size:1.5rem;">-</span></button>
+                                                                <div class="p-0 oe_inline d-inline-block" invisible="not context.get('hide_qty_buttons')" style="width:30px;height:30px;"/>
+                                                                <span class="align-middle p-0 pr-2 pl-2" style="font-size:2.5rem"><field name="fsm_quantity"/></span>
+                                                                <button class="btn btn-primary p-0" invisible="context.get('hide_qty_buttons')" type="object" name="fsm_add_quantity" style="width:30px;height:30px;"><span style="font-size:1.5rem;">+</span></button>
+                                                                <div class="p-0 oe_inline d-inline-block" invisible="not context.get('hide_qty_buttons')" style="width:30px;height:30px;"/>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </t>
+                                        </templates>
+                                    </kanban>
+                                </field>
+                            </page>
+
+                            <!--<page string="Offer Products" attrs="{'invisible': [('display_offer_prod_info', '=', False)]}">-->
+                            <page string="Offer Products">
+                                <group>
+                                            <field name="offer_prod_info" widget="html"/>
+                                </group>
+                            </page>
+
+
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter" modifiers="{}">
+                        <field name="message_follower_ids" widget="mail_followers" modifiers="{}"/>
+                        <field name="activity_ids" widget="mail_activity" modifiers="{}"/>
+                        <field name="message_ids" widget="mail_thread" modifiers="{}"
+                               options="{'display_log_button': True}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.cron" id="ir_cron_inform_manager" forcecreate="True">
+            <field name="model_id" ref="model_project_task"/>
+            <field name="name">Field Service - Project Task overdue</field>
+            <field eval="False" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field name="state">code</field>
+            <field name="code">model._scheduler_task_due()</field>
+        </record>
+
+    </data>
+</openerp>

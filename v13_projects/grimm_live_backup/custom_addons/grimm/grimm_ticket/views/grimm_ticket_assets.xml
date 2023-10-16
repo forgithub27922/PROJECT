@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <template id="grimm_ticket_assets" name="Grimm Ticket Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/grimm_ticket/static/src/css/grimm_ticket.css" />
+            <!--<script txpe="text/javascript" src="/grimm_ticket/static/src/js/grimm_ticket.js" />-->
+        </xpath>
+    </template>
+</openerp>

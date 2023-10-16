@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+  <t t-extend="KanbanView.buttons">
+        <t t-jquery="button" t-operation="after">
+<!--            <button class="btn btn-primary oe_action_button" t-if="widget.modelName == 'product.product'" type="button" accesskey="f">Back to Ticket<t t-esc="fsm_task_id"/></button>-->
+            <!--            <a href="/web#model=project.task&amp;id=${object.id}&amp;action=${object.env.ref('industry_fsm.project_task_action_fsm').id}&amp;view_type=form" style="background-color:#017DDC;border-radius: 15px;color: white;padding: 10px 34px;text-align: center;text-decoration: none;display: inline-block;cursor: pointer;">Back to Ticket</a>-->
+            <t t-if="widget">
+                <button type="button" class="btn btn-primary oe_action_button"
+                        t-if="widget.modelName == 'product.product' and widget.actionViews[0].fieldsView.name == 'view.product.template.kanban.material'"
+                        >
+                    Back to Ticket
+                </button>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="mail.widget.Thread.Message">
+        <t t-jquery="span[t-attf-class='o_thread_icons']" t-operation="append">
+            <t t-if="message.getID() > 0">
+            <i  t-if="message.isChannelMessage()"
+                           class="fa fa-check o_thread_icon o_thread_message_needaction"
+                           t-att-data-message-id="message.getID()" title="Mark as Read" role="img" aria-label="Mark as Read"/>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="mail.widget.Thread.Messages">
+        <t t-jquery="t[t-call='mail.widget.Thread.Message']" t-operation="replace">
+            <t t-if="message.getID() > 0">
+                <t t-if="message.isChannelMessage() and message.need_to_display()">
+                    <t t-call="mail.widget.Thread.Message"/>
+                </t>
+                <t t-if="message.isChannelMessage() == false">
+                    <t t-call="mail.widget.Thread.Message"/>
+                </t>
+            </t>
+            <t t-if="message.getID() == 0">
+                <t t-call="mail.widget.Thread.Message"/>
+            </t>
+        </t>
+    </t>
+
+    <t t-extend="mail.chatter.Composer">
+        <!-- Add a button to open the full composer dialog -->
+        <t t-jquery="button[class='btn btn-secondary fa fa-expand o_composer_button_full_composer']" t-operation="replace">
+            <t t-if="!widget.options.isLog">
+                <button tabindex="6" class="btn btn-secondary fa fa-expand o_composer_button_full_composer" type="button" title="Full composer" aria-label="Full composer"/>
+            </t>
+        </t>
+    </t>
+
+  </template>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<openerp>
+  <data>
+
+    <record id="update_lead_from_e_mail" model="ir.actions.server">
+      <field name="name">Update Lead from E-Mail</field>
+      <field name="model_id" ref="model_crm_lead"/>
+      <field name="state">code</field>
+      <field name="code">
+        if context.get('active_id'):
+        self.update_lead_from_e_mail(cr, uid, context=context)
+      </field>
+    </record>
+
+    <!--<record id="grimm_view_crm_case_opportunities_filter" model="ir.ui.view">
+      <field name="name">GRIMM CRM - Opportunities Search</field>
+      <field name="model">crm.lead</field>
+      <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+      <field name="arch" type="xml">
+        <filter name="message_needaction" position="after">
+          <filter string="Inkl. Archiviert" domain="['|', ('active', '=', False), ('active', '=', True)]" />
+        </filter>
+      </field>
+    </record>-->
+
+  </data>
+</openerp>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="grimm_fsm_project_edit_project_form" model="ir.ui.view">
+            <field name="name">grimm.fsm.project.edit_project</field>
+            <field name="model">project.project</field>
+            <field name="inherit_id" ref="project.edit_project"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="user_ids" class="o_task_user_field" widget="many2many_tags"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="grimm_fsm_fleet_vehicle_inherit" model="ir.ui.view">
+            <field name="name">grimm.fsm.fleet.vehicle.inherit</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+            <field name="arch" type="xml">
+                <field name="model_year" position="after">
+                    <field name="bornemann_id"/>
+                    <field name="bornemann_partner_id" invisible="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="fleet_vehicle_view_map" model="ir.ui.view">
+            <field name="name">fleet.vehicle.view.map</field>
+            <field name="model">fleet.vehicle</field>
+            <field name="arch" type="xml">
+                <map res_partner="bornemann_partner_id">
+                    <marker-popup>
+                        <field name="name" string="Vehicle Name"/>
+                        <field name="bornemann_id" string="Bornemann ID"/>
+                        <field name="driver_id" string="Driver"/>
+                    </marker-popup>
+                </map>
+            </field>
+        </record>
+
+    </data>
+</openerp>

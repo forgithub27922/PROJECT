@@ -1,0 +1,122 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_hr_public_holidays
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-09 12:36+0000\n"
+"PO-Revision-Date: 2022-02-09 12:36+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__company_id
+#: model_terms:ir.ui.view,arch_db:sky_hr_public_holidays.view_public_holidays_search
+msgid "Company"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__date
+#: model_terms:ir.ui.view,arch_db:sky_hr_public_holidays.view_public_holidays_search
+msgid "Date"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model_terms:ir.ui.view,arch_db:sky_hr_public_holidays.view_public_holidays_form
+msgid ""
+"Descrption of the Holiday For e.g. Ramadan Eid, Chirstmas, Deewali etc."
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields.selection,name:sky_hr_public_holidays.selection__hr_public_holidays_line__day__4
+msgid "Friday"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__id
+msgid "ID"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields.selection,name:sky_hr_public_holidays.selection__hr_public_holidays_line__day__0
+msgid "Monday"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__name
+msgid "Occasion"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.actions.act_window,name:sky_hr_public_holidays.action_public_holidays
+#: model:ir.model,name:sky_hr_public_holidays.model_hr_public_holidays_line
+#: model:ir.ui.menu,name:sky_hr_public_holidays.menu_public_holidays
+#: model:res.groups,name:sky_hr_public_holidays.group_public_holidays
+msgid "Public Holidays"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields.selection,name:sky_hr_public_holidays.selection__hr_public_holidays_line__day__5
+msgid "Saturday"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields.selection,name:sky_hr_public_holidays.selection__hr_public_holidays_line__day__6
+msgid "Sunday"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields.selection,name:sky_hr_public_holidays.selection__hr_public_holidays_line__day__3
+msgid "Thursday"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields.selection,name:sky_hr_public_holidays.selection__hr_public_holidays_line__day__1
+msgid "Tuesday"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields.selection,name:sky_hr_public_holidays.selection__hr_public_holidays_line__day__2
+msgid "Wednesday"
+msgstr ""
+
+#. module: sky_hr_public_holidays
+#: model:ir.model.fields,field_description:sky_hr_public_holidays.field_hr_public_holidays_line__day
+msgid "Weekday"
+msgstr ""

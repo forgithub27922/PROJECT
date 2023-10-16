@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <!-- Hr Leave Type Tree View -->
+        <record id="hr_leave_type_tree_view" model="ir.ui.view">
+            <field name="name">hr.leave.type.tree.view</field>
+            <field name="model">hr.leave.type</field>
+            <field name="inherit_id" ref="hr_holidays.view_holiday_status_normal_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="/tree/field[@name='code']" position="after">
+                    <field name="leave_type" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!-- Hr Leave Type Form View -->
+        <record id="hr_lave_type_form_view" model="ir.ui.view">
+            <field name="name">hr.lave.type.form.view</field>
+            <field name="model">hr.leave.type</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group/group/field[@name='code']" position="after">
+                    <group>
+                        <field name="leave_type" invisible="1"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='validation_type']" position="before">
+                    <field name="unpaid"/>
+                    <field name="responsible_ids" widget="many2many_tags"
+                           attrs="{'invisible':[('validation_type','not in',('hr','both'))],
+                           'required': [('validation_type','in',('hr','both'))]}"/>
+                </xpath>
+                <xpath expr="//field[@name='responsible_id']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//group/group[@name='description']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//group/group[@name='visibility']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//group/group[@name='validity']" position="attributes">
+                    <attribute name="attrs">{'invisible': 1}</attribute>
+                </xpath>
+                <xpath expr="//group" position="after">
+                    <notebook attrs="{'invisible': [('unpaid','=', True)]}">
+                        <page name="department" string="Department">
+                            <field name="leaves_by_department_ids">
+                                <tree editable="bottom" delete="0" create="0">
+                                    <field name="department_id" width="80px" readonly="1" force_save="1" />
+                                    <field name="yearly_balance"/>
+                                    <field name="monthly_allowance"/>
+                                </tree>
+                            </field>
+
+                        </page>
+                    </notebook>
+`                </xpath>
+            </field>
+        </record>
+
+        <!-- Leave Types Action -->
+        <record id="hr_holidays.open_view_holiday_status" model="ir.actions.act_window">
+            <field name="name">Leave Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.leave.type</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="domain">[('leave_type','=','leave')]</field>
+            <field name="context">{
+                'default_leave_type': 'leave'
+                }
+            </field>
+        </record>
+
+        <!-- Vacation Types Action -->
+        <record id="vacation_types_action" model="ir.actions.act_window">
+            <field name="name">Vacation Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.leave.type</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="domain">[('leave_type','=','vacation')]</field>
+            <field name="context">{
+                'default_leave_type': 'vacation'
+                }
+            </field>
+        </record>
+
+
+        <menuitem
+                id="vacation_type_request_menu"
+                name="Leave Types"
+                parent="sky_hr_custom.menu_hr_config"
+                sequence="8"
+                action="hr_holidays.open_view_holiday_status"
+                groups="hr_holidays.group_hr_holidays_manager"
+        />
+
+        <menuitem
+                id="leave_type_request_menu"
+                name="Vacation Types"
+                parent="sky_hr_custom.menu_hr_config"
+                sequence="7"
+                action="vacation_types_action"
+                groups="hr_holidays.group_hr_holidays_manager"
+        />
+
+    </data>
+</odoo>

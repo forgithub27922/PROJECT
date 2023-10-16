@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_project_description_document_grimm">
+            <t t-call="grimm_reports.grimm_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
+                <div class="page" style="margin-left:-50px;">
+                    <div class="folding_line1"/>
+                    <div class="folding_line2"/>
+                    <div class="folding_line3"/>
+                    <div class="container">
+                        <table style="width:100%;">
+                            <tr class="info_row">
+                                <td class="grimm_info"></td>
+                                <td class="grimm_info_col2"/>
+                                <td colspan="2">
+                                    <span t-field="doc.company_id.report_logo_header"/>
+                                    <!--<table style="width:100%;">
+                                      <tr>
+                                        <td colspan="2">
+                                          <img src='/grimm_reports/static/src/img/grimm_logo2.png' height="35"/>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="company_info" style="font-weight: 200;">
+                                          GRIMM Gastronomiebedarf GmbH<br/>
+                                          Artilleriepark 9<br/>
+                                          14624 Dallgow-Döberitz<br/>
+                                        </td>
+                                        <td class="company_info right" style="font-weight: 200;">
+                                          shop@grimm-gastrobedarf.de<br/>
+                                          service@grimm-gastrobedarf.de<br/>
+                                          T +49 030 / 34 50 60 8 0<br/>
+                                          F +49 030 / 34 50 60 8 19<br/>
+                                        </td>
+                                      </tr>
+                                    </table>-->
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    &#160;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2" class="order-head bold">
+                                    <span t-attf-style="color:{{doc.company_id.theme_color}};">GRIMM Projektschein
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="sichtfenster">
+                                        GRIMM Gastronomiebedarf GmbH
+                                        ·
+                                        <span
+                                                t-if="doc.company_id.street" t-field="doc.company_id.street"/>
+                                        ·
+                                        <span
+                                                t-if="doc.company_id.zip" t-field="doc.company_id.zip"/>
+                                        <span t-if="doc.company_id.city" t-field="doc.company_id.city"/>
+                                    </span>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <t t-if="not doc.partner_shipping_id.parent_partner_print">
+                                    <td class="address">
+                                        <div style="font-weight: 200;">
+                                            <t t-if="doc.partner_shipping_id.parent_id">
+                                                <div t-field="doc.partner_shipping_id.parent_id.name"/>
+                                            </t>
+                                            <div t-field="doc.partner_shipping_id.name"/>
+                                            <t t-if="doc.partner_shipping_id.company">
+                                                <div t-field="doc.partner_shipping_id.company"/>
+                                            </t>
+                                            <div t-field="doc.partner_shipping_id.street"/>
+                                            <t t-if="doc.partner_shipping_id.street2">
+                                                <div t-field="doc.partner_shipping_id.street2"/>
+                                            </t>
+                                            <div>
+                                                <span t-field="doc.partner_shipping_id.zip"/>&#160;<span
+                                                    t-field="doc.partner_shipping_id.city"/>
+                                            </div>
+                                            <div t-field="doc.partner_shipping_id.country_id"/>
+                                        </div>
+                                    </td>
+                                </t>
+                                <t t-if="doc.partner_shipping_id.parent_partner_print">
+                                    <td class="address">
+                                        <div style="font-weight: 200;">
+                                            <div t-field="doc.partner_shipping_id.name"/>
+                                            <t t-if="doc.partner_shipping_id.company">
+                                                <div t-field="doc.partner_shipping_id.company"/>
+                                            </t>
+                                            <div t-field="doc.partner_shipping_id.street"/>
+                                            <t t-if="doc.partner_shipping_id.street2">
+                                                <div t-field="doc.partner_shipping_id.street2"/>
+                                            </t>
+                                            <div>
+                                                <span t-field="doc.partner_shipping_id.zip"/>
+                                                <span t-field="doc.partner_shipping_id.city"/>
+                                            </div>
+                                            <div t-field="doc.partner_shipping_id.country_id"/>
+                                        </div>
+                                    </td>
+                                </t>
+                                <td></td>
+                                <td class="header" style="font-weight: 200;">
+                                    <b>
+                                        <span class="bold">NR.</span>
+                                        <br/>
+                                    </b>
+                                    <span>Beleg-Datum</span>
+                                    <br/>
+                                </td>
+                                <td class="header" style="font-weight: 200;">
+                                    <b>LA-
+                                        <span t-field="doc.name" class="bold"/>
+                                        <br/>
+                                    </b>
+                                    <!--<span t-field="doc.date_order" t-field-options='{"widget": "date"}'/>-->
+                                    <span t-esc="doc.date_order.strftime('%d.%m.%Y')"/>
+                                    <br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td colspan="2" class="order-customer">Kundendaten</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td class="header" style="font-weight: 200;">
+                                    <div class="header-spacer">Kunden-Nr.</div>
+                                    <t t-if="doc.client_order_ref">
+                                        <span>Kunden-Referenz</span>
+                                        <br/>
+                                    </t>
+                                </td>
+                                <td class="header" style="font-weight: 200;">
+                                    <t t-if="doc.partner_id.parent_id">
+                                        <div t-field="doc.partner_id.ref" class="header-spacer"/>
+                                        <div t-field="doc.partner_id.parent_id.ref" class="header-spacer"/>
+                                    </t>
+                                    <t t-if="not doc.partner_id.parent_id">
+                                        <div t-field="doc.partner_id.ref" class="header-spacer"/>
+                                        <div t-field="doc.partner_id.parent_id.ref" class="header-spacer"/>
+                                    </t>
+                                    <t t-if="doc.client_order_ref">
+                                        <span t-field="doc.client_order_ref"/>
+                                        <br/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <!--                                <td style="font-weight: 200;">-->
+                                <!--                                    <h1>-->
+                                <!--                                        <span t-field="doc.order_subject" class="bold"/>-->
+                                <!--                                    </h1>-->
+                                <!--                                    <p t-raw="doc.salutation_text_dn"/>-->
+                                <!--                                </td>-->
+                                <td></td>
+                                <td></td>
+                                <td colspan="2" class="customer-user" style="font-weight: 200;">
+                                    <span t-field="doc.partner_id.name"/>
+                                    <br/>
+
+                                    <t t-if="doc.partner_id.phone">
+                                        <i class="fa fa-phone" t-attf-style="padding-right: 5px; color:{{doc.company_id.theme_color}};"></i>
+                                        <span t-field="doc.partner_id.phone"/>
+                                        <br/>
+                                    </t>
+                                    <t t-if="doc.partner_id.email">
+                                        <i class="fa fa-envelope" t-attf-style="padding-right: 5px; color:{{doc.company_id.theme_color}};"></i>
+                                        <span t-field="doc.partner_id.email" class="underline"/>
+                                        <br/>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th style="width: 8%;">Pos.</th>
+                                    <th style="width: 16%"></th>
+                                    <th style="width: 42%;">Artikel/Leistung</th>
+                                    <th style="width: 7%; text-align:center;">Menge</th>
+                                    <!--                                    <th style="width: 15%;" class="text-right">Einzelpreis EUR</th>
+                                                                        <th style="width: 12%;" class="text-right">Gesamt EUR</th>-->
+                                </tr>
+                            </thead>
+                            <tbody class="sale_tbody">
+                                <t t-foreach="doc.order_line" t-as="l">
+                                    <t t-if="l.product_uom_qty != 0.00">
+                                        <tr t-if="l.product_uom_qty" style="page-break-inside: avoid">
+                                            <td>
+                                                <t t-if="doc.manual_line_number">
+                                                    <span t-field="l.line_no_manual"/>
+                                                </t>
+                                                <t t-if="not doc.manual_line_number">
+                                                    <span t-esc="l_index+1"/>
+                                                </t>
+                                            </td>
+                                            <td>
+                                                <t t-if="l.product_id.image_512">
+                                                    <!--<div t-field="l.product_id.image_512"
+                                                         t-field-options='{"widget": "image", "class": "img-rounded shadow o_alternative_product" }'/>-->
+                                                    <img t-att-src="'data:image/png;base64,%s' % to_text(l.product_id.image_512)"/>
+                                                </t>
+                                            </td>
+                                            <td style="page-break-inside: avoid;">
+                                                <div t-field="l.product_id.name" class="regular"/>
+                                                <t t-if="l.name">
+                                                    <br/>
+                                                    <span t-field="l.name" class="regular"/>
+                                                </t>
+                                                <!--<div class="light" style="font-weight: 200;">
+                                                  <t t-if="l.product_id.product_brand_id">
+                                                    <span t-field="l.product_id.product_brand_id.name" class="regular"/><br/>
+                                                  </t>
+                                                  <t t-if="l.product_id.attribute_data_ids">
+                                                    <ul class="product">
+                                                      <t t-foreach="l.product_id.attribute_data_ids.sorted(key=lambda a: a.print_seq)" t-as="a">
+                                                        <t t-if="a.print_attrib == True">
+                                                          <li><span t-field="a.attr_id.name"/>
+                                                          <span t-field="a.value_id.name"/></li>
+                                                        </t>
+                                                      </t>
+                                                    </ul>
+                                                  </t>
+                                                  <t t-if="l.product_id.connection_ids">
+                                                    <t t-foreach="l.product_id.connection_ids" t-as="con">
+                                                      <span t-field="con.connection_medium"/>
+                                                      <span t-field="con.connection_spec"/>
+                                                      <span t-field="con.connection_value"/>
+                                                      <span t-field="con.connection_unit"/><br/>
+                                                    </t>
+                                                  </t>
+                                                  <t t-if="l.product_id.weight">
+                                                    Netto-Gewicht
+                                                    <span class="blue">&amp;rsaquo;</span>
+                                                    <span t-esc="int(float(l.product_id.weight))"/>
+                                                    kg
+                                                  </t>
+                                                  <t t-if="l.product_id.net_weight">
+                                                    /<span t-esc="int(float(l.product_id.net_weight))" class="light"/>
+                                                    kg
+                                                  </t>
+                                                  <t t-if="l.product_id.width">
+                                                      <br/>Maße in mm: <span class="blue">&amp;rsaquo;</span> B <span t-esc="int(float(l.product_id.width))"/>
+                                                  </t>
+                                                  <t t-if="l.product_id.depth">
+                                                      T <span t-esc="int(float(l.product_id.depth))"/>
+                                                  </t>
+                                                  <t t-if="l.product_id.height">
+                                                      H <span t-esc="int(float(l.product_id.height))"/>
+                                                  </t>
+                                                  <t t-if="l.product_id.warranty">
+                                                    <br/>Garantie:
+                                                    <span t-field="l.product_id.warranty" class="regular"/>
+                                                    Monate
+                                                  </t>
+                                                  <t t-if="l.product_id.warranty_type">
+                                                    -
+                                                    <span t-field="l.product_id.warranty_type" class="regular"/>
+                                                  </t>
+                                                  <t t-if="l.free_description_text">
+                                                    <br/>
+                                                    <span t-field="l.free_description_text"/>
+                                                  </t>
+
+                                                </div>-->
+                                            </td>
+                                            <td style="text-align: center;">
+                                                <t t-if="l.product_uom_qty">
+                                                    <t t-if="l.product_uom_qty.is_integer()">
+                                                        <span t-esc="'%.0f'%l.product_uom_qty"/>
+                                                    </t>
+                                                    <t t-if="not l.product_uom_qty.is_integer()">
+                                                        <span t-esc="'%.2f'%l.product_uom_qty"/>
+                                                    </t>
+                                                </t>
+                                                <!--<span t-field="l.product_uom_qty"/>-->
+                                                <span groups="product.group_uom" t-field="l.product_uom"/>
+                                            </td>
+                                            <!--                                        <td class="text-right">-->
+                                            <!--                                            <span t-field="l.price_unit"/>-->
+                                            <!--                                        </td>-->
+                                            <!--                                        <td class="text-right">-->
+                                            <!--                                            <span t-field="l.price_subtotal"/>-->
+                                            <!--                                        </td>-->
+                                        </tr>
+                                    </t>
+                                </t>
+                                <tr>
+                                    <td colspan="4"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"></td>
+                                </tr>
+                                <!--                                <tr class="grimm-invoice-line" style="font-weight: 200;">-->
+                                <!--                                    <td colspan="2"></td>-->
+                                <!--                                    <td></td>-->
+                                <!--                                    <td></td>-->
+                                <!--&lt;!&ndash;                                    <td colspan="2"></td>&ndash;&gt;-->
+                                <!--                                </tr>-->
+                                <!--                                <tr style="font-weight: 200;">-->
+                                <!--                                    <td colspan="2"></td>-->
+                                <!--                                    <td></td>-->
+                                <!--                                    <td colspan="2" class="sum-left">-->
+                                <!--                                        <div class="sum-left regular">Nettobetrag</div>-->
+                                <!--                                        <div class="sum-left regular">19% Ust.</div>-->
+                                <!--                                        <div class="sum-left blue-sum-left regular"-->
+                                <!--                                             t-attf-style="background-color:{{doc.company_id.theme_color}};">-->
+                                <!--                                            Gesamt-Brutto-->
+                                <!--                                        </div>-->
+                                <!--                                    </td>-->
+                                <!--&lt;!&ndash;                                    <td class="sum-right">&ndash;&gt;-->
+                                <!--&lt;!&ndash;                                        <div t-field="doc.amount_untaxed" class="sum-right regular"/>&ndash;&gt;-->
+                                <!--&lt;!&ndash;                                        <div t-field="doc.amount_tax" class="sum-right regular"/>&ndash;&gt;-->
+                                <!--&lt;!&ndash;                                        <b>&ndash;&gt;-->
+                                <!--&lt;!&ndash;                                            <div t-field="doc.amount_total"&ndash;&gt;-->
+                                <!--&lt;!&ndash;                                                 class="sum-right text-right blue-sum regular"&ndash;&gt;-->
+                                <!--&lt;!&ndash;                                                 t-attf-style="background-color:{{doc.company_id.theme_color}};"/>&ndash;&gt;-->
+                                <!--&lt;!&ndash;                                        </b>&ndash;&gt;-->
+                                <!--&lt;!&ndash;                                    </td>&ndash;&gt;-->
+                                <!--                                </tr>-->
+                                <tr>
+                                    <td colspan="4">
+                                        <!--                                        <hr style="width: 100%; color: black;"/>-->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"></td>
+                                    <!--                                    <td colspan="2"></td>-->
+                                </tr>
+                                <tr>
+                                    <td colspan="4"></td>
+                                    <!--                                    <td></td>-->
+                                    <!--                                    <td></td>-->
+                                </tr>
+                                <!--                                <td t-if="doc.partner_invoice_id and not doc.partner_id.id == doc.partner_invoice_id.id">-->
+                                <tr>
+                                    <td colspan="4"></td>
+                                </tr>
+                                <!--                                </t>-->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_project_description_grimm">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="grimm_reports.report_project_description_document_grimm" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<openerp>
+  <data noupdate="1">
+
+    <record id="ir_cron_auto_check_cost_price" model="ir.cron">
+      <field name="name">Auto Check Product Cost Prices</field>
+      <field name="model_id" ref="model_product_product"/>
+      <field eval="False" name="active"/>
+      <field name="user_id" ref="base.user_root"/>
+      <field name="interval_number">30</field>
+      <field name="interval_type">minutes</field>
+      <field name="numbercall">-1</field>
+      <field eval="False" name="doall"/>
+<!--      <field eval="'check_products_prices'" name="function"/>-->
+      <field name="state">code</field>
+       <field name="code">model.check_products_prices()</field>
+<!--      <field eval="'(100,)'" name="args"/>-->
+    </record>
+  </data>
+
+
+</openerp>

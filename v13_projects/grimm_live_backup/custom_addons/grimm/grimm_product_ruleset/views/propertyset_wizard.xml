@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="grimm_barcode_web_assets" name="Grimm Barcode Web Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script txpe="text/javascript" src="/grimm_product_ruleset/static/src/js/many2one.js" />
+        </xpath>
+    </template>
+
+</odoo>

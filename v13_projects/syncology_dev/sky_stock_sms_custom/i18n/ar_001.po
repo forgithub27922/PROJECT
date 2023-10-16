@@ -1,0 +1,63 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_stock_sms_custom
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-27 04:35+0000\n"
+"PO-Revision-Date: 2022-08-27 04:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model.fields,field_description:sky_stock_sms_custom.field_stock_warehouse__addr_comp_id
+msgid "Address"
+msgstr "العنوان"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model.fields,field_description:sky_stock_sms_custom.field_stock_picking__employee_id
+#: model:ir.model.fields,field_description:sky_stock_sms_custom.field_stock_picking__partner_id
+#: model:ir.model.fields,field_description:sky_stock_sms_custom.field_stock_picking__student_id
+msgid "Contact"
+msgstr "جهة الاتصال"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model.fields,field_description:sky_stock_sms_custom.field_stock_picking__contact_type
+msgid "Contact Type"
+msgstr "نوع جهة الإتصال"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model.fields.selection,name:sky_stock_sms_custom.selection__stock_picking__contact_type__employee
+msgid "Employee"
+msgstr "موظف"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model.fields.selection,name:sky_stock_sms_custom.selection__stock_picking__contact_type__external
+msgid "External"
+msgstr "مورد"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model.fields,field_description:sky_stock_sms_custom.field_stock_picking__status_id
+msgid "Status"
+msgstr "الحالة"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model.fields.selection,name:sky_stock_sms_custom.selection__stock_picking__contact_type__student
+msgid "Student"
+msgstr "طالب"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model,name:sky_stock_sms_custom.model_stock_picking
+msgid "Transfer"
+msgstr "الشحنة"
+
+#. module: sky_stock_sms_custom
+#: model:ir.model,name:sky_stock_sms_custom.model_stock_warehouse
+msgid "Warehouse"
+msgstr "المخزن"

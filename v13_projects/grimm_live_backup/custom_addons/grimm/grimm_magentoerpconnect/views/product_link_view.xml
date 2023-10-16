@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="product_link_form_view" model="ir.ui.view">
+      <field name="name">Product link form view</field>
+      <field name="model">product.link</field>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+
+        <form string="Product Link">
+          <sheet>
+            <group>
+              <group>
+                <field name="position"/>
+                <field name="name"/>
+                <field name="default_code"/>
+              </group>
+              <group>
+                <field name="product_linked_tmpl_id"/>
+                <field name="type"/>
+                <field name="magento_binding_ids" readonly="1">
+                  <tree>
+                    <field name="backend_id"/>
+                    <field name="magento_id"/>
+                  </tree>
+                </field>
+              </group>
+            </group>
+          </sheet>
+        </form>
+
+      </field>
+    </record>
+
+    <record id="product_image_tree_view" model="ir.ui.view">
+      <field name="name">Product image tree view</field>
+      <field name="model">product.image</field>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="sequence" widget="handle"/>
+          <field name="position"/>
+          <field name="name"/>
+          <field name="default_code"/>
+          <field name="type"/>
+          <field name="product_linked_tmpl_id"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- TODO -->
+    <record id="magento_product_link_form_view" model="ir.ui.view">
+      <field name="name">Magento product link form view</field>
+      <field name="model">magento.product.link</field>
+      <field name="mode">primary</field>
+      <field name="arch" type="xml">
+        <form string="Magento product link">
+          <group>
+            <field name="magento_id"/>
+            <field name="magento_ptmpl_id" attrs="{'invisible':[('magento_ptmpl_id','=',False)]}"/>
+            <field name="magento_product_id" attrs="{'invisible':[('magento_product_id','=',False)]}"/>
+          </group>
+        </form>
+      </field>
+    </record>
+
+
+  </data>
+</odoo>

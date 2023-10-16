@@ -1,0 +1,86 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_hr_public_holidays_time_tracking
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-23 21:14+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Language: ar_EG\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.actions.server,name:sky_hr_public_holidays_time_tracking.action_time_tacking_close
+msgid "Close"
+msgstr "يغلق"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.model,name:sky_hr_public_holidays_time_tracking.model_hr_employee
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.actions.server,name:sky_hr_public_holidays_time_tracking.emp_time_tracking_line_creation_ir_actions_server
+#: model:ir.cron,cron_name:sky_hr_public_holidays_time_tracking.emp_time_tracking_line_creation
+#: model:ir.cron,name:sky_hr_public_holidays_time_tracking.emp_time_tracking_line_creation
+msgid "Employee Time Tracking Line Creation Daily"
+msgstr "إنشاء خط تتبع وقت الموظف يوميًا"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: code:addons/sky_hr_public_holidays_time_tracking/models/time_tracking.py:0
+#, python-format
+msgid "Kindly configure weekoffs for the days when employees will not work!"
+msgstr ""
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.model.fields,field_description:sky_hr_public_holidays_time_tracking.field_time_tracking_line__leave
+msgid "Leave"
+msgstr "إذن"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.model.fields,field_description:sky_hr_public_holidays_time_tracking.field_time_tracking_line__pub_holiday
+msgid "Public Holiday"
+msgstr "الأجازات السنوية"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.model,name:sky_hr_public_holidays_time_tracking.model_hr_public_holidays_line
+msgid "Public Holidays"
+msgstr "الأجازات السنوية"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.model,name:sky_hr_public_holidays_time_tracking.model_time_tracking
+msgid "Time Tracking"
+msgstr "فحص تعقب مواعيد الموظف"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.model,name:sky_hr_public_holidays_time_tracking.model_time_tracking_line
+msgid "Time Tracking Line"
+msgstr "فحص تعقب مواعيد الموظف"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.actions.act_window,name:sky_hr_public_holidays_time_tracking.action_time_tracking_from_emp
+msgid "Time Tracking Lines"
+msgstr "فحص تعقب مواعيد الموظف"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model_terms:ir.ui.view,arch_db:sky_hr_public_holidays_time_tracking.view_emp_form_time_tracking_line_inherit
+msgid "Time Tracking Lines of Employee"
+msgstr "فحص تعقب مواعيد الموظف"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model_terms:ir.ui.view,arch_db:sky_hr_public_holidays_time_tracking.view_emp_form_time_tracking_line_inherit
+msgid "Tracking Lines"
+msgstr "فحص تعقب مواعيد الموظف"
+
+#. module: sky_hr_public_holidays_time_tracking
+#: model:ir.model.fields,field_description:sky_hr_public_holidays_time_tracking.field_time_tracking_line__vacation
+msgid "Vacation"
+msgstr "الإجازة"

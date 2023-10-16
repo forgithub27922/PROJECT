@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mobile_barcode_action_main_menu" model="ir.actions.client">
+        <field name="name">Service Scan</field>
+        <field name="tag">mobile_barcode_main_menu</field>
+        <field name="target">main</field>
+    </record>
+    <!-- Main menu -->
+    <menuitem name="Service Scan"
+        id="menu_mobile_barcode_action_main_menu"
+        action="mobile_barcode_action_main_menu"
+        icon="fa-barcode"
+        web_icon="grimm_mobile_barcode_scan,static/description/icon.png"
+        sequence="50"
+        groups="grimm_mobile_barcode_scan.group_service_app"/>
+</odoo>

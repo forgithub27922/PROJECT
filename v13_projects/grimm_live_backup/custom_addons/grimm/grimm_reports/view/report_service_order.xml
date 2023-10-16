@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_service_order_document_grimm">
+            <t t-call="grimm_reports.grimm_without_footer">
+                <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
+                <div class="article" style="margin-left:-50px;">
+                    <div class="container">
+                        <t t-if="doc.claim_id and doc.claim_id.sequence">
+                            <div class="field-name-seq">
+                                <span t-esc="doc.claim_id.sequence[:20]"/>
+                            </div>
+                        </t>
+                        <table width="100%" class="head-block-table">
+                            <tr>
+                                <td width="50%" class="text-right-sequence">
+                                    <t t-if="doc.name_seq">
+                                        <span t-esc="doc.name_seq[:20]"/>
+                                    </t>
+                                </td>
+                                <td width="27%" class="text-right-sequence">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s' % ('Code128', doc.name_seq)"/>
+                                </td>
+                                <td width="15%" class="text-left-sequence">
+                                    <t t-if="doc.asset_ids">
+                                        <span t-esc="doc.asset_ids[0].matchcode[-5:]"/>
+                                    </t>
+                                </td>
+                                <td width="1%" class="text-left"/>
+                                <td width="8%" class="text-left">
+                                    <span t-field="doc.write_date"
+                                          t-field-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%" class="head-address-table">
+                            <tr>
+                                <td width="41%" rowspan="4">
+                                    <t t-if="doc.asset_ids">
+                                        <div t-field="doc.asset_ids[0].partner_owner"
+                                             t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+
+                                    </t>
+                                    <t t-if="not doc.asset_ids">
+                                        <t t-if="doc.claim_shipping_id">
+                                            <!--<div t-field="doc.claim_shipping_id"
+                                                 t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>-->
+                                            <div t-field="doc.claim_shipping_id" t-options="{'widget': 'contact', 'fields': ['address','name','street','zip'], 'no_marker': true, 'no_tag_br': True}"/>
+                                        </t>
+                                        <t t-if="not doc.claim_shipping_id">
+                                            <div t-field="doc.partner_id"
+                                                 t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                                        </t>
+                                    </t>
+
+                                    <t t-if="doc.asset_ids">
+                                        <div class="field-inventoryno-and-placement">
+                                            <t t-if="doc.asset_ids[0].customer_inventory_no">
+                                                <span class="min-table-line"
+                                                      t-field="doc.asset_ids[0].customer_inventory_no"/>
+                                            </t>
+                                            <t t-if="doc.asset_ids[0].location_ids">
+                                                <t t-foreach="doc.asset_ids[0].location_ids[:2]" t-as="loc">
+                                                    <div class="min-table-line">
+                                                        <span t-field="loc.name"/>
+                                                        <span t-field="loc.placement"/>
+                                                    </div>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </t>
+
+                                </td>
+                                <td width="28%">
+                                    <t t-if="doc.asset_ids">
+                                        <span t-field="doc.asset_ids[0].partner_owner.ref"/>
+                                    </t>
+                                    <t t-if="not doc.asset_ids">
+                                        <span t-field="doc.partner_id.ref"/>
+                                    </t>
+                                </td>
+                                <td width="31%" colspan="2">
+                                    <t t-if="doc.asset_ids">
+                                        <t t-if="doc.asset_ids[0].internal_cat">
+                                            <span t-esc="doc.asset_ids[0].internal_cat[:21]"/>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span t-field="doc.user_id.name"/>
+                                </td>
+                                <td>
+                                    <t t-if="doc.asset_ids">
+                                        <t t-if="doc.asset_ids[0]">
+                                            <span t-esc="doc.asset_ids[0].name[:21]"/>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="min-table-line">
+                                    <t t-if="doc.asset_ids">
+                                        <t t-if="doc.asset_ids[0].partner_owner.phone">
+                                            <i class="fa fa-phone"></i>
+                                            <span t-field="doc.asset_ids[0].partner_owner.phone"/>
+                                        </t>
+                                        <t t-if="doc.asset_ids[0].partner_owner.mobile"><br/>
+                                            <i class="fa fa-mobile"></i>
+                                            <span t-field="doc.asset_ids[0].partner_owner.mobile"/>
+                                        </t>
+                                    </t>
+                                    <t t-if="not doc.asset_ids">
+                                        <t t-if="doc.partner_id">
+                                            <t t-if="doc.partner_id.phone">
+                                                <i class="fa fa-phone"></i>
+                                                <span t-field="doc.partner_id.phone"/>
+                                            </t>
+                                            <t t-if="doc.partner_id.mobile"><br/>
+                                                <i class="fa fa-mobile"></i>
+                                                <span t-field="doc.partner_id.mobile"/>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </td>
+                                <td colspan="2">
+                                    <t t-if="doc.asset_ids">
+                                        <span t-field="doc.asset_ids[0].default_code"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span t-if="doc.claim_id">
+                                        <span t-if="doc.claim_id.model_ref_id"
+                                              t-field="doc.claim_id.model_ref_id.name"/>
+                                    </span>
+                                </td>
+                                <td colspan="2">
+                                    <t t-if="doc.asset_ids">
+                                        <t t-if="doc.asset_ids[0].brand">
+                                            <span t-esc="doc.asset_ids[0].brand[:21]"/>
+                                        </t><!-- fixing cell-height for wkhtmltopdf -->
+                                        <t t-if="not doc.asset_ids[0].brand "> </t>
+                                    </t>
+                                </td>
+
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    <t t-if="doc.asset_ids">
+                                        <t t-if="doc.asset_ids[0].location_description">
+                                            <span class="field-loacation-description"
+                                                  t-esc="doc.asset_ids[0].location_description[:40]"/>
+                                        </t>
+                                    </t>
+                                </td>
+                                <td>
+                                    <span t-field="doc.claim_id.date"/>
+                                </td>
+                                <td colspan="2">
+                                    <t t-if="doc.asset_ids">
+                                        <t t-if="doc.asset_ids[0].serial_number">
+                                            <span t-esc="doc.asset_ids[0].serial_number[:21]"/>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <table width="100%" class="summary-table">
+                            <tr>
+                                <td width="69%" rowspan="2">
+                                    <span class="field-description" t-field="doc.description"/>
+                                </td>
+                                <td width="31%">
+                                    <t t-if="doc.claim_id.partner_id.parent_id">
+                                        <span t-field="doc.claim_id.partner_id.name"/>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="min-table-line">
+                                    <t t-if="doc.claim_id.partner_id.parent_id">
+                                        <t t-if="doc.claim_id.partner_id.mobile">
+                                            <i class="fa fa-mobile"></i>
+                                            <span t-field="doc.claim_id.partner_id.mobile"/>
+                                        </t>
+                                        <t t-if="doc.claim_id.partner_id.phone"><br/>
+                                            <i class="fa fa-phone"></i>
+                                            <span t-field="doc.claim_id.partner_id.phone"/>
+                                        </t>
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="report-table">
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                            </tr>
+                        </table>
+                        <table class="material-table">
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                        </table>
+                        <table class="time-table">
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                        </table>
+                        <table class="sum-table">
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                        </table>
+                        <table class="metering-table">
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                            <tr>
+                                <td/>
+                                <td/>
+                                <td/>
+                                <td/>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_service_order">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="grimm_reports.report_service_order_document_grimm" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

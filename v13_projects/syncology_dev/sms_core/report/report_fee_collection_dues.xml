@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="fee_collection_dues_report_templet">
+			<t t-call="web.html_container">
+				<t t-call="web.external_layout">
+					<div class="page">
+						<tr t-foreach="docs" t-as='o'>
+							<h2 align="center">Fee Collection/Dues Report</h2>
+
+							<table class="table table-condensed">
+								<tbody>
+									<tr>
+										<td style="width:15%">
+											<strong>Date From</strong>
+											<br />
+											<strong>Date To</strong>
+											<br />
+											<strong>Status</strong>
+										</td>
+										<td style="width:35%">
+											<b>
+												<span t-esc="datetime.datetime.strptime(date_from, '%Y-%m-%d').strftime('%d-%b-%Y')" />
+											</b>
+											<br />
+											<b>
+												<span t-esc="datetime.datetime.strptime(date_to, '%Y-%m-%d').strftime('%d-%b-%Y')" />
+											</b>
+											<br />
+											<b>
+												<span t-esc="rec.filter_status" />
+											</b>
+										</td>
+										<td style="width:15%">
+											<strong>Total Amount</strong>
+											<br />
+											<strong>Discount</strong>
+											<br />
+											<strong>Net Amount</strong>
+										</td>
+										<td style="width:35%">
+											<b>
+												<span t-esc="o['total_amount']" />
+											</b>
+											<br />
+											<b>
+												<span t-esc="o['discount']" />
+											</b>
+											<br />
+											<b>
+												<span t-esc="o['net_amount']" />
+											</b>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+
+
+							<table class="table table-condensed">
+								<thead class="tempone_table_rowheader_red" style="border:1px solid #a00013;">
+									<tr valign="top">
+										<th style="width:20px">S.No</th>
+										<th style="width:100px">Student</th>
+										<th style="width:100px">Fee Name</th>
+										<th style="width:100px">Due Date</th>
+										<th style="width:100px">Amount</th>
+										<th style="width:100px">Child Disc</th>
+										<th style="width:100px">Cash Disc</th>
+										<th style="width:100px">Applied Fee</th>
+										<th style="width:100px">Payment Date</th>
+										<th style="width:100px">Status</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<!-- =================For loop start=========================  -->
+									
+									<t t-set="i" t-value="1" />
+									<tr t-foreach="o['detail_dict']" t-as='re'>
+
+										<td style="width:20px" class="temptwo_table_celldata" align="center">
+											<span t-esc="i" />
+										</td>
+										<td class="temptwo_table_celldata" style="width:100px">
+											<span t-esc="re['std_name']" />
+										</td>
+										<td class="temptwo_table_celldata" style="width:100px">
+											<span t-esc="re['fee_name']" />
+										</td>
+										
+										<td class="temptwo_table_celldata" style="width:100px">
+											<t t-if="re['due_date']">
+												<span t-esc="datetime.datetime.strptime(re['due_date'], '%Y-%m-%d').strftime('%d-%b-%Y')" />
+											</t>
+											<t t-else="">
+												<span>--</span>
+											</t>
+										</td>
+										<td class="temptwo_table_celldata" style="width:100px">
+											<span t-esc="re['total_amount']" />
+										</td>
+										<td class="temptwo_table_celldata" style="width:100px">
+											<span t-esc="re['child_disc']" />
+										</td>
+										<td class="temptwo_table_celldata" style="width:100px">
+											<span t-esc="re['cash_disc']" />
+										</td>
+										<td class="temptwo_table_celldata" style="width:100px">
+											<span t-esc="re['applied_fee']" />
+										</td>
+										<td class="temptwo_table_celldata" style="width:100px">
+											<span t-esc="re['payment_date']" />
+										</td>
+										<td class="temptwo_table_celldata" style="width:100px">
+											<span t-esc="re['status']" />
+										</td>
+
+										<t t-set="i" t-value="i+1" />
+									</tr>
+								</tbody>
+							</table>
+							<div>
+								<div style="float:left;">
+								Printed By:
+								<br/>
+									<t t-esc="request.env.user.name" />
+								</div>
+								<div style="float:right;">
+								Printed On: 
+								<br/>
+									<t t-esc="time.strftime('%d-%b-%Y')" />
+								</div>
+							</div>
+							<p style="page-break-before:always;">
+							</p>
+						</tr>
+
+
+						<!-- 
+						<style>
+							table {
+							  border-collapse: collapse;
+							}
+							
+							table, td, th {
+							  border: 1px solid black;
+							}
+							th {
+							  background-color: #e9e9e9;
+							}
+						</style>
+						 -->
+					</div>
+				</t>
+			</t>
+		</template>
+	</data>
+</odoo>

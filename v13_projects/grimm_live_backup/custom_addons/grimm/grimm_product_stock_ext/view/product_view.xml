@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="import_brand_desc_form" model="ir.ui.view">
+        <field name="name">import_brand_desc_form</field>
+        <field name="model">update.brand.desc.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Product Bundle">
+                <group>
+                    <field name="csv_file" filename="sku_filename"/>
+                    <field name="sku_filename" readonly="1"/>
+                    <field name="only_gev"/>
+                </group>
+                <field name="upload_info" readonly="1"/>
+                <div class="text-center">
+                    <h3 class="text-warning">Syntax to be followed: Brand;GEV SKU;OEM SKU;Description;Modell</h3>
+                    <h6 class="text-muted text-left">Note: Each element is delimited by a semicolon (;). The whole
+                        process may take longer than expected and you may not see the result after the timeout. Please
+                        go to the Attachments to download the CSV.
+                    </h6>
+                </div>
+                <footer>
+                    <button name="import_brand_desc" string="Import"
+                            type="object" class="oe_highlight" attrs="{'invisible': [('sku_filename', '=', False)]}"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_brand_desc_wizard" model="ir.actions.act_window">
+        <field name="name">Update Product Description and Brand from a CSV file</field>
+        <field name="res_model">update.brand.desc.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="import_brand_desc_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="import_brand_desc_menu"
+              name="Update Description and Brand"
+              parent="sale.product_menu_catalog"
+              sequence="40"
+              action="action_import_brand_desc_wizard"/>
+
+    <record id="show_product_wizard_form" model="ir.ui.view">
+        <field name="name">show_product_wizard_tree</field>
+        <field name="model">show.product.wizard</field>
+        <field name="arch" type="xml">
+            <form create="false" delete="false" edit="false">
+                <field name="download_link"/>
+                <separator/>
+                <field name="prod_table"/>
+            </form>
+        </field>
+    </record>
+
+</odoo>

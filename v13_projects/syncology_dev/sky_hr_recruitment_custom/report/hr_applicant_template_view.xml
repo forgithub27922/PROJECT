@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Template for Hr Applicant Report -->
+    <template id="report_hr_applicant">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <t t-foreach="docs" t-as="applicant">
+                    <body>
+                        <br/><br/>
+                        <center><b><h3>Applicant Information</h3></b></center>
+                        <br/><br/><br/><br/>
+
+                        <table class="table table-sm o_main_table">
+                          <tr>
+                              <th><b>First Name (Arabic):</b></th>
+                              <th><b>Second Name (Arabic): </b></th>
+                              <th><b>Third Name (Arabic):</b></th>
+                              <th><b>Fourth Name (Arabic):</b></th>
+                          </tr>
+                          <tr>
+                            <td><span t-field="applicant.first_name_arabic"/></td>
+                            <td><span t-field="applicant.middle_name_arabic"/></td>
+                            <td><span t-field="applicant.last_name_arabic"/></td>
+                            <td><span t-field="applicant.fourth_name_arabic"/></td>
+                          </tr>
+                        </table>
+                        <br/>
+                        <table class="table table-sm o_main_table">
+                            <tr>
+                                <th><b>First Name: </b></th>
+                                <th><b>Second Name: </b></th>
+                                <th><b>Third Name: </b></th>
+                                <th><b>Fourth Name: </b></th>
+                            </tr>
+                            <tr>
+                                <td><span t-field="applicant.partner_name"/> </td>
+                                <td><span t-field="applicant.middle_name"/> </td>
+                                <td><span t-field="applicant.last_name"/> </td>
+                                <td><span t-field="applicant.fourth_name"/> </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <table class="table table-sm o_main_table">
+                            <tr>
+                                <th><b>Address</b></th>
+                            </tr>
+                            <tr>
+                                <td><span t-field="applicant.address"/> </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                        <table class="table table-sm o_main_table">
+                            <tr>
+                                <td><b>City</b></td>
+                                <td><span t-field="applicant.city_id"/> </td>
+                                <td><b>State</b></td>
+                                <td><span t-field="applicant.state_id"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone</b></td>
+                                <td><span t-field="applicant.partner_phone"/> </td>
+                                <td><b>Country</b></td>
+                                <td><span t-field="applicant.country_id"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>Email</b></td>
+                                <td><span t-field="applicant.email_from"/> </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                        <h4><b> Personal Data </b></h4>
+                        <table class="table table-sm o_main_table">
+                            <tr>
+                                <td><b>Religion</b></td>
+                                <td><span t-field="applicant.religion"/> </td>
+                                <td><b>Date of Birth</b></td>
+                                <td><span t-field="applicant.date_of_birth"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>Gender</b></td>
+                                <td><span t-field="applicant.gender"/> </td>
+                                <td><b>Place of Birth</b></td>
+                                <td><span t-field="applicant.place_of_birth"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>Nationality</b></td>
+                                <td><span t-field="applicant.nationality_id"/> </td>
+                                <td><b>National ID</b></td>
+                                <td><span t-field="applicant.national_id"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>Marital Status</b></td>
+                                <td><span t-field="applicant.marital_status"/> </td>
+                                <td><b>Military Status</b></td>
+                                <td><span t-field="applicant.military_status"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>General Service Status</b></td>
+                                <td><span t-field="applicant.general_service_status"/> </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                        <h4><b>Family Information</b></h4>
+                        <table class="table table-sm o_main_table">
+                            <tr>
+                                <td><b>Partner Full Name</b></td>
+                                <td><span t-field="applicant.spouse_name"/> </td>
+                                <td><b>Partner National ID</b></td>
+                                <td><span t-field="applicant.spouse_national_id"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>Partner Academic Qualification</b></td>
+                                <td><span t-field="applicant.spouse_academic_qualification"/> </td>
+                                <td><b>Partner Date of Birth</b></td>
+                                <td><span t-field="applicant.spouse_date_of_birth"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>Partner Place of Birth</b></td>
+                                <td><span t-field="applicant.spouse_place_of_birth"/> </td>
+                                <td><b>Partner Employment	</b></td>
+                                <td><span t-field="applicant.spouse_employment"/> </td>
+                            </tr>
+                            <tr>
+                                <td><b>Partner Employment Location</b></td>
+                                <td><span t-field="applicant.spouse_employment_location"/> </td>
+                                <td><b>With Children?</b></td>
+                                <td><span t-field="applicant.spouse_with_children"/> </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                        <t t-if="applicant.education_ids">
+                            <h4><b>Education </b></h4>
+                            <table class="table table-sm o_main_table">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Institute Name</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Final Grade</th>
+                                </tr>
+                                <t t-foreach="applicant.education_ids" t-as="education">
+                                    <tr>
+                                        <td><span t-field="education.name"/> </td>
+                                        <td><span t-field="education.institute"/> </td>
+                                        <td><span t-field="education.start_date"/> </td>
+                                        <td><span t-field="education.end_date"/> </td>
+                                        <td><span t-field="education.final_grade"/> </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </t>
+                        <br/>
+                        <br/>
+                        <t t-if="applicant.training_ids">
+                            <h4><b>Training </b></h4>
+                            <table class="table table-sm o_main_table">
+                                <tr>
+                                    <th>Training</th>
+                                    <th>Institute</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                </tr>
+                                <t t-foreach="applicant.training_ids" t-as="training">
+                                    <tr>
+                                        <td><span t-field="training.name"/> </td>
+                                        <td><span t-field="training.institute_name"/> </td>
+                                        <td><span t-field="training.start_date"/> </td>
+                                        <td><span t-field="training.end_date"/> </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </t>
+                        <br/>
+                        <br/>
+                        <t t-if="applicant.experience_ids">
+                            <h4><b>Experience</b></h4>
+                            <table class="table table-sm o_main_table">
+                                <tr>
+                                    <th><b>Employer Name</b></th>
+                                    <th><b>Position</b></th>
+                                    <th><b>Start Date</b></th>
+                                    <th><b>End Date</b></th>
+                                </tr>
+                                <t t-foreach="applicant.experience_ids" t-as="exp">
+                                    <tr>
+                                        <td><span t-field="exp.name"/> </td>
+                                        <td><span t-field="exp.job_id.name"/> </td>
+                                        <td><span t-field="exp.start_date"/> </td>
+                                        <td><span t-field="exp.end_date"/> </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </t>
+                    </body>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

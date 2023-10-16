@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <!-- add field for hr department view -->
+        <record id="grimm_user_view" model="ir.ui.view">
+            <field name="name">grimm_user_view_inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='tz']" position="after">
+                    <field name="dashboard_image"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- add field for hr department view -->
+        <record id="grimm_user_preference_view" model="ir.ui.view">
+            <field name="name">grimm_user_preference_view_inherit</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='tz']" position="after">
+                    <field name="dashboard_image"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

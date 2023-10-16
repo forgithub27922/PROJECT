@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="grimm_product_template_product">
+        <field name="name">grimm_product_custom_product_product_id</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_variant_easy_edit_view"/>
+        <field name="arch" type="xml">
+            <group>
+                <group string="Custom Product Template">
+                    <field name="grimm_custom_product_use_parent_template" string="Use parent"/>
+                    <field name="grimm_product_custom_product_template_id"
+                           attrs="{'invisible': [('grimm_custom_product_use_parent_template', '=', True)]}"
+                           string="Template"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="grimm_shopware6_product_attribute_form_view_inherit" model="ir.ui.view">
+        <field name="name">grimm.shopware6.product.attribute.set.form.view.inherit</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="grimm_product.of_product_attribute_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='value_ids']" position="after">
+                <group>
+                    <field name="related_products"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="grimm_product_template_product_normal_view">
+        <field name="name">grimm_product_custom_product_product_id</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+
+
+            <xpath expr="//page[@name='sales']" position='after'>
+                <page string='Custom products'>
+                    <group>
+                        <field name="grimm_custom_product_use_parent_template" string="Use parent"/>
+                        <field name="grimm_product_custom_product_template_id"
+                               attrs="{'invisible': [('grimm_custom_product_use_parent_template', '=', True)]}"
+                               string="Template"/>
+                        <field name="grimm_product_custom_product_template_technical_name"
+                               attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_description"
+                               attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_active"
+                               attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_step_by_step_mode"
+                               attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_options_auto_collapse"
+                               attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_need_confirmation"
+                               attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_image"
+                               attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                        <field name="grimm_product_custom_product_template_option_ids"
+                               attrs="{'invisible': [('grimm_product_custom_product_template_id', '=', False)]}"/>
+                    </group>
+
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="shopware6_delivery_carrier_inherit" model="ir.ui.view">
+        <field name="name">delivery.carrier.form</field>
+        <field name="model">delivery.carrier</field>
+        <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Shopware6" name="shopware6">
+                    <group name="shopware6_delivery">
+                        <field name="shopware6_id"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_export_multi_product_product_shopware6" model="ir.actions.server">
+            <field name="name">Export to Shopware6</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="shopware6_connector.model_product_product"/>
+            <field name="binding_model_id" ref="shopware6_connector.model_product_product"/>
+            <field name="groups_id" eval="[(4, ref('connector.group_connector_manager'))]"/>
+            <field name="state">code</field>
+            <field name="code">
+cr = env.cr
+context = dict(env.context)
+action = model.export_multi_to_shopware6(context.get('active_ids', []), context=context)
+            </field>
+        </record>
+
+
+</odoo>

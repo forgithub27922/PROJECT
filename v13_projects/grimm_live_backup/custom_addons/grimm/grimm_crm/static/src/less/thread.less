@@ -1,0 +1,54 @@
+
+.o_mail_thread {
+
+  .o_thread_message {
+    transition: background-color 200ms ease-in;
+
+    &.highlight {
+      background-color: #eee;
+      transition: background-color 400ms ease-out;
+    }
+
+    i.o_thread_mail_message_reply {
+      cursor: pointer;
+      opacity: 0.7;
+      &.fa-star {
+        opacity: 0.7;
+        color: gold;
+      }
+    }
+
+    &:hover, &.o_thread_selected_message {
+
+      i.o_thread_mail_message_reply {
+        opacity: 1;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    .o_thread_message_core {
+
+      .o_thread_mail_message_reply {
+        padding: 4px;
+      }
+    }
+
+    .o_thread_message_sidebar {
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+
+      .o_thread_parent_reply {
+        cursor: pointer;
+        display: block;
+        font-size: 18px;
+        height: 36px;
+        width: 36px;
+        color: #999;
+        position: relative;
+      }
+    }
+  }
+}

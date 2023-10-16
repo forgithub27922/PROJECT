@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_label_printer","Label Printer Access","model_label_printer","",1,1,1,1
+"access_product_postalcode","Product Postalcode Access","model_product_postalcode","",1,1,1,1
+"access_postalcode","Postalcode Access","model_postalcode","",1,1,1,1
+"access_product_package","Product Package Access","model_product_package","",1,1,1,1
+"access_barcode_product","Barcode Product Access","model_barcode_product","",1,1,1,1
+"access_sale_order_cancel_reason","Sale Order cancel reason Access","model_sale_order_cancel_reason","",1,1,1,0
+"access_delivery_partner","Delivery Partner Access","model_delivery_partner","",1,0,0,0
+"access_delivery_full","Delivery Partner Full Access","model_delivery_partner","base.group_system",1,1,1,0
+"access_import_log_history_view","Import log history view","model_import_log_history","",1,0,0,0
+"access_top_product_report","Top Product Report Access","model_top_product_report","",1,1,1,1

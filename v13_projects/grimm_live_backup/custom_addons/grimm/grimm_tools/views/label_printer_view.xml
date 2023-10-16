@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_label_printer_tree" model="ir.ui.view">
+            <field name="name">label.printer.tree</field>
+            <field name="model">label.printer</field>
+            <field name="arch" type="xml">
+                <tree string="Label Printer">
+                    <field name="name"/>
+                    <field name="printer_model"/>
+                    <field name="printer_location"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_label_printer" model="ir.actions.act_window">
+            <field name="name">Label Printer</field>
+            <field name="res_model">label.printer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_label_printer_tree"/>
+        </record>
+
+        <menuitem id="label_printer_menu"
+                name="Label Printer"
+                parent="base.reporting_menuitem"
+                sequence="40"
+                action="action_label_printer"/>
+
+        <record id="view_label_printer_form" model="ir.ui.view">
+            <field name="name">label.printer.form</field>
+            <field name="model">label.printer</field>
+            <field name="arch" type="xml">
+                <form string="Label Printer">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"/>
+                            </button>
+                        </div>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline" />
+                        </h1>
+                        <notebook>
+                            <page string="Printer Configuration" name="api">
+                                <group colspan="4" col="4">
+                                    <field name="printer_model" placeholder="e.g. QL-710W"/>
+                                    <field name="printer_location" placeholder="e.g. tcp://192.168.11.139:9100"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_print_label_wizard" model="ir.ui.view">
+            <field name="name">Product Label Print</field>
+            <field name="model">product.label.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Product Label">
+                    <p class="oe_grey">
+                        This will print product label based on below configuration..
+                    </p>
+                    <group>
+                        <field name="copy_number"/>
+                        <field name="print_layout" class="oe_inline" widget="radio"/>
+                        <field name="printer_id"/>
+                    </group>
+                    <footer>
+                        <button name="print_product_label" string="Print Label" type="object"
+                            class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_product_template_print" model="ir.actions.act_window">
+            <field name="name">Brother Print Label</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.label.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="product.model_product_template" />
+        </record>
+
+        <record id="action_view_product_product_print" model="ir.actions.act_window">
+            <field name="name">Brother Print Label</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.label.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="product.model_product_product" />
+        </record>
+
+
+        <record id="view_import_log_history_tree" model="ir.ui.view">
+            <field name="name">import.log.history.tree.view</field>
+            <field name="model">import.log.history</field>
+            <field name="arch" type="xml">
+                <tree string="Import history">
+                    <field name="create_date"/>
+                    <field name="create_uid"/>
+                    <field name="res_model"/>
+                    <field name="file_name"/>
+                    <field name="file_type"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_import_log_history_form" model="ir.ui.view">
+            <field name="name">Import History</field>
+            <field name="model">import.log.history</field>
+            <field name="arch" type="xml">
+                <form string="Import History">
+                    <group>
+                        <field name="create_date" readonly="1"/>
+                        <field name="create_uid" readonly="1"/>
+                        <field name="res_model" readonly="1"/>
+                        <field name="file_name" readonly="1"/>
+                        <field name="file" filename="file_name" readonly="1"/>
+                        <field name="file_type" readonly="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_import_log_history" model="ir.actions.act_window">
+            <field name="name">Import History</field>
+            <field name="res_model">import.log.history</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_import_log_history_tree"/>
+        </record>
+
+        <menuitem id="import_log_history_main_menu"
+                name="Import Log"
+                parent="base.menu_custom"
+                sequence="40"/>
+
+        <menuitem id="import_log_history"
+                name="Import History"
+                parent="import_log_history_main_menu"
+                sequence="40"
+                action="action_import_log_history"/>
+
+    </data>
+</openerp>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem id="base.menu_users" name="Users &amp; Schools" parent="base.menu_administration" sequence="1"/>
+    <menuitem action="base.action_res_company_form" id="base.menu_action_res_company_form" name="Schools" parent="base.menu_users"/>
+</odoo>

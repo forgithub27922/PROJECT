@@ -1,0 +1,544 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_pricelist
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-21 09:06+0000\n"
+"PO-Revision-Date: 2019-10-21 09:06+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:333
+#, python-format
+msgid "%s %% discount"
+msgstr "%s %% Rabatt"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:342
+#, python-format
+msgid "%s %s %s%% + %s%s"
+msgstr "%s %s %s%% + %s%s"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_pricelist_item_form_view_iherit
+msgid "<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">Public Price</span>\n"
+"            <span attrs=\"{'invisible':[('base', '!=', 'standard_price')]}\">Cost</span>\n"
+"            <span attrs=\"{'invisible':[('base', '!=', 'pricelist')]}\">Other Pricelist</span>"
+msgstr "<span attrs=\"{'invisible':[('base', '!=', 'list_price')]}\">Listenpreis</span>\n"
+"            <span attrs=\"{'invisible':[('base', '!=', 'standard_price')]}\">Kosten</span>\n"
+"            <span attrs=\"{'invisible':[('base', '!=', 'pricelist')]}\">Andere Preisliste</span>"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_magento_product_product_price_up_to_date
+#: model:ir.model.fields,help:grimm_pricelist.field_product_product_price_up_to_date
+#: model:ir.model.fields,help:grimm_pricelist.field_product_template_price_up_to_date
+msgid "A price's status indicates special situations affecting it:\n"
+" * False indicates the prices need to be recalculated. It is the default state\n"
+" * True indicates the prices are already calculated.\n"
+""
+msgstr "A price's status indicates special situations affecting it:\n"
+" * False indicates the prices need to be recalculated. It is the default state\n"
+" * True indicates the prices are already calculated.\n"
+""
+
+#. module: grimm_pricelist
+#: model:ir.actions.act_window,help:grimm_pricelist.product_pricelist_item_view
+msgid "A pricelist item compute the price of the products."
+msgstr "Rabatt/Aufschlag Kondition berechnet den Preis von einem/mehreren Produkten."
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_connector_config_settings_price_alarm_emails
+#: model:ir.model.fields,field_description:grimm_pricelist.field_res_config_settings_price_alarm_emails
+msgid "Alarm E-Mail-Addresses"
+msgstr "Alarm E-Mail-Adresse"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:328
+#, python-format
+msgid "All Products"
+msgstr "Alle Produkte"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.view_product_pricelist_form_view_inherit
+msgid "Applicable On"
+msgstr "Auswahlmöglichkeit"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_attribute_set_id
+msgid "Attribute set"
+msgstr "Attribut Set"
+
+#. module: grimm_pricelist
+#: model:ir.actions.server,name:grimm_pricelist.ir_cron_auto_check_cost_price_ir_actions_server
+#: model:ir.cron,cron_name:grimm_pricelist.ir_cron_auto_check_cost_price
+#: model:ir.cron,name:grimm_pricelist.ir_cron_auto_check_cost_price
+msgid "Auto Check Product Cost Prices"
+msgstr "Auto Check Product Cost Prices"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_product_brand_id
+msgid "Brand"
+msgstr "Marke"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_calculated_standard_price
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_calculated_standard_price
+msgid "Calculated Purchase Price"
+msgstr "Calculated Purchase Price"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:327
+#, python-format
+msgid "Category: %s"
+msgstr "Kategorie: %s"
+
+#. module: grimm_pricelist
+#: model:ir.actions.act_window,help:grimm_pricelist.product_pricelist_item_view
+msgid "Click to create a pricelist item."
+msgstr "Neuen Zuschlag erstellen."
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_magento_product_product_cost_price
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_cost_price
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_cost_price
+msgid "Cost Price"
+msgstr "Einstandspreis"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_magento_product_product_cost_price
+#: model:ir.model.fields,help:grimm_pricelist.field_product_product_cost_price
+#: model:ir.model.fields,help:grimm_pricelist.field_product_template_cost_price
+msgid "Cost Price will be calculated from price calculation"
+msgstr "Cost Price will be calculated from price calculation"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group_create_uid
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_update_queue_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group_create_date
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_update_queue_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_customer_ids
+msgid "Customers"
+msgstr "Kunden"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group_description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group_display_name
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_update_queue_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_pricelist
+#: model:ir.actions.act_window,help:grimm_pricelist.product_pricelist_item_view
+msgid "Each rule include a set of applicability criteria (date range,\n"
+"          product category...) and a computation that easily helps to achieve\n"
+"          any kind of pricing."
+msgstr "Each rule include a set of applicability criteria (date range,\n"
+"          product category...) and a computation that easily helps to achieve\n"
+"          any kind of pricing."
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_pricelist_item_view_search
+msgid "Group By"
+msgstr "Gruppieren nach"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group_id
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_update_queue_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_pricelist_item_product_net_weight
+msgid "If product net weight is greater or equal to this value then rules will be applied."
+msgstr "Wenn das Nettogewicht des Produkts größer oder gleich diesem Wert ist, werden die Regeln angewendet."
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_product_supplierinfo
+msgid "Information about a product vendor"
+msgstr "Informationen zum Produktlieferanten"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_is_special_purchase_price_expired
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_is_special_purchase_price_expired
+msgid "Is Special Purchase Price Expired"
+msgstr "Is Special Purchase Price Expired"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.view_product_pricelist_form_view_inherit
+msgid "Items"
+msgstr "Zuschlagsliste"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group___last_update
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_update_queue___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group_write_uid
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_update_queue_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group_write_date
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_update_queue_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:335
+#, python-format
+msgid "List Price"
+msgstr "Listenpreis"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_connector_config_settings_price_cutting_alarm_percent
+#: model:ir.model.fields,help:grimm_pricelist.field_res_config_settings_price_cutting_alarm_percent
+msgid "Maximum Price Cutting in Percent"
+msgstr "Maximum Price Cutting in Percent"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_connector_config_settings_price_rising_alarm_percent
+#: model:ir.model.fields,help:grimm_pricelist.field_res_config_settings_price_rising_alarm_percent
+msgid "Maximum Price Rising in Percent"
+msgstr "Maximum Price Rising in Percent"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_min_uvp
+msgid "Min Uvp"
+msgstr "Min Uvp"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_group_name
+msgid "Name"
+msgstr "Name"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_price_group_name
+msgid "Name must be shorter than 40 characters"
+msgstr "Der Name muss kürzer als 40 Zeichen"
+
+#. module: grimm_pricelist
+#: sql_constraint:product.price.group:0
+msgid "Name must be unique!"
+msgstr "Der Name muss eindeutig sein!"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_product_net_weight
+msgid "Net weight greater than"
+msgstr "Nettogewicht größer als"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/product.py:190
+#, python-format
+msgid "No price list for cost price is configured."
+msgstr "Keine Preisliste gefunden."
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_connector_config_settings_cost_price_list_id
+#: model:ir.model.fields,field_description:grimm_pricelist.field_res_config_settings_cost_price_list_id
+msgid "Operating Cost Price List"
+msgstr "Operating Cost Price List"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:336
+#, python-format
+msgid "Other Pricelist"
+msgstr "Andere Preisliste"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_percent_sign
+msgid "Percent Sign"
+msgstr "Prozent Vorzeichen"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.view_product_pricelist_form_view_inherit
+msgid "Price"
+msgstr "Preis"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_template_form_view_inherit
+msgid "Price Calculation"
+msgstr "Preis-Kalkulation"
+
+#. module: grimm_pricelist
+#: model:ir.actions.act_window,name:grimm_pricelist.product_price_group_view_action
+#: model:ir.model,name:grimm_pricelist.model_product_price_group
+#: model:ir.model.fields,field_description:grimm_pricelist.field_magento_product_product_price_calculation_group
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_price_calculation_group
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_price_calculation_group
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_price_calculation_group
+#: model:ir.ui.menu,name:grimm_pricelist.menu_product_price_group
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_price_group_form_view
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_price_group_tree_view
+msgid "Price Calculation Group"
+msgstr "Preis-Kalkulation Gruppe"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_connector_config_settings_price_cutting_alarm_percent
+#: model:ir.model.fields,field_description:grimm_pricelist.field_res_config_settings_price_cutting_alarm_percent
+msgid "Price Cutting Alarm"
+msgstr "Price Cutting Alarm"
+
+#. module: grimm_pricelist
+#: model:ir.actions.act_window,name:grimm_pricelist.product_price_history_view_action
+#: model:ir.ui.menu,name:grimm_pricelist.menu_product_price_history
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_price_history_form_view
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_price_history_tree_view
+msgid "Price History"
+msgstr "Preis History"
+
+#. module: grimm_pricelist
+#: model:ir.actions.act_window,name:grimm_pricelist.product_price_list_view_action
+#: model:ir.ui.menu,name:grimm_pricelist.menu_product_price_list
+msgid "Price List"
+msgstr "Preisliste"
+
+#. module: grimm_pricelist
+#: model:ir.actions.act_window,name:grimm_pricelist.product_pricelist_item_view
+msgid "Price List Items"
+msgstr "Zuschläge"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_connector_config_settings_price_rising_alarm_percent
+#: model:ir.model.fields,field_description:grimm_pricelist.field_res_config_settings_price_rising_alarm_percent
+msgid "Price Rising Alarm"
+msgstr "Price Rising Alarm"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_magento_address_property_supplier_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_magento_res_partner_property_supplier_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_pricelist_supplier_ids
+#: model:ir.model.fields,help:grimm_pricelist.field_res_partner_property_supplier_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_res_users_property_supplier_pricelist
+msgid "Price list to calculate the purchase price"
+msgstr "Preislite zur Kalkulation des Einkaufspreises"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_pricelist_customer_ids
+msgid "Price list to calculate the sale price"
+msgstr "Preislite zur Kalkulation des Einkaufspreises"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_magento_product_product_price_on_request
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_price_on_request
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_price_on_request
+msgid "Price on request"
+msgstr "Preis auf Anfrage"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:141
+#, python-format
+msgid "Price on request: 9999,99"
+msgstr "Preis auf Anfrage: 9999,99"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_magento_product_product_price_up_to_date
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_price_up_to_date
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_price_up_to_date
+msgid "Price up to date"
+msgstr "Preis aktuell"
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_product_pricelist
+msgid "Pricelist"
+msgstr "Preisliste"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.view_product_pricelist_form_view_inherit
+msgid "Pricelist Items"
+msgstr "Preisliste Einzelposition"
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_product_pricelist_item
+msgid "Pricelist item"
+msgstr "Preisliste Einzelposition"
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_product_product
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_update_queue_product_id
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_product_name
+msgid "Product Name contain"
+msgstr "In Produktname enthalten"
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_product_template
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_magento_product_product_product_update_queue_id
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_product_update_queue_id
+msgid "Product Update Queue"
+msgstr "Product Update Queue"
+
+#. module: grimm_pricelist
+#: sql_constraint:product.update.queue:0
+msgid "Product must be unique!"
+msgstr "Produkt muss eindeutig sein!"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_pricelist_item_product_name
+msgid "Product name contains this text"
+msgstr "Produktname enthält den Text"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_pricelist_item_view_search
+msgid "Products Price List Item Search"
+msgstr "Zuschlagliste Suchen"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:336
+#, python-format
+msgid "Public Price"
+msgstr "Listenpreis"
+
+#. module: grimm_pricelist
+#: code:addons/grimm_pricelist/models/pricelist.py:335
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_template_form_view_inherit
+#, python-format
+msgid "Purchase Price"
+msgstr "Einkaufspreis"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_template_form_view_inherit
+#, python-format
+msgid "Calculated Purchase Price"
+msgstr "Kalkulierter Einkaufspreis"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_pricelist_item_supplier_ids
+msgid "Purchase Price calculation is only valid for this Supplier."
+msgstr "Einkaufspreiskalkulation nur bei diesem Lieferant"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_supplierinfo_rrp_price
+msgid "RRP Price"
+msgstr "UVP"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_supplierinfo_rrp_price
+msgid "Recommended Retail Price from Supplier"
+msgstr "Recommended Retail Price from Supplier"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_price_history_sale_price
+msgid "Sale Price"
+msgstr "Verkaufspreis"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_template_form_view_inherit
+msgid "Sale Price before the switch"
+msgstr "Verkaufspreis vor der Umstellung"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_pricelist_item_apply_supplier_id
+msgid "Sale Price calculation is only valid for this Supplier."
+msgstr "Verkaufspreiskalkulation nur bei diesem Lieferant."
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_magento_product_product_price_on_request
+#: model:ir.model.fields,help:grimm_pricelist.field_product_product_price_on_request
+#: model:ir.model.fields,help:grimm_pricelist.field_product_template_price_on_request
+msgid "Set Purchase Price & Sale Price = 9999,99"
+msgstr "EK- und VK-Preis auf 9999,99 setzen"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_special_purchase_price
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_special_purchase_price
+msgid "Special Purchase Price"
+msgstr "Sonder EK-Preis"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_special_purchase_price_from
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_special_purchase_price_from
+msgid "Special Purchase Price from"
+msgstr "Sonder EK-Preis von"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_product_special_purchase_price_to
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_template_special_purchase_price_to
+msgid "Special Purchase Price to"
+msgstr "Sonder EK-Preis bis"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_apply_supplier_id
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_pricelist_item_view_search
+msgid "Supplier"
+msgstr "Lieferant"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_magento_address_property_supplier_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_magento_res_partner_property_supplier_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_res_partner_property_supplier_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_res_users_property_supplier_pricelist
+msgid "Supplier Price List"
+msgstr "Einkaufspreisliste"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_item_supplier_ids
+#: model:ir.model.fields,field_description:grimm_pricelist.field_product_pricelist_supplier_ids
+msgid "Suppliers"
+msgstr "Lieferanten"
+
+#. module: grimm_pricelist
+#: model:ir.model.fields,help:grimm_pricelist.field_product_product_special_purchase_price
+#: model:ir.model.fields,help:grimm_pricelist.field_product_template_special_purchase_price
+msgid "The special price for purchase."
+msgstr "The special price for purchase."
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_template_form_view_inherit
+msgid "from"
+msgstr "von"
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_product_price_history
+msgid "product.price.history"
+msgstr "product.price.history"
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_product_update_queue
+msgid "product.update.queue"
+msgstr "product.update.queue"
+
+#. module: grimm_pricelist
+#: model:ir.model,name:grimm_pricelist.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"
+
+#. module: grimm_pricelist
+#: model:ir.ui.view,arch_db:grimm_pricelist.product_template_form_view_inherit
+msgid "to"
+msgstr "bis"
+

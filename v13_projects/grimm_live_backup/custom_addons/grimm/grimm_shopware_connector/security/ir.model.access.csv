@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_shopware_brand","Shopware Manufacturer Access","model_shopware_brand","",1,1,1,1
+"access_shopware_product_update_queue","shopware_product_update_queue Access","model_shopware_product_update_queue","",1,1,1,1
+"access_shopware_price_queue","shopware_price_queue Access","model_shopware_price_queue","",1,1,1,1
+"access_spare_part_product","spare_part_product Access","model_spare_part_product","",1,1,1,1

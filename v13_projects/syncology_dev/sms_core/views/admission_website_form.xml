@@ -1,0 +1,2295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="menu_patient_form12" model="website.menu">
+		<field name="name">Admissions</field>
+		<field name="url">/admission_webform</field>
+		<field name="parent_id" ref="website.main_menu" />
+		<field name="sequence">55</field>
+	</record>
+	<template id="create_admission" name="Create Admission">
+		<t t-call="website.layout">
+			<div id="wrap">
+				<div class="oe_structure">
+					<div class="container"
+						style="max-width: 960px; border:1px solid #cecece; margin-top: 25px;">
+						<br />
+						<center>
+							<h2 class="title">Admission Form</h2>
+						</center>
+						<br />
+
+						<form role="form" id="admission_form"
+							enctype="multipart/form-data" action="/create/webadmission"
+							method="POST">
+							<input type="hidden" name="csrf_token"
+								t-att-value="request.csrf_token()" />
+							<!--Child 1 information start -->
+							<div class="row">
+								<div class="col-sm-4">
+									<center>
+										<img id="student_image"
+											src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+											width="100" height="120" required="required" />
+									</center>
+									<input type="file" class="o_input_file" required="required"
+										onchange="document.getElementById('student_image').src = window.URL.createObjectURL(this.files[0])"
+										name="student_image" accept="image/*" />
+								</div>
+								<div class="col-sm-8">
+									<div class="row">
+										<div class="col-sm-6">
+											<label for="first_name" class="control-label">First Name</label>
+											<input type="text" t-att-value="first_name"
+												id="first_name" name="first_name" class="form-control"
+												required="required" placeholder="First Name" />
+
+											<label for="middle_name" class="control-label">Middle Name</label>
+											<input type="text" t-att-value="middle_name"
+												id="middle_name" name="middle_name" class="form-control"
+												 placeholder="Middle Name" />
+										</div>
+										<div class="col-sm-6">
+											<label for="second_middle_name" class="control-label">Second Middle
+												Name</label>
+											<input type="text" t-att-value="second_middle_name"
+												id="second_middle_name" name="second_middle_name"
+												class="form-control"
+												placeholder="Second Middle Name" />
+
+											<label for="last_name" class="control-label">Last Name</label>
+											<input type="text" t-att-value="last_name"
+												id="last_name" name="last_name" class="form-control"
+												 placeholder="Last Name" />
+										</div>
+									</div>
+
+
+									<div class="row">
+										<div class="col-sm-6">
+											<label for="first_name_arabic" class="control-label">First Name(Arabic)</label>
+											<input type="text" t-att-value="first_name_arabic"
+												id="first_name_arabic" name="first_name_arabic" class="form-control"
+												required="required" placeholder="First Name(Arabic)" />
+
+											<label for="middle_name_arabic" class="control-label">Middle Name(Arabic)</label>
+											<input type="text" t-att-value="middle_name_arabic"
+												id="middle_name_arabic" name="middle_name_arabic" class="form-control"
+												 placeholder="Middle Name(Arabic)" />
+										</div>
+										<div class="col-sm-6">
+											<label for="second_middle_name_arabic" class="control-label">Second Middle
+												Name(Arabic)</label>
+											<input type="text" t-att-value="second_middle_name_arabic"
+												id="second_middle_name_arabic" name="second_middle_name_arabic"
+												class="form-control"
+												placeholder="Second Middle Name(Arabic)" />
+
+											<label for="last_name_arabic" class="control-label">Last Name(Arabic)</label>
+											<input type="text" t-att-value="last_name_arabic"
+												id="last_name" name="last_name_arabic" class="form-control"
+												placeholder="Last Name(Arabic)" />
+										</div>
+									</div>
+									<!-- <label for="full_name_arabic" class="control-label">Full Name(Arabic)
+										</label> <input type="text" t-att-value="full_name_arabic" id="full_name_arabic"
+										name="full_name_arabic" class="form-control" required="required" placeholder="e.g.Abeer
+										Babr" /> -->
+									<br />
+									<strong>Gender:  </strong>
+									<input type="radio" id="gender" name="gender"
+										value="male" checked="checked">
+									</input>
+									<label for="male">Male</label>
+									<input type="radio" id="gender" name="gender"
+										value="female">
+									</input>
+									<label for="female">Female</label>
+									<div class="pull-right">
+										<strong>Religion:  </strong>
+										<input type="radio" id="religion" name="religion"
+											value="muslim" checked="checked">
+										</input>
+										<label for="muslim">Muslim</label>
+										<input type="radio" id="religion" name="religion"
+											value="christian">
+										</input>
+										<label for="non_muslim">
+											Christian
+										</label>
+										<input type="radio" id="religion" name="religion"
+											value="other">
+										</input>
+										<label for="non_muslim">
+											Other
+										</label>
+									</div>
+									<!-- div for relision ends -->
+								</div>
+							</div>
+							<!--Dynamic country end -->
+
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="birth_date" class="control-label">Birth Date</label>
+									<input type="date" min="1919-12-31" max="2999-01-02"
+										t-att-value="birth_date" id="birth_date" name="birth_date"
+										class="form-control" required="required" />
+								</div>
+								<div class="col-sm-6">
+									<label for="birth_place" class="control-label">Birth Place</label>
+									<input type="text" t-att-value="birth_place"
+										id="birth_place" name="birth_place" class="form-control"
+										required="required" placeholder="e.g.Cairo" />
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="nationality" class="control-label">Nationality</label>
+									<select id="nationality" name="nationality"
+										class="form-control link-style" required="required">
+										<option value="65">Egypt</option>
+										<t t-foreach='nationality' t-as="country">
+											<option t-esc='country.name' t-att-value='country.id' />
+										</t>
+									</select>
+								</div>
+								<div class="col-sm-6">
+									<label for="national_id" class="control-label">National ID
+									</label>
+									<input type="text" maxlength="14" name="national_id"
+										pattern="[0-9]{14}" t-att-value="national_id" id="national_id"
+										class="form-control" placeholder="e.g. 14-digit National ID"/>
+								</div>
+								<div class="col-sm-6">
+									<label for="passport_id" class="control-label">Passport No
+									</label>
+									<input type="text" maxlength="9" name="passport_id"
+										pattern="[a-zA-Z0-9]{9}" t-att-value="passport_id" id="passport_id"
+										class="form-control" placeholder="e.g. 9-digit Passport No"/>
+								</div>
+
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="city" class="control-label">City</label>
+									<select id="city" name="city"
+										class="form-control link-style" required="required">
+										<t t-foreach='city' t-as="city">
+											<option t-esc='city.name' t-att-value='city.id' />
+										</t>
+									</select>
+								</div>
+
+								<div class="col-sm-6">
+									<label for="address" class="control-label">Address</label>
+									<input type="address" name="address"
+										t-att-value="address" id="address" class="form-control"
+										required="required"
+										placeholder="e.g.175 El Nozha St., El Hegaz Sq. Heliopolis" />
+								</div>
+							</div>
+
+							<div class="row">
+								 <div class="col-sm-6">
+                                <div class="school_grade">
+                                    <label for="application_for_id" class="control-label">Application For
+                                    </label>
+                                    <select id="application_for_id" name="application_for_id"
+                                            class="form-control link-style" required="required">
+                                        <t t-foreach="application_for_id" t-as="school">
+                                            <option t-att-value="school[0]">
+                                                <t t-esc="school[1]"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+								 </div>
+
+								<div class="col-sm-6">
+                                <label for="class_grade" class="control-label">Grade</label>
+                                 <select id="class_grade" name="class_grade"
+                                            class="form-control link-style" required="required">
+                                        <t t-foreach="class_grade" t-as="cl">
+                                            <option t-att-value="cl[0]">
+                                                <t t-esc="cl[1]"/>
+                                            </option>
+                                        </t>
+                                    </select>
+                            </div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="prevous_school" class="control-label">Previous School
+									</label>
+									<input type="text" name="prevous_school" t-att-value="prevous_school" id="prevous_school" class="form-control" required="required" placeholder="Enter ‘None’, if no record of previous school." />
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-sm-6">
+									<label for="primary_language" class="control-label">Primary Language
+									</label>
+									<input type="text" name="primary_language"
+										t-att-value="primary_language" id="primary_language"
+										class="form-control" required="required" placeholder="Arabic" />
+								</div>
+
+								<div class="col-sm-6">
+									<label for="second_language" class="control-label">Second Language
+									</label>
+									<input type="text" name="second_language"
+										t-att-value="second_language" id="second_language"
+										class="form-control" required="required" placeholder="English" />
+								</div>
+							</div>
+
+							<!--Child1 information ends -->
+							<br />
+							<div class="row">
+								<div class="col-sm-6">
+									<h3>Father Information</h3>
+								</div>
+							</div>
+							<div id="father_info" class="collapse show">
+								 <!-- English field -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="father_first_name">First Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="father_middle_name">Second Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="father_last_name">Third Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="father_fourth_name">Fourth Name</label>
+                                </div>
+                            </div>
+                            <!-- English field text box -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="father_first_name"
+										    t-att-value="father_first_name"
+										    id="father_first_name"
+                                           placeholder="Enter First Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="father_middle_name"
+										   t-att-value="father_middle_name"
+												id="father_middle_name"
+                                           placeholder="Enter Second Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="father_last_name"
+										   t-att-value="father_last_name"
+												id="father_last_name"
+
+                                           placeholder="Enter Third Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="father_fourth_name"
+										     t-att-value="father_fourth_name"
+												id="father_fourth_name"
+                                           placeholder="Enter Fourth Name" required=""/>
+                                </div>
+                            </div>
+                            <!-- Arabic field -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="father_first_name_arabic">First Name (Arabic)
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="father_middle_name_arabic">Second Name (Arabic)
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="father_last_name_arabic">Third Name (Arabic)</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="father_fourth_name_arabic">Fourth Name (Arabic)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Arabic field text box -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="father_first_name_arabic"
+										   t-att-value="father_first_name_arabic"
+												id="father_first_name_arabic"
+                                           placeholder="Enter First Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="father_middle_name_arabic"
+										   t-att-value="father_middle_name_arabic"
+												id="father_middle_name_arabic"
+                                           placeholder="Enter Second Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="father_last_name_arabic"
+										    t-att-value="father_last_name_arabic"
+												id="father_last_name_arabic"
+                                           placeholder="Enter Third Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="father_fourth_name_arabic"
+										     t-att-value="father_fourth_name_arabic"
+												id="father_fourth_name_arabic"
+                                           placeholder="Enter Fourth Name (Arabic)" required=""/>
+                                </div>
+                            </div>
+
+
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="father_nationality" class="control-label">Nationality
+										</label>
+										<select name="father_nationality"
+											id="father_nationality" class="form-control link-style">
+											<option value="65">Egypt</option>
+											<t t-foreach='father_nationality' t-as="country">
+												<option t-esc='country.name' t-att-value='country.id' />
+											</t>
+										</select>
+									</div>
+									<div class="col-sm-6">
+										<label for="father_national_id" class="control-label">National ID
+										</label>
+										<input type="text" maxlength="14" pattern="[0-9]{14}"
+											placeholder="e.g. 14-digit National ID"
+											name="father_national_id" t-att-value="father_national_id"
+											id="father_national_id" class="form-control" />
+									</div>
+									<div class="col-sm-6">
+									<label for="father_passport" class="control-label">Passport No
+									</label>
+									<input type="text" maxlength="9" name="father_passport"
+										pattern="[a-zA-Z0-9]{9}" t-att-value="father_passport" id="father_passport"
+										class="form-control" placeholder="e.g. 9-digit Passport No"/>
+								</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="father_marital_status" class="control-label">Marital Status
+										</label>
+										<select id="father_marital_status"
+											name="father_marital_status" class="form-control link-style">
+											<option value="single">Single</option>
+											<option value="married" selected="selected">Married</option>
+											<option value="divorced">Divorced</option>
+											<option value="widow">Widow/widower</option>
+										</select>
+									</div>
+									<div class="col-sm-6">
+										<label for="father_degree_education"
+											class="control-label">Education </label>
+										<input type="text" name="father_degree_education"
+											t-att-value="father_degree_education"
+											id="father_degree_education" class="form-control"
+											placeholder="e.g.Master of Arts (M.A.)" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="father_employment" class="control-label">Employment</label>
+										<input type="text" name="father_employment"
+											t-att-value="father_employment" id="father_employment"
+											class="form-control" placeholder="e.g.Business Man" />
+									</div>
+									<div class="col-sm-6">
+										<label for="father_employer_location"
+											class="control-label">Employer
+											Location
+										</label>
+										<input type="text" name="father_employer_location"
+											t-att-value="father_employer_location"
+											id="father_employer_location" class="form-control"
+											placeholder="e.g.Alexandria" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="father_landline_number"
+											class="control-label">Home Phone </label>
+										<input type="tel" placeholder="+20XXXXXXXXXX"
+											pattern="^\+20[0-9]{10}" name="father_landline_number"
+											t-att-value="father_landline_number"
+											id="father_landline_number" class="form-control" />
+									</div>
+									<div class="col-sm-6">
+										<label for="father_land_line_no" class="control-label">Work Phone
+										</label>
+										<input type="tel" placeholder="+20XXXXXXXXXX"
+											pattern="^\+20[0-9]{10}" name="father_land_line_no"
+											t-att-value="father_land_line_no" id="father_land_line_no"
+											class="form-control" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="father_email" class="control-label">Email Address </label>
+										<input type="email"
+											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+											name="father_email" t-att-value="father_email"
+											id="father_email" class="form-control"
+											placeholder="e.g.example@gmail.com" />
+									</div>
+								</div>
+
+
+							</div>
+							<br />
+							<br />
+							<div class="row">
+								<div class="col-sm-6">
+									<h3>Mother Information</h3>
+								</div>
+							</div>
+							<div id="mother_info" class="collapse show">
+								 <!-- English field -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="mother_first_name">First Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="mother_middle_name">Second Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="mother_last_name">Third Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="mother_fourth_name">Fourth Name</label>
+                                </div>
+                            </div>
+
+                            <!-- English field text box -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="mother_first_name"
+										      t-att-value="mother_first_name"
+												id="mother_first_name"
+                                           placeholder="Enter First Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="mother_middle_name"
+										      t-att-value="mother_middle_name"
+												id="mother_middle_name"
+                                           placeholder="Enter Second Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="mother_last_name"
+										    t-att-value="mother_last_name"
+												id="mother_last_name"
+                                           placeholder="Enter Third Name" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="mother_fourth_name"
+										    t-att-value="mother_fourth_name"
+												id="mother_fourth_name"
+                                           placeholder="Enter Fourth Name" required=""/>
+                                </div>
+                            </div>
+                            <!-- Arabic field -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="mother_first_name_arabic">First Name (Arabic)
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="mother_middle_name_arabic">Second Name (Arabic)
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="mother_last_name_arabic">Third Name (Arabic)</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="mother_fourth_name_arabic">Fourth Name (Arabic)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Arabic field text box -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="mother_first_name_arabic"
+										      t-att-value="mother_first_name_arabic"
+												id="mother_first_name_arabic"
+                                           placeholder="Enter First Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="mother_middle_name_arabic"
+										      t-att-value="mother_middle_name_arabic"
+												id="mother_middle_name_arabic"
+                                           placeholder="Enter Second Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="mother_last_name_arabic"
+										      t-att-value="mother_last_name_arabic"
+												id="mother_last_name_arabic"
+                                           placeholder="Enter Third Name (Arabic)" required=""/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="mother_fourth_name_arabic"
+										      t-att-value="mother_fourth_name_arabic"
+												id="mother_fourth_name_arabic"
+                                           placeholder="Enter Fourth Name (Arabic)" required=""/>
+                                </div>
+                            </div>
+
+
+
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="mother_nationality" class="control-label">Nationality
+										</label>
+										<select name="mother_nationality"
+											id="mother_nationality" class="form-control link-style">
+											<option value="65">Egypt</option>
+											<t t-foreach='mother_nationality' t-as="country">
+												<option t-esc='country.name' t-att-value='country.id' />
+											</t>
+										</select>
+									</div>
+									<div class="col-sm-6">
+										<label for="mother_national_id" class="control-label">National ID
+										</label>
+										<input type="text" maxlength="14" pattern="[0-9]{14}"
+											name="mother_national_id" t-att-value="mother_national_id"
+											placeholder="e.g. 14-digit National ID"
+											id="mother_national_id" class="form-control" />
+									</div>
+									<div class="col-sm-6">
+									<label for="mother_passport" class="control-label">Passport No
+									</label>
+									<input type="text" maxlength="9" name="mother_passport"
+										pattern="[a-zA-Z0-9]{9}" t-att-value="mother_passport" id="mother_passport"
+										class="form-control" placeholder="e.g. 9-digit Passport No"/>
+								</div>
+
+								</div>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="mother_marital_status" class="control-label">Marital Status
+										</label>
+										<select id="mother_marital_status"
+											name="mother_marital_status" class="form-control link-style">
+											<option value="single">Single</option>
+											<option value="married" selected="selected">Married</option>
+											<option value="divorced">Divorced</option>
+											<option value="widow">Widow/widower</option>
+										</select>
+									</div>
+									<div class="col-sm-6">
+										<label for="mother_degree_education"
+											class="control-label">Education </label>
+										<input type="text" name="mother_degree_education"
+											t-att-value="mother_degree_education"
+											id="mother_degree_education" class="form-control"
+											placeholder="e.g.Master of Arts (M.A.)" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="mother_employment" class="control-label">Employment</label>
+										<input type="text" name="mother_employment"
+											t-att-value="mother_employment" id="mother_employment"
+											class="form-control" placeholder="e.g.Teacher" />
+									</div>
+									<div class="col-sm-6">
+										<label for="mother_employer_location"
+											class="control-label">Employer
+											Location
+										</label>
+										<input type="text" name="mother_employer_location"
+											placeholder="e.g.Alexandria"
+											t-att-value="mother_employer_location"
+											id="mother_employer_location" class="form-control" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="mother_landline_number"
+											class="control-label">Home Phone </label>
+										<input type="tel" placeholder="+20XXXXXXXXXX"
+											pattern="^\+20[0-9]{10}" name="mother_landline_number"
+											t-att-value="mother_landline_number"
+											id="mother_landline_number" class="form-control" />
+									</div>
+									<div class="col-sm-6">
+										<label for="mother_land_line_no" class="control-label">Work Phone
+										</label>
+										<input type="tel" placeholder="+20XXXXXXXXXX"
+											pattern="^\+20[0-9]{10}" name="mother_land_line_no"
+											t-att-value="mother_land_line_no" id="mother_land_line_no"
+											class="form-control" />
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="mother_email" class="control-label">Email Address </label>
+										<input type="email"
+											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+											placeholder="e.g.example@gmail.com" name="mother_email"
+											t-att-value="mother_email" id="mother_email"
+											class="form-control" />
+									</div>
+								</div>
+							</div>
+							<br />
+							<div class="row">
+								<br />
+								<div class="col-sm-6">
+									<h3>Guardian Information</h3>
+								</div>
+							</div>
+							<div class="row">
+
+								<div class="col-sm-6">
+
+									<input type="checkbox" name="mother_is_guardian"
+										t-att-value="mother_is_legal_guardian" id="mother_is_guardian"
+										data-toggle="collapse" data-target="" />
+									<label for="mother_is_guardian" class="control-label">Mother Is Legal
+										Guardian
+									</label>
+									<br />
+									<input type="checkbox" name="father_is_guardian"
+										t-att-value="father_is_legal_guardian" id="father_is_guardian"
+										data-toggle="collapse" data-target="" />
+									<label for="father_is_guardian" class="control-label">Father Is Legal
+										Guardian
+									</label>
+
+								</div>
+							</div>
+
+							<div id="guardian_info" class="collapse show">
+								 <!-- English field -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="guardian_first_name">First Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="guardian_middle_name">Second Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="guardian_last_name">Third Name</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="guardian_fourth_name">Fourth Name</label>
+                                </div>
+                            </div>
+
+                            <!-- English field text box -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="guardian_first_name"
+										    t-att-value="guardian_first_name"
+												id="guardian_first_name"
+                                           placeholder="Enter First Name"/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="guardian_middle_name"
+										    t-att-value="guardian_middle_name"
+												id="guardian_middle_name"
+                                           placeholder="Enter Second Name"/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="guardian_last_name"
+										    t-att-value="guardian_last_name"
+												id="guardian_last_name"
+                                           placeholder="Enter Third Name"/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="guardian_fourth_name"
+										    t-att-value="guardian_fourth_name"
+												id="guardian_fourth_name"
+                                           placeholder="Enter Fourth Name" />
+                                </div>
+                            </div>
+                            <!-- Arabic field -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="guardian_first_name_arabic">First Name (Arabic)
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="guardian_middle_name_arabic">Second Name (Arabic)
+                                    </label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="guardian_last_name_arabic">Third Name (Arabic)</label>
+                                </div>
+                                <div class="col-lg-3">
+                                    <label class="col-form-label" for="guardian_fourth_name_arabic">Fourth Name (Arabic)
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Arabic field text box -->
+                            <div class="form-group row form-field o_website_form_required_custom">
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="guardian_first_name_arabic"
+										   t-att-value="guardian_first_name_arabic"
+												id="guardian_first_name_arabic"
+                                           placeholder="Enter First Name (Arabic)"/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="guardian_middle_name_arabic"
+										   t-att-value="guardian_middle_name_arabic"
+												id="guardian_middle_name_arabic"
+                                           placeholder="Enter Second Name (Arabic)"/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="guardian_last_name_arabic"
+										   t-att-value="guardian_last_name_arabic"
+												id="guardian_last_name_arabic"
+                                           placeholder="Enter Third Name (Arabic)"/>
+                                </div>
+                                <div class="col-lg-3">
+                                    <input type="text" class="required_fields form-control o_website_form_input"
+                                           name="guardian_fourth_name_arabic"
+										   t-att-value="guardian_fourth_name_arabic"
+												id="guardian_fourth_name_arabic"
+                                           placeholder="Enter Fourth Name (Arabic)"/>
+                                </div>
+                            </div>
+
+
+
+
+
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="guardian_nationality" class="control-label">Nationality
+										</label>
+										<select name="guardian_nationality"
+											id="guardian_nationality" class="form-control link-style">
+											<option value="65">Egypt</option>
+											<t t-foreach='guardian_nationality' t-as="country">
+												<option t-esc='country.name' t-att-value='country.id' />
+											</t>
+										</select>
+									</div>
+									<div class="col-sm-6">
+										<label for="guardian_national_id" class="control-label">National ID
+										</label>
+										<input type="text" maxlength="14"
+											placeholder="e.g. 14-digit National ID" pattern="[0-9]{14}"
+											name="guardian_national_id"
+											t-att-value="guardian_national_id" id="guardian_national_id"
+											class="form-control" />
+									</div>
+									<div class="col-sm-6">
+									<label for="guardian_passport" class="guardian-label">Passport No
+									</label>
+									<input type="text" maxlength="9" name="guardian_passport"
+										pattern="[a-zA-Z0-9]{9}" t-att-value="guardian_passport" id="guardian_passport"
+										class="form-control" placeholder="e.g. 9-digit Passport No"/>
+								</div>
+								</div>
+
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="guardian_marital_status"
+											class="control-label">Marital Status
+										</label>
+										<select id="guardian_marital_status"
+											name="guardian_marital_status"
+											class="form-control link-style">
+											<option value="single">Single</option>
+											<option value="married" selected="selected">Married</option>
+											<option value="divorced">Divorced</option>
+											<option value="widow">Widow/widower</option>
+										</select>
+									</div>
+
+
+									<div class="col-sm-6">
+										<label for="relation_to_child" class="control-label">Relation to Child
+										</label>
+										<input type="text" name="relation_to_child"
+											t-att-value="relation_to_child" id="relation_to_child"
+											class="form-control" placeholder="e.g.Nephew" />
+									</div>
+									<div class="col-sm-6">
+										<label for="guardian_degree_education"
+											class="control-label">Education </label>
+										<input type="text" name="guardian_degree_education"
+											t-att-value="guardian_degree_education"
+											id="guardian_degree_education" class="form-control"
+											placeholder="e.g.Master of Arts (M.A.)" />
+									</div>
+									<div class="col-sm-6">
+										<label for="guardian_employment" class="control-label">Employment
+										</label>
+										<input type="text" name="guardian_employment"
+											t-att-value="guardian_employment" id="guardian_employment"
+											class="form-control" placeholder="e.g.Business Man" />
+									</div>
+								</div>
+								<div class="row">
+
+									<div class="col-sm-6">
+										<label for="guardian_employeer_location"
+											class="control-label">Employer Location </label>
+										<input type="text" name="guardian_employeer_location"
+											t-att-value="guardian_employeer_location"
+											id="guardian_employeer_location" placeholder="e.g.Alexandria"
+											class="form-control" />
+									</div>
+									<div class="col-sm-6">
+										<label for="guardian_email" class="control-label">Email Address </label>
+										<input type="email"
+											pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+											name="guardian_email" t-att-value="guardian_email"
+											id="guardian_email" class="form-control"
+											placeholder="e.g.example@gmail.com" />
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+										<label for="guardian_landline_number"
+											class="control-label">Home Phone </label>
+										<input type="tel" placeholder="+20XXXXXXXXXX"
+											pattern="^\+20[0-9]{10}" name="guardian_landline_number"
+											t-att-value="guardian_landline_number"
+											id="guardian_landline_number" class="form-control" />
+									</div>
+									<div class="col-sm-6">
+										<label for="guardian_land_line_no" class="control-label">Work Phone
+										</label>
+										<input type="tel" placeholder="+20XXXXXXXXXX"
+											pattern="^\+20[0-9]{10}" name="guardian_land_line_no"
+											t-att-value="guardian_land_line_no"
+											id="guardian_land_line_no" class="form-control" />
+									</div>
+								</div>
+
+
+							</div>
+							<br />
+							<center>
+								<h2>
+									More children to enroll? Click
+									<strong>Add Child</strong>
+								</h2>
+								<br />
+							</center>
+							<div class="row">
+								<div class="col-sm-12">
+
+									<table id="child_tabel" style="width:100%; border-collapse:separate; border-spacing: 0 1em;">
+										<tbody>
+											<input type="hidden" id="currentRowedit"/>
+											<th style="width:20%">Name</th>
+											<th style="width:20%">National ID</th>
+											<th style="width:20%">Address</th>
+											<th style="width:20%">Birth Date</th>
+											<th>Actions</th>
+										</tbody>
+									</table>
+
+									<button type="button" class="btn btn-primary pull-right"
+										data-toggle="modal" onclick="clear_field();"
+										data-target="#myModal">Add child</button>
+								</div>
+							</div>
+							<br />
+							<script
+								src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
+							</script>
+							<script>
+
+
+								$( document ).ready(function() {
+								get_field_required()
+								get_fath_f_required()
+								get_mother_f_required()
+
+								$(":submit").click(function() {
+									var national_id_rec = $("#admission_form input[name='national_id']").val()
+									var passport_id_rec = $("#admission_form input[name='passport_id']").val()
+
+									if (!national_id_rec &amp;&amp; !passport_id_rec){
+										alert("Please Fill Either National ID or Passport No")
+										return false;
+									}
+								});
+
+								  $(":submit").click(function() {
+										var father_national_id_rec = $("#admission_form input[name='father_national_id']").val()
+										var father_passport_id_rec = $("#admission_form input[name='father_passport']").val()
+
+										if (!father_national_id_rec &amp;&amp; !father_passport_id_rec){
+										alert("Please Fill Either Father National ID or Father Passport No")
+										return false;
+                      			  }
+                   			     });
+
+                         $(":submit").click(function() {
+								var mother_national_id_rec = $("#admission_form input[name='mother_national_id']").val()
+								var mother_passport_id_rec = $("#admission_form input[name='mother_passport']").val()
+
+								if (!mother_national_id_rec &amp;&amp; !mother_passport_id_rec){
+								alert("Please Fill Either Mother National ID or Mother Passport No")
+								return false;
+							}
+                       		 });
+
+
+						$(":submit").click(function() {
+								var guardian_national_id_rec = $("#admission_form input[name='guardian_national_id']").val()
+								var guardian_passport_id_rec = $("#admission_form input[name='guardian_passport']").val()
+								var mother_is_guardian = $("#admission_form input[name='mother_is_guardian']").is(":checked")
+								var father_is_guardian = $("#admission_form input[name='father_is_guardian']").is(":checked")
+
+								if (!mother_is_guardian &amp;&amp; !father_is_guardian){
+
+								if (!guardian_national_id_rec &amp;&amp; !guardian_passport_id_rec){
+								alert("Please Fill Either Guardian National ID or Guardian Passport No")
+								return false;
+							}}
+                       		 });
+
+
+
+
+								});
+
+								$('#mother_is_guardian').click (function (){
+								if($(this).prop("checked") == true){
+								get_field_unrequired()
+								$( "#father_is_guardian" ).prop( "disabled", true );
+								}
+								else if($(this).prop("checked") == false){
+								get_field_required()
+								$( "#father_is_guardian" ).prop( "disabled", false );
+								}
+								});
+
+								$('#father_is_guardian').click (function (){
+								if($(this).prop("checked") == true){
+								get_field_unrequired()
+								$( "#mother_is_guardian" ).prop( "disabled", true );
+								}
+								else if($(this).prop("checked") == false){
+								$( "#mother_is_guardian" ).prop( "disabled", false );
+								get_field_required()
+								}
+								});
+
+								function get_field_required() {
+								$("#guardian_email").prop('required',true);
+								$("#guardian_full_name").prop('required',true);
+								$("#guardian_full_name_arabic").prop('required',true);
+								$("#guardian_nationality").prop('required',true);
+
+								$("#guardian_first_name").prop('required',true);
+								$("#guardian_middle_name").prop('required',true);
+								$("#guardian_last_name").prop('required',true);
+								$("#guardian_fourth_name").prop('required',true);
+
+								$("#guardian_first_name_arabic").prop('required',true);
+								$("#guardian_middle_name_arabic").prop('required',true);
+								$("#guardian_last_name_arabic").prop('required',true);
+								$("#guardian_fourth_name_arabic").prop('required',true);
+
+								$("#guardian_marital_status").prop('required',true);
+
+								$("#guardian_degree_education").prop('required',true);
+								$("#guardian_employment").prop('required',true);
+								$("#guardian_employeer_location").prop('required',true);
+								$("#guardian_landline_number").prop('required',true);
+								$("#guardian_land_line_no").prop('required',true);
+								$("#relation_to_child").prop('required',true);
+
+								$("#guardian_email").prop('disabled',false);
+								$("#relation_to_child").prop('disabled',false);
+								$("#guardian_full_name").prop('disabled',false);
+								$("#guardian_full_name_arabic").prop('disabled',false);
+								$("#guardian_nationality").prop('disabled',false);
+
+								$("#guardian_passport").prop('disabled',false);
+								$("#guardian_first_name").prop('disabled',false);
+								$("#guardian_middle_name").prop('disabled',false);
+								$("#guardian_last_name").prop('disabled',false);
+								$("#guardian_fourth_name").prop('disabled',false);
+
+								$("#guardian_first_name_arabic").prop('disabled',false);
+								$("#guardian_middle_name_arabic").prop('disabled',false);
+								$("#guardian_last_name_arabic").prop('disabled',false);
+								$("#guardian_fourth_name_arabic").prop('disabled',false);
+
+
+								$("#guardian_first_name").prop('disabled',false);
+								$("#guardian_middle_name").prop('disabled',false);
+								$("#guardian_last_name").prop('disabled',false);
+								$("#guardian_fourth_name").prop('disabled',false);
+
+								$("#guardian_first_name_arabic").prop('disabled',false);
+								$("#guardian_middle_name_arabic").prop('disabled',false);
+								$("#guardian_last_name_arabic").prop('disabled',false);
+								$("#guardian_fourth_name_arabic").prop('disabled',false);
+
+								$("#guardian_national_id").prop('disabled',false);
+								$("#guardian_marital_status").prop('disabled',false);
+								$("#guardian_degree_education").prop('disabled',false);
+								$("#guardian_employment").prop('disabled',false);
+								$("#guardian_employeer_location").prop('disabled',false);
+								$("#guardian_landline_number").prop('disabled',false);
+								$("#guardian_land_line_no").prop('disabled',false);
+
+
+								}
+
+								function get_fath_f_required() {
+								$("#father_full_name").prop('required',true);
+								$("#father_full_name_arabic").prop('required',true);
+								$("#father_degree_education").prop('required',true);
+								$("#father_employment").prop('required',true);
+								$("#father_employer_location").prop('required',true);
+								$("#father_landline_number").prop('required',true);
+								$("#father_land_line_no").prop('required',true);
+								$("#father_email").prop('required',true);
+
+								$("#father_full_name").prop('disabled',false);
+								$("#father_full_name_arabic").prop('disabled',false);
+								$("#father_national_id").prop('disabled',false);
+								$("#father_degree_education").prop('disabled',false);
+								$("#father_employment").prop('disabled',false);
+								$("#father_employer_location").prop('disabled',false);
+								$("#father_landline_number").prop('disabled',false);
+								$("#father_land_line_no").prop('disabled',false);
+								$("#father_email").prop('disabled',false);
+								$("#father_marital_status").prop('disabled',false);
+								$("#father_nationality").prop('disabled',false);
+
+
+								}
+
+								function get_mother_f_required() {
+								$("#mother_full_name").prop('required',true);
+								$("#mother_full_name_arabic").prop('required',true);
+								$("#mother_degree_education").prop('required',true);
+								$("#mother_employment").prop('required',true);
+								$("#mother_employer_location").prop('required',true);
+								$("#mother_landline_number").prop('required',true);
+								$("#mother_land_line_no").prop('required',true);
+								$("#mother_email").prop('required',true);
+
+
+								$("#mother_full_name").prop('disabled',false);
+								$("#mother_full_name_arabic").prop('disabled',false);
+								$("#mother_national_id").prop('disabled',false);
+								$("#mother_degree_education").prop('disabled',false);
+								$("#mother_employment").prop('disabled',false);
+								$("#mother_employer_location").prop('disabled',false);
+								$("#mother_landline_number").prop('disabled',false);
+								$("#mother_land_line_no").prop('disabled',false);
+								$("#mother_email").prop('disabled',false);
+								$("#mother_marital_status").prop('disabled',false);
+								$("#mother_nationality").prop('disabled',false);
+
+
+								}
+
+								function get_field_unrequired() {
+								$("#relation_to_child").prop('required',false);
+								$("#guardian_email").prop('required',false);
+								$("#guardian_full_name").prop('required',false);
+								$("#guardian_full_name_arabic").prop('required',false);
+								$("#guardian_nationality").prop('required',false);
+								$("#guardian_passport").prop('required',false);
+								$("#guardian_first_name").prop('required',false);
+								$("#guardian_middle_name").prop('required',false);
+								$("#guardian_last_name").prop('required',false);
+								$("#guardian_fourth_name").prop('required',false);
+
+								$("#guardian_first_name_arabic").prop('required',false);
+								$("#guardian_middle_name_arabic").prop('required',false);
+								$("#guardian_last_name_arabic").prop('required',false);
+								$("#guardian_fourth_name_arabic").prop('required',false);
+
+
+								$("#guardian_marital_status").prop('required',false);
+								$("#guardian_national_id").prop('required',false);
+								$("#guardian_degree_education").prop('required',false);
+								$("#guardian_employment").prop('required',false);
+								$("#guardian_employeer_location").prop('required',false);
+								$("#guardian_landline_number").prop('required',false);
+								$("#guardian_land_line_no").prop('required',false);
+
+
+
+								$("#guardian_email").prop('disabled',true);
+								$("#relation_to_child").prop('disabled',true);
+								$("#guardian_full_name").prop('disabled',true);
+								$("#guardian_full_name_arabic").prop('disabled',true);
+								$("#guardian_nationality").prop('disabled',true);
+								$("#guardian_passport").prop('disabled',true);
+								$("#guardian_first_name").prop('disabled',true);
+								$("#guardian_middle_name").prop('disabled',true);
+								$("#guardian_last_name").prop('disabled',true);
+								$("#guardian_fourth_name").prop('disabled',true);
+
+								$("#guardian_first_name_arabic").prop('disabled',true);
+								$("#guardian_middle_name_arabic").prop('disabled',true);
+								$("#guardian_last_name_arabic").prop('disabled',true);
+								$("#guardian_fourth_name_arabic").prop('disabled',true);
+
+
+								$("#guardian_national_id").prop('disabled',true);
+								$("#guardian_marital_status").prop('disabled',true);
+								$("#guardian_degree_education").prop('disabled',true);
+								$("#guardian_employment").prop('disabled',true);
+								$("#guardian_employeer_location").prop('disabled',true);
+								$("#guardian_landline_number").prop('disabled',true);
+								$("#guardian_land_line_no").prop('disabled',true);
+
+
+
+
+
+
+								}
+								function get_fath_f_unrequired() {
+								$("#father_full_name").prop('required',false);
+								$("#father_full_name_arabic").prop('required',false);
+								$("#father_national_id").prop('required',false);
+								$("#father_degree_education").prop('required',false);
+								$("#father_employment").prop('required',false);
+								$("#father_employer_location").prop('required',false);
+								$("#father_landline_number").prop('required',false);
+								$("#father_land_line_no").prop('required',false);
+								$("#father_email").prop('required',false);
+
+
+								$("#father_full_name").prop('disabled',true);
+								$("#father_full_name_arabic").prop('disabled',true);
+								$("#father_national_id").prop('disabled',true);
+								$("#father_degree_education").prop('disabled',true);
+								$("#father_employment").prop('disabled',true);
+								$("#father_employer_location").prop('disabled',true);
+								$("#father_landline_number").prop('disabled',true);
+								$("#father_land_line_no").prop('disabled',true);
+								$("#father_email").prop('disabled',true);
+								$("#father_marital_status").prop('disabled',true);
+								$("#father_nationality").prop('disabled',true);
+								}
+
+								function get_mother_f_unrequired() {
+								$("#mother_full_name").prop('required',false);
+								$("#mother_full_name_arabic").prop('required',false);
+								$("#mother_national_id").prop('required',false);
+								$("#mother_degree_education").prop('required',false);
+								$("#mother_employment").prop('required',false);
+								$("#mother_employer_location").prop('required',false);
+								$("#mother_landline_number").prop('required',false);
+								$("#mother_land_line_no").prop('required',false);
+								$("#mother_email").prop('required',false);
+
+								$("#mother_full_name").prop('disabled',true);
+								$("#mother_full_name_arabic").prop('disabled',true);
+								$("#mother_national_id").prop('disabled',true);
+								$("#mother_degree_education").prop('disabled',true);
+								$("#mother_employment").prop('disabled',true);
+								$("#mother_employer_location").prop('disabled',true);
+								$("#mother_landline_number").prop('disabled',true);
+								$("#mother_land_line_no").prop('disabled',true);
+								$("#mother_email").prop('disabled',true);
+								$("#mother_marital_status").prop('disabled',true);
+								$("#mother_nationality").prop('disabled',true);
+
+
+								}
+
+								$('#mother_is_absent').click (function (){
+								if($(this).prop("checked") == true){
+								$(
+								"#mother_is_guardian" ).prop( "disabled", true );
+								get_mother_f_unrequired()
+								}
+								else if($(this).prop("checked") ==
+								false){
+								$( "#mother_is_guardian" ).prop( "disabled", false );
+
+								get_mother_f_required()
+								}
+								});
+
+
+								$("#delete").live("click", function(){
+								$(this).closest("tr").remove();
+								});
+
+
+								$('#father_is_absent').click (function (){
+
+								if($(this).prop("checked") == true){
+								$( "#father_is_guardian"
+								).prop( "disabled", true );
+								get_fath_f_unrequired()
+								}
+								else
+								if($(this).prop("checked") == false){
+								$( "#father_is_guardian"
+								).prop( "disabled", false );
+								get_fath_f_required()
+								}
+								});
+
+
+								function saveupdated() {
+								if(!$('#child_image').val()){
+								alert('Image is required');
+								}
+								else if(!$('#child_first_name').val()){
+								alert(' Student First Name is required');
+								}
+								else if(!$('#child_first_name_arabic').val()){
+								alert(' Student First Name Arabic is required');
+								}
+
+								else if(!$('#child_birth_date').val()){
+								alert('Birth Date is required');
+								}
+
+								else if(!$('#child_birth_place').val()){
+								alert('Birth Place is required');
+								}
+
+								else if(!$('#child_national_id').val() &amp;&amp; !$('#child_passport').val()){
+								alert('Please Fill Either National ID or Passport No');
+								}
+
+								else if(!$('#nationality').val()){
+								alert('Nationality is required');
+								}
+								else if(!$('#child_city').val()){
+								alert('City is required');
+								}
+								else if(!$('#child_address').val()){
+								alert('Address is required');
+								}
+								else if(!$('#child_class_grade').val()){
+								alert('Grade is required');
+								}
+								else if(!$('#child_prevous_school').val()){
+								alert('Previous School is required');
+								}
+								else if(!$('#child_primary_language').val()){
+								alert('Primary Language is required');
+								}
+								else if(!$('#child_second_language').val()){
+								alert('Second Language is required');
+								}
+
+								else if($("#currentRowedit").val())
+								{
+								var currentRowedit = $("#currentRowedit").val();
+								$('#child_tabel tr').each(function(a,b){
+								var row_id = $('input[name=first_name]', b).attr('id');
+								if(row_id == currentRowedit){
+								$("#myModal").modal('hide');
+								var currentRow = $(this).closest("tr");
+								currentRow.find(".gfgusername").val($('#child_first_name').val());
+								currentRow.find(".gfgusermiddle_name").val($('#child_middle_name').val());
+								currentRow.find(".gfchild_second_middle_name").val($('#child_second_middle_name').val());
+								currentRow.find(".gfguserlast_name").val($('#child_last_name').val());
+
+								currentRow.find(".gfgfirst_name_arabic").val($('#child_first_name_arabic').val());
+								currentRow.find(".gfgmiddle_name_arabic").val($('#child_middle_name_arabic').val());
+								currentRow.find(".gfgsecond_middle_name_arabic").val($('#child_second_middle_name_arabic').val());
+								currentRow.find(".gfglast_name_arabic").val($('#child_last_name_arabic').val());
+
+
+								currentRow.find(".gfnational_id").val($('#child_national_id').val());
+								currentRow.find(".gfchild_birth_date").val($('#child_birth_date').val());
+								currentRow.find(".gfchild_birth_place").val($('#child_birth_place').val());
+								currentRow.find(".gfchild_class_grade").val($('#child_class_grade').val());
+								currentRow.find(".gfchild_prevous_school").val($('#child_prevous_school').val());
+								currentRow.find(".gfchild_city").val($('#child_city').val());
+								currentRow.find(".gfchild_address").val($('#child_address').val());
+								currentRow.find(".gfchild_passport").val($('#child_passport').val());
+
+								currentRow.find(".gfchild_primary_language").val($('#child_primary_language').val());
+								currentRow.find(".gfchild_second_language").val($('#child_second_language').val());
+								currentRow.find(".gfchild_gender").val($('#child_gender').val());
+								currentRow.find(".gfchild_religion").val($('#child_religion').val());
+								currentRow.find(".gfchild_application_for_id").val($('#child_application_for_id').val());
+								currentRow.find(".gfchild_sibing_status").val($('#child_sibing_status').val());
+
+
+								currentRow.find(".gfnationality").val($('#nationality').val());
+								$("#currentRowedit").val("");
+								}
+
+								});
+								}else {
+								myFunction()
+								$("#myModal").modal('hide');
+								}
+								}
+
+
+								$("#edit").live("click", function(){
+								var currentRow =
+								$(this).closest("tr");
+
+
+								$("#currentRowedit").val(currentRow.find(".gfgusername").attr('id'));
+								var first_name = currentRow.find(".gfgusername").val();
+								$('#child_first_name').val(first_name);
+
+
+								var middle_name = currentRow.find(".gfgusermiddle_name").val();
+								$('#child_middle_name').val(middle_name);
+
+								var second_middle_name =
+								currentRow.find(".gfchild_second_middle_name").val();
+								$('#child_second_middle_name').val(second_middle_name);
+
+								var last_name = currentRow.find(".gfguserlast_name").val();
+								$('#child_last_name').val(last_name);
+
+
+								var child_first_name_arabic =
+								currentRow.find(".gfgfirst_name_arabic").val();
+								$('#child_first_name_arabic').val(child_first_name_arabic);
+
+
+								var child_second_middle_name_arabic =
+								currentRow.find(".gfgsecond_middle_name_arabic").val();
+								$('#child_second_middle_name_arabic').val(child_second_middle_name_arabic);
+
+
+								var child_last_name_arabic =
+								currentRow.find(".gfglast_name_arabic").val();
+								$('#child_last_name_arabic').val(child_last_name_arabic);
+
+								var child_middle_name_arabic =
+								currentRow.find(".gfgmiddle_name_arabic").val();
+								$('#child_middle_name_arabic').val(child_middle_name_arabic);
+
+								var national_id =
+								currentRow.find(".gfnational_id").val();
+								$('#child_national_id').val(national_id);
+
+
+								var birth_date =
+								currentRow.find(".gfchild_birth_date").val();
+								$('#child_birth_date').val(birth_date);
+
+								var birth_place =
+								currentRow.find(".gfchild_birth_place").val();
+								$('#child_birth_place').val(birth_place);
+
+								var class_grade =
+								currentRow.find(".gfchild_class_grade").val();
+								$('#child_class_grade').val(class_grade);
+
+								var prevous_school =
+								currentRow.find(".gfchild_prevous_school").val();
+								$('#child_prevous_school').val(prevous_school);
+
+								var child_city =
+								currentRow.find(".gfchild_city").val();
+								$('#child_city').val(child_city);
+
+								var child_address =
+								currentRow.find(".gfchild_address").val();
+								$('#child_address').val(child_address);
+
+									var child_passport =
+								currentRow.find(".gfchild_passport").val();
+								$('#child_passport').val(child_passport);
+
+
+								var primary_language =
+								currentRow.find(".gfchild_primary_language").val();
+								$('#child_primary_language').val(primary_language);
+
+								var
+								second_language =
+								currentRow.find(".gfchild_second_language").val();
+								$('#child_second_language').val(second_language);
+
+								var gender =
+								currentRow.find(".gfchild_gender").val();
+								$('#child_gender_' + gender).prop('checked',true);
+
+								var religion =
+								currentRow.find(".gfchild_religion").val();
+								$('#child_religion_' + religion).prop('checked',true);
+
+								var application_for_id =
+								currentRow.find(".gfchild_application_for_id").val();
+								$('#child_application_for').val(application_for_id);
+
+								var
+								sibing_status =
+								currentRow.find(".gfchild_sibing_status").val();
+								$('#child_sibing_status').val(sibing_status);
+
+
+								var nationality =
+								currentRow.find(".gfnationality").val();
+								$('#nationality').val(nationality);
+
+
+								});
+
+								function myFunction() {
+								var table =
+								document.getElementById("child_tabel");
+								var x =
+								document.getElementById("child_tabel").rows.length;
+								var row =
+								table.insertRow(1);
+								var cell1 = row.insertCell(0);
+								var cell2
+								=row.insertCell(1);
+								var cell3 =row.insertCell(2);
+								var cell4
+								=row.insertCell(3);
+								var cell5 =row.insertCell(4);
+								var cell6
+								=row.insertCell(5);
+								var cell7 =row.insertCell(6);
+								var cell8
+								=row.insertCell(7);
+								var cell9 =row.insertCell(8);
+								var cell10
+								=row.insertCell(9);
+								var cell11 =row.insertCell(10)
+								var cell12
+								=row.insertCell(11);
+								var cell13 =row.insertCell(12);
+								var cell14
+								=row.insertCell(13);
+								var cell15 =row.insertCell(14);
+								var cell16
+								=row.insertCell(15);
+								var cell17 =row.insertCell(16);
+								var cell18
+								=row.insertCell(17);
+								var cell19 =row.insertCell(18);
+								var cell20 =row.insertCell(19);
+								var cell21 =row.insertCell(20);
+
+								var cell22 =row.insertCell(21);
+								var cell23 =row.insertCell(22);
+								var cell24 =row.insertCell(23);
+								var cell25 =row.insertCell(24);
+								var cell26=row.insertCell(25);
+
+
+								var element1 =
+								document.createElement("input");
+								element1.type ="text";
+								element1.setAttribute("id", "first_name"+x);
+								element1.setAttribute("class", "gfgusername form-control");
+								element1.setAttribute("readonly", "readonly");
+								element1.name="first_name";
+								cell1.appendChild(element1);
+								$('#first_name'+x).css("display", "inline-block");
+								$('#first_name'+x).css("width", "90%");
+								$('#first_name'+x).val($('#child_first_name').val());
+
+								var element20 =
+								document.createElement("input");
+								element20.type ="text";
+								element20.setAttribute("id", "middle_name"+x);
+								element20.setAttribute("class", "gfgusermiddle_name form-control");
+								element20.name="middle_name";
+								cell20.appendChild(element20);
+								$('#middle_name'+x).css("display", "none");
+								$('#middle_name'+x).val($('#child_middle_name').val());
+
+								var element21 =
+								document.createElement("input");
+								element21.type ="text";
+								element21.setAttribute("id", "last_name"+x);
+								element21.setAttribute("class", "gfguserlast_name form-control");
+								element21.name="last_name";
+								cell21.appendChild(element21);
+								$('#last_name'+x).css("display", "none");
+								$('#last_name'+x).val($('#child_last_name').val());
+
+
+
+								var element2 =
+								document.createElement("input");
+								element2.type="text";
+								element2.setAttribute("id", "national_id"+x);
+								element2.setAttribute("class", "gfnational_id form-control");
+								element2.setAttribute("readonly", "readonly");
+								element2.name="national_id";
+								cell2.appendChild(element2);
+								$('#national_id'+x).css("display", "inline-block");
+								$('#national_id'+x).css("width", "90%");
+								element2.setAttribute("onkeyup", "get_child_list()");
+								$('#national_id'+x).val($('#child_national_id').val());
+								var
+								element3 =
+								document.createElement("input");
+								element3.type="text";
+								element3.setAttribute("id", "address"+x);
+								element3.setAttribute("class", "gfchild_address form-control");
+								element3.setAttribute("readonly", "readonly");
+								element3.name="address";
+								cell3.appendChild(element3);
+								$('#address'+x).css("display", "inline-block");
+								$('#address'+x).css("width", "90%");
+								$('#address'+x).val($('#child_address').val());
+
+								var element33 =
+								document.createElement("input");
+								element33.type="text";
+								element33.setAttribute("id", "passport_id"+x);
+								element33.setAttribute("class", "gfchild_passport form-control");
+								element33.name="passport_id";
+								cell26.appendChild(element33);
+								$('#passport_id'+x).css("display", "none");
+								$('#passport_id'+x).val($('#child_passport').val());
+
+
+
+								var element4 = document.createElement("input");
+								element4.type="text";
+								element4.setAttribute("id",
+								"birth_date"+x);
+								element4.setAttribute("class",
+								"gfchild_birth_date form-control");
+								element4.setAttribute("readonly", "readonly");
+								element4.name="birth_date";
+								cell4.appendChild(element4);
+								$('#birth_date'+x).css("display", "inline-block");
+								$('#birth_date'+x).css("width", "90%");
+								$('#birth_date'+x).val($('#child_birth_date').val());
+
+
+								var
+								element5 = document.createElement("input");
+								element5.type="button";
+								element5.setAttribute("id", "edit");
+								element5.setAttribute("value", "Edit");
+								element5.setAttribute("data-target", "#myModal");
+								element5.setAttribute("data-toggle", "modal");
+								element5.setAttribute("class", "gfgselect");
+								element5.setAttribute("class", "btn btn-primary");
+								cell5.appendChild(element5);
+
+
+								var element6 =
+								document.createElement("input");
+								element6.type="button";
+								element6.setAttribute("id", "delete");
+								element6.setAttribute("value", "Del");
+								element6.setAttribute("class", "delete");
+								element6.setAttribute("class", "btn btn-danger");
+								cell6.appendChild(element6);
+
+								var element7 =
+								document.createElement("input");
+								element7.type="text";
+								element7.setAttribute("id",
+								"class_grade"+x);
+								element7.setAttribute("class",
+								"gfchild_class_grade");
+								element7.name="class_grade";
+								cell7.appendChild(element7);
+								$('#class_grade'+x).css("display",
+								"none");
+								$('#class_grade'+x).val($('#child_class_grade').val());
+
+								var
+								element8 = document.createElement("input");
+								element8.type="text";
+								element8.setAttribute("id",
+								"prevous_school"+x);
+								element8.setAttribute("class",
+								"gfchild_prevous_school");
+								element8.name="prevous_school";
+								cell8.appendChild(element8);
+								$('#prevous_school'+x).css("display", "none");
+								$('#prevous_school'+x).val($('#child_prevous_school').val());
+
+
+								var element9 = document.createElement("input");
+								element9.type="text";
+								element9.setAttribute("id", "city"+x);
+								element9.setAttribute("class", "gfchild_city");
+								element9.name="city";
+								cell9.appendChild(element9);
+								$('#city'+x).css("display", "none");
+								$('#city'+x).val($('#child_city').val());
+
+								var element10 = document.createElement("input");
+								element10.type="text";
+								element10.setAttribute("id","second_middle_name"+x);
+								element10.setAttribute("class","gfchild_second_middle_name");
+								element10.name="second_middle_name";
+								cell10.appendChild(element10);
+								$('#second_middle_name'+x).css("display", "none");
+								$('#second_middle_name'+x).val($('#child_second_middle_name').val());
+
+
+								var element11 = document.createElement("input");
+								element11.type="text";
+								element11.setAttribute("id",
+								"primary_language"+x);
+								element11.setAttribute("class",
+								"gfchild_primary_language");
+								element11.name="primary_language";
+								cell11.appendChild(element11);
+								$('#primary_language'+x).css("display", "none");
+								$('#primary_language'+x).val($('#child_primary_language').val());
+
+								var element12 = document.createElement("input");
+								element12.type="text";
+								element12.setAttribute("id",
+								"second_language"+x);
+								element12.setAttribute("class",
+								"gfchild_second_language");
+								element12.name="second_language";
+								cell12.appendChild(element12);
+								$('#second_language'+x).css("display", "none");
+								$('#second_language'+x).val($('#child_second_language').val());
+
+								var element13 = document.createElement("input");
+								element13.type="text";
+								element13.setAttribute("id", "gender"+x);
+								element13.setAttribute("class", "gfchild_gender");
+								element13.name="gender";
+								cell13.appendChild(element13);
+								$('#gender'+x).css("display", "none");
+								var radioValue =
+								$("input[name='child_gender']:checked").val();
+								$('#gender'+x).val(radioValue);
+
+
+								var element14 =
+								document.createElement("input");
+								element14.type="text";
+								element14.setAttribute("id", "religion"+x);
+								element14.setAttribute("class", "gfchild_religion");
+								element14.name="religion";
+								cell14.appendChild(element14);
+								$('#religion'+x).css("display", "none");
+								var radiorel =
+								$("input[name='child_religion']:checked").val();
+								$('#religion'+x).val(radiorel);
+
+								var element15 =
+								document.createElement("input");
+								element15.type="text";
+								element15.setAttribute("id",
+								"application_for_id"+x);
+								element15.setAttribute("class",
+								"gfchild_application_for_id");
+								element15.name="application_for_id";
+								cell15.appendChild(element15);
+								$('#application_for_id'+x).css("display", "none");
+								var nat =
+								$("#child_application_for_id option:selected").val();
+								$('#application_for_id'+x).val(nat);
+
+								var element16 =
+								document.createElement("input");
+								element16.type="text";
+								element16.setAttribute("id",
+								"sibing_status"+x);
+								element16.setAttribute("class",
+								"gfchild_sibing_status");
+								element16.name="sibing_status";
+								cell16.appendChild(element16);
+								$('#sibing_status'+x).css("display", "none");
+								var nat =
+								$("#child_sibing_status option:selected").val();
+								$('#sibing_status'+x).val(nat);
+
+
+								var element17 =
+								document.createElement("input");
+								element17.type="text";
+								element17.setAttribute("id",
+								"nationality"+x);
+								element17.setAttribute("class",
+								"gfnationality");
+								element17.name="nationality";
+								cell17.appendChild(element17);
+								$('#nationality'+x).css("display", "none");
+								var nat =
+								$("#nationality option:selected").val();
+								$('#nationality'+x).val(nat);
+
+								var element18 =
+								document.createElement("input");
+								element18.type="text";
+								element18.setAttribute("id",
+								"birth_place"+x);
+								element18.setAttribute("class",
+								"gfchild_birth_place");
+								element18.name="birth_place";
+								cell18.appendChild(element18);
+								$('#birth_place'+x).css("display", "none");
+								$('#birth_place'+x).val($('#child_birth_place').val());
+
+								var element19 = document.createElement("input");
+								element19.type="text";
+								element19.setAttribute("id","student_image"+x);
+								element19.setAttribute("class","gfstudent_image");
+								element19.name="student_image";
+								cell19.appendChild(element19);
+								$('#student_image'+x).css("display", "none");
+								$('#student_image'+x).val($('#child_image').val());
+
+								var element22 =
+								document.createElement("input");
+								element22.type ="text";
+								element22.setAttribute("id", "first_name_arabic"+x);
+								element22.setAttribute("class", "gfgfirst_name_arabic form-control");
+								element22.name="first_name_arabic";
+								cell22.appendChild(element22);
+								$('#first_name_arabic'+x).css("display", "none");
+								$('#first_name_arabic'+x).val($('#child_first_name_arabic').val());
+
+								var element23 =
+								document.createElement("input");
+								element23.type ="text";
+								element23.setAttribute("id", "middle_name_arabic"+x);
+								element23.setAttribute("class", "gfgmiddle_name_arabic form-control");
+								element23.name="middle_name_arabic";
+								cell23.appendChild(element23);
+								$('#middle_name_arabic'+x).css("display", "none");
+								$('#middle_name_arabic'+x).val($('#child_middle_name_arabic').val());
+								var element24 =
+								document.createElement("input");
+								element24.type ="text";
+								element24.setAttribute("id", "second_middle_name_arabic"+x);
+								element24.setAttribute("class", "gfgsecond_middle_name_arabic form-control");
+								element24.name="second_middle_name_arabic";
+								cell24.appendChild(element24);
+								$('#second_middle_name_arabic'+x).css("display", "none");
+								$('#second_middle_name_arabic'+x).val($('#child_second_middle_name_arabic').val());
+
+								var element25 =
+								document.createElement("input");
+								element25.type ="text";
+								element25.setAttribute("id", "last_name_arabic"+x);
+								element25.setAttribute("class", "gfglast_name_arabic form-control");
+								element25.name="last_name_arabic";
+								cell25.appendChild(element25);
+								$('#last_name_arabic'+x).css("display", "none");
+								$('#last_name_arabic'+x).val($('#child_last_name_arabic').val());
+
+								get_child_list()
+
+								}
+								function clear_field() {
+								$('#child_first_name').val('');
+								$('#child_middle_name').val('');
+								$('#child_second_middle_name').val('');
+								$('#child_last_name').val('');
+						        $('#child_first_name_arabic').val('');
+								$('#child_middle_name_arabic').val('');
+								$('#child_second_middle_name_arabic').val('');
+								$('#child_last_name_arabic').val('');
+								$('#child_image').val('');
+								$('#child_image_show').attr('src', 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg');
+								$('#child_national_id').val('');
+								$('#child_birth_date').val('');
+								$('#child_birth_place').val('');
+								$('#child_class_grade').val('');
+								$('#child_prevous_school').val('');
+								$('#child_city').val('');
+								$('#child_address').val('');
+								$('#child_passport').val('');
+
+								$('#child_primary_language').val('');
+								$('#child_second_language').val('');
+								}
+
+								function get_child_list() {
+								var ary = [];
+								$(function () {
+								$('#child_tabel tr').each(function
+								(a, b) {
+
+								var first_name=$('input[name=first_name]', b).val();
+
+								var middle_name =$('input[name=middle_name]', b).val();
+
+								var second_middle_name =$('input[name=second_middle_name]', b).val();
+
+								var last_name =$('input[name=last_name]', b).val();
+
+								var first_name_arabic=$('input[name=first_name_arabic]', b).val();
+
+								var middle_name_arabic =$('input[name=middle_name_arabic]', b).val();
+
+								var second_middle_name_arabic =$('input[name=second_middle_name_arabic]', b).val();
+
+								var last_name_arabic =$('input[name=last_name_arabic]', b).val();
+
+								var
+								national_id
+								=$('input[name=national_id]', b).val();
+								var
+								passport_id
+								=$('input[name=passport_id]', b).val();
+								var
+								birth_place
+								=$('input[name=birth_place]', b).val();
+								var birth_date
+								=$('input[name=birth_date]', b).val();
+								var class_grade
+								=$('input[name=class_grade]', b).val();
+								var city
+								=$('input[name=city]', b).val();
+								var address
+								=$('input[name=address]', b).val();
+								var prevous_school
+								=$('input[name=prevous_school]', b).val();
+								var
+								primary_language
+								=$('input[name=primary_language]', b).val();
+								var second_language
+								=$('input[name=second_language]', b).val();
+								var gender
+								=$('input[name=gender]', b).val();
+								var religion
+								=$('input[name=religion]', b).val();
+								var application_for_id
+								=$('input[name=application_for_id]', b).val();
+								var sibing_status
+								=$('input[name=sibing_status]', b).val();
+
+
+								var nationality
+								=$('input[name=nationality]', b).val();
+								var student_image
+								=$('input[name=student_image]', b).val();
+
+								ary.push({first_name:
+								first_name,middle_name:middle_name,second_middle_name:second_middle_name,
+								last_name:last_name,first_name_arabic:first_name_arabic,
+								middle_name_arabic:middle_name_arabic,
+								second_middle_name_arabic:second_middle_name_arabic,
+								last_name_arabic:last_name_arabic,national_id:
+								national_id,passport_id:passport_id,birth_place:birth_place,birth_date:birth_date,
+								class_grade:class_grade,address:address,city:city,prevous_school:prevous_school,
+								primary_language:primary_language,second_language:second_language,gender:gender,
+								religion:religion,application_for_id:application_for_id,
+								sibing_status:sibing_status,nationality:nationality,student_image:student_image});});
+								$('#child_list').val(JSON.stringify( ary));
+								});
+								}
+							</script>
+							<br />
+
+							<input type="text" style="display:none" name="child_list"
+								value="False" id="child_list" />
+							<center>
+								<div class="clearfix oe_login_buttons">
+									<button type="submit"
+										class="btn btn-primary pull-center">Submit Application</button>
+								</div>
+							</center>
+							<br />
+						</form>
+
+
+						<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
+								<!-- Modal content -->
+								<div class="modal-content" id="child_admission_form">
+									<div class="modal-header">
+										<button type="button" class="close"
+											data-dismiss="modal">
+										</button>
+										<h4 class="modal-title">Enroll a Child</h4>
+									</div>
+									<div class="modal-body">
+										<div class="row">
+											<div class="col-sm-4">
+												<center>
+													<img id="child_image_show"
+														src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+											width="100" height="120" />
+												</center>
+
+
+												<input type="file" id="child_image"
+													class="o_input_file"
+													onchange="document.getElementById('child_image_show').src = window.URL.createObjectURL(this.files[0])"
+													name="child_image" accept="image/*" />
+
+											</div>
+												<div class="col-sm-8">
+												<div class="row">
+													<div class="col-sm-6">
+														<label for="child_first_name" class="control-label">First Name
+														</label>
+														<input type="text" t-att-value="child_first_name"
+															id="child_first_name" class="form-control"
+															required="required" placeholder="First Name" />
+
+														<label for="child_middle_name" class="control-label">Middle Name
+														</label>
+														<input type="text" t-att-value="child_middle_name"
+															id="child_middle_name" class="form-control"
+															required="required" placeholder="Middle Name" />
+													</div>
+													<div class="col-sm-6">
+														<label for="child_second_middle_name"
+															class="control-label">Second Middle Name</label>
+														<input type="text"
+															t-att-value="child_second_middle_name"
+															id="child_second_middle_name" class="form-control"
+															required="required" placeholder="Second Middle Name" />
+
+														<label for="child_last_name" class="control-label">Last Name</label>
+														<input type="text" t-att-value="child_last_name"
+															id="child_last_name" class="form-control"
+															required="required" placeholder="Last Name" />
+													</div>
+												</div>
+												<!-- Child name Arabic -->
+												<div class="row">
+													<div class="col-sm-6">
+														<label for="child_first_name_arabic" class="control-label">First Name(Arabic)
+														</label>
+														<input type="text" t-att-value="child_first_name_arabic"
+															id="child_first_name_arabic" class="form-control"
+															required="required" placeholder="First Name" />
+
+														<label for="child_middle_name_arabic" class="control-label">Middle Name(Arabic)
+														</label>
+														<input type="text" t-att-value="child_middle_name_arabic"
+															id="child_middle_name_arabic" class="form-control"
+															placeholder="Middle Name" />
+													</div>
+													<div class="col-sm-6">
+														<label for="child_second_middle_name_arabic"
+															class="control-label">Second Middle Name(Arabic)</label>
+														<input type="text"
+															t-att-value="child_second_middle_name_arabic"
+															id="child_second_middle_name_arabic" class="form-control"
+															placeholder="Second Middle Name" />
+
+														<label for="child_last_name_arabic" class="control-label">Last Name(Arabic)</label>
+														<input type="text" t-att-value="child_last_name_arabic"
+															id="child_last_name_arabic" class="form-control"
+															placeholder="Last Name" />
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--Dynamic country end -->
+										<div class="row">
+											<div class="col-sm-6">
+												<label for="child_gender" class="control-label">Gender</label>
+												<br />
+												<input type="radio" id="child_gender_male"
+													name="child_gender" value="male" checked="checked">
+												</input>
+												<label for="male">Male</label>
+												<input type="radio" id="child_gender_female"
+													name="child_gender" value="female">
+												</input>
+												<label for="female">Female</label>
+											</div>
+											<div class="col-sm-6">
+												<label for="child_religion">
+													Religion
+												</label>
+												<br />
+												<input type="radio" id="child_religion_muslim" name="child_religion"
+													value="muslim" checked="checked">
+												</input>
+												<label for="muslim">Muslim</label>
+												<input type="radio" id="child_religion_christian" name="child_religion"
+													value="christian">
+												</input>
+												<label for="christian">
+													Christian
+												</label>
+												<input type="radio" id="child_religion_other" name="child_religion"
+													value="other">
+												</input>
+												<label for="other">
+													Other
+												</label>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-sm-6">
+												<label for="child_birth_date" class="control-label">Birth Date</label>
+												<input type="text" onfocus="(this.type='date')"
+													t-att-value="child_birth_date" id="child_birth_date"
+													class="form-control" required="required" />
+											</div>
+
+
+
+
+
+											<div class="col-sm-6">
+												<label for="child_birth_place" class="control-label">Birth Place
+												</label>
+												<input type="text" t-att-value="child_birth_place"
+													id="child_birth_place" class="form-control"
+													placeholder="e.g.Cairo" />
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-sm-6">
+												<label for="child_national_id" class="control-label">National ID
+												</label>
+												<input type="text" maxlength="14"
+													name="child_national_id" pattern="[0-9]{14}"
+													t-att-value="child_national_id" id="child_national_id"
+													class="form-control"
+													placeholder="e.g. 14-digit National ID"/>
+											</div>
+											<div class="col-sm-6">
+												<label for="child_passport" class="control-label">Passport
+												</label>
+												<input type="text" maxlength="9"
+													name="child_passport"
+													t-att-value="child_passport" id="child_passport"
+													class="form-control"
+													   pattern="[a-zA-Z0-9]{9}" placeholder="e.g. 9-digit Passport No"/>
+											</div>
+
+											<!--Dynamic country start -->
+											<div class="col-sm-6">
+												<label for="nationality" class="control-label">Nationality</label>
+												<select id="nationality" name="nationality"
+													class="form-control link-style">
+													<option value="65">Egypt</option>
+													<t t-foreach='nationality' t-as="country">
+														<option t-esc='country.name'
+															t-att-value='country.id' />
+													</t>
+												</select>
+											</div>
+										</div>
+
+										<div class="row">
+											<div class="col-sm-6">
+												<label for="child_city" class="control-label">City</label>
+												<select id="child_city" name="child_city"
+														class="form-control" required="required">
+													<t t-foreach='city_lst' t-as="city">
+														<option t-esc='city[1]' t-att-value='city[0]'/>
+													</t>
+												</select>
+											</div>
+
+											<div class="col-sm-6">
+												<label for="child_address" class="control-label">Address</label>
+												<input type="child_address" name="child_address"
+													t-att-value="child_address" id="child_address"
+													class="form-control" required="required"
+													placeholder="e.g.175 El Nozha St., El Hegaz Sq. Heliopolis" />
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-sm-6">
+												<label for="child_application_for_id"
+													   class="control-label">Application For
+												</label>
+												<select id="child_application_for_id" name="application_for_id"
+														class="form-control link-style" required="required">
+													<t t-foreach="application_for_id" t-as="school">
+														<option t-att-value="school[0]">
+															<t t-esc="school[1]"/>
+														</option>
+													</t>
+												</select>
+											</div>
+
+
+											<div class="col-sm-6">
+												<label for="child_class_grade" class="control-label">Grade</label>
+												<select id="child_class_grade" name="child_class_grade"
+														class="form-control" required="required">
+													<t t-foreach="class_grade" t-as="grade">
+														<option t-att-value="grade[0]">
+															<t t-esc="grade[1]"/>
+														</option>
+													</t>
+												</select>
+
+											</div>
+										</div>
+
+
+										<div class="row">
+											<div class="col-sm-6">
+												<label for="child_prevous_school"
+													class="control-label">Previous School
+												</label>
+												<input type="text" name="child_prevous_school" t-att-value="child_prevous_school" id="child_prevous_school" class="form-control" required="required" placeholder="Enter ‘None’, if no record of previous school" />
+											</div>
+
+											<div class="col-sm-6">
+												<label for="child_sibing_status" class="control-label">Sibling Status
+												</label>
+												<select id="child_sibing_status"
+													name="child_sibing_status" class="form-control link-style">
+													<option value="no_siblings" selected="selected">No Siblings
+													</option>
+													<option value="has_brothers_sisters">Brothers/Sisters in School</option>
+													<option value="staff_child">Staff Child</option>
+												</select>
+											</div>
+										</div>
+
+
+
+										<div class="row">
+											<div class="col-sm-6">
+												<label for="child_primary_language"
+													class="control-label">Primary Language
+												</label>
+												<input type="text" name="child_primary_language"
+													t-att-value="child_primary_language"
+													id="child_primary_language" class="form-control"
+													placeholder="e.g. Arabic" required="required" />
+											</div>
+
+											<div class="col-sm-6">
+												<label for="child_second_language"
+													class="control-label">Second Language
+												</label>
+												<input type="text" name="child_second_language"
+													t-att-value="child_second_language"
+													id="child_second_language" class="form-control"
+													placeholder="e.g. English" required="required" />
+											</div>
+										</div>
+									</div>
+									<!--Model content ends -->
+
+									<div class="modal-footer">
+										<button type="button" class="btn btn-success"
+											onclick="saveupdated()">Save</button>
+										<button type="button" class="btn default"
+											data-dismiss="modal">Cancel</button>
+										<!-- Trigger the modal with a button -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+
+	<record id="student_thanks" model="website.page">
+		<field name="name">Thanks</field>
+		<field name="type">qweb</field>
+		<field name="url">/student-thank-you</field>
+		<field name="website_published">True</field>
+		<field name="key">sms_core.student_thanks</field>
+		<field name="arch" type="xml">
+			<t name="Thanks" t-name="sms_core.student_thanks">
+				<t t-call="website.layout">
+					<div id="wrap">
+						<div class="container">
+							<h1>Thanks!</h1>
+							<div class="row">
+								<div class="col-lg-8">
+									<div class="alert alert-success" role="status">
+										The application is
+										successfully submitted for review. Further instructions are
+										being communicated via email.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+		</field>
+	</record>
+
+	<record id="student_already_exists" model="website.page">
+		<field name="name">Already Exists</field>
+		<field name="type">qweb</field>
+		<field name="url">/student-already-exists</field>
+		<field name="website_published">True</field>
+		<field name="key">sms_core.student_already_exists</field>
+		<field name="arch" type="xml">
+			<t name="Thanks" t-name="sms_core.student_already_exists">
+				<t t-call="website.layout">
+					<div id="wrap">
+						<div class="container">
+							<h1>Cannot Proceed!</h1>
+							<div class="row">
+								<div class="col-lg-8">
+									<div class="alert alert-danger" role="status">
+										Application already exists for the curernt student.
+										<span t-esc="student" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</t>
+			</t>
+		</field>
+	</record>
+
+	<record id="sequence_self_service" model="ir.sequence">
+		<field name="name">Web Admission From</field>
+		<field name="code">student.admission.form</field>
+		<field name="active">TRUE</field>
+		<field name="prefix">APPL</field>
+		<field name="padding">6</field>
+		<field name="number_next">1</field>
+		<field name="number_increment">1</field>
+	</record>
+</odoo>

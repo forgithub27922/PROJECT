@@ -1,0 +1,444 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_ticket
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-21 23:49+0000\n"
+"PO-Revision-Date: 2018-11-21 23:49+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_arranger
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_arranger
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_search_view
+msgid "Arranger"
+msgstr "Bearbeiter"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_assign_wizard_view_form
+msgid "Assign"
+msgstr "Zuweisen"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_assign_wizard_view_form
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: grimm_ticket
+#: model:ir.ui.menu,name:grimm_ticket.grimm_ticket_config_menu
+msgid "Config"
+msgstr "Konfiguration"
+
+#. module: grimm_ticket
+#: selection:grimm.ticket,state:0
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+#. module: grimm_ticket
+#: model:ir.actions.act_window,help:grimm_ticket.grimm_ticket_stage_list_action
+msgid "Create the first ticket stage."
+msgstr "Create the first ticket stage."
+
+#. module: grimm_ticket
+#: model:ir.actions.act_window,help:grimm_ticket.grimm_ticket_tag_list_action
+msgid "Create the first ticket tag."
+msgstr "Create the first ticket tag."
+
+#. module: grimm_ticket
+#: model:ir.actions.act_window,help:grimm_ticket.grimm_ticket_list_action
+msgid "Create the first ticket."
+msgstr "Erstelle das erste Ticket."
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_create_uid
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_create_uid
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_create_uid
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tag_create_uid
+msgid "Created by"
+msgstr "Angelegt von"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_create_date
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_create_date
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_create_date
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tag_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_creator
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_search_view
+msgid "Creator"
+msgstr "Angelegt von"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,help:grimm_ticket.field_grimm_ticket_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr "Datum der letzten Nachricht."
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_department
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_department
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_search_view
+msgid "Department"
+msgstr "Abteilung"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_description
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_display_name
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_display_name
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_display_name
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tag_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_division_manager
+msgid "Div Manager"
+msgstr "Abteilungsmanager"
+
+#. module: grimm_ticket
+#: selection:grimm.ticket,state:0
+msgid "Done"
+msgstr "Erledigt"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_due_date
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_search_view
+msgid "Due Date"
+msgstr "Fälligkeit"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_effort_estimation
+msgid "Effort Estimation"
+msgstr "Aufwandsabschätzung"
+
+#. module: grimm_ticket
+#: model:ir.model,name:grimm_ticket.model_grimm_ticket
+msgid "Email Thread"
+msgstr "E-Mail Thread"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_fold
+msgid "Folded in Tasks Pipeline"
+msgstr "Zugeklappt in Pipeline "
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_follower_ids
+msgid "Followers"
+msgstr "Beobachter"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Beobachter (Kanäle)"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Beobachter (Partner)"
+
+#. module: grimm_ticket
+#: model:ir.model,name:grimm_ticket.model_grimm_ticket_assign_wizard
+msgid "Grimm Ticket Assignment Wizard"
+msgstr "Grimm Ticket Assignment Wizard"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_search_view
+msgid "Grimm Ticket Search"
+msgstr "Grimm Ticket Suche"
+
+#. module: grimm_ticket
+#: model:ir.ui.menu,name:grimm_ticket.grimm_ticket_main_menu
+msgid "Grimm Tickets"
+msgstr "Grimm Tickets"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_search_view
+msgid "Group By"
+msgstr "Gruppiert nach..."
+
+#. module: grimm_ticket
+#: model:ir.model,name:grimm_ticket.model_hr_department
+msgid "HR Department"
+msgstr "Personalabteilung"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_form_view
+msgid "Hours"
+msgstr "Stunden"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_id
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_id
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_id
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tag_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,help:grimm_ticket.field_grimm_ticket_message_unread
+msgid "If checked new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: grimm_ticket
+#: model:ir.model.fields,help:grimm_ticket.field_grimm_ticket_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_is_follower
+msgid "Is Follower"
+msgstr "Ist Beobachter"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_is_my_department
+msgid "Is my department"
+msgstr "Is my department"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_last_post
+msgid "Last Message Date"
+msgstr "Letzte Benachrichtigung"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket___last_update
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard___last_update
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage___last_update
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tag___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_write_uid
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_write_uid
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tag_write_uid
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_write_date
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_write_date
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tag_write_date
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_manager
+#: model:res.groups,name:grimm_ticket.grimm_ticket_manager_group
+msgid "Manager"
+msgstr "Manager"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_ids
+msgid "Messages"
+msgstr "Mitteilungen"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_search_view
+msgid "My Department"
+msgstr "Meine Abteilung"
+
+#. module: grimm_ticket
+#: selection:grimm.ticket,state:0
+msgid "New"
+msgstr "Neu"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,help:grimm_ticket.field_grimm_ticket_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,help:grimm_ticket.field_grimm_ticket_message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,help:grimm_ticket.field_hr_department_ticket_permission
+msgid "Permission for Ticket SystemPublic: all employees can see the ticketsPrivate: only employees of this department can see the tickets"
+msgstr "Permission for Ticket SystemPublic: all employees can see the ticketsPrivate: only employees of this department can see the tickets"
+
+#. module: grimm_ticket
+#: selection:hr.department,ticket_permission:0
+msgid "Private"
+msgstr "Privat"
+
+#. module: grimm_ticket
+#: selection:hr.department,ticket_permission:0
+msgid "Public"
+msgstr "Offen"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_sequence
+msgid "Sequence"
+msgstr "Reihenfolge"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_id_10314
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_name
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_search_view
+msgid "Stage"
+msgstr "Stufe"
+
+#. module: grimm_ticket
+#: model:ir.actions.act_window,name:grimm_ticket.grimm_ticket_stage_list_action
+#: model:ir.ui.menu,name:grimm_ticket.grimm_ticket_config_menu_stage
+msgid "Stages"
+msgstr "Stufen"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_state
+msgid "State"
+msgstr "Bundesland"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tag_name
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_tag_tree_view
+msgid "Tag"
+msgstr "Tag"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_tag_form_view
+msgid "Tag Form"
+msgstr "Tag Form"
+
+#. module: grimm_ticket
+#: model:ir.actions.act_window,name:grimm_ticket.grimm_ticket_tag_list_action
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tags
+#: model:ir.ui.menu,name:grimm_ticket.grimm_ticket_config_menu_tag
+msgid "Tags"
+msgstr "Tags"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_assign_wizard_ticket
+msgid "Ticket"
+msgstr "Ticket"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_form_view
+msgid "Ticket Assign"
+msgstr "Ticket Zuweisen"
+
+#. module: grimm_ticket
+#: model:ir.actions.act_window,name:grimm_ticket.grimm_ticket_assign_wizard_action
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_assign_wizard_view_form
+msgid "Ticket Assignment"
+msgstr "Ticket Zuweisung"
+
+#. module: grimm_ticket
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_form_view
+msgid "Ticket Form"
+msgstr "Ticket Form"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_tid
+msgid "Ticket Number"
+msgstr "Ticket Number"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_hr_department_ticket_permission
+msgid "Ticket Permission"
+msgstr "Ticket Berechtigung"
+
+#. module: grimm_ticket
+#: model:ir.actions.act_window,name:grimm_ticket.grimm_ticket_list_action
+#: model:ir.ui.menu,name:grimm_ticket.grimm_ticket_menu
+#: model:ir.ui.view,arch_db:grimm_ticket.grimm_ticket_tree_view
+msgid "Tickets"
+msgstr "Tickets"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_stage_ticket_ids
+msgid "Tickets in stage"
+msgstr "Tickets in stage"
+
+#. module: grimm_ticket
+#: model:ir.module.category,name:grimm_ticket.grimm_ticket_management
+msgid "Ticketsystem"
+msgstr "Ticketsystem"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_title
+msgid "Title"
+msgstr "Ticketname"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_unread
+msgid "Unread Messages"
+msgstr "Ungelesene Mitteilungen"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Zähler der ungelelesen Nachrichten"
+
+#. module: grimm_ticket
+#: model:res.groups,name:grimm_ticket.grimm_ticket_user_group
+msgid "User"
+msgstr "Benutzer"
+
+#. module: grimm_ticket
+#: model:ir.module.category,description:grimm_ticket.grimm_ticket_management
+msgid "User access levels for ticket system"
+msgstr "Benutzerberechtigung für Ticketsystem"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_user_is_admin
+msgid "User is Admin"
+msgstr "Benutzer Admin"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_user_is_arranger
+msgid "User is Arranger"
+msgstr "Benutzer ist Bearbeiter"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_user_is_manager
+msgid "User is Manager"
+msgstr "Benutzer ist Manager"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,field_description:grimm_ticket.field_grimm_ticket_website_message_ids
+msgid "Website Messages"
+msgstr "Website Nachrichten"
+
+#. module: grimm_ticket
+#: model:ir.model.fields,help:grimm_ticket.field_grimm_ticket_website_message_ids
+msgid "Website communication history"
+msgstr "Website Kommunikationshistorie"
+
+#. module: grimm_ticket
+#: model:ir.model,name:grimm_ticket.model_grimm_ticket_stage
+msgid "grimm.ticket.stage"
+msgstr "grimm.ticket.stage"
+
+#. module: grimm_ticket
+#: model:ir.model,name:grimm_ticket.model_grimm_ticket_tag
+msgid "grimm.ticket.tag"
+msgstr "grimm.ticket.tag"
+

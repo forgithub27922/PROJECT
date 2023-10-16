@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form view of Employee Contract Type-->
+    <record id="view_hr_emp_contract_type_form" model="ir.ui.view">
+        <field name="name">view.hr.emp.contract.type.form</field>
+        <field name="model">hr.employee.contract.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="grp_main">
+                        <field name="name" required="1"/>
+                        <field name="code"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Employee Contract Type-->
+    <record id="view_hr_emp_contract_type_tree" model="ir.ui.view">
+        <field name="name">view.hr.emp.contract.type.tree</field>
+        <field name="model">hr.employee.contract.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Employee Contract Type-->
+    <record id="view_hr_emp_contract_type_search" model="ir.ui.view">
+        <field name="name">view.hr.emp.contract.type.search</field>
+        <field name="model">hr.employee.contract.type</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="code"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action for Employee Contract Type-->
+    <record id="action_hr_emp_contract_type" model="ir.actions.act_window">
+        <field name="name">Contract Types</field>
+        <field name="res_model">hr.employee.contract.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu for Employee Contract Type -->
+    <menuitem id="menu_hr_emp_contract_type"
+              name="Contract Types"
+              action="action_hr_emp_contract_type"
+              sequence="2"
+              parent="menu_hr_config"
+              groups="hr.group_hr_manager,hr.group_hr_user"/>
+</odoo>

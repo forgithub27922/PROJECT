@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="grimm_product_category_form_view_inherit" model="ir.ui.view">
+            <field name="name">grimm.product.category.form.view.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='group_general']" position="inside">
+                    <field name="connection_ids" colspan="2" nolabel="1"/>
+                </xpath>
+                <xpath expr="//div[@name='weight']" position="after">
+                    <label for="net_weight"
+                           attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu']), ('product_variant_count', '&gt;', 1)]}"/>
+                    <div class="o_row" name="net_weight"
+                         attrs="{'invisible':['|', ('type', 'not in', ['product', 'consu']), ('product_variant_count', '&gt;', 1)]}">
+                        <field name="net_weight"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_template_search_grimm_view" model="ir.ui.view">
+            <field name="name">product.template.grimm.search</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='consumable']" position="after">
+                    <filter string="Spare Parts" name="spareparts" domain="[('is_spare_part','=', True)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_product_supplierinfo_form_view_inherit" model="ir.ui.view">
+            <field name="name">grimm.product.supplierinfo.form.view.inherit</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="inherit_id" ref="product.product_supplierinfo_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='product_code']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_product_supplierinfo_tree_view_inherit" model="ir.ui.view">
+            <field name="name">grimm.product.supplierinfo.tree.view.inherit</field>
+            <field name="model">product.supplierinfo</field>
+            <field name="inherit_id" ref="product.product_supplierinfo_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="before">
+                    <field name="product_code"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Config -->
+
+        <record id="product_connection_form_view" model="ir.ui.view">
+            <field name="name">product.connection.form.view</field>
+            <field name="model">product.connection</field>
+            <field name="arch" type="xml">
+                <form string="Product Connections">
+                    <sheet>
+                        <group>
+                            <field name="connection_medium"/>
+                            <field name="connection_spec"/>
+                            <field name="connection_value"/>
+                            <field name="connection_unit"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="product_connection_tree_view" model="ir.ui.view">
+            <field name="name">product.connection.tree</field>
+            <field name="model">product.connection</field>
+            <field name="arch" type="xml">
+                <tree string="Connection Types">
+                    <field name="connection_medium"/>
+                    <field name="connection_spec"/>
+                    <field name="connection_value"/>
+                    <field name="connection_unit"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="product_connections_search_view" model="ir.ui.view">
+            <field name="name">of.product.connections.search.view</field>
+            <field name="model">product.connection</field>
+            <field name="arch" type="xml">
+                <search string="Product Connections">
+                    <field name="connection_medium" string="connection_medium"
+                           filter_domain="[('connection_medium','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+
+        <!--<record id="product_warranty_type_form_view" model="ir.ui.view">-->
+        <!--<field name="name">of.product.product.warranty.type.form.view</field>-->
+        <!--<field name="model">product.warranty.type</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<form string="Product Warranty Type">-->
+        <!--<group name="warranty_base_data">-->
+        <!--<group>-->
+        <!--<field name="name" string="Name" css="width:25%;"/>-->
+        <!--</group>-->
+        <!--<group/>-->
+        <!--</group>-->
+        <!--</form>-->
+        <!--</field>-->
+        <!--</record>-->
+
+        <!-- <record id="product_template_tree_view_extension" model="ir.ui.view">
+          <field name="name">Product template tree view extension</field>
+          <field name="model">product.template</field>
+          <field name="inherit_id" ref="product.product_template_tree_view"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='virtual_available']" position="after">
+              <field name="magento_product_status_id"/>
+            </xpath>
+          </field>
+        </record> -->
+
+        <record id="product_template_search_view_extension" model="ir.ui.view">
+            <field name="name">Product template search view extension</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" string="Product"
+                           filter_domain="['|','|',('default_code','ilike',self),('name','ilike',self),('seller_ids.product_code','ilike',self)]"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="seller_ids" string="Supplier Article Number"
+                           filter_domain="[('seller_ids.product_code','ilike',self)]"/>
+                    <field name="technical_specifications" string="Technical Spec Attribute" filter_domain="[('technical_specifications.attr_id.technical_name','ilike',self)]"/>
+                    <field name="technical_specifications" string="Technical Spec Value" filter_domain="[('technical_specifications.value_ids.name','ilike',self)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--<record id="product_warranty_type_tree_view" model="ir.ui.view">-->
+        <!--<field name="name">of.product.product.warranty.type.tree.view</field>-->
+        <!--<field name="model">product.warranty.type</field>-->
+        <!--<field name="arch" type="xml">-->
+        <!--<tree string="Product Warranty Type">-->
+        <!--<field name="name" string="Name"/>-->
+        <!--</tree>-->
+        <!--</field>-->
+        <!--</record>-->
+
+        <record id="product_connection_action" model="ir.actions.act_window">
+            <field name="name">Product Connections</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.connection</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<record id="product_warranty_type_action" model="ir.actions.act_window">-->
+        <!--<field name="name">Product Warranty Types</field>-->
+        <!--<field name="type">ir.actions.act_window</field>-->
+        <!--<field name="res_model">product.warranty.type</field>-->
+        <!--<field name="view_mode">tree,form</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--</record>-->
+
+        <!--<menuitem action="product_warranty_type_action" id="menu_warranty_type" parent="sale.prod_config_main"-->
+        <!--sequence="10"/>-->
+
+        <!--
+        <menuitem action="product_connection_action" id="menu_connection_action" parent="asset_base.menu_grimm_config" sequence="10" />
+        -->
+
+        <!-- ADDING existing menus for usability-->
+        <menuitem action="base.action_partner_customer_form" id="menu_grimm_partner" name="Customers"
+                  parent="asset_base.menu_grimm_master_data" sequence="10"/>
+
+        <menuitem action="product.product_template_action" id="menu_grimm_products" name="Products"
+                  parent="asset_base.menu_grimm_tools_products" sequence="10"/>
+
+        <menuitem action="grimm_extensions.crm_claim_category_claim" id="menu_grimm_claims" name="Claims"
+                  parent="asset_base.menu_grimm_service" sequence="10"/>
+        <menuitem action="project.action_view_task" id="menu_grimm_tasks" name="Tasks"
+                  parent="asset_base.menu_grimm_service" sequence="20"/>
+        <!-- <menuitem action="sale_contract.action_subscription_form" id="menu_grimm_service_contracts" name="Service Contracts" parent="mro_base.menu_grimm_mro" sequence="14"/> -->
+
+
+    </data>
+</odoo>

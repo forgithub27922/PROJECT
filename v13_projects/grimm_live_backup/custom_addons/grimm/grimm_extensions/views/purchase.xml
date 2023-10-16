@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="act_related_so" model="ir.actions.act_window">
+            <field name="name">Sale Order</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="sale.view_order_tree"/>
+            <field name="search_view_id" ref="sale.view_sales_order_filter"/>
+        </record>
+
+        <record id="purchase_order_form" model="ir.ui.view">
+            <field name="name">purchase.order.form</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_ref']" position="after">
+                    <field name="sale_order_client_order_refs"/>
+                </xpath>
+                <xpath expr="//div[@name='button_box']" position="inside">
+                    <button name="open_sale_order_view" type="object" class="oe_stat_button" icon="fa-usd"
+                            string=""
+                            groups="base.group_user">
+                        <field name="sale_count" widget="statinfo" string="Sale Order"/>
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="replace">
+                    <field name="po_date"/>
+                    <field name="oc_received_date" attrs="{'invisible': [('oc_received_date', '=', False)]}"/>
+                </xpath>
+                <xpath expr="//button[@name='button_confirm']" position="before">
+                    <button name="order_confirmed" string="Confirmation received" type="object"
+                            attrs="{'invisible': ['|', ('oc_received_date', '!=', False), ('state', '=', 'draft')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="purchase_order_today_tree_view" model="ir.ui.view">
+            <field name="name">purchase_order_today_tree_view</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <!-- replay the field date_order with the new field po_date -->
+                <xpath expr="//field[@name='date_order']" position="replace">
+                    <field name="po_date"/>
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="oc_received_date"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

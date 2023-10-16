@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="prompt_sku_exists_dialog_form" model="ir.ui.view">
+         <field name="name">prompt.sku.exists.dialog.form</field>
+         <field name="model">prompt.sku.exists.dialog</field>
+         <field name="arch" type="xml">
+            <form string="Prompt SKU Exists Dialog">
+                <group col="4">
+                    <p colspan="4"><b>Vendor Product Code already exists!</b></p>
+                    <p colspan="4">Press 'Scrape Again' button to update the record or press 'Skip' to skip the execution.</p>
+                </group>
+                <group col="4">
+                    <field name="name" readonly="1"/>
+                    <field name="source" readonly="1"/>
+                </group>
+                 <group col="4">
+                    <div colspan="4" class="alert-danger" role="alert">
+                      <strong>Note:</strong> Pressing 'Abort' terminates the further transactions.
+                    </div>
+                </group>
+                <footer>
+                    <button name="scrape_sparepart_add_again_action" string="Scrape Again" type="object" class="btn-primary" context="{'active_ids': context.get('active_ids'), 'active_id': context.get('active_id')}"/>
+                    <button name="scrape_sparepart_skip_action" string="Skip" type="object" class="btn-primary" context="{'active_ids': context.get('active_ids'), 'active_id': context.get('active_id')}"/>
+                    <button string="Abort" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+         </field>
+     </record>
+</odoo>

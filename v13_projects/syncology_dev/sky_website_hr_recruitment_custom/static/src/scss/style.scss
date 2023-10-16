@@ -1,0 +1,185 @@
+.custom_headline {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 14px !important;
+}
+
+.h1_class_custom_sit
+{
+    font-weight: bold;
+    width:100%;
+    float:left;
+    text-align:left;
+    padding: 30px;
+}
+.h2_class_custom_sit
+{
+    width: 50%;
+    float: right;
+    text-align: right !important;
+    font-size: 23px;
+    color: #000;
+    font-weight:bold;
+}
+
+.sit_custom_p {
+    color:#404040;
+    width: 80%;
+    float: left;
+    font-weight:bold;
+    margin-bottom:0px;
+    padding:10px;
+    font-size:18px;
+}
+
+#hr_recruitment_form
+{
+    max-width:70%;display:block;margin:0px auto;
+    padding:20px;
+}
+
+.sit_box select {
+    background-color: #fff;
+    padding: 11px;
+    -webkit--webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    outline: none;
+    width: 100%;
+}
+.sit_box:hover::before {
+  color: rgba(0, 0, 0, 0.6);
+  padding-right:10px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sit_box select option {
+  padding: 30px;
+}
+.sit_relative{
+    position:relative;
+    width: 33.33%;
+    display: inline-block;
+}
+.effect-2
+{
+    padding: 7px 10px; border: 1px solid #ccc;height: 50px;
+}
+.effect-2 ~ .focus-border{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: $theme-color;
+    transition: 0.4s;
+}
+.effect-2:focus ~ .focus-border{
+    width: 88%;
+    transition: 0.4s;
+    margin-left: 15px;
+    margin-right: 15px;
+    left: 0px;
+}
+.form-control:focus
+{
+    border-color: #ccc !important;
+}
+
+.file-input {
+    display: inline-block;
+    text-align: left;
+    background: #fff;
+    padding: 6px;
+    width: 100%;
+    position: relative;
+    border-radius: 0px;
+}
+.file-input > [type='file'] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+.file-input > .button {
+    display: inline-block;
+    cursor: pointer;
+    background: #eee;
+    padding: 8px 16px;
+    border-radius: 2px;
+    margin-right: 8px;
+}
+.file-input:hover > .button {
+    background: $theme-color;
+    color: white;
+}
+.file-input > .label {
+    color: #333;
+    white-space: nowrap;
+    opacity: .3;
+}
+.file-input.-chosen > .label {
+  opacity: 1;
+}
+.sit_custom_form_class
+{
+    margin-top:20px;
+}
+.sit_error{
+    border:1px solid red;
+}
+select
+{
+    color: #495057;
+}
+.main_cert_div
+{
+    margin-bottom:32px;
+}
+textarea {
+    resize: none;
+}
+.span_label{
+    color: #495057 !important;
+    opacity:0.3 !important;
+}
+
+.collapsible {
+    background-color:#E0E0E0;
+    border:solid 1px #D3D3D3;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    content: "002B";
+}
+
+.collapsible:after {
+    content: '\02795';
+    font-size: 12px;
+    color: #fff;
+    float: right;
+    margin-left: 5px;
+    margin-top: 13px;
+}
+
+.collapsible.active:after {
+    content: "\2796";
+    color: #fff;
+}
+
+.content {
+    padding: 10px 10px 10px 10px;
+    display: none;
+    overflow: hidden;
+}
+
+#custom_form_submit {
+    margin-top: 30px;
+}

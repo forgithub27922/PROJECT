@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- outgoing account invoice form view -->
+        <record model="ir.ui.view" id="account_invoice_pre_text_form">
+            <field name="name">account.move.pre-text.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[1]" position="after">
+                    <page name="pre-text" string="Pre-Texts">
+                        <group col="1">
+                            <separator string="Pre-Tex Prepayment"/>
+                            <field name="salutation_text_tmpl_id" nolabel="1" class="oe_edit_only"
+                                   placeholder="Chose a template to set the text"
+                                   context="{'default_model_id':'account.move', 'default_text':salutation_text}"/>
+                            <field name="salutation_text" nolabel="1"/>
+                            <separator string="Pre-Text Invoice"/>
+                            <field name="salutation_text_val_tmpl_id" nolabel="1" class="oe_edit_only"
+                                   placeholder="Chose a template to set the text"
+                                   context="{'default_model_id':'account.move', 'default_text':salutation_text_val}"/>
+                            <field name="salutation_text_val" nolabel="1"/>
+                            <separator string="Pre-Text Refund"/>
+                            <field name="salutation_text_refund_tmpl_id" nolabel="1" class="oe_edit_only"
+                                   placeholder="Chose a template to set the text"
+                                   context="{'default_model_id':'account.move', 'default_text':salutation_text_refund}"/>
+                            <field name="salutation_text_refund" nolabel="1"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

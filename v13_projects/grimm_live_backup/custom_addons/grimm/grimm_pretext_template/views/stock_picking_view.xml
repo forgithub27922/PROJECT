@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <!-- stock picking form view -->
+    <record model="ir.ui.view" id="stock_picking_pre_text_form">
+      <field name="name">stock.picking.pre-text.form</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[2]" position="after">
+          <page name="pre-text" string="Pre-Texts">
+            <group col="1">
+              <separator string="Pre-Text Delivery Note"/>
+              <field name="salutation_text_tmpl_id" nolabel="1" class="oe_edit_only"
+                     placeholder="Chose a template to set the text"
+                     context="{'default_model_id':'stock.picking', 'default_text':salutation_text}"/>
+              <field name="salutation_text" nolabel="1"/>
+            </group>
+          </page>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

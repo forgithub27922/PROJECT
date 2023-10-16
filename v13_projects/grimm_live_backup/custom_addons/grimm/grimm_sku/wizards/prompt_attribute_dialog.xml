@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <record id="prompt_attribute_dialog_form" model="ir.ui.view">
+         <field name="name">prompt.attribute.dialog.form</field>
+         <field name="model">prompt.attribute.dialog</field>
+         <field name="arch" type="xml">
+            <form string="Prompt Attribute Dialog">
+                <p>Please assign a matching attribute or create one for the following attribute.</p>
+                <group>
+                    <field name="name" readonly="1"/>
+                    <field name="source" readonly="1"/>
+                    <field name="attribute_id" domain="[('technical_name', '=ilike', 'sw_%')]"/>
+                    <field name="product_id" invisible="1"/>
+                </group>
+                <footer>
+                    <button name="assign_attribute" string="Assign" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+         </field>
+     </record>
+</odoo>

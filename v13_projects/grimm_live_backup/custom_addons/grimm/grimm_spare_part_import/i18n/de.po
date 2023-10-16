@@ -1,0 +1,448 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_spare_part_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-10 07:57+0000\n"
+"PO-Revision-Date: 2019-12-10 07:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/sparepart.py:140
+#, python-format
+msgid "<center><h2 style='color:green;'>File is successfully uploaded.</h2></center>"
+msgstr "<center><h2 style='color:green;'>Die Datei wurde erfolgreich hochgeladen.</h2></center>"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:82
+#, python-format
+msgid "<center><h2 style='color:green;'>File is successfully uploaded.</h2><h3>Searched product based on supplier and product code.</h3></center>"
+msgstr "<center><h2 style='color:green;'>Die Datei wurde erfolgreich hochgeladen.</h2><h3>Gesuchtes Produkt basierend auf Lieferanten- und Produktcode.</h3></center>"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:75
+#: code:addons/grimm_spare_part_import/models/product.py:136
+#: code:addons/grimm_spare_part_import/models/sparepart.py:134
+#: code:addons/grimm_spare_part_import/models/sparepart.py:170
+#, python-format
+msgid "<center><h2 style='color:red;'>Please upload .csv file.</h2></center>"
+msgstr "<center><h2 style='color:red;'>Bitte laden Sie eine CSV-Datei hoch.</h2></center>"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:134
+#: code:addons/grimm_spare_part_import/models/product.py:158
+#: code:addons/grimm_spare_part_import/models/sparepart.py:168
+#, python-format
+msgid "<center><h2 style='color:red;'>Please upload valid .csv file.</h2></center>"
+msgstr "<center><h2 style='color:red;'>Bitte laden Sie eine gültige CSV-Datei hoch.</h2></center>"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:130
+#: code:addons/grimm_spare_part_import/models/product.py:155
+#: code:addons/grimm_spare_part_import/models/sparepart.py:165
+#, python-format
+msgid "<center><h2 style='color:red;'>Please upload valid file.</h2></center>"
+msgstr "<center><h2 style='color:red;'>Bitte laden Sie eine gültige CSV-Datei hoch.</h2></center>"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/sparepart.py:143
+#, python-format
+msgid "<table width='80%' align='center' class='table'><thead><tr><th scope='col' width='0%'>No. </th><th scope='col'>Product Code</th><th scope='col'>Product Name</th><th scope='col'>Status</th><th scope='col'>Supplier Available for</th></tr></thead><tbody>"
+msgstr "<table width='80%' align='center' class='table'><thead><tr><th scope='col' width='0%'>No. </th><th scope='col'>Produktcode</th><th scope='col'>Produktname</th><th scope='col'>Status</th><th scope='col'>Lieferant Verfügbar für</th></tr></thead><tbody>"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:86
+#, python-format
+msgid "<table width='80%' align='center' class='table'><thead><tr><th scope='col' width='20%'>No. </th><th scope='col'>Vendor Code</th><th scope='col'>Status</th></tr></thead><tbody>"
+msgstr "<table width='80%' align='center' class='table'><thead><tr><th scope='col' width='20%'>Nummer </th><th scope='col'>Hersteller Code</th><th scope='col'>Status</th></tr></thead><tbody>"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_is_advance_mapping
+msgid "Advance Mapping"
+msgstr "Advance Mapping"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_attribute_id
+msgid "Attribute"
+msgstr "Eigenschaft"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_value_ids
+msgid "Attribute Values"
+msgstr "Attributwerte"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:77
+#: code:addons/grimm_spare_part_import/models/sparepart.py:136
+#, python-format
+msgid "Available"
+msgstr "Verfügbar"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_csv_file
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_csv_file
+msgid "Browse File"
+msgstr "Datei durchsuchen"
+
+#. module: grimm_spare_part_import
+#: model:ir.ui.view,arch_db:grimm_spare_part_import.sparepart_create_wizard
+#: model:ir.ui.view,arch_db:grimm_spare_part_import.sparepart_import_wizard
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_create_uid
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance_create_uid
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_create_uid
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_create_date
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance_create_date
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_create_date
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_spare_part_import
+#: model:ir.ui.view,arch_db:grimm_spare_part_import.sparepart_create_wizard
+msgid "Default Values"
+msgstr "Standardwerte"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_display_name
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance_display_name
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_display_name
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_download_link
+msgid "Download Link"
+msgstr "Download-Link"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_expense_account_id
+msgid "Expense Account"
+msgstr "Aufwandskonto"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_expense_account_id
+msgid "Expense Account for this product."
+msgstr "Aufwandskonto für dieses Produkt."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance_field_id
+msgid "Field"
+msgstr "Feld"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_map_advance_field_id
+msgid "Field from Product Template."
+msgstr "Feld aus Produktvorlage."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_filename
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_filename
+msgid "File name"
+msgstr "Dateiname"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_field_map_ids
+msgid "Get Original value from product template"
+msgstr "Get Original value from product template"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_id
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance_id
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_id
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance_import_id
+#: model:ir.ui.view,arch_db:grimm_spare_part_import.sparepart_create_wizard
+#: model:ir.ui.view,arch_db:grimm_spare_part_import.sparepart_import_wizard
+msgid "Import"
+msgstr "importieren"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_income_account_id
+msgid "Income Account"
+msgstr "Erlöskonto"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_income_account_id
+msgid "Income Account for this product."
+msgstr "Erlöskonto für dieses Produkt."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import___last_update
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance___last_update
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import___last_update
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_write_uid
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance_write_uid
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_write_uid
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_write_date
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_map_advance_write_date
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_write_date
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:88
+#, python-format
+msgid "No."
+msgstr "No."
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:78
+#: code:addons/grimm_spare_part_import/models/sparepart.py:137
+#, python-format
+msgid "Not Available"
+msgstr "Nicht verfügbar"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_company_id
+msgid "Override company detail if you want."
+msgstr "Überschreiben Sie Firmendetails, wenn Sie möchten."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_categ_id
+msgid "Override product category if you want."
+msgstr "Überschreiben Sie die Produktkategorie, wenn Sie möchten."
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/sparepart.py:158
+#, python-format
+msgid "Partial available"
+msgstr "Teilweise verfügbar"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:79
+#, python-format
+msgid "Partially Available"
+msgstr "Teilweise verfügbar"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/sparepart.py:271
+#, python-format
+msgid "Please upload valid .csv file."
+msgstr "Laden Sie eine gültige CSV-Datei hoch."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_prefix_code
+msgid "Prefix Code"
+msgstr "Präfix Code"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_price_account_id
+msgid "Price Difference Account"
+msgstr "Preisdifferenzkonto"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_price_account_id
+msgid "Price Difference Account for this product."
+msgstr "Preisdifferenzkonto für dieses Produkt."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_property_line_import_id
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_categ_id
+msgid "Product category"
+msgstr "Produktkategorie"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_product_ids
+msgid "Products"
+msgstr "Produkte"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_property_set_attribute_ids
+msgid "Property Attribute"
+msgstr "Property Attribute"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_property_set_id
+msgid "Property Set"
+msgstr "Property Set"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_supplier_id
+msgid "Select supplier to add."
+msgstr "Wählen Sie den Lieferanten aus, den Sie hinzufügen möchten."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_sparepart_import_supplier_id
+msgid "Select supplier."
+msgstr "Select supplier."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_shopware_categ_ids
+msgid "Shopware Categories"
+msgstr "Shopware-Kategorien"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_shopware_property_ids
+msgid "Shopware Property"
+msgstr "Shopware Property"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:131
+#: code:addons/grimm_spare_part_import/models/product.py:156
+#: code:addons/grimm_spare_part_import/models/sparepart.py:166
+#, python-format
+msgid "Something went wrong with file or file is not valid.\n"
+"\n"
+""
+msgstr "In der Datei oder der Datei ist ein Fehler aufgetreten. Die Datei ist ungültig.\n"
+"\n"
+""
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/sparepart.py:269
+#, python-format
+msgid "Something went wrong, file is not valid or you entered wrong data.\n"
+"\n"
+""
+msgstr "Ein Fehler ist aufgetreten, die Datei ist ungültig oder Sie haben falsche Daten eingegeben.\n"
+"\n"
+""
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_source_company_id
+msgid "Source Company"
+msgstr "Quellfirma"
+
+#. module: grimm_spare_part_import
+#: model:ir.actions.act_window,name:grimm_spare_part_import.action_create_sparepart_wizard
+#: model:ir.ui.menu,name:grimm_spare_part_import.sparepart_create_menu
+msgid "Sparepart Creation"
+msgstr "Ersatzteilerstellung"
+
+#. module: grimm_spare_part_import
+#: model:ir.ui.menu,name:grimm_spare_part_import.sparepart_import_menu
+#: model:ir.ui.view,arch_db:grimm_spare_part_import.sparepart_create_wizard
+#: model:ir.ui.view,arch_db:grimm_spare_part_import.sparepart_import_wizard
+msgid "Sparepart Import"
+msgstr "Ersatzteilimport"
+
+#. module: grimm_spare_part_import
+#: model:ir.actions.act_window,name:grimm_spare_part_import.action_import_sparepart_wizard
+msgid "Sparepart Import File"
+msgstr "Ersatzteil-Importdatei"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:88
+#, python-format
+msgid "Status"
+msgstr "Status"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_supplier_id
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_supplier_id
+msgid "Supplier"
+msgstr "Lieferant"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_product_id
+msgid "Template Product"
+msgstr "Template Product"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_product_id
+msgid "This is template product so based on this product all product will be created."
+msgstr "Dies ist ein Vorlagenprodukt, sodass das gesamte Produkt basierend auf diesem Produkt erstellt wird."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_need_override
+msgid "This option will searh product based on Internal Reference. If product found ! Update it otherwise create new one based on template product."
+msgstr "Diese Option sucht nach einem Produkt basierend auf der internen Referenz. Wenn Produkt gefunden! Aktualisieren Sie es ansonsten erstellen Sie ein neues Produkt basierend auf dem Vorlagenprodukt."
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_name_from_file
+msgid "Update Name from File"
+msgstr "Aktualisieren Sie den Namen aus der Datei"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_price_from_file
+msgid "Update Price from File"
+msgstr "Aktualisieren Sie den Preis aus der Datei"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_need_override
+msgid "Update if Available"
+msgstr "Aktualisieren Sie, falls verfügbar"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_product_create_import_upload_info
+#: model:ir.model.fields,field_description:grimm_spare_part_import.field_sparepart_import_upload_info
+msgid "Upload Information"
+msgstr "Informationen hochladen"
+
+#. module: grimm_spare_part_import
+#: model:ir.model.fields,help:grimm_spare_part_import.field_product_create_import_source_company_id
+msgid "Using this company product template will be copied."
+msgstr "Die Verwendung dieser Firmenproduktvorlage wird kopiert."
+
+#. module: grimm_spare_part_import
+#: model:ir.ui.view,arch_db:grimm_spare_part_import.sparepart_create_wizard
+msgid "Variants"
+msgstr "Varianten"
+
+#. module: grimm_spare_part_import
+#: code:addons/grimm_spare_part_import/models/product.py:88
+#, python-format
+msgid "Vendor Code"
+msgstr "Hersteller Code"
+
+#. module: grimm_spare_part_import
+#: model:ir.model,name:grimm_spare_part_import.model_product_create_import
+msgid "product.create.import"
+msgstr "product.create.import"
+
+#. module: grimm_spare_part_import
+#: model:ir.model,name:grimm_spare_part_import.model_product_map_advance
+msgid "product.map.advance"
+msgstr "product.map.advance"
+
+#. module: grimm_spare_part_import
+#: model:ir.model,name:grimm_spare_part_import.model_sparepart_import
+msgid "sparepart.import"
+msgstr "sparepart.import"
+
+#. module: grimm_spare_part_import
+#: model:ir.model,name:grimm_spare_part_import.model_sparepart_property_line
+msgid "sparepart.property.line"
+msgstr "sparepart.property.line"

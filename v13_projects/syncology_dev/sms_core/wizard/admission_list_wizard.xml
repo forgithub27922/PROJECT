@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_admission_list_wizard" model="ir.ui.view">
+			<field name="name">admission.list.wizard</field>
+			<field name="model">admission.list.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Admission Reports">
+					<group>
+						<group>
+							<!-- <field name="report_type" required="1" /> -->
+							
+							<field name="state" required="1"/>
+						</group>
+						<group>
+							<field name="date_from" string="Date From"/>
+							<field name="date_to" string="Date To"/>
+						</group>
+					</group>
+					<footer>
+						<button name="check_report" type="object" string="Print"
+							class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_admission_list_wizard" model="ir.actions.act_window">
+			<field name="name">Admission List Report</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">admission.list.wizard</field>
+			<field name="view_id" ref="view_admission_list_wizard" />
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+
+	</data>
+</odoo>

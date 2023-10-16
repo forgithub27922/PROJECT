@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="list_view_inventory_development_report" model="ir.ui.view">
+        <field name="name">Inventory Development</field>
+        <field name="model">inventory.development.report</field>
+        <field name="arch" type="xml">
+            <tree create="false" import="false">
+                <field name="date"/>
+                <field name="location_id"/>
+                <field name="warehouse_id"/>
+                <field name="total_qty"/>
+                <field name="total_value"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="graph_view_inventory_development_report" model="ir.ui.view">
+        <field name="name">Inventory Development</field>
+        <field name="model">inventory.development.report</field>
+        <field name="arch" type="xml">
+            <graph string="Inventory Development">
+                <field name="date" type="row"/>
+                <field name="location_id" type="col"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_inventory_development_search" model="ir.ui.view">
+        <field name="name">report.inventory.development.report.search</field>
+        <field name="model">inventory.development.report</field>
+        <field name="arch" type="xml">
+            <search string="Inventory Development">
+                <group expand="0" string="Extended Filters">
+                    <field name="date"/>
+                    <field name="location_id"/>
+                </group>
+                <group expand="1" string="Group By">
+                    <filter string="Order Day" name="order_day" context="{'group_by':'date:day'}" help="Order of Day"/>
+                    <filter string="Order Week" name="filter_order_week" context="{'group_by':'date:week'}" help="Order of Week"/>
+                    <filter string="Order Month" name="order_month" context="{'group_by':'date:month'}" help="Order of Month"/>
+                    <filter string="Order Quarter" name="order_quarter" context="{'group_by':'date:quarter'}" help="Order of Quarter"/>
+                    <filter string="Order Year" name="order_year" context="{'group_by':'date:year'}" help="Order of Year"/>
+                    <filter string="Location" name="filter_location" context="{'group_by':'location_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_stock_inventory_development" model="ir.actions.act_window">
+        <field name="name">Inventory Development</field>
+        <field name="res_model">inventory.development.report</field>
+        <field name="view_mode">graph,pivot</field>
+        <field name="context">{'search_default_filter_order_week': True, 'search_default_filter_location': True}</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'graph', 'view_id': ref('graph_view_inventory_development_report')}),
+            (0, 0, {'view_mode': 'pivot'})]"/>
+    </record>
+
+    <record id="inventory_development_ir_cron_auto_check" model="ir.cron">
+        <field name="name">Inventory Development</field>
+        <field eval="False" name="active"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">24</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field eval="False" name="doall"/>
+        <field ref="model_inventory_development_report" name="model_id"/>
+        <field name="state">code</field>
+        <field name="code">model.create_inventory_development_rows()</field>
+    </record>
+
+    <menuitem id="inventory_development" name="Inventory Development" parent="stock.menu_warehouse_report" sequence="110" action="action_stock_inventory_development"/>
+</odoo>

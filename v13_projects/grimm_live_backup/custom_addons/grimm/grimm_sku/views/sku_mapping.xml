@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="list_view_sku_mapping" model="ir.ui.view">
+        <field name="name">SKU Mapping Tree</field>
+        <field name="model">sku.mapping</field>
+        <field name="arch" type="xml">
+            <tree create="false" import="false" editable="top">
+                <field name="source" readonly="1"/>
+                <field name="partenics_attribute" domain="[('technical_name', '=ilike', 'sw_%')]"/>
+                <field name="outsourced_attribute" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <act_window id="action_window_grimm_sku"
+                name="SKU Mapping"
+                res_model="sku.mapping"
+                target="current"
+                view_mode="tree"/>
+
+    <menuitem id="menu_name_grimm_sku"
+              name="SKU Mapping"
+              action="action_window_grimm_sku"
+              parent="sale.prod_config_main"
+              sequence="99"/>
+
+    <record id="action_ir_action_sku_product" model="ir.actions.server">
+        <field name="name">Scrape Sparepart Details</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="grimm_sku.model_product_template"/>
+        <field name="binding_model_id" ref="grimm_sku.model_product_template"/>
+        <field name="state">code</field>
+        <field name="code">cr = env.cr
+context = dict(env.context)
+action = model.action_scrape_sparepart(context.get('active_ids', []))
+        </field>
+    </record>
+</odoo>

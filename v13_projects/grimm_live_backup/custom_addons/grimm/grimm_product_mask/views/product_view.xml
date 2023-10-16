@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/grimm_product_mask/static/src/scss/product_mask.scss"/>
+            <script type="text/javascript" src="/grimm_product_mask/static/src/js/product_mask.js"></script>
+        </xpath>
+    </template>
+
+    <record id="grimm_product_template_mask_form" model="ir.ui.view">
+        <field name="name">grimm_product_template_mask_form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="priority" eval="50"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/div[@class='oe_title']" position="attributes">
+                <attribute name="style">margin-left: 210px!important</attribute>
+            </xpath>
+            <xpath expr="//form/sheet/div[@class='oe_title']/div[@name='options']" position="replace">
+                <div name="tabs" style="display:flex;">
+                    <div name="options" groups="base.group_user">
+                        <div>
+                            <field name="sale_ok"/>
+                            <label for="sale_ok"/>
+                        </div>
+                        <div>
+                            <field name="purchase_ok"/>
+                            <label for="purchase_ok"/>
+                        </div>
+                        <div>
+                            <field name="is_pack"/>
+                            <label for="is_pack"/>
+                        </div>
+                    </div>
+                    <div name="mask" groups="base.group_user" class="mask_div">
+                        <div>
+                            <field name="is_spare_part"/>
+                            <label for="is_spare_part"/>
+                        </div>
+                        <div>
+                            <field name="is_tool"/>
+                            <label for="is_tool"/>
+                        </div>
+                        <div>
+                            <field name="is_service_part"/>
+                            <label for="is_service_part"/>
+                        </div>
+                        <div>
+                            <field name="is_accessory_part"/>
+                            <label for="is_accessory_part"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <menuitem name="Product Template"
+            id="grimm_menu_product_template"
+            groups="grimm_product_template_group"
+            action="product.product_template_action"
+            web_icon="grimm_product_mask,static/description/icon.png"
+            sequence="-2"/>
+</odoo>

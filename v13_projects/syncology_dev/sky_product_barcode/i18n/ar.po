@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_product_barcode
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-24 08:55+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard___barcode_scanned
+msgid "Barcode Scanned"
+msgstr "تم مسح الباركود ضوئيا"
+
+#. module: sky_product_barcode
+#: model_terms:ir.ui.view,arch_db:sky_product_barcode.view_product_form_barcode_wizard_inherit
+msgid "Cancel"
+msgstr "تجاهل"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__create_uid
+msgid "Created by"
+msgstr "انشئ بواسطة"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__create_date
+msgid "Created on"
+msgstr "انشئ في"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__id
+msgid "ID"
+msgstr "رقم المعرّف"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__method
+msgid "Method"
+msgstr "طريقة"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__model
+msgid "Model"
+msgstr "نموذج"
+
+#. module: sky_product_barcode
+#: model:ir.model,name:sky_product_barcode.model_product_barcode_wizard
+msgid "Product Barcode Wizard"
+msgstr "معالج باركود الأصناف"
+
+#. module: sky_product_barcode
+#: model:ir.model,name:sky_product_barcode.model_product_template
+msgid "Product Template"
+msgstr "قالب المنتج"
+
+#. module: sky_product_barcode
+#: code:addons/sky_product_barcode/models/product_template.py:0
+#, python-format
+msgid "Product with Barcode %s is not existing!"
+msgstr "باركود الصنف %s غير موجود"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__res_id
+msgid "Res"
+msgstr ""
+
+#. module: sky_product_barcode
+#: model:ir.actions.act_window,name:sky_product_barcode.action_find_product
+#: model:ir.actions.act_window,name:sky_product_barcode.action_product_barcode_wizard
+#: model:ir.ui.menu,name:sky_product_barcode.menu_product_barcode_wizard
+msgid "Scan"
+msgstr "مسح ضوئي"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__state
+msgid "State"
+msgstr "الحالة"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,field_description:sky_product_barcode.field_product_barcode_wizard__status
+msgid "Status"
+msgstr "حالة"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields,help:sky_product_barcode.field_product_barcode_wizard___barcode_scanned
+msgid "Value of the last barcode scanned."
+msgstr "أخر باركود تم مسحه ضوئيا"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields.selection,name:sky_product_barcode.selection__product_barcode_wizard__state__waiting
+msgid "Waiting"
+msgstr "الانتظار"
+
+#. module: sky_product_barcode
+#: model:ir.model.fields.selection,name:sky_product_barcode.selection__product_barcode_wizard__state__warning
+msgid "Warning"
+msgstr "تحذير"

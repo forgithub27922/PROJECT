@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- base_accounting_kit Inherit Template being called from the report -->
+    <template id="inherit_report_partnerledger" inherit_id="base_accounting_kit.report_partnerledger">
+        <xpath expr="//t/t/div/div/div" position="replace">
+            <div class="col-3">
+                <strong>School:</strong>
+                <p t-esc="env.company.name"/>
+            </div>
+        </xpath>
+    </template>
+</odoo>

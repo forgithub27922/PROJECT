@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Inherit Charts Of Accounts Tree view-->
+    <record id="inherit_charts_of_accounts_tree_view" model="ir.ui.view">
+        <field name="name">view.charts.of.accounts.tree.inherit</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_list"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Charts Of Accounts Form view-->
+    <record id="inherit_charts_of_accounts_form_view" model="ir.ui.view">
+        <field name="name">view.charts.of.accounts.form.inherit</field>
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_account_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

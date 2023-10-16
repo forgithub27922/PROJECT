@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<odoo>
+        <record id="sale_order_cancel_reason_view_form" model="ir.ui.view">
+            <field name="name">sale.order.cancel.reason.form</field>
+            <field name="model">sale.order.cancel.reason</field>
+            <field name="arch" type="xml">
+                <form string="Cancel Reason">
+                    <group class="oe_title">
+                        <field name="name"/>
+                        <field name="other_reason"  attrs="{'required': [('name','=','other')],'invisible': [('name','!=','other')]}"/>
+                        <field name="sale_order_ids" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="action_cancel_reason_apply" string="Submit" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!--<record id="action_sale_order_cancel_reason" model="ir.actions.server">
+            <field name="name">Cancellation History</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="grimm_tools.model_sale_order"/>
+            <field name="binding_model_id" ref="grimm_tools.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">
+action = records.open_cancel_reasons()
+            </field>
+        </record>-->
+
+        <record id="view_sale_order_cancel_reason_tree" model="ir.ui.view">
+            <field name="name">sale.order.cancel.reason.tree</field>
+            <field name="model">sale.order.cancel.reason</field>
+            <field name="arch" type="xml">
+                <tree string="Cancel Reason">
+                    <field name="name"/>
+                    <field name="other_reason"/>
+                    <field name="create_uid"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_order_reject_reason_action" model="ir.actions.act_window">
+            <field name="name">Cancel Reason</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order.cancel.reason</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="sale_order_cancel_reason_view_form"/>
+            <field name="target">new</field>
+        </record>
+</odoo>

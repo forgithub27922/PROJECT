@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record model="workflow" id="grimm_ticket_workflow">
+            <field name="name">Grimm Ticket Workflow</field>
+            <field name="osv">grimm.ticket</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <!-- Workflow Activities -->
+
+        <record model="workflow.activity" id="new">
+            <field name="name">New</field>
+            <field name="wkf_id" ref="grimm_ticket_workflow" />
+            <field name="flow_start" eval="True" />
+            <field name="kind">function</field>
+            <field name="action">action_new()</field>
+        </record>
+
+        <record model="workflow.activity" id="confirmed">
+            <field name="name">Confirmed</field>
+            <field name="wkf_id" ref="grimm_ticket_workflow" />
+            <field name="kind">function</field>
+            <field name="action">action_confirm()</field>
+        </record>
+
+        <record model="workflow.activity" id="done">
+            <field name="name">Done</field>
+            <field name="wkf_id" ref="grimm_ticket_workflow" />
+            <field name="flow_stop" eval="True" />
+            <field name="kind">function</field>
+            <field name="action">action_done()</field>
+        </record>
+
+        <!-- Workflow Transitions -->
+
+        <record model="workflow.transition" id="grimm_ticket_new_to_confirmed">
+            <field name="act_from" ref="new"/>
+            <field name="act_to" ref="confirmed"/>
+            <field name="signal">new_to_confirmed</field>
+        </record>
+
+        <record model="workflow.transition" id="grimm_ticket_confirmed_to_new">
+            <field name="act_from" ref="confirmed"/>
+            <field name="act_to" ref="new"/>
+            <field name="signal">confirmed_to_new</field>
+        </record>
+
+        <record model="workflow.transition" id="grimm_ticket_done_to_new">
+            <field name="act_from" ref="done"/>
+            <field name="act_to" ref="new"/>
+            <field name="signal">done_to_new</field>
+        </record>
+
+        <record model="workflow.transition" id="grimm_ticket_confirmed_to_done">
+            <field name="act_from" ref="confirmed"/>
+            <field name="act_to" ref="done"/>
+            <field name="signal">confirmed_to_done</field>
+        </record>
+
+    </data>
+</openerp>

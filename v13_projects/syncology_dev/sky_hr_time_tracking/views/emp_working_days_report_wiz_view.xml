@@ -1,0 +1,44 @@
+<odoo>
+    <!-- Form view of Employee Working Days Report wizard -->
+    <record id="view_emp_working_days_report_wiz_form" model="ir.ui.view">
+        <field name="name">view.emp.working.days.report.wiz.form</field>
+        <field name="model">emp.working.days.report.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="state" invisible="1"/>
+                <group name="grp_report_filter" states="init">
+                    <field name="report_by" required="1"/>
+                    <field name="year"
+                           attrs="{'invisible':[('report_by','=','by_date')], 'required':[('report_by','!=','by_date')]}"/>
+                    <field name="month"
+                           attrs="{'invisible':[('report_by','!=','by_month')], 'required':[('report_by','=','by_month')]}"/>
+                    <field name="start_date"
+                           attrs="{'invisible':[('report_by','!=','by_date')], 'required':[('report_by','=','by_date')]}"/>
+                    <field name="end_date"
+                           attrs="{'invisible':[('report_by','!=','by_date')], 'required':[('report_by','=','by_date')]}"/>
+                    <field name="company_id"/>
+                </group>
+                <field name="employee_ids" states="init"/>
+                <group name="grp_file" states="done" colspan="4">
+                    <field name="name" invisible="1"/>
+                    <field name="file_download" filename="name" readonly="1"/>
+                </group>
+                <footer states="init">
+                    <button name="print_report" string="Print" type="object"
+                            class="oe_highlight" />
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Working Days Report -->
+    <record id="action_emp_working_days_report" model="ir.actions.act_window">
+        <field name="name">Employee Working Days Report</field>
+        <field name="res_model">emp.working.days.report.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_emp_working_days_report" action="action_emp_working_days_report" parent="sky_hr_time_tracking.menu_time_tracking_reporting"/>
+</odoo>

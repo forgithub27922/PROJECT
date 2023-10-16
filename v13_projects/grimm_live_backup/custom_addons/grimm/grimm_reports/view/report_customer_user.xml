@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="grimm_customer_user">
+            <td colspan="2" class="customer-user" style="font-weight: 200;">
+                <t t-if="'picking_type_id' in doc and doc.picking_type_id.id == 6">
+                    <t t-if="doc.sale_id.partner_shipping_id.parent_id">
+                        <t t-if="doc.sale_id.partner_shipping_id.parent_id.name != doc.partner_id.name">
+                            <span t-field="doc.sale_id.partner_shipping_id.parent_id.name"/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-if="doc.sale_id.partner_shipping_id.function">
+                        <span t-field="doc.sale_id.partner_shipping_id.function"/>
+                    </t>
+                    <t t-if="doc.sale_id.partner_shipping_id.title">
+                        <span t-field="doc.sale_id.partner_shipping_id.title.name"/>
+                    </t>
+                    <span t-field="doc.sale_id.partner_shipping_id.name"/>
+                    <br/>
+                    <t t-if="doc.sale_id.partner_shipping_id.phone">
+                        <i class="fa fa-phone" t-attf-style="padding-right: 5px; color:{{doc.company_id.theme_color}};"></i>
+                        <span t-field="doc.sale_id.partner_shipping_id.phone"/>
+                        <br/>
+                    </t>
+                    <t t-if="doc.sale_id.partner_shipping_id.mobile">
+                        <i class="fa fa-mobile fa-lg" t-attf-style="padding-right: 10px; color:{{doc.company_id.theme_color}};"></i>
+                        <span t-field="doc.sale_id.partner_shipping_id.mobile"/>
+                        <br/>
+                    </t>
+                    <t t-if="doc.sale_id.partner_shipping_id.email">
+                        <i class="fa fa-envelope" t-attf-style="padding-right: 5px; color:{{doc.company_id.theme_color}};"></i>
+                        <span t-field="doc.sale_id.partner_shipping_id.email"/>
+                        <br/>
+                    </t>
+                </t>
+                <t t-else="">
+                    <t t-if="doc.partner_id.parent_id">
+                        <t t-if="doc.partner_id.parent_id.name != doc.partner_id.name">
+                            <span t-field="doc.partner_id.parent_id.name"/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-if="doc.partner_id.function">
+                        <span t-field="doc.partner_id.function"/>
+                    </t>
+                    <t t-if="doc.partner_id.title">
+                        <span t-field="doc.partner_id.title.name"/>
+                    </t>
+                    <span t-field="doc.partner_id.name"/>
+                    <br/>
+                    <t t-if="doc.partner_id.phone">
+                        <i class="fa fa-phone" t-attf-style="padding-right: 5px; color:{{doc.company_id.theme_color}};"></i>
+                        <span t-field="doc.partner_id.phone"/>
+                        <br/>
+                    </t>
+                    <t t-if="doc.partner_id.mobile">
+                        <i class="fa fa-mobile fa-lg" t-attf-style="padding-right: 10px; color:{{doc.company_id.theme_color}};"></i>
+                        <span t-field="doc.partner_id.mobile"/>
+                        <br/>
+                    </t>
+                    <t t-if="doc.partner_id.email">
+                        <i class="fa fa-envelope" t-attf-style="padding-right: 5px; color:{{doc.company_id.theme_color}};"></i>
+                        <span t-field="doc.partner_id.email"/>
+                        <br/>
+                    </t>
+                </t>
+            </td>
+        </template>
+    </data>
+</odoo>

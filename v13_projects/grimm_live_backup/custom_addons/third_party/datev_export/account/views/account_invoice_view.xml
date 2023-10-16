@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract support@openfellas.com
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+
+        <!-- Datev Account Invoice Tree View Inherit -->
+
+        <record id="datev_invoice_tree_inherite" model="ir.ui.view">
+            <field name="name">datev_invoice_tree_inherite</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_invoice_tree" />
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="exported_to_datev" />
+                </field>
+            </field>
+        </record>
+
+        <!--&lt;!&ndash; Datev Account Invoice Form View Inherit &ndash;&gt;-->
+
+        <record id="datev_invoice_form_inherit" model="ir.ui.view">
+            <field name="name">datev_invoice_form_inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form" />
+            <field name="arch" type="xml">
+                <field name="currency_id" position="after" >
+                    <field name="exported_to_datev" />
+                </field>
+                <!--<xpath expr="//field[@name='invoice_line_tax_ids']" position="after">-->
+                    <!--<field name="bu_code_b" />-->
+                    <!--<field name="bu_code_u" />-->
+                <!--</xpath>-->
+                <field name="journal_id" position="before">
+                    <field name="delivery_date" />
+                    <field name="delivery_date_start" />
+                    <field name="delivery_date_end" />
+                </field>
+            </field>
+        </record>
+
+        <!-- Datev Invoice Account Invoice Search View Inherit -->
+
+        <record id="datev_view_account_invoice_filter_inherit" model="ir.ui.view">
+            <field name="name">datev_view_account_invoice_filter_inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='date']" position="after" >
+                    <separator/>
+                    <filter name="datev_exported" string="Exported to DATEV" domain="[('exported_to_datev', '=', True)]"/>
+                    <filter name="datev_not_exported" string="Not Exported to DATEV" domain="[('exported_to_datev', '=', False)]"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>

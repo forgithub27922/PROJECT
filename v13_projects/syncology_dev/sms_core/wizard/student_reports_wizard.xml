@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_student_reports_wizard" model="ir.ui.view">
+			<field name="name">student.reports.wizard</field>
+			<field name="model">student.reports.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Student Reports">
+					<group>
+						<group>
+							<field name="report_type" required="1" />
+							<field name="filter" invisible="1"/>
+						</group>
+						<group>
+						
+						</group>
+					</group>
+					<group>
+						<group>
+							<field name="school_id" attrs="{'invisible':[('filter','=',False)]}"/>
+						</group>
+						<group>
+							<field name="class_id" attrs="{'invisible':[('filter','=',False)]}"/>
+						</group>
+					</group>
+					<footer>
+						<button name="check_report" type="object" string="Print"
+							class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_student_reports_wizard" model="ir.actions.act_window">
+			<field name="name">Student Reports</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">student.reports.wizard</field>
+			<field name="view_id" ref="view_student_reports_wizard" />
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+
+	</data>
+</odoo>

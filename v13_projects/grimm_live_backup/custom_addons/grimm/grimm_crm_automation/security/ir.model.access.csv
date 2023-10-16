@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_crm_automation_config","crm_automation_config Public Access","model_crm_automation_config","base.group_user",1,1,1,1
+"access_crm_automation_config_line","crm_automation_config_line Public Access","model_crm_automation_config_line","base.group_user",1,1,1,1
+"access_sale_automation_config","sale_automation_config Public Access","model_sale_automation_config","base.group_user",1,1,1,1
+"access_sale_reminder_log","sale_reminder_log Public Access","model_sale_reminder_log","base.group_user",1,1,1,1

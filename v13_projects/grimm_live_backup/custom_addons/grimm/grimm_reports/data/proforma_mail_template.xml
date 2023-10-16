@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data noupdate="1">
+    <!-- Proforma Email Template -->
+    <record id="email_template_proforma_invoice" model="mail.template">
+      <field name="name">Grimm Proforma Invoice - Standard</field>
+      <field name="email_from">
+        ${(object.user_id.email and '%s &lt;%s&gt;' % (object.user_id.name, object.user_id.email) or '')|safe}
+      </field>
+      <field name="subject">Vorkasse-Rechnung (Ref ${object.number or object.invoice_origin or 'n/a'})
+        ${object.company_id.name}
+      </field>
+      <field name="partner_to">${object.partner_id.id}</field>
+      <field name="model_id" ref="account.model_account_move"/>
+      <field name="auto_delete" eval="True"/>
+      <field name="report_template" ref="grimm_reports.grimm_invoice_report"/>
+      <field name="report_name">Vorkasse_${(object.number or object.invoice_origin or '').replace('/','_')}</field>
+      <field name="lang">${object.partner_id.lang}</field>
+      <field name="body_html"><![CDATA[
+<div style="font-family:'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; ">
+    % if object.partner_id.name and object.partner_id.title.name in ['Frau','Frau Dr.','Frau Prof.','Fräulein']:
+    <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">Sehr geehrte ${object.partner_id.title.name} ${object.partner_id.name},</p>
+    % elif object.partner_id.name and object.partner_id.title.name in ['Herr','Herr Dr.','Herr Prof.','Dr.','Dipl. Ing.']:
+    <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">Sehr geehrter ${object.partner_id.title.name} ${object.partner_id.name},</p>
+    % else:
+    <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">Sehr geehrte Damen und Herren,</p>
+    % endif
+    <br>
+    <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">nachfolgend erhalten Sie zu Ihrem Auftrag unsere Vorkasserechnung.</p>
+    <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">Wir bitten diese zeitnah zu begleichen, damit wir Ihre Ware pünktlich zustellen können.</p><br>
+    <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">Bei weiteren Fragen stehen wir Ihnen gerne zur Verfügung.</p><br>
+    <div style="font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif;border-left:1px solid #8e0000;margin-left: 30px; padding-left: 5px;">
+        <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;"><strong style="font-weight:bold;">Zusammenfassung:</strong></p>
+        <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">Bestellnummer: ${object.number or object.invoice_origin}</p>
+        <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">Auftragssumme: ${format_amount(object.amount_total,object.currency_id)} </p>
+        % if object.origin_date:
+        <p style="margin:0px;font-size:13px;font-family:&quot;Lucida Grande&quot;, Helvetica, Verdana, Arial, sans-serif; 0px 9px 0px;">Auftragsdatum: ${datetime.datetime.strptime(str(object.origin_date.date()), '%Y-%m-%d').strftime('%d.%m.%Y') if object.origin_date else 'XX.YY.ZZZZ'}</p>
+        % endif
+    </div>
+</div>
+              ]]></field>
+    </record>
+
+  </data>
+</odoo>

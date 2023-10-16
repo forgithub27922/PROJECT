@@ -1,0 +1,116 @@
+// Variables
+@color-primary: #008ae8;
+@color-secondary: #fff;
+
+// Grimm Ticket Kanban
+.grimm_ticket_kanban {
+    justify-content: flex-start;
+
+    &.o_kanban_view {
+        &.o_kanban_grouped {
+            &.o_kanban_small_column {
+                .o_kanban_group {
+                    padding: 0;
+
+                    &:not(.o_column_folded) {
+                        width: initial;
+                        flex: 0 0 25%;
+                        min-width: 300px;
+
+                        .o_kanban_record {
+                            width: 98%;
+                            margin: 5px auto;
+                            padding: 0;
+                            background-color: @color-primary;
+                            color: @color-secondary;
+                        }
+                    }
+
+                    .o_kanban_header {
+                        text-align: center;
+                        margin: 0;
+
+                        .o_column_title {
+                            font-weight: 300;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .o_kanban_record {
+            box-shadow: none;
+
+            .oe_kanban_content {
+                display: flex;
+                flex-flow: row;
+                min-height: 80px;
+
+                .grimm_ticket_kanban_col_left {
+                    flex: 0 0 100px;
+                    display: flex;
+                    flex-flow: column;
+
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-flow: column;
+
+                        &.grimm_ticket_id {
+                            flex: 0 0 80px;
+
+                            span {
+                                text-align: center;
+                                font-size: 18px;
+                            }
+                        }
+
+                        &.grimm_ticket_division {
+                            padding: 5px 0;
+                            border-top: 2px solid @color-secondary;
+
+                            span {
+                                text-align: center;
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+
+                .grimm_ticket_kanban_col_right {
+                    flex: 1 1 auto;
+                    display: flex;
+                    flex-flow: column;
+                    border-left: 2px solid @color-secondary;
+                    padding: 0;
+
+                    .grimm_ticket_content {
+                        flex: 1 1 auto;
+                        padding: 17px 10px 17px 20px;
+
+                        h3 {
+                            margin: 0 0 5px 0;
+                        }
+                    }
+
+                    .grimm_ticket_footer {
+                        flex: 0 0 30px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 0 9px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .grimm_ticket_kanban {
+        justify-content: initial;
+    }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_block_form" model="ir.ui.view">
+        <field name="name">sale.order.block.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field name="block_id"/>
+            </field>
+            <xpath expr="//header/button[@name='action_quotation_send']"
+                   position="before">
+                <button name="action_remove_block"
+                        string="Release Block"
+                        type="object" class="btn-primary"
+                        groups="sale_block.group_sale_block"
+                        attrs="{'invisible': ['|',('block_id', '=', False),('state', '!=', 'sale')]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sales_order_block_filter" model="ir.ui.view">
+        <field name="name">sale.order.block.list.select</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field name="block_id"/>
+            </field>
+            <filter name="customer" position="after">
+                <filter string="Blocked Sales" name="blocked_sales"
+                        domain="[('block_id', '!=', False)]"/>
+            </filter>
+        </field>
+    </record>
+</odoo>

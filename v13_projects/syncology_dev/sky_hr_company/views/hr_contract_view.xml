@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- sky_hr_custom Inherit Form view of Employee Contract Type-->
+    <record id="inherit_view_hr_emp_contract_type_form" model="ir.ui.view">
+        <field name="name">view.hr.emp.contract.type.form</field>
+        <field name="model">hr.employee.contract.type</field>
+        <field name="inherit_id" ref="sky_hr_custom.view_hr_emp_contract_type_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_custom Inherit Tree view of Employee Contract Type-->
+    <record id="inherit_view_hr_emp_contract_type_tree" model="ir.ui.view">
+        <field name="name">inherit.view.hr.emp.contract.type.tree</field>
+        <field name="model">hr.employee.contract.type</field>
+        <field name="inherit_id" ref="sky_hr_custom.view_hr_emp_contract_type_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

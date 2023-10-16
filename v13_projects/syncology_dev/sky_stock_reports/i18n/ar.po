@@ -1,0 +1,84 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sky_stock_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0-20211229\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-22 12:03+0000\n"
+"PO-Revision-Date: 2022-02-24 08:57+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"Language: ar_EG\n"
+"X-Generator: Poedit 2.2\n"
+
+#. module: sky_stock_reports
+#: model_terms:ir.ui.view,arch_db:sky_stock_reports.view_product_movement_form
+msgid "Cancel"
+msgstr "تجاهل"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz__create_uid
+msgid "Created by"
+msgstr "انشئ بواسطة"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz__create_date
+msgid "Created on"
+msgstr "انشئ في"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz__date
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz__id
+msgid "ID"
+msgstr "رقم المعرّف"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz____last_update
+msgid "Last Modified on"
+msgstr "تاريخ آخر تعديل"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: sky_stock_reports
+#: model:ir.model,name:sky_stock_reports.model_warehouse_daily_operations_wiz
+msgid "Movements of the Products"
+msgstr "حركة الأصناف"
+
+#. module: sky_stock_reports
+#: model_terms:ir.ui.view,arch_db:sky_stock_reports.view_product_movement_form
+msgid "Print"
+msgstr "طباعة"
+
+#. module: sky_stock_reports
+#: model:ir.actions.act_window,name:sky_stock_reports.action_product_movement_wiz
+#: model:ir.ui.menu,name:sky_stock_reports.menu_product_movement_wiz
+msgid "Product Movement"
+msgstr "حركة صنف"
+
+#. module: sky_stock_reports
+#: model:ir.model.fields,field_description:sky_stock_reports.field_warehouse_daily_operations_wiz__warehouse_id
+msgid "Warehouse"
+msgstr "مخازن"

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="grimm_product_template_package_inherit" model="ir.ui.view">
+            <field name="name">grimm_product_template_package_inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <group name="sale" position="after">
+                    <group name="product_package" string="Product Package">
+                        <field name="is_package"/>
+                        <field name="package_id" create="false" attrs="{'invisible':[('is_package','=', False)],'required':[('is_package','=', True)]}"/>
+                    </group>
+                </group>
+                <div name="button_box" position="inside">
+                    <button class="oe_stat_button" name="grimm_action_view_sales" type="object" icon="fa-usd" groups="sales_team.group_sale_salesman" help="Sold in the last 365 days">
+                        <field name="sales_count"/>
+                        <field name="uom_name"/>
+                        <span class="o_stat_text">Sold</span>
+                    </button>
+                </div>
+            </field>
+        </record>
+
+        <record id="grimm_action_product_sale_list" model="ir.actions.act_window">
+                <field name="name">Sales Order Lines</field>
+                <field name="res_model">sale.order.line</field>
+                <field name="help">Sold in the last 365 days</field>
+                <field name="view_mode">tree,form</field>
+                <field name="context">{'search_default_product_id': [active_id], 'default_product_id': active_id}</field>
+                <field name="domain">[('state', 'in', ['sale', 'done'])]</field>
+        </record>
+
+        <!--<record id="grimm_product_template_forecast_quantity" model="ir.ui.view">
+            <field name="name">grimm_product_template_forecast_quantity</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.product_template_form_view_procurement_button"/>
+            <field name="arch" type="xml">
+                <xpath expr="//span[@class='o_stat_value']" position="replace">
+                    <span class="o_stat_value">
+                        <field name="virtual_available" widget="statinfo" nolabel="1"/>
+                        <span attrs="{'invisible':[('outgoing_qty', '=', 0),('incoming_qty','=',0)]}">
+                            (-<field name="outgoing_qty" widget="statinfo" nolabel="1"/>+<field name="incoming_qty"
+                                                                                                widget="statinfo"
+                                                                                                nolabel="1"/>)
+                        </span>
+                    </span>
+                </xpath>
+            </field>
+        </record>-->
+
+        <record id="grimm_product_template_search_view_extension" model="ir.ui.view">
+            <field name="name">Product template search view extension</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <filter string="Last Image Updated" name="by_last_image" domain="[]" context="{'group_by': 'last_image_updated'}"/>
+                    <field name="base_default_code" string="Base Internal Reference"
+                           filter_domain="[('base_default_code','ilike',self)]"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_ir_sequence_form_view_extension" model="ir.ui.view">
+            <field name="name">IR Sequence Form View >Extension</field>
+            <field name="model">ir.sequence</field>
+            <field name="inherit_id" ref="base.sequence_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='date_to']" position="after">
+                    <field name="seq_prefix"/>
+                </xpath>
+                <xpath expr="//tree/field[@name='number_next_actual']" position="after">
+                    <field name="seq_suffix"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="grimm_rapid_creation_product_product" model="ir.ui.view">
+            <field name="name">Rapid Product Creation</field>
+            <field name="model">product.product</field>
+            <field name="arch" type="xml">
+                <form string="Rapid Product Creation">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button"/>
+                            </button>
+                        </div>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                            <div name="options" groups="base.group_user">
+                                <div>
+                                    <field name="sale_ok"/>
+                                    <label for="sale_ok"/>
+                                </div>
+                                <div>
+                                    <field name="purchase_ok"/>
+                                    <label for="purchase_ok"/>
+                                </div>
+                            </div>
+                        </h1>
+                        <notebook>
+                            <page string="General Information" name="api">
+                                <group colspan="4" col="4">
+                                    <field name="categ_id" string="Category"/>
+                                    <field name="default_code"/>
+                                    <field name="rrp_price"/>
+                                    <field name="hs_code"/>
+                                    <field name="route_ids" widget="many2many_checkboxes"/>
+                                    <field name="barcode" invisible="1"/>
+                                    <field name="invoice_policy" invisible="1"/>
+                                    <field name="product_variant_count" invisible="1"/>
+                                    <field name="type" invisible="1"/>
+                                </group>
+                                <group name="fast_creation" string="Description for Customers"
+                                       attrs="{'invisible': [('sale_ok','=',False)]}">
+                                    <field name="description_sale" nolabel="1"
+                                           placeholder="This note will show up on sales orders."/>
+                                </group>
+                            </page>
+                            <page string="Purchase" name="purchase" attrs="{'invisible': [('purchase_ok','=',False)]}">
+                                <group string="Vendors" name="vendors"
+                                       attrs="{'invisible': [('product_variant_count','&gt;',1)]}">
+                                    <field name="seller_ids"
+                                           context="{'default_product_tmpl_id':context.get('product_tmpl_id',active_id), 'product_template_invisible_variant': True}"
+                                           nolabel="1"/>
+                                </group>
+                                <group string="Vendors" name="variant_vendors"
+                                       attrs="{'invisible': [('product_variant_count','&lt;=',1)]}">
+                                    <field name="variant_seller_ids"
+                                           context="{'default_product_tmpl_id': context.get('product_tmpl_id', active_id)}"
+                                           nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div>
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_server_remove_all_binding" model="ir.actions.server">
+            <field name="name">Remove Magento Bindings</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="grimm_tools.model_product_template"/>
+            <field name="binding_model_id" ref="grimm_tools.model_product_template"/>
+            <field name="groups_id" eval="[(4, ref('connector.group_connector_manager'))]"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.grimm_remove_all_bindings(active_ids=dict(env.context).get('active_ids', []))
+            </field>
+        </record>
+    </data>
+</openerp>

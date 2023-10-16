@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="product_import_convert_wizard" model="ir.ui.view">
+            <field name="name">product_import_convert</field>
+            <field name="model">product.import.convert</field>
+            <field name="arch" type="xml">
+                <form string="Convert File">
+                    <group>
+                        <field name="operation_type" widget='radio' options="{'horizontal': true}"/>
+                        <field name="filename" invisible="1"/>
+                        <field name="csv_file" filename="filename"/>
+                    </group>
+
+                    <group>
+                        <field name="download_link" readonly="1" attrs="{'invisible':[('operation_type','=','import')]}"/>
+                    </group>
+                    <field name="upload_info" readonly="1"/>
+                    <footer>
+                        <button name="import_file" string="Import" attrs="{'invisible':[('operation_type','=','convert'), ('csv_file', '=', False)]}" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_product_import_convert_wizard" model="ir.actions.act_window">
+            <field name="name">Product Import Convert</field>
+            <field name="res_model">product.import.convert</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="product_import_convert_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="product_import_convert"
+                name="Product Import Convert"
+                parent="sale.product_menu_catalog"
+                sequence="40"
+                action="action_product_import_convert_wizard"/>
+    </data>
+</openerp>

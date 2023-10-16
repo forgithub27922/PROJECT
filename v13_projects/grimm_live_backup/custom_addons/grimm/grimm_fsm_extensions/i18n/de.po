@@ -1,0 +1,1144 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_fsm_extensions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-05 10:42+0000\n"
+"PO-Revision-Date: 2022-05-05 10:42+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_fsm_extensions
+#: model:mail.template,subject:grimm_fsm_extensions.grimm_fsm_mail_template_notify_manager
+msgid "${object.name} is done."
+msgstr "${object.name} erledigt."
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid ""
+"<b>\n"
+"                                        <span class=\"regular\" style=\"padding-top:4mm; padding-bottom:4mm;\">Wichtige\n"
+"                                            Hinweise\n"
+"                                        </span>\n"
+"                                    </b>\n"
+"                                    entnehmen Sie unseren"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "<br/><u>Wasserwerte</u>"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "<br/>Ansprechpartner vor Ort:"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "<br/>E-Mail :"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "<br/>Unterschrift des Servicetechnikers"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_sign_report_view_inherit
+msgid ""
+"<i class=\"fa fa-arrow-left\"/>\n"
+"                        Back to Ticket"
+msgstr ""
+"<i class=\"fa fa-arrow-left\"/>\n"
+"                        Zurück zum Ticket"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid ""
+"<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"Arrow icon\" "
+"title=\"Arrow\"/>"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:mail.template,body_html:grimm_fsm_extensions.grimm_fsm_mail_template_notify_manager
+msgid ""
+"<p>\n"
+"                    Hello ${object.manager_id.name or 'Manager'},\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    ${object.user_id.name or 'Technician'} just moved this task to Service Büro.\n"
+"                    <br/>\n"
+"                    <center><a href=\"/web#model=project.task&amp;id=${object.id}&amp;action=${object.env.ref('industry_fsm.project_task_action_fsm').id}&amp;view_type=form\" style=\"background-color:#009EE3;border-radius: 15px;color: white;padding: 10px 34px;text-align: center;text-decoration: none;display: inline-block;cursor: pointer;\">Open Ticket</a></center>\n"
+"                    <br/>\n"
+"                    With best regards from the gates of Berlin,\n"
+"                </p>\n"
+"            "
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:mail.template,body_html:grimm_fsm_extensions.grimm_fsm_mail_template_data_send_report
+msgid ""
+"<p>\n"
+"                    Hello ${object.partner_id.name or 'Customer'},\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Thank you for your order, which we were happy to carry out for you.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    We will send you the signed service report for your records in the appendix.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    If you have any questions, please contact us at service@grimm-gastrobedarf.de or on 0800/34 50 608.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    With best regards from the gates of Berlin,\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Your Team from GRIMM\n"
+"                </p>\n"
+"            "
+msgstr ""
+"<p>\n"
+"                    Guten Tag ${object.partner_id.name or 'Customer'},\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Vielen Dank für ihren Auftrag, den wir gerne für Sie ausgeführt haben. \n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Im Anhang übersenden wir ihnen den unterzeichneten Servicebericht für ihre Unterlagen.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Bei Fragen erreichen Sie uns unter service@grimm-gastrobedarf.de oder unter der Telefonnummer 0800 / 34 50 608.\n"
+"                    <br/>\n"
+"                    <br/>\n"
+"                    Mit freundlichen Grüßen von den Toren Berlins,\n"
+"                    <br/>\n"
+"                    Ihr Team von GRIMM\n"
+"                </p>\n"
+"            "
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid ""
+"<span class=\"align-middle\" modifiers=\"{}\">\n"
+"                            for this employee at the same time.\n"
+"                        </span>"
+msgstr ""
+"<span class=\"align-middle\" modifiers=\"{}\">\n"
+"                            Für diesen Mitarbeiter zur gleichen Zeit.\n"
+"                        </span>"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid ""
+"<span modifiers=\"{}\">\n"
+"                                                planned hours\n"
+"                                            </span>"
+msgstr ""
+"<span modifiers=\"{}\">\n"
+"                                                Planzeit\n"
+"                                            </span>"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "<span>mA</span>"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "<strong>Invoice address</strong> <br/>"
+msgstr "<strong>Rechnungsanschrift</strong> <br/>"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "<strong>Shipping address</strong><br/>"
+msgstr "<strong>Leistungs-/Lieferort</strong><br/>"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "<u>Prüfung gemäß der VDE0701, 0702 und DGUV</u>"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "AGB"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_form
+msgid "API"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__token
+msgid "API Token"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#, python-format
+msgid "Add Product"
+msgstr "Ersatzteil hinzufügen"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Add parts"
+msgstr "Ersatzteile hinzufügen"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Additional Parts"
+msgstr "verwendete Ersatzteile"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_account_analytic_line
+msgid "Analytic Line"
+msgstr "Analytischer Buchungssatz"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_grimm_asset_asset
+msgid "Asset"
+msgstr "Gerätebezeichnung"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__asset_lines
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Assets"
+msgstr "Geräte"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__user_ids
+msgid "Assign assistants"
+msgstr "zusätzlichem Techniker zuweisen"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Assign to Me"
+msgstr "mir zuweisen"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_project__user_ids
+msgid "Assistant manager"
+msgstr "Büro"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Auftrags-Nr."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#. openerp-web
+#: code:addons/grimm_fsm_extensions/static/src/xml/kanban_view.xml:0
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_sign_report_view_inherit
+#, python-format
+msgid "Back to Ticket"
+msgstr "Zurück zum Ticket"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Berührungsstrom"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet__bornemann_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_magento_address__bornemann_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_magento_res_partner__bornemann_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_res_partner__bornemann_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_res_users__bornemann_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_shopware_address__bornemann_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_shopware_invoice_address__bornemann_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_shopware_res_partner__bornemann_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_shopware_supplier__bornemann_id
+msgid "Bornemann"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_form
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_tree
+msgid "Bornemann Backend"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.actions.act_window,name:grimm_fsm_extensions.action_bornemann_config
+#: model:ir.ui.menu,name:grimm_fsm_extensions.bornemann_config_menu
+msgid "Bornemann Config"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.fleet_vehicle_view_map
+msgid "Bornemann ID"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_fleet_vehicle__bornemann_id
+msgid "Bornemann Id"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.constraint,message:grimm_fsm_extensions.constraint_bornemann_fleet_match_bornemann_id_uniq
+msgid "Bornemann Id must be unique !"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_fleet_vehicle__bornemann_partner_id
+msgid "Bornemann Partner Id"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Brand"
+msgstr "Marke"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_form
+msgid ""
+"By clicking on the buttons,\n"
+"                                    you will initiate the synchronizations\n"
+"                                    with Shopware6.\n"
+"                                    Note that the import or exports\n"
+"                                    won't be done directly,\n"
+"                                    they will create 'Jobs'\n"
+"                                    executed as soon as possible."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_parameter_view_form
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_product_wizard_view_form
+msgid "Cancel"
+msgstr "zurück"
+
+#. module: grimm_fsm_extensions
+#. openerp-web
+#: code:addons/grimm_fsm_extensions/static/src/js/action_call.js:0
+#, python-format
+msgid "Car"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_res_partner
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Contact"
+msgstr "Kontakt vor Ort"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Create Invoice"
+msgstr "Rechnung erstellen"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Create Sales Order"
+msgstr "Verkaufsauftrag erstellen"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_project_task_create_timesheet
+msgid "Create Timesheet from task"
+msgstr "Erzeuge Stundenzettel aus Aufgabe"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__create_uid
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet__create_uid
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__create_uid
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__create_uid
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__create_uid
+msgid "Created by"
+msgstr "Erzeugt von"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__create_date
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet__create_date
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__create_date
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__create_date
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__create_date
+msgid "Created on"
+msgstr "Erzeugt am"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Customer"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Customer Inventory No"
+msgstr "Inventarnummer Kunde"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid ""
+"Das Gerät wurde übergeben und die Richtigkeit der Angaben werden "
+"bescheinigt."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Date"
+msgstr "Datum"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Days"
+msgstr "Tage"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__asset_id
+msgid "Device"
+msgstr "Gerät"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Die genannten Arbeiten wurden ordnungsgemäß durchgeführt."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__map_direction
+msgid "Direction"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__display_name
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet__display_name
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__display_name
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__display_name
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.fleet_vehicle_view_map
+msgid "Driver"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#. openerp-web
+#: code:addons/grimm_fsm_extensions/static/src/js/action_call.js:0
+#, python-format
+msgid "Driver Name"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Employee"
+msgstr "Mitarbeiter"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Erstellt am"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Extra Info"
+msgstr "zusätzliche Informationen"
+
+#. module: grimm_fsm_extensions
+#: model:ir.actions.server,name:grimm_fsm_extensions.ir_cron_inform_manager_ir_actions_server
+#: model:ir.cron,cron_name:grimm_fsm_extensions.ir_cron_inform_manager
+#: model:ir.cron,name:grimm_fsm_extensions.ir_cron_inform_manager
+msgid "Field Service - Project Task overdue"
+msgstr "Technischer Service - Aufgabe überfällig"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_res_users__field_service_signature
+msgid "Field Service Signature"
+msgstr "Technischer Service - Unterschrift"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_magento_sale_order__free_products
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__free_products
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_sale_order__free_products
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_shopware_sale_order__free_products
+msgid "Free Text Product"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__full_demineralisation_conductance
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__full_demineralisation_conductance
+msgid "Full demineralisation conductance uS/cm"
+msgstr "Vollentsalzung Leitwert uS/cm"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "GRIMM Gastronomiebedarf GmbH."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Gantt"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Helpdesk"
+msgstr "Support"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Hours"
+msgstr "Stunden"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet__id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Ihr Servicetechniker"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid ""
+"Im Rahmen eines Kundendienstauftrages werden personenbezogene (Name, Anschrift, Kontaktdaten) und gerätebezogene\n"
+"(Seriennummer, Gerätestatus, etc.) Daten erhoben und verarbeitet. Die Verarbeitung dieser Daten ist zwingend für die\n"
+"Durchführung des Kundendienstauftrages erforderlich, Art. 6 Abs. 1 lit. b.) DSGVO. Darüber hinaus werden wir die o.g. Daten im\n"
+"Rahmen der Produktüberwachung und Produktbeobachtung auswerten und ggf. auch an betroffene Lieferanten übermitteln. Als\n"
+"Hersteller unterliegen wir entsprechenden Pflichten aus Produkthaftungs- und Produktsicherungsgesetzen - die Rechtsgrundlage\n"
+"für die Datenverarbeitung ist Art. 6 Abs. 1 lit. c) der DSGVO. Weiterhin werden die o.g. Daten pseudonymisiert und in\n"
+"pseudonymisierter Form ausgewertet, damit wir unsere Produkte laufend optimieren können. Die Rechtsgrundlage dafür ist Art. 6\n"
+"Abs. 1 lit. f) DSGVO, wobei die Optimierung unserer Produkte gleichzeitig unser berechtigtes Interesse begründet. Die Daten\n"
+"werden bei uns nur solange gespeichert wie sie zur Erfüllung der vorgenannten Zwecke erforderlich sind. Eine darüber\n"
+"hinausgehende Speicherung der Daten erfolgt nur, soweit wir aufgrund von rechtlichen Gründen zu einer längeren Speicherung\n"
+"verpflichtet sind. Weitere Informationen über die Verarbeitung Ihrer Daten, insbesondere zu Ihren Betroffenenrechten, finden Sie\n"
+"in unserer Datenschutzerklärung (https://www.grimm-gastrobedarf.de/datenschutz.html)."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_form
+msgid "Imports"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__insulation_resistance
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__insulation_resistance
+msgid "Insulation resistance Ω"
+msgstr "Isolationswiderstand MΩ"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__is_free_products
+msgid "Is Free product ?"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__is_parameter_done
+msgid "Is parameter done?"
+msgstr "Parameter ausgefüllt?"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Isolationswiderstand"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,help:grimm_fsm_extensions.field_bornemann_config__is_print_log
+msgid "It will log api call in logger file."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Ja"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config____last_update
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet____last_update
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter____last_update
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product____last_update
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard____last_update
+msgid "Last Modified on"
+msgstr "zuletzt geändert am"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__write_uid
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet__write_uid
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__write_uid
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__write_uid
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__write_uid
+msgid "Last Updated by"
+msgstr "zuletzt bearbeitet von"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__write_date
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet__write_date
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__write_date
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__write_date
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__write_date
+msgid "Last Updated on"
+msgstr "zuletzt bearbeitet am"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Launch the Timer"
+msgstr "Zeitaufnahme starten"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__location
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__location_ids
+msgid "Location"
+msgstr "Standort"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__is_print_log
+msgid "Log API call?"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Mobile :"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__name
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_fleet__name
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__product_name
+msgid "Name"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Nein"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "New Quotation"
+msgstr "Neues Angebot"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Offene Leistungen:"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_form
+msgid ""
+"Once imported,\n"
+"                                    some types of records,\n"
+"                                    like the products or categories,\n"
+"                                    need a manual review.\n"
+"                                    You will find the list\n"
+"                                    of the new records to review\n"
+"                                    in the menu 'Connectors &gt; Checkpoint'."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__order_id
+msgid "Order ID"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__order_line_id
+msgid "Order Line ID"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.fsm_project_task_form_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_parameter_view_form
+#, python-format
+msgid "Parameter"
+msgstr "Prüfungen"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Pause"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Phone :"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Platzierung"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__product_price
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__product_price
+msgid "Price"
+msgstr "Einzelpreis"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_product_wizard_view_form
+msgid "Product"
+msgstr "Ersatzteil"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_task_product_wizard
+msgid "Product Wizard"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_project_project
+msgid "Project"
+msgstr "Projekt"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__task_id
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__task_id
+msgid "Project Task"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_project_task_parameter
+msgid "Project Task Parameter"
+msgstr "Aufgabenparameter"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_project_task_product
+msgid "Project Task Product"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__conductor_current
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__conductor_current
+msgid "Protective conductor current mA"
+msgstr "Schutzleiterstrom mA"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__conductor_resistance
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__water_conductor_resistance
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__conductor_resistance
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__water_conductor_resistance
+msgid "Protective conductor resistance Ω"
+msgstr "Schutzleiterwiderstand Ω"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_product__product_qty
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__product_qty
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Quantity"
+msgstr "Anzahl"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Quotations"
+msgstr "Angebote"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Resume"
+msgstr "Fortsetzen"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Rohwasserhärte"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "SERVICEBERICHT"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "SKU"
+msgstr "Artikel-Nr."
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag "
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Sales Order Item"
+msgstr "Verkaufsauftragsposition"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Scanned Products"
+msgstr "gescannte Produkte"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Schutzleiterstrom"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Schutzleiterwiderstand"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Send Report"
+msgstr "Bericht senden"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Serial Number"
+msgstr "Seriennummer"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Service Büro"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:mail.template,subject:grimm_fsm_extensions.grimm_fsm_mail_template_data_send_report
+msgid "Service auftrag ${object.name}"
+msgstr "Service Auftrag ${object.name}"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_form
+msgid "Shopware6 Configuration"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Sign Report"
+msgstr "Bericht unterschreiben"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Standardort"
+msgstr "Standort"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Start"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Stop"
+msgstr "Stopp"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Stop the Timer"
+msgstr "Zeitnahme anhalten"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_parameter_view_form
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_product_wizard_view_form
+msgid "Submit"
+msgstr "Speichern"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_form
+msgid "Synchronize Metadata"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_project_task
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__task_ids
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Task"
+msgstr "Aufgabe"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_grimm_asset_asset__task_id
+msgid "Task ID"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Task Title..."
+msgstr "Aufgaben Name"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Techniker"
+msgstr "Techniker zuweisen"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.fsm_project_task_form_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_parameter_view_form
+msgid "Testing according to VDE0701, 0702 and DGUV"
+msgstr "Prüfung gemäß der VDE0701, 0702 und DGUV"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Ticket from this task"
+msgstr "Ticket von dieser Aufgabe"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Ticket-NR."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Tickets"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Time"
+msgstr "Zeit"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Time &amp; Material"
+msgstr "Material &amp; Pauschalen"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Time Spent"
+msgstr "Zeitaufwand"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Time recorded on this task"
+msgstr "registrierte Zeit für diese Aufgabe"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_account_analytic_line__timer_start
+msgid "Timer Start"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_account_analytic_line__timer_stop
+msgid "Timer Stop"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Timesheet"
+msgstr "Stundenzettel"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Timesheets"
+msgstr "Arbeitszeit"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__touch_current
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__touch_current
+msgid "Touch current mA"
+msgstr "Berührungsstrom mA"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Transfer Scanned Products to Sale Order"
+msgstr "übertrage eingescannte Produkte"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Typ/Model"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,help:grimm_fsm_extensions.field_bornemann_config__location
+msgid "Url to Bornemann application"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_res_users
+msgid "Users"
+msgstr "Benutzer"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_fleet_vehicle
+msgid "Vehicle"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.fleet_vehicle_view_map
+msgid "Vehicle Name"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_bornemann_config__version
+msgid "Version"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Vollentsalzung Leitwert"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "Wasserzulauf Gesamthärte"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__water_total_hardness
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__water_total_hardness
+msgid "Water Total hardness ºdH"
+msgstr "Wasserzulauf Gesamthärte ºdH"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task__water_hardness
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_project_task_parameter__water_hardness
+msgid "Water hardness ºdH"
+msgstr "Rohwasserhärte ºdH"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.fsm_project_task_form_inherit
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_parameter_view_form
+msgid "Water values"
+msgstr "Wasserwerte"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,help:grimm_fsm_extensions.field_bornemann_config__token
+msgid "Webservice API Token"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Working Time to Assign"
+msgstr "Zuzuweisende Arbeitszeit"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "Working Time to Close"
+msgstr "Arbeitszeit bis zum Abschluss"
+
+#. module: grimm_fsm_extensions
+#: model:mail.template,report_name:grimm_fsm_extensions.grimm_fsm_mail_template_data_send_report
+#: model:mail.template,report_name:grimm_fsm_extensions.grimm_fsm_mail_template_notify_manager
+msgid ""
+"Worksheet\n"
+"                ${object.name}${(' - ' + object.partner_id.name) if object.partner_id else ''}.pdf\n"
+"            "
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid ""
+"You can not log timesheets on this project since is linked to an inactive\n"
+"                                        analytic account. Please change it, or reactivate the current one to timesheet\n"
+"                                        on the project."
+msgstr ""
+"Sie können für dieses Projekt keine Stundenzettel protokollieren, da es mit einem inaktiven Projekt verknüpft ist.\n"
+"Bitte ändern Sie das Projekt oder reaktivieren Sie das aktuelle Zeiterfassungsblatt."
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#, python-format
+msgid "You have defined wrong value."
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#. openerp-web
+#: code:addons/grimm_fsm_extensions/static/src/js/action_call.js:0
+#, python-format
+msgid "action_invoices"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#, python-format
+msgid "approx."
+msgstr "ca."
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_bornemann_config
+msgid "bornemann.config"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model:ir.model,name:grimm_fsm_extensions.model_bornemann_fleet
+msgid "bornemann.fleet"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#, python-format
+msgid "days"
+msgstr "Tage"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.view_bornemann_config_form
+msgid "e.g. http://my.server.com"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "hour(s)"
+msgstr "Stunden"
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#, python-format
+msgid "hours"
+msgstr "Stunden"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "mA"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#, python-format
+msgid "minutes"
+msgstr "Minuten"
+
+#. module: grimm_fsm_extensions
+#: model:ir.model.fields,field_description:grimm_fsm_extensions.field_task_product_wizard__product_name
+msgid "name"
+msgstr "Bezeichnung"
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#, python-format
+msgid "o'clock"
+msgstr " Uhr"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.grimm_fsm_project_task_form_view
+msgid "other tasks"
+msgstr "andere Aufgabe"
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.project_task_product_wizard_view_form
+msgid "product"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "uS/cm"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: code:addons/grimm_fsm_extensions/models/project_task.py:0
+#, python-format
+msgid "weeks"
+msgstr ""
+
+#. module: grimm_fsm_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_fsm_extensions.worksheet_custom_page_inherit
+msgid "ºdH"
+msgstr ""

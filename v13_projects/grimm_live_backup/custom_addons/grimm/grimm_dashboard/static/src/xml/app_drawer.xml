@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+<div t-name="DisplayStats" class="toast app_drawer_stats" t-att-data-autohide="is_mobile" data-delay="5000">
+<!--    <a id="stat_opener" data-toggle="popover" href="#disp_stats" style="color: white;" class="fa fa-chevron-left fa-lg" aria-expanded="true"></a>-->
+    <div class="toast-header">
+      <strong class="mr-auto text-primary fa fa-info-circle"> Information</strong>
+        <small class="text-muted"></small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast"><![CDATA[&times;]]></button>
+    </div>
+    <div class="toast-body">
+        <p>Umsatz aktueller Monat / netto:</p>
+        <p>Service: <span t-att-class="cls_service"><t t-esc="service"></t></span></p>
+        <p>Vertrieb: <span t-att-class="cls_sales"><t t-esc="sales"></t></span></p>
+        <p>Shop: <span t-att-class="cls_shop"><t t-esc="shop"></t></span></p>
+        <p>Projekt: <span t-att-class="cls_project"><t t-esc="project"></t></span></p>
+        <br/>
+        <p>Hinweis:</p>
+        <p>Beinhaltet Vorkassen, Rechnungen</p>
+    </div>
+</div>
+</templates>

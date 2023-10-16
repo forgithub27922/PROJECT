@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <template id="grimm_picking_report" name="Grimm Picking Report Inherit" inherit_id="stock.report_picking">
+        <xpath expr="//th[@name='th_barcode']" position="after">
+            <th name="th_photo_required" class="text-center" t-if="has_barcode">
+                <strong>Photo Required ?</strong>
+            </th>
+        </xpath>
+        <xpath expr="//tr/td[@t-if='has_barcode']" position="before">
+            <td class="text-right"><span t-if="not move.product_id.is_photo_done">Yes</span><span t-if="move.product_id.is_photo_done">No</span></td>
+        </xpath>
+    </template>
+</openerp>

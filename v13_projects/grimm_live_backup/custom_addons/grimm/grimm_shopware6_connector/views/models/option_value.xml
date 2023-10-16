@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="grimm_custom_product_option_value_list">
+            <field name="name">Custom Products Option Value</field>
+            <field name="model">grimm_custom_product.option_value</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="sku"/>
+                    <field name="product_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- form view -->
+       <record model="ir.ui.view" id="grimm_custom_product_option_value_form_view">
+            <field name="name">grimm_custom_product.option_value.form.view</field>
+            <field name="model">grimm_custom_product.option_value</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Record">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="sku"/>
+                            <field name="product_id" required="True"/>
+                            <field name="use_product_price"/>
+                            <field name="price" attrs="{'invisible': [('use_product_price', '=', True)], 'required' : [('use_product_price', '=', True)]}"/>
+                        </group>
+                        <notebook>
+                            <page string="Shopware6 Binding">
+                                <field name="shopware6_bind_ids"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

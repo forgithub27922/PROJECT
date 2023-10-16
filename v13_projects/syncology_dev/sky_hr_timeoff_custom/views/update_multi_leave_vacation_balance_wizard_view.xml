@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Update Multiple Leave/Vacation Balance Wizard View -->
+    <record id="update_multi_leave_vacation_balance_wizard_view" model="ir.ui.view">
+        <field name="name">update.multi.leave.vacation.balance.wizard.view</field>
+        <field name="model">update.multi.leave.vacation.balance</field>
+        <field name="arch" type="xml">
+            <form string="Update Multiple Leave/Vacation Balance">
+                <group>
+                    <group>
+                        <field name="update_type" required="1"/>
+                        <field name="holiday_status_id" required="1" domain="[('leave_type','=',update_type)]"/>
+                        <field name="employee_ids" widget="many2many_tags" required="1"/>
+                    </group>
+                    <group colspan="2" col="4" string="Leaves" attrs="{'invisible': [('update_type', '=', 'vacation')]}">
+                        <field name="new_leave_balance"/>
+                        <field name="new_leave_monthly_allowance"/>
+                    </group>
+                    <group colspan="2" col="4" string="Vacations" attrs="{'invisible': [('update_type', '=', 'leave')]}">
+                        <field name="new_vacation_balance"/>
+                        <field name="new_vacation_monthly_allowance"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Confirm" class="btn-primary"
+                            name="action_confirm" type="object"/>
+                    <button string="Cancel" class="btn btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="update_multi_leave_vacation_balance_wizard_action" model="ir.actions.act_window">
+        <field name="name">Update Multiple Leave/Vacation Balance</field>
+        <field name="res_model">update.multi.leave.vacation.balance</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <menuitem id="update_multi_leave_vacation_balance_wizard_menu" name="Update Leave/Vacation Balance"
+                  parent="sky_hr_custom.menu_hr_emp_custom"
+                  action="update_multi_leave_vacation_balance_wizard_action" sequence="20"
+                groups="hr.group_hr_manager,hr.group_hr_user"/>
+
+</odoo>

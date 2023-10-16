@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="view_shopware_shop_form" model="ir.ui.view">
+            <field name="name">shopware.shop.form</field>
+            <field name="model">shopware.shop</field>
+            <field name="arch" type="xml">
+                <form string="Shopware shop">
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline" />
+                        </h1>
+                        <group name="shopware_shop_details">
+                            <notebook>
+                                <page name="api" string="Shop Details">
+                                    <group colspan="4" col="4">
+                                        <field name="shopware_id" readonly="1"/>
+                                        <field name="secure" colspan="4"/>
+                                        <field name="no_sales_order_sync" colspan="4"/>
+                                        <field name="import_orders_from_date" colspan="2"/>
+                                        <button name="import_sale_orders"
+                                            type="object"
+                                            class="oe_highlight"
+                                            string="Import Shop Orders" attrs="{'invisible': [('no_sales_order_sync', '=', True)]}"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_shopware_shop_tree" model="ir.ui.view">
+            <field name="name">shopware.shop.tree</field>
+            <field name="model">shopware.shop</field>
+            <field name="arch" type="xml">
+                <tree string="Shopware Backend">
+                    <field name="name"/>
+                    <field name="shopware_id" readonly="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_shopware_shop" model="ir.actions.act_window">
+            <field name="name">Shopware Shop</field>
+            <field name="res_model">shopware.shop</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_shopware_shop_tree"/>
+        </record>
+
+
+    <menuitem id="backend_shopware_shop"
+            name="Shopware Shops"
+            parent="backend_shopware"
+            sequence="40"
+            action="action_shopware_shop"/>
+</data>
+</openerp>

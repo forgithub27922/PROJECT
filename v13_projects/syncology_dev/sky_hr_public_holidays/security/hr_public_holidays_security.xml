@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Group for Public Holidays -->
+    <record id="group_public_holidays" model="res.groups">
+        <field name="name">Public Holidays</field>
+    </record>
+
+</odoo>

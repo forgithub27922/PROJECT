@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Inherited form view of Tracking Line -->
+    <record id="view_tracking_line_tree_payroll_inherit" model="ir.ui.view">
+        <field name="name">view.tracking.line.tree.payroll.inherit</field>
+        <field name="model">time.tracking.line</field>
+        <field name="inherit_id" ref="sky_hr_time_tracking.view_time_tracking_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='pg_attendance']" position="after">
+                <page name="pg_additions" string="Additions">
+                    <field name="addition_ids"/>
+                </page>
+                <page name="pg_penalties" string="Penalties">
+                    <field name="penalty_ids"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

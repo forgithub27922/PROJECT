@@ -1,0 +1,912 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_magentoerpconnect
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-22 08:55+0000\n"
+"PO-Revision-Date: 2019-03-22 08:55+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_product_meta_autogenerate
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_template_meta_autogenerate
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_product_meta_autogenerate
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_template_meta_autogenerate
+msgid "0 for No; 1 for Yes"
+msgstr "0 für Nein; 1 für Ja"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_product_used_in_manufacturer_listing
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_template_used_in_manufacturer_listing
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_product_used_in_manufacturer_listing
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_template_used_in_manufacturer_listing
+msgid "0 or empty - No listing; 1 - First Product, 2 - Second Product, etc."
+msgstr "0 oder leer - nicht anzeigen; 1 - erste Position, 2 - zweite Position, ..."
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "A precise description of the Product."
+msgstr "A precise description of the Product."
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_backend_orders_project_id
+msgid "Analytic account for orders"
+msgstr "Analytic account for orders"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_default_code
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_default_code
+msgid "Article Number"
+msgstr "Artikelnummer"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.actions.server,name:grimm_magentoerpconnect.ir_cron_auto_check_product_queue_ir_actions_server
+#: model:ir.cron,cron_name:grimm_magentoerpconnect.ir_cron_auto_check_product_queue
+#: model:ir.cron,name:grimm_magentoerpconnect.ir_cron_auto_check_product_queue
+msgid "Auto Check Product Queue an Export to Magento"
+msgstr "Auto Check Product Queue an Export to Magento"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.actions.server,name:grimm_magentoerpconnect.ir_cron_auto_check_pricelist_item_ir_actions_server
+#: model:ir.cron,cron_name:grimm_magentoerpconnect.ir_cron_auto_check_pricelist_item
+#: model:ir.cron,name:grimm_magentoerpconnect.ir_cron_auto_check_pricelist_item
+msgid "Auto Check price list items"
+msgstr "Auto Check price list items"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_template_calculated_magento_price
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_template_calculated_magento_price
+msgid "Calculated Preis for Magento"
+msgstr "Calculated Preis for Magento"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_product_calculated_magento_price
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_product_calculated_magento_price
+msgid "Calculated Sale Price (for Magento)"
+msgstr "Kalkulierter Verkaufspreis (für Magento)"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_product_update_prices_trigger
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_template_update_prices_trigger
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_product_update_prices_trigger
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_template_update_prices_trigger
+msgid "Change the values of this field to active product update"
+msgstr "Change the values of this field to active product update"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_connection
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_connection
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_connection
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_connection
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Connection"
+msgstr "Anschlussmedium"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_sale_order_line_connection_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_sale_order_line_connection_ids
+msgid "Connections"
+msgstr "Anschlüsse"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_create_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_create_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_create_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_create_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_create_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_create_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_create_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_create_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_create_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_create_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_create_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_create_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_magentoerpconnect
+#: selection:product.link,type:0
+msgid "Cross Selling"
+msgstr "Cross-Selling"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_product_link_cross_sell_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_product_link_cross_sell_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_product_link_cross_sell_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_product_link_cross_sell_ids
+msgid "Cross Selling Products"
+msgstr "Cross-Selling Produkte"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.product_template_only_form_view
+msgid "Cross-Selling Products"
+msgstr "Cross-Selling Produkte"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_sale_order_customer_comment
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_sale_order_customer_comment
+msgid "Customer comment"
+msgstr "Bestellkommentar"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_backend_attrs_default_storeview_id
+msgid "Default storeview for attributes"
+msgstr "Default Storeview für Attribute"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_depth
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_depth
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_sale_order_line_depth
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_depth
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_depth
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_sale_order_line_depth
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_variant_easy_edit_view
+msgid "Depth"
+msgstr "Tiefe"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Description for Customers"
+msgstr "Beschreibung für Kunden"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Description for Delivery Orders"
+msgstr "Beschreibung für Auslieferungsaufträge"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Description for Internal Transfers"
+msgstr "Beschreibung für interne Transfers"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Description for Online Shop"
+msgstr "Description for Online Shop"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Description for Receptions"
+msgstr "Beschreibung für Wareneingang"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Description for Vendors"
+msgstr "Beschreibung für Lieferanten"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_variant_easy_edit_view
+msgid "Dimensions"
+msgstr "Abmessungen"
+
+#. module: grimm_magentoerpconnect
+#: model:product.magento.status,name:grimm_magentoerpconnect.magento_disabled_status
+msgid "Disabled"
+msgstr "Disabled"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_display_name
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_display_name
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_display_name
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_display_name
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_display_name
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_display_name
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_magentoerpconnect
+#: model:product.magento.status,name:grimm_magentoerpconnect.magento_enabled_status
+msgid "Enabled"
+msgstr "Enabled"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_view_magento_backend_form
+msgid "Export Prices NOW"
+msgstr "Export Prices NOW"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_view_magento_backend_form
+msgid "Export product's prices since"
+msgstr "Export product's prices since"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.actions.server,name:grimm_magentoerpconnect.action_server_learn_skill
+msgid "Export to Magento"
+msgstr "Export zu Magento"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_brand_id
+msgid "Grimm product brand"
+msgstr "Produkt Marke"
+
+#. module: grimm_magentoerpconnect
+#: selection:product.link,type:0
+msgid "Grouped"
+msgstr "Grouped"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_height
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_height
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_sale_order_line_height
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_height
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_height
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_sale_order_line_height
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_variant_easy_edit_view
+msgid "Height"
+msgstr "Höhe"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_backend_import_grimm_relation_from_date
+msgid "Import grimm relation from date"
+msgstr "Import Grimm Beziehung von Datum"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_view_magento_backend_form
+msgid "Import in background"
+msgstr "Importiere im Hintergrund"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_backend_export_product_prices_from_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_backend_import_product_prices_from_date
+msgid "Import product prices from date"
+msgstr "Import Produkt Preise von Datum"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_view_magento_backend_form
+msgid "Import product's prices since"
+msgstr "Import product's prices since"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_view_magento_backend_form
+msgid "Import relations since"
+msgstr "Import relations since"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_interval
+msgid "Interval"
+msgstr "Intervall"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_interval_no
+msgid "Interval no"
+msgstr "Intervallnummer"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping___last_update
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link___last_update
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map___last_update
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping___last_update
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link___last_update
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status___last_update
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_write_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_write_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_write_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_write_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_write_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_write_uid
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_write_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_write_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_write_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_write_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_write_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_write_date
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_link_magento_linked_product_id
+msgid "Linked Magento Product"
+msgstr "Linked Magento Product"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_rrp_price
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_rrp_price
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_rrp_price
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_rrp_price
+msgid "List Price"
+msgstr "Listenpreis"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.actions.server,name:grimm_magentoerpconnect.ir_cron_import_product_prices_ir_actions_server
+#: model:ir.cron,cron_name:grimm_magentoerpconnect.ir_cron_import_product_prices
+#: model:ir.cron,name:grimm_magentoerpconnect.ir_cron_import_product_prices
+msgid "Magento - Import Product Prices"
+msgstr "Magento - Import Product Prices"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_magento_backend
+msgid "Magento Backend"
+msgstr "Magento-Backend"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_magento_bind_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_magento_bind_ids
+msgid "Magento Bindings"
+msgstr "Magento-Zuordnungen"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_magento_delivery_time
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_magento_delivery_time
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_magento_delivery_time
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_magento_delivery_time
+msgid "Magento Delivery Time"
+msgstr "Magento Lieferzeit"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_magento_linked_product_id
+msgid "Magento Linked Product"
+msgstr "Magento Linked Product"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_magento_main_product_id
+msgid "Magento Main Product"
+msgstr "Magento Haupt-Produkt"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_calculated_magento_price
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_calculated_magento_price
+msgid "Magento Price"
+msgstr "Magento Preis"
+
+#. module: grimm_magentoerpconnect
+#: code:addons/grimm_magentoerpconnect/models/product.py:339
+#, python-format
+msgid "Magento Price Calculation Tracking"
+msgstr "Magento Preis Kalkulation Tracking"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_magento_product_product
+msgid "Magento Product"
+msgstr "Magento-Produkt"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_magento_product_link
+msgid "Magento Product Link"
+msgstr "Magento Product Link"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_product_link
+msgid "Magento Product Link for relation, up-selling, cross-selling"
+msgstr "Magento Product Link for relation, up-selling, cross-selling"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_account_tax_magento_tax_class_id
+msgid "Magento Tax Class"
+msgstr "Magento Tax Class"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_magento_visibility
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_magento_visibility
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_magento_visibility
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_magento_visibility
+msgid "Magento Visibility"
+msgstr "Magento Sichtbarkeit"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_magento_attr_value_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_brand_magento_attr_value_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_status_magento_attr_value_id
+msgid "Magento attribute value"
+msgstr "Magento-Attribut-Wert"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_backend_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_brand_magento_mapping_backend_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_backend_id
+msgid "Magento backend"
+msgstr "Magento backend"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_grimm_product_brand_magento_value_map_ids
+msgid "Magento brand mappings"
+msgstr "Magento brand mappings"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_product_brand_form_view_inherit
+msgid "Magento mappings"
+msgstr "Magento mappings"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_mapping_magento_status_id
+msgid "Magento status"
+msgstr "Magento status"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_magento_value_map_ids
+msgid "Magento status mappings"
+msgstr "Magento status mappings"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_warranty_type_magento_value_map_ids
+msgid "Magento warranty mappings"
+msgstr "Magento Garantie Mappings"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.product_warranty_type_magento_form_view
+msgid "Magento warranty value mappings"
+msgstr "Magento Garantie Wert Mappings"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_link_magento_main_product_id
+msgid "Main Magento Product"
+msgstr "Main Magento Product"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Manufacturer Listing Position"
+msgstr "Auf Herstellerseite anzeigen"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_meta_autogenerate
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_meta_autogenerate
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_meta_autogenerate
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_meta_autogenerate
+msgid "Meta Auto generate"
+msgstr "Meta Auto generate"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_meta_description
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_meta_description
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_meta_description
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_meta_description
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_product_template_form_view
+msgid "Meta Description"
+msgstr "Meta Description"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_meta_description_counter
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_meta_description_counter
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_meta_description_counter
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_meta_description_counter
+msgid "Meta Description Counter"
+msgstr "Meta Description Counter"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_product_template_form_view
+msgid "Meta Information"
+msgstr "Meta Information"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_meta_keyword
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_meta_keyword
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_meta_keyword
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_meta_keyword
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_product_template_form_view
+msgid "Meta Keyword"
+msgstr "Meta Keyword"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_meta_title
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_meta_title
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_meta_title
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_meta_title
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_product_template_form_view
+msgid "Meta Title"
+msgstr "Meta Title"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_meta_title_counter
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_meta_title_counter
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_meta_title_counter
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_meta_title_counter
+msgid "Meta Title Counter"
+msgstr "Meta Title Counter"
+
+#. module: grimm_magentoerpconnect
+#: selection:magento.product.warranty.map,interval:0
+msgid "Month"
+msgstr "Monat"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_months_no
+msgid "Months no"
+msgstr "Monatsnummer"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_magento_status_name
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.product_warranty_type_magento_form_view
+msgid "Name"
+msgstr "Name"
+
+#. module: grimm_magentoerpconnect
+#: code:addons/grimm_magentoerpconnect/models/product.py:346
+#, python-format
+msgid "No Price List on Magento Backend"
+msgstr "Keine Preisliste für die Schnittstelle konfiguriert!"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Notes"
+msgstr "Notizen"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_openerp_id
+msgid "Odoo Product Link"
+msgstr "Odoo Produkt Beziehung"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_backend_order_payment_mode_mapping_ids
+msgid "Order payment mode mappings"
+msgstr "Order payment mode mappings"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_order_prepayment
+msgid "Order prepayment?"
+msgstr "Vorkassenbestellung?"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_view_magento_backend_form
+msgid "Orders prepayment configuration"
+msgstr "Vorkassenbestellungs Konfiguration"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_payment_mode_mapping_payment_mode_ids
+msgid "Payment modes"
+msgstr "Zahlungsarten"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_position
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_position
+msgid "Position"
+msgstr "Position"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_backend_pricelist_id
+msgid "Pricelist"
+msgstr "Preisliste"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.product_template_only_form_view
+msgid "Product Link"
+msgstr "Produkt Beziehungen"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_product_template
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_linked_product_tmpl_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_name
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_linked_product_tmpl_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_name
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.product_warranty_type_magento_form_view
+msgid "Product Warranty Type"
+msgstr "Produkt Garantie Typ"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.product_magento_status_form
+msgid "Product magento status"
+msgstr "Magento Produkt Status"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_warranty_map_waranty_type_id
+msgid "Product warranty type"
+msgstr "Garantie Typ"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_sale_order
+msgid "Quotation"
+msgstr "Angebot"
+
+#. module: grimm_magentoerpconnect
+#: selection:product.link,type:0
+msgid "Related"
+msgstr "Related"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_product_link_related_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_product_link_related_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_product_link_related_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_product_link_related_ids
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.product_template_only_form_view
+msgid "Related Products"
+msgstr "Zubehöre"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_calculated_magento_price
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_calculated_magento_price
+msgid "Sale Price"
+msgstr "Verkaufspreis"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftragsposition"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_sequence
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_sequence
+msgid "Sequence"
+msgstr "Nummernfolge"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_short_description
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_short_description
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_short_description
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_short_description
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Short Description"
+msgstr "Kurzbeschreibung"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Short description of the Product"
+msgstr "Kurzbeschreibung vom Produkt"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_used_in_manufacturer_listing
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_used_in_manufacturer_listing
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_used_in_manufacturer_listing
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_used_in_manufacturer_listing
+msgid "Show in Manufacturer Listing"
+msgstr "Auf Herstellerseite anzeigen"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_special_price
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_special_price
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_special_price
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_special_price
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.grimm_product_template_form_view
+msgid "Special Price"
+msgstr "Aktionspreis"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_special_price_from
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_special_price_from
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_special_price_from
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_special_price_from
+msgid "Special Price from"
+msgstr "Aktionspreis von"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_product_special_price_from
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_template_special_price_from
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_product_special_price_from
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_template_special_price_from
+msgid "Special Price from Date"
+msgstr "Aktionspreis von Datum"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_special_price_to
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_special_price_to
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_special_price_to
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_special_price_to
+msgid "Special Price to"
+msgstr "Aktionspreis bis"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_product_special_price_to
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_magento_product_template_special_price_to
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_product_special_price_to
+#: model:ir.model.fields,help:grimm_magentoerpconnect.field_product_template_special_price_to
+msgid "Special Price to Date"
+msgstr "Aktionspreis bis Datum"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_magento_product_status_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_variant_product_status_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_magento_product_status_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_magento_product_status_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_variant_product_status_id
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_magento_product_status_id
+msgid "Status on Magento"
+msgstr "Status bei Magento"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_account_tax
+msgid "Tax"
+msgstr "Steuer"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "This note will show up  on internal transfer orders (e.g. where to pick the product in the warehouse)."
+msgstr "Dieser Hinweis wird auf internen Transferaufträgen (z. B. wo das Produkt im Lager abgeholt werden soll) angezeigt."
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "This note will show up on delivery orders."
+msgstr "Dieser Hinweis wird auf Lieferaufträgen angezeigt."
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "This note will show up on purchase orders."
+msgstr "Dieser Hinweis wird in der Bestellung angezeigt."
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "This note will show up on sales orders."
+msgstr "Dieser Hinweis wird in Verkaufsaufträgen angezeigt."
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "This note will show up on the receipt orders (e.g. where to store the product in the warehouse)."
+msgstr "Dieser Hinweis wird auf Wareneingängen (z. B. wo das Produkt im Lager gelagert werden soll) angezeigt."
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "Track the Magento price calculation"
+msgstr "Preiskalkulation nachvollziehen"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_link_type
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_link_type
+msgid "Type"
+msgstr "Typ"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_product_warranty_type
+msgid "Type for Warranty"
+msgstr "Typ für Garantie"
+
+#. module: grimm_magentoerpconnect
+#: selection:product.link,type:0
+msgid "Up Selling"
+msgstr "Up-Selling"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_product_link_up_sell_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_product_link_up_sell_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_product_link_up_sell_ids
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_product_link_up_sell_ids
+msgid "Up Selling Products"
+msgstr "Up-Selling Produkte"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.product_template_only_form_view
+msgid "Up-Selling Products"
+msgstr "Up-Selling Produkte"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_update_prices_trigger
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_update_prices_trigger
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_update_prices_trigger
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_update_prices_trigger
+msgid "Update Prices Trigger"
+msgstr "Preis-Update-Trigger"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_product_width
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_product_template_width
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_magento_sale_order_line_width
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_product_width
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_product_template_width
+#: model:ir.model.fields,field_description:grimm_magentoerpconnect.field_sale_order_line_width
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_variant_easy_edit_view
+msgid "Width"
+msgstr "Breite"
+
+#. module: grimm_magentoerpconnect
+#: selection:magento.product.warranty.map,interval:0
+msgid "Year"
+msgstr "Jahr"
+
+#. module: grimm_magentoerpconnect
+#: sql_constraint:product.brand.magento.mapping:0
+msgid "You can not assign more than one attribute value per Magento backend!"
+msgstr "You can not assign more than one attribute value per Magento backend!"
+
+#. module: grimm_magentoerpconnect
+#: sql_constraint:magento.product.warranty.map:0
+msgid "You can not assign same attribute value to more that one mapping!"
+msgstr "You can not assign same attribute value to more that one mapping!"
+
+#. module: grimm_magentoerpconnect
+#: sql_constraint:magento.payment.mode.mapping:0
+msgid "You can specify one mapping per Magento backend!"
+msgstr "You can specify one mapping per Magento backend!"
+
+#. module: grimm_magentoerpconnect
+#: code:addons/grimm_magentoerpconnect/models/product.py:132
+#, python-format
+msgid "character left."
+msgstr "character left."
+
+#. module: grimm_magentoerpconnect
+#: code:addons/grimm_magentoerpconnect/models/product.py:134
+#, python-format
+msgid "character surplus."
+msgstr "character surplus."
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_grimm_product_brand
+msgid "grimm.product.brand"
+msgstr "grimm.product.brand"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_magento_payment_mode_mapping
+msgid "magento.payment.mode.mapping"
+msgstr "magento.payment.mode.mapping"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_magento_product_attribute_value
+msgid "magento.product.attribute.value"
+msgstr "magento.product.attribute.value"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_magento_product_warranty_map
+msgid "magento.product.warranty.map"
+msgstr "magento.product.warranty.map"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_product_brand_magento_mapping
+msgid "product.brand.magento.mapping"
+msgstr "product.brand.magento.mapping"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_product_magento_status
+msgid "product.magento.status"
+msgstr "product.magento.status"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_product_magento_status_mapping
+msgid "product.magento.status.mapping"
+msgstr "product.magento.status.mapping"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.model,name:grimm_magentoerpconnect.model_product_price_history
+msgid "product.price.history"
+msgstr "product.price.history"
+
+#. module: grimm_magentoerpconnect
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:grimm_magentoerpconnect.of_product_template_form_view
+msgid "⇒ track"
+msgstr "⇒ nachvollziehen"
+

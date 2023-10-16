@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- sky_hr_custom Inherit Template being called from the report -->
+    <template id="inherit_report_employee" inherit_id="sky_hr_custom.report_employee">
+    <xpath expr="//table[4]/tr[4]/td[3]" position="replace">
+        <td style="border: 1px solid white">
+            <h5>School:</h5>
+        </td>
+    </xpath>
+    </template>
+</odoo>

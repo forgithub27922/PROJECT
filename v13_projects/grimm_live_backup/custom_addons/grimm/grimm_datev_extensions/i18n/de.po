@@ -1,0 +1,543 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_datev_extensions
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-03-21 08:35+0000\n"
+"PO-Revision-Date: 2022-03-21 08:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_datev_extensions
+#: model:mail.template,body_html:grimm_datev_extensions.datev_export_email_template
+msgid ""
+"\n"
+"<p>\n"
+"\n"
+"                % set company = object and object.company_id or ctx.get('company')\n"
+"\n"
+"                </p><table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding: 20px; background-color: #ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: #009EE3; padding: 10px;\">\n"
+"                            <tbody><tr>\n"
+"                              <td valign=\"middle\" style=\" padding: 13px;\">\n"
+"                                  <span style=\"font-size:20px; color:white; font-weight: bold;\">\n"
+"                                      GRIMM Gastronomiebedarf GmbH <!--Rechnung ${object.record_name}-->\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png?company=${company.id}\" style=\"padding: 0px; margin: 0px; height: auto; width: 80px;\" alt=\"${company.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </tbody></table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                              <tr><td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;\">\n"
+"                              <br/><br/>\n"
+"                                Dear <b>${object.export_uid.partner_id.name}</b>,<br/><br/>\n"
+"                                You have exported Invoice for DATEV. Please see below details and attachment. <br/><br/>\n"
+"                                Thank you.<br/><br/>\n"
+"                                <table width=\"100%\">\n"
+"                                <tr><td>In Invoice</td>\n"
+"                                <td>\n"
+"                                    % if object.in_invoice:\n"
+"                                        <input type=\"checkbox\" name=\"in_invoice\" value=\"in_invoice\" checked=\"\" disabled>\n"
+"                                    % else:\n"
+"                                        <input type=\"checkbox\" name=\"in_invoice\" value=\"in_invoice\" disabled>\n"
+"                                    % endif\n"
+"                                 </td></tr>\n"
+"                                <tr><td>Out Invoice</td>\n"
+"                                <td>\n"
+"                                    % if object.out_invoice:\n"
+"                                        <input type=\"checkbox\" name=\"out_invoice\" value=\"out_invoice\" checked=\"\" disabled>\n"
+"                                    % else:\n"
+"                                        <input type=\"checkbox\" name=\"out_invoice\" value=\"out_invoice\" disabled>\n"
+"                                    % endif\n"
+"                                </td>\n"
+"                                </tr>\n"
+"                                <tr><td>In Refund</td>\n"
+"                                <td>\n"
+"                                    % if object.in_refund:\n"
+"                                        <input type=\"checkbox\" name=\"in_refund\" value=\"in_refund\" checked=\"\" disabled>\n"
+"                                    % else:\n"
+"                                        <input type=\"checkbox\" name=\"in_refund\" value=\"in_refund\" disabled>\n"
+"                                    % endif\n"
+"                                </td></tr>\n"
+"                                <tr><td>Out Refund</td>\n"
+"                                <td>\n"
+"                                    % if object.out_refund:\n"
+"                                        <input type=\"checkbox\" name=\"out_refund\" value=\"out_refund\" checked=\"\" disabled>\n"
+"                                    % else:\n"
+"                                        <input type=\"checkbox\" name=\"out_refund\" value=\"out_refund\" disabled>\n"
+"                                    % endif\n"
+"                                </td></tr>\n"
+"                                <tr><td>Period</td><td>${datetime.datetime.strptime(str(object.date_start), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_start else 'XX.YY.ZZZZ'} - ${datetime.datetime.strptime(str(object.date_stop), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_stop else 'XX.YY.ZZZZ'}</td></tr>\n"
+"                                <tr><td>Exported Date &amp; Time</td><td>${format_datetime(object.write_date,dt_format='dd.MM.YYYY HH:MM:SS')}</td></tr>\n"
+"                                </table><br/><br/>\n"
+"                              </td>\n"
+"                            </tr></tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width: 590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width: 590px; background-color: #009EE3; padding: 20px;\">\n"
+"                            <tbody><tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${company.name}<br><p></p><p>\n"
+"                                ${company.phone or ''}\n"
+"                              </p></td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color: #fff; padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if company.email:\n"
+"                                <a href=\"mailto:${company.email}\" style=\" color: white;\">${company.email}</a><br><p></p><p>\n"
+"                                % endif\n"
+"                                % if company.website:\n"
+"                                    <a href=\"${company.website}\" style=\" color: white;\">\n"
+"                                        ${company.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </p></td>\n"
+"                            </tr>\n"
+"                          </tbody></table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <!--Powered by <a href=\"https://www.odoo.com\">Odoo</a>.-->\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"\n"
+"\n"
+"            <p></p>\n"
+"              "
+msgstr ""
+"<p>\n"
+"\n"
+"                % set company = object and object.company_id or ctx.get('company')\n"
+"\n"
+"                </p><table border=\"0\" width=\"100%\" cellpadding=\"0\" bgcolor=\"#ededed\" style=\"padding:20px;background-color: #ededed\" summary=\"o_mail_notification\">\n"
+"                    <tbody>\n"
+"\n"
+"                      <!-- HEADER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width:590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width:590px;background-color: #009EE3; padding: 10px;\">\n"
+"                            <tbody><tr>\n"
+"                              <td valign=\"middle\" style=\" padding:13px;\">\n"
+"                                  <span style=\"font-size:20px;color:white; font-weight: bold;\">\n"
+"                                      GRIMM Gastronomiebedarf GmbH <!--Rechnung ${object.record_name}-->\n"
+"                                  </span>\n"
+"                              </td>\n"
+"                              <td valign=\"middle\" align=\"right\">\n"
+"                                  <img src=\"/logo.png?company=${company.id}\" style=\"padding:0px;margin: 0px; height: auto; width: 80px;\" alt=\"${company.name}\">\n"
+"                              </td>\n"
+"                            </tr>\n"
+"                          </tbody></table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- CONTENT -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width:590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#ffffff\" style=\"min-width:590px;background-color: rgb(255, 255, 255); padding: 20px;\">\n"
+"                            <tbody>\n"
+"                              <tr><td valign=\"top\" style=\"font-family:Arial,Helvetica,sans-serif;color: #555; font-size: 14px;\">\n"
+"                              <br><br>\n"
+"                                Dear <b>${object.export_uid.partner_id.name}</b>,<br><br>\n"
+"                                You have exported Invoice for DATEV. Please see below details and attachment. <br><br>\n"
+"                                Thank you.<br><br>\n"
+"                                <table width=\"100%\">\n"
+"                                <tbody><tr><td>In Invoice</td>\n"
+"                                <td>\n"
+"                                    % if object.in_invoice:\n"
+"                                        <input type=\"checkbox\" name=\"in_invoice\" value=\"in_invoice\" checked=\"\" disabled=\"\">\n"
+"                                    % else:\n"
+"                                        <input type=\"checkbox\" name=\"in_invoice\" value=\"in_invoice\" disabled=\"\">\n"
+"                                    % endif\n"
+"                                 </td></tr>\n"
+"                                <tr><td>Out Invoice</td>\n"
+"                                <td>\n"
+"                                    % if object.out_invoice:\n"
+"                                        <input type=\"checkbox\" name=\"out_invoice\" value=\"out_invoice\" checked=\"\" disabled=\"\">\n"
+"                                    % else:\n"
+"                                        <input type=\"checkbox\" name=\"out_invoice\" value=\"out_invoice\" disabled=\"\">\n"
+"                                    % endif\n"
+"                                </td>\n"
+"                                </tr>\n"
+"                                <tr><td>In Refund</td>\n"
+"                                <td>\n"
+"                                    % if object.in_refund:\n"
+"                                        <input type=\"checkbox\" name=\"in_refund\" value=\"in_refund\" checked=\"\" disabled=\"\">\n"
+"                                    % else:\n"
+"                                        <input type=\"checkbox\" name=\"in_refund\" value=\"in_refund\" disabled=\"\">\n"
+"                                    % endif\n"
+"                                </td></tr>\n"
+"                                <tr><td>Out Refund</td>\n"
+"                                <td>\n"
+"                                    % if object.out_refund:\n"
+"                                        <input type=\"checkbox\" name=\"out_refund\" value=\"out_refund\" checked=\"\" disabled=\"\">\n"
+"                                    % else:\n"
+"                                        <input type=\"checkbox\" name=\"out_refund\" value=\"out_refund\" disabled=\"\">\n"
+"                                    % endif\n"
+"                                </td></tr>\n"
+"                                \n"
+"                                \n"
+"                                <tr><td>Period</td><td>${datetime.datetime.strptime(str(object.date_start), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_start else 'XX.YY.ZZZZ'} - ${datetime.datetime.strptime(str(object.date_stop), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_stop else 'XX.YY.ZZZZ'}</td></tr>\n"
+"<tr><td>Exported Date &amp; Time</td><td>${format_datetime(object.write_date,dt_format='dd.MM.YYYY HH:MM:SS')}</td></tr>\n"
+"                                </tbody></table><br><br>\n"
+"                              </td>\n"
+"                            </tr></tbody>\n"
+"                          </table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"\n"
+"                      <!-- FOOTER -->\n"
+"                      <tr>\n"
+"                        <td align=\"center\" style=\"min-width:590px;\">\n"
+"                          <table width=\"590\" border=\"0\" cellpadding=\"0\" bgcolor=\"#875A7B\" style=\"min-width:590px;background-color: #009EE3; padding: 20px;\">\n"
+"                            <tbody><tr>\n"
+"                              <td valign=\"middle\" align=\"left\" style=\"color:#fff;padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                ${company.name}<br><p></p><p>\n"
+"                                ${company.phone or ''}\n"
+"                              </p></td>\n"
+"                              <td valign=\"middle\" align=\"right\" style=\"color:#fff;padding-top: 10px; padding-bottom: 10px; font-size: 12px;\">\n"
+"                                % if company.email:\n"
+"                                <a href=\"mailto:${company.email}\" style=\" color:white;\">${company.email}</a><br><p></p><p>\n"
+"                                % endif\n"
+"                                % if company.website:\n"
+"                                    <a href=\"${company.website}\" style=\" color:white;\">\n"
+"                                        ${company.website}\n"
+"                                    </a>\n"
+"                                % endif\n"
+"                              </p></td>\n"
+"                            </tr>\n"
+"                          </tbody></table>\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                      <tr>\n"
+"                        <td align=\"center\">\n"
+"                            <!--Powered by <a href=\"https://www.odoo.com\">Odoo</a>.-->\n"
+"                        </td>\n"
+"                      </tr>\n"
+"                    </tbody>\n"
+"                </table>\n"
+"\n"
+"\n"
+"            <p></p>\n"
+"              "
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__zip_file
+msgid ".Zip File"
+msgstr ".zip Datei"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__inv_csv_file
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__inv_csv_file
+msgid ".csv File"
+msgstr ".csv Datei"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__datev_file
+msgid ".zip File"
+msgstr ".zip Datei"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__inv_csv_filename
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__inv_csv_filename
+msgid "CSV Filename"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,help:grimm_datev_extensions.field_datev_export_history__inv_csv_file
+#: model:ir.model.fields,help:grimm_datev_extensions.field_invoice_ledger_export__inv_csv_file
+msgid "CSV file contains all invoices ids which exported in this export."
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.invoice_ledger_export_wizard
+msgid "Cancel"
+msgstr "Stornieren"
+
+#. module: grimm_datev_extensions
+#: model:ir.model,name:grimm_datev_extensions.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__create_uid
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__create_date
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_datev_extensions
+#: model:ir.actions.act_window,name:grimm_datev_extensions.action_datev_export_history
+#: model:ir.model,name:grimm_datev_extensions.model_datev_export_history
+msgid "DATEV Export History"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model:mail.template,subject:grimm_datev_extensions.datev_export_email_template
+msgid ""
+"DATEV Export(${datetime.datetime.strptime(str(object.date_start), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_start else 'XX.YY.ZZZZ'} - ${datetime.datetime.strptime(str(object.date_stop), '%Y-%m-%d').strftime('%d.%m.%Y') if object.date_stop else 'XX.YY.ZZZZ'})\n"
+"                ${object.company_id.name}\n"
+"            "
+msgstr ""
+"DATEV Export(${datetime.datetime.strptime(str(object.date_start), "
+"'%Y-%m-%d').strftime('%d.%m.%Y') if object.date_start else 'XX.YY.ZZZZ'} - "
+"${datetime.datetime.strptime(str(object.date_stop), "
+"'%Y-%m-%d').strftime('%d.%m.%Y') if object.date_stop else 'XX.YY.ZZZZ'})"
+"                ${object.company_id.name}            "
+
+#. module: grimm_datev_extensions
+#: model:ir.ui.menu,name:grimm_datev_extensions.datev_export_history_menu
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.view_datev_export_history_form
+msgid "DATEV export history"
+msgstr "DATEV-Exportverlauf"
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.view_datev_export_history_tree
+msgid "DATEV exported history"
+msgstr "DATEV-Exportverlauf"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__display_name
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__end_date
+msgid "End Date"
+msgstr "Enddatum"
+
+#. module: grimm_datev_extensions
+#: model:ir.ui.menu,name:grimm_datev_extensions.invoice_ledger_export_menu
+msgid "Export Invoices"
+msgstr "Eingangsrechnungen exportieren"
+
+#. module: grimm_datev_extensions
+#: model:ir.model,name:grimm_datev_extensions.model_datev_export
+msgid "Export to XML Datev format"
+msgstr "Exportiere Datev .xml"
+
+#. module: grimm_datev_extensions
+#: model:ir.model,name:grimm_datev_extensions.model_datev_export_options
+msgid "Export to XML Datev format using options"
+msgstr "Export in Datev-XML  mit Voreinstellungen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__write_date
+msgid "Exported Datetime"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.view_datev_export_history_form
+msgid "Exported Invoices"
+msgstr "Exportierte Rechnungen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__export_uid
+msgid "Exported by"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__datev_filename
+msgid "Filename"
+msgstr "Dateiname"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__file_name
+msgid "Final Name"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__date_start
+msgid "From Date"
+msgstr "Von Datum"
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.invoice_ledger_export_wizard
+msgid "Get File"
+msgstr "eine Datei bekommen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__id
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,help:grimm_datev_extensions.field_datev_export_history__date_start
+#: model:ir.model.fields,help:grimm_datev_extensions.field_datev_export_history__date_stop
+msgid "Ignored if Period is selected"
+msgstr "Wird ignoriert bei Periodenauswahl"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__include_approved
+msgid "Include Approved"
+msgstr "Nur freigegebene xportieren"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__include_fibu
+msgid "Include Fibu"
+msgstr "Fibu einschließen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__in_invoice
+msgid "Incoming Invoices"
+msgstr "Eingangsrechnungen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__in_refund
+msgid "Incoming Refunds"
+msgstr "Lieferantengutschriften"
+
+#. module: grimm_datev_extensions
+#: model:ir.actions.act_window,name:grimm_datev_extensions.action_invoice_ledger_export_wizard
+#: model:ir.model,name:grimm_datev_extensions.model_invoice_ledger_export
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.invoice_ledger_export_wizard
+msgid "Invoice Ledger Export"
+msgstr "Export der Eingangsrechnung"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__invoice_ids
+msgid "Invoices"
+msgstr "Rechnungen"
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.view_datev_export_history_form
+msgid "Invoices Details"
+msgstr "Rechnungsdetails"
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.view_datev_export_history_form
+msgid "Invoices period"
+msgstr "Rechnungszeitraum"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history____last_update
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__write_uid
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_datev_extensions
+#: model:ir.actions.act_window,name:grimm_datev_extensions.action_invoice_ledger_export_form
+msgid "Ledger Export History"
+msgstr "Export der Eingangsrechnung"
+
+#. module: grimm_datev_extensions
+#: model:ir.ui.menu,name:grimm_datev_extensions.ledger_export_history_menu
+msgid "Ledger export history"
+msgstr "Export der Eingangsrechnung"
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.view_invoice_ledger_export_tree
+msgid "Ledger exported history"
+msgstr "Export der Eingangsrechnung"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,help:grimm_datev_extensions.field_res_company__history_days
+msgid ""
+"Odoo will automatically remove DATEV export history after specified days."
+msgstr "Odoo entfernt den DATEV-Exportverlauf automatisch nach bestimmten Tagen."
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__out_invoice
+msgid "Outgoing Invoices"
+msgstr "Ausgangsrechnungen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__out_refund
+msgid "Outgoing Refunds"
+msgstr "Kundengutschriften"
+
+#. module: grimm_datev_extensions
+#: model:ir.actions.server,name:grimm_datev_extensions.ir_remove_datev_history_ir_actions_server
+#: model:ir.cron,cron_name:grimm_datev_extensions.ir_remove_datev_history
+#: model:ir.cron,name:grimm_datev_extensions.ir_remove_datev_history
+msgid "Remove DATEV history"
+msgstr "DATEV-Historie entfernen"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_res_company__history_days
+msgid "Remove history after (days)"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__response_message
+msgid "Response Message"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.view_datev_export_history_form
+msgid "Response message and Invoices"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model_terms:ir.ui.view,arch_db:grimm_datev_extensions.view_datev_export_history_form
+msgid "Result File"
+msgstr "Erstellte Datei"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_res_company__datev_send_email
+msgid "Send DATEV copy"
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,help:grimm_datev_extensions.field_res_company__datev_send_email
+msgid "Send copy of DATEV exported invoice to the user."
+msgstr ""
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_invoice_ledger_export__start_date
+msgid "Start Date"
+msgstr "Startdatum"
+
+#. module: grimm_datev_extensions
+#: model:ir.model.fields,field_description:grimm_datev_extensions.field_datev_export_history__date_stop
+msgid "To Date"
+msgstr "Bis"

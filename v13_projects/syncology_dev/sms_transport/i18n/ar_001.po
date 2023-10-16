@@ -1,0 +1,1359 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sms_transport
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-20 11:22+0000\n"
+"PO-Revision-Date: 2021-11-20 11:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid ""
+"<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t\t\t\tDay\n"
+"\t\t\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+"<br/>\n"
+"                                                                                        <b>\n"
+"                                                                                        يوم\n"
+"                                                                                        </b>"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.trn_register_student_transport_form
+msgid ""
+"<span>Transport Registration Form\n"
+"\t\t\t\t\t\t\t</span>"
+msgstr ""
+"<span>استمارة تسجيل النقل\n"
+"                                                        </span>"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_form
+msgid "<span>Transport Scheduling</span>"
+msgstr "<span>جدولة النقل</span>"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_route_form
+msgid ""
+"<span>Use this form for routes creation.\n"
+"\t\t\t\t\t\t\t</span>"
+msgstr ""
+"<span>استخدام هذا النموذج لانشاء المسارات.\n"
+"                                                        </span>"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid ""
+"<strong>Date </strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Day </strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Bus</strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Print Option</strong>"
+msgstr ""
+"<strong>بيانات</strong>\n"
+"                                                                                        <br/>\n"
+"                                                                                        <strong>يوم</strong>\n"
+"                                                                                                <br/>\n"
+"                                                                                        <strong>اوتوبيس</strong>\n"
+"                                                                                        <br/>\n"
+"                                                                                        <strong>اختيار الطباعة</strong>"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid ""
+"<strong>Driver</strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Supervisor</strong>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<br/>\n"
+"\t\t\t\t\t\t\t\t\t\t\t<strong>Students</strong>"
+msgstr ""
+"<strong>سائق</strong>\n"
+"                                                                                        <br/>\n"
+"                                                                                        <strong>مشرف</strong>\n"
+"                                                                                        <br/>\n"
+"                                                                                        <strong>طلاب</strong>"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_needaction
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_needaction
+msgid "Action Needed"
+msgstr "يلزم اجراء"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__active
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__active
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_scheduling__state__active
+msgid "Active"
+msgstr "نشط "
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__activity_ids
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__activity_ids
+msgid "Activities"
+msgstr "انشطة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__activity_exception_decoration
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "تجهيزات النشاط الاستثنائي"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__activity_state
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__activity_state
+msgid "Activity State"
+msgstr "حالة النشاط"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "Additional Properties"
+msgstr "خصائص اضافية"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.trn_register_student_transport_form
+msgid "Address"
+msgstr "عنوان"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_transport_schedule_wizard
+msgid "Admission Reports"
+msgstr "تقارير القبول"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Archived"
+msgstr "مؤرشف"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_form
+msgid "Are you sure you want to cancel this complaint"
+msgstr "هل انت متاكد من الغاء هذه الشكوي"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_attachment_count
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_attachment_count
+msgid "Attachment Count"
+msgstr "عدد الملحقات"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__bus_id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__bus_number
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard__bus_ids
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__bus_id
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_filter
+msgid "Bus"
+msgstr "باص"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "Bus No"
+msgstr "رقم الباص"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__bus_number
+msgid "Bus Number"
+msgstr "رقم الباص"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__buses_ids
+msgid "Buses"
+msgstr "الباصات"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__busses_ids
+#: model:ir.ui.menu,name:sms_transport.menu_fleet_vehicle_new
+msgid "Busses"
+msgstr "الباصات"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__bystreet
+msgid "By Street"
+msgstr "شارع جانبي"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_scheduling__state__cancel
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_form
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_transport_complaint_resolve_wizard
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_transport_schedule_wizard
+msgid "Cancel"
+msgstr "الغاء"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__cancel_date
+msgid "Cancel Date"
+msgstr "تاريخ الالغاء"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__cancel_by
+msgid "Cancel by"
+msgstr "الغاء عن طريق"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__city
+msgid "City"
+msgstr "مدينة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid "Class"
+msgstr "فصل"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__state__closed
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_scheduling__state__closed
+#: model:ir.ui.menu,name:sms_transport.menu_transport_complaint_management_closed
+msgid "Closed"
+msgstr "مغلق"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_sms_scheduling_days__code
+msgid "Code"
+msgstr "شفرة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__complain
+msgid "Complain"
+msgstr "يشتكي"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__complain_against
+msgid "Complain Against"
+msgstr "يشكو ضد"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__complain_from
+msgid "Complain From"
+msgstr "يشكو من"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_transport_complaint_management
+msgid "Complains"
+msgstr "يشكو"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_transport_complaint_management_closed
+#: model:ir.actions.act_window,name:sms_transport.action_transport_complaint_management_escalated
+#: model:ir.actions.act_window,name:sms_transport.action_transport_complaint_management_received
+#: model:ir.actions.act_window,name:sms_transport.action_transport_complaint_management_resolved
+msgid "Complaint"
+msgstr "شكوي"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_filter
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_tree
+msgid "Complaint Form"
+msgstr "استمارة الشكوي"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__complaint_no
+msgid "Complaint No"
+msgstr "رقم الشكوي"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_transport_complaint_reporter
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__complaint_reporter_id
+#: model:ir.ui.menu,name:sms_transport.menu_transport_complaint_reporter
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_reporter_form
+msgid "Complaint Reporter"
+msgstr "مراسل شكوى"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_resources_transport
+msgid "Configuration"
+msgstr "إعدادات"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.trn_register_student_transport_form
+msgid "Contact Information"
+msgstr "معلومات للتواصل"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__driver_contact_no
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__supervisor_contact_no
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid "Contact No"
+msgstr "رقم للتواصل"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__count_in
+msgid "Count"
+msgstr "احصاء"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__count_out
+msgid "Count out"
+msgstr "تم استبعاده"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__create_uid
+#: model:ir.model.fields,field_description:sms_transport.field_sms_cities__create_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__create_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__create_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__create_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard__create_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__create_uid
+msgid "Created by"
+msgstr "انشئ بواسطة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__create_date
+#: model:ir.model.fields,field_description:sms_transport.field_sms_cities__create_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__create_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__create_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__create_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard__create_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__create_date
+msgid "Created on"
+msgstr "انشئ في "
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard__schedule_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__schedule_date
+msgid "Date"
+msgstr "تاريخ"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__date_registered
+msgid "Date Registered"
+msgstr "تاريخ التسجيل"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__date_withdrawn
+msgid "Date Withdrawn"
+msgstr "تاريخ الالغاء"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__date
+msgid "Date of Incident"
+msgstr "تاريخ الحادث"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Department"
+msgstr "قسم"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__bus_description
+msgid "Description"
+msgstr "وصف"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__display_name
+#: model:ir.model.fields,field_description:sms_transport.field_report_sms_transport_report_transport_schedule_template__display_name
+#: model:ir.model.fields,field_description:sms_transport.field_sms_cities__display_name
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__display_name
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__display_name
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__display_name
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard__display_name
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__display_name
+msgid "Display Name"
+msgstr "الاسم المعرض"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__fleet_vehicle__state__maintenance
+msgid "Down For Maintenance"
+msgstr "متوقف للصيانة"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__register_student_transport__state__draft
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_scheduling__state__draft
+#: model:ir.ui.menu,name:sms_transport.menu_student_transport_draft
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_transport_driver
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__vehicle_driver_id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__driver_name
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__driver_id
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__complain_against__driver
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__complain_from__driver
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_filter
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_filter
+msgid "Driver"
+msgstr "سائق"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__driver_phone_no
+msgid "Driver Phone Number"
+msgstr "رقم هاتف السائق"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_action_transport_driver
+msgid "Drivers"
+msgstr "السائقين"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "E.g Bus or Van"
+msgstr "باص او ميكروباص"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__email
+#: model_terms:ir.ui.view,arch_db:sms_transport.hr_employee_form_inherited
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid "Email"
+msgstr "بريد الالكتروني"
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_hr_employee
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_tree
+msgid "Employees"
+msgstr "الموظفين"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__end_point
+msgid "End Point"
+msgstr "نقطة النهاية"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__escalated
+#: model:ir.ui.menu,name:sms_transport.menu_transport_complaint_management_escalated
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_filter
+msgid "Escalated"
+msgstr "تم تصعيده"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_extra_activity
+msgid "Extra Activities"
+msgstr "أنشطة اضافية"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_extra_activity
+#: model:ir.model.fields,field_description:sms_transport.field_hr_employee__extra_activity_id
+#: model:ir.model.fields,field_description:sms_transport.field_res_company__extra_activity_id
+#: model:ir.model.fields,field_description:sms_transport.field_res_company__job_position_id
+#: model:ir.model.fields,field_description:sms_transport.field_res_config_settings__extra_activity_id
+msgid "Extra Activity"
+msgstr "انشطة اخري"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__family_condition
+msgid "Family Condition"
+msgstr "الحالة الاسرية"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__father_mobile
+msgid "Father Phone"
+msgstr "تليفون الاب"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__fleet_vehicle__period__first
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__period__first
+msgid "First"
+msgstr "أولا"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_follower_ids
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_follower_ids
+msgid "Followers"
+msgstr "متابعين"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_channel_ids
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "متابعين (القنوات)"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_partner_ids
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "متابعين (الشركاء)"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Future Activities"
+msgstr "انشطة مستقبلية"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "General Properties"
+msgstr "خصائص عامة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__class_grade
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid "Grade"
+msgstr "الصف"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_filter
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Group By"
+msgstr "مشترك"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__guardian_mobile
+msgid "Guardian Phone"
+msgstr "تليفون الوصي"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__severity__high
+msgid "High"
+msgstr "مرتفع"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__id
+#: model:ir.model.fields,field_description:sms_transport.field_report_sms_transport_report_transport_schedule_template__id
+#: model:ir.model.fields,field_description:sms_transport.field_sms_cities__id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard__id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__id
+msgid "ID"
+msgstr "بطاقة هوية"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__activity_exception_icon
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__activity_exception_icon
+msgid "Icon"
+msgstr "ايقونة"
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__activity_exception_icon
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "ايقونة تدل علي نشاط استثنائي"
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__message_needaction
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__message_unread
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__message_needaction
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__message_has_error
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__message_has_sms_error
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__message_has_error
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__hr_employee__transport_speciliztion__is_driver
+msgid "Is Drive"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_is_follower
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__hr_employee__transport_speciliztion__is_supervisor
+msgid "Is Supervisor"
+msgstr ""
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Job"
+msgstr "مهنة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_res_config_settings__job_position_id
+msgid "Job Position"
+msgstr "وظيفه"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_job_position
+msgid "Job Positions"
+msgstr "مناصب وظيفية"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport____last_update
+#: model:ir.model.fields,field_description:sms_transport.field_report_sms_transport_report_transport_schedule_template____last_update
+#: model:ir.model.fields,field_description:sms_transport.field_sms_cities____last_update
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management____last_update
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route____last_update
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop____last_update
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard____last_update
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling____last_update
+msgid "Last Modified on"
+msgstr "اخر تعديل في"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__write_uid
+#: model:ir.model.fields,field_description:sms_transport.field_sms_cities__write_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__write_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__write_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__write_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard__write_uid
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__write_uid
+msgid "Last Updated by"
+msgstr "اخر تحديث بواسطة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__write_date
+#: model:ir.model.fields,field_description:sms_transport.field_sms_cities__write_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__write_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__write_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__write_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_schedule_wizard__write_date
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__write_date
+msgid "Last Updated on"
+msgstr "اخر تحديث في "
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Late Activities"
+msgstr "انشطة متأخرة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "License Plate"
+msgstr "لوحة معدنية"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__severity__low
+msgid "Low"
+msgstr "منخفض"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_main_attachment_id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "الملحق الرئيسي"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__main_street
+msgid "Main Street"
+msgstr "الشارع الرئيسي"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__severity__major
+msgid "Major"
+msgstr "رئيسي"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Manager"
+msgstr "مدير"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "Max Capacity"
+msgstr "اقصي سعة"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__severity__medium
+msgid "Medium"
+msgstr "متوسط"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_has_error
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_has_error
+msgid "Message Delivery error"
+msgstr "خطأ ف تسليم الرسالة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_ids
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_ids
+msgid "Messages"
+msgstr "رسائل"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.hr_employee_form_inherited
+msgid "Mobile"
+msgstr "هاتف محمول"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__driver_phone
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__supervisor_phone
+msgid "Mobile Number "
+msgstr "رقم الهاتف المحمول"
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_fleet_vehicle_model
+msgid "Model of a vehicle"
+msgstr "موديل مركبة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__more_details
+msgid "More Details"
+msgstr "تفاصيل اكثر"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__mother_mobile
+msgid "Mother Phone"
+msgstr "تليفون الام"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_sms_cities__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__activity_date_deadline
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "الموعد النهائي للنشاط القادم"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__activity_summary
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__activity_summary
+msgid "Next Activity Summary"
+msgstr "ملخص النشاط القادم"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__activity_type_id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__activity_type_id
+msgid "Next Activity Type"
+msgstr "نوع النشاط القادم"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__name
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__name
+msgid "No"
+msgstr "لا"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_needaction_counter
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_needaction_counter
+msgid "Number of Actions"
+msgstr "عدد الاجراءات"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_has_error_counter
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_has_error_counter
+msgid "Number of errors"
+msgstr "عدد الاخطاء"
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__message_needaction_counter
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "عدد الرسائل التي تتطلب اجراء"
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__message_has_error_counter
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "عدد الرسائل التي بها خطا ف التسليم"
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__message_unread_counter
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__message_unread_counter
+msgid "Number of unread messages"
+msgstr "عدد الرسائل غير المقروءة"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__fleet_vehicle__state__in_operation
+msgid "Operational"
+msgstr "جاهز للعمل"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_form
+msgid "Other Information"
+msgstr "معلومات أخرى"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__period
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__period
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "Period"
+msgstr "فترة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.hr_employee_form_inherited
+msgid "Phone"
+msgstr "تليفون"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__primary_handover
+msgid "Primary Handover"
+msgstr "تسليم ابتدائي"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_transport_schedule_wizard
+msgid "Print"
+msgstr "يطبع"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid ""
+"Printed By:\n"
+"\t\t\t\t\t\t\t\t<br/>"
+msgstr ""
+"مطبوع بواسطة:\n"
+"                                                                <br/>"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid "Printed Date:<br/>"
+msgstr "تاريخ الطباعة:<br/>"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_transport_complaint_management_received
+msgid "Received"
+msgstr "تم الاستلام"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__name
+msgid "Reg No"
+msgstr "رقم التسجيل"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.trn_register_student_transport_form
+msgid "Register Now"
+msgstr "سجل الآن"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__register_student_transport__state__registered
+#: model:ir.ui.menu,name:sms_transport.menu_student_transport_registered
+msgid "Registered"
+msgstr "مسجل"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__registered_by
+msgid "Registered By"
+msgstr "مسجل عن طريق"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__fleet_vehicle__state__permanently_down
+msgid "Removed"
+msgstr "محذوف"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__state__received
+msgid "Reported"
+msgstr "تم الابلاغ"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_transport_reports
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__state__resolved
+#: model:ir.ui.menu,name:sms_transport.menu_transport_complaint_management_resolved
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_form
+msgid "Resolved"
+msgstr "تم الحل"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__date_resolved
+msgid "Resolved Date"
+msgstr "تاريخ الحل"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__resolved_by
+msgid "Resolved by"
+msgstr "تم الحل بواسطة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__resolve
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_resolve_wizard__resolve
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_transport_complaint_resolve_wizard
+msgid "Resolve"
+msgstr ""
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_transport_complaint_resolve_wizard
+msgid "Resolve Complaint"
+msgstr ""
+
+#. module: sms_transport
+#: code:addons/sms_transport/models/sms_transport.py:0
+#, python-format
+msgid "Resolve Complaint Wizard"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__resolve_type
+msgid "Resolve Type"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__activity_user_id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__activity_user_id
+msgid "Responsible User"
+msgstr "مستخدم مسئول"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__rout_ids
+msgid "Rout"
+msgstr "طريق"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__route
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__name
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_route_form
+msgid "Route"
+msgstr "طريق"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route_stop__name
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_route_stop_tree
+msgid "Route Stop"
+msgstr "محطة باص"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__routes_ids
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__routes_ids
+#: model:ir.ui.menu,name:sms_transport.menu_transport_route
+msgid "Routes"
+msgstr "طرق"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid "S.No"
+msgstr "شارع.رقم"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_has_sms_error
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "خطأ ف تسليم الرسائل القصيرة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_filter
+msgid "Schedule Date"
+msgstr "تاريخ الجدول الزمني"
+
+#. module: sms_transport
+#: model:ir.actions.report,name:sms_transport.action_report_transport_schedule
+#: model:ir.ui.menu,name:sms_transport.menu_Schedule_reports
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid "Schedule Report"
+msgstr "تقرير الجدول"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_transport_scheduling
+msgid "Scheduling"
+msgstr "الجدولة"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_scheduling_days
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__schedule_days
+#: model:ir.ui.menu,name:sms_transport.menu_scheduling_days
+msgid "Scheduling Days"
+msgstr "ايام الجدولة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+msgid "School"
+msgstr "مدرسة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_route_filter
+msgid "Search Route"
+msgstr "البحث عن خط سير"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_stop_filter
+msgid "Search Route Stop"
+msgstr "البحث عن طريق المحطة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_filter
+msgid "Search Scheduling"
+msgstr "جدولة البحث"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.trn_register_student_transport_filter
+msgid "Search Transport Student"
+msgstr "البحث عن باص الطلبة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_filter
+msgid "Search Vehicle"
+msgstr "البحث عن الباص"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__fleet_vehicle__period__second
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__period__second
+msgid "Second"
+msgstr "ثانيا"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__secondary_handover
+msgid "Secondary Handover"
+msgstr "التسليم الثانوي"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__register_student_transport__family_condition__sensitively
+msgid "Sensitively"
+msgstr "بحساسية"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__register_student_transport__family_condition__seperated
+msgid "Seperated"
+msgstr "منفصل"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__severity
+msgid "Severity"
+msgstr "خطورة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_hr_employee__transport_speciliztion
+msgid "Specilization"
+msgstr "تخصص"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__register_student_transport__family_condition__stable
+msgid "Stable"
+msgstr "مستقر"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__start_point
+msgid "Start Point"
+msgstr "نقطة بداية"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__state
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__state
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__state
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__state
+msgid "State"
+msgstr "محافظة"
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__activity_state
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"الوضع علي اساس الانشطة"
+"                                                                                                            "
+"المتأخر: تاريخ الاستحقاق فات بالفعل"
+"                                                                                                "
+"اليوم: تاريخ النشاط اليوم"
+"                                                                                                               "
+"المخطط له :الانشطة المستقبلية"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_route__stops_ids
+msgid "Stop"
+msgstr "المحطة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_route_stop_form
+msgid "Stop Form"
+msgstr "معلومات عن المحطة"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_transport_stops
+msgid "Stops"
+msgstr "محطات"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__veh_std_count
+msgid "Strength"
+msgstr "قوة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__student_id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__student_name
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__complain_against__student
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__complain_from__student
+#: model_terms:ir.ui.view,arch_db:sms_transport.report_transport_schedule_template
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_form
+#: model_terms:ir.ui.view,arch_db:sms_transport.trn_register_student_transport_tree
+msgid "Student"
+msgstr "طالب"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__students_ids
+#: model:ir.ui.menu,name:sms_transport.menu_registere_students_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_form
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "Students"
+msgstr "طلاب"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_transport_supervisor
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__supervisor_id
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__supervisor_name
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__supervisor_id
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__complain_against__supervisor
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__complain_from__supervisor
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_filter
+msgid "Supervisor"
+msgstr "مشرف"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_transport_scheduling__supervisor_phone_no
+msgid "Supervisor Phone Number"
+msgstr "رقم هاتف المشرف"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_action_transport_supervisor
+msgid "Supervisors"
+msgstr "المشرفين"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Today Activities"
+msgstr "انشطة اليوم"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.studnet_transport_root
+msgid "Transport"
+msgstr "المواصلات"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_form
+msgid "Transport Complaints Form"
+msgstr "استمارة شكاوي النقل"
+
+#. module: sms_transport
+#: model:res.groups,name:sms_transport.group_manager_sms_transport
+msgid "Transport Manager"
+msgstr "مدير قسم نقل الطلبة "
+
+#. module: sms_transport
+#: model:res.groups,name:sms_transport.group_officer_sms_transport
+msgid "Transport Officer"
+msgstr "مسئول عن الباصات"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_transport_route
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_route_tree
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_tree
+msgid "Transport Route"
+msgstr "خط سير "
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_transport_schedule_wizard
+msgid "Transport Schedule Report"
+msgstr "تقرير جدول الباصات"
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_transport_schedule_wizard
+msgid "Transport Schedule wizard"
+msgstr "جدول الباصات"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_transport_scheduling
+msgid "Transport Scheduling"
+msgstr "جدولة النقل"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_transport_route_stop
+msgid "Transport Stop"
+msgstr "محطة نقل"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_trn_register_student_transport_draft
+msgid "Transport Student(Draft)"
+msgstr "باص طلبة(تحت التنفيذ)"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_trn_register_student_transport_registered
+msgid "Transport Student(Registered)"
+msgstr "باص طلبة(تم التسجيل)"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_trn_register_student_transport_withdrawal
+msgid "Transport Student(Withdrawal)"
+msgstr "باص الطلبة(الغاء)"
+
+#. module: sms_transport
+#: model:ir.actions.act_window,name:sms_transport.action_fleet_vehicle_new
+msgid "Transport Vehicles"
+msgstr "باصات النقل"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.trn_register_student_transport_form
+msgid "Trasport Registration Form"
+msgstr "استمارة تسجيل الباص"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_route_form
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_route_stop_form
+msgid "Trasport Route Form"
+msgstr "جدول الباص"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_scheduling_form
+msgid "Trasport Scheduling Form"
+msgstr "استمارة جدولة النقل"
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__activity_exception_decoration
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_unread
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_unread
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_driver_supervisor_filter
+msgid "Unread Messages"
+msgstr "رسائل غير مقروءة"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__message_unread_counter
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "عداد الرسائل غير المقروءة"
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_fleet_vehicle
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__name
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_tree
+msgid "Vehicle"
+msgstr "المركبة"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_form
+msgid "Vehicle Information"
+msgstr "معلومات الباص"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_hr_employee__buses_ids
+#: model_terms:ir.ui.view,arch_db:sms_transport.hr_employee_form_inherited
+msgid "Vehicles"
+msgstr "باصات"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__website_message_ids
+#: model:ir.model.fields,field_description:sms_transport.field_transport_complaint_management__website_message_ids
+msgid "Website Messages"
+msgstr "رسائل الموقع "
+
+#. module: sms_transport
+#: model:ir.model.fields,help:sms_transport.field_register_student_transport__website_message_ids
+#: model:ir.model.fields,help:sms_transport.field_transport_complaint_management__website_message_ids
+msgid "Website communication history"
+msgstr "تاريخ التواصل "
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.trn_register_student_transport_form
+msgid "Withdraw Transport"
+msgstr "الغاء الباص"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__register_student_transport__state__withdrawal
+msgid "Withdrawal"
+msgstr "الغاء"
+
+#. module: sms_transport
+#: model:ir.ui.menu,name:sms_transport.menu_student_transport_unregistered
+msgid "Withdrawn"
+msgstr "ملغي"
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_register_student_transport__withdrawn_by
+msgid "Withdrawn By"
+msgstr "ملغي بواسطة"
+
+#. module: sms_transport
+#: code:addons/sms_transport/models/sms_transport.py:0
+#, python-format
+msgid "You Cannot Delete Record"
+msgstr "لا يمكنك حذف السجل"
+
+#. module: sms_transport
+#: code:addons/sms_transport/models/sms_transport.py:0
+#, python-format
+msgid "You cannot archive driver/supervisor"
+msgstr "لا يمكنك أرشفة السائق / المشرف"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_form
+msgid "e.g. 30 june 2021"
+msgstr "30 يونيه 2021"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "e.g. ABG 811"
+msgstr "ا ج ب 811"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "e.g. BUS 01"
+msgstr "باص01"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "e.g. Description..."
+msgstr "لون احمر"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.view_fleet_vehicle_form_inherited11
+msgid "e.g. Model S"
+msgstr "مرسيدس"
+
+#. module: sms_transport
+#: model_terms:ir.ui.view,arch_db:sms_transport.transport_complaint_management_form
+msgid "e.g.Ahmad"
+msgstr "احمد"
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_register_student_transport
+msgid "register.student.transport"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_report_sms_transport_report_transport_schedule_template
+msgid "report.sms_transport.report_transport_schedule_template"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_sms_cities
+msgid "sms.cities"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_transport_complaint_management
+msgid "transport.complaint.management"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_transport_route
+msgid "transport.route"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_transport_route_stop
+msgid "transport.route.stop"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_transport_scheduling
+msgid "transport.scheduling"
+msgstr ""
+
+#. module: sms_transport
+#: model:ir.model.fields,field_description:sms_transport.field_fleet_vehicle__vehical_driver_history_id
+msgid "vehical.driver.history"
+msgstr "تاريخ سائق الباص"
+
+#. module: sms_transport
+#: model:ir.model.fields.selection,name:sms_transport.selection__transport_complaint_management__resolve_type__check
+msgid "Check"
+msgstr "الشيك"
+
+#. module: sms_transport
+#: model:ir.model,name:sms_transport.model_complaint_reporter
+msgid "complaint.reporter"
+msgstr "شكوى"

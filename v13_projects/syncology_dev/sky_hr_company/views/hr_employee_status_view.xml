@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- sky_hr_custom Inherit Form view of Employee Status-->
+    <record id="inherit_view_emp_status_form" model="ir.ui.view">
+        <field name="name">inherit.view.emp.status.form</field>
+        <field name="model">hr.employee.status</field>
+        <field name="inherit_id" ref="sky_hr_custom.view_emp_status_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- sky_hr_custom Inherit Tree view of Employee Status-->
+    <record id="inherit_view_emp_status_tree" model="ir.ui.view">
+        <field name="name">inherit.view.emp.status.tree</field>
+        <field name="model">hr.employee.status</field>
+        <field name="inherit_id" ref="sky_hr_custom.view_emp_status_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree/field[@name='company_id']" position="attributes">
+                <attribute name="string">School</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>

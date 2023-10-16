@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Server Action to change the state of the Time Tracking -->
+    <record id="action_time_tacking_close" model="ir.actions.server">
+        <field name="name">Close</field>
+        <field name="model_id" ref="model_time_tracking"/>
+        <field name="binding_model_id" ref="model_time_tracking"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+            records.write({'state':'close'})
+        </field>
+    </record>
+
+</odoo>

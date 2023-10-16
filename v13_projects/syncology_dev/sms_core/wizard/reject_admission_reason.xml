@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="view_reject_std_admission_wizard" model="ir.ui.view">
+			<field name="name">admission.reject.reason.wizard</field>
+			<field name="model">admission.reject.reason.wizard</field>
+			<field name="arch" type="xml">
+				<form string="Reject Reason">
+					<group>
+							<field name="adm_reject_reason" required="1" placeholder="Reason of Rejection"/>
+					</group>
+					<footer>
+						<button name="reject_student_admission" type="object" string="Reject Admission" class="oe_highlight" />
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_reject_admission_wizard" model="ir.actions.act_window">
+			<field name="name">Reject Admission</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">admission.reject.reason.wizard</field>
+			<field name="view_id" ref="view_reject_std_admission_wizard" />
+			<!-- <field name="context">{'default_vehicle_id': context.get('parent_id',False)}</field> --> 
+			<field name="view_mode">form</field>
+			<field name="target">new</field>
+		</record>
+
+	</data>
+</odoo>

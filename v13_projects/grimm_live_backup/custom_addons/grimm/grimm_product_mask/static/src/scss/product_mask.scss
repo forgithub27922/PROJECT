@@ -1,0 +1,25 @@
+.grimm_prod_img {
+    float: left!important;
+    padding: 3% 2% 3% 2%;
+/*    border: 1px solid #d2d2d2;
+    margin-right: 10px;
+    background: #f3f3f3;
+    border-radius: 10px;*/
+}
+
+.grimm_prod_img > img {
+    max-height: 130px!important;
+    max-width: 130px!important;
+}
+
+.mask_div {
+    margin-left: 50px;
+}
+
+.grimm_badge_success {
+    border-color: #3c763d!important;
+}
+
+.grimm_badge_danger {
+    border-color: #a94442!important;
+}

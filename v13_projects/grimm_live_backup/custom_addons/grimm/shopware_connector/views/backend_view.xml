@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+<data>
+    <record id="view_shopware_backend_form" model="ir.ui.view">
+            <field name="name">shopware.backend.form</field>
+            <field name="model">shopware.backend</field>
+            <field name="arch" type="xml">
+                <form string="Shopware Backend">
+                    <header>
+                      <button name="synchronize_metadata"
+                        type="object"
+                        class="oe_highlight"
+                        string="Synchronize Metadata"/>
+                    </header>
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" class="oe_inline" />
+                        </h1>
+                        <group name="shopware" string="Shopware Configuration">
+                            <notebook>
+                                <page string="API" name="api">
+                                    <group colspan="4" col="4">
+                                        <field name="version" colspan="4"/>
+                                        <field name="location" placeholder="e.g. http://my.shopware.com"
+                                            colspan="2"/>
+                                        <field name="username" colspan="2"/>
+                                        <field name="token" password="1" colspan="2"/>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </group>
+                        <group name="main_configuration" string="Main Configuration">
+                            <field name="warehouse_id"/>
+                            <field name="default_company_id" groups="base.group_multi_company" />
+                        </group>
+                        <notebook>
+                            <page name="import" string="Imports">
+                                <p class="oe_grey oe_inline">
+                                    By clicking on the buttons,
+                                    you will initiate the synchronizations
+                                    with Shopware.
+                                    Note that the import or exports
+                                    won't be done directly,
+                                    they will create 'Jobs'
+                                    executed as soon as possible.
+                                </p>
+                                <p class="oe_grey oe_inline">
+                                    Once imported,
+                                    some types of records,
+                                    like the products or categories,
+                                    need a manual review.
+                                    You will find the list
+                                    of the new records to review
+                                    in the menu 'Connectors > Checkpoint'.
+                                </p>
+                                <group>
+                                    <span class="oe_inline">Import all customer groups</span>
+                                    <div>
+                                        <button name="import_customer_groups"
+                                            type="object"
+                                            class="oe_highlight"
+                                            string="Import in background"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <span class="oe_inline">Import partners from all shops</span>
+                                    <button name="import_partners"
+                                        type="object"
+                                        class="oe_highlight"
+                                        string="Import in background"/>
+                                </group>
+                                <group>
+                                    <div>
+                                        <span class="oe_inline">Import products categories since</span>
+                                        <field name="import_categories_from_date"
+                                            class="oe_inline"
+                                            nolabel="1"/>
+                                    </div>
+                                    <button name="import_product_categories"
+                                        type="object"
+                                        class="oe_highlight"
+                                        string="Import in background"/>
+                                </group>
+                                <group>
+                                    <div>
+                                        <span class="oe_inline">Import products since</span>
+                                        <field name="import_products_from_date"
+                                            class="oe_inline"
+                                            nolabel="1"/>
+                                    </div>
+                                    <button name="import_articles"
+                                        type="object"
+                                        class="oe_highlight"
+                                        string="Import in background"/>
+                                </group>
+                                <group>
+                                    <span class="oe_inline">Import sales orders from all shop views</span>
+                                    <button name="import_sale_orders"
+                                        type="object"
+                                        class="oe_highlight"
+                                        string="Import in background"/>
+                                </group>
+                                <group>
+                                    <span class="oe_inline">Update all the products stock quantities</span>
+                                    <button name="update_product_stock_qty"
+                                        type="object"
+                                        class="oe_highlight"
+                                        string="Update"/>
+                                </group>
+
+                            </page>
+
+                            <page name="advanced_configuration" string="Advanced Configuration">
+                                <group>
+                                    <field name="default_lang_id" widget="selection"/>
+                                    <field name="default_category_id"/>
+                                    <field name="sale_prefix" placeholder="mag-" />
+                                    <field name="product_stock_field_id" widget="selection"
+                                        domain="[('model', 'in', ['product.product', 'product.template']), ('ttype', '=', 'float')]"/>
+                                    <field name="account_analytic_id" groups="sale.group_analytic_accounting" />
+                                    <field name="fiscal_position_id"/>
+                                </group>
+                            </page>
+
+                            <page name="shop" string="Shops">
+                                <group string="Shops">
+                                    <field name="shop_ids" nolabel="1">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="shopware_id"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+
+                            <page name="mapping" string="Mappings">
+                                <group string="Tax Mapping">
+                                    <field name="tax_mapping_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="tax_id"/>
+                                            <field name="shopware_tax_percent"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_shopware_backend_tree" model="ir.ui.view">
+            <field name="name">shopware.backend.tree</field>
+            <field name="model">shopware.backend</field>
+            <field name="arch" type="xml">
+                <tree string="Shopware Backend">
+                    <field name="name"/>
+                    <field name="location"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_shopware_backend" model="ir.actions.act_window">
+            <field name="name">Shopware Backends</field>
+            <field name="res_model">shopware.backend</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_shopware_backend_tree"/>
+        </record>
+
+    <menuitem id="backend_shopware"
+            name="Shopware"
+            parent="connector.menu_connector_root"
+            sequence="40"
+            />
+
+    <menuitem id="backend_shopware_target"
+            name="Shopware Backend"
+            parent="backend_shopware"
+            sequence="40"
+            action="action_shopware_backend"/>
+
+    <record id="grimm_partner_normal_form_view" model="ir.ui.view">
+        <field name="name">grimm.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="connector" string="Target Shopware Binding">
+                <group string="Target Shopware Bindings">
+                    <button name="export_to_shopware" type="object" class="oe_highlight" string="Export Record"/>
+                    <field name="shopware_bind_ids" nolabel="1">
+                        <tree>
+                            <field name="backend_id"/>
+                            <field name="shopware_id"/>
+                        </tree>
+                    </field>
+                </group>
+            </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_shopware_partner_form" model="ir.ui.view">
+        <field name="name">shopware.partner.form</field>
+        <field name="model">shopware.res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Shopware Partner">
+                <group>
+                    <field name="backend_id"/>
+                    <field name="shopware_id"/>
+                    <field name="created_at" readonly="1"/>
+                    <field name="updated_at" readonly="1"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_shopware_partner_tree" model="ir.ui.view">
+        <field name="name">shopware.partner.tree</field>
+        <field name="model">shopware.res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Shopware Partner">
+                <field name="backend_id"/>
+                <field name="shopware_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ir_check_shopware_order_status_cron" model="ir.cron">
+        <field name="name">Update Sale order state on shopware</field>
+        <field eval="True" name="active"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="interval_number">24</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+        <field eval="False" name="doall"/>
+        <field ref="model_sale_order" name="model_id"/>
+        <field name="state">code</field>
+        <field name="code">model.update_order_state_shopware()</field>
+    </record>
+
+    <!--<record id="view_ir_model_field_update_trigger" model="ir.ui.view">
+        <field name="name">shopware.ir.model.fields</field>
+        <field name="model">ir.model</field>
+        <field name="inherit_id" ref="base.view_model_form"/>
+        <field name="arch" type="xml">
+            <field name="copy" position="after">
+                <field name="update_shopware_trigger"/>
+                <button string="⇒ Change Update Trigger Boolean" class="oe_link oe_right"
+                                help="Click to change Update Trigger Value"
+                                name="change_update_trigger" type="object"/>
+            </field>
+        </field>
+    </record>-->
+
+
+</data>
+</openerp>

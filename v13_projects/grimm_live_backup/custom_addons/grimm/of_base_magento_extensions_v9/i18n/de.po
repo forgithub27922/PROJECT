@@ -1,0 +1,2131 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* of_base_magento_extensions_v9
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-28 13:41+0000\n"
+"PO-Revision-Date: 2018-06-28 13:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_purchase_count
+msgid "# Purchases"
+msgstr "# Bestellungen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_sales_count
+msgid "# Sales"
+msgstr "# Verkäufe"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_product_variant_count
+msgid "# of Product Variants"
+msgstr "# Artikelvarianten"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "(Force import of all variants after configurable product import?)"
+msgstr "(Force import of all variants after configurable product import?)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_type
+msgid "A consumable is a product for which you don't manage stock, a service is a non-material product provided by a company or an individual."
+msgstr "Ein Verbrauchsartikel ist ein Produkt, für das Sie keine Bestandführung benötigen. Dienstleistungen sind, durch Unternehmen oder Einzelpersonen gelieferte, nicht-materielle Produkte."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_description_sale
+msgid "A description of the Product that you want to communicate to your customers. This description will be copied to every Sale Order, Delivery Order and Customer Invoice/Refund"
+msgstr "Die Kunden Produktbeschreibung für  Angebot, Lieferschein und Ausgangsrechnung."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_description_purchase
+msgid "A description of the Product that you want to communicate to your vendors. This description will be copied to every Purchase Order, Receipt and Vendor Bill/Refund."
+msgstr "Eine Beschreibung des Produktes, welche Sie dem Lieferanten mitteilen möchten. Diese Beschreibung wird in jede Bestellung, Quittung oder Rechnung/Gutschrift übernommen."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+msgid "A precise description of the Product"
+msgstr "A precise description of the Product"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_description
+msgid "A precise description of the Product, used only for internal information purposes."
+msgstr "Die Produktbeschreibung mit allen Details für die interne Verwendung."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_is_accessory_part
+msgid "Accessory Part"
+msgstr "Zubehör"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_accessory_part_ids
+msgid "Accessory Parts"
+msgstr "Zubehöre"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_needaction
+msgid "Action Needed"
+msgstr "Aktion notwendig"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_active
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_active
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_value_active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.product_image_form_view
+msgid "Additional image"
+msgstr "Zusatz-Bilder"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_admin_storeview_id
+msgid "Admin Storeview"
+msgstr "Admin Storeview"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_admin_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_value_admin_name
+msgid "Admin value"
+msgstr "Admin value"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_arbitrary_magento_ctg_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_arbitrary_magento_ctg_id
+msgid "Arbitrary magento category"
+msgstr "Arbitrary magento category"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_form_view
+msgid "Are you sure you want to remove this attribute from all products?"
+msgstr "Are you sure you want to remove this attribute from all products?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_attribute_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_attr_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_attr_id
+msgid "Attribute"
+msgstr "Eigenschaft"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_price_extra
+msgid "Attribute Price Extra"
+msgstr "Attribut Preisaufschlag"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_price_ids
+msgid "Attribute Prices"
+msgstr "Attributpreise"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_import_attributes_from_set
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_attribute_set_id
+msgid "Attribute set"
+msgstr "Attribute set"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_value_id
+msgid "Attribute value"
+msgstr "Attribute-Wert"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_attribute_data_ids
+msgid "Attributes data"
+msgstr "Attributes data"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_is_automatic_image
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_is_automatic_image
+msgid "Automatic image"
+msgstr "Automatic image"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_backend_id
+msgid "Backend"
+msgstr "Backend"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_barcode
+msgid "Barcode"
+msgstr "Strichcode"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_base_default_code
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_base_default_code
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_base_default_code
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_template_base_default_code
+msgid "Base Internal Reference"
+msgstr "Base Internal Reference"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_is_base_image
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_is_base_image
+msgid "Base image"
+msgstr "Base image"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_list_price
+msgid "Base price to compute the customer price. Sometimes called the catalog price."
+msgstr "Basispreis für die Berechnung des Verkaufspreises. Manchmal wird dieser Preis auch Listenpreis genannt."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_skeleton_attribute_set_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_set_skeleton_attribute_set_id
+msgid "Based on"
+msgstr "Basiert auf"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,product_images_import_type:0
+msgid "Basic images synchronization"
+msgstr "Basic images synchronization"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Boolean"
+msgstr "Boolean"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_product_brand_id
+msgid "Brand"
+msgstr "Marke"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_purchase_ok
+msgid "Can be Purchased"
+msgstr "Kann eingekauft werden"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_rental
+msgid "Can be Rent"
+msgstr "Kann vermietet werden"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_sale_ok
+msgid "Can be Sold"
+msgstr "Kann verkauft werden"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_product_images_export_type
+msgid "Catalog images export type"
+msgstr "Catalog images export type"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_product_images_import_type
+msgid "Catalog images import type"
+msgstr "Catalog images import type"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_route_from_categ_ids
+msgid "Category Routes"
+msgstr "Kategorie Routen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_no_stock_sync
+msgid "Check this to exclude the variant products from stock synchronizations."
+msgstr "Check this to exclude the variant products from stock synchronizations."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_color
+msgid "Color Index"
+msgstr "Farbkennzeichnung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_company_id
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_search_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_search_view
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Configurable"
+msgstr "Ersatzteile"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_search_view
+msgid "Configurable attributes"
+msgstr "Configurable attributes"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_openerp_id
+msgid "Configurable product"
+msgstr "Configurable product"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_configurable
+msgid "Configurable products"
+msgstr "Configurable products"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_connection_ids
+msgid "Connections"
+msgstr "Anschlüsse"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_purchase_method
+msgid "Control Purchase Bills"
+msgstr "Eingangsrechnungskontrolle"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_standard_price
+msgid "Cost"
+msgstr "Kosten"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_standard_price
+msgid "Cost of the product, in the default unit of measure of the product."
+msgstr "Einstandskosten des Produktes in Vorgabe-Maßeinheit des Produkts."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_cost_method
+msgid "Costing Method"
+msgstr "Kalkulationsverfahren"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/magento_backend.py:285
+#, python-format
+msgid "Could not extract product data!"
+msgstr "Could not extract product data!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_country_id
+msgid "Country"
+msgstr "Land"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_created_at
+msgid "Created At (on Magento)"
+msgstr "Created At (on Magento)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_create_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_create_uid
+msgid "Created by"
+msgstr "Angelegt von"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_create_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_create_date
+msgid "Created on"
+msgstr "Angelegt am"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_currency_id
+msgid "Currency"
+msgstr "Währung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_sale_delay
+msgid "Customer Lead Time"
+msgstr "Zeit bis Auslieferung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_taxes_id
+msgid "Customer Taxes"
+msgstr "Steuern (Verkauf)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Data synchronization"
+msgstr "Data synchronization"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Date"
+msgstr "Date"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_message_last_post
+msgid "Date of the last message posted on the record."
+msgstr "Datum der letzten Nachricht."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_uom_id
+msgid "Default Unit of Measure used for all stock operation."
+msgstr "Standard Mengeneinheit (ME) für alle Bestandsbuchungen."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_uom_po_id
+msgid "Default Unit of Measure used for purchase orders. It must be in the same category than the default unit of measure."
+msgstr "Einkauf Mengeneinheit (ME) wird genutzt für Beschaffungsauftrag. Diese sollte in der gleichen Kategorie  sein, wie die Standard Mengeneinheit (ME)."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_default_product_ctg_id
+msgid "Default category magento ID"
+msgstr "Default category magento ID"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_product_system_val_ids
+msgid "Default product system values"
+msgstr "Default product system values"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_default_value
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_default_value
+msgid "Default value"
+msgstr "Default value"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Default values"
+msgstr "Default values"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_route_ids
+msgid "Depending on the modules installed, this will allow you to define the route of the product: whether it will be bought, manufactured, MTO/MTS,..."
+msgstr "Abhängig von den installierten Anwendungen, kann hier bereits die Beschaffungsroute für ein Produkt bestimmt werden: Entweder wird das Produkt eingekauft oder gefertigt, die Beschaffung erfolgt vom Auftrag (MTO) bzw. vom Lagerbestand (MTS) usw."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_description
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_description
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_description_picking
+msgid "Description on Picking"
+msgstr "Beschreibung der Kommisionierung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_attribute_sequence
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_attribute_value_sequence
+msgid "Determine the display order"
+msgstr "Bestimme die Anzeigereihenfolge"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_disable_checkpoints
+msgid "Disable checkpoints?"
+msgstr "Disable checkpoints?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_display_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_display_name
+msgid "Display Name"
+msgstr "Angezeigter Name"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.product.template,manage_stock:0
+msgid "Do Not Manage Stock"
+msgstr "Do Not Manage Stock"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_product_attachment_ids
+msgid "Dokumente"
+msgstr "Dokumente"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Dropdown"
+msgstr "Dropdown"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Empty"
+msgstr "Empty"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_account_expense_id
+msgid "Expense Account"
+msgstr "Aufwandskonto"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_should_export
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_set_should_export
+msgid "Export condition"
+msgstr "Export condition"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,product_attributes_sync_type:0
+#: selection:magento.backend,products_sync_type:0
+msgid "Export from Odoo to Magento"
+msgstr "Export from Odoo to Magento"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.product_image_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.product_image_tree_view
+msgid "Export to Magento"
+msgstr "Export to Magento"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_set_form_view
+msgid "Export/Update on Magento"
+msgstr "Export/Update on Magento"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_categ_ids
+msgid "Extra categories"
+msgstr "Extra categories"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_configurable_failed
+msgid "Failed configurable"
+msgstr "Failed configurable"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/product_attribute_set.py:64
+#, python-format
+msgid "First you must provide base attribute set with Magento binding!"
+msgstr "First you must provide base attribute set with Magento binding!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_fiscal_position_id
+msgid "Fiscal position"
+msgstr "Fiscal position"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_fiscal_mapping_ids
+msgid "Fiscal position mappings"
+msgstr "Fiscal position mappings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Fiscal position mappings per country"
+msgstr "Fiscal position mappings per country"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_follower_ids
+msgid "Followers"
+msgstr "Beobachter"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Beobachter (Kanäle)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Beobachter (Partner)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_force_import_of_variants
+msgid "Force import of all variants after configurable product import?"
+msgstr "Force import of all variants after configurable product import?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_virtual_available
+msgid "Forecasted Quantity"
+msgstr "Geplante Bestandsmenge"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,product_images_export_type:0
+#: selection:magento.backend,product_images_import_type:0
+msgid "Full images synchronization (all images)"
+msgstr "Full images synchronization (all images)"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,product_images_import_type:0
+msgid "Full images synchronization (base image only)"
+msgstr "Full images synchronization (base image only)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_packaging_ids
+msgid "Gives the different ways to package the same product. This has no impact on the picking order and is mainly used if you use the EDI module."
+msgstr "Unterschiedliche Ladungsträger, Verpackungen, Umverpackungen können für ein und dasselbe Produkt definiert werden. Diese Packeinheiten beeinflussen nicht den Packauftrag, werden aber häufig bei EDI Modulen verwendet."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_attribute_print_seq
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_print_seq
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_product_textual_attributes_data_print_seq
+msgid "Gives the sequence of this line when displayed in reports."
+msgstr "Gibt die Reihenfolge in Berichten vor."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_sequence
+msgid "Gives the sequence order when displaying a product list"
+msgstr "Reihenfolge bei Anzeige einer Liste von Produkten"
+
+#. module: of_base_magento_extensions_v9
+#: selection:product.attribute,attribute_scope:0
+msgid "Global"
+msgstr "Global"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_weight
+msgid "Gross Weight"
+msgstr "Bruttogewicht"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_has_variants
+msgid "Has variants?"
+msgstr "Has variants?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_id
+msgid "ID"
+msgstr "ID"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_magento_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_magento_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_magento_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_magento_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_id
+msgid "ID on Magento"
+msgstr "ID on Magento"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_message_unread
+msgid "If checked new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_attribute_manual_mapping
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_product_attribute_manual_mapping
+msgid "If checked then it means it is mapped into some concrete\n"
+"                                                               field on product and it won't be added into\n"
+"                                                               'Additional data' of the product"
+msgstr "If checked then it means it is mapped into some concrete\n"
+"                                                               field on product and it won't be added into\n"
+"                                                               'Additional data' of the product"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Falls markiert, benötigen neue Nachrichten Ihre Kenntnisnahme."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_image_magento_ptmpl_id
+msgid "If image belongs to configurable product"
+msgstr "If image belongs to configurable product"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_image_magento_product_id
+msgid "If image belongs to standalone or variant simple product"
+msgstr "If image belongs to standalone or variant simple product"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_valuation
+msgid "If perpetual valuation is enabled for a product, the system will automatically create journal entries corresponding to stock moves, with product price as specified by the 'Costing Method'The inventory variation account set on the product category will represent the current inventory value, and the stock input and stock output account will hold the counterpart moves for incoming and outgoing products."
+msgstr "Wenn permanente Inventur für ein Produkt eingestellt wurde, erstellt das System automatisch Buchungssätze, die mit den Warenbewegungen korrespondieren zu Bewertungspreisen, die sich über die eingestellte Kostenmethode errechnen. Das Bestandsveränderungskonto der Produktkategorie repräsentiert dabei den momentanen Bestandswert, das Wareneingangs- und Warenausgangskonto beinhaltet die Gegenbuchung für ein- und ausgehende Produkte."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_recurring_invoice
+msgid "If set, confirming a sale order with this product will create a subscription"
+msgstr "If set, confirming a sale order with this product will create a subscription"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_active
+msgid "If unchecked, it will allow you to hide the product without removing it."
+msgstr "Durch De-Aktivierung, können Sie das Produkt verbergen, ohne dass es gleich gelöscht werden muss."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_automatic_image_data
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_manual_image_data
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_image
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_automatic_image_data
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_manual_image_data
+msgid "Image"
+msgstr "Bild"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_binary_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_binary_write_date
+msgid "Image change date"
+msgstr "Image change date"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.product_image_form_view
+msgid "Image label"
+msgstr "Image label"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+msgid "Images"
+msgstr "Images"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_image_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_image_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_image_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_template_image_ids
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+msgid "Images data"
+msgstr "Images data"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Import"
+msgstr "Import"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_import_attributes_of_type
+msgid "Import attributes of type"
+msgstr "Import attributes of type"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,product_attributes_sync_type:0
+#: selection:magento.backend,products_sync_type:0
+msgid "Import from Magento to Odoo"
+msgstr "Import from Magento to Odoo"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Import images for all products"
+msgstr "Import images for all products"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Import in background"
+msgstr "Importiere im Hintergrund"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Import product attribute sets"
+msgstr "Import product attribute sets"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Import product attributes of type"
+msgstr "Import product attributes of type"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_import_categories
+msgid "Import product categories?"
+msgstr "Import product categories?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_import_configurable_products_from_date
+msgid "Import products from date"
+msgstr "Import products from date"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_account_income_id
+msgid "Income Account"
+msgstr "Erlöskonto"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_incoming_qty
+msgid "Incoming"
+msgstr "Eingang"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_default_code
+msgid "Internal Reference"
+msgstr "Interne Referenz"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_stock_inventory
+msgid "Inventory Location"
+msgstr "Lagerort Bestandsaufnahme"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_valuation
+msgid "Inventory Valuation"
+msgstr "Inventur Bewertung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_invoice_policy
+msgid "Invoicing Policy"
+msgstr "Fakturierungsregel"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_is_follower
+msgid "Is Follower"
+msgstr "Ist Beobachter"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_is_product_variant
+msgid "Is a product variant"
+msgstr "Artikelvariante"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_is_configurable
+msgid "Is configurable"
+msgstr "Is configurable"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_is_required
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_is_required
+msgid "Is required?"
+msgstr "Is required?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_is_system
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_is_system
+msgid "Is system?"
+msgstr "Is system?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_is_product_variant
+msgid "Is variant product?"
+msgstr "Is variant product?"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/magento_backend.py:270
+#, python-format
+msgid "It is not recommended that you import products manually while there are executing queue jobs related to products."
+msgstr "It is not recommended that you import products manually while there are executing queue jobs related to products."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_last_post
+msgid "Last Message Date"
+msgstr "Letzte Benachrichtigung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data___last_update
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_write_uid
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_write_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_sync_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_sync_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_sync_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_sync_date
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_sync_date
+msgid "Last synchronization date"
+msgstr "Letztes Synchronisationsdatum"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_attribute_line_ids
+msgid "Lines"
+msgstr "Positionen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_location_id
+msgid "Location"
+msgstr "Lagerort"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_packaging_ids
+msgid "Logistical Units"
+msgstr "Verpackungseinheit"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_set_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_value_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_product_category_form
+msgid "Magento"
+msgstr "Magento"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_backend
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_backend_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_backend_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_backend_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_backend_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_backend_id
+msgid "Magento Backend"
+msgstr "Magento-Backend"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_product_attribute
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_product_attribute_set
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_product_attribute_value
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_product_image
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_product_template
+msgid "Magento Binding (abstract)"
+msgstr "Magento Zuordnung (abstrakt)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_product_product
+msgid "Magento Product"
+msgstr "Magento-Produkt"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_product_category
+msgid "Magento Product Category"
+msgstr "Magento-Produktkategorie"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_template_form_view
+msgid "Magento Product Template"
+msgstr "Magento Product Template"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_magento_attribute_id
+msgid "Magento attribute binding"
+msgstr "Magento attribute binding"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_magento_attribute_value_ids
+msgid "Magento attribute bindings"
+msgstr "Magento attribute bindings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_attribute_set_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_attribute_set_id
+msgid "Magento attribute set"
+msgstr "Magento attribute set"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_attribute_value_ids
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_attribute_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_product_form
+msgid "Magento attribute values"
+msgstr "Magento attribute values"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_magento_attribute_ids
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_attribute_set_form_view
+msgid "Magento attributes"
+msgstr "Magento attributes"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_country_fiscal_position_map_backend_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_backend_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_backend_id
+msgid "Magento backend"
+msgstr "Magento backend"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_magento_binding_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_magento_binding_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_magento_binding_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_magento_binding_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_ptmpl_bind_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_ptmpl_bind_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_magento_binding_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_set_magento_binding_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_value_magento_binding_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_magento_binding_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_magento_ptmpl_bind_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_template_magento_ptmpl_bind_ids
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_set_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+msgid "Magento bindings"
+msgstr "Magento bindings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_template_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_product_form
+msgid "Magento categories"
+msgstr "Magento categories"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_category_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_category_id
+msgid "Magento category"
+msgstr "Magento category"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_category_magento_ctg_name
+msgid "Magento category name"
+msgstr "Magento category name"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_magento_code
+msgid "Magento code"
+msgstr "Magento code"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_image_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_image_ids
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_template_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_product_form
+msgid "Magento images"
+msgstr "Magento images"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_attribute_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_attribute_tree_view
+msgid "Magento product attribute"
+msgstr "Magento product attribute"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_attribute_set_form_view
+msgid "Magento product attribute set"
+msgstr "Magento product attribute set"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_pp_bind_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_pp_bind_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_magento_pp_bind_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_template_magento_pp_bind_ids
+msgid "Magento product bindings"
+msgstr "Magento product bindings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_categ_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_categ_ids
+msgid "Magento product categories"
+msgstr "Magento product categories"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_magento_product_id
+msgid "Magento product id"
+msgstr "Magento product id"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.magento_product_image_form_view
+msgid "Magento product image"
+msgstr "Magento product image"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_product_tmpl_id
+msgid "Magento product template"
+msgstr "Magento product template"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_product_variant_ids
+msgid "Magento product variants"
+msgstr "Magento product variants"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_magento_ptmpl_id
+msgid "Magento ptmpl id"
+msgstr "Magento ptmpl id"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_tax_mapping_ids
+msgid "Magento tax mappings"
+msgstr "Magento tax mappings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_magento_tax_percent
+msgid "Magento tax percent"
+msgstr "Magento tax percent"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_backend_is_product_variant
+msgid "Make sure that you select this option only if product belongs to configurable product on Magento side.\n"
+"                If you select it for standalone simple product it won't be imported as standalone product in Odoo!!!"
+msgstr "Make sure that you select this option only if product belongs to configurable product on Magento side.\n"
+"                If you select it for standalone simple product it won't be imported as standalone product in Odoo!!!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_backorders
+msgid "Manage Inventory Backorders on variants"
+msgstr "Manage Inventory Backorders on variants"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.product.template,manage_stock:0
+msgid "Manage Stock"
+msgstr "Manage Stock"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_manage_stock
+msgid "Manage Stock Level on Variants"
+msgstr "Manage Stock Level on Variants"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Manual imports"
+msgstr "Manual imports"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_manual_mapping
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_manual_mapping
+msgid "Manual mapping?"
+msgstr "Manual mapping?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Mappings"
+msgstr "Mappings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_image_medium
+msgid "Medium-sized image"
+msgstr "Mittelgroßes Bild"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_image_medium
+msgid "Medium-sized image of the product. It is automatically resized as a 128x128px image, with aspect ratio preserved, only when the image exceeds one of those sizes. Use this field in form views or some kanban views."
+msgstr "Bild des Produkts in mittlerer Größe. Es wird automatisch auf 128x128px verkleinert, ohne Änderungen des Seitenverhältnis. Verwenden Sie dieses Feld in Formular oder Kanban Ansichten."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_ids
+msgid "Messages"
+msgstr "Mitteilungen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_single_model_to_import
+msgid "Model to import"
+msgstr "Model to import"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+msgid "Multi Select"
+msgstr "Mehrfachauswahl"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_attribute_data_multi_select_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_attribute_data_multi_select_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_attribute_data_multi_select_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_template_attribute_data_multi_select_ids
+msgid "Multi Select Attributes Data"
+msgstr "Mehrfachauswahl Attributdaten"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Multiselect"
+msgstr "Mehrfachauswahl"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_name
+msgid "Name"
+msgstr "Bezeichnung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_net_weight
+msgid "Net Weight"
+msgstr "Nettogewicht"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.product.template,backorders:0
+msgid "No Sell"
+msgstr "No Sell"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_no_stock_sync
+msgid "No Stock Synchronization for variants"
+msgstr "No Stock Synchronization for variants"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/units/product_import.py:103
+#: code:addons/of_base_magento_extensions_v9/units/product_import.py:300
+#, python-format
+msgid "No categories could be found in odoo for following magento category ids: %s. You must either map manually/import those categories, or set default category on Magento Backend!"
+msgstr "No categories could be found in odoo for following magento category ids: %s. You must either map manually/import those categories, or set default category on Magento Backend!"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,product_images_export_type:0
+#: selection:magento.backend,product_images_import_type:0
+msgid "No images synchronization"
+msgstr "No images synchronization"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:magento.product.template:0
+msgid "Odoo configurable product can be linked with only one configurable product per Magento backend!"
+msgstr "Odoo configurable product can be linked with only one configurable product per Magento backend!"
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:magento.product.attribute:0
+msgid "Odoo product attribute can be linked with only one product attribute per Magento backend!"
+msgstr "Odoo product attribute can be linked with only one product attribute per Magento backend!"
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:magento.product.attribute.set:0
+msgid "Odoo product attribute set can be linked with only one product attribute set per Magento backend!"
+msgstr "Odoo product attribute set can be linked with only one product attribute set per Magento backend!"
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:magento.product.attribute.value:0
+msgid "Odoo product attribute value can be linked with only one product attribute option per Magento backend!"
+msgstr "Odoo product attribute value can be linked with only one product attribute option per Magento backend!"
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:magento.product.product:0
+msgid "Odoo product can be linked with only one product per Magento backend!"
+msgstr "Odoo product can be linked with only one product per Magento backend!"
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:magento.product.image:0
+msgid "Odoo product image can be linked with only one product image per Magento backend!"
+msgstr "Odoo product image can be linked with only one product image per Magento backend!"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/product_attribute.py:103
+#, python-format
+msgid "Only Administrator is allowed to remove attributes from all products!"
+msgstr "Only Administrator is allowed to remove attributes from all products!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_openerp_id
+msgid "Openerp id"
+msgstr "Openerp id"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_ptmpl_openerp_id
+msgid "Openerp ptmpl ID"
+msgstr "Openerp ptmpl ID"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_outgoing_qty
+msgid "Outgoing"
+msgstr "Ausgang"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_res_partner
+msgid "Partner"
+msgstr "Partner"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_price
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Price"
+msgstr "Preis"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_price_calculation_group
+msgid "Price Calculation Group"
+msgstr "Preis-Kalkulation Gruppe"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_account_creditor_price_difference
+msgid "Price Difference Account"
+msgstr "Preisdifferenzkonto"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_attribute_value_price_extra
+msgid "Price Extra: Extra price for the variant with this attribute value on sale price. eg. 200 price extra, 1000 + 200 = 1200."
+msgstr "Preisaufschlag: Aufschlag auf den Verkaufspreis für diese Variante, z.B. bei Aufschlag von 200, 1000 + 200 = 1200."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_price_calculation
+msgid "Price calculation"
+msgstr "Price calculation"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_price_calculation_readonly
+msgid "Price calculation readonly"
+msgstr "Price calculation readonly"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_price_on_request
+msgid "Price on request"
+msgstr "Preis auf Anfrage"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_pricelist_id
+msgid "Pricelist"
+msgstr "Preisliste"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_item_ids
+msgid "Pricelist Items"
+msgstr "Preisliste Einzelposition"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_categ_id
+msgid "Pricing/Primary Category"
+msgstr "Pricing/Primary Category"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_print_attrib
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_print_attrib
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_print_attrib
+msgid "Print on Reports"
+msgstr "Auf Berichten ausgeben"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_print_seq
+msgid "Print seq"
+msgstr "Druck Sequenz"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_stock_procurement
+msgid "Procurement Location"
+msgstr "Beschaffungslager"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_product_product
+#: selection:magento.backend,single_model_to_import:0
+msgid "Product"
+msgstr "Produkt"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_product_attribute
+msgid "Product Attribute"
+msgstr "Produktattribute"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_attribute_line_ids
+msgid "Product Attributes"
+msgstr "Produkteigenschaften"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_product_manager
+msgid "Product Manager"
+msgstr "Produktmanager"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_product_template
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_product_tmpl_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_product_tmpl_id
+msgid "Product Template"
+msgstr "Produktvorlage"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_type
+msgid "Product Type"
+msgstr "Produktart"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_magento_attribute_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_openerp_id
+msgid "Product attribute"
+msgstr "Product attribute"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_product_attribute_ids
+msgid "Product attribute ids"
+msgstr "Product attribute ids"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_set_openerp_id
+msgid "Product attribute set"
+msgstr "Product attribute set"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_openerp_id
+msgid "Product attribute value"
+msgstr "Product attribute value"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Product attributes"
+msgstr "Product attributes"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/product.py:460
+#, python-format
+msgid "Product can have only one base image! \n"
+""
+msgstr "Product can have only one base image! \n"
+""
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/product.py:463
+#, python-format
+msgid "Product can have only one small image! \n"
+""
+msgstr "Product can have only one small image! \n"
+""
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/product.py:466
+#, python-format
+msgid "Product can have only one thumbnail image! \n"
+""
+msgstr "Product can have only one thumbnail image! \n"
+""
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/units/product_export.py:88
+#: code:addons/of_base_magento_extensions_v9/units/product_export.py:267
+#, python-format
+msgid "Product category is not properly set!"
+msgstr "Product category is not properly set!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Product export default values"
+msgstr "Product export default values"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/units/sale_import.py:278
+#, python-format
+msgid "Product with magento_id=%s does not exists in Odoo!"
+msgstr "Product with magento_id=%s does not exists in Odoo!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_stock_production
+msgid "Production Location"
+msgstr "Fertigungort (virtuelles Lager)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_product_variant_ids
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Products"
+msgstr "Artikelstamm"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_products_sync_type
+msgid "Products synchronization"
+msgstr "Products synchronization"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_project_id
+msgid "Project"
+msgstr "Projekt"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_lst_price
+msgid "Public Price"
+msgstr "Allgemeiner Preis"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_description_purchase
+msgid "Purchase Description"
+msgstr "Einkaufsbeschreibung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_uom_po_id
+msgid "Purchase Unit of Measure"
+msgstr "Einkauf ME"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_qty_available
+msgid "Quantity On Hand"
+msgstr "Bestandsmenge"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/units/catalog_image_export.py:159
+#, python-format
+msgid "Record %s deleted on Magento"
+msgstr "Record %s deleted on Magento"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_single_record_magento_id
+msgid "Record Id on Magento"
+msgstr "Record Id on Magento"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+msgid "Remove all bindings"
+msgstr "Remove all bindings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_normal_form_view
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+msgid "Remove empty bindings"
+msgstr "Remove empty bindings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_attribute_form_view
+msgid "Remove from products"
+msgstr "Remove from products"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_nbr_reordering_rules
+msgid "Reordering Rules"
+msgstr "Meldebestände"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_route_ids
+msgid "Routes"
+msgstr "Routen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_description_sale
+msgid "Sale Description"
+msgstr "Verkaufsbeschreibung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_list_price
+msgid "Sale Price"
+msgstr "Verkaufspreis"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,single_model_to_import:0
+msgid "Sale order"
+msgstr "Sale order"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_attribute_scope
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_attribute_scope
+msgid "Scope"
+msgstr "Scope"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_categ_id
+msgid "Select category for the current product"
+msgstr "Kategorie für das neue Produkt wählen"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.product.template,backorders:0
+msgid "Sell Quantity < 0"
+msgstr "Sell Quantity < 0"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.product.template,backorders:0
+msgid "Sell Quantity < 0 and Use Customer Notification"
+msgstr "Sell Quantity < 0 and Use Customer Notification"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_sequence
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_sequence
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_sequence
+msgid "Sequence"
+msgstr "Reihenfolge"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_print_seq
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_print_seq
+msgid "Sequence for Report Printing"
+msgstr "Sequenz für die Berichtsausgabe"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_is_service_part
+msgid "Service Part"
+msgstr "Wartungsmaterial"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_service_part_ids
+msgid "Service Parts"
+msgstr "Wartungsmaterial"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_price_on_request
+msgid "Set Purchase Price & Sale Price = 9999,99"
+msgstr "Set Purchase Price & Sale Price = 9999,99"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_should_export
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_should_export
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_should_export
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_should_export
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_should_export
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_template_should_export
+msgid "Should export to Magento?"
+msgstr "Should export to Magento?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_should_export
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_should_export
+msgid "Should export?"
+msgstr "Should export?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_backend_import_categories
+msgid "Should product categories be imported during import of products"
+msgstr "Should product categories be imported during import of products"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_is_small_image
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_is_small_image
+msgid "Small image"
+msgstr "Small image"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_image_small
+msgid "Small-sized image"
+msgstr "Miniaturbild"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_image_small
+msgid "Small-sized image of the product. It is automatically resized as a 64x64px image, with aspect ratio preserved. Use this field anywhere a small image is required."
+msgstr "Kleines Bild für das Produkt. Es wird automatisch  auf 64x64px skaliert. Das Seitenverhältnis bleibt erhalten. Benutzen Sie dieses Feld überall, wo Sie es in dieser Größe benötigen können."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_sequence
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_sequence
+msgid "Sort order"
+msgstr "Sort order"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_is_spare_part
+msgid "Spare Part"
+msgstr "Ersatzteil"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_spare_part_ids
+msgid "Spare Parts"
+msgstr "Ersatzteile"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_sale_ok
+msgid "Specify if the product can be selected in a sales order line."
+msgstr "Spezifizieren Sie hier, ob dieses Produkt verkauft werden darf."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_product_tmpl_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_product_tmpl_id
+msgid "Standalone product"
+msgstr "Standalone product"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_is_standard
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_is_standard
+msgid "Standard"
+msgstr "Standard"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_cost_method
+msgid "Standard Price: The cost price is manually updated at the end of a specific period (usually once a year).\n"
+"                    Average Price: The cost price is recomputed at each incoming shipment and used for the product valuation.\n"
+"                    Real Price: The cost price displayed is the price of the last outgoing product (will be use in case of inventory loss for example)."
+msgstr "Standardpreis: Der Beschaffungspreis wird manuell zum Ende einer spezifischen Periode aktualisiert.\n"
+"Durchschnittspreis: Der Beschaffungspreis wird bei jeder eingehenden Lieferung erneut berechnet.\n"
+"Echtzeitpreis: Der Beschaffungspreis ist der Preis für das zuletzt versendete Produkt (wird z.B. bei Inventurverlust genutzt)."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_state
+msgid "Status"
+msgstr "Status"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_stock_account_input
+msgid "Stock Input Account"
+msgstr "Konto Wareneingang"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_property_stock_account_output
+msgid "Stock Output Account"
+msgstr "Warenversand Konto"
+
+#. module: of_base_magento_extensions_v9
+#: selection:product.attribute,attribute_scope:0
+msgid "Storeview"
+msgstr "Storeview"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_recurring_invoice
+msgid "Subscription Product"
+msgstr "Abonnement Produkt"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_supplier_name
+msgid "Supplier"
+msgstr "Lieferant"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_supplier_article_numbers
+msgid "Supplier Article Number"
+msgstr "Lieferanten-Artikelnummer"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_sync_with_magento
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_sync_with_magento
+msgid "Sync with Magento?"
+msgstr "Sync with Magento?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_product_attributes_sync_type
+msgid "Synchronization type"
+msgstr "Synchronization type"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_synch_product_translations
+msgid "Synchronize product translations?"
+msgstr "Synchronize product translations?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_tax_mapping_tax_id
+msgid "Tax"
+msgstr "Steuer"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_tax_group_id
+msgid "Tax Group"
+msgstr "Steuergruppe"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_tax_group_id
+msgid "Tax groups are used with some external system like Prestashop"
+msgstr "Tax groups are used with some external system like Prestashop"
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:magento.tax.mapping:0
+msgid "Tax mapping must be unique per backend!"
+msgstr "Tax mapping must be unique per backend!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "Tax mappings"
+msgstr "Tax mappings"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_technical_name
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_technical_name
+msgid "Technical name"
+msgstr "Technical name"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_template_form_view
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Text"
+msgstr "Text"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Text Area"
+msgstr "Text Area"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_textual_attribute_data_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_textual_attribute_data_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_textual_attribute_data_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_template_textual_attribute_data_ids
+msgid "Textual Attributes data"
+msgstr "Textual Attributes data"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_textual_attributes_data_value_id
+msgid "Textual value"
+msgstr "Textwert"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_sale_delay
+msgid "The average delay in days between the confirmation of the customer order and the delivery of the finished products. It's the time you promise to your customers."
+msgstr "Der durchschnittliche Zeitverzug in Tagen zwischen der Auftragsbestätigung und der Auslieferung von Produkten. Die Zeit entspricht der dem Kunden versprochenen Auslieferzeit."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_volume
+msgid "The volume in m3."
+msgstr "Volumen in m³"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_weight
+msgid "The weight of the contents in Kg, not including any packaging, etc."
+msgstr "Das Gewichts des Inhaltes in Kg, Verpackung nicht eingerechnet, etc."
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:country.fiscal.position.map:0
+msgid "There can be only one fiscal position for country per backend!"
+msgstr "There can be only one fiscal position for country per backend!"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/product.py:90
+#, python-format
+msgid "There is no matching magento product type for %s type in Odoo."
+msgstr "There is no matching magento product type for %s type in Odoo."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_account_expense_id
+msgid "This account will be used for invoices instead of the default one to value expenses for the current product."
+msgstr "In der Faktura wird statt dem Standardkonto dieses Konto für die Spesen des vorliegenden Produktes benutzt."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_account_income_id
+msgid "This account will be used for invoices instead of the default one to value sales for the current product."
+msgstr "In der Faktura wird statt dem Standardkonto dieses Konto für den Verkaufsumsatz des vorliegenden Produktes benutzt."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_account_creditor_price_difference
+msgid "This account will be used to value price difference between purchase price and cost price."
+msgstr "Dieses Konto wird genutzt, um Unterschiede zwischen Einkaufs- und Verkaufspreis der Rechnung und Durchschnittspreisen zum Zeitpunkt des Warenzu- oder Warenabgangs als Preisdifferenz zu buchen."
+
+#. module: of_base_magento_extensions_v9
+#: sql_constraint:product.attribute.value:0
+msgid "This attribute value already exists!"
+msgstr "This attribute value already exists!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_image
+msgid "This field holds the image used as image for the product, limited to 1024x1024px."
+msgstr "In diesem Feld finden Sie das Bild für das Produkt in Form einer Datei, limitiert auf die Größe 1024x1024px"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_product_arbitrary_magento_ctg_id
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_arbitrary_magento_ctg_id
+msgid "This field is used to set magento category in case when Odoo product category has more than one binding per Magento backend."
+msgstr "This field is used to set magento category in case when Odoo product category has more than one binding per Magento backend."
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/magento_backend.py:296
+#, python-format
+msgid "This product can not be variant!"
+msgstr "This product can not be variant!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_stock_production
+msgid "This stock location will be used, instead of the default one, as the source location for stock moves generated by manufacturing orders."
+msgstr "Dieser Lagerort wird anstelle des Standards als Quelle für die Lieferungen von Fertigwaren aus der Produktion verwendet."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_stock_procurement
+msgid "This stock location will be used, instead of the default one, as the source location for stock moves generated by procurements."
+msgstr "Dieser Lagerort wird anstelle des Standard Lagerorts  als  alternative Quelle für Lieferungen angesehen."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_stock_inventory
+msgid "This stock location will be used, instead of the default one, as the source location for stock moves generated when you do an inventory."
+msgstr "Dieser Lagerort wird anstatt des Standard Lagerorts als Quelle bei der Lagerbuchung einer Inventur genutzt."
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/magento_backend.py:312
+#, python-format
+msgid "This variant does not exists in Odoo. You must select parent product."
+msgstr "This variant does not exists in Odoo. You must select parent product."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_is_thumbnail
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_is_thumbnail
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_is_tool
+msgid "Tool"
+msgstr "Werkzeug"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_tool_ids
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_service_part_lump_sums
+msgid "Total lump sum"
+msgstr "Pauschale Summe"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_track_service
+msgid "Track Service"
+msgstr "Dienstleistungsverfolgung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_tracking
+msgid "Tracking"
+msgstr "Nachverfolgung"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_type
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attribute_type
+msgid "Type"
+msgstr "Typ"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_product_magento_type
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_magento_type
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_product_product_magento_type
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_product_template_magento_type
+msgid "Type of product on Magento side when it gets exported."
+msgstr "Type of product on Magento side when it gets exported."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_magento_type
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_magento_type
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_magento_type
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_template_magento_type
+msgid "Type on Magento"
+msgstr "Type on Magento"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_uom_id
+msgid "Unit of Measure"
+msgstr "ME"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_unread
+msgid "Unread Messages"
+msgstr "Ungelesene Mitteilungen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Zähler der ungelelesen Nachrichten"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_updated_at
+msgid "Updated At (on Magento)"
+msgstr "Updated At (on Magento)"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.product.template,backorders:0
+#: selection:magento.product.template,manage_stock:0
+msgid "Use Default Config"
+msgstr "Use Default Config"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_use_in_products
+msgid "Use in products?"
+msgstr "Use in products?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_variant_attribute
+msgid "Use to create variant products?"
+msgstr "Use to create variant products?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_default_product_system_vals_magento_attr_value_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_name
+msgid "Value"
+msgstr "Wert"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_attributes_data_multi_select_value_ids
+msgid "Values"
+msgstr "Werte"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_ids
+msgid "Values"
+msgstr "Werte"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_product_normal_form_view
+msgid "Variant Images"
+msgstr "Variant Images"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_variant_image_ids
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_product_variant_image_ids
+msgid "Variant images"
+msgstr "Variant images"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_product_is_variant_on_magento
+msgid "Variant on Magento?"
+msgstr "Variant on Magento?"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_backend_single_variant_parent_id
+msgid "Variant parent"
+msgstr "Variant parent"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_image_variant_product_id
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_product_image_variant_product_id
+msgid "Variant product"
+msgstr "Variant product"
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/units/product_import.py:349
+#, python-format
+msgid "Variant product already imported with configurable product"
+msgstr "Variant product already imported with configurable product"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_products_import_history_variant
+msgid "Variant products"
+msgstr "Variant products"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_attribute_value_product_ids
+msgid "Variants"
+msgstr "Varianten"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_seller_ids
+msgid "Vendor"
+msgstr "Lieferant"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_supplier_taxes_id
+msgid "Vendor Taxes"
+msgstr "Steuern (Einkauf)"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_volume
+msgid "Volume"
+msgstr "Volumen"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_warehouse_id
+msgid "Warehouse"
+msgstr "Lager"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_warranty
+msgid "Warranty"
+msgstr "Garantie"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_warranty_type
+msgid "Warranty Type"
+msgstr "Garantietyp"
+
+#. module: of_base_magento_extensions_v9
+#: selection:product.attribute,attribute_scope:0
+msgid "Website"
+msgstr "Website"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_website_ids
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_magento_product_template_form_view
+msgid "Websites"
+msgstr "Webseiten"
+
+#. module: of_base_magento_extensions_v9
+#: selection:magento.backend,import_attributes_of_type:0
+#: selection:product.attribute,type:0
+msgid "Weight"
+msgstr "Weight"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_stock_account_input
+msgid "When doing real-time inventory valuation, counterpart journal items for all incoming stock moves will be posted in this account, unless there is a specific valuation account set on the source location. When not set on the product, the one from the product category is used."
+msgstr "Bei der Echtzeit-Inventar-Bewertung werden Gegenbuchungen für alle Lagerzugänge wertmäßig diesem Konto zugeschrieben, es seie denn beim Herkunftslager wurde ein eigenes Konto festgelegt. Wenn beim Produkt nicht festgelegt, wird das bei der Produktkategorie festgelegte Konto verwendet."
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,help:of_base_magento_extensions_v9.field_magento_product_template_property_stock_account_output
+msgid "When doing real-time inventory valuation, counterpart journal items for all outgoing stock moves will be posted in this account, unless there is a specific valuation account set on the destination location. When not set on the product, the one from the product category is used."
+msgstr "Bei der Echtzeit-Inventar-Bewertung werden alle Gegenbuchungen für Lagerabgänge auf dieses Konto gebucht, es sei denn für das Ziel wurde ein individuelles Konto spezifiziert. Sofern nicht im Produkt festgelegt, wird das in der Produktkategorie eingestellte Konto verwendet."
+
+#. module: of_base_magento_extensions_v9
+#: code:addons/of_base_magento_extensions_v9/models/product.py:447
+#, python-format
+msgid "You must select configurable attributes and values (under 'Variants' tab)\n"
+"                                     for product that contains variants!"
+msgstr "You must select configurable attributes and values (under 'Variants' tab)\n"
+"                                     for product that contains variants!"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.ui.view,arch_db:of_base_magento_extensions_v9.of_view_magento_backend_form
+msgid "and from following attribute set"
+msgstr "and from following attribute set"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_country_fiscal_position_map
+msgid "country.fiscal.position.map"
+msgstr "country.fiscal.position.map"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_default_product_system_vals
+msgid "default.product.system.vals"
+msgstr "default.product.system.vals"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_magento_tax_mapping
+msgid "magento.tax.mapping"
+msgstr "magento.tax.mapping"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_product_attribute_set
+msgid "product.attribute.set"
+msgstr "product.attribute.set"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_product_attribute_value
+msgid "product.attribute.value"
+msgstr "product.attribute.value"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_product_attributes_data_multi_select
+msgid "product.attributes.data.multi_select"
+msgstr "product.attributes.data.multi_select"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_product_image
+msgid "product.image"
+msgstr "product.image"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_product_textual_attributes_data
+msgid "product.textual.attributes.data"
+msgstr "product.textual.attributes.data"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model,name:of_base_magento_extensions_v9.model_products_import_history
+msgid "products.import.history"
+msgstr "products.import.history"
+
+#. module: of_base_magento_extensions_v9
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_cost_method
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_reordering_max_qty
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_reordering_min_qty
+#: model:ir.model.fields,field_description:of_base_magento_extensions_v9.field_magento_product_template_valuation
+msgid "unknown"
+msgstr "unbekannt"
+

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="email_template_on_company_form" model="ir.ui.view">
+      <field name="name">email.template.on.company</field>
+      <field name="model">mail.compose.message</field>
+      <field name="inherit_id" ref="mail.email_compose_message_wizard_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='template_id']" position="replace">
+              <field name="template_id" options="{'no_create': True}" context="{'default_model': model, 'default_body_html': body, 'default_subject': subject}" domain="[('model_id', '=', context.get('default_model', False))]"/>
+          </xpath>
+      </field>
+    </record>
+
+    <record id="mail_server_by_company_form" model="ir.ui.view">
+      <field name="name">mail.server.by.company.form</field>
+      <field name="model">ir.mail_server</field>
+      <field name="inherit_id" ref="base.ir_mail_server_form"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='smtp_debug']" position="after">
+              <field name="company_id"/>
+          </xpath>
+      </field>
+    </record>
+
+    <record id="mail_server_by_company_tree" model="ir.ui.view">
+      <field name="name">mail.server.by.company.tree</field>
+      <field name="model">ir.mail_server</field>
+      <field name="inherit_id" ref="base.ir_mail_server_list"/>
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='smtp_encryption']" position="after">
+              <field name="company_id"/>
+          </xpath>
+      </field>
+    </record>
+</odoo>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <template id="grimm_crm_automation_web_assets" name="Grimm CRM Automation Web Assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/grimm_crm_automation/static/src/css/grimm_crm_automation.scss" />
+        </xpath>
+    </template>
+</openerp>

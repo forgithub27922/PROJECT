@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+# -*- coding: utf-8 -*-
+##############################################################################
+#
+# Copyright (c) 2016 Openfellas (http://openfellas.com) All Rights Reserved.
+#
+# WARNING: This program as such is intended to be used by professional
+# programmers who take the whole responsibility of assessing all potential
+# consequences resulting from its eventual inadequacies and bugs
+# End users who are looking for a ready-to-use solution with commercial
+# guarantees and support are strongly advised to contract a Free Software
+# Service Company
+#
+# This program is Free Software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+##############################################################################
+-->
+
+<openerp>
+    <data>
+
+        <record id="shopware6_backend_form_view_inherit" model="ir.ui.view">
+            <field name="name">shopware6_product_form_view_inherit</field>
+            <field name="model">shopware6.backend</field>
+            <field name="inherit_id" ref="shopware6_connector.view_shopware_backend_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//h1" position="after">
+                    <label for="connector_status"/>
+                    <h3>
+                        <field name="connector_status" widget="boolean_toggle"/>
+                    </h3>
+                </xpath>
+                <xpath expr="//page[@name='import']" position="inside">
+                    <group>
+                        <div>
+                            <span class="oe_inline">Export Product price since</span>
+                            <field name="export_product_prices_from_date"
+                                class="oe_inline"
+                                nolabel="1"/>
+                        </div>
+                        <button name="export_product_prices"
+                            type="object"
+                            class="oe_highlight"
+                            string="Export Price"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='payment_mode_mapping_ids']/tree/field[@name='odoo_payment_mode_id']" position="after">
+                    <field name="import_rule"/>
+                    <field name="days_before_cancel"/>
+                </xpath>
+                <field name="is_print_log" position="before">
+                    <field name="pricelist_id"/>
+                    <field name="ratepay_team_webhook_url" widget="url"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record id="ir_cron_auto_export_price_to_shopware6" model="ir.cron">
+            <field name="name">Auto export price to Shopware6</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_shopware6_backend" name="model_id"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_check_price_list_item()</field>
+        </record>
+
+        <record id="ir_cron_mass_update_product_to_shopware6" model="ir.cron">
+            <field name="name">Mass update product to Shopware6</field>
+            <field eval="True" name="active"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">10</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_shopware6_backend" name="model_id"/>
+            <field name="state">code</field>
+            <field name="code">model._cron_mass_update_product()</field>
+        </record>
+
+    </data>
+</openerp>

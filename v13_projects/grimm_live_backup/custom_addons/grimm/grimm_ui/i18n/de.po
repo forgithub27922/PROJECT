@@ -1,0 +1,66 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_ui
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-10 07:59+0000\n"
+"PO-Revision-Date: 2020-02-10 07:59+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_ui
+#. openerp-web
+#: code:addons/grimm_ui/static/src/js/360_deg_widget.js:67
+#, python-format
+msgid "File Upload"
+msgstr "File Upload"
+
+#. module: grimm_ui
+#. openerp-web
+#: code:addons/grimm_ui/static/src/js/360_deg_widget.js:47
+#, python-format
+msgid "File upload"
+msgstr "File upload"
+
+#. module: grimm_ui
+#. openerp-web
+#: code:addons/grimm_ui/static/src/xml/360_deg_widget.xml:40
+#, python-format
+msgid "Next"
+msgstr "Next"
+
+#. module: grimm_ui
+#. openerp-web
+#: code:addons/grimm_ui/static/src/js/360_deg_widget.js:152
+#, python-format
+msgid "No images found!"
+msgstr "No images found!"
+
+#. module: grimm_ui
+#. openerp-web
+#: code:addons/grimm_ui/static/src/xml/360_deg_widget.xml:36
+#, python-format
+msgid "Previous"
+msgstr "Previous"
+
+#. module: grimm_ui
+#. openerp-web
+#: code:addons/grimm_ui/static/src/js/360_deg_widget.js:46
+#, python-format
+msgid "The selected file exceed the maximum file size of %s."
+msgstr "The selected file exceed the maximum file size of %s."
+
+#. module: grimm_ui
+#. openerp-web
+#: code:addons/grimm_ui/static/src/js/360_deg_widget.js:67
+#, python-format
+msgid "There was a problem while uploading your file"
+msgstr "There was a problem while uploading your file"
+

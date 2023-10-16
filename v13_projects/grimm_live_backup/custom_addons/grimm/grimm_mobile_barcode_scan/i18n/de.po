@@ -1,0 +1,312 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* grimm_mobile_barcode_scan
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02 09:26+0000\n"
+"PO-Revision-Date: 2019-12-02 09:26+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: grimm_mobile_barcode_scan
+#: selection:service.travel,duration:0
+msgid "0.25"
+msgstr "0.25"
+
+#. module: grimm_mobile_barcode_scan
+#: selection:service.travel,duration:0
+msgid "0.5"
+msgstr "0.5"
+
+#. module: grimm_mobile_barcode_scan
+#: selection:service.travel,duration:0
+msgid "0.75"
+msgstr "0.75"
+
+#. module: grimm_mobile_barcode_scan
+#: selection:service.travel,duration:0
+msgid "1.0"
+msgstr "1.0"
+
+#. module: grimm_mobile_barcode_scan
+#: selection:service.travel,duration:0
+msgid "1.25"
+msgstr "1.25"
+
+#. module: grimm_mobile_barcode_scan
+#: selection:service.travel,duration:0
+msgid "1.5"
+msgstr "1.5"
+
+#. module: grimm_mobile_barcode_scan
+#: selection:service.travel,duration:0
+msgid "1.75"
+msgstr "1.75"
+
+#. module: grimm_mobile_barcode_scan
+#: selection:service.travel,duration:0
+msgid "2.0"
+msgstr "2.0"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_ap_1
+msgid "Anfahrtspauschale Berlin (AP I)"
+msgstr "Anfahrtspauschale Berlin (AP I)"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_ap_2
+msgid "Anfahrtspauschale II (AP 2)"
+msgstr "Anfahrtspauschale II (AP 2)"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_duration
+msgid "Arbeitszeit"
+msgstr "Arbeitszeit"
+
+#. module: grimm_mobile_barcode_scan
+#: code:addons/grimm_mobile_barcode_scan/controllers/mobile_barcode_scan.py:81
+#, python-format
+msgid "Barcode does not belong to any products!"
+msgstr "Barcode gehört zu keinem Produkt!"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:27
+#, python-format
+msgid "Bezeichnung"
+msgstr "Bezeichnung"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:26
+#, python-format
+msgid "Code"
+msgstr "Code"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:82
+#, python-format
+msgid "Company"
+msgstr "Kunde"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:87
+#, python-format
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_create_uid
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_create_date
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_display_name
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:41
+#, python-format
+msgid "Einkaufsbeleg fotografieren"
+msgstr "Einkaufsbeleg fotografieren"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:71
+#, python-format
+msgid "Finish"
+msgstr "Fertig"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_id
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_id
+msgid "ID"
+msgstr "ID"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:13
+#, python-format
+msgid "Info"
+msgstr "Info"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:79
+#, python-format
+msgid "Information"
+msgstr "Information"
+
+#. module: grimm_mobile_barcode_scan
+#: code:addons/grimm_mobile_barcode_scan/controllers/mobile_barcode_scan.py:52
+#, python-format
+msgid "It is not a service order"
+msgstr "Barcode gehört zu keinem Serviceauftrag!"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode___last_update
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel___last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.ui.view,arch_db:grimm_mobile_barcode_scan.grimm_task_tab_view
+msgid "Last Updated On"
+msgstr "Last Updated On"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_write_uid
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert durch"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_write_date
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_product_barcode
+msgid "Product Barcode"
+msgstr "Produkt Barcode"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_prod_default_code
+msgid "Product Default Code"
+msgstr "Interne Referenz"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_project_task_prod_serv_barcode
+msgid "Product Service Barcode"
+msgstr "Serviceauftrag Barcode"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:18
+#, python-format
+msgid "Produktbarcode scannen"
+msgstr "Produktbarcode scannen"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_qty
+msgid "Quantity"
+msgstr "Anzahl"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.ui.view,arch_db:grimm_mobile_barcode_scan.grimm_task_tab_view
+msgid "Scanned Products"
+msgstr "Gescannte Produkte"
+
+#. module: grimm_mobile_barcode_scan
+#: model:res.groups,name:grimm_mobile_barcode_scan.group_service_app
+msgid "Service App Group"
+msgstr "Service App Group"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.actions.client,name:grimm_mobile_barcode_scan.mobile_barcode_action_main_menu
+#: model:ir.ui.menu,name:grimm_mobile_barcode_scan.menu_mobile_barcode_action_main_menu
+msgid "Service Scan"
+msgstr "Service Scan"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_project_task_service_travel
+msgid "Service Travel"
+msgstr "Service Travel"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:17
+#, python-format
+msgid "Serviceauftrag scannen"
+msgstr "Serviceauftrag scannen"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:28
+#, python-format
+msgid "Stk"
+msgstr "Stk"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/js/scan_barcode.js:110
+#, python-format
+msgid "Success"
+msgstr "Erfolgreich"
+
+#. module: grimm_mobile_barcode_scan
+#. openerp-web
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:17
+#: code:addons/grimm_mobile_barcode_scan/static/src/xml/scan_barcode.xml:18
+#, python-format
+msgid "Tap to scan"
+msgstr "Tippen Sie zum Scannen"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model,name:grimm_mobile_barcode_scan.model_project_task
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_task
+msgid "Task"
+msgstr "Aufgabe"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_task_id
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_task_id
+msgid "Task ID"
+msgstr "Task ID"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.ui.view,arch_db:grimm_mobile_barcode_scan.grimm_task_tab_view
+msgid "Transfer Scanned Products to Sale Order"
+msgstr "Transfer Scanned Products to Sale Order"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_transferred
+msgid "Transferred"
+msgstr "Transferred"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_product_service_barcode_user_id
+#: model:ir.model.fields,field_description:grimm_mobile_barcode_scan.field_service_travel_user_id
+msgid "User"
+msgstr "Benutzer"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model,name:grimm_mobile_barcode_scan.model_ir_attachment
+msgid "ir.attachment"
+msgstr "ir.attachment"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model,name:grimm_mobile_barcode_scan.model_product_service_barcode
+msgid "product.service.barcode"
+msgstr "product.service.barcode"
+
+#. module: grimm_mobile_barcode_scan
+#: model:ir.model,name:grimm_mobile_barcode_scan.model_service_travel
+msgid "service.travel"
+msgstr "service.travel"
+

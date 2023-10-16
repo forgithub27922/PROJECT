@@ -1,0 +1,131 @@
+.grimm_ticket_kanban {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.grimm_ticket_kanban.o_kanban_view.o_kanban_grouped.o_kanban_small_column .o_kanban_group {
+  padding: 0;
+}
+.grimm_ticket_kanban.o_kanban_view.o_kanban_grouped.o_kanban_small_column .o_kanban_group:not(.o_column_folded) {
+  width: initial;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  min-width: 300px;
+}
+.grimm_ticket_kanban.o_kanban_view.o_kanban_grouped.o_kanban_small_column .o_kanban_group:not(.o_column_folded) .o_kanban_record {
+  width: 98%;
+  margin: 5px auto;
+  padding: 0;
+}
+.grimm_ticket_kanban.o_kanban_view.o_kanban_grouped.o_kanban_small_column .o_kanban_group .o_kanban_header {
+  text-align: center;
+  margin: 0;
+}
+.grimm_ticket_kanban.o_kanban_view.o_kanban_grouped.o_kanban_small_column .o_kanban_group .o_kanban_header .o_column_title {
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record {
+  box-shadow: none;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  min-height: 80px;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_left {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100px;
+          flex: 0 0 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_left div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_left div.grimm_ticket_id {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 80px;
+          flex: 0 0 80px;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_left div.grimm_ticket_id span {
+  text-align: center;
+  font-size: 18px;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_left div.grimm_ticket_division {
+  padding: 5px 0;
+  border-top: 2px solid #fff;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_left div.grimm_ticket_division span {
+  text-align: center;
+  font-size: 13px;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  border-left: 2px solid #fff;
+  padding: 0;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_right .grimm_ticket_content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 17px 10px 17px 20px;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_right .grimm_ticket_content h3 {
+  margin: 0 0 5px 0;
+}
+.grimm_ticket_kanban.o_kanban_view .o_kanban_record .oe_kanban_content .grimm_ticket_kanban_col_right .grimm_ticket_footer {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30px;
+          flex: 0 0 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 9px;
+}
+@media only screen and (max-width: 991px) {
+  .grimm_ticket_kanban {
+    -webkit-box-pack: initial;
+        -ms-flex-pack: initial;
+            justify-content: initial;
+  }
+}

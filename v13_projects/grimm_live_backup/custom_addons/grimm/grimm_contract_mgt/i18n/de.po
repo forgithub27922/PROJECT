@@ -1,0 +1,653 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* grimm_contract_mgt
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-02 08:31+0000\n"
+"PO-Revision-Date: 2022-09-02 10:48+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 3.1.1\n"
+
+#. module: grimm_contract_mgt
+#: code:addons/grimm_contract_mgt/models/contract_config.py:0
+#, python-format
+msgid ""
+"<p>%s Contract has been auto extended to %s based on configuration.</p>"
+msgstr ""
+"<p>%s Vertrag wurde verlängert bis zum  %s , basierend auf der "
+"Konfiguration.</p>"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.grimm_contract_config_view_gantt
+msgid ""
+"<strong>Name:</strong>\n"
+"                                        <strong>From:</strong>\n"
+"                                        <strong>To:</strong>"
+msgstr ""
+"<strong>Name:</strong>\n"
+"                                        <strong>von.</strong>\n"
+"                                        <strong>bis:</strong>"
+
+#. module: grimm_contract_mgt
+#: model:mail.template,body_html:grimm_contract_mgt.email_template_contract_cancel_request
+msgid ""
+"<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"590\"\n"
+"                       style=\"background-color: white; border-collapse: "
+"collapse; \">\n"
+"                    <tr>\n"
+"                        <td valign=\"top\" style=\"padding:0px 10px;\">\n"
+"                            <div style=\"margin: 0px; padding: 0px;\">\n"
+"                                Guten Tag,<br/>\n"
+"\n"
+"hiermit kündigen wir den mit Ihnen unter der Vertragsnummer <strong> "
+"${object.number or ''} </strong> laufenden Vertrag zum nächst möglichen "
+"Zeitpunkt.<br/><br/>\n"
+"\n"
+"Bitte bestätigen Sie die Kündigung schriftlich, gerne per Mail, an die E-"
+"Mail Adresse: <strong>${object.create_uid.partner_id.email or ''}</"
+"strong><br/><br/>\n"
+"\n"
+"Wir bedanken uns für die Zusammenarbeit und verbleiben<br/><br/>\n"
+"\n"
+"mit freundlichen Grüßen<br/>\n"
+"\n"
+"Ihr GRIMM Gastrobedarf Team<br/>\n"
+"                            </div>\n"
+"                        </td>\n"
+"                    </tr>\n"
+"                </table>"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_needaction
+msgid "Action Needed"
+msgstr "Maßnahme erforderlich"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__active
+#: model:ir.model.fields.selection,name:grimm_contract_mgt.selection__contract_config__status__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__activity_ids
+msgid "Activities"
+msgstr "Aktivitäten"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Aktivitätsausnahme Farbe"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__activity_state
+msgid "Activity State"
+msgstr "Status"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__document_ids
+msgid "Additional Docs"
+msgstr "Vertragsergänzungen"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "Additional Documents"
+msgstr "Vertragsergänzungen"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__allow_cancel
+msgid "Allow Cancel"
+msgstr "Abbrechen zulassen"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_attachment_count
+msgid "Attachment Count"
+msgstr "Anzahl Anhänge"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__auto_extend
+msgid "Auto extend ?"
+msgstr "Automatisch verlängern?"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "Cancel Contract"
+msgstr "Vertrag kündigen"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields.selection,name:grimm_contract_mgt.selection__contract_config__status__check
+msgid "Check"
+msgstr "Prüfen"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__comment
+msgid "Comment"
+msgstr "kommentieren"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__company_id
+msgid "Company"
+msgstr "Firma"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__config_id
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__config_id
+msgid "Config Id"
+msgstr "Konfiguration ID"
+
+#. module: grimm_contract_mgt
+#: model:ir.ui.menu,name:grimm_contract_mgt.grimm_contract_config_menu
+#: model:ir.ui.menu,name:grimm_contract_mgt.grimm_contract_main_menu
+#: model:ir.ui.menu,name:grimm_contract_mgt.grimm_contract_menu
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.grimm_contract_calendar_view
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.grimm_contract_config_view_gantt
+msgid "Contract"
+msgstr "Vertrag"
+
+#. module: grimm_contract_mgt
+#: model:res.groups,name:grimm_contract_mgt.group_contract_administrator
+msgid "Contract Administrator"
+msgstr "Vertragsverwalter"
+
+#. module: grimm_contract_mgt
+#: model:ir.actions.act_window,name:grimm_contract_mgt.action_contract_config
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "Contract Config"
+msgstr "Verträge"
+
+#. module: grimm_contract_mgt
+#: model:ir.model,name:grimm_contract_mgt.model_contract_config
+msgid "Contract Configuration"
+msgstr "Verträge"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__contract_end_date
+msgid "Contract End Date"
+msgstr "Vertragsende"
+
+#. module: grimm_contract_mgt
+#: model:ir.module.category,name:grimm_contract_mgt.module_category_contract
+msgid "Contract Management"
+msgstr "Vertragsmanagement"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__name
+msgid "Contract Name"
+msgstr "Vertragsname"
+
+#. module: grimm_contract_mgt
+#: model:mail.template,subject:grimm_contract_mgt.email_template_notify_contract
+msgid "Contract Notification for ${(object.name or '') | safe}"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__number
+msgid "Contract Number"
+msgstr "Vertragsnummer"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__object
+msgid "Contract Object"
+msgstr "Vertragsgegenstand"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__contract_start_date
+msgid "Contract Start Date"
+msgstr "Vertragsstart"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__contract_type_id
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_type__name
+msgid "Contract Type"
+msgstr "Vertragstyp"
+
+#. module: grimm_contract_mgt
+#: model:res.groups,name:grimm_contract_mgt.group_contract_view_only
+msgid "Contract User: View Only"
+msgstr "Vertragsbenutzer: Nur anzeigen"
+
+#. module: grimm_contract_mgt
+#: code:addons/grimm_contract_mgt/models/contract_config.py:0
+#, python-format
+msgid "Contract auto extention"
+msgstr "automatische Vertragsverlängerung"
+
+#. module: grimm_contract_mgt
+#: code:addons/grimm_contract_mgt/models/contract_config.py:0
+#, python-format
+msgid "Contract end date should be greater than start date."
+msgstr "Das Vertragsende muss nach dem Startdatum liegen!"
+
+#. module: grimm_contract_mgt
+#: model:ir.actions.server,name:grimm_contract_mgt.ir_cron_send_contract_notify_email_ir_actions_server
+#: model:ir.cron,cron_name:grimm_contract_mgt.ir_cron_send_contract_notify_email
+#: model:ir.cron,name:grimm_contract_mgt.ir_cron_send_contract_notify_email
+msgid "Contract notify email"
+msgstr "Vertragsnotizen E-Mail"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "Contractual Data"
+msgstr "Vertragsdaten"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__create_uid
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__create_uid
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_type__create_uid
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__create_uid
+msgid "Created by"
+msgstr "Kreiert von"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__create_date
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__create_date
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_type__create_date
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__create_date
+msgid "Created on"
+msgstr "Kreiert am"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__status
+msgid "Current Status of contract"
+msgstr "Aktueller Vertragsstatus"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__notify_before_days
+msgid "Day(s) prior to notice"
+msgstr "Benachrichtigung in Tagen vor Kündigungstermin"
+
+#. module: grimm_contract_mgt
+#: code:addons/grimm_contract_mgt/models/contract_config.py:0
+#, python-format
+msgid "Days"
+msgstr "Tage"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_kanban_view
+msgid "Delete"
+msgstr "löschen"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__display_name
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__display_name
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_type__display_name
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__display_name
+msgid "Display Name"
+msgstr "Anzeigendem"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__document
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__document
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "Document"
+msgstr "Vertragsdokument"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__name
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__document_name
+msgid "Document Name"
+msgstr "Dokumentenname"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_kanban_view
+msgid "Dropdown menu"
+msgstr "Auswahlmenü"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__real_notice_date
+msgid "Email send Date"
+msgstr "E-Mail Sendedatum"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields.selection,name:grimm_contract_mgt.selection__contract_config__status__expired
+msgid "Expired"
+msgstr "Abgelaufen"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__extension_uom
+msgid "Extend contract."
+msgstr "Vertrag verlängern"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__extension
+msgid "Extension"
+msgstr "Erweiterung"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__extension_uom
+msgid "Extension in"
+msgstr "Erweiterung in"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "Extension to"
+msgstr "Erweiterung nach"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_follower_ids
+msgid "Followers"
+msgstr "Follower"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_channel_ids
+msgid "Followers (Channels)"
+msgstr "Follower (Kanäle)"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Follower (Partner)"
+
+#. module: grimm_contract_mgt
+#: model:mail.template,body_html:grimm_contract_mgt.email_template_notify_contract
+msgid ""
+"Hallo,<br/>\n"
+"\n"
+"der Vertrag mit der Firma ${object.partner_id.name or ''} unter der "
+"Vertragsnummer ${object.number or ''} läuft am ${object.contract_end_date "
+"or ''} ${datetime.datetime.strptime(str(object.contract_end_date), '%Y-%m-"
+"%d').strftime('%d.%m.%Y') if object.contract_end_date else 'XX.YY.ZZZZ'} ab."
+"<br/><br/>\n"
+"Bitte ggf. die Kündigung einleiten!<br/><br/>\n"
+"\n"
+"Beste Grüße,<br/>\n"
+"Das GRIMM Vertragsmanagement"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:ir.module.category,description:grimm_contract_mgt.module_category_contract
+msgid "Helps you handle your contract and notifications."
+msgstr "Hilft Ihnen beim Umgang mit Ihrem Vertrag und Benachrichtigungen."
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__comment
+msgid "Here you can add note for this contract."
+msgstr "Hier können Sie eine Notiz für diesen Vertrag hinzufügen."
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__id
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__id
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_type__id
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__id
+msgid "ID"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__activity_exception_icon
+msgid "Icon"
+msgstr "Symbol"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Symbol zur Anzeige einer Ausnahmeaktivität"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__message_needaction
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+"Wenn dieses Kontrollkästchen aktiviert ist, erfordern neue Nachrichten Ihre "
+"Aufmerksamkeit."
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+"Wenn diese Option aktiviert ist, weisen einige Nachrichten einen "
+"Zustellungsfehler auf."
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_is_follower
+msgid "Is Follower"
+msgstr "Ist Follower"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__is_mail_sent
+msgid "Is Mail Sent?"
+msgstr "Wurde die E-Mail gesendet?"
+
+#. module: grimm_contract_mgt
+#: model:mail.template,subject:grimm_contract_mgt.email_template_contract_cancel_request
+msgid "Kündigung des Vertrags ${(object.name or ‚‘) | safe}"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document____last_update
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config____last_update
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_type____last_update
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt modifiziert am"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__write_uid
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__write_uid
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_type__write_uid
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_additional_document__write_date
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__write_date
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_type__write_date
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Hauptanhang"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_has_error
+msgid "Message Delivery error"
+msgstr "Zustellungsfehler"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_ids
+msgid "Messages"
+msgstr "Nachrichten"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__mimetype
+msgid "Mimetype"
+msgstr "Mimetyp"
+
+#. module: grimm_contract_mgt
+#: code:addons/grimm_contract_mgt/models/contract_config.py:0
+#, python-format
+msgid "Months"
+msgstr "Monate"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Nächster Termin für Aktivität"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__activity_summary
+msgid "Next Activity Summary"
+msgstr "Nächste Aktivität Zusammenfassung"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__activity_type_id
+msgid "Next Activity Type"
+msgstr "Nächster Aktivitätstyp"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__notice_date
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__notice_date
+msgid "Notice Date"
+msgstr "Erinnerung"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__notice
+msgid "Notice Period"
+msgstr "Notizen Periode"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__notice_uom
+msgid "Notice Period for termination."
+msgstr "Kündigungsfrist für die Beendigung."
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__notice_uom
+msgid "Notice in"
+msgstr "Hinweis in"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__notification_ids
+msgid "Notification"
+msgstr "Hinweis"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "Notification Data"
+msgstr "Benachrichtigung"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Anzahl der Aktionen"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_has_error_counter
+msgid "Number of errors"
+msgstr "Anzahl der Fehler"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Anzahl der Nachrichten, die eine Aktion erfordern."
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Anzahl der Nachrichten mit Zustellungsfehler"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__partner_id
+msgid "Partner"
+msgstr "Geschäftspartner"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__activity_user_id
+msgid "Responsible User"
+msgstr "Verantwortlicher Nutzer"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__sequence
+msgid "Sequence"
+msgstr "Sequenz"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__status
+msgid "Status"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Status basierend auf Aktivitäten\n"
+"Überfällig: Fälligkeitsdatum ist bereits überschritten\n"
+"Heute: Aktivitätsdatum ist heute\n"
+"Geplant: Zukünftige Aktivitäten."
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "Termination in"
+msgstr "Beendigung in"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,help:grimm_contract_mgt.field_contract_config__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Art der aufgezeichneten Ausnahmeaktivität"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_unread
+msgid "Unread Messages"
+msgstr "Ungelesene Nachrichten"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_contract_config__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Anzahl ungelesene Nachrichten"
+
+#. module: grimm_contract_mgt
+#: model:ir.model.fields,field_description:grimm_contract_mgt.field_notification_stage__user_ids
+msgid "Users"
+msgstr "Nachricht an"
+
+#. module: grimm_contract_mgt
+#: code:addons/grimm_contract_mgt/models/contract_config.py:0
+#, python-format
+msgid "Weeks"
+msgstr "Wochen"
+
+#. module: grimm_contract_mgt
+#: code:addons/grimm_contract_mgt/models/contract_config.py:0
+#, python-format
+msgid "Years"
+msgstr "Jahre"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "after contract end date."
+msgstr "nach Vertragsende"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_form_view
+msgid "before contract end date."
+msgstr "vor Vertragsende"
+
+#. module: grimm_contract_mgt
+#: model_terms:ir.ui.view,arch_db:grimm_contract_mgt.contract_config_tree_view
+msgid "contract Config"
+msgstr "Vertragsconfig"
+
+#. module: grimm_contract_mgt
+#: model:ir.model,name:grimm_contract_mgt.model_contract_additional_document
+msgid "contract.additional.document"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:ir.model,name:grimm_contract_mgt.model_contract_type
+msgid "contract.type"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:ir.model,name:grimm_contract_mgt.model_notification_stage
+msgid "notification.stage"
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:res.groups,comment:grimm_contract_mgt.group_contract_view_only
+msgid "the user will have access to only view contract data."
+msgstr ""
+
+#. module: grimm_contract_mgt
+#: model:res.groups,comment:grimm_contract_mgt.group_contract_administrator
+msgid "the user will have an access to the all contract related data."
+msgstr ""

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="interview_stage_mail" model="mail.template">
+        <field name="name">Sync_Pending For Interview</field>
+        <field name="model_id" ref="sms_core.model_student_admission_form"/>
+        <field name="body_html" type="html">
+            <div><br/>
+                <strong>Application No:</strong>${object.application_no}<br/><br/>
+                <p>We are glad to inform you that your application for <strong> ${object.full_name} </strong>, has
+                been selected to move to the next stage in the application process which is the
+                <strong>Interview </strong>. Kindly expect a phone call in the coming days. In case of no answer, 2
+                more attempts will be made, otherwise the application will be considered Cancelled.
+                <br/><br/>Thank You
+                Thank You
+                </p>
+            </div>
+
+        </field>
+    </record>
+</odoo>

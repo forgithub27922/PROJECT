@@ -1,0 +1,89 @@
+<odoo>
+
+    <!-- A new form view of Applicant Interview -->
+    <record id="hr_interview_view_form" model="ir.ui.view">
+        <field name="name">hr.interview.view.form</field>
+        <field name="model">hr.interview</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="start_interview" string="Start Interview" type="object" states="draft"/>
+                    <button name="complete_interview" string="Complete" type="object" states="in_progress"/>
+                    <button name="reset_interview" string="Reset to Draft" type="object" states="in_progress,done"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group colspan="4" col="2" name="grp_main">
+                        <field name="applicant_id"/>
+                        <field name="interview_date"/>
+                        <field name="interview_time" widget="float_time"/>
+                        <field name="interview_date_time" invisible="1"/>
+                        <field name="interview_location"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- A new tree view of Applicant Interview -->
+    <record id="hr_interview_view_tree" model="ir.ui.view">
+        <field name="name">hr.interview.view.tree</field>
+        <field name="model">hr.interview</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="applicant_id"/>
+                <field name="interview_date"/>
+                <field name="interview_time" widget="float_time"/>
+                <field name="interview_location"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+
+   <!-- A new calender view of Applicant Interview -->
+     <record id="view_hr_interview_calendar" model="ir.ui.view">
+        <field name="name">view.hr.interview.calendar</field>
+        <field name="model">hr.interview</field>
+        <field name="arch" type="xml">
+            <calendar date_start="interview_date_time" mode="month" color="state">
+                <field name="applicant_id"/>
+                <field name="interview_location"/>
+            </calendar>
+        </field>
+
+    </record>
+
+    <!-- A new search view of Applicant Interview -->
+    <record id="hr_interview_view_search" model="ir.ui.view">
+        <field name="name">hr.interview.view.search</field>
+        <field name="model">hr.interview</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="interview_date"/>
+                <field name="interview_time" widget="float_time"/>
+                <field name="applicant_id"/>
+                <field name="interview_location"/>
+                <filter name="fil_draft_int" string="Scheduled" domain="[('state','=','draft')]"/>
+                <filter name="fil_in_progress_int" string="In Progress" domain="[('state','=','in_progress')]"/>
+                <filter name="fil_done_int" string="Done" domain="[('state','=','done')]"/>
+                <filter name="grp_by_applicant" string="Applicant" domain="[]" context="{'group_by':'applicant_id'}"/>
+                <filter name="grp_by_date" string="Date" domain="[]" context="{'group_by':'interview_date'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- A New Action of Applicant Interview-->
+    <record id="action_hr_interview" model="ir.actions.act_window">
+        <field name="name">Interviews</field>
+        <field name="res_model">hr.interview</field>
+        <field name="view_mode">calendar,tree,form</field>
+        <field name="context">{'search_default_fil_draft_int':1}</field>
+    </record>
+
+    <!-- Menu of  Applicant Interview-->
+    <menuitem id="menu_hr_int" action="action_hr_interview" parent="menu_applications"/>
+
+</odoo>

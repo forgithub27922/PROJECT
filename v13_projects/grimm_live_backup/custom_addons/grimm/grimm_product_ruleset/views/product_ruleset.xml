@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <act_window id="action_name_config_ruleset"
+                name="Name Config Ruleset"
+                res_model="name.config.ruleset"
+                view_mode="tree,form"/>
+
+    <menuitem id="menu_name_config_ruleset"
+              name="Product Attribute Ruleset"
+              action="action_name_config_ruleset"
+              parent="sale.prod_config_main"
+              sequence="99"/>
+
+    <record id="grimm_product_ruleset_formview" model="ir.ui.view">
+        <field name="name">grimm_product_ruleset_formview</field>
+        <field name="model">name.config.ruleset</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="property_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                        <field name="attribute_line_ids" widget="one2many_list"
+                               attrs="{'invisible':[('property_id','=',False)]}">
+                            <tree string="Attributes" editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="attribute_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                                <field name="property_id" invisible="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="max_length"/>
+                        </group>
+                        <group>
+                            <field name="delimiter"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="append_company_name"/>
+                        </group>
+                        <group>
+                            <field name="append_call_action"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="grimm_property_set_prop" model="ir.ui.view">
+        <field name="name">grimm_product_set_prop</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="shopware_connector.shopware_product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='shopware_image_ids']" position="before">
+                <field name="ruleset_id_prod" options="{'no_create_edit': True, 'no_create': True}"/>
+                <field name="ruleset_id" options="{'no_create_edit': True, 'no_create': True}"/>
+                <field name="ruleset_id_mt" options="{'no_create_edit': True, 'no_create': True}"/>
+                <field name="ruleset_id_md" options="{'no_create_edit': True, 'no_create': True}"/>
+            </xpath>
+            <xpath expr="//field[@name='shopware_description']" position="before">
+                <field name="prod_name"/>
+            </xpath>
+            <xpath expr="//field[@name='shopware_property_ids']/tree/field[@name='attribute_id']" position="replace">
+                 <field name="attribute_id" options="{'no_create': True, 'no_create_edit':True}" domain="[('id', 'in', parent.property_set_attribute_ids), ('attr_type','not in',['entity', 'filler'])]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="grimm_property_set_dialog" model="ir.ui.view">
+        <field name="name">grimm_product_set_dialog</field>
+        <field name="model">property.set</field>
+        <field name="inherit_id" ref="shopware_connector.view_shopware_property_set_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group/notebook/page/group[2]/field[@name='product_attribute_ids']"
+                   position="replace">
+                <field name="product_attribute_ids" colspan="2">
+                    <tree>
+                        <field name="name"/>
+                        <field name="attr_type"/>
+                        <field name="uom"/>
+                        <field name="entity_id"/>
+                        <field name="content"/>
+                    </tree>
+                </field>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_attr_view_ruleset_tree" model="ir.ui.view">
+        <field name="name">product.attribute.tree</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="grimm_product.of_product_attribute_tree_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="attr_type"/>
+                <field name="uom"/>
+                <field name="entity_id"/>
+                <field name="content"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="grimm_product_template_columns" model="ir.ui.view">
+        <field name="name">grimm_product_template_columns</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="shopware_connector.shopware_product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='shopware_property_ids']/tree" position="inside">
+                <field name="attr_type"/>
+                <field name="uom" readonly="1"/>
+<!--                <field name="entity_id" readonly="1"/>-->
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_attr_view_ruleset_form" model="ir.ui.view">
+        <field name="name">product.attribute.form</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="grimm_product.of_product_attribute_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group" position="inside">
+                <group>
+                    <field name="attr_type"/>
+                    <field name="shopware6_position"/>
+                    <field name="uom" options="{'no_create': True, 'no_create_edit':True}"
+                           attrs="{'invisible':[('attr_type','not in',['integer', 'float'])]}"/>
+                    <field name="entity_id" options="{'no_create': True, 'no_create_edit':True}"
+                           attrs="{'invisible':[('attr_type','!=','entity')]}"/>
+                    <field name="content" attrs="{'invisible':[('attr_type','!=','filler')]}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
