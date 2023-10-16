@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="report_customer_inherit_doc" inherit_id="hotel_mangement_14.report_customer_doc">
+        <xpath expr="//h4" position="after">
+            <th>Invoice Status :</th>
+            <td>
+                <span t-field="cust.invoice_status"/>
+            </td>
+            <br/>
+            <br/>
+        </xpath>
+        <xpath expr="//table[2]" position="after">
+            <span t-esc="my_method()"/>
+            <br/>
+            <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%M-%d %H:%M')"/>
+            <br/>
+            <br/>
+            <!--            <t t-if="data.get('var', 'demo')">New Var:-->
+            <!--                <span t-esc="data.get('var','demo')"/>-->
+            <!--            </t>-->
+            <t t-if="data.get('var', 'demo')">New Var:
+                <span t-esc="data.get('var','Variable Of Action Toolbar')"/>
+            </t>
+            <br/>
+            <br/>
+<!--            <t t-if="data.get('variable', 'Parth')">New Variable:-->
+<!--                <span t-esc="data['variable']"/>-->
+<!--            </t>-->
+
+            <!--            <t t-if="data.get('pdf_var','demo')">Pdf Var:-->
+            <!--                <span t-esc="data['pdf_var']"/>-->
+            <!--            </t>-->
+
+            <t t-if="data.get('form',{})">
+                Room ID:
+                <span t-esc="data['form']['room_id'][0]"/>
+            </t>
+            <t t-if="data.get('form',{})">
+                Room :
+                <span t-esc="data['form']['room_id'][1]"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
+
+
+

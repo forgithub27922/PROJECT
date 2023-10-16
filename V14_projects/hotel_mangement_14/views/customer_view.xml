@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_customer_form" model="ir.ui.view">
+        <field name="name">view.customer.form</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <!--   Q-11         <form create="false" edit="false" delete="false">-->
+            <form>
+                <header>
+
+                    <button name="%(action_add_charges_wiz)d" string="Add Charges" type="action" class="btn-danger"/>
+                    <field name="state" widget="statusbar" clickable="1"/>
+                    <button name="wait_booking" string="Waiting" type="object" states="room_book" class="btn-warning"/>
+                    <button name="accept_booking" string="Accept" type="object" states="waiting" class="btn-success"/>
+                    <button name="reject_booking" string="Rejected" type="object" states="waiting" class="btn-info"/>
+                    <button name="left" string="Left" type="object" states="rejected" class="btn-warning"/>
+                    <button name="checkin" string="CheckIn" type="object" states="accepted" class="btn-danger"/>
+                    <button name="checkout" string="CheckOut" type="object" states="check_in,lunch,dinner"
+                            class="btn-success"/>
+                    <button name="lunch" string="Lunch" type="object" states="check_in,check_out" class="btn-info"/>
+                    <button name="dinner" string="Dinner" type="object" states="check_in,lunch,check_out"
+                            class="btn-warning"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Waiting" bg_color="bg-success"
+                            attrs="{'invisible':[('state','!=','waiting')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-warning"
+                            attrs="{'invisible':[('state','!=','rejected')]}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible':[('active','=',True)]}"/>
+
+
+                    <!--                    smart btn-->
+
+                    <div name="button_box" class="oe_button_box">
+                        <button name="action_charges"
+                                string="Charges"
+                                type="object"
+                                icon="fa-star"
+                                class="oe_stat_button">
+                        </button>
+                    </div>
+
+
+                    <group colspan="4" col="4">
+                        <label for="reservation_no"/>
+                        <h1>
+                            <field name="reservation_no" placeholder="Reservation No"
+                                   style="color:green;font-size:40px"/>
+                        </h1>
+                        <field name="image" widget="image" class="oe_avatar" nolabel="1"/>
+                    </group>
+                    <separator string="Customer Informations"/>
+                    <group name="grp_main" colspan="4" col="4">
+                        <!--                            <field name="name" placeholder="Name of the Customer e.g. Parth Bhatt" required="1"/>-->
+
+                        <group name="detail_grp" colspan="4" col="4">
+                            <field name="name"/>
+                            <field name="hotel_name" class="hotel_name_scss"/>
+                            <field name="sequence"/>
+                            <field name="cust_seq"/>
+                            <field name="code_of_bt" class="code_scss"/>
+
+
+                            <field name="age" groups="hotel_mangement_14.grp_hotel_14_user"/>
+                            <field name="mob_no"/>
+                            <field name="barcode"/>
+                            <field name="cust_num"/>
+                            <!--                            <field name="code"/>-->
+                            <!--                                   attrs="{'readonly':[('name','=',False)],'required':[('name','!=',False)]}"/>-->
+
+                            <field name="currency_id" domain="[('active','=',True)]"/>
+                            <field name="amount"/>
+                            <field name="fee"/>
+
+                            <field name="birthdate" required="1"/>
+                            <field name="gender"/>
+                            <field name="priority" widget="priority"/>
+                            <!--                            <field name="time" widget="float_time"/>-->
+                            <field name="time"/>
+                            <field name="bill"/>
+                            <field name="ref"/>
+                            <field name="parent_id" domain="[('name','!=',name)]"/>
+                            <!--                            <field name="parent_id" domain="[('id','!=',active_id)]"/>-->
+                            <!--&lt;!&ndash;                            <field name="parent_id" domain="['And'('id','!=',active_id),('name','!=',name)]"/>&ndash;&gt;-->
+
+                            <field name="id" invisible="1"/>
+                            <!--                            <field name="notes"/>-->
+                            <field name="user_id"/>
+                            <field name="partner_id"/>
+                        </group>
+                    </group>
+
+                    <group string="Documnets">
+                        <field name="file_name_cust" invisible="1"/>
+                        <field name="document" filename="file_name_cust"/>
+                    </group>
+
+                    <!--                    THIS CODE COMMENT CZ M USE THIS IN HOTEL_14_EXTENDED MODULE-->
+
+
+                    <!--                    &lt;!&ndash;Many 2 One&ndash;&gt;-->
+                    <group name="room_name" string="Room Details" colspan="4" col="4">
+                        <field name="date_order"/>
+                        <!--                        <field name="room_id" domain="[('room_code','like','%IT%')]"/>-->
+                        <field name="room_id"/>
+                    </group>
+                    <separator string="Check In Check Out Informations"/>
+                    <group colspan="4" col="4">
+                        <field name="check_in"/>
+                        <field name="check_out"/>
+                    </group>
+
+
+                    <separator string="Terms And Condition"/>
+                    <group>
+                        <field name="term_and_condition"/>
+                        <field name="active"/>
+                    </group>
+
+                    <!--                    <separator string="Settings Field"/>-->
+                    <!--                    <group>-->
+                    <!--                        <field name="no_of_customer"/>-->
+                    <!--&lt;!&ndash;                        <field name="active"/>&ndash;&gt;-->
+                    <!--                    </group>-->
+                    <!--                    <separator string="Customer Other Personal Informations"/>-->
+                    <group colspan="4" col="4">
+                        <group colspan="2" col="2" string="Customer Other Personal Informations">
+                            <field name="email" widget="email" style="width:70%"/>
+                            <field name="password" password="*" style="width:70%"/> <!--nolabel="1"-->
+                            <field name="website" widget="url" style="width:70%"/>
+                        </group>
+                        <!--                    <separator string="Payment Option"/>-->
+                        <group colspan="2" col="2" string="Payment Option">
+                            <field name="payment_type" widget="radio"/>
+                        </group>
+                    </group>
+                    <group name="grp_com" string="COMPANY">
+                        <field name="company_id" groups='base.group_multi_company'/>
+                        <field name="property_customer_type"/>
+                    </group>
+                    <group name="color" string="Pic Color">
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                    <notebook>
+                        <!--One 2 Many-->
+                        <page name="charges" string="Customer Charges">
+                            <field name="charges_ids"/>
+                            <!--                                Q-33-->
+                            <!--                                    <tree>-->
+                            <!--                                        <field name="day"/>-->
+                            <!--                                        <field name="taxes"/>-->
+                            <!--                                    </tree>-->
+                            <!--                                    <form>-->
+                            <!--                                        <group>-->
+                            <!--                                            <field name="date"/>-->
+                            <!--                                            <field name="service_ids"/>-->
+                            <!--                                        </group>-->
+                            <!--                                    </form>-->
+                            <!--                                </field>-->
+                            <group>
+                                <group>
+                                    <h1>
+                                        <field name="percent" widget="percentpie" nolabel="1"/>
+                                    </h1>
+                                </group>
+                                <group name="gp_charges" class="oe_subtotal_footer oe_right">
+                                    <field name="sub_total"/>
+                                    <field name="taxes"/>
+                                    <hr/>
+                                    <field name="total_service"/>
+                                </group>
+                            </group>
+
+                        </page>
+                        <!--Many2Many-->
+                        <page name="food_g" string="Amenities">
+                            <!--                            <group string="Food Order list" colspan="4" col="4">-->
+                            <field name="food_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+                            <!--                            <field name="food1_ids" widget="many2many_checkbox"/>-->
+
+                            <group name="gp_ame" colspan="2" class="oe_subtotal_footer oe_right">
+                                <field name="total_amenities"/>
+                                <field name="total_amenities_price"/>
+                            </group>
+                            <!--                            </group>--> <!--domain="[('name','like','%ts')]-->
+                        </page>
+
+                        <!--                        GROUPS FOR THE SPECIFIC PAGE-->
+                        <page name="comments" string="Comments" groups="hotel_mangement_14.grp_hotel_14_user">
+                            <field name="comments"/> <!--side ma thi comment kadi dese-->
+                        </page>
+                        <page name="pg_sub" string="Subordinates">
+                            <field name="child_ids" readonly="1"/>
+                        </page>
+                        <page name="reservation_line" string="Reservation Line"
+                              attrs="{'invisible': [('state', '!=', 'accepted')]}">
+                            <group>
+                                <field name="image" widget="image" class="oe_avatar" nolabel="1"/>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="reservation_line" readonly="1"/>
+                            </group>
+                        </page>
+
+                        <!--                        <page name="notes" string="Notes"  attrs="{'invisible':[('term_and_condition','=',False)]}">-->
+                        <!--                            <group>-->
+                        <!--                                <field name="notes" nolabel="1"/>-->
+                        <!--                            </group>-->
+                        <!--                        </page>-->
+                    </notebook>
+
+                </sheet>
+                <footer>
+                    <label for="name" string="ORM METHOD BTN :-" class="label label-info"/>
+
+                    <!--                    GROUPS FOR THE SPECIFIC BUTTON-->
+                    <button name="create_record" string="Create" type="object" class="btn-primary"
+                            groups="hotel_mangement_14.grp_hotel_14_user"/>
+                    <button name="update_record" string="Update" type="object" class="btn-success"/>
+                    <button name="search_record" string="Search" type="object" class="btn-info"/>
+                    <button name="search_read_record" string="Search Read" type="object" class="btn-warning"/>
+                    <button name="read_group_record" string="Read Group" type="object" class="btn-primary"/>
+                    <button name="browse_record" string="Browse Record" type="object" class="btn-danger"
+                            groups="hotel_mangement_14.grp_hotel_14_user"/>
+                    <button name="read_record" string="Read Record" type="object" class="btn-primary"
+                            groups="hotel_mangement_14.grp_hotel_14_user"/>
+                    <button name="copy_record" string="Copy Record" type="object" class="btn-info"/>
+                    <button name="delink_record" string="Delete Record" type="object" class="btn-success"/>
+                    <button name="%(action_customer_many2many_wiz)d" type="action" string="ADD Multiple Charges"
+                            class="btn-success"/>
+                    <!--                    <button name="%(action_update_fee_wiz_customer_btn)d" string="Update Age Form" type="action"-->
+                    <!--                            class="btn-danger"/>-->
+
+                    <!--                    Q - 9-->
+                    <button name="%(action_add_charges_wiz)d" string="ADD CHARGES" type="action"
+                            class="btn-success" groups="hotel_mangement_14.grp_hotel_14_user"/>
+
+                    <!--                    Q-7-->
+                    <button name="update_age" string="Update Age" type="object" class="btn-success"/>
+
+
+                </footer>
+
+            </form>
+        </field>
+    </record>
+
+    <!-- tree view -->
+    <record id="view_customer_tree" model="ir.ui.view">
+        <field name="name">view.customer.tree</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <!--            ANS 4-->
+            <!--            <tree create="false" delete="false">-->
+            <!--            ANS 5-->
+            <!--           <tree multi_edit="1">-->
+            <!--            <tree default_order="date_order" -->
+            <tree decoration-muted="state=='room_book'" decoration-info="state=='waiting'"
+                  decoration-success="state=='accepted'"
+                  decoration-primary="state=='rejected'" decoration-warning="state=='check_in'"
+                  decoration-it="state=='check_in'"
+                  decoration-danger="active==False" decoration-bf="active==False">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="age" optional="show"/>
+                <!--                <field name="age_c"/>-->
+                <field name="amount" optional="hide"/>
+                <field name="term_and_condition" optional="hide"/>
+                <field name="bill" optional="show" sum="bill"/>
+                <field name="fee" optional="hide" avg="fee"/>
+                <field name="state"/>
+                <!--                                    <field name="room_id"/>-->
+                <!--                <field name="date_order"/>-->
+                <field name="birthdate"/>
+                <!--                <field name="check_in"/>-->
+                <!--                <field name="check_out"/>-->
+                <field name="active" widget="boolean_toggle"/>
+                <field name="gender"/>
+                <!--                <field name="food_ids"/>-->
+                <!--                <field name="notes"/>-->
+                <!--                <field name="comments"/>-->
+                <field name="company_id" groups='base.group_multi_company'/>
+                <!--                <field name="comments"/>-->
+                <!--                <field name="activity_ids" widget="list_activity"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <!--    form view of male-->
+    <record id="view_customer_form_male" model="ir.ui.view">
+        <field name="name">view.customer.form.male</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" clickable="1"/>
+                    <button name="wait_booking" string="Waiting" type="object" states="room_book"/>
+                    <button name="accept_booking" string="Accept" type="object" states="waiting"/>
+                    <button name="reject_booking" string="Rejected" type="object" states="waiting"/>
+                    <button name="left" string="Left" type="object" states="rejected"/>
+                    <button name="checkin" string="CheckIn" type="object" states="accepted"/>
+                    <button name="checkout" string="CheckOut" type="object" states="check_in,lunch,dinner"/>
+                    <button name="lunch" string="Lunch" type="object" states="check_in,check_out"/>
+                    <button name="dinner" string="Dinner" type="object" states="check_in,lunch,check_out"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Waiting" bg_color="bg-success"
+                            attrs="{'invisible':[('state','!=','waiting')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-warning"
+                            attrs="{'invisible':[('state','!=','rejected')]}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible':[('active','=',True)]}"/>
+
+                    <group colspan="4" col="4">
+                        <label for="reservation_no"/>
+                        <h1>
+                            <field name="reservation_no" placeholder="Reservation No"/>
+                        </h1>
+                        <field name="image" widget="image" class="oe_avatar" nolabel="1"/>
+                    </group>
+                    <separator string="Customer Informations"/>
+                    <group name="grp_main" colspan="4" col="4">
+                        <!--                            <field name="name" placeholder="Name of the Customer e.g. Parth Bhatt" required="1"/>-->
+
+                        <group name="detail_grp" colspan="4" col="4">
+                            <field name="sequence"/>
+                            <field name="cust_seq"/>
+                            <field name="code_of_bt"/>
+                            <field name="hotel_name"/>
+
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="mob_no"/>
+                            <!--                            <field name="code"/>-->
+                            <!--                                   attrs="{'readonly':[('name','=',False)],'required':[('name','!=',False)]}"/>-->
+
+                            <field name="currency_id" domain="[('active','=',True)]"/>
+                            <field name="amount"/>
+                            <field name="fee"/>
+
+                            <field name="birthdate" required="1"/>
+                            <field name="gender"/>
+                            <field name="priority" widget="priority"/>
+                            <!--                            <field name="time" widget="float_time"/>-->
+                            <field name="time"/>
+                            <field name="bill"/>
+                            <field name="ref"/>
+                            <field name="parent_id" domain="[('name','!=',name)]"/>
+                            <!--                            <field name="parent_id" domain="[('id','!=',active_id)]"/>-->
+                            <!--&lt;!&ndash;                            <field name="parent_id" domain="['And'('id','!=',active_id),('name','!=',name)]"/>&ndash;&gt;-->
+
+                            <field name="id" invisible="1"/>
+                            <!--                            <field name="notes"/>-->
+                        </group>
+                    </group>
+
+                    <group string="Documnets">
+                        <field name="file_name_cust" invisible="1"/>
+                        <field name="document" filename="file_name_cust"/>
+                    </group>
+                    <!--Many 2 One-->
+                    <!--                    <group name="room_name" string="Room Details" colspan="4" col="4">-->
+                    <!--                        <field name="date_order"/>-->
+                    <!--                        <field name="room_id" domain="[('room_code','like','%IT%')]"/>-->
+                    <!--                    </group>-->
+                    <!--                    <separator string="Check In Check Out Informations"/>-->
+                    <!--                    <group colspan="4" col="4">-->
+                    <!--                        <field name="check_in"/>-->
+                    <!--                        <field name="check_out"/>-->
+                    <!--                    </group>-->
+                    <separator string="Terms And Condition"/>
+                    <group>
+                        <field name="term_and_condition"/>
+                        <field name="active"/>
+                    </group>
+                    <!--                    <separator string="Customer Other Personal Informations"/>-->
+                    <group colspan="4" col="4">
+                        <group colspan="2" col="2" string="Customer Other Personal Informations">
+                            <field name="email" widget="email" style="width:70%"/>
+                            <field name="password" password="*" style="width:70%"/> <!--nolabel="1"-->
+                            <field name="website" widget="url" style="width:70%"/>
+                        </group>
+                        <!--                    <separator string="Payment Option"/>-->
+                        <group colspan="2" col="2" string="Payment Option">
+                            <field name="payment_type" widget="radio"/>
+                        </group>
+                    </group>
+                    <group name="grp_com" string="COMPANY">
+                        <field name="company_id" groups='base.group_multi_company'/>
+                    </group>
+                    <group name="color" string="Pic Color">
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                    <notebook>
+                        <!--One 2 Many-->
+                        <page name="charges" string="Customer Charges">
+                            <field name="charges_ids"/>
+
+                            <group>
+                                <group>
+                                    <h1>
+                                        <field name="percent" widget="percentpie" nolabel="1"/>
+                                    </h1>
+                                </group>
+                                <group name="gp_charges" class="oe_subtotal_footer oe_right">
+                                    <field name="sub_total"/>
+                                    <field name="taxes"/>
+                                    <hr/>
+                                    <field name="total_service"/>
+                                </group>
+                            </group>
+
+                        </page>
+                        <!--Many2Many-->
+                        <page name="food_g" string="Amenities">
+                            <!--                            <group string="Food Order list" colspan="4" col="4">-->
+                            <field name="food_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+
+                            <group name="gp_ame" colspan="2" class="oe_subtotal_footer oe_right">
+                                <field name="total_amenities"/>
+                                <field name="total_amenities_price"/>
+                            </group>
+                            <!--                            </group>--> <!--domain="[('name','like','%ts')]-->
+                        </page>
+                        <page name="comments" string="Comments">
+                            <field name="comments"/> <!--side ma thi comment kadi dese-->
+
+                        </page>
+                        <page name="pg_sub" string="Subordinates">
+                            <field name="child_ids" readonly="1"/>
+                        </page>
+                        <page name="reservation_line" string="Reservation Line"
+                              attrs="{'invisible': [('state', '!=', 'accepted')]}">
+                            <group>
+                                <field name="image" widget="image" class="oe_avatar" nolabel="1"/>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="reservation_line" readonly="1"/>
+                            </group>
+                        </page>
+
+
+                    </notebook>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!--    form view of female-->
+    <record id="view_customer_form_female" model="ir.ui.view">
+        <field name="name">view.customer.form.male</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" clickable="1"/>
+                    <button name="wait_booking" string="Waiting" type="object" states="room_book"/>
+                    <button name="accept_booking" string="Accept" type="object" states="waiting"/>
+                    <button name="reject_booking" string="Rejected" type="object" states="waiting"/>
+                    <button name="left" string="Left" type="object" states="rejected"/>
+                    <button name="checkin" string="CheckIn" type="object" states="accepted"/>
+                    <button name="checkout" string="CheckOut" type="object" states="check_in,lunch,dinner"/>
+                    <button name="lunch" string="Lunch" type="object" states="check_in,check_out"/>
+                    <button name="dinner" string="Dinner" type="object" states="check_in,lunch,check_out"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Waiting" bg_color="bg-success"
+                            attrs="{'invisible':[('state','!=','waiting')]}"/>
+                    <widget name="web_ribbon" title="Rejected" bg_color="bg-warning"
+                            attrs="{'invisible':[('state','!=','rejected')]}"/>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible':[('active','=',True)]}"/>
+
+                    <group colspan="4" col="4">
+                        <label for="reservation_no"/>
+                        <h1>
+                            <field name="reservation_no" placeholder="Reservation No"/>
+                        </h1>
+                        <field name="image" widget="image" class="oe_avatar" nolabel="1"/>
+                    </group>
+                    <separator string="Customer Informations"/>
+                    <group name="grp_main" colspan="4" col="4">
+                        <group name="detail_grp" colspan="4" col="4">
+                            <field name="sequence"/>
+                            <field name="cust_seq"/>
+                            <field name="code_of_bt"/>
+                            <field name="hotel_name"/>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="mob_no"/>
+                            <field name="currency_id" domain="[('active','=',True)]"/>
+                            <field name="amount"/>
+                            <field name="fee"/>
+
+                            <field name="birthdate" required="1"/>
+                            <field name="gender"/>
+                            <field name="priority" widget="priority"/>
+                            <!--                            <field name="time" widget="float_time"/>-->
+                            <field name="time"/>
+                            <field name="bill"/>
+                            <field name="ref"/>
+                            <field name="parent_id" domain="[('name','!=',name)]"/>
+                            <field name="id" invisible="1"/>
+                        </group>
+                    </group>
+                    <group string="Documnets">
+                        <field name="file_name_cust" invisible="1"/>
+                        <field name="document" filename="file_name_cust"/>
+                    </group>
+                    <!--Many 2 One-->
+                    <!--                    <group name="room_name" string="Room Details" colspan="4" col="4">-->
+                    <!--                        <field name="date_order"/>-->
+                    <!--                        <field name="room_id" domain="[('room_code','like','%IT%')]"/>-->
+                    <!--                    </group>-->
+                    <!--                    <separator string="Check In Check Out Informations"/>-->
+                    <!--                    <group colspan="4" col="4">-->
+                    <!--                        <field name="check_in"/>-->
+                    <!--                        <field name="check_out"/>-->
+                    <!--                    </group>-->
+                    <separator string="Terms And Condition"/>
+                    <group>
+                        <field name="term_and_condition"/>
+                        <field name="active"/>
+                    </group>
+                    <!--                    <separator string="Customer Other Personal Informations"/>-->
+                    <group colspan="4" col="4">
+                        <group colspan="2" col="2" string="Customer Other Personal Informations">
+                            <field name="email" widget="email" style="width:70%"/>
+                            <field name="password" password="*" style="width:70%"/> <!--nolabel="1"-->
+                            <field name="website" widget="url" style="width:70%"/>
+                        </group>
+                        <!--                    <separator string="Payment Option"/>-->
+                        <group colspan="2" col="2" string="Payment Option">
+                            <field name="payment_type" widget="radio"/>
+                        </group>
+                    </group>
+                    <group name="grp_com" string="COMPANY">
+                        <field name="company_id" groups='base.group_multi_company'/>
+                    </group>
+                    <group name="color" string="Pic Color">
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                    <notebook>
+                        <!--One 2 Many-->
+                        <page name="charges" string="Customer Charges">
+                            <field name="charges_ids"/>
+
+                            <group>
+                                <group>
+                                    <h1>
+                                        <field name="percent" widget="percentpie" nolabel="1"/>
+                                    </h1>
+                                </group>
+                                <group name="gp_charges" class="oe_subtotal_footer oe_right">
+                                    <field name="sub_total"/>
+                                    <field name="taxes"/>
+                                    <hr/>
+                                    <field name="total_service"/>
+                                </group>
+                            </group>
+
+                        </page>
+                        <!--Many2Many-->
+                        <page name="food_g" string="Amenities">
+                            <!--                            <group string="Food Order list" colspan="4" col="4">-->
+                            <field name="food_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+
+                            <group name="gp_ame" colspan="2" class="oe_subtotal_footer oe_right">
+                                <field name="total_amenities"/>
+                                <field name="total_amenities_price"/>
+                            </group>
+                            <!--                            </group>--> <!--domain="[('name','like','%ts')]-->
+                        </page>
+                        <page name="comments" string="Comments">
+                            <field name="comments"/> <!--side ma thi comment kadi dese-->
+
+                        </page>
+                        <page name="pg_sub" string="Subordinates">
+                            <field name="child_ids" readonly="1"/>
+                        </page>
+                        <page name="reservation_line" string="Reservation Line"
+                              attrs="{'invisible': [('state', '!=', 'accepted')]}">
+                            <group>
+                                <field name="image" widget="image" class="oe_avatar" nolabel="1"/>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="reservation_line" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+    <!-- tree view of male-->
+    <record id="view_customer_tree_male" model="ir.ui.view">
+        <field name="name">view.customer.tree.male</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <!--            <tree default_order="date_order" -->
+            <tree
+                    decoration-muted="state=='room_book'" decoration-it="state=='room_book'"
+                    decoration-info="state=='waiting'"
+                    decoration-success="state=='accepted'"
+                    decoration-primary="state=='rejected'" decoration-warning="state=='check_in'"
+                    decoration-danger="active==False">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="bill" optional="show" sum="bill"/>
+                <field name="fee" optional="hide" avg="fee"/>
+                <field name="state"/>
+                <!--                                <field name="date_order"/>-->
+                <field name="birthdate"/>
+                <!--                <field name="check_in"/>-->
+                <!--                <field name="check_out"/>-->
+                <field name="active" widget="boolean_toggle"/>
+                <field name="gender"/>
+
+                <field name="company_id" groups='base.group_multi_company'/>
+                <!--                <field name="activity_ids" widget="list_activity"/>-->
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- tree view of female-->
+    <record id="view_customer_tree_female" model="ir.ui.view">
+        <field name="name">view.customer.tree.male</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <!--            <tree default_order="date_order" -->
+            <tree
+                    decoration-muted="state=='room_book'" decoration-info="state=='waiting'"
+                    decoration-success="state=='accepted'"
+                    decoration-primary="state=='rejected'" decoration-warning="state=='check_in'"
+                    decoration-danger="active==False">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="age" optional="show"/>
+                <field name="bill" optional="show" sum="bill"/>
+                <field name="fee" optional="hide" avg="fee"/>
+                <field name="state"/>
+                <field name="birthdate"/>
+                <!--                <field name="check_in"/>-->
+                <!--                <field name="check_out"/>-->
+                <field name="active" widget="boolean_toggle"/>
+                <field name="gender"/>
+                <!--                <field name="activity_ids" widget="list_activity"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <!--    search view-->
+    <record id="view_customer_search" model="ir.ui.view">
+        <field name="name">view.customer.search</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="gender"/>
+                <filter name="filter_age" string="Age=23" domain="[('age','=', 23)]"/>
+                <filter name="filter_female" string="Female" domain="[('gender', '=' ,'female')]"/>
+                <filter name="group_by_gender" string="Gender" context="{'group_by':'gender'}"/>
+                <filter name="group_by_prio" string="Priority" context="{'group_by':'priority'}"/>
+                <!--                <filter name="group_by_state" string="State" context="{'group_by':'state'}"/>-->
+                <filter name="fil_date" string="Birth Date" date="birthdate"/>
+                <searchpanel>
+                    <field name="room_id" icon="fa-filter"/>
+                    <field name="gender" icon="fa-user"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!--    calendar view of customer-->
+    <record id="view_customer_calendar" model="ir.ui.view">
+        <field name="name">view.customer.calendar</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <!--           Q-15 <calendar date_start="check_in" mode="month">-->
+            <!--            Q-16-->
+            <!--            <calendar date_start="check_in" date_stop="check_out" mode="month">-->
+            <calendar date_start="check_in" date_stop="check_out" mode="day" event_limit="2"
+                      color="room_id" hide_time="0">
+                <field name="name"/>
+                <field name="age"/>
+            </calendar>
+        </field>
+    </record>
+
+
+    <!--    Graph view of customer-->
+    <record id="view_customer_graph" model="ir.ui.view">
+        <field name="name">view.customer.graph</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <!--           Q-19-->
+            <!--            <graph type="bar">-->
+            <!--                <field name="name" type="row"/>-->
+            <!--                <field name="age" type="column"/>-->
+            <!--                <field name="amount" type="measure"/>-->
+            <!--            </graph>-->
+
+            <!--            Q-20-->
+            <!--            <graph type="bar" stacked="False">-->
+            <!--                <field name="name" type="row"/>-->
+            <!--                <field name="amount" type="column"/>-->
+            <!--                    <field name="room_id" type="column"/>-->
+            <!--                <field name="age" type="measure"/>-->
+            <!--            </graph>-->
+            <!--             Q-21-->
+            <!--            <graph type="bar" stacked="True">-->
+            <!--                <field name="name" type="row"/>-->
+            <!--                <field name="amount" type="column"/>-->
+            <!--                    <field name="room_id" type="column"/>-->
+            <!--                <field name="age" type="measure"/>-->
+            <!--            </graph>-->
+
+            <!--                Q-22-->
+            <!--                <graph type="line">-->
+            <!--                    <field name="name" type="row"/>-->
+            <!--                    <field name="amount" type="column"/>-->
+            <!--                    <field name="room_id" type="column"/>-->
+            <!--                    <field name="age" type="measure"/>-->
+            <!--                </graph>-->
+
+            <!--                Q-23-->
+
+            <!--            pie chart need only two field-->
+            <graph type="pie">
+                <field name="name" type="row"/>
+                <field name="age" type="measure"/>
+            </graph>
+
+
+        </field>
+    </record>
+
+
+    <!--    pivot view for the customers-->
+    <!--    Q-24-->
+    <!--    <record id="view_customer_pivot" models="ir.ui.view">-->
+    <!--        <field name="name">view.customer.pivot</field>-->
+    <!--        <field name="models">customer.customer</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <pivot>-->
+    <!--                <field name="room_id" type="col"/>-->
+    <!--                <field name="mob_no" type="row"/>-->
+    <!--                <field name="amount" type="measure"/>-->
+    <!--                <field name="age" type="measure"/>-->
+    <!--            </pivot>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <record id="view_customer_pivot" model="ir.ui.view">
+        <field name="name">view.customer.pivot</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="birthdate" type="col" interval="quarter"/>
+                <field name="birthdate" type="col" interval="month"/>
+                <field name="birthdate" type="col" interval="day"/>
+                <!--                <field name="mob_no" type="row"/>-->
+                <field name="gender" type="row"/>
+                <field name="amount" type="measure"/>
+                <field name="age" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+
+    <!--    kanban view for customer-->
+    <record id="view_customer_kanban" model="ir.ui.view">
+        <field name="name">view.customer.kanban</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="id"/>
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_global_click oe_kanban_card">
+                            <div class="o_kanban_image">
+                                <img alt="No Image"
+                                     class="oe_avatar"
+                                     t-att-src="kanban_image('customer.customer', 'image', record.id.raw_value)"/>
+                            </div>
+
+                            <div>
+                                <field name="name"/>
+                                <br/>
+                                <field name="age"/>
+                                <br/>
+                                <field name="gender"/>
+                                <br/>
+                                <field name="email" widget="email"/>
+                                <br/>
+                                <field name="website" widget="url"/>
+                                <br/>
+                                <field name="food_ids" options="{'color_field':'color'}"/>
+                            </div>
+                            <div class="o_dropdown_kanban dropdown">
+                                <a role="button" class="dropdown-toggle o-no-caret btn"
+                                   data-toggle="dropdown" data-display="static"
+                                   href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <!--                                    Q-30-->
+                                <div class="dropdown-menu" role="menu">
+                                    <div role="menuitem">
+                                        <a type="edit">Edit</a>
+                                    </div>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <div role="menuitem">
+                                        <a type="action" name="%(action_charges)d">Charges</a>
+                                    </div>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <div role="menuitem">
+                                        <a type="object" name="delink_record">Unlink Record</a>
+                                    </div>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <div role="menuitem">
+                                        <a type="action" name="%(action_update_age_wiz_customer)d">Update Age[wizard]
+                                        </a>
+                                    </div>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!--Action for customers-->
+
+    <record id="action_customers" model="ir.actions.act_window">
+        <field name="name">Customers</field>
+        <field name="res_model">customer.customer</field>
+        <field name="view_mode">tree,form,calendar,graph,pivot,kanban</field>
+        <!--        <field name="context">{'search_default_group_by_state':1}</field>-->
+        <field name="context">{'search_default_group_by_gender':0}</field>
+    </record>
+
+
+    <!--    Action for male-->
+    <record id="action_male" model="ir.actions.act_window">
+        <field name="name">Male</field>
+        <field name="res_model">customer.customer</field>
+        <field name="view_mode">tree,form,calendar,graph</field>
+        <field name="domain">[('gender','=','male')]</field>
+        <field name="context">
+            {
+            'default_gender':'male',
+            'form_view_ref':'hotel_mangement_14.view_customer_form_male' ,
+            'tree_view_ref':'hotel_mangement_14.view_customer_tree_male',
+            }
+        </field>
+    </record>
+
+
+    <!--    Action for female-->
+    <record id="action_female" model="ir.actions.act_window">
+        <field name="name">Female</field>
+        <field name="res_model">customer.customer</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('gender','=','female')]</field>
+        <field name="context">{'default_gender':'female'}</field>
+    </record>
+
+
+    <!--    Q-36-->
+    <record model="ir.actions.act_window.view" id="action_female_form_view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_customer_form_female"/>
+        <field name="act_window_id" ref="action_female"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_female_tree_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_customer_tree_female"/>
+        <field name="act_window_id" ref="action_female"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_calendar_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">calendar</field>
+        <field name="view_id" ref="view_customer_calendar"/>
+        <field name="act_window_id" ref="action_female"/>
+    </record>
+
+    <record model="ir.actions.act_window.view" id="action_graph_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_customer_graph"/>
+        <field name="act_window_id" ref="action_female"/>
+    </record>
+
+    <!--Menu for customers -->
+
+    <menuitem id="menu_customers" action="action_customers" parent="menu_hotel_main"/>
+    <menuitem id="menu_male" action="action_male" parent="menu_hotel_main"/>
+    <menuitem id="menu_female" action="action_female" parent="menu_hotel_main"/>
+
+
+    <!--    <menuitem id="menu_add_charges_wiz" action="action_add_charges_wiz" name="Add Charges" parent="menu_hotel_root"/>-->
+
+
+    <!--    <menuitem id="menu_add_menu_charges" action="action_add_menu_charges_wiz" parent="menu_main_update_age_wiz"/>-->
+</odoo>
+

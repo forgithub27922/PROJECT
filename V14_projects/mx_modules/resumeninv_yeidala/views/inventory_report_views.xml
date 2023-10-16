@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="report_xlsx_resumenwiz" model="ir.actions.report">
+        <field name="name">Reporte Resumen XLSX</field>
+        <field name="model">report.resumen.inventarios.wiz</field>
+        <field name="binding_model_id" ref="model_report_resumen_inventarios_wiz"/>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">report_xlsx.resumen_xlsx</field>
+        <field name="report_file">report_xlsx.resumen_xlsx</field>
+        <field name="print_report_name">(object.name)</field>
+        <field name="attachment">'report.xlsx'</field>
+        <field name="attachment_use">False</field>
+    </record>
+
+    <record id="report_resumen_inventarios_wiz_form" model="ir.ui.view">
+        <field name="name">report.resumen.inventarios.wiz.form</field>
+        <field name="model">report.resumen.inventarios.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Reporte Resumen Inventario">
+                <sheet>
+                    <group col="4">
+                        <field name="date_start" string="Fecha Inicial" invisible="0" />
+                        <field name="date_end" string="Fecha Final" invisible="0" />
+                    </group>
+                    <group colspan="4">
+                        <field colspan="4" name="warehouse_ids" widget="many2many_tags" domain="[('company_id','=',company_id), ('account_analytic_id', '!=', '')]">
+                            <tree string="Warehouse">
+                                <field name="name" />
+                                <field name="account_analytic_id" invisible="0" />
+                                <field name="lot_stock_id" invisible="0" />
+                                <field name="company_id" invisible="1" />
+                            </tree>
+                        </field>
+                    </group>
+                    <group colspan="4">
+                        <field name="company_id" invisible="0" />
+                    </group>
+                </sheet>
+                <footer>
+                    <button type="object" name="action_report" string="Crear Reporte Excel" class="oe_highlight" icon="fa-cogs" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_resumen_inventarios_wiz_form" model="ir.actions.act_window">
+        <field name="name">Reporte Resumen Inventario</field>
+        <field name="res_model">report.resumen.inventarios.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    <menuitem id="menu_wizreportinvsummary" name="Reporte Resumen Inventarios" parent="stock.menu_warehouse_report" action="action_resumen_inventarios_wiz_form" sequence="5"/>
+
+
+
+    <record id="report_inventory_summary_tree" model="ir.ui.view">
+        <field name="name">report_inventory_summary_tree</field>
+        <field name="model">report.resumen.inventarios</field>
+        <field name="arch" type="xml">
+            <tree string="Reporte">
+                <field name="warehouse_id" />
+                <field name="account_analytic_id" />
+                <field name="lot_stock_id" />
+                <field name="company_id" invisible="1" />
+            </tree>
+        </field>
+    </record>
+    <record id="report_inventory_summary_action" model="ir.actions.act_window">
+        <field name="name">Reporte Resumen Inventario</field>
+        <field name="res_model">report.resumen.inventarios</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a new operation type
+          </p><p>
+            The operation type system allows you to assign each stock
+            operation a specific type which will alter its views accordingly.
+            On the operation type you could e.g. specify if packing is needed by default,
+            if it should show the customer.
+          </p>
+        </field>
+    </record>
+    <menuitem id="menu_reportinvsummary" name="Reporte Resumen" parent="stock.menu_warehouse_report" action="report_inventory_summary_action" sequence="4"/>
+
+</odoo>

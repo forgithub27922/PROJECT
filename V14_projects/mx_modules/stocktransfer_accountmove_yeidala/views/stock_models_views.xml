@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_warehouse_form_view_inherit_stock_yeidala" model="ir.ui.view">
+        <field name="name">stock.warehouse.form.inherit.stock.yeidala</field>
+        <field name="model">stock.warehouse</field>
+        <field name="inherit_id" ref="stock.view_warehouse"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Account Internal Info" name="internal_info">
+                    <group>
+                        <group>
+                            <field name="allow_accountmove" widget="boolean" />
+                            <field name="internal_pricelist_id"/>
+                            <field name="internal_account_id" options="{'no_create': True}" domain="[('company_id', '=', company_id)]" readonly="0"/>
+                            <field name="account_analytic_id" />
+                        </group>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    Form view of change the program name of machine-->
+    <record id="view_change_program_name" model="ir.ui.view">
+        <field name="name">view.change.program.name</field>
+        <field name="model">change.program.name.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="program_name"/>
+                </group>
+                <footer>
+                    <button name="activate_program" string="Program Name" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-danger"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+<!--    Action of change the program name of machine-->
+    <record id="action_change_program_name" model="ir.actions.act_window">
+        <field name="name">Change Program</field>
+        <field name="res_model">change.program.name.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

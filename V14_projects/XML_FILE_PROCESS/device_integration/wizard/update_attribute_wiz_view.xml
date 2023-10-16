@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Form view of Update Attribute Wizard -->
+    <record id="view_update_attribute_wiz_form" model="ir.ui.view">
+        <field name="name">view.update.attribute.wiz.form</field>
+        <field name="model">update.attribute.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="program_name" required="1"/>
+                </group>
+
+                <field name="machine_attribute_ids">
+                    <tree editable="bottom">
+                        <field name="attribute" required="1"/>
+                        <field name="attribute_value" required="1"/>
+                    </tree>
+                </field>
+                <footer>
+                    <button name="update_att_value" string="Update" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-danger"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of Update Attribute Wizard -->
+    <record id="action_update_attribute_wiz" model="ir.actions.act_window">
+        <field name="name">Update Attribute</field>
+        <field name="res_model">update.attribute.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+
+    <!-- Form view of Activate Program Wizard -->
+    <record id="view_activate_program_wiz_form" model="ir.ui.view">
+        <field name="name">view.update.attribute.wiz.form</field>
+        <field name="model">activate.program.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="program_name" required="1"/>
+                </group>
+                <footer>
+                    <button name="activate_program" string="Change Program" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-danger"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of Activate Program Wizard -->
+    <record id="action_activate_program_wiz" model="ir.actions.act_window">
+        <field name="name">Activate Program</field>
+        <field name="res_model">activate.program.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

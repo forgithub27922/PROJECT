@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--    form view of wizard to show m2o record-->
+    <record id="view_form_m2o_record_wiz" model="ir.ui.view">
+        <field name="name">view.form.m2o.record.wiz</field>
+        <field name="model">m2o.record.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="customer_id"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!--    action of the wizard to show m20 record-->
+    <record id="action_m2o_record_wiz" model="ir.actions.act_window">
+        <field name="name">Show M2O Record</field>
+        <field name="res_model">m2o.record.wiz</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

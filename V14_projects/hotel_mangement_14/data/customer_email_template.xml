@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="mail_template_reject_customer" model="mail.template">
+        <field name="name">Email: Rejected Customer</field>
+        <field name="model_id" ref="model_customer_customer"/>
+        <field name="subject">Customer Rejected</field>
+        <field name="email_from">${user.email}</field>
+        <field name="email_to">${object.email}</field>
+        <field name="body_html" type="html">
+            <div>
+                Dear ${object.name}
+                <br/>
+                <br/>
+                This is to inform you that you have been rejected as a customer.
+                <br/>
+                We congratulate you on your achievement and look forward to having a bright future ahead!
+                <br/>
+                <br/>
+                Do not hesitate to contact us if you have any questions.
+                <br/>
+                <br/>
+                Best regards,
+                <br/>
+                <br/>
+                --
+                <br/>
+                <strong>${user.name}</strong>
+                <br/>
+                ${object.env.company.name}
+            </div>
+        </field>
+
+    </record>
+</odoo>

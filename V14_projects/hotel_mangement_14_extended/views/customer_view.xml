@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_form_inherit" model="ir.ui.view">
+        <field name="name">view.form.inherit</field>
+        <field name="model">customer.customer</field>
+        <field name="inherit_id" ref="hotel_mangement_14.view_customer_form"/>
+        <field name="arch" type="xml">
+
+
+            <!--            Q-14-->
+            <xpath expr="/form" position="inside">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </xpath>
+
+
+            <!--             Q-1-->
+            <xpath expr="/form/sheet/notebook" position="inside">
+                <page name='pg_room' string="Room No" groups="hotel_mangement_14.grp_hotel_admin">
+                    <field name="room_num_ids"/>
+                </page>
+            </xpath>
+
+            <!--              GROUPS FOR THE SPECIFIC PAGE-->
+            <xpath expr="/form/sheet/notebook" position="inside">
+                <page name="pg_notes" string="Notes" groups="hotel_mangement_14.grp_hotel_14_user">
+                    <field name="notes"/>
+                </page>
+            </xpath>
+            <!--            GROUPS FOR THE SPECIFIC FIELD-->
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <!--                Q - 23 Add a new group on an existing field where other group(s) are already existing-->
+                <!--                IF WE SELECT ROOM USER GROUPS THEN IT SHOW INVOICE STATUS-->
+                <field name="invoice_status"
+                       groups="hotel_mangement_14.grp_hotel_14_user , hotel_mangement_14_extended.grp_room_user"/>
+            </xpath>
+            <xpath expr="//field[@name='color']" position="after">
+                <group name="grp_like_services" string="Feedback">
+                    <field name="like_hotel_service"/>
+                </group>
+            </xpath>
+
+            <!--             Q-2-->
+            <xpath expr="//field[@name='sequence']" position="before">
+                <field name="address"/>
+                <field name="city_id"/>
+            </xpath>
+
+            <xpath expr="//field[@name='cust_num']" position="replace">
+                <field name="cust_other_mob"/>
+            </xpath>
+
+
+            <!--            Q-3-->
+            <xpath expr="//field[@name='name']" position="attributes">
+                <attribute name="string">Customer Name</attribute>
+                <attribute name="required">True</attribute>
+                <attribute name="groups">hotel_mangement_14.grp_hotel_14_user</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="readonly">True</attribute>
+            </xpath>
+
+
+            <!--            Q-8-->
+            <xpath expr="//button[@name='wait_booking']" position="after">
+                <button name="need_coffee" string="Coffee" type="object" states="waiting" class="btn-warning"/>
+            </xpath>
+            <xpath expr="//button[@name='accept_booking']" position="replace">
+                <button name="accept_booking" string="Accept" type="object" states="waiting,nee_coffee"
+                        class="btn-success"/>
+            </xpath>
+            <xpath expr="//button[@name='reject_booking']" position="replace">
+                <button name="reject_booking" string="Rejected" type="object" states="waiting,nee_coffee"
+                        class="btn-warning"/>
+            </xpath>
+            <xpath expr="//button[@name='left']" position="replace">
+                <!--                  GROUPS FOR THE SPECIFIC BUTTON-->
+                <button name="left" string="Left" type="object" states="waiting,nee_coffee,reject_booking"
+                        class="btn-danger" groups="hotel_mangement_14.grp_hotel_14_user"/>
+            </xpath>
+
+            <xpath expr="/form/sheet/widget[@name='web_ribbon']" position="after">
+                <widget name="web_ribbon" title="Need Coffee" bg_color="bg-warning"
+                        attrs="{'invisible':[('state','!=','nee_coffee')]}"/>
+            </xpath>
+
+            <!--            ADD A SUB UNIT PRICE IN ROOM IDS-->
+            <xpath expr="/form/sheet/notebook/page[@name='pg_room']" position="inside">
+                <group name="gp_unit_price" colspan="2" class="oe_subtotal_footer oe_right">
+                    <field name="sub_unit_price"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!--    activity view-->
+    <record id="view_activity_extended" model="ir.ui.view">
+        <field name="name">activity.extended</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <activity string="Activities">
+                <templates>
+                    <div t-name="activity-box">
+                        <div>
+                            <field name="name" display="Full"/>
+                        </div>
+                    </div>
+                </templates>
+            </activity>
+        </field>
+    </record>
+
+    <!--    tree view-->
+    <record id="view_tree_inherit" model="ir.ui.view">
+        <field name="name">view.tree.inherit</field>
+        <field name="model">customer.customer</field>
+        <field name="inherit_id" ref="hotel_mangement_14.view_customer_tree"/>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="activity_ids" widget="list_activity"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    search view for the modify exist context-->
+    <record id="hotel_mangement_14.view_customer_search" model="ir.ui.view">
+        <field name="name">view.customer.search</field>
+        <field name="model">customer.customer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="gender"/>
+                <filter name="filter_age" string="Age=23" domain="[('age','=', 23)]"/>
+                <filter name="filter_female" string="Female" domain="[('gender', '=' ,'female')]"/>
+                <filter name="group_by_gender" string="Gender" context="{'group_by':'gender'}"/>
+                <filter name="group_by_prio" string="Priority" context="{'group_by':'priority'}"/>
+                <filter name="fil_date" string="Birth Date" date="birthdate"/>
+
+                <!--                add a new context Q-19 -->
+                <filter name="grp_by_age" string="Age" context="{'group_by':'age'}"/>
+
+                <!--                add a new domain Q-20-->
+                <!--                <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]"/>-->
+
+                <searchpanel>
+                    <field name="room_id" icon="fa-filter"/>
+                    <field name="gender" icon="fa-user"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!--    Action for activity View-->
+    <record id="hotel_mangement_14.action_customers" model="ir.actions.act_window">
+
+        <field name="view_mode">tree,form,calendar,graph,pivot,kanban,activity</field>
+        <!--        Q-19 [for search default]-->
+        <field name="context">{'search_default_group_by_gender':0}</field>
+        <!--        <field name="domain">['|', ('gender', '=', 'male'),('gender' ,'=','female')]</field>-->
+    </record>
+
+    <!--    menu of room for remove group 22-->
+
+    <menuitem id="menu_room_main" name="Inside Room" parent="hotel_mangement_14.menu_hotel_root"/>
+
+    <menuitem id="hotel_mangement_14.menu_room" action="hotel_mangement_14.action_room"
+              parent="hotel_mangement_14.menu_hotel_main"
+              groups="-hotel_mangement_14.grp_hotel_14_user"/>
+
+
+</odoo>
+

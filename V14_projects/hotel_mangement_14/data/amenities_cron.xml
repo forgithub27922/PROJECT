@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- A scheduler to create Amenities -->
+    <record id="cron_create_amenities" model="ir.cron">
+        <field name="name">Customer: Create Amenities Every Day</field>
+
+        <field name="model_id" ref="model_customer_customer"/>
+
+        <field name="state">code</field>
+
+        <field name="code">model._create_amenities()</field>
+
+        <field name='interval_number'>1</field>
+        <field name='interval_type'>minutes</field>
+
+        <field name="numbercall">-1</field>
+    </record>
+</odoo>

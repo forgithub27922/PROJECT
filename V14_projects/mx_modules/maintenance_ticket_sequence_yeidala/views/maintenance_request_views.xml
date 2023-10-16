@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="hr_equipment_request_ticket_view_form">
+            <field name="name">hr_equipment_request_ticket_view_form</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_title']" position="inside">
+                    <field name="ticket" readonly="1" />
+                </xpath>
+            </field>
+        </record>
+        <record id="hr_equipment_request_ticket_view_kanban" model="ir.ui.view">
+            <field name="name">hr_equipment_request_ticket_view_kanban</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_kanban"/>
+            <field name="arch" type="xml">
+                <xpath expr="//b[@class='o_kanban_record_title']" position="inside">
+                    <br /><small><span t-if="record.ticket.raw_value"> (<field name="ticket"/>)</span></small>
+                </xpath>                
+            </field>
+        </record>        
+        <record id="hr_equipment_request_ticket_view_tree" model="ir.ui.view">
+            <field name="name">hr_equipment_request_ticket_view_tree</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_tree"/>
+            <field name="arch" type="xml">
+                <field name="message_needaction" position="after">
+                    <field name="ticket" />
+                </field>
+            </field>
+        </record>
+
+        <record id="hr_equipment_request_ticket_view_search" model="ir.ui.view">
+            <field name="name">hr_equipment_request_ticket_view_search</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_search"/>
+            <field name="arch" type="xml">
+                <field name="name" position="replace">
+                    <field string="Request" name="name" filter_domain="['|', ('name', 'ilike', self), ('ticket', 'ilike', self)]"/>
+                </field>
+                <field name="category_id" position="before">
+                    <field name="ticket"/>
+                </field>
+
+            </field>
+        </record>
+   
+
+    </data>
+</odoo>

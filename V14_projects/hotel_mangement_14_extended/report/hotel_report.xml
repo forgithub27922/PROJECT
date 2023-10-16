@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="hotel_mangement_14.action_hotel_report_pdf" model="ir.actions.report">
+        <field name="groups_id" eval="[(6,0,[ref('hotel_mangement_14_extended.grp_room_user')])]"/>
+    </record>
+</odoo>

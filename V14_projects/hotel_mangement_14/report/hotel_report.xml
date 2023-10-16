@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    html -->
+    <record id="action_hotel_report_html" model="ir.actions.report">
+        <field name="name"> A) Hotel Report - HTML</field>
+        <field name="model">customer.customer</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">hotel_mangement_14.report_customer</field>
+        <field name="report_file">hotel_mangement_14.report_customer</field>
+        <field name="print_report_name">'Customer Report - HTML'</field>
+        <field name="binding_model_id" ref="model_customer_customer"/>
+        <field name="binding_type">report</field>
+        <field name="groups_id" eval="[(6,0,[ref('hotel_mangement_14.grp_hotel_admin')])]"/>
+    </record>
+
+
+<!--    pdf-->
+    <record id="action_hotel_report_pdf" model="ir.actions.report">
+        <field name="name"> B) Hotel Report - PDF</field>
+        <field name="model">customer.customer</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hotel_mangement_14.report_customer</field>
+        <field name="report_file">hotel_mangement_14.report_customer</field>
+        <field name="print_report_name">'Customer Report - PDF'</field>
+        <field name="binding_model_id" ref="model_customer_customer"/>
+        <field name="binding_type">report</field>
+        <field name="groups_id" eval="[(6,0,[ref('hotel_mangement_14.grp_hotel_14_user')])]"/>
+    </record>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Group for Machine Processing -->
+    <record id="grp_machine_user" model="res.groups">
+        <field name="name">Machine User</field>
+    </record>
+
+</odoo>

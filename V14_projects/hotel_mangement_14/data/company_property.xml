@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--    company property for selection-->
+    <record forcecreate="True" id="default_customer_type" model="ir.property">
+        <field name="name">Customer Type</field>
+        <field name="fields_id"
+               search="[('model', '=', 'customer.customer'), ('name', '=', 'property_customer_type')]"/>
+        <field name="value_text">check_in</field>
+        <field name="type">selection</field>
+    </record>
+
+<!--    company property for specific one company-->
+    <record forcecreate="True" id="default_customer_company" model="ir.property">
+        <field name="name">Your Company</field>
+        <field name="fields_id" search="[('model','=','customer.customer'),('name','=','age')]"/>
+        <field name="value_integer">32</field>
+        <field name="type">integer</field>
+    </record>
+
+    <record forcecreate="True" id="default_customer_M2O_company" model="ir.property">
+        <field name="name">For M2O Proper Company</field>
+        <field name="fields_id" search="[('model','=','customer.customer'),('name','=','user_id')]"/>
+        <field name="value_reference">res.users,9</field>
+        <field name="type">many2one</field>
+    </record>
+
+
+</odoo>
+
+
+

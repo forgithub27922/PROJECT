@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    form view of merge picking order wizard-->
+    <record id="merge_picking_order_wiz_form" model="ir.ui.view">
+        <field name="name">merge.picking.order.wiz.form</field>
+        <field name="model">merge.picking.order.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="merge_type" widget="radio"/>
+                        <field name="merge_picking_order_id"
+                               attrs="{'invisible':[('merge_type','in',['new_order_state_cancel','new_order_delete_order'])],'required':[('merge_type','in',['select_exist_order_state_cancel','select_exist_order_delete_order'])]}"/>
+                    </group>
+                    <footer>
+                        <button name="merge_picking_orders" type="object" string="Merge Picking Orders"
+                                class="btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    Action of merge picking order wizard-->
+    <record id="action_merger_picking_wiz" model="ir.actions.act_window">
+        <field name="name">Merge Picking</field>
+        <field name="res_model">merge.picking.order.wiz</field>
+        <field name="binding_model_id" ref="stock.model_stock_picking"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

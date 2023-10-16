@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<!--     Print Email Template Wizard form view-->
+    <record id="email_temp_print_wiz_form" model="ir.ui.view">
+        <field name="name">email.temp.print.wiz.form</field>
+        <field name="model">email.temp.print.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="customer_id"/>
+                </group>
+
+                <footer>
+                    <button name="print_email" type="object" string="Print Email Template" class="btn-success"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+<!--    print Email Template Wizard action view-->
+    <record id="action_email_print_temp" model="ir.actions.act_window">
+        <field name="name">Print Email Template</field>
+        <field name="res_model">email.temp.print.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+<!--    print Email template wizard action-->
+
+    <menuitem id="menu_print_email_temp" action="action_email_print_temp" parent="menu_email_temp"/>
+</odoo>

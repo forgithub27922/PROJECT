@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+
+        <record id="hr_equipment_request_yeidala_view_form" model="ir.ui.view">
+            <field name="name">hr.equipment.request.yeidala.view.form</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_form"/>
+            <field name="arch" type="xml">
+                <field name="maintenance_type" position="after">
+                    <field name="account_analytic_id" required="1" context="{}" 
+                        groups="analytic.group_analytic_accounting" 
+                        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id),]"/>
+                    <field name="equip_amount" />
+                    <field name="equip_state" widget="radio" />
+                </field>
+            </field>
+        </record>
+        <record id="hr_equipment_yeidala_view_form" model="ir.ui.view">
+            <field name="name">hr.equipment.yeidala.view.form</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="before">
+                    <field name="account_analytic_id" required="1" context="{}" 
+                        groups="analytic.group_analytic_accounting" 
+                        domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

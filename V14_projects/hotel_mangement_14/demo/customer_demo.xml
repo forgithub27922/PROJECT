@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    demo data for amenities-->
+    <record id="amenities_three" model="customer.food">
+        <field name="name">local_history</field>
+        <field name="price">370</field>
+    </record>
+
+    <!--    demo data for room-->
+    <record id="room_100" model="customer.room">
+        <field name="room_code">R/100</field>
+        <field name="room_type">squad_type</field>
+    </record>
+
+    <record id="room_120" model="customer.room">
+        <field name="room_code">R/120</field>
+        <field name="room_type">squad_type</field>
+    </record>
+
+
+    <!--    demo data for customer1-->
+    <record id="cust_1" model="customer.customer">
+        <field name="name">Drashti</field>
+        <field name="age">29</field>
+        <field name="active">True</field>
+        <field name="gender">female</field>
+        <field name="state">waiting</field>
+        <field name="room_id" ref="room_100"/>
+        <field name="food_ids" eval="[(6,0,[ref('hotel_mangement_14.amenities_three')])]"/>
+    </record>
+
+    <!--    demo data for customer2-->
+    <record id="cust_2" model="customer.customer">
+        <field name="name">Vishwa</field>
+        <field name="age">22</field>
+        <field name="active">True</field>
+        <field name="gender">female</field>
+        <field name="state">waiting</field>
+        <field name="room_id" ref="room_120"/>
+    </record>
+
+</odoo>

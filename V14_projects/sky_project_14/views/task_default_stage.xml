@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="task_type_default_stage" model="ir.ui.view">
+        <field name="name">project.task.type.default.stage</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_edit"/>
+        <field name="arch" type="xml">
+            <field name="fold" position="after">
+                <field name="set_default"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="task_type_tree" model="ir.ui.view">
+        <field name="name">project.task.type.tree.inherit</field>
+        <field name="model">project.task.type</field>
+        <field name="inherit_id" ref="project.task_type_tree"/>
+        <field name="arch" type="xml">
+            <field name="fold" position="after">
+                <field name="set_default"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="edit_project" model="ir.ui.view">
+        <field name="name">project.project.form</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='options_active']/div/field[@name='label_tasks']" position="after">
+                <!--                <page string="Project Stages"-->
+                <!--                      name="project_stages">-->
+                <br/>
+                <label for="type_ids" class="oe_inline" string="Stages"/>
+                <field name="type_ids" widget="many2many_tags" string="Stages"/>
+                <!--                </page>-->
+            </xpath>
+        </field>
+    </record>
+</odoo>

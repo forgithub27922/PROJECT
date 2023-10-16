@@ -1,0 +1,1846 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* hotel_mangement_14
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-09-27 14:07+0000\n"
+"PO-Revision-Date: 2021-09-27 14:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__local_history
+msgid " Local History at Turndown"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__presidential
+msgid " Presidential Suite"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__rollaway
+msgid " Rollaway Tent"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.report,print_report_name:hotel_mangement_14.action_hotel_report_html
+msgid "'Customer Report - HTML'"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.report,print_report_name:hotel_mangement_14.action_hotel_report_pdf
+msgid "'Customer Report - PDF'"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.report,print_report_name:hotel_mangement_14.action_hotel_new_report_html
+msgid "'New Customer Report - HTML'"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.report,print_report_name:hotel_mangement_14.action_hotel_new_report_pdf
+msgid "'New Customer Report - PDF'"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:mail.template,body_html:hotel_mangement_14.wizard_email_template_customer
+msgid ""
+"<div>\n"
+"                Dear ${object.name}\n"
+"                <br/>\n"
+"                <br/>\n"
+"                This is to inform you that you have been accepted as a customer.\n"
+"                <br/>\n"
+"                We congratulate you on your achievement and look forward to having a bright future ahead!\n"
+"                <br/>\n"
+"                <br/>\n"
+"                Do not hesitate to contact us if you have any questions.\n"
+"                <br/>\n"
+"                <br/>\n"
+"                Best regards,\n"
+"                <br/>\n"
+"                <br/>\n"
+"                --\n"
+"                <br/>\n"
+"                <strong>${user.name}</strong>\n"
+"                <br/>\n"
+"                ${object.env.company.name}\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:mail.template,body_html:hotel_mangement_14.mail_template_reject_customer
+msgid ""
+"<div>\n"
+"                Dear ${object.name}\n"
+"                <br/>\n"
+"                <br/>\n"
+"                This is to inform you that you have been rejected as a customer.\n"
+"                <br/>\n"
+"                We congratulate you on your achievement and look forward to having a bright future ahead!\n"
+"                <br/>\n"
+"                <br/>\n"
+"                Do not hesitate to contact us if you have any questions.\n"
+"                <br/>\n"
+"                <br/>\n"
+"                Best regards,\n"
+"                <br/>\n"
+"                <br/>\n"
+"                --\n"
+"                <br/>\n"
+"                <strong>${user.name}</strong>\n"
+"                <br/>\n"
+"                ${object.env.company.name}\n"
+"            </div>\n"
+"        "
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "<span>Customer Report</span>"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "<span>Hotel Configuration</span>"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "<span>Room Info :-</span>"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_add_menu_charges_wiz
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_add_menu_charges
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "ADD CHARGES"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Accept"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__accepted
+msgid "Accepted"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__accessible
+msgid "Accessible Room"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__active
+msgid "Active"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_add_menu_charges_wiz_form
+msgid "Add Charge"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_add_charges_wiz
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_add_charges_wiz_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Add Charges"
+msgstr "ચાર્જ ઉમેરો"
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_customer__comments
+msgid "Add a Comment"
+msgstr "એક ટિપ્પણી ઉમેરો"
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__adjoining
+msgid "Adjoining rooms"
+msgstr "બાજુના રૂમ"
+
+#. module: hotel_mangement_14
+#: model:res.groups,name:hotel_mangement_14.grp_hotel_admin
+msgid "Admin Hotel"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__group_hotel_admin
+msgid "Admin Rights?"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__age
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__age
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz__age
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wizard__age
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_search
+msgid "Age"
+msgstr "ઉંમર"
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_search
+msgid "Age=23"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_service__category__fixed
+msgid "All Services / Fixed"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_service__category__all
+msgid "All Services / Optional"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__payment_type__amazon-pay
+msgid "Amazon-Pay"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_food
+#: model:ir.model,name:hotel_mangement_14.model_customer_food
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__food_ids
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__name
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_act
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Amenities"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_company__amenities_availabel
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__amenities_availabel
+msgid "Amenities Availabel"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__amount
+msgid "Amount"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__apartments
+msgid "Apartments"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Archived"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__percent
+msgid "Average Of Taxes"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__code_of_bt
+msgid "BT Code"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__barcode
+msgid "Barcode"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__bathrobes
+msgid "Bathrobes and slippers"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__bill
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+msgid "Bill"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_search
+msgid "Birth Date"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__birthdate
+msgid "Birthdate"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__res_config_settings__hotel_room_check__booked
+msgid "Booked"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__room_id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_print_customer_report_wiz__room_id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_print_customer_report_wiz__room_id
+msgid "Booking Rooms"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Browse Record"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__company_id
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "COMPANY"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__cabana
+msgid "Cabana"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.display_room_record_wiz_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.email_temp_print_wiz_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_report_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_print_customer_report_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_update_age_wiz_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_update_age_wiz_form_custm
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_update_fee_wiz_form_customer
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_xls_report_wiz_form
+msgid "Cancel"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_charges
+#: model:ir.model,name:hotel_mangement_14.model_customer_charges
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_kanban
+msgid "Charges"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__property_customer_type__check_in
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__check_in
+msgid "Check In"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Check In Check Out Informations"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__check_in
+msgid "Check In Date"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__property_customer_type__check_out
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__check_out
+msgid "Check Out"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__check_out
+msgid "Check Out Date"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "CheckIn"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "CheckOut"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__coffeekit
+msgid "Coffee Kit (maker, coffee and creamer)"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__color
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__color
+msgid "Color Index"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__comments
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Comments"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_res_company
+msgid "Companies"
+msgstr "કંપનીઓ"
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__company_id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__company_id
+msgid "Company"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__connecting
+msgid "Connecting rooms"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Copy Record"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Create"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room_wiz__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_xls_report_wiz__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_email_temp_print_wiz__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_m2o_record_wiz__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_print_customer_report_wiz__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_print_customer_report_wiz__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz__create_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room_wiz__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_xls_report_wiz__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_email_temp_print_wiz__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_m2o_record_wiz__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_print_customer_report_wiz__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_print_customer_report_wiz__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz__create_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__currency_id
+msgid "Currency"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_customer_customer
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__customer_id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__customer_id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_xls_report_wiz__customer_ids
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_email_temp_print_wiz__customer_id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz__custom_id
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__ref__customer_customer
+msgid "Customer"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:mail.template,subject:hotel_mangement_14.wizard_email_template_customer
+msgid "Customer Accepted"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_customer_analysis
+#: model:ir.model,name:hotel_mangement_14.model_new_customer_analysis_report
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_customer_analysis
+msgid "Customer Analysis"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__charges_ids
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Customer Charges"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__customer_check
+msgid "Customer ChecKing"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Customer Checking"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "Customer Image"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Customer Informations"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Customer List"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_customer_room_record
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_display_customer_record
+msgid "Customer M2O Record"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_company__customer_mob_no
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__customer_mob_no
+msgid "Customer Mobile Number"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__name
+msgid "Customer Name"
+msgstr "ગ્રાહક નું નામ"
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_new_customer_report
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_cust_new_report
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_new_customer_report
+msgid "Customer New Reports"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__cust_num
+msgid "Customer Num"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Customer Other Personal Informations"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_room_record
+msgid "Customer Record "
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:mail.template,subject:hotel_mangement_14.mail_template_reject_customer
+msgid "Customer Rejected"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_report_hotel_mangement_14_new_report_customer
+#: model:ir.model,name:hotel_mangement_14.model_report_hotel_mangement_14_report_customer
+msgid "Customer Report"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_print_customer_report_form
+msgid "Customer Report -HTML"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_print_customer_report_form
+msgid "Customer Report -PDF"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_customer_report
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_cust_report
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_customer_report
+msgid "Customer Reports"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "Customer Rooms"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__service_ids
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__service_ids
+msgid "Customer Services"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__property_customer_type
+msgid "Customer Type"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_customer_xls_report
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_customer_xls_report
+msgid "Customer XLS Report"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_customer_xls_report_wiz
+msgid "Customer XLS Report Wizard"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__cust_seq
+msgid "Customer code"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.server,name:hotel_mangement_14.cron_create_amenities_ir_actions_server
+#: model:ir.cron,cron_name:hotel_mangement_14.cron_create_amenities
+#: model:ir.cron,name:hotel_mangement_14.cron_create_amenities
+msgid "Customer: Create Amenities Every Day"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_customers
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_m2o_record_wiz__customer_id
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_customers
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Customers"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__date
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "Date"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__date_order
+msgid "Date Ordered"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__day
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__day
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "Day"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Delete Record"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__desc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_service_form
+msgid "Description"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__dinner
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Dinner"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.display_room_record_wiz_form
+msgid "Display Customer Record"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room_wiz__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_xls_report_wiz__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_email_temp_print_wiz__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_m2o_record_wiz__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_print_customer_report_wiz__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_print_customer_report_wiz__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_report_hotel_mangement_14_new_report_customer__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_report_hotel_mangement_14_report_customer__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_company__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz__display_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wizard__display_name
+msgid "Display Name"
+msgstr "પ્રદર્શન નામ"
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Documnets"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__double
+msgid "Double"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__double_open
+msgid "Double Open"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__double_double
+msgid "Double-Double"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_kanban
+msgid "Dropdown menu"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__duo_squad_type
+msgid "Duo Squad"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_kanban
+msgid "Edit"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__email
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+msgid "Email"
+msgstr "ઇમેઇલ"
+
+#. module: hotel_mangement_14
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_email_temp
+msgid "Email Template"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_xls_report
+msgid "Excel Report"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__suite
+msgid "Executive Suite"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__fee
+msgid "Fee"
+msgstr "ફી"
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_female
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__gender__female
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_search
+msgid "Female"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__file_name_cust
+msgid "File Name"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_capacity__five_people
+msgid "Five People"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__wifi
+msgid "Free WiFi internet access"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__payment_type__google_pay
+msgid "G-Pay"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__gender
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__gender
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_search
+msgid "Gender"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_customer__gender
+msgid "Gender selection field"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Groups (Moduels)"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__name
+msgid "Guest Name"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__child_ids
+msgid "Guest name"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__gyms
+msgid "Gym or fitness center"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Here you can configure hotel information for customer"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__hollywood
+msgid "Hollywood Twin Room"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_hotel_main
+msgid "Hotel"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Hotel Information"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_hotel_root
+msgid "Hotel Management"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Hotel Managemnt"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__hotel_name
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__hotel_name
+msgid "Hotel Name"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_company__hotel_open
+msgid "Hotel Open ?"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__hotel_open
+msgid "Hotel Open?"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__hotel_room_check
+msgid "Hotel Room Checking"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Hotel Room Information"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.report,name:hotel_mangement_14.action_hotel_report_html
+msgid "HotelReport - HTML"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.report,name:hotel_mangement_14.action_hotel_report_pdf
+msgid "HotelReport - PDF"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room_wiz__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_xls_report_wiz__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_email_temp_print_wiz__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_m2o_record_wiz__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_print_customer_report_wiz__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_print_customer_report_wiz__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_report_hotel_mangement_14_new_report_customer__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_report_hotel_mangement_14_report_customer__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_company__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz__id
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wizard__id
+msgid "ID"
+msgstr "ઓળખ"
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__message_needaction
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__image
+msgid "Image"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_service_form
+msgid "Information"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__junior
+msgid "Junior Suite"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room_wiz____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_xls_report_wiz____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_email_temp_print_wiz____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_m2o_record_wiz____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_print_customer_report_wiz____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_print_customer_report_wiz____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_report_hotel_mangement_14_new_report_customer____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_report_hotel_mangement_14_report_customer____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_company____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz____last_update
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room_wiz__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_xls_report_wiz__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_email_temp_print_wiz__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_m2o_record_wiz__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_print_customer_report_wiz__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_print_customer_report_wiz__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz__write_uid
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room_wiz__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_xls_report_wiz__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_email_temp_print_wiz__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_m2o_record_wiz__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_print_customer_report_wiz__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_print_customer_report_wiz__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wiz__write_date
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_update_age_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__left
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Left"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__lunch
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Lunch"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_male
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__gender__male
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_male
+msgid "Male"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__parent_id
+msgid "Manager"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__mob_no
+msgid "Mobile No"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__hotel_mangement_14_extended
+msgid "Module Extended?"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "Module Installation"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__murphy
+msgid "Murphy Room"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__res_company__amenities_availabel__no
+msgid "NO"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "Name :"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_report_form
+msgid "New Customer Report -HTML"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_report_form
+msgid "New Customer Report -PDF"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.report,name:hotel_mangement_14.action_hotel_new_report_html
+msgid "New HotelReport - HTML"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.report,name:hotel_mangement_14.action_hotel_new_report_pdf
+msgid "New HotelReport - PDF"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_kanban
+msgid "No Image"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__property_customer_type__not_exist
+msgid "Not Exist"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__notes
+msgid "Notes"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_company__no_of_customer
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__no_of_customer
+msgid "Number Of Customers"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "ORM METHOD BTN :-"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__partner_id
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__ref__res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__password
+msgid "Password"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__payment_type__paypal
+msgid "PayPal"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Payment Option"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__payment_type
+msgid "Payment-Type"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__personalcare
+msgid "Personal care (combs, shaving cream, razor, shower cap, hair dryer)"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__payment_type__phone_pay
+msgid "Phone-Pay"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Pic Color"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__powerbank
+msgid "Powerbank for the Road"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__premium_coffee
+msgid "Premium Coffee"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__price
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__price
+msgid "Price"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_xls_report_wiz_form
+msgid "Print Customer Report"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_email_print_temp
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_print_email_temp
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.email_temp_print_wiz_form
+msgid "Print Email Template"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__priority
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_search
+msgid "Priority"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__quad
+msgid "Quad"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__queen
+msgid "Queen"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Read Group"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Read Record"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__ref
+msgid "Reference"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__rejected
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Rejected"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_customer_reporting
+msgid "Reporting"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__reservation_line
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Reservation Line"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__reservation_no
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Reservation No"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_customer_room
+msgid "Room"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__room_book
+msgid "Room Book"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__room_capacity
+msgid "Room Capacity"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__room_code
+msgid "Room Code"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Room Details"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__room_pure
+msgid "Room Purification"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room__room_type
+msgid "Room Type"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_room
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_room
+msgid "Rooms"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_room_wiz__room_id
+msgid "Rooms Name"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Search"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Search Read"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_service
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_service
+msgid "Service"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__category
+msgid "Service Category"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "Service Price"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_service_form
+msgid "Service Rate"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_customer_service
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "Services"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__total_charges_service
+msgid "Services Charges"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_service__name
+msgid "Services Name :: "
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_m2o_record_wiz
+msgid "Show M2O Record"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__single
+msgid "Single"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_capacity__six_people
+msgid "Six People"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__squad_type
+msgid "Squad"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__state
+msgid "State"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__res_config_settings__hotel_room_check__still_open
+msgid "Still Open"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__studio
+msgid "Studio"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__sub_total
+msgid "Sub Total"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Subordinates"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "TOTAL SERVICES"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "TOTAL TAXES"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_add_charges_wiz__taxes
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_charges__taxes
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_new_customer_analysis_report__taxes
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.new_report_customer_doc
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.report_customer_doc
+msgid "Taxes"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__taxes
+msgid "Taxes :"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_customer__term_and_condition
+msgid "Term And Condition"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__term_and_condition
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Terms And Condition"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.constraint,message:hotel_mangement_14.constraint_customer_customer_check_mob
+msgid "The Mobile Number must be 10 digit"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.constraint,message:hotel_mangement_14.constraint_customer_customer_check_age
+msgid "The customer must be at least 10+ :) "
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.constraint,message:hotel_mangement_14.constraint_customer_customer_unique_hotel_name
+msgid "The hotel name is must be unique "
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.constraint,message:hotel_mangement_14.constraint_customer_customer_unique_reservation_no_email
+msgid "The reservation no and email of the customer must be unique!"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "This Will Install The Module Hotel Extension"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_customer__age
+#: model:ir.model.fields,help:hotel_mangement_14.field_update_age_wiz__age
+#: model:ir.model.fields,help:hotel_mangement_14.field_update_age_wizard__age
+msgid "This is the Age of Customer"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_customer__name
+msgid "This is the Name of Customer"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_customer__check_in
+msgid "This is the check in date in a hotel of Customer"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_customer__check_out
+msgid "This is the check out date in a hotel of Customer"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_customer__birthdate
+msgid "This is the date of birth of Customer"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "This is to check whether the room available or not ??"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "This will give User access to the hotel"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.res_config_settings_view_form
+msgid "This will give admin access to the hotel"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_capacity__three_people
+msgid "Three People"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__time
+msgid "Time"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__tissuebox
+msgid "Tissue box"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_food__name__toiletries
+msgid "Toiletries (e.g. Shampoo, lotion, etc.)"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__total_amenities
+msgid "Total Amenities"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__total_amenities_price
+msgid "Total Amenities Price"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__total_service
+msgid "Total Services Charges :"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__triple
+msgid "Triple"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_capacity__two_people
+msgid "Two People"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,help:hotel_mangement_14.field_customer_food__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_kanban
+msgid "Unlink Record"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_food__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+msgid "Update"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_update_age_wiz_customer
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_update_age_wizard
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_main_update_age_wiz
+#: model:ir.ui.menu,name:hotel_mangement_14.menu_update_age_wiz
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_update_age_wiz_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_update_age_wiz_form_custm
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_update_fee_wiz_form_customer
+msgid "Update Age"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.act_window,name:hotel_mangement_14.action_update_fee_wiz_customer_btn
+msgid "Update Age Form"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_kanban
+msgid "Update Age[wizard]"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.actions.server,name:hotel_mangement_14.action_customer_update_mul_record
+msgid "Update Multiple Record [Gender,Age,Mobile No,Hotel Name]"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__document
+msgid "Upload Your PhotoID"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__user_id
+msgid "User"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:res.groups,name:hotel_mangement_14.grp_hotel_14_user
+msgid "User Hotel"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_res_config_settings__group_hotel_14_user
+msgid "User Rights?"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__ref__res_users
+msgid "Users"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_room__room_type__villa
+msgid "Villa"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__customer_customer__state__waiting
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_form_male
+msgid "Waiting"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields,field_description:hotel_mangement_14.field_customer_customer__website
+msgid "Website"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model.fields.selection,name:hotel_mangement_14.selection__res_company__amenities_availabel__yes
+msgid "YES"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_add_charges_wiz
+msgid "add.charges.wiz"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_tree
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_tree_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_tree_male
+msgid "bill"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_add_charges_wiz_form
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_add_menu_charges_wiz_form
+msgid "cancel"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_customer_room_wiz
+msgid "customer.room.wiz"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_email_temp_print_wiz
+msgid "email.temp.print.wiz"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_tree
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_tree_female
+#: model_terms:ir.ui.view,arch_db:hotel_mangement_14.view_customer_tree_male
+msgid "fee"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_m2o_record_wiz
+msgid "m2o.record.wiz"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_new_print_customer_report_wiz
+msgid "new.print.customer.report.wiz"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_print_customer_report_wiz
+msgid "print.customer.report.wiz"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_update_age_wiz
+msgid "update.age.wiz"
+msgstr ""
+
+#. module: hotel_mangement_14
+#: model:ir.model,name:hotel_mangement_14.model_update_age_wizard
+msgid "update.age.wizard"
+msgstr ""

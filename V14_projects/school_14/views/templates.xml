@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Linking your scss file to the assets backend -->
+    <template id="assets_backend" name="school_14 assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <!-- link tag will be used to link the stylesheets -->
+            <!-- the rel attribute will be always stylesheet -->
+            <!-- the type attribute will be always text/css -->
+            <!-- the href attribute will be the path of your scss file starting from your module -->
+            <link rel="stylesheet" type="text/scss" href="/school_14/static/src/scss/student.scss"/>
+            <!-- For scss the file must be kept in static<directory>/src<directory>/scss<dir>/<file_name>.scss -->
+        </xpath>
+    </template>
+</odoo>

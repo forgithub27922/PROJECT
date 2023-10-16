@@ -1,0 +1,281 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_auto_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-03 20:04+0000\n"
+"PO-Revision-Date: 2022-08-03 20:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "* C.P. (Domicilio Fiscal)"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "* Cuenta de Correo"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "* RFC"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "* Razón Social"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.noencontrado
+msgid ""
+"<br/><br/><br/>\n"
+"                            ¿DUDAS? info@plog.com"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/models/pos_order.py:0
+#, python-format
+msgid "<p>Estimado %s,<br/>Adjunto encontraras el XML y PDF de la Factura %s. </p>"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "<span class=\"badge\">SubTotal: </span>"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "<span class=\"badge\">Total: </span>"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.index
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "<span class=\"font-weight-bold\">Validar</span>"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "<strong>Desc. %</strong> $"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "Datos del Cliente"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "Detalles de la Venta"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model:ir.model.fields,field_description:pos_auto_invoice.field_pos_order__display_name
+msgid "Display Name"
+msgstr "Nombre en pantalla"
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.email
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.index
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.noencontrado
+msgid "Facturación Electrónica"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model:ir.model.fields,field_description:pos_auto_invoice.field_pos_order__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "Impuestos:"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.email
+msgid "La Información se ha enviado al correo electrónico indicado"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.index
+msgid ""
+"La información requerida para la emisión de facturas es la siguiente: ."
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model:ir.model.fields,field_description:pos_auto_invoice.field_pos_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.index
+msgid "Número de Ticket"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model:ir.model,name:pos_auto_invoice.model_pos_order
+msgid "Point of Sale Orders"
+msgstr "Pedidos del PdV"
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.index
+msgid "RFC, Razón Social, Uso de CFDI, Código Postal, Régimen Fiscal"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/models/pos_order.py:0
+#, python-format
+msgid "Receipt %s"
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.index
+msgid "Selecciona la Sucursal..."
+msgstr ""
+
+#. module: pos_auto_invoice
+#: model_terms:ir.ui.view,arch_db:pos_auto_invoice.rfc
+msgid "Uso CFDI..."
+msgstr ""
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D01] Medical, dental and hospital expenses."
+msgstr "[D01] Honorarios médicos, dentales y gastos hospitalarios"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D02] Medical expenses for disability"
+msgstr "[D02] Gastos médicos por incapacidad o discapacidad"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D03] Funeral expenses"
+msgstr "[D03] Gastos funerales"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D04] Donations"
+msgstr "[D04] Donativos"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D05] Real interest effectively paid for mortgage loans (room house)"
+msgstr "[D05] Intereses reales efectivamente pagados por créditos hipotecarios (casa habitación)"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D06] Voluntary contributions to SAR"
+msgstr "[D06] Aportaciones voluntarias al SAR"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D07] Medical insurance premiums"
+msgstr "[D07] Primas por seguros de gastos médicos"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D08] Mandatory School Transportation Expenses"
+msgstr "[D08] Gastos de transportación escolar obligatoria"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D09] Deposits in savings accounts, premiums based on pension plans."
+msgstr "[D09] Depósitos en cuentas para el ahorro, primas que tengan como base planes de pensiones"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[D10] Payments for educational services (Colegiatura)"
+msgstr "[D10] Pagos por servicios educativos (colegiaturas)"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[G01] Acquisition of merchandise"
+msgstr "[G01] Adquisición de mercancías"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[G02] Returns, discounts or bonuses"
+msgstr "[G02] Devoluciones, descuentos o bonificaciones"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[G03] General expenses"
+msgstr "[G03] Gastos en general"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[I01] Constructions"
+msgstr "[I01] Construcciones"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[I02] Office furniture and equipment investment"
+msgstr "[I02] Mobilario y equipo de oficina por inversiones"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[I03] Transportation equipment"
+msgstr "[I03] Equipo de transporte"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[I04] Computer equipment and accessories"
+msgstr "[I04] Equipo de cómputo y accesorios"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[I05] Dices, dies, molds, matrices and tooling"
+msgstr "[I05] Dados, troqueles, moldes, matrices y herramental"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[I06] Telephone communications"
+msgstr "[I06] Comunicaciones telefónicas"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[I07] Satellite communications"
+msgstr "[I07] Comunicaciones satelitales"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[I08] Other machinery and equipment"
+msgstr "[I08] Otra maquinaria y equipo"
+
+#. module: pos_auto_invoice
+#: code:addons/pos_auto_invoice/controllers/main.py:0
+#, python-format
+msgid "[P01] To define"
+msgstr "[P01] Por definir"

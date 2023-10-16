@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Form view of Scan PLC Wizard -->
+    <record id="view_scan_plc_wiz_form" model="ir.ui.view">
+        <field name="name">view.scan.plc.wiz.form</field>
+        <field name="model">scan.plc.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="_barcode_scanned" invisible="1" widget="barcode_handler"/>
+                    <field name="date" readonly="1"/>
+                    <field name="program_name" required="1"/>
+                    <field name="panel_barcode" required="1" force_save="1"/>
+                </group>
+                <footer>
+                    <button name="generate" string="Generate" type="object" class="btn-primary"/>
+                    <button name="scan_pattern" string="Scan Patterns" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-danger"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of Scan PLC Wizard -->
+    <record id="action_scan_plc_wiz" model="ir.actions.act_window">
+        <field name="name">Scan PLC</field>
+        <field name="res_model">scan.plc.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu of Scan PLC -->
+    <menuitem id="menu_scan_plc" action="action_scan_plc_wiz" parent="menu_scan_main"/>
+
+    <!-- Form view of Scan Pattern Wizard -->
+    <record id="view_scan_pattern_wiz_form" model="ir.ui.view">
+        <field name="name">view.scan.pattern.wiz.form</field>
+        <field name="model">scan.pattern.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="_barcode_scanned" invisible="1" widget="barcode_handler"/>
+                    <field name="date" readonly="1" force_save="1"/>
+                    <field name="program_name" readonly="1" force_save="1"/>
+                    <field name="panel_barcode" readonly="1" force_save="1"/>
+                </group>
+                    <field name="pattern_barcode_ids" required="1">
+                        <tree editable="bottom">
+                            <field name="pattern_barcode"/>
+                        </tree>
+                    </field>
+                <footer>
+                    <button name="generate" string="Generate" type="object" class="btn-primary"/>
+                    <button special="cancel" string="Cancel" class="btn-danger"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of the Pattern Barcode -->
+    <record id="action_pattern_barcode_wiz" model="ir.actions.act_window">
+        <field name="name">Scan Pattern Barcode</field>
+        <field name="res_model">scan.pattern.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

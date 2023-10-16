@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="grp_room_user" model="res.groups">
+        <field name="name">User Room</field>
+    </record>
+
+    <record id="grp_room_admin" model="res.groups">
+        <field name="name">Admin Room</field>
+        <!--        Q-4-->
+        <field name="implied_ids" eval="[(6,0,[ref('hotel_mangement_14_extended.grp_room_user')])]"/>
+    </record>
+
+</odoo>

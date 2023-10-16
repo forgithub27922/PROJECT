@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_customer_ana_inherit_tree" model="ir.ui.view">
+        <field name="name">view.customer.ana.inherit.tree</field>
+        <field name="model">new.customer.analysis.report</field>
+        <field name="inherit_id" ref="hotel_mangement_14.view_customer_analysis_tree"/>
+        <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='hotel_name']" position="after">
+                    <field name="email"/>
+                    <field name="payment_type"/>
+                </xpath>
+
+        </field>
+    </record>
+
+</odoo>

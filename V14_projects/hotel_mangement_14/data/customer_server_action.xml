@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- Server Action to change the multiple field of the customer -->
+    <record id="action_customer_update_mul_record" model="ir.actions.server">
+        <field name="name">Update Multiple Record [Gender,Age,Mobile No,Hotel Name]</field>
+        <field name="model_id" ref="model_customer_customer"/>
+        <field name="binding_model_id" ref="model_customer_customer"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">
+            records.write({'gender':'male','age':32,'mob_no':9924008503,'hotel_name':'Fairmont Bab Ai Bahr'})
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Form view of Machine Type -->
+    <record id="view_machine_type_form" model="ir.ui.view">
+        <field name="name">view.machine.type.form</field>
+        <field name="model">machine.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group name="grp_main">
+                        <field name="name" required="1"/>
+                        <field name="pr_method" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Machine Type -->
+    <record id="view_machine_type_tree" model="ir.ui.view">
+        <field name="name">view.machine.type.tree</field>
+        <field name="model">machine.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="pr_method"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action of Machine Type -->
+    <record id="action_machine_type" model="ir.actions.act_window">
+        <field name="name">Machine Types</field>
+        <field name="res_model">machine.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Root Menu of Machines -->
+    <menuitem id="menu_machine_root" name="Machines"/>
+
+    <!-- Configuration Menu -->
+    <menuitem id="menu_machine_config" sequence="10" name="Configuration" parent="menu_machine_root"/>
+
+    <!-- Settings Menu -->
+    <menuitem id="menu_smt_config"
+              name="Settings"
+              action="action_smt_config"
+              parent="menu_machine_config"
+              groups="device_integration.grp_machine_user"
+              sequence="0"/>
+
+    <!-- Menu of Machine Type -->
+    <menuitem id="menu_machine_type" action="action_machine_type" parent="menu_machine_config"/>
+
+    <!-- Form view of Machine -->
+    <record id="view_machine_form" model="ir.ui.view">
+        <field name="name">view.machine.form</field>
+        <field name="model">machine.machine</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="process_files" string="Process Files" type="object" class="btn-primary"/>
+                    <button name="machine_routecheck" string="Machine Routecheck" type="object" class="btn-primary"/>
+                    <button name="%(action_change_program_name)d" string="Change Program Name" type="action" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <label for="name"/>
+                    <h1>
+                        <field name="name"/>
+                    </h1>
+                    <label for="machine_type_id"/>
+                    <field name="machine_type_id"/>
+                    <group name="grp_path" colspan="4" col="4" string="Directory Paths">
+                        <field name="process_path" required="1"/>
+                        <field name="success_path" required="1"/>
+                        <field name="failure_path" required="1"/>
+                        <field name="is_header_line"/>
+                    </group>
+                    <notebook>
+                        <page name="pg_logs" string="Process Logs">
+                            <group name="grp_log">
+                                <field name="last_process_timestamp"/>
+                            </group>
+                            <field name="process_log_ids">
+                                <tree decoration-success="state=='pass'" decoration-failure="state=='fail'">
+                                    <field name="date"/>
+                                    <field name="error_code"/>
+                                    <field name="file_name"/>
+                                    <field name="state"/>
+                                </tree>
+                                <form>
+                                    <header>
+                                        <field name="state" widget="statusbar"/>
+                                    </header>
+                                    <sheet>
+                                        <group name="main_group">
+                                            <field name="date"/>
+                                            <field name="error_code"/>
+                                            <field name="file_name"/>
+                                        </group>
+                                        <separator name="sep_description" string="Description"/>
+                                        <field name="description"/>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Machine -->
+    <record id="view_machine_tree" model="ir.ui.view">
+        <field name="name">view.machine.tree</field>
+        <field name="model">machine.machine</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="machine_type_id"/>
+                <field name="process_path"/>
+                <field name="success_path"/>
+                <field name="failure_path"/>
+                <field name="last_process_timestamp"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Machine -->
+    <record id="view_machine_search" model="ir.ui.view">
+        <field name="name">view.machine.search</field>
+        <field name="model">machine.machine</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="last_process_timestamp"/>
+                <filter name="fil_processed_today"
+                        string="Processed Today"
+                        domain="[('last_process_timestamp','&amp;le;',context_today().strftime('%Y-%m-%d') + ' 00:00:00'),
+                        ('last_process_timestamp','&amp;ge;',context_today().strftime('%Y-%m-%d') + ' 23:59:59')]"/>
+                <filter name="grp_by_process_date" string="Processs Date"
+                        context="{'group_by':'last_process_timestamp'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Machine -->
+    <record id="action_machine_machine" model="ir.actions.act_window">
+        <field name="name">Machines</field>
+        <field name="res_model">machine.machine</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Main Menu of Machines -->
+    <menuitem id="menu_machine_main" sequence="1" name="Machines" parent="menu_machine_root"/>
+    <menuitem id="menu_machine" action="action_machine_machine" parent="menu_machine_main"/>
+
+    <!-- Form view of Process Logs -->
+    <record id="view_process_log_form" model="ir.ui.view">
+        <field name="name">view.process.log.form</field>
+        <field name="model">machine.process.log</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group name="main_group" colspan="4" col="4">
+                        <field name="machine_id"/>
+                        <field name="date"/>
+                        <field name="error_code"/>
+                        <field name="file_name"/>
+                    </group>
+                    <separator name="sep_description" string="Description"/>
+                    <field name="description"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Process Logs -->
+    <record id="view_process_logs_tree" model="ir.ui.view">
+        <field name="name">view.process.log.tree</field>
+        <field name="model">machine.process.log</field>
+        <field name="arch" type="xml">
+            <tree string="Process Logs" decoration-success="state=='pass'" decoration-danger="state=='fail'">
+                <field name="date"/>
+                <field name="machine_id"/>
+                <field name="error_code"/>
+                <field name="file_name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Process Logs -->
+    <record id="view_process_log_search" model="ir.ui.view">
+        <field name="name">view.process.log.search</field>
+        <field name="model">machine.process.log</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="date"/>
+                <field name="machine_id"/>
+                <field name="file_name"/>
+                <field name="error_code"/>
+                <filter name="fil_today" string="Today's Logs" domain="[('date','=', context_today())]"/>
+                <filter name="grp_by_date" string="Date" context="{'group_by':'date'}"/>
+                <filter name="grp_by_machine" string="Machine" context="{'group_by':'machine_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Process Logs -->
+    <record id="action_process_logs" model="ir.actions.act_window">
+        <field name="name">Process Logs</field>
+        <field name="res_model">machine.process.log</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu of Logs -->
+    <menuitem id="menu_logs_main" sequence="2" name="Logs" parent="menu_machine_root"/>
+    <menuitem id="menu_logs" action="action_process_logs" parent="menu_logs_main"/>
+
+    <!-- Menu of Scan -->
+    <menuitem id="menu_scan_main" sequence="3" name="Scan" parent="menu_machine_root"/>
+</odoo>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record model="res.groups" id="group_factura_global">
+            <field name="name">Factura Global</field>
+        </record>
+
+</odoo>

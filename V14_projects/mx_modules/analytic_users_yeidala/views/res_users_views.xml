@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+
+        <record id="view_users_yeidala_form" model="ir.ui.view">
+            <field name="name">view_users_yeidala_form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Cuentas Analiticas">
+                        <group>
+                            <group string="Analytic Accounts">
+                                <field string="Allowed Analytic Accounts" name="account_analytic_ids" widget="many2many_tags" domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]" groups="analytic.group_analytic_accounting" options="{'no_create': True}"/>
+                                <field string="Default Analytic Account" name="account_analytic_id" domain="['|', ('company_id', '=', False), ('company_id', '=', company_id)]" groups="analytic.group_analytic_accounting" context="{'user_preference': 0}"/>
+                            </group>
+                        </group>
+                    </page>                    
+                </notebook>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!--    from view of customer html report wizard-->
+
+    <record id="view_print_customer_report_form" model="ir.ui.view">
+        <field name="name">view.customer.report.form</field>
+        <field name="model">print.customer.report.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="room_id" required="1"/>
+                </group>
+                <footer>
+                    <button name="customer_wizard_html" type="object" string="Customer Report -HTML"
+                            class="btn-success"/>
+                    <button name="customer_wizard_pdf" type="object" string="Customer Report -PDF"
+                            class="btn-success"/>
+                    <button name="read_pdf" type="object" string="PDF" class="btn-primary"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!--    action of customer html report wizard-->
+
+    <record id="action_customer_report" model="ir.actions.act_window">
+        <field name="name">Customer Qweb Reports</field>
+        <field name="res_model">print.customer.report.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!--    menu of customer html report wizard-->
+
+
+    <menuitem id="menu_customer_report" action="action_customer_report" parent="menu_cust_report"/>
+</odoo>

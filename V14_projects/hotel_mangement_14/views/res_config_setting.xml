@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hrms</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="40"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Hotel" string="Hotel Managemnt"
+                     data-key="hotel_mangement_14">
+                    <h2>Hotel Information</h2>
+                    <div class="row mt16 o_settings_container" name="customer_year_config">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
+                                <field name="hotel_open"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Hotel Configuration</span>
+                                <div class="text-muted">
+                                    Here you can configure hotel information for customer
+                                </div>
+                                <br/>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="hotel_open" class="col-lg-3 o_light_label"/>
+                                    </div>
+                                </div>
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="no_of_customer" class="col-lg-3 o_light_label"/>
+                                        <field name="no_of_customer"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <div class="content-group">
+                                            <div class="row mt16">
+                                                <label for="customer_mob_no" class="col-lg-3 o_light_label"/>
+                                                <field name="customer_mob_no"/>
+                                            </div>
+                                </div>
+                                <div class="content-group">
+                                            <div class="row mt16">
+                                                <label for="amenities_availabel" class="col-lg-3 o_light_label"/>
+                                                <field name="amenities_availabel"/>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <h2>Hotel Room Information</h2>
+                    <div class="row mt16 o_settings_container" name="customer_year_config">
+                        <div class="col-12 col-lg-6 o_setting_box">
+
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Room Info :- </span>
+                                 <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."
+                                      aria-label="Values set here are company-specific."
+                                      groups="base.group_multi_company"
+                                      role="img"/>
+                                 <div class="text-muted">
+                                    How total tax amount is computed in orders and invoices
+                                </div>
+                                <field name="hotel_room_check" class="o_light_label mt16"
+                                       widget="radio"/>
+
+                            </div>
+                        </div>
+
+<!--                        <div class="col-12 col-lg-6 o_setting_box" id="rounding_method"-->
+<!--                             title="A rounding per line is advised if your prices are tax-included. That way, the sum of line subtotals equals the total with taxes.">-->
+<!--                            <div class="o_setting_left_pane"/>-->
+<!--                            <div class="o_setting_right_pane">-->
+<!--                                <span class="o_form_label">Rounding Method</span>-->
+<!--                                <span class="fa fa-lg fa-building-o" title="Values set here are company-specific."-->
+<!--                                      aria-label="Values set here are company-specific."-->
+<!--                                      groups="base.group_multi_company"-->
+<!--                                      role="img"/>-->
+<!--                                <div class="text-muted">-->
+<!--                                    How total tax amount is computed in orders and invoices-->
+<!--                                </div>-->
+<!--                                <div class="content-group">-->
+<!--                                    <field name="hotel_room_check" class="o_light_label mt16"-->
+<!--                                           widget="radio"/>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+                    <h2>Customer List</h2>
+                    <div class="row mt16 o_settings_container" name="customer_year_config">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <button name="%(hotel_mangement_14.action_customers)d" string="Customers"
+                                        type="action" class="oe_link"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <div class="content-group">
+                                    <div class="row mt16">
+
+                                        <!--                                        <div class="text-muted">-->
+                                        <!--                                            This will give customer list of the all hotel-->
+                                        <!--                                        </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!--                    <h2>Customer Checking</h2>-->
+<!--                    <div class="row mt16 o_settings_container" name="customer_year_config">-->
+<!--                        <div class="col-12 col-lg-6 o_setting_box">-->
+<!--                            <div class="o_setting_left_pane">-->
+<!--                                <field name="customer_check"/>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <!--                    <div class="row mt16 o_settings_container" name="customer_year_config">-->
+                    <!--                        <div class="col-12 col-lg-6 o_setting_box">-->
+                    <!--                            <div class="o_setting_right_pane">-->
+                    <!--                                &lt;!&ndash;                                <div class="content-group">&ndash;&gt;-->
+                    <!--                                <div class="row mt16">-->
+                    <!--                                    -->
+                    <!--                                </div>-->
+                    <!--                                &lt;!&ndash;                                </div>&ndash;&gt;-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <h2>Groups (Moduels)</h2>
+                    <div class="row mt16 o_settings_container" name="customer_year_config">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <br/>
+                                <field name="group_hotel_admin"/>
+                                <br/>
+                                <br/>
+
+                                <field name="group_hotel_14_user"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="group_hotel_admin" class="col-lg-3 o_light_label"/>
+                                        <div class="text-muted">
+                                            This will give admin access to the hotel
+                                        </div>
+                                    </div>
+                                    <div class="row mt16">
+                                        <label for="group_hotel_14_user" class="col-lg-3 o_light_label"/>
+                                        <div class="text-muted">
+                                            This will give User access to the hotel
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>Module Installation</h2>
+                    <div class="row mt16 o_settings_container" name="customer_year_config">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                <br/>
+                                <field name="module_hotel_mangement_14_extended"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <div class="content-group">
+                                    <div class="row mt16">
+                                        <label for="module_hotel_mangement_14_extended" class="col-lg-3 o_light_label"/>
+                                        <div class="text-muted">
+                                            This Will Install The Module Hotel Extension
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- To create a group we will use the record tag
+    Here also there are two attributes id and models
+    for creating group we will use the models res.groups
+    -->
+    <!-- Group for Admin -->
+    <record id="grp_school_admin" model="res.groups">
+        <field name="name">Admin</field>
+    </record>
+
+    <!-- Group for User -->
+    <record id="grp_school_user" model="res.groups">
+        <field name="name">User</field>
+    </record>
+
+    <!-- Description of ir.models.access.csv -->
+    <!--
+    The name of the file must be ir.models.access.csv only.
+    here the name ir.models.access is the name of the models
+    This is used to provide access on models to the groups
+    The fields in the csv are as following.
+    id - Unique xml id to identify the access rights
+    name - name of the access rights
+    model_id:id - The name of the models where '.' replaced by '_' and prefixed by 'model_'.
+    in our case it will be 'model_student_student' for models 'student.student'
+    group_id:id - The xml id of the group to whom you want to give access to the above mentioned models
+    perm_read - The value 1 or 0 depending on you want to give access rights to read or not.
+    perm_write - The value 1 or 0 depending on you want to give access rights to write or not.
+    perm_create - The value 1 or 0 depending on you want to give access rights to create or not.
+    perm_unlink - The value 1 or 0 depending on you want to give access rights to delete or not.
+
+    NOTE : YOU MUST CREATE AN ACCESS RIGHTS FOR A NEW MODEL WHENEVER IT IS CREATED
+    -->
+
+
+</odoo>

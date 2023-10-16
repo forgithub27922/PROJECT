@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherited View of Product to add and update Barcode -->
+        <record id="view_product_template_form_barcode_inherit" model="ir.ui.view">
+            <field name="name">product.template.form</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='barcode']" position="after">
+                    <field name="_barcode_scanned" widget="barcode_handler" force_save="1" invisible="1"/>
+                    <field name="scanned_barcode" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

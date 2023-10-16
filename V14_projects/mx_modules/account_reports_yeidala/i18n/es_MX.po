@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_reports_yeidala
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-02-14 00:27+0000\n"
+"PO-Revision-Date: 2022-02-14 00:27+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Account Accounts"
+msgstr "Cuentas Contables"
+
+#. module: account_reports_yeidala
+#: model_terms:ir.ui.view,arch_db:account_reports_yeidala.filter_info_template_yeidala
+msgid "Accounts:"
+msgstr "Cuentas"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Add a note"
+msgstr "Agregar una nota"
+
+#. module: account_reports_yeidala
+#: model_terms:ir.ui.view,arch_db:account_reports_yeidala.filter_info_template_yeidala
+msgid "All"
+msgstr "Todo"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Analytic Accounts"
+msgstr "Cuentas analíticas"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Analytic Tags"
+msgstr "Etiquetas"
+
+#. module: account_reports_yeidala
+#: code:addons/account_reports_yeidala/models/account_reports.py:0
+#: model:ir.model,name:account_reports_yeidala.model_account_auxiliar_report
+#, python-format
+msgid "Auxiliar Contable"
+msgstr "Auxiliar Contable"
+
+#. module: account_reports_yeidala
+#: model:ir.actions.client,name:account_reports_yeidala.action_account_auxiliar_report_yeidala
+#: model:ir.ui.menu,name:account_reports_yeidala.menu_action_account_report_diot_yeidala
+msgid "Auxiliares Contables"
+msgstr "Auxiliares Contables"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Cancel"
+msgstr "Cancel"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Date cannot be empty"
+msgstr "El campo de fecha no puede estar vacío"
+
+#. module: account_reports_yeidala
+#: model:ir.model.fields,field_description:account_reports_yeidala.field_account_auxiliar_report__display_name
+msgid "Display Name"
+msgstr "Nombre en pantalla"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Empresas"
+msgstr "Empresas"
+
+#. module: account_reports_yeidala
+#: model:ir.model.fields,field_description:account_reports_yeidala.field_account_auxiliar_report__id
+msgid "ID"
+msgstr "ID"
+
+#. module: account_reports_yeidala
+#: model:ir.model.fields,field_description:account_reports_yeidala.field_account_auxiliar_report____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Odoo Warning"
+msgstr "Advertencia de Odoo"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Partners"
+msgstr "Empresas"
+
+#. module: account_reports_yeidala
+#: model_terms:ir.ui.view,arch_db:account_reports_yeidala.filter_info_template_yeidala
+msgid "Partners:"
+msgstr "Empresas:"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Save"
+msgstr "Guardar"
+
+#. module: account_reports_yeidala
+#. openerp-web
+#: code:addons/account_reports_yeidala/static/src/js/account_reports.js:0
+#, python-format
+msgid "Tags"
+msgstr "Etiquetas"

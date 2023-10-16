@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+
+        <!-- Account Financial Report Assets -->
+        <template id="account_reports_backend_inh" inherit_id="web.assets_backend" active="True">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/account_reports_yeidala/static/src/js/account_reports.js"></script>
+            </xpath>
+        </template>
+
+
+        <record id="action_account_auxiliar_report_yeidala" model="ir.actions.client">
+            <field name="name">Auxiliares Contables</field>
+            <field name="tag">account_report</field>
+            <field name="context" eval="{'model': 'account.auxiliar.report'}"/>
+        </record>
+        <menuitem id="menu_action_account_report_diot_yeidala"
+                  name="Auxiliares Contables"
+                  action="action_account_auxiliar_report_yeidala"
+                  parent="account_reports.account_reports_audit_reports_menu"/>
+
+
+        <template id="filter_info_template_yeidala" inherit_id="account_reports.filter_info_template">
+            <xpath expr="//div[hasclass('col-12')]" position="after">
+                <div class="col-12">
+                    <t t-if="options.get('account_ids') != None">
+                        Accounts:
+                        <t t-set="acc_acc_value">All</t>
+                        <t t-foreach="options['selected_account_ids']" t-as="acc_acc_name">
+                            <t t-set="acc_acc_value" t-value="''"/>
+                            <t t-esc="acc_acc_name"/> - 
+                        </t>
+                        <t t-esc="acc_acc_value"/>
+                    </t>
+                </div>
+                <div class="col-12">
+                    <t t-if="options.get('acc_partner_ids') != None">
+                        Partners:
+                        <t t-set="acc_partner_value">All</t>
+                        <t t-foreach="options['selected_acc_partner_ids']" t-as="acc_partner_name">
+                            <t t-set="acc_partner_value" t-value="''"/>
+                            <t t-esc="acc_partner_name"/> - 
+                        </t>
+                        <t t-esc="acc_partner_value"/>
+                    </t>
+                </div>                
+            </xpath>
+        </template>
+
+        <!--
+        <template id="search_template_acc_acc">
+            <button t-if="options.get('acc_acc')" type="button" class="o_dropdown_toggler_btn btn btn-secondary dropdown-toggle account_acc_acc_filter" data-toggle="dropdown">
+                <span class="fa fa-folder-open"/> Accounts
+            </button>
+            <ul class="dropdown-menu o_filter_menu" role="menu">
+                <li class="o_account_report_search js_account_acc_acc_m2m"/>
+            </ul>
+        </template>
+        <template id="search_template_acc" inherit_id="account_reports.search_template">
+            <xpath expr="." position="inside">
+                <div class="btn-group o_dropdown o_account_reports_filter_acc_acc" t-if="options.get('acc_acc')">
+                    <t t-call="account_reports_yeidala.search_template_acc_acc"/>
+                </div>
+            </xpath>
+        </template>
+        -->
+
+
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_machine_type_user,access.machine.type.user,model_machine_type,grp_machine_user,1,1,1,1
+access_machine_machine_user,access.machine.machine.user,model_machine_machine,grp_machine_user,1,1,1,1
+access_machine_process_logs_machine_user,access.machine.process.logs.machine.user,model_machine_process_log,grp_machine_user,1,1,1,1

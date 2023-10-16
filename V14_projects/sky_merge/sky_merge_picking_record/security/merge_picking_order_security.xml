@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="grp_merge_picking_record" model="res.groups">
+        <field name="name">User picking record</field>
+    </record>
+</odoo>

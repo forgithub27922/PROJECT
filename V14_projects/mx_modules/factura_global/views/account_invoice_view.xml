@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="factura_global_view_tax_form">
+            <field name="name">factura_global_view_tax_form</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="account.view_tax_form"/>
+            <field name="arch" type="xml">
+                <field name="active" position="after">
+                    <field name="f_global"/>
+                </field>
+            </field>
+        </record>
+
+
+
+
+        <record model="ir.ui.view" id="factura_global_view_invoice_form">
+            <field name="name">factura_global_invoice_form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                    <div name="button_box" position="inside">
+                      <button name="action_view_payments_pos"  type="object"  class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible':[('payments_pos_count','=',0)]}">
+                     <field name="payments_pos_count" widget="statinfo" string="Pos Payments"/>
+                     </button>
+                    </div>
+                    <field name="invoice_date" position="before">
+                        <field name="f_global"/>
+                    </field>
+                    <notebook position="inside">
+                      <page string="Pedidos POS" attrs="{'invisible':[('f_global','=',False)]}">
+                            <group>
+                                <field name="pedidos_pos">
+                                <tree string="Pedidos Pos">
+                                  <field name="name"/>
+                                  <field name="date_order"/>
+                                  <field name="partner_id"/>
+                                  <field name="amount_tax" sum="Impuestos Total:"/>
+                                  <field name="amount_total" sum="Total:"/>
+                                </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page string="Pagos POS" attrs="{'invisible':[('f_global','=',False)]}">
+                            <group>
+                                <field name="payments_pos">
+			          <tree string="Pagos Pos">
+                                  <field name="payment_date"/>
+                                  <field name="pos_order_id"/>
+                                  <field name="amount"/>
+				</tree> 
+                                </field>
+                            </group>
+                        </page>
+
+
+
+                   </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+
+

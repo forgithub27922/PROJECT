@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    form view of merge sale orders wizard-->
+    <record id="view_merge_invoice_orders_wiz_form" model="ir.ui.view">
+        <field name="name">view.merge.invoice.orders.wiz.form</field>
+        <field name="model">merge.invoice.order.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="merge_type" widget="radio"/>
+                        <field name="merge_invoice_id"
+                               attrs="{'invisible': [('merge_type','in',['new_invoice_state_cancel','new_invoice_delete_order'])],'required': [('merge_type','in',['select_exist_invoice_state_cancel','select_exist_invoice_delete_order'])]}"/>
+                    </group>
+                    <footer>
+                        <button name="merge_invoice_orders" type="object" string="Merge Invoices" class="btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    binding action of merge sale order wizard-->
+    <record id="action_merge_sale_order_wiz" model="ir.actions.act_window">
+        <field name="name">Merge Invoice</field>
+        <field name="res_model">merge.invoice.order.wiz</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

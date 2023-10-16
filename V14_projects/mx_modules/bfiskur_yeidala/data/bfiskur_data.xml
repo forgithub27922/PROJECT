@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="bfiskur_host" model="ir.config_parameter">
+            <field name="key">bfiskur.host</field>
+            <field name="value">https://kpionline5.bitam.com/artus/gen903/xls_loader_bfiskur/loadservice.php</field>
+        </record>
+        <record id="bfiskur_user" model="ir.config_parameter">
+            <field name="key">bfiskur.user</field>
+            <field name="value">plogapiPGP@bFiskur.com</field>
+        </record>
+        <record id="bfiskur_password" model="ir.config_parameter">
+            <field name="key">bfiskur.password</field>
+            <field name="value">2938</field>
+        </record>
+
+    </data>
+</odoo>

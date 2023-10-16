@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_partner_customer_inherit_view" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <field name="industry_id" position="after">
+                <field name="is_customer"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="res_partner_customer_inherit_search_view" model="ir.ui.view">
+        <field name="name">res.partner.search.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <filter name="type_company" position="after">
+                <separator/>
+                <filter string="Customer" name="is_customer" domain="[('is_customer', '=', True)]"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="account.res_partner_action_customer" model="ir.actions.act_window">
+        <field name="context">{'default_is_customer': True, 'search_default_is_customer': True, 'default_is_company': True, 'default_customer_rank': 1}</field>
+    </record>
+
+</odoo>

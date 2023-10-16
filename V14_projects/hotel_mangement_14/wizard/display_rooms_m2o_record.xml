@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- From view of xls report wiz -->
+    <record id="display_room_record_wiz_form" model="ir.ui.view">
+        <field name="name">display.room.record.wiz.form</field>
+        <field name="model">customer.room.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="room_id"/>
+                </group>
+                <footer>
+                    <button name="display_room_record" string=" Display Customer Record " type="object"
+                            class="btn-success"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of XLS report wiz -->
+    <record id="action_customer_room_record" model="ir.actions.act_window">
+        <field name="name">Customer M2O Record</field>
+        <field name="view_mode">form</field>
+        <field name="res_model">customer.room.wiz</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu of XLS Report Wiz -->
+
+    <menuitem id="menu_display_customer_record" action="action_customer_room_record" parent="menu_room_record"/>
+
+</odoo>

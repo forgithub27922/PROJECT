@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--  form view of the customer city-->
+    <record id="view_customer_city_form" model="ir.ui.view">
+        <field name="name">view.customer.city.form</field>
+        <field name="model">customer.city</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="city"/>
+                        <field name="city_code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    Tree view of the customer city-->
+    <record id="view_customer_city_tree" model="ir.ui.view">
+        <field name="name">view.customer.city.tree</field>
+        <field name="model">customer.city</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="city"/>
+                <field name="city_code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    action of the customer city-->
+    <record id="action_city" model="ir.actions.act_window">
+        <field name="name">City</field>
+        <field name="res_model">customer.city</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--menu of the customer city-->
+    <menuitem id="menu_customer_city" action="action_city" parent="hotel_mangement_14.menu_hotel_main"/>
+
+</odoo>
+
+
+

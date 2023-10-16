@@ -1,0 +1,109 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="invoice_supplier_validar_form">
+            <field name="name">invoice_supplier_validar_form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//header/button[last()]" position="after">
+                    <button type="object" name="action_validar_xml" 
+                        string="Subir XML y PDF" class="oe_highlight" 
+                        groups="account.group_account_invoice"
+                        attrs="{'invisible':[('ocultar_validaxml','=', True)]}" />
+                    <field name="ocultar_validaxml" invisible="1" />
+                </xpath>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_move_form_inherit_view">
+            <field name="name">view.move.form.inherit.view</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <group id="other_tab_group" position="inside">
+                    <group string="XML Cargado"
+                           attrs="{'invisible': [('move_type', 'in', ('out_invoice','out_refund'))]}">
+                        <field name="l10n_mx_edi_cfdi_uuid" invisible="1" />
+                        <field name="l10n_mx_edi_sat_uuid" string="Folio Fiscal" />
+                        <field name="l10n_mx_edi_cfdi_supplier_rfc" />
+                        <field name="l10n_mx_edi_cfdi_customer_rfc" />
+                        <field name="l10n_mx_edi_cfdi_amount" />
+                        <field name="l10n_mx_edi_sat_status" />
+                    </group>
+                </group>
+            </field>
+        </record>
+
+        <record id="account_invoice_cfdiupload_crear_form" model="ir.ui.view">
+            <field name="name">account_invoice_cfdiupload_crear_form</field>
+            <field name="model">account.invoice.cfdiupload</field>
+            <field name="arch" type="xml">
+                <form string="Validar XML CFDI">
+                    <field name="uui_duplicado" invisible="1"/>
+                    <field name="errorvalidacion" invisible="1" />
+                    <field name="act_next" invisible="1"/>
+                    <notebook name="info_sat">
+                        <page string="Info. SAT">
+                            <field name="reporte_validation_xml" colspan="4" nolabel="1" readonly="1"/>
+                            <newline/>
+                            <group>
+                                <field name="codigo" readonly="1"/>
+                                <field name="estado" readonly="1"/>
+                            </group>
+                            <group attrs="{'invisible':[('uui_duplicado','=', False)]}">
+                                <div >
+                                    <strong>Info!</strong> 
+                                    El UUID ya existe en el Sistema: <field name="uuid" readonly="1" class="oe_inline"/>
+                                </div>
+                            </group>
+                        </page>
+                        <page string="Validacion XML SAT">
+                            <field name="message_validation_xml" colspan="4" nolabel="1" readonly="1"/>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button type="special" special="cancel" string="Cancelar"/>
+                        <button type="object" name="action_create_attachment" string="Terminar Validación" class="oe_highlight" attrs="{'invisible':[('errorvalidacion','=', True)]}"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="account_invoice_cfdiupload_form_view" model="ir.ui.view">
+            <field name="name">account_invoice_cfdiupload_form_view</field>
+            <field name="model">account.invoice.cfdiupload</field>
+            <field name="arch" type="xml">
+                <form string="Validar XML CFDI">
+                    <group>
+                        <field name="company_id" />
+                    </group>
+                    <group>
+                        <field name="attachment_ids" widget="many2many_binary" colspan="2" string="Upload Files" nolabel="1"/>
+                    </group>
+                    <footer>
+                        <button string="Validar XML" name="action_validar_facturas" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="account_invoice_cfdiupload_action" model="ir.actions.act_window">
+            <field name="name">Validar XML CFDI</field>
+            <field name="res_model">account.invoice.cfdiupload</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="context">{'type': 'bank', 'default_move_id': active_id}</field>
+        </record>
+
+        <!--
+        <act_window id="invoice_cfdiupload_wizard_action"
+            name="Validar XML CFDI"
+            binding_model="account.move"
+            res_model="account.invoice.cfdiupload"
+            view_mode="form" 
+            target="new" />
+        -->
+
+    </data>
+</odoo>

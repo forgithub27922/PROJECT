@@ -1,0 +1,17 @@
+White is initialized with the following parameters:
+Depth: 5
+Evaluation Function Type: simple
+Move Ordering: True
+
+_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
+
+WHITE: (4, 2). Branching factor = 2.2913385826771653. Effective Branching factor = 2.878030303030303, Execution time = 0.18628525733947754
+WHITE: (2, 4). Branching factor = 2.8333333333333335. Effective Branching factor = 3.0266129032258062, Execution time = 0.22552204132080078
+WHITE: (1, 4). Branching factor = 3.281954887218045. Effective Branching factor = 3.968119903051041, Execution time = 0.6381442546844482
+WHITE: (4, 6). Branching factor = 3.6141975308641974. Effective Branching factor = 4.962852511308077, Execution time = 0.9156444072723389
+WHITE: (1, 6). Branching factor = 3.648780487804878. Effective Branching factor = 4.858611737377878, Execution time = 1.1843059062957764
+WHITE: (2, 2). Branching factor = 3.3045267489711936. Effective Branching factor = 4.533221288515406, Execution time = 1.4880034923553467
+WHITE: (6, 4). Branching factor = 2.914171656686627. Effective Branching factor = 4.111441721991793, Execution time = 1.4630935192108154
+WHITE: (6, 2). Branching factor = 3.6722532588454375. Effective Branching factor = 4.715178852741689, Execution time = 1.972245454788208
+WHITE: (1, 3). Branching factor = 3.4705882352941178. Effective Branching factor = 3.486118808727504, Execution time = 0.6055324077606201
+WHITE: (0, 5). Branching factor = 2.4591836734693877. Effective Branching factor = 3.699487772892077, Execution time = 0.49284958839416504

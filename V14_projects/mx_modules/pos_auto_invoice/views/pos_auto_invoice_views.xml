@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="pos_auto_invoice.layout" name="Web layout">&lt;!DOCTYPE html&gt;
+        <html t-att="html_data or {}">
+            <head>
+                <meta charset="utf-8"/>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <title t-esc="title or 'Odoo'"/>
+                <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/src/img/favicon.ico'"/>
+                <link rel="preload" href="/web/static/lib/fontawesome/fonts/fontawesome-webfont.woff2?v=4.7.0" as="font" crossorigin=""/>
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="web.assets_frontend" t-js="false"/>
+
+                <script type="text/javascript">
+                    odoo.session_info = <t t-raw="json.dumps(request.env['ir.http'].get_frontend_session_info())"/>;
+                    if (!/(^|;\s)tz=/.test(document.cookie)) {
+                        const userTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                        document.cookie = `tz=${userTZ}; path=/`;
+                    }
+                </script>
+                <t t-call-assets="web.assets_common_minimal_js" t-css="false" defer_load="True"/>
+                <t t-call-assets="web.assets_frontend_minimal_js" t-css="false" defer_load="True"/>
+                <t t-call="web.conditional_assets_tests"/>
+                <t t-call-assets="web.assets_common_lazy" t-css="false" lazy_load="True"/>
+                <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>
+                <script id="web.layout.odooscript" type="text/javascript">
+                    var odoo = {
+                        csrf_token: "<t t-esc="request.csrf_token(None)"/>",
+                        debug: "<t t-esc="debug"/>",
+                    };
+                </script>
+                <script type="text/javascript">
+                    function validateFormSucursal() {
+                        let notickets =  $('#notickets').val();
+                        let sucursal_id = $('#sucursal_id').val();
+                        if (sucursal_id == "") {
+                            $(".msg_error").show();
+                            document.getElementById("msg_error").innerHTML = "El campo sucursal es requerido";
+                            return false;
+                        }
+                        if (notickets == "") {
+                            $(".msg_error").show();
+                            document.getElementById("msg_error").innerHTML = "El campo numero de ticket es requerido";
+                            return false;
+                        }
+                        let params = {
+                            notickets: notickets,
+                            sucursal_id: sucursal_id
+                        }
+                        let aa = loadDoc("/cfdi/validate/tickets", params, 'frmSucursal', '/cfdi/page/rfc');
+                    }
+
+                    function updateRfc(ish) {
+                        let params = {
+                            vat: ish
+                        }
+                        $.ajax({
+                            url: '/cfdi/validate/rfc',
+                            type: 'POST',
+                            data: jQuery.param(params) ,
+                            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                            success: function (response) {
+                                if(response.error){
+                                    $(".msg_error").show();
+                                    document.getElementById("msg_error").innerHTML = response.error;
+                                    return false;
+                                }else {
+                                    $(".div_name").show();
+                                    $(".div_zip").show();
+                                    $(".div_email").show();
+                                    $(".div_btn").show();
+                                    $(".div_usocfdi").show();
+                                    document.getElementById("name").value = response.name;
+                                    document.getElementById("zip").value = response.zip;
+                                    document.getElementById("email").value = response.email;
+                                    document.getElementById("usocfdi").value = response.usocfdi;
+                                    document.getElementById("partner_id").value = response.partner_id;
+                                }
+                            },
+                            error: function () {
+                                alert("error");
+                            }
+                        });
+                    }
+                    function validateFormRfc(form) {
+                        document.getElementById("msg_error").innerHTML = "";
+                        $(".msg_error").hide();
+                        let vat = document.getElementById("vat").value;
+                        let name = document.getElementById("name").value;
+                        let zip = document.getElementById("zip").value;
+                        let email = document.getElementById("email").value;
+                        let usocfdi = document.getElementById("usocfdi").value;
+
+                        if (vat == "") {
+                            $(".msg_error").show();
+                            document.getElementById("msg_error").innerHTML = "El campo RFC es requerido";
+                            return false;
+                        }
+                        if (name == "") {
+                            $(".msg_error").show();
+                            document.getElementById("msg_error").innerHTML = "El campo Razon Social es requerido";
+                            return false;
+                        }
+                        if (zip == "") {
+                            $(".msg_error").show();
+                            document.getElementById("msg_error").innerHTML = "El campo Domicilio Fiscal es requerido";
+                            return false;
+                        }
+                        if (email == "") {
+                            $(".msg_error").show();
+                            document.getElementById("msg_error").innerHTML = "El campo Email es requerido";
+                            return false;
+                        }
+                        if (usocfdi == "") {
+                            $(".msg_error").show();
+                            document.getElementById("msg_error").innerHTML = "El campo Uso CFDI es requerido";
+                            return false;
+                        }                        
+
+                        formData = $(form).serializeArray();
+                        let partner_id = document.getElementById("partner_id").value;
+                        let order_id = document.getElementById("order_id").value;
+                        let sucursal_id = document.getElementById("sucursal_id").value;
+                        let notickets = document.getElementById("notickets").value;
+                        let params = {
+                            notickets: notickets,
+                            sucursal_id: sucursal_id,
+                            order_id: order_id,
+                            partner_id: partner_id,
+                            vat: vat,
+                            name: name,
+                            zip: zip,
+                            email: email,
+                            usocfdi: usocfdi
+                        }
+                        let aa = loadDoc("/cfdi/validate/facturas", params, 'frmRfc', '/cfdi/page/order/'+order_id );
+
+                    }
+
+                    function loadDoc(Url, params, form, actions) {
+                        $.ajax({
+                            url: Url,
+                            type: 'POST',
+                            data: jQuery.param(params) ,
+                            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                            success: function (response) {
+                                if(response.error){
+                                    $(".msg_error").show();
+                                    document.getElementById("msg_error").innerHTML = response.error;
+                                    return false;
+                                }else {
+                                    if(response.ok){
+                                        document.forms[form].action = actions;
+                                        document.forms[form].submit();
+                                    }
+                                }   
+                            },
+                            error: function () {
+                                $(".msg_error").show();
+                                document.getElementById("msg_error").innerHTML = 'Error al evaluar el proceso';
+                            }
+                        });
+                    }
+
+                </script>
+                <style>
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+.border-md {
+    border-width: 2px;
+}
+
+.btn-facebook {
+    background: #405D9D;
+    border: none;
+}
+
+.btn-facebook:hover, .btn-facebook:focus {
+    background: #314879;
+}
+
+.btn-twitter {
+    background: #42AEEC;
+    border: none;
+}
+
+.btn-twitter:hover, .btn-twitter:focus {
+    background: #1799e4;
+}
+
+
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSES
+* ==========================================
+*
+*/
+
+body {
+    min-height: 100vh;
+}
+
+.form-control:not(select) {
+    padding: 1.5rem 0.5rem;
+}
+
+select.form-control {
+    height: 52px;
+    padding-left: 0.5rem;
+}
+
+.form-control::placeholder {
+    color: #ccc;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+.form-control:focus {
+    box-shadow: none;
+}
+
+/*
+*
+* ==========================================
+* ORDER CONTAINER
+* ==========================================
+*
+*/
+.pos ul, .pos li  {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.pos {
+    padding: 0;
+    margin: 0;
+    font-family: "Lato","Lucida Grande", Helvetica, Verdana, Arial;
+    color: #555555;
+    font-size: 12px;
+    /* Some elements inside .pos are allowed to be moved/resized. When
+     * this 'move/resize' event is performed in touch devices, .pos
+     * element also tries to scroll (as the default action of touchstart+
+     * touchmove events).
+     * Position is fixed to prevent the movement of .pos element during
+     * the described touch events.
+     */
+    width: 100%;
+    height: 100%;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    text-shadow: none;
+    overflow: hidden;
+}
+.pos .order-container{
+    top: 0px;
+    width:100%;
+    height: 100%;
+    background: white;
+    flex-grow: 1;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.pos .scrollable-y{
+    overflow: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.pos .order{
+    background: white;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    font-size: 16px;
+    text-align: left;
+    max-width: 500px;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.pos .order .order-empty {
+    text-align: center;
+    margin: 48px;
+    color: #DDD;
+}
+.pos .order .order-empty .fa {
+    font-size: 64px;
+}
+.pos .order .order-empty h1 {
+    font-size: 20px;
+}
+
+.pos .order .summary{
+    width:100%;
+    text-align:right;
+    font-weight: bold;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+.pos .order .summary .line{
+    float: right;
+    margin-right:15px;
+    margin-left: 15px;
+    padding-top:5px;
+    border-top: solid 2px;
+    border-color:#777;
+}
+.pos .order .summary .total {
+    font-size: 22px;
+}
+.pos .order .summary .line .subentry{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+.pos .order .summary .line.empty{
+    text-align: right;
+    border-color:#BBB;
+    color:#999;
+}
+
+.pos .order .summary .fidpoints{
+    position: absolute;
+    left: 20px;
+    padding: 10px;
+    color: #6EC89B;
+    background: rgba(110, 200, 155, 0.17);
+    border-radius: 3px;
+}
+
+.submit-kitchen-button {
+    float: left;
+    background: rgb(61, 235, 82);
+    color: white;
+    padding: 12px 20px;
+    margin: 0px 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pos .order .orderline{
+    width:100%;
+    margin:0px;
+    padding-top:3px;
+    padding-bottom:10px;
+    padding-left:15px;
+    padding-right:15px;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-transition: background 250ms ease-in-out;
+       -moz-transition: background 250ms ease-in-out;
+            transition: background 250ms ease-in-out;
+}
+.pos .order .orderline:active{
+    background: rgba(140,143,183,0.05);
+    -webkit-transition: background 50ms ease-in-out;
+       -moz-transition: background 50ms ease-in-out;
+            transition: background 50ms ease-in-out;
+}
+.pos .order .orderline.empty:active{
+    background: transparent;
+    cursor: default;
+}
+
+.pos .order .orderline.selected{
+    background: rgba(140,143,183,0.2);
+    -webkit-transition: background 250ms ease-in-out;
+       -moz-transition: background 250ms ease-in-out;
+            transition: background 250ms ease-in-out;
+    cursor: default;
+}
+.pos .order .orderline .product-name{
+    padding:0;
+    display:inline-block;
+    font-weight: bold;
+    width:80%;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+.pos .order .orderline .price{
+    padding:0;
+    font-weight: bold;
+    float:right;
+}
+.pos .order .orderline .info-list{
+    color: #888;
+    margin-left:10px;
+}
+.pos .order .orderline .info-list em{
+    color: #777;
+    font-weight: bold;
+    font-style:normal;
+}
+
+                    
+                </style>
+                <t t-raw="head or ''"/>
+            </head>
+            <body t-att-class="body_classname">
+                <div id="wrapwrap" t-attf-class="#{pageName or ''}">
+                    <header class="header">
+                        <nav class="navbar navbar-expand-lg navbar-light py-3">
+                            <div class="container">
+                                <!-- Navbar Brand -->
+                                <a href="#" class="navbar-brand">
+                                    <img class="img-responsive d-block mx-auto" t-attf-src="/web/binary/company_logo" alt="Logo" width="150"/>
+                                </a>
+                            </div>
+                        </nav>
+                    </header>                    
+                    <main>
+                        <t t-raw="0"/>
+                    </main>
+                     <footer t-if="not no_footer" id="bottom" class="w-100 py-4 flex-shrink-0">
+                        <div class="container py-4">
+                            <div class="row gy-4 gx-5">
+                                <div class="col-lg-12 col-md-12">
+                                    <h5 class="h1 text-white">El Pollo Loco.</h5>
+                                    <p class="small text-muted">Sitio web para auto facturación "El Pollo Loco".</p>
+                                    <p class="small text-muted mb-0">&amp;copy; Copyrights. All rights reserved. <a class="text-primary" href="#">https://www.elpolloloco.com.mx/</a></p>
+                                </div>                            
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </body>
+        </html>
+    </template>
+
+    <template id="index" name="Auto Invoice">
+        <t t-call="pos_auto_invoice.layout">
+            <div class="container">
+                <div class="row py-2 mt-4 align-items-top">
+                    <!-- For Demo Purpose -->
+                    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+                        <img t-attf-src="/pos_auto_invoice/static/src/img/t_sucursal_mini_.jpg" alt="" class="img-fluid mb-3 d-none d-md-block" />
+                        <h1>Facturación Electrónica</h1>
+                        <p class="font-italic text-muted mb-0">La información requerida para la emisión de facturas es la siguiente: .</p>
+                        <p class="font-italic text-mutedc font-weight-bold">RFC, Razón Social, Uso de CFDI, Código Postal, Régimen Fiscal</p>
+                    </div>
+                    <div class="col-md-7 col-lg-6 ml-auto align-items-top">
+                        <div class="alert alert-danger msg_error" role="alert" id="msg_error" style="display:none"></div>
+                        <form id="frmSucursal" name="frmSucursal" method="post">
+                            <div class="row">
+                                <div class="input-group col-lg-12 mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                            <i class="fa fa-building text-muted"></i>
+                                        </span>
+                                    </div>
+                                    <select required="1" id="sucursal_id" name="sucursal_id" class="form-control custom-select bg-white border-left-0 border-md">
+                                        <option value="">Selecciona la Sucursal...</option>
+                                        <t t-foreach="sucursales" t-as="c">
+                                            <option t-att-value="c.id" t-att-selected="c.id == (sucursal and sucursal.id or -1)">
+                                                <t t-esc="c.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div class="input-group col-lg-12 mb-4">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                            <i class="fa fa-shopping-cart text-muted"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="notickets" name="notickets" required="1" t-att-value="'notickets' in checkout and checkout['notickets']" placeholder="Número de Ticket"  class="form-control bg-white border-left-0 border-md" />
+                                </div>
+                                <div class="w-100"/>
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                <input type="hidden" name="submitted" value="1" />
+                                <input type="hidden" name="callback" t-att-value="callback" />
+                                <input type="hidden" name="field_required" t-att-value="'sucursal_id,notickets'" />
+                                <div class="form-group col-lg-12 mx-auto mb-0">
+                                    <a href="#" class="btn btn-primary btn-block py-2" onclick="validateFormSucursal()">
+                                        <span class="font-weight-bold">Validar</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="rfc" name="Auto Invoice - RFC">
+        <t t-call="pos_auto_invoice.layout">
+            <div class="container">
+                <div class="row gy-4 gx-5">
+                    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+                        <div class="alert alert-danger msg_error" role="alert" id="msg_error" style="display:none"></div>
+                        <form id="frmRfc" name="frmRfc" method="post">
+                            <div class="row">
+                                <br /><br /><h3 class="text-center">Datos del Cliente</h3>
+                                <div class="input-group col-lg-12 mb-4 div_vat">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                            <i class="fa fa-shirtsinbulk text-muted"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="vat" name="vat" required="1" onchange="updateRfc(this.value)" t-att-value="'vat' in checkout and checkout['vat']" placeholder="* RFC"  class="form-control bg-white border-left-0 border-md text-uppercase" />
+                                </div>
+                                <div style="display:none" class="input-group col-lg-12 mb-4 div_name">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                            <i class="fa fa-building-o text-muted"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="name" name="name" required="1" t-att-value="'vat' in checkout and checkout['name']" placeholder="* Razón Social"  class="form-control bg-white border-left-0 border-md" />
+                                </div>
+                                <div style="display:none" class="input-group col-lg-12 mb-4 div_zip">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                            <i class="fa fa-building-o text-muted"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="zip" name="zip" required="1" t-att-value="'vat' in checkout and checkout['zip']" placeholder="* C.P. (Domicilio Fiscal)"  class="form-control bg-white border-left-0 border-md" />
+                                </div>
+                                <div style="display:none" class="input-group col-lg-12 mb-4 div_email">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                            <i class="fa fa-building-o text-muted"></i>
+                                        </span>
+                                    </div>
+                                    <input type="text" id="email" name="email" required="1" t-att-value="'vat' in checkout and checkout['email'] or ''" placeholder="* Cuenta de Correo"  class="form-control bg-white border-left-0 border-md" />
+                                </div>
+                                <div style="display:none" class="input-group col-lg-12 mb-4 div_usocfdi">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                            <i class="fa fa-building text-muted"></i>
+                                        </span>
+                                    </div>
+                                    <select required="1" id="usocfdi" name="usocfdi" class="form-control custom-select bg-white border-left-0 border-md">
+                                        <option value="">Uso CFDI...</option>
+                                        <t t-foreach="usos" t-as="u">
+                                            <option t-att-value="u[0]" t-att-selected="u[0] == (partner_id and partner_id.l10n_mx_edi_usage or -1)">
+                                                <t t-esc="u[1]" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>                                
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
+                                <input type="hidden" name="submitted" value="1" />
+                                <input type="hidden" name="notickets" id="notickets" t-att-value="notickets or '0'" />
+                                <input type="hidden" name="sucursal_id" id="sucursal_id" t-att-value="sucursal_id or '0'" />
+                                <input type="hidden" name="order_id" id="order_id" t-att-value="order_id or '0'" />
+                                <input type="hidden" name="partner_id" id="partner_id" t-att-value="partner_id or '0'" />
+                                <input type="hidden" name="callback" t-att-value="callback" />
+                                <div style="display:none" class="form-group col-lg-12 mx-auto mb-0 div_btn">
+                                    <a href="#" class="btn btn-primary btn-block py-2" onclick="validateFormRfc(this.form)">
+                                        <span class="font-weight-bold">Validar</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-7 col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="text-center">Detalles de la Venta</h3>
+                            </div>
+                            <t t-set="amount_total" t-value="0"/>
+                            <t t-set="lines" t-value="order.lines"/>
+                            <t t-set="tip_product_id" t-value="order.config_id.tip_product_id"/>
+                            <div class="col-12 table-responsive-md pos" id="ref_content">
+                                <div class="pos">
+                                    <div class="leftpane">
+                                        <div class="order-container">
+                                            <div class="order-scroller">
+                                                <div class="order">
+                                                    <ul class="orderlines">
+                                                        <t t-foreach="lines" t-as="line">
+                                                            <t t-set="oline" t-value="order._prepare_invoice_line(line)"/>
+                                                            <t t-if="oline != {}">
+                                                                <t t-set="olinetax" t-value="order._prepare_invoice_line_tax(line, oline)"/>
+                                                                <t t-set="price_unit" t-value="oline['price_unit'] * (1 - (oline['discount'] or 0.0) / 100.0)"/>
+                                                                <li class="orderline">
+                                                                    <span class="product-name"><t t-esc="oline['name']" /></span>
+                                                                    <span class="price">$ <t t-esc="round( olinetax.get('price_subtotal') , 2)" /></span>
+                                                                    <div class="info">
+                                                                        <strong t-esc="oline['quantity']"/>
+                                                                        <span> <t t-esc="line.product_uom_id.name" /> a $ <t t-esc="round(olinetax.get('price_unit'), 2)" /></span>
+                                                                    </div>
+                                                                    <div class="info" t-if="line.discount">
+                                                                        <strong>Desc. %</strong> $ <t t-esc="round( olinetax.get('price_unit') , 2)" />
+                                                                    </div>
+                                                                    <t t-set="amount_total" t-value="amount_total + olinetax.get('price_subtotal')"/>
+                                                                </li>
+                                                            </t>
+                                                        </t>
+                                                    </ul>
+                                                    <div class="summary clearfix">
+                                                        <!-- Modified by OrderSummary from pos_loyalty -->
+                                                        <div class="line">
+                                                            <div class="entry total">
+                                                                <span class="badge">SubTotal: </span>
+                                                                <span class="value">$ <t t-esc="round(amount_total, 2)" /></span>
+                                                                <div class="subentry"> Impuestos: <span class="value">$ <t t-esc="round(order.amount_tax, 2)" /> </span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="summary clearfix">
+                                                        <div class="line">
+                                                            <div class="entry total">
+                                                                <span class="badge">Total: </span>
+                                                                <span class="value">$ <t t-esc="round(amount_total+order.amount_tax, 2)" /></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="noencontrado" name="Auto Invoice - No Encontrado">
+        <t t-call="pos_auto_invoice.layout">
+            <div class="container">
+                <div class="row gy-4 gx-5">
+                    <div class="col-lg-3 col-md-3"></div>
+                    <div class="col-lg-6 col-md-6">
+                        <h1>Facturación Electrónica</h1>
+                        <p class="font-italic text-muted mb-0">
+                            <span t-esc="error"/>
+                        </p>
+                        <p class="font-italic text-mutedc font-weight-bold">
+                            <br /><br /><br />
+                            ¿DUDAS? info@plog.com
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <input type="hidden" name="order_id" id="order_id" t-att-value="'order_id' in checkout and checkout['order_id']" />
+                        <input type="hidden" name="email" id="email" t-att-value="'email' in checkout and checkout['email']" />
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="email" name="Auto Invoice - Email">
+        <t t-call="pos_auto_invoice.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="row mb32 shadow">
+                        <div class="col-4 mb32">
+                            <h1 class="text-center"><br /></h1>
+                        </div>
+                        <div class="col-4 mb32">
+                            <h3 class="text-center">Facturación Electrónica</h3>
+                            <br /><br /><h3 class="text-center">La Información se ha enviado al correo electrónico indicado</h3>
+                        </div>
+                        <div class="col-4 mb32">
+                            <h1 class="text-center"><br /></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

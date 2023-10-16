@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="cfdi_factura_global" inherit_id="l10n_mx_edi.cfdiv33">
+ 
+
+
+   <xpath expr="//*[local-name()='Concepto']" position="attributes">
+        <attribute name="t-att-NoIdentificacion"> record.f_global and format_string(line.name, 1000) or format_string(line.product_id.default_code or '')  </attribute>
+	<attribute name="t-att-Descripcion"> record.f_global and format_string(line.product_id.default_code or 'Venta') or format_string(line.product_id.default_code or '')  </attribute>
+	<attribute name="t-att-Unidad">not record.f_global and format_string(line.product_uom_id.name, 20) or False</attribute>
+    </xpath>
+
+    </template>
+</odoo>

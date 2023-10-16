@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="room_300" model="customer.room">
+        <field name="room_code">R/300</field>
+        <field name="room_type">duo_squad_type</field>
+    </record>
+
+    <record id="amenities_four" model="customer.food">
+        <field name="name">premium_coffee</field>
+        <field name="price">100</field>
+    </record>
+</odoo>
+

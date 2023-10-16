@@ -1,0 +1,191 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_mx_fields_invoice
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-03-01 15:59+0000\n"
+"PO-Revision-Date: 2021-03-01 15:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields,help:l10n_mx_fields_invoice.field_res_partner__l10n_mx_edi_payment_method_id
+#: model:ir.model.fields,help:l10n_mx_fields_invoice.field_res_users__l10n_mx_edi_payment_method_id
+msgid ""
+"Indicates the way the invoice was/will be paid, where the options could be: "
+"Cash, Nominal Check, Credit Card, etc. Leave empty if unkown and the XML "
+"will show 'Unidentified'."
+msgstr ""
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model,name:l10n_mx_fields_invoice.model_account_move
+msgid "Journal Entries"
+msgstr "Registros"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__account_move__l10n_mx_edi_payment_policy__ppd
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_payment_policy__ppd
+msgid "PPD"
+msgstr "PPD"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__account_move__l10n_mx_edi_payment_policy__pue
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_payment_policy__pue
+msgid "PUE"
+msgstr "PUE"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model,name:l10n_mx_fields_invoice.model_res_partner
+msgid "Partners"
+msgstr "Clientes"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model,name:l10n_mx_fields_invoice.model_l10n_mx_edi_payment_method
+msgid "Payment Method for Mexico from SAT Data"
+msgstr "Método de Pago para México, datos del SAT"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields,field_description:l10n_mx_fields_invoice.field_account_move__l10n_mx_edi_payment_policy
+#: model:ir.model.fields,field_description:l10n_mx_fields_invoice.field_res_partner__l10n_mx_edi_payment_policy
+#: model:ir.model.fields,field_description:l10n_mx_fields_invoice.field_res_users__l10n_mx_edi_payment_policy
+msgid "Payment Policy"
+msgstr "Método de Pago"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields,field_description:l10n_mx_fields_invoice.field_res_partner__l10n_mx_edi_payment_method_id
+#: model:ir.model.fields,field_description:l10n_mx_fields_invoice.field_res_users__l10n_mx_edi_payment_method_id
+msgid "Payment Way"
+msgstr "Forma de Pago"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields,field_description:l10n_mx_fields_invoice.field_res_partner__l10n_mx_edi_usage
+#: model:ir.model.fields,field_description:l10n_mx_fields_invoice.field_res_users__l10n_mx_edi_usage
+msgid "Usage"
+msgstr "Uso de CFDi"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields,help:l10n_mx_fields_invoice.field_res_partner__l10n_mx_edi_usage
+#: model:ir.model.fields,help:l10n_mx_fields_invoice.field_res_users__l10n_mx_edi_usage
+msgid ""
+"Used in CFDI 3.3 to express the key to the usage that will gives the receiver to this invoice. This value is defined by the customer.\n"
+"Note: It is not cause for cancellation if the key set is not the usage that will give the receiver of the document."
+msgstr ""
+"Usado en CFDI 3.3 para expresar el uso principal que el receptor dará a esta factura. Este valor es definido por el cliente.\n"
+"Nota: No es un motivo de cancelación si el valor no coincide con el uso que el receptor dará al documento."
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d01
+msgid "[D01] Medical, dental and hospital expenses."
+msgstr "[D01] Gastos médicos, dentales u hospitalarios"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d02
+msgid "[D02] Medical expenses for disability"
+msgstr "[D02] Gastos médicos por discapacidad"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d03
+msgid "[D03] Funeral expenses"
+msgstr "[D03] Gastos Funerarios"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d04
+msgid "[D04] Donations"
+msgstr "[D04] Donaciones"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d05
+msgid "[D05] Real interest effectively paid for mortgage loans (room house)"
+msgstr "[D05] Intereses efectivamente pagados para créditos hipotecarios"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d06
+msgid "[D06] Voluntary contributions to SAR"
+msgstr "[D06] Contribuciones voluntarias al SAR"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d07
+msgid "[D07] Medical insurance premiums"
+msgstr "[D07] Prima de seguro médico"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d08
+msgid "[D08] Mandatory School Transportation Expenses"
+msgstr "[D08] Gastos de Transporte Escolar Obligatorio"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d09
+msgid "[D09] Deposits in savings accounts, premiums based on pension plans."
+msgstr "[D09] Depósitos a cuentas de ahorro, prima basada en planes de pensión"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__d10
+msgid "[D10] Payments for educational services (Colegiatura)"
+msgstr "[D10] Pagos para servicios de educación (Colegiatura)"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__g01
+msgid "[G01] Acquisition of merchandise"
+msgstr "[G01] Adquisición de mercancía"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__g02
+msgid "[G02] Returns, discounts or bonuses"
+msgstr "[G02] Devolucaiones, descuentos o bonificaciones"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__g03
+msgid "[G03] General expenses"
+msgstr "[G03] Gastos Generales"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__i01
+msgid "[I01] Constructions"
+msgstr "[I01] Construcciones"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__i02
+msgid "[I02] Office furniture and equipment investment"
+msgstr "[I02] Inversión en Mobiliario y Equipo de oficina."
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__i03
+msgid "[I03] Transportation equipment"
+msgstr "[I03] Equipo de Transporte"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__i04
+msgid "[I04] Computer equipment and accessories"
+msgstr "[I04] Equipo de Cómputo y Accesorios"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__i05
+msgid "[I05] Dices, dies, molds, matrices and tooling"
+msgstr "[I05] Dados, troquelas, moldes, matrices y herramental"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__i06
+msgid "[I06] Telephone communications"
+msgstr "[I06] Comunicaciones telefóniccas"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__i07
+msgid "[I07] Satellite communications"
+msgstr "[I07] Comunicaciones Satelitales"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__i08
+msgid "[I08] Other machinery and equipment"
+msgstr "[I08] Otra maquinaria y equipo"
+
+#. module: l10n_mx_fields_invoice
+#: model:ir.model.fields.selection,name:l10n_mx_fields_invoice.selection__res_partner__l10n_mx_edi_usage__p01
+msgid "[P01] To define"
+msgstr "[P01] Por Definir"

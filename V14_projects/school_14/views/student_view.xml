@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Using menuitem tag to create a menu -->
+    <!-- Menu of the Application -->
+    <menuitem id="menu_school_root" name="School Management"/>
+
+    <!-- Using parent attribute to assign a submenu -->
+    <!-- Using sequence attribute to define the display sequence for a menu -->
+    <!-- The lower sequence menu will be displayed first and then the higher sequence menu -->
+    <!-- Main Menu for School -->
+    <menuitem id="menu_school_main" name="School" parent="menu_school_root" sequence="1"/>
+
+    <!-- Using parent attribute to assign a submenu -->
+    <!-- Main Menu for Configuration     -->
+    <menuitem id="menu_school_config" name="Configuration" parent="menu_school_root" sequence="10"/>
+
+
+    <!-- Form view of Marks -->
+    <record id="view_marks_form" model="ir.ui.view">
+        <field name="name">view.marks.form</field>
+        <field name="model">student.marks</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="grp_main" colspan="4" col="4">
+                    <field name="student_id"/>
+                    <field name="subject"/>
+                    <field name="total_marks"/>
+                    <field name="min_marks"/>
+                    <field name="obt_marks"/>
+                    <field name="percentage"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Marks -->
+    <record id="view_marks_tree" model="ir.ui.view">
+        <field name="name">view.marks.tree</field>
+        <field name="model">student.marks</field>
+        <field name="arch" type="xml">
+            <!--            <tree editable="top">-->
+            <tree editable="bottom">
+                <field name="student_id"/>
+                <field name="subject"/>
+                <field name="total_marks"/>
+                <field name="min_marks"/>
+                <field name="obt_marks"/>
+                <field name="percentage"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Marks -->
+    <record id="view_marks_search" model="ir.ui.view">
+        <field name="name">view.marks.search</field>
+        <field name="model">student.marks</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="subject"/>
+                <field name="student_id"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Marks -->
+    <record id="action_marks" model="ir.actions.act_window">
+        <field name="name">Marks</field>
+        <field name="res_model">student.marks</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Main Menu for Exam    -->
+    <menuitem id="menu_school_exam" name="Exam" parent="menu_school_root" sequence="2"/>
+
+    <!-- Menu for Marks -->
+    <menuitem id="menu_marks" action="action_marks" parent="menu_school_exam"/>
+
+
+    <!--
+    record tag used to create record of specified models.
+    There are two attributes of the record tag id and models.
+    id must be unique throughout the module for a view otherwise it will override
+    Here we are creating view so models is give ir.ui.view
+    -->
+    <!-- Form view of Student -->
+    <record id="view_student_form" model="ir.ui.view">
+        <!-- name = the name of the view. -->
+        <field name="name">view.student.form</field>
+        <!-- models = the models for which you are creating view -->
+        <field name="model">student.student</field>
+        <!-- arch = The architecture of your view -->
+        <field name="arch" type="xml">
+            <!-- form tag to denote we are creating a form view -->
+            <!-- You can put all or some fields as per your requirement in the views -->
+            <!--            <form create="0" edit="0" delete="0">-->
+            <form>
+                <header>
+                    <!--                    <label for="name" string="Header....."/>-->
+                    <!--                    <button name="st_archive" string="Sample"/>-->
+                    <!-- Using the state field and the statusbar widget -->
+                    <!-- Using clickable to click on the states on the statusbar -->
+                    <button name="stud_interviewed" string="Interview" type="object" states="draft"/>
+                    <button name="stud_accept" string="Accept" type="object" states="interviewed"
+                            context="{'test_variable': 123}"/>
+                    <button name="stud_reject" string="Reject" type="object" states="interviewed,accepted"/>
+                    <button name="stud_join" string="Join" type="object" states="accepted"/>
+                    <button name="stud_leave" string="Leave" type="object" states="joined"/>
+                    <button name="%(action_marks)d" string="Marks" type="action" states="joined"
+                            context="{'search_default_student_id':active_id}"/>
+                    <!--                    <field name="state" widget="statusbar" statusbar_visible="draft,joined,left"/>-->
+                    <field name="state" widget="statusbar" clickable="1"/>
+                </header>
+                <!-- sheet tag will create a sheet like look of our form -->
+                <sheet>
+                    <!-- widget web_ribbon used to add a ribbon on your form -->
+                    <!-- name will be web_ribbon -->
+                    <!-- title will be string displayed on the ribbon -->
+                    <!-- bg_color you can use options like bg-danger, bg-success, bg-info,
+                    bg-primary, bg-warning ect to have different colored background for ribbon -->
+                    <!-- attrs works same as any other element to display/hide the ribbon -->
+                    <!-- invisible attribute will be used on attrs with domain to hide the ribbon -->
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+                    <widget name="web_ribbon" title="Joined" bg_color="bg-success"
+                            attrs="{'invisible': [('state', '!=', 'joined')]}"/>
+                    <widget name="web_ribbon" title="Interviewed" bg_color="bg-warning"
+                            attrs="{'invisible': [('state', '!=', 'interviewed')]}"/>
+                    <div name="button_box" class="oe_button_box">
+                        <button name="%(action_marks)d"
+                                string="Marks"
+                                type="action"
+                                icon="fa-dollar"
+                                class="oe_stat_button"
+                                context="{'search_default_student_id':active_id}">
+                            <field name="no_of_marks" widget="statinfo" nolabel="1"/>
+                        </button>
+                    </div>
+                    <!-- label tag used to fetch the label for a field -->
+                    <label for="name"/>
+                    <!-- You can use HTML Tags -->
+                    <h1>
+                        <field name="name" placeholder="Name of the Student e.g. Virat Kohli" style="color:blue"/>
+                    </h1>
+                    <!-- Using image widget with avatar class -->
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <!-- If you have used group all the labels of the group will automatically come -->
+                    <!-- Spanning the group -->
+                    <group name="grp_main" colspan="4" col="4">
+                        <field name="sequence"/>
+                        <field name="student_code" style="color:green;font-size:18px;"/>
+                        <field name="roll_no"/>
+                        <field name="parent_id"/>
+                        <field name="age"/>
+                        <!-- Using monetary widget with a float field if not using monetary field -->
+                        <field name="fee" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                        <field name="active"/>
+                        <!-- For mandatory field use required attribute -->
+                        <!-- help attribute is used for tooltips -->
+                        <field name="gender" required="1" help="test help"/>
+                        <field name="birthdate"/>
+                        <!-- You can add a selection widget to an m2o field which will block record creation and updation -->
+                        <!--It will also disable searching feature and will list all records -->
+                        <!--                        <field name="standard_id" widget="selection"/>-->
+                        <!-- If there are only a few records you can also use a radio widget on selection field as well -->
+                        <!--                        <field name="standard_id" widget="radio"/>-->
+                        <!-- In case you want to keep the searching feature and still block creation and updation you can use options -->
+                        <!-- options is a dictionary which uses no_create for creation blocking and no_open for updation blocking-->
+                        <!--                        <field name="standard_id" options="{'no_create':1, 'no_open':1}"/>-->
+                        <field name="standard_id"/>
+                        <field name="std_code"/>
+                        <field name="first_attendance"/>
+                        <!-- For making a field readonly you can use the readonly attribute -->
+                        <!--                        <field name="last_attendance" readonly="1"/>-->
+                        <field name="last_attendance"/>
+                        <!-- For hiding the typed words we can use the password attribute -->
+                        <field name="password" password="*"
+                               attrs="{'required':[('standard_id','!=', False)], 'readonly':[('standard_id','=', False)]}"/>
+                        <!-- email widget will allow to send emails via an installed email client on your system -->
+                        <!-- when you click on the email it opens a new email window with the email in the to field in your email client -->
+                        <field name="email" widget="email" attrs="{'invisible':[('standard_id','=',False)]}"/>
+                        <!-- It will open the url in the browser -->
+                        <field name="url" widget="url" class="field_color"/>
+                        <!-- This will ask for an option to dial the phone no to make a call -->
+                        <field name="phone" widget="phone"/>
+                        <!-- This shows the float field as time where you can enter time such as working hours -->
+                        <field name="school_hours" widget="float_time"/>
+                        <!-- This will enable to you to set priority on the records stars will be displayed-->
+                        <field name="priority" widget="priority"/>
+                        <!-- You can use the radio widget with selection field to display radio buttons -->
+                        <field name="shift" widget="radio"/>
+                        <field name="ref"/>
+                        <field name="currency_id" domain="[('active','=',True)]"/>
+                        <field name="annual_fees"/>
+                        <!-- Invisible file name field to save the file name for the file -->
+                        <field name="file_name" invisible="1"/>
+                        <field name="doc" filename="file_name"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <!-- Color field which is an integer field -->
+                        <!-- The widget color_picker will give you a limited options of colors to select from -->
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                    <!-- Seaprator tag used for bigger fields such as text, html, o2m, m2m etc. -->
+                    <!--
+                    <separator string="Notes"/>
+                    <field name="notes" groups="school_14.grp_school_admin"/>
+                    <separator string="Comments"/>
+                    <field name="comments"/> -->
+                    <!-- To have a look with tabs we use the notebook and page tags -->
+                    <notebook>
+                        <!-- Each page is a tab in notebook -->
+                        <page name="pg_marks" string="Marks">
+                            <field name="marks_ids">
+                                <tree>
+                                    <field name="subject"/>
+                                    <field name="total_marks"/>
+                                    <field name="min_marks"/>
+                                    <field name="obt_marks"/>
+                                    <field name="percentage"/>
+                                </tree>
+                                <form>
+                                    <group>
+                                        <field name="subject"/>
+                                        <field name="total_marks"/>
+                                        <field name="min_marks"/>
+                                        <field name="obt_marks"/>
+                                        <field name="percentage"/>
+                                    </group>
+                                </form>
+                            </field>
+                            <group colspan="4" col="6">
+                                <field name="total_marks"/>
+                                <field name="total_obt_marks"/>
+                                <field name="percentage" nolabel="1" widget="percentpie"/>
+                            </group>
+                        </page>
+                        <page name="pg_activity" string="Activities">
+                            <!-- instead of normal m2m field view if you want to have a tags view then
+                            you can use the widget many2many_tags with only m2m field -->
+                            <!--                            <field name="activity_ids" widget="many2many_tags"/>-->
+                            <!-- instead of normal m2m field view if you want to have a checkbox view then
+                            you can use the widget many2many_checkboxes with only m2m field -->
+                            <!-- Adding a static domain with OR Condition -->
+                            <!--                            <field name="activity_ids" widget="many2many_checkboxes" domain="['|',('name','like','ing'),('name','like','all')]"/>-->
+                            <!-- Adding a dynamic domain using a field's value from the view -->
+                            <!--                            <field name="activity_ids" domain="[('standard_id','=',standard_id)]" widget="many2many_tags"/>-->
+                            <!-- Adding color options to display colors on your tags in m2m fields -->
+                            <!-- Options is a dictionary where you need to have the key as 'color_filed' and value will be the field for color defined on the models of m2m field-->
+                            <!-- in the below case color field must be defined on the student.activity models -->
+                            <field name="activity_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+                        </page>
+                        <page name="pg_sub" string="Subordinates">
+                            <field name="child_ids" readonly="1"/>
+                        </page>
+                        <page name="pg_notes" string="Notes">
+                            <!-- Giving access to see the field to a specific group -->
+                            <field name="notes" groups="school_14.grp_school_admin"/>
+                        </page>
+                        <page name="pg_comments" string="Comments">
+                            <group>
+                                <!-- hiding the label of a field inside the group using nolabel attribute-->
+                                <field name="comments" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button name="create_record" string="Create" type="object" class="btn-primary"/>
+                    <button name="update_record" string="Update" type="object" class="btn-success"/>
+                    <button name="browse_record" string="Browse" type="object" class="btn-secondary"/>
+                    <button name="read_record" string="Read" type="object" class="btn-info"/>
+                    <button name="duplicate_record" string="Duplicate" type="object" class="btn-warning"/>
+                    <button name="delete_record" string="Delete" type="object" class="btn-danger"/>
+                    <button name="search_record" string="Search" type="object" class="btn-link"/>
+                    <button name="search_read_record" string="Search Read" type="object"/>
+                    <button name="read_group_record" string="Read Group" type="object"/>
+                    <label for="name" string="Footer......"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_student_form_male_female" model="ir.ui.view">
+        <field name="name">view.student.form.male.female</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <!-- create="0" will force the creation option to be removed so you will not be able to create records from this view-->
+            <!-- edit="0" will force the edit option to be removed so you will not be able to update records from this view-->
+            <!-- delete="0" will force the delete option to be removed so you will not be able to delete records from this view-->
+            <form create="0" edit="0" delete="0">
+                <header>
+                    <button name="stud_interviewed" string="Interview" type="object" states="draft"/>
+                    <button name="stud_accept" string="Accept" type="object" states="interviewed"
+                            context="{'test_variable': 123}"/>
+                    <button name="stud_reject" string="Reject" type="object" states="interviewed,accepted"/>
+                    <button name="stud_join" string="Join" type="object" states="accepted"/>
+                    <button name="stud_leave" string="Leave" type="object" states="joined"/>
+                    <field name="state" widget="statusbar" clickable="1"/>
+                </header>
+                <field name="gender" invisible="1"/>
+                <sheet>
+                    <label for="name"/>
+                    <h1>
+                        <field name="name" placeholder="Name of the Student e.g. Virat Kohli"/>
+                    </h1>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group name="grp_main" colspan="4" col="4">
+                        <field name="sequence"/>
+                        <field name="student_code"/>
+                        <field name="roll_no"/>
+                        <field name="parent_id"/>
+                        <field name="age"/>
+                        <field name="fee" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                        <field name="active"/>
+                        <field name="birthdate"/>
+                        <field name="standard_id"/>
+                        <field name="first_attendance"/>
+                        <field name="last_attendance"/>
+                        <field name="email" widget="email" attrs="{'invisible':[('standard_id','=',False)]}"/>
+                        <field name="url" widget="url"/>
+                        <field name="phone" widget="phone"/>
+                        <field name="priority" widget="priority"/>
+                        <field name="shift" widget="radio"/>
+                        <field name="ref"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <!-- Added color field for kanban card  and color_picker widget will allow-->
+                        <field name="color" widget="color_picker"/>
+                    </group>
+                    <notebook>
+                        <page name="pg_marks" string="Marks">
+                            <field name="marks_ids">
+                                <!-- Internal Tree view -->
+                                <!-- This would be visible only for this particular view and field -->
+                                <tree>
+                                    <field name="subject"/>
+                                    <field name="total_marks"/>
+                                    <field name="min_marks"/>
+                                    <field name="obt_marks"/>
+                                    <field name="percentage"/>
+                                </tree>
+                                <!-- Internal Tree view -->
+                                <!-- This would be visible only for this particular view and field -->
+                                <form>
+                                    <group>
+                                        <field name="subject"/>
+                                        <field name="total_marks"/>
+                                        <field name="min_marks"/>
+                                        <field name="obt_marks"/>
+                                        <field name="percentage"/>
+                                    </group>
+                                </form>
+                            </field>
+                            <group colspan="4" col="6">
+                                <field name="total_marks"/>
+                                <field name="total_obt_marks"/>
+                                <field name="percentage" nolabel="1" widget="percentpie"/>
+                            </group>
+                        </page>
+                        <page name="pg_activity" string="Activities">
+                            <field name="activity_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+                        </page>
+                        <page name="pg_sub" string="Subordinates">
+                            <field name="child_ids" readonly="1"/>
+                        </page>
+                        <page name="pg_notes" string="Notes">
+                            <field name="notes" groups="school_14.grp_school_admin"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Student -->
+    <record id="view_student_tree" model="ir.ui.view">
+        <field name="name">view.student.tree</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <!-- tree tag to denote we are creating a tree view -->
+            <!-- Keep only important fields in the tree view -->
+            <!--            <tree create="false" edit="false" delete="false" editable="top">-->
+            <!--                  decoration-success="state=='accepted'" decoration-danger="state=='rejected'"-->
+            <!-- multi_edit is used to edit multiple records together on a tree view -->
+            <!-- Using default_order="<field_name>" you can sort the records on the tree when this view gets loaded-->
+            <!-- The field must exist in the tree view which you're using here. -->
+            <!-- decoration-* are used to decorate the records in terms of colors or bold and italic -->
+            <!-- decoration-* are keys and the value is a condition based on some field of the record. -->
+            <!-- The field used here also must exist in the tree view -->
+            <tree multi_edit="1" default_order="name" decoration-info="state=='draft'" decoration-muted="state=='left'"
+                  decoration-bf="state=='accepted'" decoration-it="state=='rejected'"
+                  decoration-warning="state=='interviewed'" decoration-primary="state=='joined'">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="age" optional="show" avg="Age"/>
+                <!-- using invisible attribute you can hide the field -->
+                <!--                <field name="active" invisible="1"/>-->
+                <!-- when you want to keep a toggle button for a boolean field you can use the boolean_toggle widget -->
+                <field name="active" widget="boolean_toggle"/>
+                <!-- optional is an attribute which shows or hides the field on the tree view -->
+                <!-- if optional="hide" the field will not be displayed by default but you can get it shown by clicking on the 3 dots on the right top of the list view -->
+                <!-- if optional="show" the field will be displayed by default but you can get it hidden by clicking on the 3 dots on the right top of the list view -->
+                <field name="gender" optional="show"/>
+                <!-- You can use sum attribute to get the total of your numerical field at the bottom of the list/tree view -->
+                <field name="fee" optional="hide" sum="Fee"/>
+                <field name="total_marks" optional="hide" sum="Total Marks"/>
+                <field name="total_obt_marks" optional="hide" sum="Total Obt Marks"/>
+                <!-- you can use avg attribute to get the average of your numerical field at the bottom of the list/tree view -->
+                <field name="percentage" widget="progressbar" optional="hide" avg="Percentage"/>
+                <!-- You can use the string attribute which will change the label of the field for this particular view only -->
+                <field name="birthdate" string="Date of Birth" optional="show"/>
+                <!-- Company field visible only if the group is multi-company. -->
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state"/>
+                <!--            TODO:Add method to open the form view for the record on an editable tree view     <button name="setup" type="open" string="SETUP"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <!-- Tree view of Student Male Female-->
+    <record id="view_student_tree_male_female" model="ir.ui.view">
+        <field name="name">view.student.tree.male.female</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <tree delete="0" create="0">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="age" optional="show" avg="Age"/>
+                <field name="active" widget="boolean_toggle"/>
+                <field name="fee" optional="hide" sum="Fee"/>
+                <field name="total_marks" optional="hide" sum="Total Marks"/>
+                <field name="total_obt_marks" optional="hide" sum="Total Obt Marks"/>
+                <field name="percentage" widget="progressbar" optional="hide" avg="Percentage"/>
+                <field name="birthdate" string="Date of Birth" optional="show"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Student -->
+    <record id="view_student_search" model="ir.ui.view">
+        <field name="name">view.student.search</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="age"/>
+                <filter name="fil_male" string="Male" domain="[('gender','=','male')]"/>
+                <filter name="fil_female" string="Female" domain="[('gender','=','female')]"/>
+                <separator/>
+                <filter name="fil_date" string="Birth Date" date="birthdate"/>
+                <separator/>
+                <filter name="grp_by_gender" string="Gender" context="{'group_by':'gender'}"/>
+                <filter name="grp_by_standard_id" string="Standard" context="{'group_by':'standard_id'}"/>
+                <searchpanel>
+                    <field name="standard_id" icon="fa-filter"/>
+                    <field name="gender" icon="fa-users "/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <!-- You can create a calendar view with either date / datetime field -->
+    <!-- calendar tag has attribute date_start where you can provide the date field where your record will be displayed on the calendar view -->
+    <!-- we will put only one or two fields so that it doesn't look messy inside the calendar tag -->
+    <!--    &lt;!&ndash; Calendar view of Student &ndash;&gt;-->
+    <!--    <record id="view_stud_calendar" models="ir.ui.view">-->
+    <!--        <field name="name">view.stud.calendar</field>-->
+    <!--        <field name="models">student.student</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <calendar date_start="birthdate">-->
+    <!--                <field name="name"/>-->
+    <!--            </calendar>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!-- Calendar view of Student -->
+    <!-- date_start and date_stop attributes will be used when the event is of more then on day in case of date field and more time in case of datetime -->
+    <!-- the modes day and week will be used only for datetime type of fields as with date it won't make sense -->
+    <!-- the modes month,year can be used for both date and datetime -->
+    <!-- for date fields month would be the best mode to have -->
+    <!-- using color attribute you can keep 1 color for a matching value in the field -->
+    <!-- for color we can use either a selection or a many2one field -->
+    <!-- so whichever records have the same value in the field mentioned as color will have the same color -->
+    <!-- hide_time will hide the time from the record displayed on the single day in case of date time field -->
+    <!-- event_limit will display only limited records on a day and the rest would be display as +<number> -->
+    <record id="view_stud_calendar" model="ir.ui.view">
+        <field name="name">view.stud.calendar</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <calendar date_start="first_attendance" date_stop="last_attendance" color="standard_id" mode="month"
+                      hide_time="1" event_limit="2">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!--    &lt;!&ndash; Graph view of Student &ndash;&gt;-->
+    <!-- graph view with type line for line chart -->
+    <!-- 3 attributes row, column and measure -->
+    <!-- row will be x-axis -->
+    <!-- measure will be y-axis -->
+    <!-- column would be the legends -->
+    <!-- measure will be always a numeric field -->
+    <!--    <record id="view_stud_graph" models="ir.ui.view">-->
+    <!--        <field name="name">view.stud.graph</field>-->
+    <!--        <field name="models">student.student</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <graph type="line">-->
+    <!--                <field name="name" type="row"/>-->
+    <!--                <field name="standard_id" type="column"/>-->
+    <!--                <field name="fee" type="measure"/>-->
+    <!--            </graph>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!--    &lt;!&ndash; Graph view of Student &ndash;&gt;-->
+    <!-- for bar chart there are two options stacked or unstacked -->
+    <!-- stacked="False" or stacked="True" is used to make stacked or unstacked -->
+    <!-- here row and column should be fields such as selection or many2one -->
+    <!-- if you want a simple barchart you can use any char field as row and many2one/selection as column -->
+    <!--    <record id="view_stud_graph" models="ir.ui.view">-->
+    <!--        <field name="name">view.stud.graph</field>-->
+    <!--        <field name="models">student.student</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <graph type="bar" stacked="False">-->
+    <!--                <field name="gender" type="row"/>-->
+    <!--                <field name="standard_id" type="column"/>-->
+    <!--                <field name="fee" type="measure"/>-->
+    <!--            </graph>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!-- Graph view of Student -->
+    <!-- third type is pie and here we have only two axis -->
+    <!-- so we will give only one row/column and one measure -->
+    <!-- if you give a row and column or multiple rows/columns it will create combinations for the legends -->
+    <!-- for e.g. in case of standard and gender the combination will be standard1/female, standard2/female, standard1/male, standard2/male etc. -->
+    <!-- measure will be distributed in percentage in the pie with different colors -->
+    <record id="view_stud_graph" model="ir.ui.view">
+        <field name="name">view.stud.graph</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <graph type="pie">
+                <!--                <field name="gender" type="row"/>-->
+                <field name="standard_id" type="column"/>
+                <field name="fee" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot View of Student -->
+    <!-- pivot view used to create pivot tables and is dynamic -->
+    <!-- you cna use row, col and measure just like graph -->
+    <!-- here you can also use interval on the date type fields where you can give day, week, month, quarter or year and that will be displayed -->
+    <record id="view_stud_pivot" model="ir.ui.view">
+        <field name="name">view.stud.pivot</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <pivot>
+                <field name="birthdate" type="col" interval="month"/>
+                <field name="standard_id" type="row"/>
+                <field name="gender" type="row"/>
+                <field name="age" type="measure"/>
+                <field name="fee" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Kanban view of Student -->
+    <!-- kanban view is created using Qweb templates -->
+    <record id="view_stud_kanban" model="ir.ui.view">
+        <field name="name">view.stud.kanban</field>
+        <field name="model">student.student</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <!-- the fields used with record will be listed here -->
+                <field name="id"/>
+                <field name="color"/>
+                <!-- templates tag is a must to use -->
+                <templates>
+                    <!-- we will give the name as kanban-box to the t tag which is a template -->
+                    <t t-name="kanban-box">
+                        <!-- Inside the template everything will be designed using div and different classes -->
+                        <!-- our main div will have atleast oe_kanban_global_click and oe_kanban_card classes to have a standard design -->
+                        <!-- oe_kanban_color_#{} fetches the color from the record's color field and dispaly it on the kanban card-->
+                        <!-- kanban_get_color(record.<color_field_name>.raw_value) is used to fetch the color -->
+                        <!-- color field must be mentioned before the templates in the kanban view -->
+                        <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_global_click oe_kanban_card">
+                            <!-- we will use the div with class o_kanban_image to display an image -->
+                            <div class="o_kanban_image">
+                                <!-- img tag will be used to display the image -->
+                                <!-- we will use the oe_avatar class to use 128 image -->
+                                <!-- the t-att-src attribute is src to the image -->
+                                <!-- we will use the kanban_image() method to fetch the image from the record -->
+                                <!-- the params are <model_name>, <image_field_name>, record.id.raw_value -->
+                                <!-- the id field must be mentioned before the templates in the kanban view -->
+                                <img alt="No Image"
+                                     class="oe_avatar"
+                                     t-att-src="kanban_image('student.student', 'image', record.id.raw_value)"/>
+                            </div>
+                            <div>
+                                <!-- the fields to be displayed on the kanban -->
+                                <field name="name"/>
+                                <br/>
+                                <field name="age"/>
+                                <br/>
+                                <!-- the email, url, phone, priority widgets work same as form view -->
+                                <field name="email" widget="email"/>
+                                <br/>
+                                <field name="url" widget="url"/>
+                                <br/>
+                                <field name="phone" widget="phone"/>
+                                <br/>
+                                <field name="priority" widget="priority"/>
+                                <br/>
+                                <!-- Here for m2m field you can display with colors using the options attribute -->
+                                <!-- options attribute will have the key 'color_field' and the value will be the color field on the m2m models -->
+                                <!-- we have a color field on activity so we have mentioned that name -->
+                                <field name="activity_ids" options="{'color_field':'color'}"/>
+                            </div>
+                            <!-- Another section to have the dropdown menus -->
+                            <div class="o_dropdown_kanban dropdown">
+                                <!-- used to display 3 dots on the right top of the kanban card -->
+                                <a role="button" class="dropdown-toggle o-no-caret btn"
+                                   data-toggle="dropdown" data-display="static"
+                                   href="#" aria-label="Dropdown menu" title="Dropdown menu">
+                                    <span class="fa fa-ellipsis-v"/>
+                                </a>
+                                <!-- Dropdown menu parent creted using class dropdown-menu and role menu -->
+                                <div class="dropdown-menu" role="menu">
+                                    <!-- Creating menuitems inside the dropdown menu using role menuitem -->
+                                    <div role="menuitem">
+                                        <!-- type="open" used to open the record on which we are -->
+                                        <a type="open">Open</a>
+                                    </div>
+                                    <div role="menuitem">
+                                        <!-- type="edit" used to open the record on which we are in edit mode -->
+                                        <a type="edit">Edit</a>
+                                    </div>
+                                    <!-- Adding a separator / horizontal line -->
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <div role="menuitem">
+                                        <!-- Using type="object" to call method of models -->
+                                        <!-- same like button -->
+                                        <a type="object" name="stud_join">Join</a>
+                                    </div>
+                                    <div role="menuitem">
+                                        <!-- Using type="action" to trigger an action just like button -->
+                                        <a type="action" name="%(action_marks)d">Marks</a>
+                                    </div>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <!-- Adding a colorpicker for kanban card -->
+                                    <!-- The color selected will be applied to the card -->
+                                    <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- This will be used to load the views
+     We will use record tag to create an action
+     Here also there are two params and we will have unique id for action as well
+     The models will be ir.actions.act_window to create an action -->
+    <!-- Action of Student -->
+    <record id="action_student" model="ir.actions.act_window">
+        <!-- the name will be linked to the menu in case no name is given to the menu -->
+        <field name="name">Students</field>
+        <!-- the res_model will be the name of models for which the action is created -->
+        <field name="res_model">student.student</field>
+        <!-- the modes of views which will be available and you can switch between -->
+        <!-- the first view mentioned will be loaded when this action is triggered -->
+        <field name="view_mode">tree,form,calendar,graph,pivot,kanban</field>
+        <!-- Setting default search field with value using search_default_<field_name>: value -->
+        <!-- Setting default filter using search_default_<filter_name>:1 -->
+        <field name="context">{'search_default_age':22, 'search_default_fil_male':1, 'search_default_grp_by_gender':1}
+        </field>
+    </record>
+
+
+    <!-- Using action to call an action when a menu is clicked -->
+    <!-- Menu of Students -->
+    <menuitem id="menu_student" action="action_student" parent="menu_school_main"/>
+
+    <!-- Action of Female Students -->
+    <record id="action_female_students" model="ir.actions.act_window">
+        <field name="name">Female Students</field>
+        <field name="res_model">student.student</field>
+        <field name="view_mode">tree,form,calendar</field>
+        <!-- Using Domain on Action -->
+        <field name="domain">[('gender','=','female')]</field>
+        <!-- Using context to set default value for a field using default_<field_name> -->
+        <field name="context">{'default_gender':'female', 'form_view_ref':'school_14.view_student_form_male_female',
+            'tree_view_ref':'school_14.view_student_tree_male_female'}
+        </field>
+    </record>
+
+    <!-- Menu of Female Students -->
+    <menuitem id="menu_student_female" action="action_female_students" parent="menu_school_main"/>
+
+    <!-- Action of Male Students -->
+    <record id="action_male_students" model="ir.actions.act_window">
+        <field name="name">Male Students</field>
+        <field name="res_model">student.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('gender','=','male')]</field>
+        <field name="context">{'default_gender':'male'}</field>
+    </record>
+
+    <!-- Linking form view to an action -->
+    <record model="ir.actions.act_window.view" id="action_male_stud_form_view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_student_form_male_female"/>
+        <field name="act_window_id" ref="action_male_students"/>
+    </record>
+
+    <!-- Linking tree view to an action -->
+    <record model="ir.actions.act_window.view" id="action_male_stud_tree_view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="view_student_tree_male_female"/>
+        <field name="act_window_id" ref="action_male_students"/>
+    </record>
+
+    <!-- Menu of Male Students -->
+    <menuitem id="menu_student_male" action="action_male_students" parent="menu_school_main"/>
+
+    <!-- Form view for standard -->
+    <record id="view_standard_form" model="ir.ui.view">
+        <field name="name">view.standard.form</field>
+        <field name="model">school.standard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="grp_main">
+                    <field name="std_name"/>
+                    <field name="code"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view for standard -->
+    <record id="view_standard_tree" model="ir.ui.view">
+        <field name="name">view.standard.tree</field>
+        <field name="model">school.standard</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="std_name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action of standard -->
+    <record id="action_standard" model="ir.actions.act_window">
+        <field name="name">Standards</field>
+        <field name="res_model">school.standard</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu of Standard -->
+    <menuitem id="menu_standard" action="action_standard" parent="menu_school_config"/>
+
+    <!-- Form view for Activity -->
+    <record id="view_activity_form" model="ir.ui.view">
+        <field name="name">view.activity.form</field>
+        <field name="model">student.activity</field>
+        <field name="arch" type="xml">
+            <form>
+                <group name="grp_main">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="standard_id"/>
+                    <field name="color" widget="color_picker"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view for Activity -->
+    <record id="view_activity_tree" model="ir.ui.view">
+        <field name="name">view.activity.tree</field>
+        <field name="model">student.activity</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="standard_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action of Activities -->
+    <record id="action_activity" model="ir.actions.act_window">
+        <field name="name">Activities</field>
+        <field name="res_model">student.activity</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu of Activity -->
+    <menuitem id="menu_act" action="action_activity" parent="menu_school_config"/>
+
+
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+        <record model="ir.ui.view" id="wizard_factura_global_view_form">
+            <field name="name">wizard.factura.global.form</field>
+            <field name="model">wizard.factura.global</field>
+            <field name="arch" type="xml">
+                <form string="Factura Global" version="7.0">
+                    <group>
+                        <group>
+                        <field name="fecha_inicial"/>
+                        <field name="fecha_final"/>
+                        <field name="journal_pedidos" options="{'no_create': True, 'no_open': True}"/>
+                        <field name="partner_to_group" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group>
+                            <field name="invoice_product" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="invoice_partner" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="analytic_account_id"  />         
+                        </group>
+                    </group>
+                    <group>
+                        <field name="pos_order_list" invisible="True"/>
+                        <field name="pedidos_pos" options="{'no_create':True, 'no_open': True}" domain="[('id','in',pos_order_list)]">
+                        <tree name="tree_pedidos_pos"  >
+                            <field name="name"/>
+                            <field name="date_order"/>
+                            <field name="sale_journal"/>
+                        </tree>
+                        </field>
+                    </group>
+                    <group>
+                        <button type="object" name="crear_factura" string="Crear Factura"/>
+                    </group>
+                    <hr/>
+                    <footer>
+                        <button type="special" special="cancel" string="Cerrar"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    
+        <record id="action_factura_global" model="ir.actions.act_window">
+            <field name="name">Factura Global</field>
+            <field name="res_model">wizard.factura.global</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="wizard_factura_global_view_form"/>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem id="menu_factura_global" parent="account.menu_finance_receivables"
+            action="action_factura_global" groups="account.group_account_user"/>
+
+</odoo>    
+
+
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="amenities_one" model="customer.food">
+            <field name="name">powerbank</field>
+            <field name="price">500</field>
+        </record>
+        <record id="amenities_two" model="customer.food">
+            <field name="name">room_pure</field>
+            <field name="price">600</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+<!--    THIS WIZARD COME FROM A BUTTON IN SPECIFIC RECORD-->
+
+<!--    form view of the add charges wizard-->
+    <record id="view_add_charges_wiz_form" model="ir.ui.view">
+        <field name="name">view.add.charges.wiz.form</field>
+        <field name="model">add.charges.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="service_ids"/>
+                        <field name="taxes"/>
+                    </group>
+                    <footer>
+                        <button name="add_charges" type="object" string="Add Charges"/>
+                        <button special="cancel" string="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!--    action of the add charges wizard-->
+
+    <record id="action_add_charges_wiz" model="ir.actions.act_window">
+        <field name="name">Add Charges</field>
+        <field name="res_model">add.charges.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'form_view_ref':'hotel_mangement_14.view_add_charges_wiz_form'}</field>
+    </record>
+
+
+
+
+<!--    THIS WIZARD COME FROM MAIN MENU-->
+
+
+<!--    form view of menu add charges-->
+    <record id="view_add_menu_charges_wiz_form" model="ir.ui.view">
+        <field name="name">view.add.menu.charges.wiz.form</field>
+        <field name="model">add.charges.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="date"/>
+                        <field name="service_ids"/>
+                        <field name="taxes"/>
+                    </group>
+                    <footer>
+                        <button name="add_charges_id" type="object" string="Add Charge"/>
+                        <button special="cancel" string="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    action of the menu add charges wizard-->
+
+<!--    <record id="action_add_menu_charges_wiz" models="ir.actions.act_window">-->
+<!--        <field name="name">ADD CHARGES</field>-->
+<!--        <field name="res_model">add.charges.wiz</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">new</field>-->
+<!--        <field name="context">{'form_view_ref':'hotel_mangement_14.view_add_menu_charges_wiz_form'}</field>-->
+<!--    </record>-->
+
+
+<!--    Binding action of the add charges &ndash;&gt;-->
+
+    <record id="action_add_charges_wiz_customer" model="ir.actions.act_window">
+        <field name="name">Add Charges</field>
+        <field name="res_model">add.charges.wiz</field>
+        <field name="binding_model_id" ref="model_customer_customer"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

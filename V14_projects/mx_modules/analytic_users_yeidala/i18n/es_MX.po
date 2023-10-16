@@ -1,0 +1,120 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* analytic_users_yeidala
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-07-28 02:28+0000\n"
+"PO-Revision-Date: 2021-07-28 02:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields.selection,name:analytic_users_yeidala.selection__maintenance_request__equip_state__activo
+msgid "Activo"
+msgstr "Activo"
+
+#. module: analytic_users_yeidala
+#: model_terms:ir.ui.view,arch_db:analytic_users_yeidala.view_users_yeidala_form
+msgid "Allowed Analytic Accounts"
+msgstr "Cuentas analíticas permitidas"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_request__equip_amount
+msgid "Amount"
+msgstr "Monto"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_equipment__account_analytic_id
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_request__account_analytic_id
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_sale_order_line__account_analytic_id
+msgid "Analytic Account"
+msgstr "Cuenta analítica"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_res_users__account_analytic_id
+msgid "Analytic Account Default"
+msgstr "Cuenta analítica por defecto"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_equipment__user_account_analytic_ids
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_request__user_account_analytic_ids
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_purchase_order_line__user_account_analytic_ids
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_res_users__account_analytic_ids
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_sale_order_line__user_account_analytic_ids
+#: model_terms:ir.ui.view,arch_db:analytic_users_yeidala.view_users_yeidala_form
+msgid "Analytic Accounts"
+msgstr "Cuentas analíticas"
+
+#. module: analytic_users_yeidala
+#: model_terms:ir.ui.view,arch_db:analytic_users_yeidala.view_users_yeidala_form
+msgid "Default Analytic Account"
+msgstr "Cuenta analítica por defecto"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_equipment__display_name
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_request__display_name
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_purchase_order_line__display_name
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_res_users__display_name
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_sale_order_line__display_name
+msgid "Display Name"
+msgstr "Nombre en pantalla"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_request__equip_state
+msgid "Equip Status"
+msgstr "Estado del equipo"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_equipment__id
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_request__id
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_purchase_order_line__id
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_res_users__id
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_sale_order_line__id
+msgid "ID"
+msgstr "ID"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields.selection,name:analytic_users_yeidala.selection__maintenance_request__equip_state__inactivo
+msgid "Inactivo"
+msgstr "Inactivo"
+
+#. module: analytic_users_yeidala
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_equipment____last_update
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_maintenance_request____last_update
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_purchase_order_line____last_update
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_res_users____last_update
+#: model:ir.model.fields,field_description:analytic_users_yeidala.field_sale_order_line____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: analytic_users_yeidala
+#: model:ir.model,name:analytic_users_yeidala.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Equipo de mantenimiento"
+
+#. module: analytic_users_yeidala
+#: model:ir.model,name:analytic_users_yeidala.model_maintenance_request
+msgid "Maintenance Request"
+msgstr "Solicitud de mantenimiento"
+
+#. module: analytic_users_yeidala
+#: model:ir.model,name:analytic_users_yeidala.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "Línea de orden de compra"
+
+#. module: analytic_users_yeidala
+#: model:ir.model,name:analytic_users_yeidala.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Línea de orden de venta"
+
+#. module: analytic_users_yeidala
+#: model:ir.model,name:analytic_users_yeidala.model_res_users
+msgid "Users"
+msgstr "Usuarios"

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_hotel_root" name ="Hotel Management"/>
+    <menuitem id="menu_hotel_main" name="Hotel" parent="menu_hotel_root"/>
+<!--    <menuitem id="menu_customer_reporting" name="Reporting" parent="menu_hotel_root"/>-->
+<!--    <menuitem id="menu_xls_report" name="Excel Report" parent="menu_hotel_root"/>-->
+    <menuitem id="menu_room_record" name="Customer Record " parent="menu_hotel_root"/>
+    <menuitem id="menu_email_temp" name="Email Template" parent="menu_hotel_root"/>
+    <menuitem id="menu_cust_report" name="Customer Reports" parent="menu_hotel_root" groups="hotel_mangement_14.grp_hotel_admin"/>
+    <menuitem id="menu_main_update_age_wiz" name="Wizards" parent="menu_hotel_root"/>
+<!--    <menuitem id="menu_cust_new_report" name="Customer New Reports" parent="menu_hotel_root"/>-->
+</odoo>

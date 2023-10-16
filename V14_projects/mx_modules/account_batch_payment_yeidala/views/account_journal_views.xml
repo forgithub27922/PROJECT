@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_journal_form_layout_bank" model="ir.ui.view">
+        <field name="name">account.journal.form.layout.bank</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.view_account_journal_form" />
+        <field name="arch" type="xml">
+            <field name="bank_statements_source" position="after">
+                <field name="file_generation_enabled" />
+            </field>
+        </field>
+    </record>
+
+    <!-- -->
+    <record id="action_layout_payment_batch_banregio" model="ir.actions.server">
+        <field name="name">Generar Layout Banregio</field>
+        <field name="model_id" ref="model_account_move"/>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+            action = model.action_layout_payment_batch_banregio()
+        </field>
+    </record>
+
+
+</odoo>

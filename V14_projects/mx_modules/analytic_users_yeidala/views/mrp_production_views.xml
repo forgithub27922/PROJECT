@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+
+        <!-- MRP -->
+        <record id="mrp_production_form_inh_users" model="ir.ui.view">
+            <field name="name">mrp.production.form.inh_users</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <field name="location_src_id" position="before">
+                    <field name="account_analytic_id" readonly="1" invisible="1" />
+                </field>
+                <field name="location_src_id" position="replace">
+                    <field name="location_src_id" 
+                        groups="stock.group_stock_multi_locations" 
+                        options="{'no_create': True}" readonly="1"/>
+                </field>
+                <xpath expr="//page[@name='miscellaneous']//field[@name='location_dest_id']" position="replace">
+                    <field name="location_dest_id" 
+                        groups="stock.group_stock_multi_locations" 
+                        options="{'no_create': True}" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

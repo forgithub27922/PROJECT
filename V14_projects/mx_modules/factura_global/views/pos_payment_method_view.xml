@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="pos_payment_method_form_view_inherit">
+            <field name="name">pos_payment_method_form_view_inherit</field>
+            <field name="model">pos.payment.method</field>
+            <field name="inherit_id" ref="point_of_sale.pos_payment_method_view_form"/>
+            <field name="arch" type="xml">
+                <field name="company_id" position="before">
+                     <field name="l10n_mx_edi_payment_method_id"/>  
+          
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+
+

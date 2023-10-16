@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_l10n_mx_edi_invoice_form_inheritbf" model="ir.ui.view">
+            <field name="name">l10n_mx_edi.invoice.form.inheritbf</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <group id="other_tab_entry_group" position="inside">
+                    <group string="Payment CFDI" name="payment_cfdi_info_group" attrs="{'invisible': [('l10n_mx_edi_sat_tipocomprobante', '!=', 'P')]}">
+                        <field name="l10n_mx_edi_sat_emisor_rfc" />
+                        <field name="l10n_mx_edi_sat_receptor_rfc" />
+                        <field name="l10n_mx_edi_sat_tipocomprobante" />
+                        <field name="l10n_mx_edi_sat_documento" />
+                        <field name="l10n_mx_edi_sat_foliofiscal" />
+                        <field name="l10n_mx_edi_sat_fecha" />
+                        <field name="l10n_mx_edi_sat_monedap" />
+                        <field name="l10n_mx_edi_sat_montopago" />
+                        <field name="l10n_mx_edi_sat_doctorel" string="Docto Rel" />
+                        <field name="l10n_mx_edi_sat_status" string="Status SAT" />
+                    </group>
+                </group>
+            </field>
+        </record>
+    </data>
+</odoo>

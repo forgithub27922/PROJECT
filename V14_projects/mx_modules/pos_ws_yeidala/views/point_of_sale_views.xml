@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_pos_order_channel_tree" model="ir.ui.view">
+        <field name="name">pos.order.channel.tree</field>
+        <field name="model">pos.order.channel</field>
+        <field name="arch" type="xml">
+            <tree string="POS Orders Channel" sample="1" editable="bottom">
+                <field name="code"/>
+                <field name="name" decoration-bf="1"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+    <record id="pos_channel_action" model="ir.actions.act_window">
+        <field name="name">POS Orders Channel</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.order.channel</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" eval="view_pos_order_channel_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define a new channel
+            </p>
+            <p>
+                Categories are used to browse your products through the
+                touchscreen interface.
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_pos_channel_cus" parent="point_of_sale.menu_point_config_product"
+              action="pos_ws_yeidala.pos_channel_action" sequence="99"/>
+
+
+    <record id="view_pos_pos_channel_form" model="ir.ui.view">
+        <field name="name">pos.config.form.view</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="before">
+                <field name="channel_id"/>
+                <field name="noorderns" readonly="1"/>
+            </field>
+
+        </field>
+    </record>
+
+    <record id="pos_config_view_form" model="ir.ui.view">
+        <field name="name">pos.order.channel.form</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <h2 name="order" position="before">
+                <h2 name="order_ns">PoS Interface National Soft</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">POS National Soft</span>
+                            <div class="text-muted">
+                                Código para definir la empresa (Sucursal).
+                            </div>
+                            <div class="content-group mt16 row">
+                                <label for="empresans_id" string="ID Empresa NS" class="col-lg-3 o_light_label"/>
+                                <field name="empresans_id"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </h2>
+        </field>
+    </record>
+
+
+    <!--
+                    <button
+                        name="action_process_done"
+                        type="object"
+                        class="oe_link"
+                        string="Retry"
+                        attrs="{'invisible': [('ws_status', 'not in', [False, 'to_send', 'cancelled'])]}"/>
+    -->
+    <record id="view_pos_order_nationalsoft_form" model="ir.ui.view">
+        <field name="name">pos.order.nationalsoft.form</field>
+        <field name="model">pos.order.nationalsoft</field>
+        <field name="arch" type="xml">
+            <form string="POS Orders National Soft" create="0">
+                <div class="alert alert-warning"
+                     role="alert"
+                     style="margin-bottom:0px;"
+                     attrs="{'invisible': [('ws_error', '=', False)]}">
+                    <field name="ws_error" readonly="1"/>
+                </div>
+
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,paid,done"/>
+                    <button name="action_process_posns" type="object" string="CLICK ME !!"/>
+                </header>
+                <sheet>
+                    <group col="4" colspan="4" name="order_fields">
+                        <field name="name"/>
+                        <field name="noorden"/>
+                        <field name="date_order"/>
+                        <field name="config_id"/>
+                        <field name="nointentos"/>
+                        <field name="order_id"/>
+                        <field name="is_refund"/>
+                        <field name="refund_id"/>
+                        <field name="tipocancelacion"/>
+                        <field name="ws_status" invisible="1"/>
+                        <field name="user_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                    <group string="Json Body" name="jsonbody">
+                        <field name="ws_content"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_pos_order_nationalsoft_tree" model="ir.ui.view">
+        <field name="name">pos.order.nationalsoft.tree</field>
+        <field name="model">pos.order.nationalsoft</field>
+        <field name="arch" type="xml">
+            <tree string="POS Orders National Soft" sample="1">
+                <field name="name" decoration-bf="1"/>
+                <field name="noorden"/>
+                <field name="date_order"/>
+                <field name="config_id"/>
+                <field name="nointentos"/>
+                <field name="ws_status"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'"
+                       decoration-success="state not in ('draft','cancel')"/>
+                <field name="user_id" invisible="1"/>
+                <field name="company_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_pos_order_nationalsoft_filter" model="ir.ui.view">
+        <field name="name">pos.order.nationalsoft.select</field>
+        <field name="model">pos.order.nationalsoft</field>
+        <field name="arch" type="xml">
+            <search string="Search National Soft">
+                <field name="name" string="POS National Soft"
+                       filter_domain="['|', ('name', 'ilike', self), ('noorden', 'ilike', self)]"/>
+                <field name="date_order"/>
+                <field name="order_id"/>
+                <field name="config_id"/>
+                <group expand="0" string="Group By">
+                    <filter string="Orden" name="order" domain="[]" context="{'group_by': 'order_id'}"/>
+                    <filter string="Fecha Pedido" name="by_date_order" domain="[]" context="{'group_by': 'date_order'}"
+                            help="POS by Date"/>
+                    <filter string="POS Config" name="config" domain="[]" context="{'group_by': 'config_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="pos_order_nationalsoft_action" model="ir.actions.act_window">
+        <field name="name">POS Orders National Soft</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pos.order.nationalsoft</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" eval="view_pos_order_nationalsoft_tree"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Define a new channel
+            </p>
+            <p>
+                Categories are used to browse your products through the
+                touchscreen interface.
+            </p>
+        </field>
+    </record>
+    <menuitem id="menu_pos_channel"
+              parent="point_of_sale.menu_point_config_product"
+              action="pos_ws_yeidala.pos_order_nationalsoft_action"
+              sequence="100"
+              groups="point_of_sale.group_pos_manager,point_of_sale.group_pos_user"/>
+
+</odoo>

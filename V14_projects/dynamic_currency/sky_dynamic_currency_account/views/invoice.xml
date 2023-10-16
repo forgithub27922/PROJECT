@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+		<record id="view_move_form_currency_rate_inherit" model="ir.ui.view">
+			<field name="name">view.move.form.currency.rate.inherit</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_move_form"/>
+			<field name="arch" type="xml">
+				<xpath expr="//group[@id='header_right_group']" position="inside">
+					<!-- <div invisible="context.get('default_move_type') not in ('out_invoice', 'out_refund', 'out_receipt', 'in_invoice', 'in_refund','in_receipt')"> -->
+						<div class="o_td_label" invisible="context.get('default_move_type') not in ('entry', 'out_invoice', 'out_refund', 'out_receipt', 'in_invoice', 'in_refund','in_receipt')">
+							<label for="manual_currency_rate_active" string="Manual Rate" style="font-weight:bold;"/>
+						</div>
+						<div>
+							<field name="manual_currency_rate_active" nolabel="1" groups="base.group_multi_currency"/>
+							<button name="change_currency_rate" class="btn btn-link" type="object" string="Update Rate" attrs="{'invisible': [('manual_currency_rate_active', '=', False)]}"/>
+						</div>
+						<field name="inverse_rate"
+							context="{'move_inverse_rate':True}"
+							attrs="{'invisible': [('manual_currency_rate_active', '=', False)],
+							'required':[('manual_currency_rate_active', '=', True)]}"
+							groups="base.group_multi_currency"/>
+						<field name="manual_currency_rate"
+						context="{'manual':True}"
+						force_save="1" readonly="1"
+						attrs="{'invisible': [('manual_currency_rate_active', '=', False)],
+						'required':[('manual_currency_rate_active', '=', True)]}"
+						groups="base.group_multi_currency"/>
+					<!-- </div> -->
+				</xpath>
+			</field>
+		</record>
+		
+		<record id="view_move_line_tree_inherit" model="ir.ui.view">
+            <field name="name">view.move.line.tree.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']//field[@name='amount_currency']" position="after">
+                	<field name="inverse_rate" force_save="1" readonly="1"/>
+                	<field name="rate" force_save="1" readonly="1"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line_ids']//field[@name='price_unit']" position="after">
+                	<field name="inverse_rate" force_save="1" readonly="1" invisible="1"/>
+                	<field name="rate" force_save="1" readonly="1" invisible="1"/>
+                </xpath>
+             </field>
+      </record>
+      
+</odoo>

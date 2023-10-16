@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_report_resumen_inventarios,report_resumen_inventarios,model_report_resumen_inventarios,base.group_user,1,1,1,1
+access_report_resumen_inventarios_wiz,report_resumen_inventarios_wiz,model_report_resumen_inventarios_wiz,,1,1,1,1

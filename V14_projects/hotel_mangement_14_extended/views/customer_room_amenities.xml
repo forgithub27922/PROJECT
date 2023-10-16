@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_room_amenities_form" model="ir.ui.view">
+        <field name="name">view.room.amenities.form</field>
+        <field name="model">room.amenities</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="room_code"/>
+                        <field name="room_type"/>
+                        <field name="room_capacity"/>
+                        <field name="room_inside_servicess" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--        !&#45;&#45;    tree view of Room Amenities &ndash;&gt;-->
+    <record id="view_room_amenities_tree" model="ir.ui.view">
+        <field name="name">view.room.amenities.tree</field>
+        <field name="model">room.amenities</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="room_code"/>
+                <field name="room_type"/>
+                <field name="room_capacity"/>
+                <field name="room_inside_servicess"/>
+            </tree>
+        </field>
+    </record>
+    <!--    action of Room Amenities -->
+    <record id="action_room_amenities" model="ir.actions.act_window">
+        <field name="name">Room Amenities</field>
+        <field name="res_model">room.amenities</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--    menu of Room Amenities-->
+    <menuitem id="menu_room_amenities" action="action_room_amenities" parent="menu_room_main"/>
+</odoo>
+
+
+

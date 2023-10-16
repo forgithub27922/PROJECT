@@ -1,0 +1,3 @@
+id,name,age,gender,room_id/id,food_ids/id
+cust_barkha,"Barkha",23,male,room_300,amenities_four
+cust_sk,"SK",22,male,room_300,amenities_four

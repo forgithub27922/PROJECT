@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <template id="report_customer_doc">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <br/>
+                <h1 class="text-center">
+                    <span>Customer Report</span>
+                </h1>
+                <t t-if="data.get('form',{})">
+                    Room ID:
+                    <span t-esc="data['form']['room_id'][0]"/>
+                </t>
+                <t t-if="data.get('form',{})">
+                    Room :
+                    <span t-esc="data['form']['room_id'][1]"/>
+                </t>
+                <br/>
+                <!--                Adding imagTHOD 2021-08-30 12:08 New Var: Add My New Html Variable
+TOTAL SERVICESe on report-->
+                <img t-if="cust.image" t-att-src="image_data_uri(cust.image)" style="max-height:45pt;max-width:90%"
+                     alt="Customer Image"/>
+                <br/>
+                <br/>
+                <br/>
+
+                <td>
+                    <span style="margin-left:-60px;">
+                        <img t-att-src="'/report/barcode?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', cust.barcode, 600, 100)"
+                             style="width:350px;height:60px;"/>
+                    </span>
+                    <br/>
+                    <span t-field="cust.barcode"/>
+
+                </td>
+                <br/>
+                <br/>
+                <h4>Name :
+                    <span t-field="cust.name"/>
+                </h4>
+                <br/>
+                <br/>
+                <br/>
+                <table width="100%">
+                    <tr>
+                        <th>Age</th>
+                        <td>
+                            <span t-field="cust.age"/>
+                        </td>
+                
+                        <th>Customer Rooms</th>
+                        <td>
+                            <span t-field="cust.room_id.room_code"/>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
+                <table class="table">
+                    <tr>
+                        <th>Day</th>
+                        <th>Date</th>
+                        <th>Services</th>
+                        <th>Service Price</th>
+                        <th>Taxes</th>
+                    </tr>
+                    <t t-foreach="cust.charges_ids" t-as="charges">
+                        <tr>
+                            <td>
+                                <span t-field="charges.day"/>
+                            </td>
+                            <td>
+                                <span t-field="charges.date"/>
+                            </td>
+                            <td>
+                                <span t-field="charges.service_ids"/>
+                            </td>
+                            <td>
+                                <span t-field="charges.total_charges_service"/>
+                            </td>
+                            <td>
+                                <span t-field="charges.taxes"/>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+                <table class="table">
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL SERVICES</td>
+                        <td>TOTAL TAXES</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <span t-esc="total_ser_charges(cust.charges_ids)"/>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                        <td>
+                            <span t-esc="total_taxes(cust.charges_ids)"/>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </t>
+    </template>
+
+
+    <template id="report_customer">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="cust">
+                <t t-call="hotel_mangement_14.report_customer_doc"/>
+            </t>
+        </t>
+    </template>
+</odoo>

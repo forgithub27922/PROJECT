@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_machine_type_user,access.machine.type.user,model_machine_type,grp_machine_user,1,1,1,1
+access_machine_machine_user,access.machine.machine.user,model_machine_machine,grp_machine_user,1,1,1,1
+access_machine_process_logs_machine_user,access.machine.process.logs.machine.user,model_machine_process_log,grp_machine_user,1,1,1,1
+access_machine_process_logs_machine_user,access.machine.process.logs.machine.user,model_machine_process_log,grp_machine_user,1,1,1,1
+access_scan_plc_wizard_machine_user,access.scan.plc.wizard.machine.user,model_scan_plc_wizard,grp_machine_user,1,1,1,1
+access_scan_pattern_wizard_machine_user,access.scan.pattern.wizard.machine.user,model_scan_pattern_wizard,grp_machine_user,1,1,1,1
+access_pattern_barcode_machine_user,access.pattern.barcode.machine.user,model_pattern_barcode,grp_machine_user,1,1,1,1
+access_res_config_settings_machine_user,access.res.config.settings.machine.user,model_res_config_settings,grp_machine_user,1,1,1,0
+access_change_program_name_wizard_machine_user,access.change.program.name.wizard.machine.user,model_change_program_name_wiz,grp_machine_user,1,1,1,1

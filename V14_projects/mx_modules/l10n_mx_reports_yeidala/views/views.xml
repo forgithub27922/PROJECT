@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+
+        <record id="action_account_report_diot_yeidala" model="ir.actions.client">
+            <field name="name">Reporte de Impuestos</field>
+            <field name="tag">account_report</field>
+            <field name="context" eval="{'model': 'l10n_mx.account.diot.yeidala'}"/>
+        </record>
+        <menuitem id="menu_action_account_report_diot_yeidala"
+                  name="Transacciones con Terceros - Reporte Impuestos"
+                  action="action_account_report_diot_yeidala"
+                  parent="l10n_mx_reports.account_reports_legal_mexican_statements_menu"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- From view of xls report wiz -->
+    <record id="view_xls_report_wiz_form" model="ir.ui.view">
+        <field name="name">view.xls.report.wiz.form</field>
+        <field name="model">customer.xls.report.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="customer_ids" required="1"/>
+                </group>
+                <footer>
+                    <button name="cust_print_xls_report" string="Print Customer Report" type="object"
+                            class="btn-primary"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action of XLS report wiz -->
+    <record id="action_customer_xls_report" model="ir.actions.act_window">
+        <field name="name">Customer XLS Report</field>
+        <field name="view_mode">form</field>
+        <field name="res_model">customer.xls.report.wiz</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu of XLS Report Wiz -->
+
+    <menuitem id="menu_customer_xls_report" action="action_customer_xls_report" parent="menu_cust_report"/>
+
+</odoo>
