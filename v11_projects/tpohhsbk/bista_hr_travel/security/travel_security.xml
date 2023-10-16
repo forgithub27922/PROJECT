@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Travel security -->
+        <record id="rule_for_employee_officer_travel" model="ir.rule">
+            <field name="name">Travel Rule for Employee-Officer</field>
+            <field name="model_id" ref="bista_hr_travel.model_hr_travel" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_user'))]" />
+            <field name="perm_read">True</field>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+        </record>
+
+        <record id="rule_hr_travel_manager" model="ir.rule">
+            <field name="name">Travel Rule for Manager</field>
+            <field name="model_id" ref="bista_hr_travel.model_hr_travel" />
+			<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" />
+        </record>
+
+        <record id="rule_for_employee_officer_travel_head" model="ir.rule">
+            <field name="name">Travel-Head Rule for Employee-Officer</field>
+            <field name="model_id" ref="bista_hr_travel.model_hr_travel_allowance_head" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field name="perm_read">True</field>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+        </record>
+
+        <record id="rule_hr_travel_manager_head" model="ir.rule">
+            <field name="name">Travel-Head Rule for Manager</field>
+            <field name="model_id" ref="bista_hr_travel.model_hr_travel_allowance_head" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" />
+        </record>
+
+        <record id="rule_for_employee_officer_travel_alw" model="ir.rule">
+            <field name="name">Travel-Allowance Rule for Employee-Officer</field>
+            <field name="model_id" ref="bista_hr_travel.model_hr_travel_allowance_configuration" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field name="perm_read">True</field>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+
+        </record>
+
+        <record id="rule_hr_travel_manager_travel_alw" model="ir.rule">
+            <field name="name">Travel-Allowance Rule for Manager</field>
+            <field name="model_id" ref="bista_hr_travel.model_hr_travel_allowance_configuration" />
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" />
+        </record>
+
+		<!-- Multi Company Rule for HR Travel -->
+		<record id="hr_travel_multi_cmpny_rule_empower" model="ir.rule">
+        	<field name="name">HR Travel Multi Company Rule</field>
+        	<field name="model_id" ref="bista_hr_travel.model_hr_travel"/>
+        	<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        	<field eval="True" name="global"/>
+    	</record>
+
+    	<!-- Multi Company Rule for HR Travel Allowance Configuration -->
+		<record id="hr_travel_allowance_configuration_multi_company_rule_empower" model="ir.rule">
+        	<field name="name">HR Travel Allowance Configuration Multi Company Rule</field>
+        	<field name="model_id" ref="bista_hr_travel.model_hr_travel_allowance_configuration"/>
+        	<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        	<field eval="True" name="global"/>
+    	</record>
+
+    	<!-- Multi Company Rule for HR Travel Allowance Configuration -->
+		<record id="hr_travel_allowance_head_multi_company_rule_empower" model="ir.rule">
+        	<field name="name">HR Travel Allowance Head Multi Company Rule</field>
+        	<field name="model_id" ref="bista_hr_travel.model_hr_travel_allowance_head"/>
+        	<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        	<field eval="True" name="global"/>
+    	</record>
+
+<!--         <record id="rule_for_employee_officer_alw" model="ir.rule"> -->
+<!--             <field name="name">HR-Allowance Rule for Employee-Officer</field> -->
+<!--             <field name="model_id" ref="bista_hr_travel.model_hr_allowances" /> -->
+<!--             <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)] -->
+<!--             </field> -->
+<!--             <field name="perm_read">True</field> -->
+<!--             <field name="perm_write">False</field> -->
+<!--             <field name="perm_create">False</field> -->
+<!--             <field name="perm_unlink">False</field> -->
+<!--         </record> -->
+
+<!--         <record id="rule_hr_travel_manager_alw" model="ir.rule"> -->
+<!--             <field name="name">HR-Allowance Rule for Manager</field> -->
+<!--             <field name="model_id" ref="bista_hr_travel.model_hr_allowances" /> -->
+<!--             <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)] -->
+<!--             </field> -->
+<!--             <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]" /> -->
+<!--         </record> -->
+    </data>
+</odoo>

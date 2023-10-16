@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- HR Document Action -->
+        <record model="ir.actions.act_window" id="hr_document_eos_action">
+            <field name="name">Document</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.job.document</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <!--<field name="search_view_id" ref="hr_exit_doc_search_view"/>-->
+            <field name="context">{'is_eos': True, 'default_is_applicant':False}</field>
+            <field name="domain">[('is_applicant','=',False)]</field>
+        </record>
+
+        <menuitem name="Configuration" parent="bista_eos.menu_hr_termination_main"
+            id="main_documets_menu" sequence="2" groups="hr.group_hr_manager"/>
+
+        <menuitem name="Documents" parent="bista_eos.main_documets_menu"
+            id="sub_menu_hr_documents" action="hr_document_eos_action"
+                  sequence="2" groups="hr.group_hr_manager"/>
+
+    </data>
+</odoo>

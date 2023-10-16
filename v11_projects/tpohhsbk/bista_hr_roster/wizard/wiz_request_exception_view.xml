@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form view of Reject Request Exception wizard -->
+    <record id="wiz_view_reject_req_exception_form" model="ir.ui.view">
+        <field name="name">wiz.view.reject.exception.form</field>
+        <field name="model">wiz.reject.request.exception</field>
+        <field name="arch" type="xml">
+            <form string="Reject Request">
+                <label string="Please fill up the reason to reject"/>
+                <separator string="Reason"/>
+                <field name="reject_reason" required="1"/>
+                <footer>
+                    <button name="reject" string="Proceed" type="object" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    
+    <record id="wiz_view_cancel_form" model="ir.ui.view">
+        <field name="name">wiz.view.cancel.form</field>
+        <field name="model">wiz.cancel</field>
+        <field name="arch" type="xml">
+            <form string="Cancellation Reason">
+                <label string="Please fill up the reason for cancellation"/>
+                <separator string="Cancellation Reason"/>
+                <field name="cancel_reason" required="1"/>
+                <footer>
+                    <button name="reject" string="Proceed" type="object" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+</odoo>

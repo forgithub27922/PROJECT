@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+    <record id="view_tree_leave_allocation_except" model="ir.ui.view">
+        <field name="name">leave.allocation.exception.emp.tree</field>
+        <field name="model">leave.allocation.exception.emp</field>
+        <field name="arch" type="xml">
+            <tree string="Leave Allocation Exception">
+                <field name="employee_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="type"/>
+                <field name="holiday_status_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_leave_allocation_except" model="ir.ui.view">
+        <field name="name">leave.allocation.exception.emp.form</field>
+        <field name="model">leave.allocation.exception.emp</field>
+        <field name="arch" type="xml">
+            <form string="Leave Allocation Exception">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="type"/>
+                        </group>
+                        <group>
+                            <field name="holiday_status_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="auto_leave_allocation_exception_search_view" model="ir.ui.view">
+            <field name="name">leave.allocation.exception.emp.search.view</field>
+            <field name="model">leave.allocation.exception.emp</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <field name="start_date"/>
+                    <group expand="0" string="Group By">
+                        <filter name="flt_grp_emp" string="Employee"
+                                domain="[]"
+                                context="{'group_by':'employee_id'}"/>
+                        <filter name="group_date_from"
+                                string="Start Month"
+                                context="{'group_by':'start_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    <record id="action_autoatic_leave_allocation_exception"
+            model="ir.actions.act_window">
+        <field name="name">Automatic Leave Allocation Exception</field>
+        <field name="res_model">leave.allocation.exception.emp</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="leave_allocation_exception"
+            name="Leave Allocation Exceptions"
+            parent="hr_holidays.menu_hr_holidays_approvals"
+            sequence="10"
+            groups="hr_holidays.group_hr_holidays_manager,hr_holidays.group_hr_holidays_user"
+            action="action_autoatic_leave_allocation_exception"
+    />
+</odoo>

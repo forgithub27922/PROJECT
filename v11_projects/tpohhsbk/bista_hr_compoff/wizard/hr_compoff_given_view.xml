@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+
+        <record id="view_hr_compoff_given_form" model="ir.ui.view">
+            <field name="name">hr.compoff.given.form</field>
+            <field name="model">hr.compoff.given</field>
+            <field name="arch" type="xml">
+                <form string="Comp-Off Given">
+                    <group>
+                        <group cols="4">
+                            <field name="days" required="1"/>
+                            <field name="holiday_status_id" invisible="1"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_allocate_compoff" string="Allocate"
+                            type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

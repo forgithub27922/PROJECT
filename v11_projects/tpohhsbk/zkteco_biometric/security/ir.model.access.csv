@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bio_config,access_bio_config,model_bio_config,,1,1,1,1
+access_guest_user,access_guest_user,model_guest_user,,1,1,1,0
+access_last_attn,access_last_attn,model_last_attn,base.group_user,1,1,1,0

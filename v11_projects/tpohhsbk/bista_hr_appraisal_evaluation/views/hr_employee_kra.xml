@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!--  search view of Appraisal -->
+        <record id="hr_employee_kra_search_view" model="ir.ui.view">
+            <field name="name">hr.employee.kra.search.view</field>
+            <field name="model">hr.employee.kra</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="employee_id"/>
+                    <field name="name"/>
+                    <field name="appraisal_template_id"/>
+                    <field name="appraisal_period_id"/>
+                    <field name="reviewed_by"/>
+                    <group expand="0" string="Group By">
+                        <filter name="flt_grp_emp" string="Employee"
+                                domain="[]"
+                                context="{'group_by':'employee_id'}"/>
+                        <filter name="flt_grp_aprsl_temp"
+                                string="Appraisal Template" domain="[]"
+                                context="{'group_by':'appraisal_template_id'}"/>
+                        <filter name="flt_grp_aprsl_prd"
+                                string="Appraisal Period" domain="[]"
+                                context="{'group_by':'appraisal_period_id'}"/>
+                        <filter name="flt_grp_for_review"
+                                string="For Review"
+                                domain="[('review_state', '=', 'draft')]"
+                                context="{}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--hr employee kra Form View-->
+        <record id="hr_employee_kra_form" model="ir.ui.view">
+            <field name="name">hr.employee.kra.form</field>
+            <field name="model">hr.employee.kra</field>
+            <field name="arch" type="xml">
+                <form string="kra_form" create="false">
+                    <header>
+                        <button name="kra_appraisal_confirm"
+                                attrs="{'invisible': ['|', ('assessment_type', '!=', 'self_assessment'), ('state', '!=', 'draft')]}"
+                                string="Send for Review" type="object"
+                                class="oe_highlight"/>
+                        <button type="object" name="self_eval_reviewed"
+                                string="Reviewed" class="oe_highlight"
+                                groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+                                attrs="{'invisible': ['|',('assessment_type', '!=', 'self_assessment'), ('state', '!=', 'send_for_review')]}"/>
+                        <button type="object"
+                                name="reviewer_evaluation_confirm"
+                                string="Confirm" class="oe_highlight"
+                                attrs="{'invisible': ['|',('review_state', '!=', 'draft'), ('assessment_type', '=', 'self_assessment')]}"/>
+                        <field name="state"
+                               attrs="{'invisible': [('assessment_type', '!=', 'self_assessment')]}"
+                               widget="statusbar"/>
+                        <field name="review_state"
+                               attrs="{'invisible': [('assessment_type', '=', 'self_assessment')]}"
+                               widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <field name="is_employee" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="open_reviews" type="object"
+                                    context="{'assessment_type':'manager_assessment'}"
+                                    attrs="{'invisible': ['|','|', ('assessment_type', '!=', 'self_assessment'), ('is_employee', '=', False), ('state', '=', 'draft')]}"
+                                    class="oe_stat_button" icon="fa-list-alt">
+                                <field string="Manager Review"
+                                       name="confirmed_mngrs"
+                                       widget="statinfo"/>
+                            </button>
+                            <button name="open_reviews" type="object"
+                                    context="{'assessment_type':'peers_assessment'}"
+                                    attrs="{'invisible': ['|','|', ('assessment_type', '!=', 'self_assessment'), ('is_employee', '=', False), ('state', '=', 'draft')]}"
+                                    class="oe_stat_button" icon="fa-list-alt">
+                                <field string="Peers Review"
+                                       name="confirmed_peers"
+                                       widget="statinfo"/>
+                            </button>
+                        </div>
+                        <h1>
+                            <field name="name" readonly="1"
+                                   attrs="{'invisible':[('parent_id', '!=', False)]}"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="parent_id"
+                                       readonly="1"
+                                       attrs="{'invisible':[('parent_id', '=', False)]}"/>
+                                <field name="employee_id"
+                                       required='1' readonly="1"/>
+                                <field name="appraisal_template_id"
+                                       attrs="{'invisible':[('parent_id', '!=', False)]}"
+                                       required='1' readonly="1"/>
+                                <field name="review_start_date" required='1'
+                                       readonly="1"/>
+                                <field name="reviewer_ids"
+                                       domain="[('id', 'not in', peers_ids), ('id', '!=', employee_id)]"
+                                       attrs="{'invisible':[('parent_id', '!=', False)], 'readonly': [('state', '!=', 'draft')]}"
+                                       widget="many2many_tags"
+                                       options="{'no_create_edit': 1, 'no_create':1}"/>
+                                <field name="self_review_date" required="1"
+                                       readonly="1"
+                                       attrs="{'invisible': [('assessment_type', '!=', 'self_assessment')]}"/>
+                                <field name="assessment_type" invisible="1"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </group>
+                            <group>
+                                <field name="reviewed_by"
+                                       readonly="1"
+                                       attrs="{'invisible':[('parent_id', '=', False)]}"/>
+                                <field name="job_id" readonly="1"
+                                       required='1'/>
+                                <field name="appraisal_period_id"
+                                       attrs="{'invisible':[('parent_id', '!=', False)]}"
+                                       readonly="1" required='1'/>
+                                <field name="review_end_date" readonly="1"
+                                       required='1'/>
+                                <field name="peers_ids"
+                                       domain="[('id', 'not in', reviewer_ids), ('id', '!=', employee_id)]"
+                                       attrs="{'invisible':[('parent_id', '!=', False)], 'readonly': [('state', '!=', 'draft')]}"
+                                       widget="many2many_tags"
+                                       options="{'no_create_edit': 1, 'no_create':1}"/>
+                                <field name="mngr_pr_review_date" required="1"
+                                       readonly="1"
+                                       attrs="{'invisible': [('assessment_type', '=', 'self_assessment')]}"/>
+                                <field name="child_ids" invisible="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="self_assessment"
+                                  attrs="{'invisible': [('assessment_type', '!=', 'self_assessment')]}"
+                                  string="Self Assessment">
+                                <field name="kra_line_ids"
+                                       attrs="{'readonly': [('state', '!=', 'draft')]}">
+                                    <tree editable="bottom" create="false"
+                                          delete="false">
+                                        <field name="question" readonly="1"/>
+                                        <field name="description"
+                                               readonly="1"/>
+                                        <field name="weightage" readonly="1"/>
+                                        <field name="measurement_ids"
+                                               widget="many2many_tags"
+                                               readonly="1"/>
+                                        <field name="self_assessment"
+                                               sum="Total Self Assessment"
+                                               required="1"/>
+                                        <field name="self_remark"
+                                               required="1"/>
+                                    </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                    <!--<field name="total_self_assessment"-->
+                                    <!--string="Total Self Assessment"-->
+                                    <!--class="oe_subtotal_footer_separator"/>-->
+                                    <field name="average_manager_assessment"
+                                           attrs="{'invisible': ['|','|', ('assessment_type', '!=', 'self_assessment'), ('is_employee', '=', False), ('state', '=', 'draft')]}"
+                                           string="Average Manager Assessment"
+                                           class="oe_subtotal_footer_separator"/>
+                                    <field name="average_peers_assessment"
+                                           attrs="{'invisible': ['|','|', ('assessment_type', '!=', 'self_assessment'), ('is_employee', '=', False), ('state', '=', 'draft')]}"
+                                           string="Average Peers Assessment"
+                                           class="oe_subtotal_footer_separator"/>
+                                </group>
+                            </page>
+                            <page name="manager_assessment"
+                                  attrs="{'invisible': [('assessment_type', '!=', 'manager_assessment')]}"
+                                  string="Manager Assessment">
+                                <field name="kra_manager_review_ids"
+                                       attrs="{'readonly':[('review_state','=','confirm')]}">
+                                    <tree editable="bottom" create="false"
+                                          delete="false">
+                                        <field name="question" readonly="1"/>
+                                        <field name="description"
+                                               readonly="1"/>
+                                        <field name="weightage" readonly="1"/>
+                                        <field name="measurement_ids"
+                                               widget="many2many_tags"
+                                               readonly="1"/>
+                                        <field name="self_assessment"
+                                               readonly="1"
+                                               sum="Total Self Assessment"/>
+                                        <field name="manager_assessment"
+                                               sum="Total Manager Assessment"
+                                               required="1"/>
+                                        <field name="manager_remark"
+                                               required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="peers_assessment"
+                                  attrs="{'invisible': [('assessment_type', '!=', 'peers_assessment')]}"
+                                  string="Peers Objective Assessment">
+                                <field name="kra_peers_review_ids"
+                                       attrs="{'readonly':[('review_state','=','confirm')]}">
+                                    <tree editable="bottom" create="false"
+                                          delete="false">
+                                        <field name="question" readonly="1"/>
+                                        <field name="description"
+                                               readonly="1"/>
+                                        <field name="weightage" readonly="1"/>
+                                        <field name="measurement_ids"
+                                               widget="many2many_tags"
+                                               readonly="1"/>
+                                        <field name="peers_assessment"
+                                               sum="Total Peers Assessment"
+                                               required="1"/>
+                                        <field name="peers_remark"
+                                               required="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="strenth_weakness"
+                                  attrs="{'invisible': [('assessment_type', 'in', ['peers_assessment'])]}"
+                                  string="Strenth and Weakness">
+                                <group>
+                                    <field name="strength_point"
+                                           attrs="{'readonly': ['|', ('assessment_type', '!=', 'self_assessment'), ('state', '!=', 'draft')]}"/>
+                                    <field name="weakness_point"
+                                           attrs="{'readonly': ['|', ('assessment_type', '!=', 'self_assessment'), ('state', '!=', 'draft')]}"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--hr employee kra tree view for assessment_type = 'self_assessment'-->
+        <record id="hr_employee_kra_self_asses_tree" model="ir.ui.view">
+            <field name="name">hr.employee.kra.self.asses.tree</field>
+            <field name="model">hr.employee.kra</field>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="job_id"/>
+                    <field name="review_start_date"/>
+                    <field name="review_end_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- hr employee kra tree view for assessment_type !=
+        'self_assessment' -->
+        <record id="hr_employee_kra_tree" model="ir.ui.view">
+            <field name="name">hr.employee.kra.tree</field>
+            <field name="model">hr.employee.kra</field>
+            <field name="arch" type="xml">
+                <tree create="false">
+                    <field name="name"/>
+                    <field name="reviewed_by"/>
+                    <field name="employee_id"/>
+                    <field name="job_id"/>
+                    <field name="review_start_date"/>
+                    <field name="review_end_date"/>
+                    <field name="review_state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- hr employee kra Pivot view -->
+        <record id="view_appraisal_pivot" model="ir.ui.view">
+            <field name="name">view.appraisal.pivot</field>
+            <field name="model">hr.employee.kra</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="total_self_assessment" type="measure"/>
+                    <field name="average_manager_assessment" type="measure"/>
+                    <field name="average_peers_assessment" type="measure"/>
+                    <field name="employee_id" type="row"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--Appraisal Measurement Form View-->
+        <record id="appraisal_measurement_form" model="ir.ui.view">
+            <field name="name">appraisal.measurement.form</field>
+            <field name="model">appraisal.measurement</field>
+            <field name="arch" type="xml">
+                <form string="appraisal Measurement form">
+                    <sheet>
+                        <group col="4">
+                            <field name="name" required="1"/>
+                            <field name="code" required="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Appraisal Measurement Tree View-->
+        <record id="appraisal_measurement_tree" model="ir.ui.view">
+            <field name="name">appraisal.measurement.tree</field>
+            <field name="model">appraisal.measurement</field>
+            <field name="arch" type="xml">
+                <tree string="appraisal Measurement tree">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Apprisal Action for HR View all -->
+        <record id="hr_employee_kra_hr_review_action"
+                model="ir.actions.act_window">
+            <field name="name">HR Review</field>
+            <field name="res_model">hr.employee.kra</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_employee_kra_self_asses_tree"/>
+            <field name="domain">[('assessment_type', '=',
+                'self_assessment')]
+            </field>
+            <field name="context">{'search_default_flt_grp_aprsl_temp': 1, 'search_default_flt_grp_aprsl_prd': 1}</field>
+        </record>
+
+        <!-- Apprisal Action for Self assessment Action-->
+        <record id="hr_employee_kra_action" model="ir.actions.act_window">
+            <field name="name">Employee Kra</field>
+            <field name="res_model">hr.employee.kra</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_employee_kra_self_asses_tree"/>
+            <field name="domain">[('assessment_type', '=',
+                'self_assessment'), ('employee_id.user_id','=',uid)]
+            </field>
+        </record>
+
+        <record id="hr_employee_kra_manager_review_action"
+                model="ir.actions.act_window">
+            <field name="name">Manager Review</field>
+            <field name="res_model">hr.employee.kra</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="hr_employee_kra_tree"/>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('assessment_type', '=',
+                'manager_assessment'), ('reviewed_by.user_id','=',uid)]
+            </field>
+            <field name="context">{'search_default_flt_grp_for_review':1}
+            </field>
+        </record>
+
+        <record id="hr_employee_kra_peers_review_action"
+                model="ir.actions.act_window">
+            <field name="name">Peers Review</field>
+            <field name="res_model">hr.employee.kra</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="hr_employee_kra_tree"/>
+            <field name="domain">[('assessment_type', '=',
+                'peers_assessment'), ('reviewed_by.user_id','=',uid)]
+            </field>
+            <field name="context">{'search_default_flt_grp_for_review':1}
+            </field>
+        </record>
+
+        <!-- Appraisal Pivot Report Action -->
+        <record id="hr_appraisal_pivot_report_action"
+                model="ir.actions.act_window">
+            <field name="name">Appraisal Report</field>
+            <field name="res_model">hr.employee.kra</field>
+            <field name="view_type">form</field>
+            <field name="domain">[('parent_id','=',False),
+                ('assessment_type', '=', 'self_assessment')]
+            </field>
+            <field name="context">{'search_default_flt_grp_emp':1,
+                'search_default_flt_grp_aprsl_temp':1,
+                'search_default_flt_grp_aprsl_prd':1}
+            </field>
+            <field name="view_mode">pivot</field>
+        </record>
+
+        <!--Appraisal Measurement Action-->
+        <record id="appraisal_measurement_action"
+                model="ir.actions.act_window">
+            <field name="name">Measurement</field>
+            <field name="res_model">appraisal.measurement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Position -->
+        <record id="appraisal_position_action" model="ir.actions.act_window">
+            <field name="name">Position</field>
+            <field name="res_model">hr.job</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+
+    <data noupdate="1">
+        <!-- Kra Sq -->
+        <record id="employee_kra_sequence_id_view" model="ir.sequence">
+            <field name="name">Employee KRA Request</field>
+            <field name="code">hr.employee.kra</field>
+            <field name="padding">6</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

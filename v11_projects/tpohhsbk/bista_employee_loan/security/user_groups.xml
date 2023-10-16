@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+        <record model="ir.module.category" id="loan_management">
+            <field name="name">Loan Management</field>
+            <field name="sequence">18</field>
+        </record>
+
+        <record id="group_loan_hr_approval" model="res.groups">
+            <field name="name">HR Approval</field>
+            <field name="category_id" ref="loan_management"/>
+        </record>
+        <record id="group_loan_finance_approval" model="res.groups">
+            <field name="name">Finance Approval</field>
+            <field name="category_id" ref="loan_management"/>
+        </record>
+
+        <record id="rule_for_employee_loan_self" model="ir.rule">
+            <field name="name">Loan Request Employee</field>
+            <field name="model_id" ref="bista_employee_loan.model_hr_employee_loan"/>
+            <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_loan_officer" model="res.groups">
+            <field name="name">Officer</field>
+            <field name="implied_ids" eval="[(4, ref('group_loan_hr_approval')), (4, ref('group_loan_finance_approval'))]"/>
+            <field name="category_id" ref="loan_management"/>
+        </record>
+
+        <record id="group_loan_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="implied_ids" eval="[(4, ref('group_loan_officer'))]"/>
+            <field name="category_id" ref="loan_management"/>
+        </record>
+
+
+        <record id="rule_for_employee_loan_all" model="ir.rule">
+            <field name="name">Loan Request Manager</field>
+            <field name="model_id" ref="bista_employee_loan.model_hr_employee_loan"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')), (4, ref('hr.group_hr_user')),
+            (4, ref('bista_employee_loan.group_loan_hr_approval')),(4, ref('bista_employee_loan.group_loan_finance_approval'))]"/>
+        </record>
+
+        <record id="rule_for_employee_loan_installment_self" model="ir.rule">
+            <field name="name">Loan Installment Employee</field>
+            <field name="model_id" ref="bista_employee_loan.model_loan_installments"/>
+            <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="rule_for_employee_loan_installment_manager" model="ir.rule">
+            <field name="name">Loan Installment Manager</field>
+            <field name="model_id" ref="bista_employee_loan.model_loan_installments"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')), (4, ref('hr.group_hr_user')),
+            (4, ref('bista_employee_loan.group_loan_hr_approval')),(4, ref('bista_employee_loan.group_loan_finance_approval'))]"/>
+        </record>
+
+        <record id="loan_rule_multi_company" model="ir.rule">
+            <field name="name">Loan Multi Company Rule</field>
+            <field name="model_id" ref="bista_employee_loan.model_hr_employee_loan"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+        <record id="loan_installment_rule_multi_company" model="ir.rule">
+            <field name="name">Loan Installment Multi Company Rule</field>
+            <field name="model_id" ref="bista_employee_loan.model_loan_installments"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+        <record id="batch_employee_loan_multi_company_rule" model="ir.rule">
+            <field name="name">Batch Loan Multi Company Rule</field>
+            <field name="model_id" ref="bista_employee_loan.model_batch_employee_loan"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+    </data>
+</odoo>

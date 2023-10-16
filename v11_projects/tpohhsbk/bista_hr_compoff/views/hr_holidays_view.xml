@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="view_hr_hlidays_form_inherit_compoff" model="ir.ui.view">
+            <field name="name">hr.holidays.form.inherit.compoff</field>
+            <field name="model">hr.holidays</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/group/group[1]/div" position="after">
+                    <label for="expire_date" string="Till Date"
+                           attrs="{'invisible':['|', ('type', '=', 'remove'),
+                           ('compoff_id', '=', False)]}"/>
+                    <div>
+                        <div attrs="{'invisible':['|', ('type', '=', 'remove'),
+                        ('compoff_id', '=', False)]}">
+                            <field name="compoff_date_expired"
+                                   class="oe_inline"/>
+                        </div>
+                    </div>
+                    <field name="compoff_id" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_hr_compoff_form_inherit_compoff" model="ir.ui.view">
+            <field name="name">hr.holidays.status.form.inherit.compoff</field>
+            <field name="model">hr.holidays.status</field>
+            <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+            <field name="arch" type="xml">
+                <field name="limit" position="after">
+                    <field name="allow_compoff"/>
+                    <field name="allow_advance"/>
+                </field>
+                <field name="color_name" position="after">
+                    <label for="expired_days" attrs="{'invisible': [('allow_compoff', '=', False)]}"/>
+                    <div attrs="{'invisible': [('allow_compoff', '=', False)]}">
+                        <field name="expired_days" nolabel="1" class="oe_inline"
+                            attrs="{'required': [('allow_compoff', '=', True)]}"/> Days
+                    </div>
+                    <label for="hours_before" attrs="{'invisible': [('allow_advance', '=', False)]}"/>
+                    <div attrs="{'invisible': [('allow_advance', '=', False)]}">
+                        <field name="hours_before" nolabel="1" class="oe_inline"
+                               attrs="{'required': [('allow_advance', '=', True)]}"/> Hours
+                    </div>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

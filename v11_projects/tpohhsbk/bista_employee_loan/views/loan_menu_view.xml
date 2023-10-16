@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Loan Main Menu Root -->
+    <menuitem id="loan_management_view_id"
+              name="Loan Management"
+              web_icon="bista_employee_loan,static/description/loan3.jpeg"
+              groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"/>
+
+    <!-- Loan Management main Menu -->
+    <menuitem id="loan_management_main_menu"
+              name="Loans"
+              parent="loan_management_view_id"
+              sequence="1"
+              groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"/>
+
+    <!-- Loan Request Sub main menu -->
+    <menuitem id="loan_request_sub_main_menu"
+              name="Loan Request"
+              parent="loan_management_main_menu"
+              groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"
+              sequence="1"/>
+
+    <!-- Loan Approval -->
+    <menuitem id="loan_request_menu"
+              action="open_loan_request_for_hr_approval"
+              parent="loan_request_sub_main_menu"
+              name="Loan Request"
+              groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"
+              sequence="1"/>
+
+
+
+    <!-- Loan Installment sub main menu -->
+    <menuitem id="loan_installment_sub_main_menu"
+              name="Installments"
+              parent="loan_management_main_menu"
+              groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"
+              sequence="1"/>
+
+
+    <!-- All Loan Installments -->
+    <menuitem name="View All Installments"
+              id="loan_installments_menu"
+              action="loan_installments_action"
+              sequence="2"
+              parent="loan_installment_sub_main_menu"/>
+
+
+    <menuitem
+        id="menu_print_loan_report"
+        name="Employee Loan Report"
+        parent="bista_employee_loan.loan_management_main_menu"
+        action="bista_employee_loan.action_loan_print_report_menu"
+        groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"
+       />
+	
+	<menuitem
+        id="menu_item_account_loan_to_approve"
+        name="Loan to Pay"
+        action="action_account_loan_loan_to_pay"
+        parent="bista_payroll.parent_menu_accounting_staff"
+        groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"
+        sequence="5"/>
+
+    <menuitem
+        id="menu_print_loan_installment_report"
+        name="Loan Installment Report"
+        parent="bista_employee_loan.loan_management_main_menu"
+        action="bista_employee_loan.action_loan_installment_report"
+        groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"
+       />
+
+
+</odoo>

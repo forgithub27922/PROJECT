@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Email template for approval-->
+        <record id="termination_req_approval_template" model="mail.template">
+            <field name="name">Approve Termination Request</field>
+            <field name="subject">Exit Request of ${object.employee_id.name}</field>
+            <field name="model_id" ref="model_hr_termination_request"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <br/>
+                    % if object.state == 'submit':
+                    <p>This is to inform you that exit request has been initiated by ${user.name}.</p>
+                    % else :
+                    <p>This is to inform you that exit request has been approved by ${user.name}.</p>
+                    % endif
+                    <br/>
+
+                    <p>Thank you,<br/>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Email template for rejection-->
+        <record id="termination_req_rejection_template" model="mail.template">
+            <field name="name">Reject Termination Request</field>
+            <field name="subject">Exit Request Rejection by ${user.name}</field>
+            <field name="model_id" ref="model_hr_termination_request"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <br/>
+                    <p>This is to inform you that exit request of ${object.employee_id.name} has been rejected by ${user.name}.</p>
+                    <br/>
+                    <p>Thank you,<br/>
+                </div>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

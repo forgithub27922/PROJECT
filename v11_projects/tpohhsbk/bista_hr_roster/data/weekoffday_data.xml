@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="weekoff_mon" model="weekoff.day">
+            <field name="name">Monday</field>
+            <field name="code">Monday</field>
+        </record>
+
+        <record id="weekoff_tue" model="weekoff.day">
+            <field name="name">Tuesday</field>
+            <field name="code">Tuesday</field>
+        </record>
+
+        <record id="weekoff_wed" model="weekoff.day">
+            <field name="name">Wednesday</field>
+            <field name="code">Wednesday</field>
+        </record>
+
+        <record id="weekoff_thur" model="weekoff.day">
+            <field name="name">Thursday</field>
+            <field name="code">Thursday</field>
+        </record>
+
+        <record id="weekoff_fri" model="weekoff.day">
+            <field name="name">Friday</field>
+            <field name="code">Friday</field>
+        </record>
+
+        <record id="weekoff_sat" model="weekoff.day">
+            <field name="name">Saturday</field>
+            <field name="code">Saturday</field>
+        </record>
+
+        <record id="weekoff_sun" model="weekoff.day">
+            <field name="name">Sunday</field>
+            <field name="code">Sunday</field>
+        </record>
+
+    </data>
+</odoo>

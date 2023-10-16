@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="inherit_customer_invoice_form_view" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='product_id']" position="before">
+                    <field name="sequence_ref"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="inherit_supplier_invoice_form_view" model="ir.ui.view">
+            <field name="name">account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='product_id']" position="before">
+                    <field name="sequence_ref"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

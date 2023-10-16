@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--form view for hr appraisal config-->
+    <record id="hr_appraisal_configuration_form_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.configuration.form.view</field>
+        <field name="model">hr.appraisal.configuration</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="appraisal_configuration_confirm"
+                            string="Confirm" type="object"
+                            states="draft" class="oe_highlight"/>
+                    <button name="appraisal_configuration_done"
+                            string="Close" type="object"
+                            states="in_progress"
+                            confirm="Are you sure you want close this period ?"
+                            class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="open_appraisal" type="object"
+                                class="oe_stat_button"
+                                icon="fa-list-alt"
+                                context="{'search_default_flt_grp_aprsl_prd': 1}"
+                                attrs="{'invisible': [('state', '=', 'draft')]}"
+                                groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user">
+                            <field string="Appraisal" name="no_of_appraisal"
+                                   widget="statinfo"></field>
+                        </button>
+                    </div>
+                    <h1>
+                        <field name="name" required="1"
+                               attrs="{'readonly': [('state', 'not in', ('draft'))]}"
+                               placeholder="Appraisal for %Year"/>
+                    </h1>
+                    <group>
+                        <group name="Group2">
+                            <field name="appraisal_policy" required="1"
+                                   attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                            <field name="start_date" required="1"
+                                   attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                        </group>
+                        <group name="Group3">
+                            <field name="company_id" required="1"
+                                   options="{'no_create': True}"
+                                   readonly="1"/>
+                            <field name="end_date" required="1"
+                                   attrs="{'readonly': [('state', 'not in', ('draft'))]}"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page name="app_eval_period" string="Appraisal Period">
+                            <field name="app_eval_ids"
+                                   attrs="{'readonly': [('state', '!=', 'in_progress')]}">
+                                <tree editable="top" create="false"
+                                      delete="false">
+                                    <field name="name"/>
+                                    <field name="date_start"/>
+                                    <field name="date_end"/>
+                                    <field name="state"/>
+                                    <button name="bista_hr_appraisal_evaluation.hr_kra_generate_wiz_act"
+                                            string="Generate Appraisal"
+                                            attrs="{'invisible':[('state', '=', 'done')]}"
+                                            type="action"
+                                            context="{'default_appraisal_period_id':active_id}"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--tree view for hr appraisal config-->
+    <record id="hr_appraisal_configuration_tree_view" model="ir.ui.view">
+        <field name="name">hr.appraisal.configuration.tree.view</field>
+        <field name="model">hr.appraisal.configuration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="appraisal_policy"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--action view for hr_appraisal config-->
+    <record id="wid_act_hr_appraisal_configuration"
+            model="ir.actions.act_window">
+        <field name="name">Appraisal Period</field>
+        <field name="res_model">hr.appraisal.configuration</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- hr appraisal configuration period form view -->
+    <record id="hr_appraisal_configuration_period_form_view"
+            model="ir.ui.view">
+        <field name="name">hr.appraisal.configuration.period.form.view</field>
+        <field name="model">hr.appraisal.configuration.period</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <button name="bista_hr_appraisal_evaluation.hr_kra_generate_wiz_act"
+                            string="Generate Appraisal" class="oe_highlight"
+                            type="action"
+                            attrs="{'invisible':[('state', '=', 'done')]}"
+                            context="{'default_appraisal_period_id':active_id}"/>
+
+
+                    <button name="appraisal_configuration_close"
+                            states="in_progress"
+                            string="Close" class="oe_highlight"
+                            type="object"/>
+                </header>
+                <h1>
+                    <field name="name" required="1"/>
+                </h1>
+                <group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="appraisal_template_id" readonly="1"/>
+                    </group>
+                    <group>
+                        <field name="date_end"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_appraisal_configuration_period_tree_view"
+            model="ir.ui.view">
+        <field name="name">hr.appraisal.configuration.period.tree.view</field>
+        <field name="model">hr.appraisal.configuration.period</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="appraisal_template_id"/>
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

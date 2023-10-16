@@ -1,0 +1,72 @@
+<odoo>
+
+
+        <template id="report_daily_performance_report">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="row">
+                        <center>
+                            <div style="font-size:25px">
+                                <b>Daily Performance</b>
+                            </div>
+                        </center>
+                        <br/>
+                        <table class="table table-bordered table-condensed" style="border:1px solid black;">
+                            <tr>
+                                <td style="text-align:center;font-weight:bold">Company</td>
+                                <td colspan="11"><t t-esc="o.company_id.name"/></td>
+                            </tr>
+                            <tr style="text-align:center;font-weight:bold;">
+                                <td>Date</td>
+                                <td>Emp Id</td>
+                                <td>Emp Name</td>
+                                <td>Shift Start</td>
+                                <td>In</td>
+                                <td>Out</td>
+                                <td>Shift End</td>
+                                <td>Status</td>
+                                <td>Worked</td>
+                                <td>Early By</td>
+                                <td>Late By</td>
+                                <td>Remark</td>
+                            </tr>
+                            <t t-foreach="o.roster_attendance_line_ids" t-as="line">
+                                <tr style="text-align:center;">
+                                    <td><span t-field="line.att_date"/></td>
+                                    <td><span t-field="line.attendance_id.employee_id.employee_code"/></td>
+                                    <td><span t-field="line.attendance_id.employee_id.name"/></td>
+                                    <td><span t-field="line.planned_sign_in" t-options='{"widget":"float_time"}'/></td>
+                                    <td><span t-field="line.actual_sign_in" t-options='{"widget":"float_time"}'/></td>
+                                    <td><span t-field="line.actual_sign_out" t-options='{"widget":"float_time"}'/></td>
+                                    <td><span t-field="line.planned_sign_out" t-options='{"widget":"float_time"}'/></td>
+                                    <td><span t-field="line.status"/></td>
+                                    <td><span t-field="line.working_hours" t-options='{"widget":"float_time"}'/></td>
+                                    <td>
+                                        <t t-if="((line.planned_sign_out-line.actual_sign_out) > 0) and line.actual_sign_out > 0">
+                                            <t t-esc="get_vals(o,line.planned_sign_out,line.actual_sign_out)"/>
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <t t-if="((line.actual_sign_in-line.planned_sign_in) > 0) and line.actual_sign_in > 0">
+                                            <t t-esc="get_vals(o,line.actual_sign_in,line.planned_sign_in)"/>
+                                        </t>
+                                    </td>
+
+                                    <td><t t-esc="line.comment"/></td>
+                                </tr>
+                            </t>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <template id="report_daily_performance">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="bista_hr_roster.report_daily_performance_report"/>
+                </t>
+            </t>
+        </template>
+
+
+</odoo>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_bista_hr_interview">
+        <t t-if="not o and doc">
+            <t t-set="o" t-value="doc" />
+        </t>
+        <t t-if="o and 'company_id' in o">
+            <t t-set="company" t-value="o.company_id.sudo()" />
+        </t>
+        <t t-if="not o or not 'company_id' in o">
+            <t t-set="company" t-value="res_company" />
+        </t>
+        <div class="header">
+            <div class="row">
+                <div class="col-xs-4 pull-right" style="border: 1px solid silver; margin-right: 8%; max-width: 122px;">
+                    <img class="image" height="95px" width="95px" 
+                        style="margin-top: 1px;"
+                        t-att-src="'data:image/png;base64,%s' % to_text(company.logo)"/>
+                </div>
+                <div style="margin-top:100px;margin-left:100px;" class="pull-left">
+                <h4>
+                    <b>Interview Evaluation Form</b>
+                </h4>
+            </div>
+            </div>
+        </div>
+        <div class="article o_report_layout_standard">
+            <div class="page">
+                <div class="row" style="margin-top:10px;">
+                    <div class="col-xs-12">
+                        <table class="table table-bordered" style="border:1px solid black;">
+                            <tbody>
+                                <tr style="border:1px solid black;">
+                                    <td style="border:1px solid black; width:51%;">
+                                        <strong>Overall Average Score:</strong>
+                                    </td>
+                                    <td style="border:1px solid black; width:49%;">
+                                        <t t-esc="o.overall_avg_score"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <t t-foreach="o.interviewer_ids" t-as="iv">
+                <div class="oe_structure" />
+                    <div class="row" style="margin-top:-20px; margin-bottom:20px;">
+                        <div class="col-xs-12">
+                            <table class="table table-bordered" style="border:1px solid black;">
+                                <tbody>
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;width:15%;">
+                                            <strong>Interviewer:</strong>
+                                        </td>
+                                        <td style="border:1px solid black;" colspan="2">
+                                            <t t-esc="iv.interviewer_id and iv.interviewer_id.name" />
+                                        </td>
+                                        <td style="border:1px solid black;">
+                                            <strong>Date of Interview:</strong>
+                                        </td>
+                                        <td style="border:1px solid black;" colspan="2">
+                                            <t t-esc="iv.date_of_interview" />
+                                        </td>
+                                    </tr>
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;">
+                                            <strong>Candidate Name:</strong>
+                                        </td>
+                                        <td style="border:1px solid black;" colspan="2">
+                                            <t t-esc="iv.applicant_id and iv.applicant_id.partner_name" />
+                                        </td>
+                                        <td style="border:1px solid black;">
+                                            <strong>Position:</strong>
+                                        </td>
+                                        <td style="border:1px solid black;" colspan="2">
+                                            <t t-esc="iv.applicant_id and iv.applicant_id.name" />
+                                        </td>
+                                    </tr>
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;" colspan="3">
+                                            <strong>Result:</strong>
+                                            <ul style="margin-left:60px;">
+                                                <li>
+                                                    <span>Total Score&amp;nbsp;:&amp;nbsp;</span><t t-if="iv"><t t-set="total_score"
+                                            t-value="sum([len(os) for os in iv.overall_score_ids])" /><t t-if="total_score"><t t-esc="(total_score*5)" /></t></t>
+                                                </li>
+                                                <li>
+                                                    <span>Achieved Score&amp;nbsp;:&amp;nbsp;</span>
+                                                    <t t-if="iv"><t t-set="achieved_score"
+                                            t-value="sum([int(os.achieved_score) for os in iv.overall_score_ids])" /><t t-if="achieved_score"><t t-esc="achieved_score" /></t></t>
+                                                </li>
+                                                <li>
+                                                    <span>Avg. Score&amp;nbsp;:&amp;nbsp;</span>
+                                                    <t t-if="iv and iv.scored_points">
+                                                        <t t-esc="int(iv.scored_points)" />
+                                                    </t>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                        <td style="border:1px solid black;" colspan="3">
+                                            <strong>Stage:</strong>
+                                            &amp;nbsp;
+                                            <span t-esc="o.stage_id and o.stage_id.name" />
+                                        </td>
+                                    </tr>
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;width:10%;">
+                                            <strong>Scale:</strong>
+                                        </td>
+                                        <td style="border:1px solid black;width:18%;">
+                                            <strong>5</strong>
+                                            &amp;nbsp;
+                                            <span>-</span>
+                                            &amp;nbsp;
+                                            <span>Excellent</span>
+                                        </td>
+                                        <td style="border:1px solid black;width:18%;">
+                                            <strong>4</strong>
+                                            &amp;nbsp;
+                                            <span>-</span>
+                                            &amp;nbsp;
+                                            <span>Good</span>
+                                        </td>
+                                        <td style="border:1px solid black;width:18%;">
+                                            <strong>3</strong>
+                                            &amp;nbsp;
+                                            <span>-</span>
+                                            &amp;nbsp;
+                                            <span>Average</span>
+                                        </td>
+                                        <td style="border:1px solid black;width:18%;">
+                                            <strong>2</strong>
+                                            &amp;nbsp;
+                                            <span>-</span>
+                                            &amp;nbsp;
+                                            <span>Satisfactory</span>
+                                        </td>
+                                        <td style="border:1px solid black;width:18%;">
+                                            <strong>1</strong>
+                                            &amp;nbsp;
+                                            <span>-</span>
+                                            &amp;nbsp;
+                                            <span>Poor</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <t t-if="iv">
+                                <table class="table table-bordered" style="border:1px solid black; margin-top:-20px;">
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;width:80%;" rowspan="2">
+                                        </td>
+                                        <td style="border:1px solid black;width:20%; text-align:center;"
+                                            colspan="5">
+                                            <strong>Rating</strong>
+                                        </td>
+                                    </tr>
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <strong>5</strong>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <strong>4</strong>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <strong>3</strong>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <strong>2</strong>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <strong>1</strong>
+                                        </td>
+                                    </tr>
+                                    <t t-foreach="iv.overall_score_ids" t-as="os">
+                                    <tr style="border:1px solid black;">
+                                        <td style="border:1px solid black;width:80%;">
+                                        <span><b>Description&amp;nbsp;-&amp;nbsp;</b><t t-esc="os.description" /></span><br/>
+                                        <span><b>Comment:&amp;nbsp;</b><t t-esc="os.comment" /></span>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <t t-if="os.achieved_score == '5'">
+                                                <input type="checkbox" checked="checked" />
+                                            </t>
+                                            <t t-else="">
+                                                <input type="checkbox" />
+                                            </t>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <t t-if="os.achieved_score == '4'">
+                                                <input type="checkbox" checked="checked" />
+                                            </t>
+                                            <t t-else="">
+                                                <input type="checkbox" />
+                                            </t>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <t t-if="os.achieved_score == '3'">
+                                                <input type="checkbox" checked="checked" />
+                                            </t>
+                                            <t t-else="">
+                                                <input type="checkbox" />
+                                            </t>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <t t-if="os.achieved_score == '2'">
+                                                <input type="checkbox" checked="checked" />
+                                            </t>
+                                            <t t-else="">
+                                                <input type="checkbox" />
+                                            </t>
+                                        </td>
+                                        <td style="border:1px solid black;width:4%; text-align:center;">
+                                            <t t-if="os.achieved_score == '1'">
+                                                <input type="checkbox" checked="checked" />
+                                            </t>
+                                            <t t-else="">
+                                                <input type="checkbox" />
+                                            </t>
+                                        </td>
+                        </tr>
+                        </t>
+                        </table>
+                </t>
+            </div>
+        </div>
+    </t>
+    </div>
+    </div>
+    </template>
+
+    <template id="hr_interview_report_bista">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="bista_hr_recruitment.report_bista_hr_interview"
+                    t-lang="doc.user_id and doc.user_id.partner_id and doc.user_id.partner_id.lang" />
+            </t>
+        </t>
+    </template>
+
+</odoo>

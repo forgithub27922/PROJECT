@@ -1,0 +1,42 @@
+ <odoo>
+     <data>
+
+         <!-- Qweb report of Vehicle Transactions by Driver / Custodian -->
+         <report
+                 id="report_vehicle_transaction_by_driver"
+                 string="Vehicle Transactions by Driver/Custodian"
+                 model="vehicle.report.by.driver"
+                 name="fleet_transactions.vehicle_report_by_driver"
+                 report_type="qweb-pdf"
+         />
+
+         <!-- Qweb report of Vehicle Transactions by Location -->
+         <report
+                 id="report_vehicle_transaction_by_location"
+                 string="Vehicle Transactions by Location"
+                 model="vehicle.report.by.location"
+                 name="fleet_transactions.vehicle_report_by_location"
+                 report_type="qweb-pdf"
+         />account.report.wiz
+
+         <!-- Qweb report of Vehicle Transaction by Vehicle -->
+         <report
+                 id="report_vehicle_transaction_by_vehicle"
+                 string="Vehicle Transactions by Vehicle"
+                 model="vehicle.report.by.vehicle"
+                 name="fleet_transactions.vehicle_report_by_vehicle"
+                 report_type="qweb-pdf"
+         />
+
+         <!-- Qweb report of Vehicle Transaction by Period -->
+         <report
+                 id="report_vehicle_transaction_by_period"
+                 string="Vehicle Transactions by Period"
+                 model="vehicle.report.by.period"
+                 name="fleet_transactions.vehicle_report_by_period"
+                 report_type="qweb-pdf"
+         />
+
+
+     </data>
+ </odoo>

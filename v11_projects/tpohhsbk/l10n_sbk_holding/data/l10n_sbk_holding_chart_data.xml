@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Chart Template -->
+    <record id="account_arabic_coa_sbk_holding" model="account.chart.template">
+        <field name="property_account_receivable_id"
+               ref="account_account_sbk_holding_16"/>
+        <field name="property_account_payable_id"
+               ref="account_account_sbk_holding_82"/>
+        <field name="property_account_expense_id"
+               ref="account_account_sbk_holding_89"/>
+        <field name="property_account_income_id"
+               ref="account_account_sbk_holding_128"/>
+        <field name="property_account_expense_categ_id"
+               ref="account_account_sbk_holding_89"/>
+        <field name="property_account_income_categ_id"
+               ref="account_account_sbk_holding_128"/>
+        <!--<field name="income_currency_exchange_account_id"-->
+               <!--ref="account_account_template_304"/>-->
+        <!--<field name="expense_currency_exchange_account_id"-->
+               <!--ref="account_account_template_247"/>-->
+    </record>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_leave_salary_officer,leave.salary.officer,model_leave_salary,hr_payroll.group_hr_payroll_user,1,0,0,0
+access_leave_salary_manager,leave.salary.manager,model_leave_salary,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_leave_salary_line_user,leave.salary.line.user,model_leave_salary_line,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_leave_salary_line_holidays_user,leave.salary.line.holidays.user,model_leave_salary_line,hr_holidays.group_hr_holidays_user,1,1,1,1
+access_leave_allocation_batch,access_leave_allocation_batch,model_leave_allocation_batch,base.group_user,1,1,1,1

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_request_link_employee" model="res.request.link">
+            <field name="name">Employee</field>
+            <field name="object">hr.employee</field>
+        </record>
+        <record id="res_request_link_department" model="res.request.link">
+            <field name="name">Department</field>
+            <field name="object">hr.department</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,540 @@
+<odoo>
+
+    <!-- Menu of Vehicle Model -->
+    <menuitem action="fleet.fleet_vehicle_model_action" parent="fleet.fleet_configuration" id="fleet.fleet_vehicle_model_menu" sequence="2"/>
+    <menuitem action="fleet.fleet_vehicle_model_brand_action" parent="fleet.fleet_configuration" id="fleet.fleet_vehicle_model_brand_menu" sequence="1"/>
+
+    <!-- Action for Fleet Vehicles of Locations -->
+    <record id="action_fleet_vehicle_of_loc" model="ir.actions.act_window">
+        <field name="name">Vehicles of Location</field>
+        <field name="res_model">fleet.vehicle</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('location_id','=',active_id)]</field>
+    </record>
+
+    <!-- Action for Drivers of Locations -->
+    <record id="action_driver_of_loc" model="ir.actions.act_window">
+        <field name="name">Drivers of Location</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="domain">[('driver','=',True),('location_id','=',active_id)]</field>
+    </record>
+
+    <!-- Form view of Fleet Locations -->
+    <record id="view_fleet_location_form" model="ir.ui.view">
+        <field name="name">view.fleet.location.form</field>
+        <field name="model">fleet.location</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                    <notebook>
+                        <page name="pg_vehicles" string="Vehicles">
+                            <field name="vehicle_ids" readonly="1"/>
+                        </page>
+                        <page name="pg_drivers" string="Drivers">
+                            <field name="driver_ids" readonly="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Fleet Locations -->
+    <record id="view_fleet_location_tree" model="ir.ui.view">
+        <field name="name">view.fleet.location.tree</field>
+        <field name="model">fleet.location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Kanban view of Fleet Locations -->
+    <record id="view_fleet_location_kanban" model="ir.ui.view">
+        <field name="name">view.fleet.location.kanban</field>
+        <field name="model">fleet.location</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="color"/>
+                <field name="no_of_vehicles"/>
+                <field name="no_of_drivers"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="#{kanban_color(record.color.raw_value)} oe_kanban_global_click o_has_icon">
+                            <div class="o_project_kanban_main">
+                                <div class="o_kanban_card_content">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <h2><field name="name" string="Location Name"/></h2>
+                                        </div>
+                                    </div>
+                                </div>
+<!--                                <a class="o_kanban_manage_toggle_button o_left" href="#"><i class="fa fa-ellipsis-v" />-->
+<!--                                   <div class="o_kanban_card_manage_pane">-->
+<!--                                        <div class="o_kanban_card_manage_section o_kanban_manage_reports">-->
+<!--                                            <div>-->
+<!--                                                <a type="edit">Settings</a>-->
+<!--                                            </div>-->
+<!--                                            <div>-->
+<!--                                                <a name="%(fleet_transactions.action_fleet_vehicle_of_loc)d" type="action">Vehicles</a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                        <div class="o_project_kanban_colorpicker">-->
+<!--                                            <ul class="oe_kanban_colorpicker" data-field="color"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </a>-->
+                            </div>
+                            <div class="o_project_kanban_boxes">
+                                <a class="o_project_kanban_box" name="%(fleet_transactions.action_fleet_vehicle_of_loc)d" type="action">
+                                    <div>
+                                        <span class="o_value"><t t-esc="record.no_of_vehicles.value"/></span>
+                                        <span class="o_label">Vehicles</span>
+                                        <button t-if="record.no_of_vehicles.raw_value" class="btn-link o_needaction" name="%(fleet_transactions.action_fleet_vehicle_of_loc)d" type="action" context="{'search_default_location_id': active_id}">
+<!--                                            <t t-esc="record.no_of_vehicles.raw_value"/>-->
+                                        </button>
+                                    </div>
+                                </a>
+                                <a class="o_project_kanban_box oe_inline" name="%(fleet_transactions.action_driver_of_loc)d" type="action">
+                                    <div>
+                                        <span class="o_value"><t t-esc="record.no_of_drivers.value"/></span>
+                                        <span class="o_label">Drivers</span>
+                                        <button t-if="record.no_of_drivers.raw_value" class="btn-link o_needaction" name="%(fleet_transactions.action_driver_of_loc)d" type="action" context="{'search_default_location_id': active_id}">
+<!--                                            <t t-esc="record.no_of_drivers.raw_value"/>-->
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action of Fleet Locations -->
+    <record id="action_fleet_location" model="ir.actions.act_window">
+        <field name="name">Locations</field>
+        <field name="res_model">fleet.location</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <!-- Menu of Locations -->
+    <menuitem id="menu_fleet_location" action="action_fleet_location"
+              parent="fleet.fleet_vehicles" sequence="1" groups="fleet.fleet_group_user"/>
+
+    <!-- Form view of Fleet Transactions -->
+    <record id="view_fleet_transaction_form" model="ir.ui.view">
+        <field name="name">view.fleet.transaction.form</field>
+        <field name="model">fleet.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="confirm_txn" string="Confirm" type="object" states="draft"/>
+                    <button name="cancel_txn" string="Cancel" type="object"
+                            states="confirm,mngr_approval,pm_approval"/>
+                    <button name="mngr_approve_txn" string="Approve" type="object"
+                            attrs="{'invisible':['|','&amp;',('state','!=','confirm'),('type','in',('sell','scrap','gift')),('type','not in',('sell','scrap','gift'))]}"
+                            groups="fleet_transactions.fleet_group_dept_mngr"/>
+                    <button name="pm_approve_txn" string="Approve" type="object"
+                            attrs="{'invisible':['|',('state','!=','mngr_approval'),('type','not in',('sell','scrap','gift'))]}"
+                            groups="fleet_transactions.fleet_group_palace_mngr"/>
+                    <button name="complete_txn" string="Complete" type="object"
+                            attrs="{'invisible':['|','&amp;',('state','!=','pm_approval'),('type','in',('sell','scrap','gift')),'&amp;',('state','!=','confirm'),('type','in',('location','personal'))]}"/>
+                    <button name="set_to_draft_txn" string="Set to Draft" type="object" states="cancel"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <group colspan="4" col="4" name="grp_fields">
+                        <field name="vehicle_id" colspan="4" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="type" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="from_loc_id" readonly="1"/>
+                        <field name="to_loc_id" domain="[('id','!=',from_loc_id)]"
+                               attrs="{'invisible':[('type','in',('sell','scrap','gift','personal'))],
+                                       'required':[('type','in','location')],
+                                       'readonly':[('state','!=','draft')]}"/>
+                        <field name="from_partner_id" domain="[('driver','=',True)]" readonly="1"
+                               context="{'default_is_driver':True}"/>
+                        <field name="to_partner_id" domain="[('driver','=',True),('location_id','=',from_loc_id),('id','!=',from_partner_id)]"
+                               attrs="{'invisible':[('type','in',('sell','scrap','location'))],
+                                       'required':[('type','in',('gift','personal'))],
+                                       'readonly':[('state','!=','draft')]}"
+                               context="{'default_is_driver':True}"/>
+                        <field name="amount" attrs="{'invisible':[('type','not in',('sell','scrap'))],
+                                                     'readonly':[('state','!=','draft')],
+                                                     'required':[('type','in',('sell','scrap'))]}"/>
+                    </group>
+                    <separator string="Notes"/>
+                    <field name="notes" />
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread" options='{"thread_level": 1}'/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Form view of Fleet Transactions -->
+    <record id="view_fleet_transaction_form_type_invisible" model="ir.ui.view">
+        <field name="name">view.fleet.transaction.form</field>
+        <field name="model">fleet.transaction</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="confirm_txn" string="Confirm" type="object" states="draft"/>
+                    <button name="cancel_txn" string="Cancel" type="object"
+                            states="confirm,mngr_approval,pm_approval"/>
+                    <button name="mngr_approve_txn" string="Approve" type="object"
+                            attrs="{'invisible':['|','&amp;',('state','!=','confirm'),('type','in',('sell','scrap','gift')),('type','not in',('sell','scrap','gift'))]}"
+                            groups="fleet_transactions.fleet_group_dept_mngr"/>
+                    <button name="pm_approve_txn" string="Approve" type="object"
+                            attrs="{'invisible':['|',('state','!=','mngr_approval'),('type','not in',('sell','scrap','gift'))]}"
+                            groups="fleet_transactions.fleet_group_palace_mngr"/>
+                    <button name="complete_txn" string="Complete" type="object"
+                            attrs="{'invisible':['|','&amp;',('state','!=','pm_approval'),('type','in',('sell','scrap','gift')),'&amp;',('state','!=','confirm'),('type','in',('location','personal'))]}"/>
+                    <button name="set_to_draft_txn" string="Set to Draft" type="object" states="cancel"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <group colspan="4" col="4" name="grp_fields">
+                        <field name="vehicle_id" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="type" required="1" attrs="{'readonly':[('state','!=','draft')]}" invisible="1"/>
+                        <field name="date" required="1" attrs="{'readonly':[('state','!=','draft')]}"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                        <field name="from_loc_id" readonly="1"/>
+                        <field name="to_loc_id"
+                               attrs="{'invisible':[('type','in',('sell','scrap','gift','personal'))],
+                                       'required':[('type','in','location')],
+                                       'readonly':[('state','!=','draft')]}"/>
+                        <field name="from_partner_id" domain="[('driver','=',True)]" readonly="1"
+                               context="{'default_is_driver':True}"/>
+                        <field name="to_partner_id" domain="[('driver','=',True)]"
+                               attrs="{'invisible':[('type','in',('sell','scrap','location'))],
+                                       'required':[('type','in',('gift','personal'))],
+                                       'readonly':[('state','!=','draft')]}"
+                               context="{'default_is_driver':True}"/>
+                        <field name="amount" attrs="{'invisible':[('type','not in',('sell','scrap'))],
+                                                     'readonly':[('state','!=','draft')]}"/>
+                    </group>
+                    <separator string="Notes"/>
+                    <field name="notes" />
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread" options='{"thread_level": 1}'/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view of Fleet Transactions -->
+    <record id="view_fleet_transaction_tree" model="ir.ui.view">
+        <field name="name">view.fleet.transaction.tree</field>
+        <field name="model">fleet.transaction</field>
+        <field name="arch" type="xml">
+            <tree decoration-info="state == 'confirm'" decoration-danger="state == 'cancel'" decoration-muted="state == 'done'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="type"/>
+                <field name="vehicle_id"/>
+                <field name="from_loc_id"/>
+                <field name="to_loc_id"/>
+                <field name="from_partner_id"/>
+                <field name="to_partner_id"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search view of Fleet Transactions -->
+    <record id="view_fleet_transaction_search" model="ir.ui.view">
+        <field name="name">view.fleet.transaction.search</field>
+        <field name="model">fleet.transaction</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="type"/>
+                <field name="vehicle_id"/>
+                <field name="from_loc_id"/>
+                <field name="to_loc_id"/>
+                <field name="from_partner_id"/>
+                <field name="to_partner_id"/>
+                <filter name="location_txn" string="Location Transfers" domain="[('type','=','location')]"/>
+                <filter name="personal_txn" string="Driver/Custodian Transfers" domain="[('type','=','personal')]"/>
+                <filter name="sold_vhl" string="Sold Vehicles" domain="[('type','=','sell')]"/>
+                <filter name="scrap_vhl" string="Scrapped Vehicles" domain="[('type','=','scrap')]"/>
+                <filter name="gift_vhl" string="Gifted Vehicles" domain="[('type','=','gift')]"/>
+                <filter name="groupby_vehicle" string="Vehicle" domain="[]" context="{'group_by':'vehicle_id'}"/>
+                <filter name="groupby_type" string="Transaction Type" domain="[]" context="{'group_by':'type'}"/>
+                <filter name="groupby_date" string="Date" domain="[]" context="{'group_by':'date'}"/>
+                <filter name="groupby_outgoing" string="Location Outgoing" domain="[]" context="{'group_by':'from_loc_id'}"/>
+                <filter name="groupby_incoming" string="Location Incoming" domain="[]" context="{'group_by':'to_loc_id'}"/>
+                <filter name="groupby_release" string="Driver/Custodian Release" domain="[]" context="{'group_by':'from_partner_id'}"/>
+                <filter name="groupby_assign" string="Driver/Custodian Assign" domain="[]" context="{'group_by':'to_partner_id'}"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Action of Fleet Transactions -->
+    <record id="action_fleet_transaction" model="ir.actions.act_window">
+        <field name="name">All Transactions</field>
+        <field name="res_model">fleet.transaction</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action of Location Transfers -->
+    <record id="action_fleet_transaction_loc_transfer" model="ir.actions.act_window">
+        <field name="name">Location Transfers</field>
+        <field name="res_model">fleet.transaction</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','=','location')]</field>
+        <field name="context">{'form_view_ref':'fleet_transactions.view_fleet_transaction_form_type_invisible','default_type':'location'}</field>
+    </record>
+
+    <!-- Action of Driver/Custodian Transfers -->
+    <record id="action_fleet_transaction_personal_transfer" model="ir.actions.act_window">
+        <field name="name">Driver/Custodian Transfers</field>
+        <field name="res_model">fleet.transaction</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','=','personal')]</field>
+        <field name="context">{'form_view_ref':'fleet_transactions.view_fleet_transaction_form_type_invisible','default_type':'personal'}</field>
+    </record>
+
+    <!-- Action of Vehicles Sales-->
+    <record id="action_fleet_transaction_sales" model="ir.actions.act_window">
+        <field name="name">Vehicle Sales</field>
+        <field name="res_model">fleet.transaction</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','=','sell')]</field>
+        <field name="context">{'form_view_ref':'fleet_transactions.view_fleet_transaction_form_type_invisible','default_type':'sell'}</field>
+    </record>
+
+    <!-- Action of Vehicles Scraps-->
+    <record id="action_fleet_transaction_scraps" model="ir.actions.act_window">
+        <field name="name">Vehicle Scraps</field>
+        <field name="res_model">fleet.transaction</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','=','scrap')]</field>
+        <field name="context">{'form_view_ref':'fleet_transactions.view_fleet_transaction_form_type_invisible','default_type':'scrap'}</field>
+    </record>
+
+    <!-- Action of Gifted Vehicles-->
+    <record id="action_fleet_transaction_gifted" model="ir.actions.act_window">
+        <field name="name">Vehicles Gifted</field>
+        <field name="res_model">fleet.transaction</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type','=','gift')]</field>
+        <field name="context">{'form_view_ref':'fleet_transactions.view_fleet_transaction_form_type_invisible','default_type':'gift'}</field>
+    </record>
+
+    <!-- Menu of Fleet Transactions -->
+    <menuitem id="menu_fleet_transaction" name="Transactions"
+              parent="fleet.menu_root"
+              groups="fleet.fleet_group_user"/>
+
+    <!-- Menu for All Transactions -->
+    <menuitem id="menu_transaction"
+              parent="menu_fleet_transaction"
+              groups="fleet.fleet_group_user"
+              action="action_fleet_transaction"/>
+
+    <!-- Menu for Location Transfers -->
+    <menuitem id="menu_transaction_loc_xfer"
+              parent="menu_fleet_transaction"
+              groups="fleet.fleet_group_user"
+              action="action_fleet_transaction_loc_transfer"/>
+
+    <!-- Menu for Driver/Custodian Transfers -->
+    <menuitem id="menu_transaction_personal_xfer"
+              parent="menu_fleet_transaction"
+              groups="fleet.fleet_group_user"
+              action="action_fleet_transaction_personal_transfer"/>
+
+    <!-- Menu for Vehicle Sales -->
+    <menuitem id="menu_transaction_vehicle_sales"
+              parent="menu_fleet_transaction"
+              groups="fleet.fleet_group_user"
+              action="action_fleet_transaction_sales"/>
+
+    <!-- Menu for Vehicle Scraps -->
+    <menuitem id="menu_transaction_vehicle_scraps"
+              parent="menu_fleet_transaction"
+              groups="fleet.fleet_group_user"
+              action="action_fleet_transaction_scraps"/>
+
+    <!-- Menu for Vehicle Gifts -->
+    <menuitem id="menu_transaction_vehicle_gift"
+              parent="menu_fleet_transaction"
+              groups="fleet.fleet_group_user"
+              action="action_fleet_transaction_gifted"/>
+
+    <!-- Menu for Manager Approvals -->
+    <record id="action_fleet_transaction_dp_mngr" model="ir.actions.act_window">
+        <field name="name">Txns to Approve by Dept. Manager</field>
+        <field name="res_model">fleet.transaction</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','=','confirm'),('type','in',['scrap','sell','gift'])]</field>
+    </record>
+
+    <!-- Menu for Palace Manager Approvals -->
+    <record id="action_fleet_transaction_plc_mngr" model="ir.actions.act_window">
+        <field name="name">Txns to Approve by Palace Manager</field>
+        <field name="res_model">fleet.transaction</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','=','mngr_approval'),('type','in',['scrap','sell','gift'])]</field>
+    </record>
+
+    <!-- Menu of Fleet Transactions To Approve-->
+    <menuitem id="menu_fleet_transaction_approval" name="Transactions to Approve"
+              parent="fleet.menu_root"
+              groups="fleet.fleet_group_user"/>
+
+    <!-- Menu for Txns to Approve by Dept. Manager -->
+    <menuitem id="menu_transaction_dp_mngr"
+              parent="menu_fleet_transaction_approval"
+              groups="fleet.fleet_group_user"
+              action="action_fleet_transaction_dp_mngr"/>
+
+    <!-- Menu for Txns to Approve by Palace Manager -->
+    <menuitem id="menu_fleet_transaction_plc_mngr"
+              parent="menu_fleet_transaction_approval"
+              groups="fleet.fleet_group_user"
+              action="action_fleet_transaction_plc_mngr"/>
+
+    <!-- Inherited Form view of Vehicle -->
+    <record id='fleet_vehicle_view_form_txn_inherit' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.form.txn.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet" position="inside">
+                <notebook>
+                    <page string="Images" name="pg_img">
+                        <field name="image_ids">
+                            <tree>
+                                <field name="image_file" widget="image"/>
+                            </tree>
+                            <form>
+                                <field name="image_file" widget="image"/>
+                            </form>
+                        </field>
+                    </page>
+                </notebook>
+            </xpath>
+            <xpath expr="//field[@name='model_id']" position="after">
+                <field name="brand_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='location']" position="replace">
+                <field name="location_id" readonly="1"/>
+            </xpath>
+            <xpath expr="//field[@name='driver_id']" position="attributes">
+                <attribute name="string">Driver/Custodian</attribute>
+            </xpath>
+            <xpath expr="//field[@name='driver_id']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='vin_sn']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='image_medium']" position="after">
+                <field name="photo" widget="image" class="oe_avatar"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited Tree view of Vehicles -->
+    <record id='fleet_vehicle_view_tree_txn_inherit' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.tree.txn.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='model_id']" position="before">
+                <field name="brand_id"/>
+            </xpath>
+            <xpath expr="//field[@name='model_id']" position="after">
+                <field name="location_id" required="1"/>
+            </xpath>
+            <xpath expr="//field[@name='driver_id']" position="attributes">
+                <attribute name="string">Driver/Custodian</attribute>
+            </xpath>
+            <xpath expr="//field[@name='driver_id']" position="attributes">
+                <attribute name="required">1</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited Search View of Vehicles -->
+    <record id="fleet_vehicle_view_search_txn_inherit" model="ir.ui.view">
+        <field name="name">fleet.vehicle.search.txn.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location']" position="replace">
+                <field name="location_id"/>
+            </xpath>
+            <xpath expr="//filter[@name='inactive']" position="after">
+                <filter name="unalloc_vehicles" string="Unallocated Vehicles" domain="[('driver_id','=',False)]"/>
+            </xpath>
+            <xpath expr="//filter[@name='groupby_model']" position="after">
+                <filter name="groupby_brand" string="Brand" domain="[]" context="{'group_by':'brand_id'}"/>
+                <filter name="groupby_location" string="Location" domain="[]" context="{'group_by':'location_id'}"/>
+                <filter name="groupby_drv_cust" string="Driver/Custodian" domain="[]" context="{'group_by':'driver_id'}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherited Kanban view of Vehicles -->
+     <record id='fleet_vehicle_view_kanban_inherit' model='ir.ui.view'>
+         <field name="name">fleet.vehicle.kanban</field>
+         <field name="model">fleet.vehicle</field>
+         <field name="inherit_id" ref="fleet.fleet_vehicle_view_kanban"/>
+         <field name="arch" type="xml">
+                <xpath expr="//field[@name='contract_count']" position="after">
+                    <field name="photo"/>
+                </xpath>
+                <xpath expr="//div[@class='o_kanban_image']" position="replace">
+                    <div class="o_kanban_image">
+                        <img t-att-src="kanban_image('fleet.vehicle', 'photo', record.id.raw_value)"/>
+                    </div>
+                </xpath>
+         </field>
+     </record>
+
+    <!-- Inherited form view of Driver -->
+     <record id='view_res_partner_driver_form' model='ir.ui.view'>
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="sbk_fleet_mgt.inherit_res_partner_form_view"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='driver']" position="after">
+                 <field name="location_id"/>
+             </xpath>
+        </field>
+     </record>
+
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--Inherit Payment Receipt report-->
+    <template id="inherit_payment_receipt_report" inherit_id="account.report_payment_receipt">
+        <xpath expr="//div[@class='page']/h3/strong" position="replace">
+            <t t-if="o.payment_type == 'inbound'">
+                <strong>Receipt Voucher: <span t-field="o.name"/></strong>
+            </t>
+            <t t-if="o.payment_type == 'outbound'">
+                <strong>Payment Voucher: <span t-field="o.name"/></strong>
+            </t>
+            <t t-if="o.payment_type == 'transfer'">
+                <strong>Payment Receipt: <span t-field="o.name"/></strong>
+            </t>
+        </xpath>
+    </template>
+</odoo>

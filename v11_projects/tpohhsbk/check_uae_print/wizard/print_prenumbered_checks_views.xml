@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="print_pre_numbered_checks_view_inherit" model="ir.ui.view">
+        <field name="name">Print Pre-numbered Checks</field>
+        <field name="model">print.prenumbered.checks</field>
+        <field name="inherit_id" ref="account_check_printing.print_pre_numbered_checks_view"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='next_check_number']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='next_check_number']" position="after">
+                <field name="check_format_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

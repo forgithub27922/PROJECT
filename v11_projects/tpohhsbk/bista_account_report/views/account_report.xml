@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="custom_profit_loss_paperformat" model="report.paperformat">
+            <field name="name">Profit &amp; Loss Report</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">25</field>
+            <field name="margin_bottom">10</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">25</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <!-- QWeb Reports -->
+        <report
+            id="action_report_account"
+            string="Account Report"
+            model="account.report.wiz"
+            name="bista_account_report.bista_account_report_temp"
+            report_type="qweb-pdf"
+            />
+
+        <report
+            id="action_report_account_analytic"
+            string="Profit And Loss Report"
+            model="analytic.account.report.wiz"
+            name="bista_account_report.bista_analytic_account_report_temp"
+            report_type="qweb-pdf"
+            paperformat="bista_account_report.custom_profit_loss_paperformat"
+            />
+
+        <report
+            id="action_report_balance_sheet_acc_grp"
+            string="Balance Sheet Account Report"
+            model="wizard.balance.sheet.account.grp"
+            name="bista_account_report.balance_sheet_account_grp_report"
+            report_type="qweb-pdf"
+            paperformat="bista_account_report.custom_profit_loss_paperformat"
+            />
+
+	<report
+            id="action_report_account_trial_bal"
+            string="Account Sub Ledger Report"
+            model="account.trial.bal.report.wiz"
+            name="bista_account_report.acc_trial_bal_rept_main"
+            report_type="qweb-pdf"
+            />
+
+    <!-- Inactive Odoo Standard PDF Report Menu -->
+    <menuitem id="account.menu_finance_legal_statement" name="PDF Reports"
+              parent="account.menu_finance_reports" active="False"/>
+
+    </data>
+</odoo>

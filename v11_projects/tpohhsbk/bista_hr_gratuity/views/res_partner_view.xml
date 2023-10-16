@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <!-- From view for gratuity accrual -->
+        <record id="view_res_partner_gratuity_accrual_form" model="ir.ui.view">
+            <field name="name">view.res.partner.gratuity.accrual.form</field>
+            <field name="model">res.partner.gratuity.accrual</field>
+            <field name="arch" type="xml">
+                <form string="Employee Gratuity Accrual" create="false" edit="false">
+                    <header>
+                           <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet string="Employee Gratuity Accrual">
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                            </group>
+                        </group>
+                        <group col="4" colspan="4">
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="days_accrued"/>
+                            <field name="amount_accrued"/>
+                            <field name="company_id" groups="base.group_multi_company" />
+                        </group>
+                        <notebook>
+                            <page name="gratuity_accrual_line" string="Accrual Line">
+                                <field name="accrual_line_ids">
+                                    <tree create="false" edit="false">
+                                        <field name="start_date" readonly="1" force_save="1"/>
+                                        <field name="end_date" readonly="1" force_save="1"/>
+                                        <field name="gratuity_days" readonly="1" force_save="1"/>
+                                        <field name="gratuity_amount" readonly="1" force_save="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="gratuity_advance_line" string="Gratuity Advance">
+                                <field name="advance_line_ids">
+                                    <tree create="false" edit="false">
+                                        <field name="employee_id" invisible="1"/>
+                                        <field name="request_date"/>
+                                        <field name="advance_amount"/>
+                                        <field name="accrued_amount"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree view for gratuity accrual-->
+        <record id="view_res_partner_gratuity_accrual_tree" model="ir.ui.view">
+            <field name="name">view.res.partner.gratuity.accrual.tree</field>
+            <field name="model">res.partner.gratuity.accrual</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false">
+                    <field name="employee_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="days_accrued"/>
+                    <field name="amount_accrued"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action for gratuity accrual-->
+        <record id="action_res_partner_gratuity_accrual" model="ir.actions.act_window">
+            <field name="name">Gratuity Accrual</field>
+            <field name="res_model">res.partner.gratuity.accrual</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu for gratuity parent-->
+        <menuitem id="menu_parent_gratuity"
+                  name="Gratuity"
+                  parent="hr_payroll.menu_hr_payroll_root"
+                  groups="hr_payroll.group_hr_payroll_manager"
+                  sequence="46"/>
+
+        <!-- Menu for gratuity accrual-->
+        <menuitem action="action_res_partner_gratuity_accrual"
+                  id="menu_res_partner_gratuity_accrual"
+                  parent="menu_parent_gratuity"
+                  groups="hr_payroll.group_hr_payroll_manager"/>
+
+        <!-- From view for gratuity accrual line-->
+        <record id="view_gratuity_accrual_line_form" model="ir.ui.view">
+            <field name="name">view.gratuity.accrual.line.form</field>
+            <field name="model">gratuity.accrual.line</field>
+            <field name="arch" type="xml">
+                <form string="Gratuity Accrual Line" create="false" edit="false">
+                    <sheet string="Gratuity Accrual Line">
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object"
+                                    string="Accounting Entry" name="action_open_journal_entries"
+                                    icon="fa-book"/>
+                        </div>
+                        <group col="4" colspan="2">
+                            <field name="start_date" readonly="1" force_save="1"/>
+                            <field name="end_date" readonly="1" force_save="1"/>
+                            <field name="gratuity_days" readonly="1" force_save="1"/>
+                            <field name="gratuity_amount" readonly="1" force_save="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- search view for gratuity accrual -->
+        <record id="view_res_partner_gratuity_accrual_filter" model="ir.ui.view">
+            <field name="name">res.partner.gratuity.accrual.filter</field>
+            <field name="model">res.partner.gratuity.accrual</field>
+            <field name="arch" type="xml">
+                <search string="Search Employee Gratuity">
+                    <field name="employee_id"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_employee" string="Employee"
+                                context="{'group_by':'employee_id'}"/>
+                        <filter name="group_date" string="Date"
+                                context="{'group_by':'start_date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- From view for gratuity advance -->
+        <record id="view_gratuity_advance_line_form" model="ir.ui.view">
+            <field name="name">view.gratuity.advance.line.form</field>
+            <field name="model">gratuity.advance.line</field>
+            <field name="arch" type="xml">
+                <form string="Gratuity Advance">
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                         <button name="action_confirm_advance_gratuity"
+                                type="object"
+                                string="Confirm"
+                                states="requested"/>
+                        <button name="action_approve_advance_gratuity"
+                                type="object"
+                                string="Approve"
+                                class="btn-primary"
+                                states="confirmed"/>
+                        <button name="%(bista_hr_gratuity.action_gratuity_advance_payment_wizard)d"
+                                string="Pay"
+                                type="action" class="oe_highlight"
+                                states="approved"/>
+                        <button name="action_reject_request_advance_gratuity"
+                                type="object"
+                                string="Reject Request"
+                                class="btn-primary"
+                                states="confirmed,approved"/>
+                    </header>
+                    <sheet string="Gratuity Advance">
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object"
+                                    string="Accounting Entry" name="action_open_adv_journal_entries"
+                                    icon="fa-book"/>
+                        </div>
+                        <group col="4" colspan="4">
+                            <field name="employee_id" attrs="{'readonly': [('state', '!=', 'requested')]}" force_save="1"/>
+                            <field name="request_date"  attrs="{'readonly': [('state', '!=', 'requested')]}" force_save="1"/>
+                            <field name="advance_amount"  attrs="{'readonly': [('state', '!=', 'requested')]}" force_save="1"/>
+                            <field name="accrued_amount"  attrs="{'readonly': [('state', '!=', 'requested')]}" force_save="1"/>
+                            <field name="gtt_accrual_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree view for gratuity advance-->
+        <record id="view_gratuity_advance_line_tree" model="ir.ui.view">
+            <field name="name">view.gratuity.advance.line.tree</field>
+            <field name="model">gratuity.advance.line</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="request_date"/>
+                    <field name="advance_amount"/>
+                    <field name="accrued_amount" readonly="1" force_save="1"/>
+                </tree>
+            </field>
+        </record>
+
+         <!-- Action for gratuity advance-->
+        <record id="action_gratuity_advance_line" model="ir.actions.act_window">
+            <field name="name">Gratuity Advance</field>
+            <field name="res_model">gratuity.advance.line</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu for gratuity advance-->
+        <menuitem action="action_gratuity_advance_line"
+                  id="menu_gratuity_advance_line"
+                  parent="menu_parent_gratuity"/>
+
+        <!--form view for gratuity exception-->
+        <record  id="view_gratuity_accrual_exception_form" model="ir.ui.view">
+            <field name="name">view.gratuity.accrual.exception.form</field>
+            <field name="model">gratuity.accrual.exception</field>
+            <field name="arch" type="xml">
+                <form create="0" edit="0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="company_id"/>
+                                <field name="date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--tree view for gratuity exception-->
+        <record  id="view_gratuity_accrual_exception_tree" model="ir.ui.view">
+            <field name="name">view.gratuity.accrual.exception.tree</field>
+            <field name="model">gratuity.accrual.exception</field>
+            <field name="arch" type="xml">
+                <tree create="0">
+                    <field name="employee_id"/>
+                    <field name="company_id"/>
+                    <field name="description"/>
+                    <field name="date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action for gratuity exception-->
+        <record id="action_gratuity_accrual_exception" model="ir.actions.act_window">
+            <field name="name">Gratuity Exceptions</field>
+            <field name="res_model">gratuity.accrual.exception</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu for gratuity exception-->
+        <menuitem action="action_gratuity_accrual_exception"
+                  id="menu_gratuity_accrual_exception"
+                  parent="menu_parent_gratuity"/>
+
+    </data>
+</odoo>

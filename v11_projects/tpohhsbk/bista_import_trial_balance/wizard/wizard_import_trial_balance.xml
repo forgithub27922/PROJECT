@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_import_trial_balance_form_view" model="ir.ui.view">
+        <field name="name">wizard.import.trial.balance</field>
+        <field name="model">wizard.import.trial.balance</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="state" invisible="1"/>
+                <group states="init" col="4">
+                    <field name="date" required="1" class="oe_inline"/>
+                    <field name="ref" required="1"/>
+                </group>
+                <group states="init" col="4">
+                    <field name="company_id" groups="base.group_multi_company" options="{'no_create':True}" required="1"/>
+                    <field name="journal_id" domain="[('company_id','=',company_id),('type','=','general')]" options="{'no_create':True}" required="1"/>
+                </group>
+                <group states="init" colspan="4">
+                    <field name="name" invisible="1"/>
+                    <field name="file_upload" filename="name"/>
+                </group>
+                <group states="done">
+                    <p style="font-size:16px;" class="text-center">
+                        <span>List Of Missing Account</span>
+                    </p>
+                </group>
+                <group states="done">
+                    <field name="trial_balance_line_ids" nolabel="1">
+                        <tree editable="top" create="0" delete="0">
+                            <field name="code" required="1"/>
+                            <field name="name" required="1"/>
+                            <field name="user_type_id" required="1"/>
+                            <field name="group_id"/>
+                            <field name="company_id" invisible="1"/>
+                            <field name="reconcile"/>
+                            <field name="import_trial_balance_id" invisible="1"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer states="init">
+                    <button name="do_import_trial_balance" string="Confirm" type="object"
+                            class="oe_highlight" />
+                        or
+                    <button special="cancel" string="Cancel" class="oe_link" />
+                </footer>
+
+                <footer states="done">
+                    <button name="do_create_account" string="Procced" type="object"
+                            class="oe_highlight" />
+                        or
+                    <button special="cancel" string="Cancel" class="oe_link" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_import" name="Import" parent="account.menu_finance" sequence="4" groups="bista_import_trial_balance.group_allow_import_data_user"/>
+
+    <record id="action_import_trial_balance" model="ir.actions.act_window">
+        <field name="name">Import Trial Balance</field>
+        <field name="res_model">wizard.import.trial.balance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_import_trial_balance"
+        name="Trial Balance"
+        parent="menu_import"
+        action="action_import_trial_balance"
+        groups="bista_import_trial_balance.group_allow_import_data_user"
+        />
+
+</odoo>

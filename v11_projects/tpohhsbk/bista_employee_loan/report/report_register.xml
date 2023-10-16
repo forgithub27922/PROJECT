@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- QWeb Reports Loan Request-->
+        <report
+            id="hr_employee_loan"
+            model="hr.employee.loan"
+            string="Loan Report"
+            report_type="qweb-pdf"
+            name="bista_employee_loan.report_loan_request"
+            file="bista_employee_loan.report_loan_request"
+        />
+
+
+        <report
+            id="action_loan_report"
+            model="hr.employee.loan"
+            string="Loan Report"
+            report_type="qweb-pdf"
+            name="bista_employee_loan.report_loan"
+            file="bista_employee_loan.report_loan"
+            menu="False"
+            />
+
+        <report
+            id="action_loan_summmary_report"
+            model="hr.employee.loan"
+            string="Loan Summary"
+            report_type="qweb-pdf"
+            name="bista_employee_loan.report_loan_summary"
+            file="bista_employee_loan.report_loan_summary"
+            menu="False"
+            />
+
+        <report
+            id="action_loan_installment_report"
+            model="loan.installment.report"
+            string="Loan Installment"
+            report_type="qweb-pdf"
+            name="bista_employee_loan.report_loan_installment_template"
+            file="bista_employee_loan.report_loan_installment_template"
+            menu="False"
+            />
+
+    </data>
+</odoo>

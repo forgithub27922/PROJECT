@@ -1,0 +1,93 @@
+<odoo>
+	<record id="petty_cash_form" model="ir.ui.view">
+		<field name="name">petty.cash.form</field>
+		<field name="model">petty.cash</field>
+		<field name="arch" type="xml">
+			<form string="Petty Cash">
+				<header>
+					<button name="action_request" string="Request" type="object"
+						class="btn-primary" attrs="{'invisible': [('state', '!=', 'draft')]}" />
+					<button name="action_approve_by_manager"
+						string="Approve by Manager"
+						attrs="{'invisible': [('state', '!=', 'request')]}" type="object"
+						class="btn-primary" />
+					<button name="action_approve_by_hr" string="Approve by HR"
+						attrs="{'invisible': [('state', '!=', 'approve_by_manager')]}"
+						groups="hr.group_hr_manager"
+						type="object" class="btn-primary" />
+					<button name="action_approve_by_finance"
+						string="Approve by Finance"
+						attrs="{'invisible': [('state', '!=', 'approve_by_hr')]}"
+						type="object" class="btn-primary"
+						groups="account.group_account_manager" />
+					<button name="action_pay_petty_cash"
+						string="Pay"
+						attrs="{'invisible': [('state', '!=', 'approve_by_finance')]}"
+						type="object" class="btn-primary"
+						groups="account.group_account_manager" />
+					<button name="action_cancel" string="Cancel" state='request'
+						type="object" attrs="{'invisible': [('state', 'not in', ['draft', 'request'])]}" />
+					<field name="state" widget="statusbar"
+						statusbar_visible="draft,request,paid,reconciled" readonly="1" />
+				</header>
+				<sheet>
+					<div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+					<group>
+						<group>
+							<field name="employee_id" />
+							<field name="partner_id" readonly="1" />
+							<field name="date"/>
+							<field name="amount" />
+						</group>
+						<group>
+
+							<field name="company_id" groups="base.group_multi_company" />
+							<field name="currency_id" invisible="1" />
+						</group>
+						<field name="notes" />
+					</group>
+					<notebook>
+						<page string="Accounting Information">
+							<group>
+								<group>
+									<field name="account_id" />
+									<field name="journal_id" required="1" />
+									<field name="move_id" readonly="1" />
+								</group>
+							</group>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="petty_cash_tree" model="ir.ui.view">
+		<field name="name">petty.cash.tree</field>
+		<field name="model">petty.cash</field>
+		<field name="arch" type="xml">
+			<tree string="Petty Cash">
+				<field name="employee_id" />
+				<field name="partner_id" readonly="1" />
+				<field name="amount" />
+				<field name="state" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_petty_cash" model="ir.actions.act_window">
+		<field name="name">Petty Cash</field>
+		<field name="res_model">petty.cash</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="menu_petty_cash" action="action_petty_cash"
+		parent="hr.menu_hr_root" sequence="30" />
+
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_template_experience_letter">
+         <t t-call="web.external_layout">
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc" />
+            </t>
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <t t-if="o.get_html_field_data('document_content')">
+                            <div class="container">
+                                <div itemprop="lease_greeting_end_text"
+                                     t-field="o.html_translater"
+                                     class="oe_structure mt16"
+                                     id="lease_greeting_end_text">
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+         </t>
+    </template>
+
+    <template id="experience_letter_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="bista_eos.report_template_experience_letter"
+                    t-lang="doc.employee_id and doc.employee_id.company_id and doc.employee_id.company_id.partner_id.lang" />
+            </t>
+        </t>
+    </template>
+
+</odoo>

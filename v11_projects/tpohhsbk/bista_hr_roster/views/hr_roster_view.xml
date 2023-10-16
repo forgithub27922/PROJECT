@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<menuitem id="menu_root_roster" name="Roster"
+		parent="hr_attendance.menu_hr_attendance_root"
+		groups="hr_attendance.group_hr_attendance"
+		sequence="15" />
+
+	<!-- Roster Views -->
+	<record id="hr_roster_form" model="ir.ui.view">
+		<field name="name">hr.roster.form</field>
+		<field name="model">hr.roster</field>
+		<field name="arch" type="xml">
+			<form string="Roster">
+				<header>
+					<button name="%(action_generate_roster_form)d" states="draft"
+						type="action" string="Generate Roster" class="oe_highlight"
+						groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager" context="{'default_roster_id': active_id}"/>
+					<button name="state_confirm" states="draft" type="object"
+						string="Confirm" class="oe_highlight"
+						groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager" />
+					<button name="%(action_change_shift_wizard)d"
+						states="confirm" type="action" string="Chnage Shift"
+						class="btn-primary" 
+						groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager" />
+					<button name="cancel_roster" states="draft,confirm" type="object"
+						string="Cancel" groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager"/>
+					<button name="action_set_to_draft" states="cancel" type="object" class="btn-primary"
+						string="Set to Draft" groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager"/>
+					<field name="state" widget="statusbar" readonly="1" />
+				</header>
+				<sheet>
+					<group>
+						<group>
+							<field name="name" required="1"
+								attrs="{'readonly':[('state', '=', 'confirm')]}" />
+							<label for="start_date" />
+							<div>
+								<field name="start_date" required="1"
+									attrs="{'readonly':[('state', '=', 'confirm')]}" />
+								<br />
+								<field name="start_date_hijri" placeholder="YYYY-MM-DD"
+									attrs="{'readonly':[('state', '=', 'confirm')]}" />
+							</div>
+							<field name="weekoff" required="1" widget="many2many_tags"
+								options="{'no_create':True,'no_edit':True}"
+								attrs="{'readonly':[('state', '=', 'confirm')]}" />
+						</group>
+						<group>
+							<field name="employee_id" required="1"
+								attrs="{'readonly':[('state', '=', 'confirm')]}"
+								options="{'no_create_edit': True,'no_create':True,'no_quick_create':True}"
+								 />
+								
+							<label for="end_date" />
+							<div>
+								<field name="end_date" required="1"
+									attrs="{'readonly':[('state', '=', 'confirm')]}" />
+								<br />
+								<field name="end_date_hijri" placeholder="YYYY-MM-DD"
+									attrs="{'readonly':[('state', '=', 'confirm')]}" />
+							</div>
+							<field name="is_exclude_break_time" attrs="{'readonly':[('state', '=', 'confirm')]}"/>
+							<field name="company_id" groups="base.group_multi_company"/>
+						</group>
+					</group>
+					<notebook>
+						<page string="Roster Lines">
+							<field name="roster_line_ids"
+								attrs="{'readonly':[('state', '=', 'confirm')]}">
+								<tree editable="top" create="false" delete="false">
+									<field name="schedule_date" readonly="1" />
+									<field name="week_day" readonly="1" />
+									<field name="shift_code_id" readonly="1" />
+									<field name="holiday_type" readonly="1"/>
+									<field name="company_id" groups="base.group_multi_company" invisible="1"/>
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_ids" widget="mail_thread" />
+				</div>
+			</form>
+		</field>
+	</record>
+
+	<record id="hr_roster_tree" model="ir.ui.view">
+		<field name="name">hr.roster.tree</field>
+		<field name="model">hr.roster</field>
+		<field name="arch" type="xml">
+			<tree string="Roster">
+				<field name="name" />
+				<field name="employee_id" />
+				<field name="start_date" />
+				<field name="end_date" />
+				<field name="weekoff" />
+				<field name="state" />
+				<field name="company_id" groups="base.group_multi_company"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="action_hr_roster" model="ir.actions.act_window">
+		<field name="name">Employee Roster</field>
+		<field name="res_model">hr.roster</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="menu_roster" name="Roster"
+		parent="bista_hr_roster.menu_root_roster" action="action_hr_roster"
+		sequence="10" groups="hr_attendance.group_hr_attendance"/>
+
+</odoo>

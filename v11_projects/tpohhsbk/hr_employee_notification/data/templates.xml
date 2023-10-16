@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="profile_created" model="ir.filters">
+        <field name="name">Profile Created</field>
+        <field name="model_id">hr.employee</field>
+        <field name="domain">[]</field>
+        <field name="user_id" eval="False" />
+        <field name="context">{}</field>
+    </record>
+
+    <record id="email_template_profile_created" model="mail.template">
+        <field name="name">Profile Created</field>
+        <field name="model_id" ref="hr.model_hr_employee" />
+        <field name="email_from">${user.email}</field>
+        <field name="email_to">${object.work_email}</field>
+        <field name="email_cc"></field>
+        <field name="subject"> Profile Created </field>
+        <field name="body_html"><![CDATA[
+        <p>
+            Dear ${object.name},
+        </p>
+        <br>
+        <p style="padding-left: 4em;">
+            Your profile has been created on the ERP system, Please login and confirm.
+        </p>
+        <br />
+        <br />
+
+        <p style="font-size:13px; color:blue; border: 1px solid red; width:350px;"> Auto generated message through the ERP System. </p>
+
+        ]]>
+
+        </field>
+    </record>
+
+
+    <record id="automated_action_email_profile_created" model="base.automation">
+            <field name="name">Profile Created</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="state">email</field>
+            <field name="trigger">on_create</field>
+            <field name="active" eval="True"/>
+            <field name="template_id" ref="email_template_profile_created" />
+        </record>
+
+</odoo>

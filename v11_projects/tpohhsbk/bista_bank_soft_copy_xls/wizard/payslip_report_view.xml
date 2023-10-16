@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wiz_payslip_report" model="ir.ui.view">
+            <field name="name">wiz.pay.report</field>
+            <field name="model">payslip.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Payslip Export">
+                    <group>
+                        <p>
+                            Do you want to print Payslip Report?
+                        </p>
+                    </group>
+                    <footer>
+                        <button name="generate_payslip" string="PRINT EXCEL REPORT" type="object" class="btn-primary" />
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <record id="wiz_payslip_data" model="ir.ui.view">
+            <field name="name">wiz.payslip.data</field>
+            <field name="model">pay.slip.data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name" invisible="1"/>
+                        <field name="file_download" filename="name" readonly="1"/>
+                    </group>
+                    <footer>
+                        <button string="Cancel" class="btn-default" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <!-- Act window for Payslip Report -->
+        <act_window id="action_payslip_report"
+            key2="client_action_multi"
+            name="Payslip Export"
+            res_model="payslip.report.wizard"
+            src_model="hr.payslip"
+            view_mode="form"
+            target="new"
+            view_type="form"/>
+        
+        <!-- Act window for Payslip Report from Batch payslip -->    
+        <act_window id="action_batch_payslip_report_action"
+             name="Payslip Export"
+             res_model="payslip.report.wizard"
+             src_model="hr.payslip.run"
+             view_type="form"
+             view_mode="form"
+             target="new"
+             context="{'is_batch_payslip':True}"/>
+             
+    </data>
+</odoo>

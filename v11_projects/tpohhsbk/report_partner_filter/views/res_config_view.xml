@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_account_config_settings_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <h2 groups="account.group_account_user" position="before">
+                <h2>Report Setup</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="partner_ledger_hide_columns" widget="upgrade_boolean"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label string='Hide Columns(Account, Matching Number)'/>
+                            <div class="text-muted">
+                                Deactivate columns(Account, Matching Number) from Partner Ledger report
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </h2>
+        </field>
+    </record>
+
+</odoo>

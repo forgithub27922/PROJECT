@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Multi Company Rule for Leave -->
+    <record id="hr_holidays_allowed_companies_rule_empower" model="ir.rule">
+        <field name="name">Leave Allocation Multi Company Rule</field>
+        <field name="model_id" ref="hr_holidays.model_hr_holidays"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+	<!-- Multi Company Rule for Automatic Leave Allocation -->
+    <record id="automatic_leave_allocation_rule_empower" model="ir.rule">
+        <field name="name">Automatic Leave Allocation: User can see only his company's record</field>
+        <field name="model_id" ref="hr_holiday_extended.model_automatic_leave_allocation"/>
+        <field name="domain_force">['|',('company_id','child_of',user.company_id.id),('company_id','=',False)]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+    <!-- Multi Company Rule for Leave Type -->
+    <record id="hr_holidays_status_rule_multi_company_empower" model="ir.rule">
+        <field name="name">Leaves Type Multi Company Rule</field>
+        <field name="model_id" ref="hr_holidays.model_hr_holidays_status"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+     <!-- Allow Company Rule for Leave Ecncashment-->
+    <record id="leave_encashment_company_allow_rules" model="ir.rule">
+        <field name="name">Leave Encashment: User can see only his company's record</field>
+        <field name="model_id" ref="hr_holiday_extended.model_leave_encashment"/>
+        <field name="domain_force">['|',('company_id','child_of',user.company_id.id),('company_id','=',False)]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+     <record id="employee_grade_company_allow_rules" model="ir.rule">
+        <field name="name">Employee Grade: User can see only his company's record</field>
+        <field name="model_id" ref="hr_holiday_extended.model_employee_grade"/>
+        <field name="domain_force">['|',('company_id','child_of',user.company_id.id),('company_id','=',False)]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+     <record id="laps_employee_leave_company_allow_rules" model="ir.rule">
+        <field name="name">Laps Employee Leave: User can see only his company's record</field>
+        <field name="model_id" ref="hr_holiday_extended.model_lapse_employee_leave"/>
+        <field name="domain_force">['|',('company_id','child_of',user.company_id.id),('company_id','=',False)]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+</odoo>

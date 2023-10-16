@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form view of Reject Request wizard -->
+    <record id="leave_salary_line_wizard_form" model="ir.ui.view">
+        <field name="name">leave.salary.line.wizard.form</field>
+        <field name="model">leave.salary.line.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Leave Request">
+               <field name="leave_request_ids">
+               <!-- context="{'search_default_group_type':'holiday_status_id'}" -->
+               	<tree>
+               		<field name="employee_id"/>
+               		<field name="holiday_status_id"/>
+               		<field name="number_of_days" />
+               		<field name="date_from" />
+               		<field name="date_to"/>
+               		<field name="state" />
+               	</tree>
+               </field>
+                <footer>
+                    <button name="add_lines" string="Add Lines" type="object" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

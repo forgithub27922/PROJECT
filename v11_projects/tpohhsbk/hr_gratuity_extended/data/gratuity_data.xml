@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="bista_hr_gratuity.hr_gratuity_config" model="hr.gratuity">
+            <field name="date" eval="(datetime.now() +
+            relativedelta(day=23,month=3,year=2017)).strftime('%Y-%m-%d')"/>
+            <field name="nationality_ids" eval="[(5, 0),
+            (0,0, {'from_experience':1.0, 'to_experience':5.0, 'eosb':1.5, 'days':7}),
+            (0,0, {'from_experience':5.0, 'to_experience':10.0, 'eosb':2.0, 'days':14}),
+            (0,0, {'from_experience':10.0, 'to_experience':0.0, 'eosb':3.0, 'days':21})]"
+            />
+            <field name="other_nationality_ids" eval="[(5, 0),
+            (0,0, {'from_experience':1.0, 'to_experience':5.0, 'eosb':1.0, 'days':7}),
+            (0,0, {'from_experience':5.0, 'to_experience':10.0, 'eosb':1.5, 'days':14}),
+            (0,0, {'from_experience':10.0, 'to_experience':0.0, 'eosb':2.0, 'days':21})]"
+            />
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_consolidate_tb_form_view" model="ir.ui.view">
+        <field name="name">wizard.consolidate.trial.bs.report</field>
+        <field name="model">wizard.consolidate.trial.bs.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="state" invisible="1"/>
+                <group states="init" col="4">
+                    <field name="start_date" required="1"/>
+                    <field name="end_date" required="1"/>
+                </group>
+                <group states="init">
+                    <field name="company_id" groups="base.group_multi_company" required="1"/>
+                </group>
+                <group states="done" colspan="4">
+                    <field name="name" invisible="1"/>
+                    <field name="file_download" filename="name" readonly="1"/>
+                </group>
+                <footer states="init">
+                    <button name="print_xls_report" string="Print XLS" type="object"
+                            class="oe_highlight" />
+                        or
+                    <button special="cancel" string="Cancel" class="oe_link" />
+                </footer>
+                <footer states="done">
+                    <button name="do_go_back" string="Back" type="object"
+                            class="oe_highlight" />
+                        or
+
+                    <button special="cancel" string="Cancel" class="oe_link" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_consolidate_tb_report" model="ir.actions.act_window">
+        <field name="name">Consolidated Trial Balance Report</field>
+        <field name="res_model">wizard.consolidate.trial.bs.report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_consolidate_tb_report"
+        name="Consolidated Trial Balance Report"
+        parent="menu_account_report"
+        action="action_consolidate_tb_report"
+        sequence="4"
+        groups="account.group_account_manager,account.group_account_user"
+        />
+
+</odoo>

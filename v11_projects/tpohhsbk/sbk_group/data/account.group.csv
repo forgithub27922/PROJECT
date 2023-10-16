@@ -1,0 +1,148 @@
+id,name,parent_id/id,sequence
+account_group_main_1,Fixed Assets,,0
+account_group_main_2,Investments,,1
+account_group_main_3,"Current Assets, Loans & Advances",,2
+account_group_main_4,Non Current Liabilities,,3
+account_group_main_5,Current Liablities & Provisions,,4
+account_group_main_6,Equity,,5
+account_group_main_7,Income,,6
+account_group_main_8,Expenses,,7
+,,,
+account_group_sub1_1,Land,account_group_main_1,8
+account_group_sub1_2,Buildings,account_group_main_1,9
+account_group_sub1_3,"Furniture, Fixture & Equipments",account_group_main_1,10
+account_group_sub1_4,Plant & Machinery,account_group_main_1,11
+account_group_sub1_5,Vehicles,account_group_main_1,12
+account_group_sub1_6,Yachts & Boats,account_group_main_1,13
+account_group_sub1_7,Aircrafts,account_group_main_1,14
+account_group_sub1_8,Other Fixed Assets,account_group_main_1,15
+account_group_sub1_9,Ongoing Projects,account_group_main_1,16
+,,,
+account_group_sub1_10,Gulf Hospitality LLC,account_group_main_2,17
+account_group_sub1_11,Hotel & Tourism Company LLC,account_group_main_2,18
+account_group_sub1_12,Mina Al Fajer,account_group_main_2,19
+account_group_sub1_13,Emalab,account_group_main_2,20
+account_group_sub1_14,SBK Arakat Ltd.,account_group_main_2,21
+account_group_sub1_15,Overseas Investments,account_group_main_2,22
+account_group_sub1_16,Local Investments,account_group_main_2,23
+,,,
+account_group_sub1_17,Current Assets,account_group_main_3,24
+account_group_sub1_18,Loans & Advances,account_group_main_3,25
+,,,
+account_group_sub1_19,Inter Office Accounts,account_group_main_4,26
+account_group_sub1_20,Bank Loans,account_group_main_4,27
+account_group_sub1_21,Long Term Loans,account_group_main_4,28
+account_group_sub1_22,Other Loans,account_group_main_4,29
+,,,
+account_group_sub1_23,Current Liabilities,account_group_main_5,30
+account_group_sub1_24,Provisions,account_group_main_5,31
+,,,
+account_group_sub1_25,Retained Earnings,account_group_main_6,32
+account_group_sub1_26,Capital,account_group_main_6,33
+,,,
+account_group_sub1_27,Sales Income Al Ain,account_group_main_7,34
+account_group_sub1_28,Income from H.H.,account_group_main_7,35
+account_group_sub1_29,Dividend,account_group_main_7,36
+account_group_sub1_30,Rent - Real Estate,account_group_main_7,37
+account_group_sub1_31,Other Income - Real Estate,account_group_main_7,38
+account_group_sub1_32,Charter of Yachts and Boats,account_group_main_7,39
+account_group_sub1_33,Gain on Sale of Assets,account_group_main_7,40
+account_group_sub1_34,Interest Income,account_group_main_7,41
+account_group_sub1_35,Sponsorship & Licenses,account_group_main_7,42
+account_group_sub1_36,Other Income,account_group_main_7,43
+,,,
+account_group_sub1_37,Payroll Related Expenses,account_group_main_8,44
+account_group_sub1_38,Repair & Maintenance,account_group_main_8,45
+account_group_sub1_39,Rent,account_group_main_8,46
+account_group_sub1_40,"Electricity, Water & Gas",account_group_main_8,47
+account_group_sub1_41,Administration & General Expenses,account_group_main_8,48
+account_group_sub1_42,H.H. Private Expenses,account_group_main_8,49
+account_group_sub1_43,Interest,account_group_main_8,50
+account_group_sub1_44,H.H. Grant,account_group_main_8,51
+account_group_sub1_45,Farms & Agriculture Expenses,account_group_main_8,52
+account_group_sub1_46,Property's Expenses,account_group_main_8,53
+account_group_sub1_47,Food Expenses,account_group_main_8,54
+account_group_sub1_48,Travelling Expenses,account_group_main_8,55
+account_group_sub1_49,Shipping Expenses,account_group_main_8,56
+account_group_sub1_50,Villa's Expenses,account_group_main_8,57
+account_group_sub1_51,Vehicle Expenses,account_group_main_8,58
+account_group_sub1_52,Animal Expenses,account_group_main_8,59
+account_group_sub1_53,Other Expenses,account_group_main_8,60
+account_group_sub1_54,Direct Expenses,account_group_main_8,61
+account_group_sub1_55,Bad debts & Write Offs,account_group_main_8,62
+account_group_sub1_56,Shareholders Current Account,account_group_main_6,63
+account_group_sub1_57,Shareholders Loan Account,account_group_main_6,64
+,,,
+account_group_sub2_1,Freehold Land,account_group_sub1_1,65
+account_group_sub2_2,Leasehold Land,account_group_sub1_1,66
+,,,
+account_group_sub2_3,Private Buildings,account_group_sub1_2,67
+account_group_sub2_4,Commercial Buildings,account_group_sub1_2,68
+,,,
+account_group_sub2_5,Overseas Vehicles,account_group_sub1_5,69
+account_group_sub2_6,Local Vehicles,account_group_sub1_5,70
+,,,
+account_group_sub2_7,Planes,account_group_sub1_7,71
+account_group_sub2_8,Helicopters,account_group_sub1_7,72
+,,,
+account_group_sub2_9,Cash & Bank,account_group_sub1_17,73
+account_group_sub2_10,Trade Debtors,account_group_sub1_17,74
+account_group_sub2_11,Trade Receivables,account_group_sub1_17,75
+account_group_sub2_12,H.H. Family Receivables,account_group_sub1_17,76
+account_group_sub2_13,Associated Companies,account_group_sub1_17,77
+account_group_sub2_14,Other Receivables,account_group_sub1_17,78
+account_group_sub2_15,Other Current Assets,account_group_sub1_17,79
+,,,
+account_group_sub2_16,Loans,account_group_sub1_18,80
+account_group_sub2_17,Advances,account_group_sub1_18,81
+account_group_sub2_18,Deposits,account_group_sub1_18,82
+,,,
+account_group_sub2_19,Trade Creditors,account_group_sub1_23,83
+account_group_sub2_20,Trade Payables,account_group_sub1_23,84
+account_group_sub2_21,Other Payables,account_group_sub1_23,85
+account_group_sub2_22,Other Current Liabilities,account_group_sub1_23,86
+,,,
+account_group_sub2_23,Rent form PREA,account_group_sub1_30,87
+account_group_sub2_24,Rent from Land,account_group_sub1_30,88
+,,,
+account_group_sub2_25,Bank Interest,account_group_sub1_34,89
+account_group_sub2_26,Other Interest,account_group_sub1_34,90
+,,,
+account_group_sub2_27,PREA Expenses,account_group_sub1_46,91
+account_group_sub2_28,Land Expenses,account_group_sub1_46,92
+account_group_sub2_29,Cash & Bank – Local,account_group_sub1_17,
+account_group_sub2_30,Cash & Bank - Overseas,account_group_sub1_17,
+account_group_sub2_31,Bank Loans – Local,account_group_sub1_20,
+account_group_sub2_32,Bank Loans – Overseas,account_group_sub1_20,
+account_group_sub2_33,Food & Entertainment Exp,account_group_sub1_41,
+account_group_sub2_34,Printing and Stationary,account_group_sub1_41,
+account_group_sub2_35,Passage & Travel,account_group_sub1_41,
+account_group_sub2_36,Postage & Courier and Shipping,account_group_sub1_41,
+account_group_sub2_37,Bank Charges,account_group_sub1_41,
+account_group_sub2_38,Misc Expenses,account_group_sub1_42,
+account_group_sub2_39,Audit Exp,account_group_sub1_43,
+account_group_sub2_40,"Legal, Registration & Other Charges",account_group_sub1_44,
+account_group_sub2_41,Telephone Expenses,account_group_sub1_45,
+account_group_sub2_42,Exchange Gain/Loss,account_group_sub1_46,
+account_group_sub2_43,Loss on Sale of Assets,account_group_sub1_47,
+,,,
+account_group_sub3_1,Overseas Buildings,account_group_sub2_3,93
+account_group_sub3_2,Local Buildings,account_group_sub2_3,94
+,,,
+account_group_sub3_3,Bank Balances,account_group_sub2_9,86
+account_group_sub3_4,Cash Balances,account_group_sub2_9,87
+,,,
+account_group_sub3_5,Family Payables,account_group_sub2_21,88
+account_group_sub3_6,PREA Payables,account_group_sub2_21,89
+account_group_sub3_7,NUROL Payables,account_group_sub2_21,90
+account_group_sub3_8,NIC Payables,account_group_sub2_21,91
+,,,
+account_group_sub3_9,Freehold Land – Local,account_group_sub2_1,
+account_group_sub3_10,Freehold Land – Overseas,account_group_sub2_1,
+account_group_sub3_11,Overseas Buildings,account_group_sub2_3,
+account_group_sub3_12,Commercial Buildings – Local,account_group_sub2_4,
+account_group_sub3_13,Commercial Buildings -Overseas,account_group_sub2_4,
+account_group_sub3_14,Bank Balances – Local,account_group_sub2_29,
+account_group_sub3_15,Cash Balances – Local,account_group_sub2_29,
+account_group_sub3_16,Bank Balances – Overseas,account_group_sub2_30,
+account_group_sub3_17,Cash Balances – Overseas,account_group_sub2_30,

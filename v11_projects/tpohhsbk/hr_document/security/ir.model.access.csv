@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_job_document_user,hr_job_document_user,model_hr_job_document,base.group_user,1,1,1,0
+access_hr_job_document_hr_manager,hr_job_document_hr_manager,model_hr_job_document,hr.group_hr_manager,1,1,1,1
+access_applicant_hr_document_user,access_applicant_hr_document_user,model_applicant_hr_document,base.group_user,1,0,0,0
+access_applicant_hr_document_hr_manager,access_applicant_hr_document_hr_manager,model_applicant_hr_document,hr.group_hr_manager,1,1,1,1
+access_applicant_hr_document_hr_user,access_applicant_hr_document_hr_user,model_applicant_hr_document,hr.group_hr_user,1,1,1,0

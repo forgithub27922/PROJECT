@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--   At Employee,field Biometric id updated   -->
+    <record id="hr_employee_inherit_view" model="ir.ui.view">
+        <field name="name">hr.employee.inherit.view</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='work_location']" position="after">
+                <field name="bioid"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

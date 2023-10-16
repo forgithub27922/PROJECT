@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="wizard_balance_sheet_acc_grp_view" model="ir.ui.view">
+        <field name="name">wizard.balance.sheet.account.grp</field>
+        <field name="model">wizard.balance.sheet.account.grp</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <field name="date" required="1"/>
+                        <field name="company_id" required="1" groups="base.group_multi_currency"/>
+                        <field name="target_move" widget="radio"/>
+                    </group>
+                    <group>
+                        <field name="acc_group_ids"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="print_report" string="Print" type="object"
+                            class="oe_highlight" />
+                        or
+                    <button special="cancel" string="Cancel" class="oe_link" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_balance_sheet_acc_grp" model="ir.actions.act_window">
+        <field name="name">BS by Account Group</field>
+        <field name="res_model">wizard.balance.sheet.account.grp</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="menu_balance_sheet_acc_group"
+        action="action_wizard_balance_sheet_acc_grp"
+        parent="menu_account_report"
+        sequence="3"
+        groups="account.group_account_manager,account.group_account_user"/>
+
+</odoo>

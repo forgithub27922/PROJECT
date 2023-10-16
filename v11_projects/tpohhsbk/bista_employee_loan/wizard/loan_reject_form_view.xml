@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hr_employee_loan_reject_form_view" model="ir.ui.view">
+        <field name="name">Employee Loan Reject</field>
+        <field name="model">loan.reject.reason</field>
+        <field name="arch" type="xml">
+            <form string="Reject Reason">
+                <group>
+                    <field name="name" required="1"/>
+                </group>
+                <footer>
+                    <button string="Reject" name="reject_loan_request" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+
+        </field>
+    </record>
+
+</odoo>

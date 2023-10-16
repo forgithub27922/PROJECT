@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+
+        <!--Cron job for visa expiry date-->
+        <record id="visa_expiration_scheduler" model="ir.cron">
+            <field name="name">Visa Expiration Scheduler</field>
+            <field eval="True" name="active"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model._visa_expiry_date_scheduler()</field>
+        </record>
+
+        <!--Cron job for document expiry date-->
+        <record id="document_expiration_scheduler" model="ir.cron">
+            <field name="name">Document Expiration Scheduler</field>
+            <field eval="True" name="active"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">model._document_expiry_date_scheduler()</field>
+        </record>
+
+        <!--Cron job for full leave's expiry notification-->
+        <record id="leave_expiry_notification_scheduler" model="ir.cron">
+            <field name="name">Leave Expiry Notification Scheduler</field>
+            <field eval="True" name="active"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_hr_holidays"/>
+            <field name="state">code</field>
+            <field name="code">model._leave_expiry_notify_scheduler()</field>
+        </record>
+
+    </data>
+</odoo>

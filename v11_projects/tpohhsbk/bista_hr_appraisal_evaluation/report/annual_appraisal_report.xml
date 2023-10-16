@@ -1,0 +1,131 @@
+<odoo>
+
+    <template id="annual_appraisal_report">
+        <t t-call="web.html_container">
+            <!--<t t-foreach="docs" t-as="o">-->
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <center>
+                        <h1>Annual Performance Appraisal</h1>
+                    </center>
+                    <div class="oe_structure"/>
+                        <table width="100%"
+                               class="table table-condensed">
+                            <tr>
+                                <th>Name</th>
+                                <th>Employee Name</th>
+                                <th>Appraisal Period</th>
+                                <th>Self Assessment</th>
+                                <th>Average Manager Assessment</th>
+                                <th>Average Peers Assessment</th>
+                                <th>Status</th>
+                            </tr>
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td>
+                                        <span t-field="o.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.employee_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.appraisal_period_id.name"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-field="o.total_self_assessment"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-field="o.average_manager_assessment"/>
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span t-field="o.average_peers_assessment"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.state"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+
+                    <!--<t t-if="o.state == 'approved'">-->
+                    <!--<t t-set="manager_assessment_rec"-->
+                    <!--t-value="o.get_mngr_assessment_rec('manager_assessment')"/>-->
+                    <!--<t t-foreach="manager_assessment_rec"-->
+                    <!--t-as="mngr_assessment_rec">-->
+                    <!--<t t-if="mngr_assessment_rec.review_state == 'confirm'">-->
+
+                    <!--</t>-->
+                    <!--</t>-->
+                    <!--<br/>-->
+                    <!--<br/>-->
+                    <!--<t t-set="peer_assessment_rec"-->
+                    <!--t-value="o.get_peers_assessment_rec('peers_assessment')"/>-->
+                    <!--<t t-foreach="peer_assessment_rec"-->
+                    <!--t-as="peers_assessment_rec">-->
+                    <!--<t t-if="peers_assessment_rec.review_state == 'confirm'">-->
+                    <!--<table width="100%"-->
+                    <!--class="table table-condensed">-->
+                    <!--<tr>-->
+                    <!--<th colspan="6">-->
+                    <!--Peers Review By - -->
+                    <!--<span t-field="peers_assessment_rec.reviewed_by.name"/>-->
+                    <!--</th>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                    <!--<th>Question</th>-->
+                    <!--<th>Description</th>-->
+                    <!--<th>Weightage</th>-->
+                    <!--<th>Measurement</th>-->
+                    <!--<th>Peers Assessment</th>-->
+                    <!--<th>Peers Remark</th>-->
+                    <!--</tr>-->
+                    <!--<t t-set="peers_total" t-value="0"/>-->
+                    <!--<t t-foreach="peers_assessment_rec.kra_peers_review_ids"-->
+                    <!--t-as="l">-->
+                    <!--<tr>-->
+                    <!--<td>-->
+                    <!--<span t-field="l.question"/>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                    <!--<span t-field="l.description"/>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                    <!--<span t-field="l.weightage"/>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                    <!--<t t-foreach="l.measurement_ids"-->
+                    <!--t-as="p">-->
+                    <!--<span t-field="p.name"/>-->
+                    <!--,-->
+                    <!--</t>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                    <!--<span t-field="l.peers_assessment"/>-->
+
+                    <!--<t t-set="peers_total"-->
+                    <!--t-value="peers_total + l.peers_assessment"/>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                    <!--<span t-field="l.peers_remark"/>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+                    <!--</t>-->
+                    <!--<tr>-->
+                    <!--<td colspan="4"-->
+                    <!--style="padding-left:720px">-->
+                    <!--<b>Total:</b>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                    <!--<t t-esc="peers_total"/>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+                    <!--</table>-->
+                    <!--</t>-->
+                    <!--</t>-->
+                    <!--</t>-->
+                </div>
+            </t>
+        </t>
+        <!--</t>-->
+    </template>
+</odoo>

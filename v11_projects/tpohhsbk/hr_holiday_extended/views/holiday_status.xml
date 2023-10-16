@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <menuitem
+            id="hr_holidays.menu_hr_holidays_configuration"
+            name="Configuration"
+            parent="hr_holidays.menu_hr_holidays_root"
+            sequence="100"
+            groups="hr_holidays.group_hr_holidays_manager"
+    />
+    <menuitem id="hr_holidays_status"
+              parent="hr_holidays.menu_hr_holidays_configuration"
+              name="Leave Type"
+              action="hr_holidays.open_view_holiday_status"
+              groups="hr_holidays.group_hr_holidays_manager"/>
+    <record id='edit_holiday_status_form_inherit_carryforward' model='ir.ui.view'>
+        <field name="name">hr.holidays.status.form.inherit</field>
+        <field name='model'>hr.holidays.status</field>
+        <field name='inherit_id' ref='hr_holidays.edit_holiday_status_form'/>
+        <field name='arch' type='xml'>
+            <field name="name" position="after">
+                <field name="code" required="1"/>
+            </field>
+            <xpath expr="//form/sheet/group/group[@name='options']" positin="inside">
+                <field name="carryforward"/>
+                <field name="no_of_days"
+                       attrs='{"invisible":[("carryforward","=",False)], "required": [("carryforward","=",True)]}'/>
+                <field name="validity_months"
+                       attrs='{"invisible":[("carryforward","=",False)], "required": [("carryforward","=",True)]}'/>
+                <field name="encashment"/>
+                <field name="no_of_days_encash" attrs='{"invisible":[("encashment","=",False)]}'/>
+                <field name="maximum_leave_balance"/>
+                <field name="lapse_leaves"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit action (Menu Leave Summary) -->
+    <record id="hr_holidays.open_company_allocation" model="ir.actions.act_window">
+            <field name="name">Leaves Summary</field>
+            <field name="res_model">hr.holidays</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_id" ref="hr_holidays.view_holiday_simple"/>
+            <field name="context">{
+                'search_default_validated': 1,
+                'needaction_menu_ref':
+                [
+                    'hr_holidays.menu_open_ask_holidays_new',
+                    'hr_holidays.menu_open_allocation_holidays',
+                    'hr_holidays.menu_request_approve_allocation',
+                    'hr_holidays.menu_open_employee_leave',
+                ],
+                'search_default_group_employee': 1,
+                'search_default_group_type': 1,
+            }</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Click here to create a new leave request.
+                </p>
+            </field>
+            <field name="domain">[('holiday_type','=','employee')]</field>
+            <field name="search_view_id" ref="hr_holidays.view_hr_holidays_filter"/>
+        </record>
+
+        <record id="leaves_view_employee_form_leave_inherit" model="ir.ui.view">
+            <field name="name">hr.employee.leave.form.inherited</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr_holidays.view_employee_form_leave_inherit"/>
+            <field name="arch" type="xml">
+                <group groups="base.group_no_one" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </group>
+            </field>
+        </record>
+
+</odoo>

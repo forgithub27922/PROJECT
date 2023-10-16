@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--Batch Employee Loan Form View-->
+    <record id="batch_employee_loan_form_view" model="ir.ui.view">
+        <field name="name">Batch Employee Loan Form</field>
+        <field name="model">batch.employee.loan</field>
+        <field name="arch" type="xml">
+            <form string="Batch Loan Request">
+                <header>
+                    <field name="state" widget="statusbar"/>
+                    <!--Send Loan request for Hr Approval-->
+                    <button name="action_submit_for_loan_hr_approval"
+                            type="object"
+                            string="Submit for HR Approval"
+                            class="btn-primary"
+                            states="draft"/>
+                    <!--Send Request for Finance Approval-->
+                    <button name="action_submit_for_finance_loan_approval"
+                            type="object"
+                            string="Submit for Finance Approval "
+                            class="btn-primary"
+                            groups="bista_employee_loan.group_loan_hr_approval"
+                            states="hr_approval"/>
+                    <button name="action_submit_loan_reject"
+                            type="object"
+                            string="Reject Request"
+                            class="btn-primary"
+                            context="{'reject_from': 'HR Department'}"
+                            groups="bista_employee_loan.group_loan_hr_approval"
+                            states="hr_approval"/>
+                   
+                    <!--Approve Loan Request-->
+                    <button name="action_approved_loan"
+                            type="object"
+                            string="Approve"
+                            class="btn-primary"
+                            groups="bista_employee_loan.group_loan_finance_approval"
+                            states="finance_processing"/>
+                    <button name="action_submit_loan_reject"
+                            type="object"
+                            string="Reject Request"
+                            context="{'reject_from': 'Finance Department'}"
+                            class="btn-primary"
+                            groups="bista_employee_loan.group_loan_finance_approval"
+                            states="finance_processing"/>
+                    <button name="action_submit_loan_cancelled"
+                            type="object"
+                            string="Cancel Request"
+                            groups="bista_employee_loan.group_loan_officer,bista_employee_loan.group_loan_manager"
+                            attrs="{'invisible': ['|',('all_loan_paid','=',True),('state','=','cancelled')]}"
+                            />
+                    <button name="action_loan_reset_to_draft"
+                            type="object"
+                            string="Reset To Draft"
+                            groups="bista_employee_loan.group_loan_officer,bista_employee_loan.group_loan_manager"
+                            states="cancelled"
+                            />
+                </header>
+                <sheet>
+                    <div class="oe_button_box">
+                        <button name="action_open_journal_entries"
+                                class="oe_stat_button"
+                                icon="fa-book"
+                                string="Accounting Entries"
+                                groups="bista_employee_loan.group_loan_finance_approval"
+                                attrs="{'invisible': [('state', 'not in', ('approved','done'))]}"
+                                type="object">
+                        </button>
+                    </div>
+                    <h1 class="mt0">
+                        <field name="name" readonly="1" class="oe_inline"/>
+                    </h1>
+
+                    <group col="4">
+                        <field name="company_id" groups="base.group_multi_company" readonly="1"/>
+                        <field name="total_loan_amount" required="1" attrs="{'readonly':[('state','not in',('draft','hr_approval'))]}"/>
+                        <field name="move_id" invisible="1"/>
+                        <field name="move_name" invisible="1"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="all_loan_paid" invisible="1"/>
+                    </group>
+                    <group col="4" attrs="{'invisible': [('state', 'not in', ('finance_processing', 'approved', 'done'))]}">
+                        <field name="batch_loan_journal_id"
+                                attrs="{'required': [('state', '=', 'finance_processing')],
+                                        'readonly': [('state', 'in', ('done','approved', 'rejected', 'cancelled'))]}"/>
+                        <newline/>
+                        <field name="batch_debit_account_id" attrs="{'required': [('state', '=', 'finance_processing')],
+                                                                'readonly': [('state', 'in', ('done','approved', 'rejected', 'cancelled'))]}"/>
+                        <field name="batch_credit_account_id" attrs="{'required': [('state', '=', 'finance_processing')],
+                                                                'readonly': [('state', 'in', ('done','approved', 'rejected', 'cancelled'))]}"/>
+                    </group>
+                    <notebook>
+                        <page string="Employee Loan">
+                            <field name="employee_loan_ids" attrs="{'readonly':[('state','!=','draft')]}"
+                                context="{'form_view_ref':'bista_employee_loan.hr_employee_loan_form_view'}"
+                            >
+                                <tree>
+                                    <field name="name" string="Number"/>
+                                    <field name="employee_id" required="1"/>
+                                    <field name="loan_amount" required="1" sum="Total Loan Amount"/>
+                                    <field name="state" invisible="0"/>
+                                    <field name="installment_number" invisible="1"/>
+                                    <field name="calculate_amount" invisible="1"/>
+                                    <field name="calculate_type" invisible="1"/>
+                                    <field name="calculate_type" invisible="1"/>
+                                    <field name="loan_issuing_date" invisible="1"/>
+                                    <field name="payment_date" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Comments" name="comments">
+                            <label for="comments" string="Comments"/>
+                            <field name="comments" placeholder="Comments" attrs="{'readonly':[('state','in',('done','approved', 'rejected', 'cancelled'))]}"/><br/>
+                            <label for="reject_reason" string="Reject Reason"/>
+                            <field name="reject_reason" readonly="1" placeholder="Reject reason"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!--Batch Loan Tree View-->
+    <record id="batch_employee_loan_tree_view" model="ir.ui.view">
+        <field name="name">Batch Loan Request</field>
+        <field name="model">batch.employee.loan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Loan Search View-->
+    <record id="batch_loan_search_view" model="ir.ui.view">
+        <field name="name">batch.employee.loan.search.view</field>
+        <field name="model">batch.employee.loan</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter string="Pending HR Approvals"
+                        name="pending_hr_approval"
+                        domain="[('state','in',['hr_approval'])]"/>
+                <filter string="Pending Finance Approvals"
+                        name="pending_hr_approval"
+                        domain="[('state','in',['finance_processing'])]"/>
+                <group expand="0" string="Group By...">
+                    <filter name="state" string="State" icon="terp-go-today"
+                            domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- action loan request -->
+    <record id="action_batch_loan_Request" model="ir.actions.act_window">
+        <field name="name">Batch Loan Request</field>
+        <field name="res_model">batch.employee.loan</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create Batch loan request!
+            </p>
+        </field>
+    </record>
+
+    <!-- Batch Loan Request Menu -->
+    <menuitem id="batch_loan_request_menu"
+              action="action_batch_loan_Request"
+              parent="loan_management_main_menu"
+              name="Batch Loan Request"
+              groups="bista_employee_loan.group_loan_hr_approval,bista_employee_loan.group_loan_finance_approval"
+              sequence="2"/>
+
+</odoo>

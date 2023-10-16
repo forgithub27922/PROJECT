@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_loan_installment_template">
+        <t t-call="web.external_layout">
+            <t t-foreach="doc_ids" t-as="wiz">
+                <div class="page">
+                    <center>
+                        <div style="font-size:19px;font-weight:bold;padding-top:20px">
+                            Loan Installment Report From:
+                            <span t-esc="datetime.datetime.strptime(wiz.date_from, '%Y-%m-%d').strftime('%d-%m-%Y')"/> to <t t-esc="datetime.datetime.strptime(wiz.date_to, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                        </div>
+                    </center>
+                    <br/>
+                    <table class="table table-condensed" name="invoice_line_table">
+                        <thead>
+                            <tr style="border-top:1px solid black;border-bottom:1px solid black;">
+                                <th>Loan Request</th>
+                                <th>Employee</th>
+                                <th>Paid Date</th>
+                                <th class="text-right">Paid Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody class="move_tbody">
+                            <t t-foreach="department_wise_installment" t-as="l">
+                                <tr>
+                                    <td style="font-weight:bold;border-top:1px solid black;border-bottom:1px solid black;" colspan="3">
+                                        <span t-esc="l[0].name"/>
+                                    </td>
+                                    <td style="font-weight:bold;border-top:1px solid black;border-bottom:1px solid black;" class="text-right">
+                                        <span t-esc="sum(map(lambda x: (x.paid_amount), l[1]))"/>
+                                    </td>
+                                </tr>
+                                <tr t-foreach="l[1]" t-as="k">
+                                    <td>
+                                        <span t-esc="k.loan_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="k.loan_id.employee_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-if="k.due_date" t-esc="datetime.datetime.strptime(k.due_date, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="k.paid_amount"/>
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

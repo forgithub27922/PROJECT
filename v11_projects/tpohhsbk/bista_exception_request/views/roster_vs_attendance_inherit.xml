@@ -1,0 +1,16 @@
+<odoo>
+	
+	<record model="ir.ui.view" id="hr_roster_vs_attendance_form_exception">
+		<field name="name">roster.vs.attendance.exception.form</field>
+		<field name="model">roster.vs.attendance</field>
+		<field name="inherit_id" ref="bista_hr_roster.hr_roster_vs_attendance_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='roster_attendance_line_ids']/tree//field[@name='working_hours']" position="after">
+				<field name="exception_hours" widget="float_time" />
+			</xpath>
+			<xpath expr="//field[@name='roster_attendance_line_ids']/form//field[@name='working_hours']" position="after">
+				<field name="exception_hours" widget="float_time" readonly="1"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>

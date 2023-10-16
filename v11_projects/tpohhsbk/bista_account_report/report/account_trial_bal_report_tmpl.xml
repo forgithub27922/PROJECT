@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="acc_trial_bal_rept_main">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="s">
+                    <t t-set="currency_id" t-value="s.company_id.currency_id"/>
+                    <t t-set="lang" t-value="request.env['res.lang'].sudo().search([('code','=',user.lang)],limit=1)"/>
+                    <t t-set="fmt" t-value='"%.{0}f".format(currency_id.decimal_places)'/>
+                    <h3 style="text-align:center">
+                        <b>Account Sub Ledger Report</b>
+                    </h3>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <b>Start Date:- <span
+                                    t-esc="dates_info.get('date_from')"/></b>
+                        </div>
+                        <div class="col-xs-6">
+                            <b>End Date:- <span
+                                    t-esc="dates_info.get('date_to')"/></b>
+                        </div>
+                    </div>
+                    <br/>
+                    <table class="table" style="border-collapse: collapse; border: 1px solid black;">
+                        <thead>
+                            <tr>
+                                <th style="border: 1px solid black;"
+                                    colspan="3">
+                                    <b>[ <t
+                                            t-esc="account_info.get('code')"/> ]
+                                        <t
+                                                t-esc="account_info.get('acc_name')"/></b>
+                                </th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th class="text-center"
+                                    style="border: 1px solid black;"
+                                    width="20%">Partner Name</th>
+                                 <th class="text-center"
+                                     style="border: 1px solid black;"
+                                    width="20%">Opening Balance</th>
+                                <th style="border: 1px solid black;"
+                                    width="20%"
+                                    class="text-center">Debit</th>
+                                <th style="border: 1px solid black;"
+                                    width="20%"
+                                    class="text-center">Credit</th>
+                                <th style="border: 1px solid black;"
+                                    width="20%"
+                                    class="text-center">Closing Balance</th>
+
+                            </tr>
+                            <t t-set="o_balance_tot" t-value="0.00"/>
+                            <t t-set="debit_tot" t-value="0.00"/>
+                            <t t-set="credit_tot" t-value="0.00"/>
+                            <t t-set="closing_tot" t-value="0.00"/>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="account_data" t-as="lst">
+                                <tr>
+                                    <td style="border: 1px solid black;">
+                                        <t t-esc="request.env['res.partner'].browse(lst[1]).name"/>
+                                        <t t-if="not lst[1]">
+                                            <t
+                                                    t-esc="request.env['res.partner'].browse(lst[4]).name"/>
+                                        </t>
+                                        <t t-if="not lst[1] and not lst[4]">
+                                            <span>Undefined</span>
+                                        </t>
+                                    </td>
+                                    <td class="text-center"
+                                        style="border: 1px solid black;">
+                                        <t t-set="o_balance"
+                                           t-value="lst[0] or 0.00"/>
+                                        <span t-esc="lang.format(fmt,o_balance,grouping=True)"/>
+                                        <t t-set="o_balance_tot"
+                                           t-value="o_balance_tot + o_balance"/>
+                                    </td>
+                                    <td style="border: 1px solid black;"
+                                        class="text-center">
+                                        <t t-set="debit"
+                                           t-value="lst[2] or 0.00"/>
+                                        <span t-esc="lang.format(fmt,debit,grouping=True)"/>
+                                        <t t-set="debit_tot"
+                                           t-value="debit_tot + debit"/>
+                                    </td>
+                                    <td style="border: 1px solid black;"
+                                        class="text-center">
+                                        <t t-set="credit"
+                                           t-value="lst[3] or 0.00"/>
+                                        <span t-esc="lang.format(fmt,credit,grouping=True)"/>
+                                        <t t-set="credit_tot"
+                                           t-value="credit_tot + credit"/>
+                                    </td>
+                                        <td class="text-center"
+                                                style="border: 1px solid black;">
+                                            <span t-esc="lang.format(fmt,((o_balance + debit) - credit),grouping=True)"/>
+                                            <t t-set="closing_tot"
+                                           t-value="closing_tot + ((o_balance + debit) - credit)"/>
+                                        </td>
+
+                                </tr>
+
+                            </t>
+                            <tr>
+                                <th class="text-center"
+                                    style="border: 1px solid black;"
+                                    width="20%"><b>Total</b></th>
+                                 <th class="text-center"
+                                     style="border: 1px solid black;"
+                                    width="20%">
+                                     <span t-esc="lang.format(fmt,o_balance_tot,grouping=True)"/>
+                                 </th>
+                                <th style="border: 1px solid black;"
+                                    width="20%"
+                                    class="text-center">
+                                    <span t-esc="lang.format(fmt,debit_tot,grouping=True)"/>
+                                </th>
+                                <th style="border: 1px solid black;"
+                                    width="20%"
+                                    class="text-center">
+                                    <span t-esc="lang.format(fmt,credit_tot,grouping=True)"/>
+                                </th>
+                                <th style="border: 1px solid black;"
+                                    width="20%"
+                                    class="text-center">
+                                    <span t-esc="lang.format(fmt,closing_tot,grouping=True)"/>
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

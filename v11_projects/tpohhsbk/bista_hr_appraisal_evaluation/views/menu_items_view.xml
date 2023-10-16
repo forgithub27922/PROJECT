@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem name="Appraisal" id="hr_appraisal_main_menu_root"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_normal_user,bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              web_icon="bista_hr_appraisal_evaluation,static/description/icon.png"/>
+
+    <!-- Appraisal Evaluation -->
+    <menuitem id="hr_appraisal_main_menu"
+              parent="hr_appraisal_main_menu_root"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_normal_user"
+              sequence="1"
+              name="Appraisal Evaluation"/>
+
+    <!-- View All -->
+    <menuitem id="hr_employee_kra_hr_review_menu" name="View All Appraisal"
+              parent="hr_appraisal_main_menu"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              sequence="1"
+              action="hr_employee_kra_hr_review_action"/>
+
+    <!-- Self Evaluation -->
+    <menuitem id="hr_employee_kra_menu" name="Self Evaluation"
+              parent="hr_appraisal_main_menu"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_normal_user"
+              sequence="2"
+              action="hr_employee_kra_action"/>
+
+    <!-- Evaluation by manager -->
+    <menuitem id="hr_employee_kra_manager_review_menu"
+              name="Evaluation by Manager"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_normal_user"
+              parent="hr_appraisal_main_menu"
+              sequence="3"
+              action="hr_employee_kra_manager_review_action"/>
+
+    <!-- Evaluation by Peers -->
+    <menuitem id="hr_employee_kra_peers_review_menu"
+              name="Evaluation by Peers"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_normal_user"
+              parent="hr_appraisal_main_menu"
+              sequence="4"
+              action="hr_employee_kra_peers_review_action"/>
+
+    <!-- Configuration -->
+    <menuitem id="hr_appraisal_configuration_main_menu"
+              name="Configuration"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              parent="hr_appraisal_main_menu_root"
+              sequence="2"/>
+
+    <menuitem id="hr_appraisal_configuration_menu"
+              action="wid_act_hr_appraisal_configuration"
+              name="Appraisal Period"
+              sequence="1"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              parent="hr_appraisal_configuration_main_menu"/>
+
+    <menuitem id="kra_configuration_menu"
+              sequence="2"
+              name="KRA Declaration"
+              action="action_hr_kra_configuration"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              parent="hr_appraisal_configuration_main_menu"/>
+
+    <!--Measurement Menu-->
+    <menuitem id="appraisal_measurement_menu" name="Measurement"
+              sequence="3"
+              parent="hr_appraisal_configuration_main_menu"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              action="appraisal_measurement_action"/>
+
+    <!-- Position -->
+    <menuitem id="hr_job_appraisal_conf_menu" name="Position"
+              sequence="4"
+              parent="hr_appraisal_configuration_main_menu"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              action="hr_recruitment.action_hr_job_config"/>
+
+    <!-- Report -->
+    <menuitem id="hr_appraisal_report_main_menu"
+              name="Report"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              parent="hr_appraisal_main_menu_root"
+              sequence="3"/>
+
+    <menuitem id="hr_appraisal_report_menu"
+              action="hr_appraisal_pivot_report_action"
+              name="Appraisal Report"
+              sequence="1"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              parent="hr_appraisal_report_main_menu"/>
+
+    <menuitem id="hr_annual_appraisal_report_menu"
+              action="annual_eval_report_wiz_act_window_action"
+              name="Annual Evaluation Report"
+              sequence="1"
+              groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+              parent="hr_appraisal_report_main_menu"/>
+
+</odoo>

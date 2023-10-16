@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="contrib_register_gratuity" model="hr.contribution.register">
+            <field name="name">Gratuity Contribution</field>
+            <field name="partner_id" eval="False"/>
+        </record>
+
+        <record id="hr_rule_gratuity" model="hr.salary.rule">
+            <field name="name">Gratuity</field>
+            <field name="sequence" eval="201"/>
+            <field name="code">GRTY</field>
+            <field name="category_id" ref="hr_payroll.NET"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = payslip.gratuity_amount
+            </field>
+            <field name="register_id" ref="contrib_register_gratuity"/>
+        </record>
+    </data>
+</odoo>

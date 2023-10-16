@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Form View for hr kra configuration -->
+    <record id="hr_kra_configuration_form_view" model="ir.ui.view">
+        <field name="name">hr.kra.configuration.form.view</field>
+        <field name="model">hr.kra.configuration</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <group>
+                            <field name="name" required="1"/>
+                        </group>
+                    </h1>
+                    <group>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                    <notebook>
+                        <page name="hr_kra_configuration_line"
+                              string="Key Indicators">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="question" required="1"/>
+                                    <field name="description" required="1"/>
+                                    <field name="measurement_ids"
+                                           widget="many2many_tags"
+                                           options="{'no_create':1,'no_open':1}"/>
+                                    <field name="weightage"
+                                           required="1"
+                                           string="Weightage(%)"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view for kra conf -->
+    <record id="hr_kra_configuration_tree_view" model="ir.ui.view">
+        <field name="name">hr.kra.configuration.tree.view</field>
+        <field name="model">hr.kra.configuration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Hr Kra -->
+    <record id="action_hr_kra_configuration" model="ir.actions.act_window">
+        <field name="name">KRA Configuration</field>
+        <field name="res_model">hr.kra.configuration</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <record id="appraisal_hr_job_form_view" model="ir.ui.view">
+        <field name="name">appraisal.hr.job.form.view</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='recruitment']" position="after">
+                <group string="KRA" name="kra">
+                    <field name="hr_kra_id"
+                           options="{'no_open': True,'no_create': True,'no_quick_create': True,'no_create_edit': True}"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- Form View for HrKraLine -->
+    <!--<record id="view_hr_kra_configuration_line_form" model="ir.ui.view">-->
+    <!--<field name="name">view.hr.kra.configuration.line.form</field>-->
+    <!--<field name="model">hr.kra.configuration.line</field>-->
+    <!--<field name="arch" type="xml">-->
+    <!--<form>-->
+    <!--<sheet>-->
+    <!--<group name="group_hr_kra_configuration_line_1">-->
+    <!--<field name="question"/>-->
+    <!--<field name="description"/>-->
+    <!--<field name="weightage"/>-->
+    <!--<field name="measurement"/>-->
+    <!--</group>-->
+    <!--</sheet>-->
+    <!--</form>-->
+    <!--</field>-->
+    <!--</record>-->
+
+    <!-- Tree view for HrKraLine -->
+    <!--<record id="view_hr_kra_configuration_line_tree" model="ir.ui.view">-->
+    <!--<field name="name">view.hr.kra.configuration.line.tree</field>-->
+    <!--<field name="model">hr.kra.configuration.line</field>-->
+    <!--<field name="arch" type="xml">-->
+    <!--<tree>-->
+    <!--<field name="question"/>-->
+    <!--<field name="description"/>-->
+    <!--<field name="weightage"/>-->
+    <!--<field name="measurement"/>-->
+    <!--</tree>-->
+    <!--</field>-->
+    <!--</record>-->
+
+    <!-- Action for HrKraLine -->
+    <!--<record id="action_hr_kra_configuration_configuration_line" model="ir.actions.act_window">-->
+    <!--<field name="name">HR KRA Line</field>-->
+    <!--<field name="res_model">hr.kra.configuration.line</field>-->
+    <!--<field name="view_type">form</field>-->
+    <!--<field name="view_mode">tree,form</field>-->
+    <!--</record>-->
+
+    <!--  Menu for HrKra -->
+    <!--<menuitem id="menu_hr_kra_configuration_configuration_line" action="action_hr_kra_configuration_configuration_line" parent="menu_appraisal_main"/>-->
+
+</odoo>

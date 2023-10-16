@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="0">
+
+    <record id="group_bista_hr_expense_reimburse_all_menu" model="res.groups">
+        <field name="name">Bista Expense Reimburse All</field>
+        <field name="category_id" ref="base.module_category_hr_expense"/>
+    </record>
+
+</data>
+</odoo>

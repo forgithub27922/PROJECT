@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+		<record id="hr_job_document_rule_multi_company" model="ir.rule">
+            <field name="name">HR Job Document Multi Company Rule</field>
+            <field name="model_id" ref="hr_document.model_hr_job_document"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+		<record id="applicant_hr_document_rule_multi_company" model="ir.rule">
+            <field name="name">HR Applicant Document Multi Company Rule</field>
+            <field name="model_id" ref="hr_document.model_applicant_hr_document"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="group_allow_import_data_user" model="res.groups">
+            <field name="name">Allows Import Data</field>
+        </record>
+
+    </data>
+</odoo>

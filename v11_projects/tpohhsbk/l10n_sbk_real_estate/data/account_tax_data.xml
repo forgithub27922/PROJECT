@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Tax Configuration for SBK Real Estate Company -->
+    <record id="tax_sbk_real_estate_sale" model="account.tax">
+        <field name="name">Output Vat 5%</field>
+        <field name="description">Sales Vat 5% (Real Estate SBK Dubai)</field>
+        <field name="amount">5.0</field>
+        <field name="type_tax_use">sale</field>
+        <field name="company_id" ref="l10n_sbk_real_estate.company_sbk_real_estate"/>
+    </record>
+    <record id="tax_sbk_real_estate_purchase" model="account.tax">
+        <field name="name">Input VAT 5%</field>
+        <field name="description">Purchase Vat 5% (Real Estate SBK Dubai)</field>
+        <field name="amount">5.0</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="company_id" ref="l10n_sbk_real_estate.company_sbk_real_estate"/>
+    </record>
+
+</odoo>

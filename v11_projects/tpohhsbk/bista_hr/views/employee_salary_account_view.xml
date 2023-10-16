@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="emp_partner_bank_account_action" model="ir.actions.act_window">
+            <field name="name">Bank Accounts</field>
+            <field name="res_model">res.partner.bank</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu Employee Salary Account -->
+        <menuitem
+            id="menu_emp_salary_acc"
+            action="emp_partner_bank_account_action"
+            parent="hr.menu_human_resources_configuration"
+            name="Employee Salary Account"
+            groups="-hr.group_hr_user,hr.group_hr_manager"
+            sequence="35"
+            />
+
+    </data>
+</odoo>

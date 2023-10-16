@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_loan_summary">
+        <t t-call="web.external_layout">
+            <t t-foreach="doc_ids" t-as="wiz">
+                <center>
+                    <div style="font-size:19px;font-weight:bold;padding-top:20px">
+                        Loan Summary Report From: <span t-esc="datetime.datetime.strptime(wiz.date_from, '%Y-%m-%d').strftime('%d-%m-%Y')"/> to <t t-esc="datetime.datetime.strptime(wiz.date_to, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                    </div>
+                </center>
+                <t t-foreach="group_by_department" t-as="department">
+                    <h3>
+                        Department: <span t-esc="department.name"/>
+                    </h3>
+                    <table class="table table-bordered" width="100%" height="100%"
+                           style="font-size:13px">
+                        <thead>
+                            <tr bgcolor="#D3D3D3">
+                                <th height="10%" class="text-center">
+                                    <b>Issuing Date </b>
+                                </th>
+                                <th height="10%" class="text-center">
+                                    <b>Employee</b>
+                                </th>
+                                <th height="10%" class="text-right">
+                                    <b>Loan Amount</b>
+                                </th>
+                                <th height="10%" class="text-right">
+                                    <b>Paid Amount</b>
+                                </th>
+                                <th height="10%" class="text-right">
+                                    <b>Remaining Amount</b>
+                                </th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="department_value" t-as="o">
+                            <t t-foreach="o" t-as="loan">
+                                <tbody>
+                                    <tr bgcolor="#D3D3D3">
+                                        <td height="10%" class="text-center">
+                                            <t t-if="loan.loan_issuing_date">
+                                                <span t-esc="datetime.datetime.strptime(loan.loan_issuing_date, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                                            </t>
+                                        </td>
+                                        <td height="10%" class="text-center">
+                                            <span t-esc="loan.employee_id.name"/>
+                                        </td>
+                                        <td height="10%" class="text-right">
+                                            <span t-esc="loan.loan_amount"/>
+                                        </td>
+                                        <td height="10%" class="text-right">
+                                            <span t-esc="loan.total_paid_installment_amount"/>
+                                        </td>
+                                        <td height="10%" class="text-right">
+                                            <span t-esc="loan.remaining_installments_total_amount"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </t>
+                        </t>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

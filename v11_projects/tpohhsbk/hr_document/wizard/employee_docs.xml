@@ -1,0 +1,47 @@
+<odoo>
+
+	<!-- Form view of Employee Docs -->
+	<record id="wiz_employee_docs_form" model="ir.ui.view">
+		<field name="name">wiz.employee.docs.form</field>
+		<field name="model">wiz.employee.docs</field>
+		<field name="arch" type="xml">
+			<form>
+				<group>
+					<group>
+						<field name="job_doc_id" />
+					</group>
+				</group>
+
+				<footer>
+					<button name="btn_employee_docs" string="Print Document" type="object" />
+					or
+					<button special="cancel" string="Cancel" class="oe_link" />
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<!-- Action of Employee Docs -->
+	<record id="action_wiz_employee_docs" model="ir.actions.act_window">
+		<field name="name">Employee Documents</field>
+		<field name="res_model">wiz.employee.docs</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+		<field name="context">{'attr_wiz':True,'form_view_ref':'wiz_employee_docs_form.wiz_employee_docs_form'}
+		</field>
+
+	</record>
+
+	<!-- Adding wizard in Actions Toolbar -->
+	<act_window id="wiz_employee_docs"
+		name="Employee Docs"
+		key2="client_action_multi"
+		res_model="wiz.employee.docs"
+		src_model="hr.employee"
+		view_type="form"
+		view_mode="form"
+		target="new"
+		context="{'attr_wiz':True,'form_view_ref' : 'hr_document.wiz_employee_docs_form'}" />
+
+</odoo>

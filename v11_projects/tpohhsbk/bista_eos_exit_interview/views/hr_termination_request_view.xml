@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Termination Request Views -->
+    <record id="hr_termination_request_form_inherit" model="ir.ui.view">
+        <field name="name">hr.termination.request.form</field>
+        <field name="model">hr.termination.request</field>
+        <field name="inherit_id" ref="bista_eos.hr_termination_request_form"/>
+        <field name="arch" type="xml">
+            <button name="state_approve_hr" position="attributes">
+                <attribute name="states">exit_interview</attribute>
+            </button>
+            <button name="state_approve_hr" position="after">
+                <button name="state_arrange_exit_interview" states="notice" type="object" string="Arrange Exit Interview"
+                    class="oe_highlight" groups="hr.group_hr_manager,bista_eos.group_eos_user,bista_eos.group_eos_manager"/>
+            </button>
+        </field>
+    </record>
+
+</odoo>

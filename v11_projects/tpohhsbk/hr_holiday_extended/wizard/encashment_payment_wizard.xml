@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+    
+    	 <record id="view_leave_encashment_payment_wizard_form" model="ir.ui.view">
+            <field name="name">leave.encashment.payment.wizard.form</field>
+            <field name="model">leave.encashment.payment.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Payment">
+                    <group>
+                    	<group>
+                    		<field name="journal_id" required="1" domain="[('type','in',['bank','cash'])]"></field>
+                    		<field name="amount" readonly="1"></field>
+                    	</group>
+                    	<group>
+                    		<field name="payment_date" required="1"></field>
+                    		<field name="leave_encashment_id" readonly="1"></field>
+                    	</group>
+                    </group>
+                    <footer>
+                        <button string='Validate' name="pay_leave_salary" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_leave_encashment_payment_wizard" model="ir.actions.act_window">
+            <field name="name">Payment</field>
+            <field name="res_model">leave.encashment.payment.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_leave_encashment_payment_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+        
+    </data>
+</odoo>

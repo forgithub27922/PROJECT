@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherited hr.employee form view -->
+    <record id="inherited_hr_emp_experience_form" model="ir.ui.view">
+        <field name="name">inherited.emp.experience.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook/page[@name='hr_settings']" position="after">
+                <page name="hr_experience" string="Experience">
+                    <field name="experience_ids" nolabel="1">
+                        <tree editable="botttom" string="Experience">
+                            <field name="job_id" required="1"/>
+                            <field name="company" required="1"/>
+                            <field name="start_date" required="1"/>
+                            <field name="end_date" required="1"/>
+                            <field name="experience" required="1"/>
+                            <field name="relevant"/>
+                            <field name="experience_letter" filename="file_name" widget="binary"/>
+                            <field name="file_name" invisible="1"/>
+                        </tree>
+                        <form>
+                            <group name="exp_details" colspan="4" col="4">
+                                <field name="job_id"/>
+                                <field name="company"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="experience"/>
+                                <field name="experience_letter" filename="file_name"/>
+                                <field name="file_name" invisible="1"/>
+                            </group>
+                        </form>
+                    </field>
+                    <group name="count_exp" colspan="4" col="4">
+                        <field name="relevant_experience"/>
+                        <field name="total_experience"/>
+                        <field name="current_experience" string="Current Company's Experience"/>
+                    </group>
+                     <group colspan="4" col="4">
+                        <field name="total_relevant_experience"/>
+                        <field name="total_past_cur_exp" string="Total Experience"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo> 

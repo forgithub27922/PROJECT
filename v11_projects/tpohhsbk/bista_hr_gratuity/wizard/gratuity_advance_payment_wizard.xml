@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+    
+    	 <record id="view_gratuity_advance_payment_wizard_form" model="ir.ui.view">
+            <field name="name">gratuity.advance.payment.wizard.form</field>
+            <field name="model">gratuity.advance.payment.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Payment">
+                    <group>
+                    	<group>
+                    		<field name="journal_id" required="1" domain="[('type','in',['bank','cash'])]"></field>
+                    	</group>
+                    </group>
+                    <footer>
+                        <button string='Pay' name="pay_gratuity_advance" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_gratuity_advance_payment_wizard" model="ir.actions.act_window">
+            <field name="name">Gratuity Advance Payment</field>
+            <field name="res_model">gratuity.advance.payment.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_gratuity_advance_payment_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+        
+    </data>
+</odoo>

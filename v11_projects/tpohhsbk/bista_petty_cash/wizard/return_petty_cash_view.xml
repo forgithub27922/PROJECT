@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+
+        <record id="view_return_pettycash_form" model="ir.ui.view">
+            <field name="name">return.petty.cash.form</field>
+            <field name="model">return.petty.cash</field>
+            <field name="arch" type="xml">
+                <form string="Return Petty-Cash">
+                    <group string="Difference Amount">
+                        <group>
+                            <field name="amount"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_reverse_entry" type="object"
+                            string="Submit" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</openerp>

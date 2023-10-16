@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- <record id="fleet.fleet_group_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="implied_ids" eval="[(4, ref('fleet_group_user'))]"/>
+            <field name="category_id" ref="module_fleet_category"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record> -->
+
+        <record id="bista_hr.group_pr_department" model="res.groups">
+            <field name="name">PR Department</field>
+            <field name="implied_ids" eval="[(4, ref('fleet.fleet_group_manager'))]"/>
+            <field name="comment">the user will allow to create or update Employee Document.</field>
+        </record>
+
+        <!-- Registration Multi Company Rule -->
+    	<record id="fleet_registration_multi_company_rule" model="ir.rule">
+            <field name="name">Fleet Registration Multi Company Rule</field>
+            <field name="model_id" ref="sbk_fleet_mgt.model_fleet_vehicle_registration"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+        <!-- Insurance Multi Company Rule -->
+    	<record id="fleet_insurance_multi_company_rule" model="ir.rule">
+            <field name="name">Fleet Insuramce Multi Company Rule</field>
+            <field name="model_id" ref="sbk_fleet_mgt.model_fleet_vehicle_insurance"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+        <!-- Vehicle Multi Company Rule -->
+    	<record id="fleet_vehicle_multi_company_rule" model="ir.rule">
+            <field name="name">Fleet Vehicle Multi Company Rule</field>
+            <field name="model_id" ref="fleet.model_fleet_vehicle"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+    </data>
+</odoo>

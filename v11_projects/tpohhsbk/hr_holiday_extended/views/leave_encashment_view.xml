@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Leave Encashment form view-->
+        <record id="leave_encashment_form_view" model="ir.ui.view">
+            <field name="name">leave.encashment.form.view</field>
+            <field name="model">leave.encashment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm" string="Confirm" type="object" groups="hr.group_hr_user"
+                                attrs="{'invisible':[('state','in',('confirm','approved','paid','cancel'))]}" class="btn-primary"/>
+                        <button name="action_approved" string="Approved" type="object" groups="hr.group_hr_user"
+                                attrs="{'invisible':[('state','in',('approved','paid','draft','cancel'))]}" class="btn-primary"/>
+                        <button string="Pay" type="action" groups="account.group_account_user"
+                        		name="%(hr_holiday_extended.action_leave_encashment_payment_wizard)d"
+                                attrs="{'invisible':['|',('state','!=','approved'),('leave_encashment_payment_mode','=','salary')]}" class="btn-primary" context="{'default_amount':encash_amount,'default_leave_encashment_id':id,'default_payment_date':encash_date}"/>
+                        <button name="action_cancel" string="Cancel" type="object"
+                        	attrs="{'invisible':[('state','in',('draft','cancel'))]}" class="btn-primary"/>
+                        <button name="action_reset" string="Reset" type="object"
+                        	attrs="{'invisible':[('state','!=','cancel')]}" class="btn-primary"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                    	<div class="oe_button_box" name="button_box">
+                    		<field name="account_move_id" invisible="1" />
+                    		<field name="move_ids" widget="many2many_tags" invisible="1"/> 
+	                        <button class="oe_stat_button" type="object" attrs="{'invisible': [('move_ids', '=', False)]}"
+	                                string="Journal Entry" name="action_open_journal_entries"
+	                                icon="fa-book"/>
+                    	</div>
+                        <group col="4">
+                            <field name="employee_id" required="1"
+                                   attrs="{'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="holiday_status_id" domain="[('encashment', '=', True)]" required="1"
+                            	attrs="{'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="type" widget="radio"  attrs="{'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="company_id" groups="base.group_multi_company" attrs="{'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="encash_date" required="1" attrs="{'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="total_leave_type_days" string="Leave Balance" attrs="{'invisible': [('type','=', 'lapse_leaves_to_encash')], 'required': [('type','=', 'lapse_and_encash')], 'readonly':[('state','!=', 'draft')]}" readonly="1"/>
+                            <field name="leave_encashment_payment_mode" widget="radio" attrs="{'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="max_allowed" string = "Maximum Leave Balance" attrs="{'invisible': [('type','=', 'lapse_leaves_to_encash')], 'required': [('type','=', 'lapse_and_encash')], 'readonly':[('state','!=', 'draft')]}" readonly="1"/>
+                            <field name="max_leave_encash" attrs="{'invisible':[('type','=', 'lapse_leaves_to_encash')], 'required': [('type','=', 'lapse_and_encash')]}" readonly="1"/>
+
+                        </group>
+                        <group col="4">
+                            
+                            <field name="days_to_encash" attrs="{'invisible': [('type','=', 'lapse_leaves_to_encash')], 'required': [('type','=', 'lapse_and_encash')], 'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="leaves_to_lapse" attrs="{'invisible': [('type','=', 'lapse_leaves_to_encash')], 'required': [('type','=', 'lapse_and_encash')], 'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="encash_amount" attrs="{'invisible':[('state','in', ['draft','confirm'])], 'readonly':[('state','!=', 'draft')]}"/>
+                            <field name="leaves_to_encash" string="Leaves to Encash" attrs="{'invisible':[('type', '=', 'lapse_and_encash')]}"/>
+                            <field name="eos_fnf_id" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="allocation_ids" attrs="{'readonly':[('state','!=', 'draft')], 'invisible':[('type','=', 'lapse_and_encash')]}"
+                                    domain="[('type', '=', 'remove'),
+                                   ('employee_id', '=', employee_id),
+                                   ('is_leave_adjustment','=',False),
+                                   ('date_from', '=', False),
+                                   ('date_to', '=', False),
+                                   ('state', '=', 'validate'),
+                                   '|',('lapse_leave', '=', True),
+                                   ('carry_forward_lapse_leave', '=', True),
+                                   ('holiday_status_id.encashment', '=', True),
+                                   ('holiday_status_id','=', holiday_status_id)]"
+                                   context="{'employee_id': employee_id, 'allocation_ids': allocation_ids, 'holiday_status_id': holiday_status_id}" required="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Leave Encashment tree view-->
+        <record id="leave_encashment_tree_view" model="ir.ui.view">
+            <field name="name">leave.encashment.tree.view</field>
+            <field name="model">leave.encashment</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="encash_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Leave Encashment action-->
+        <record id="leave_encashment_action" model="ir.actions.act_window">
+            <field name="name">Leave Encashment</field>
+            <field name="res_model">leave.encashment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <record id="leave_encashment_to_pay_action" model="ir.actions.act_window">
+            <field name="name">Leave Encashment</field>
+            <field name="res_model">leave.encashment</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('state','=','approved')]</field>
+        </record>
+
+        <!-- menu leaves top -->
+        <menuitem id="leaves_menu_top"
+                  name="Leaves"
+                  parent="hr_payroll.menu_hr_payroll_root"
+                  groups="hr_payroll.group_hr_payroll_user"
+                  sequence="50"/>
+
+        <!--Leave Encashment Menu-->
+        <menuitem id="leave_encashment_menu"
+                  string="Leave Encashment"
+                  action="leave_encashment_action"
+                  parent="leaves_menu_top"
+                  groups="hr.group_hr_manager,hr.group_hr_user,hr_holidays.group_hr_holidays_manager"/>
+                  
+       <menuitem
+        id="menu_item_account_leave_encashment_to_pay_payslip"
+        name="Leave Encashment to Pay"
+        action="leave_encashment_to_pay_action"
+        parent="bista_payroll.parent_menu_accounting_staff"
+        sequence="2"/>
+
+
+		<!-- Removed Encashment from Payslip -->
+        Inherit Form View to Modify it
+        <record id="payslip_form_inherit_encashment" model="ir.ui.view">
+            <field name="name">hr.payslip.form.inherit</field>
+            <field name="model">hr.payslip</field>
+            <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='credit_note']" position="after">
+                    <field name="encash_amount" invisible="0"/>
+                </xpath>
+
+            </field>
+        </record>
+
+        <!-- created new top menu for payslip-->
+        <menuitem id="menu_payslip_top" name="Payslip"
+                  sequence="1" parent="hr_payroll.menu_hr_payroll_root"
+                  groups="hr_payroll.group_hr_payroll_user"/>
+
+        <!-- set employee payslip menu inside payslip-->
+        <menuitem action="hr_payroll.action_view_hr_payslip_form"
+                  id="hr_payroll.menu_department_tree"
+                  parent="menu_payslip_top" groups="hr_payroll.group_hr_payroll_user"/>
+
+        <!-- sets payslip batch menu inside payslip-->
+        <menuitem action="hr_payroll.action_hr_payslip_run_tree"
+                  id="hr_payroll.menu_hr_payslip_run"
+                  parent="menu_payslip_top"/>
+    </data>
+</odoo>

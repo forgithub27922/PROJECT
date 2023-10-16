@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data>
+
+        <record id="leave_allocation_batch_tree_view" model="ir.ui.view">
+            <field name="name">leave.allocation.batch.tree</field>
+            <field name="model">leave.allocation.batch</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="company_id"/>
+                    <field name="holiday_status_id"/>
+                    <field name="date"/>
+                    <field name="status"/>
+                    <field name="move_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="leave_allocation_batch_form_view" model="ir.ui.view">
+            <field name="name">leave.allocation.batch.form</field>
+            <field name="model">leave.allocation.batch</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button type="object" name="do_confirm" string="Confirm"
+                                class="oe_highlight" attrs="{'invisible':[('status','!=','draft')]}"/>
+                        <button type="object" name="do_compute_leave_amount" string="Compute Batch"
+                                class="oe_highlight" attrs="{'invisible':[('status','!=','draft')]}"/>
+                        <button type="object" name="do_cancel" string="Refuse" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','confirm')]}"/>
+                        <button type="object" name="do_reset_to_draft" string="Reset To Draft" class="oe_highlight"
+                                attrs="{'invisible':[('status','!=','cancel')]}"/>
+                        <field name="status" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box">
+                            <button name="get_journal_entry" type="object" string="Journal Entry" icon="fa-dollar" 
+                                    class="oe_stat_button" attrs="{'invisible':[('move_id','=',False)]}"/>
+                        </div>
+                        <group col="4">
+                            <field name="name" attrs="{'readonly':[('status','=','confirm')]}"/>
+                            <field name="company_id" readonly="1" required="1" groups="base.group_multi_company"
+                                   force_save="1"/>
+                            <field name="holiday_status_id" required="1" domain="[('company_id','=',company_id),('accruals','=',True)]"
+                                   attrs="{'readonly':[('status','=','confirm')]}"/>
+                            <field name="date" attrs="{'readonly':[('status','=','confirm')]}"/>
+                            <field name="move_id" invisible="1"/>
+                            <field name="move_name" invisible="1"/>
+                        </group>
+                        <group>
+                            <notebook>
+                                <page string="Holidays">
+                                    <field name="holiday_batch_ids" attrs="{'readonly':[('status','=','confirm')]}"
+                                           context="{'default_type':'add','default_holiday_status_id':holiday_status_id}"
+                                           >
+                                        <tree editable="top">
+                                            <field name="name"/>
+                                            <field name="holiday_status_id" domain="[('id','=',parent.holiday_status_id)]"/>
+                                            <field name="employee_id" context="{'from_batch_calculation':True}"/>
+                                            <field name="date_from" context="{'from_batch_calculation':True}"/>
+                                            <field name="date_to" context="{'from_batch_calculation':True}"/>
+                                            <field name="number_of_days_temp" context="{'from_batch_calculation':True}"/>
+                                            <field name="state"/>
+                                            <field name="leave_amount" sum="Total"/>
+                                            <field name="batch_id" invisible="1"/>
+                                            <field name="type" invisible="1"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_leave_allocation_batch" model="ir.actions.act_window">
+            <field name="name">Leave Allocation Batch</field>
+            <field name="res_model">leave.allocation.batch</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="leave_allocation_batch_menu" action="action_leave_allocation_batch"
+                  parent="hr_holidays.menu_hr_holidays_approvals" sequence="12"/>
+
+         <record id="holiday_batch_refuse_form_view" model="ir.ui.view">
+            <field name="name">holiday.batch.refuse.form</field>
+            <field name="model">holiday.batch.refuse</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <p class="text-danger" style="font-size:16px;">
+                            <field name="name" readonly="1"/>
+                        </p>
+                        <field name="holidays_id" invisible="1"/>
+                        <field name="batch_id" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button string="Confirm" name="refuse_batch_leave" type="object" class="btn-primary"/>
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

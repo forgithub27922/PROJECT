@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cheque_format,access_cheque_format,model_cheque_format,,1,1,1,0
+access_account_checkbook,access_account_checkbook,model_account_checkbook,,1,1,1,0
+access_wizard_print_check,access_wizard_print_check,model_wizard_print_check,,1,1,1,1

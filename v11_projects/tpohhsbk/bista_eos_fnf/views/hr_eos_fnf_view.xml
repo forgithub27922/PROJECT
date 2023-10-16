@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- form view for termination request -->
+        <record id="hr_termination_request_form_fnf" model="ir.ui.view">
+            <field name="name">hr.termination.request.inherit.fnf</field>
+            <field name="model">hr.termination.request</field>
+            <field name="inherit_id" ref="bista_eos.hr_termination_request_form"/>
+            <field name="arch" type="xml">
+                <button name="state_released" position="after">
+                    <button name="do_reset_to_draft" string="Reset To Draft"
+                            type="object" states="submit,notice,approve_hr"/>
+                </button>
+                <button name="state_released" position="after">
+                    <button name="action_calculate_fnf" string="Calculate F&amp;F"
+                            type="object" states="no_dues"/>
+                    <button name="generate_payslip" type="object" string="Generate Payslips"
+                            class="oe_highlight" states="no_dues"/>
+                    <button name="%(bista_eos_fnf.action_eos_fnf_payment_wizard)d" type="action" string="Pay"
+                            class="oe_highlight" states="no_dues" context="{'is_eos_fnf_pay':True}"/>
+                </button>
+                <field name="pay_off_amount" position="after">
+                    <field name="final_ff_amount"/>
+                    <field name="expense_ids" invisible="1"/>
+                    <field name="payslip_id" invisible="1"/>
+                    <field name="account_move_id" invisible="1"/>
+                </field>
+                <xpath expr="//group" position="before">
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_expences"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa fa-shopping-bag"
+                                attrs="{'invisible': [('expense_ids', '=', False)]}"
+                                string="Expenses">
+                        </button>
+                        <button class="oe_stat_button" type="object"
+                                string="Accounting Entry" name="action_open_journal_entries"
+                                icon="fa-book"
+                                attrs="{'invisible':[('account_move_id', '=', False)]}"/>
+                    </div>
+                </xpath>
+                <xpath expr="//form/sheet/notebook/page[1]" position="after">
+                    <page string="F&amp;F Details"
+                          attrs="{'invisible': [('state', 'not in', ('no_dues','released','paid'))]}">
+                        <field name="eos_fnf_ids" attrs="{'readonly': [('state', 'in', ('released','paid'))]}">
+                            <tree editable="bottom">
+                                <field name="name" required="1"/>
+                                <field name="amount" required="1" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <field name="is_deduction"/>
+                                <field name="currency_id" groups="base.group_multi_currency"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Loan" attrs="{'invisible': [('state', 'not in', ('no_dues','released','paid'))]}">
+                        <field name="loan_ids" attrs="{'readonly': [('state', 'in', ('released','paid'))]}">
+                            <tree>
+                                <field name="name"/>
+                                <field name="employee_id"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="loan_amount" sum="Total Loan Amount" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <field name="remaining_installments_total_amount" sum="Total remaining Amount"
+                                       widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="total_paid_installment_amount" sum="Total Paid Amount" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Salary" attrs="{'invisible': [('state', 'not in', ('no_dues','released','paid'))]}">
+                        <field name="slip_ids" attrs="{'readonly': [('state', 'in', ('released','paid'))]}">
+                            <tree create="false">
+                                <field name="number"/>
+                                <field name="employee_id"/>
+                                <field name="name"/>
+                                <field name="date_from"/>
+                                <field name="date_to"/>
+                                <field name="state"/>
+                                <field name="net_amount" sum="Payslip Net Amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Encashment"
+                          attrs="{'invisible': [('state', 'not in', ('no_dues','released','paid'))]}">
+                        <field name="salary_ids" attrs="{'readonly': [('state', 'in', ('released','paid'))]}"
+                               create="false">
+                            <tree create="false">
+                                <field name="leave_type_id"/>
+                                <field name="leave_balance"/>
+                                <field name="currency_id" required="1"/>
+                                <field name="leave_salary_amount" sum="Leave Salary Amount" string="Amount" 
+                                       widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Special Allowances"
+                          attrs="{'invisible': [('state', 'not in', ('no_dues','released','paid'))]}">
+                        <field name="spl_allowance_ids" attrs="{'readonly': [('state', 'in', ('released','paid'))]}">
+                            <tree editable="bottom">
+                                <field name="description" required="1"/>
+                                <field name="allowance_expense_account_id"/>
+                                <field name="currency_id" required="1"/>
+                                <field name="amount" required="1" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="company_currency_id" invisible="1"/>
+                                <field name="base_crncy_amount" widget="monetary"
+                                       options="{'currency_field': 'company_currency_id'}" readonly="1" force_save="1"
+                                       sum="Base Currency Amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Other Deductions"
+                          attrs="{'invisible': [('state', 'not in', ('no_dues','released','paid'))]}">
+                        <field name="other_deduct_ids" attrs="{'readonly': [('state', 'in', ('released','paid'))]}">
+                            <tree editable="bottom">
+                                <field name="description" required="1"/>
+                                <field name="deduction_account_id"/>
+                                <field name="currency_id" required="1"/>
+                                <field name="amount" required="1" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="company_currency_id" invisible="1"/>
+                                <field name="base_crncy_amount" readonly="1" widget="monetary"
+                                       options="{'currency_field': 'company_currency_id'}" force_save="1"
+                                       sum="Base Currency Amount"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Gratuity Accrual"
+                          attrs="{'invisible': [('state', 'not in', ('no_dues','released','paid'))]}">
+                        <field name="gratuity_final_pmnt_ids" attrs="{'invisible': [('state', 'not in', ('no_dues','released','paid'))],
+                    'readonly': [('state', 'in', ('released','paid'))]}">
+                            <tree create="false">
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                                <field name="experience"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="gratuity_days" sum="Gratuity Days"/>
+                                <field name="gratuity_amount" sum="Gratuity Amount" widget="monetary"
+                                       options="{'currency_field': 'currency_id'}"/>
+                            </tree>
+                        </field>
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <b>
+                                            Max. Gratuity Payable :
+                                            <field name="gtt_max_payabel"/>
+                                        </b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- form view for EOF FNF Line-->
+        <record id="view_hr_eos_fnf_form" model="ir.ui.view">
+            <field name="name">hr.eos.fnf.form</field>
+            <field name="model">hr.eos.fnf</field>
+            <field name="arch" type="xml">
+                <form string="Penalty">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="amount"/>
+                        </group>
+                        <group>
+                            <field name="currency_id" groups="base.group_multi_currency"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                            <field name="is_deduction"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- added accrual setting in hr_holiday form view -->
+        <record id="hr_eos_fnf_form_inherit" model="ir.ui.view">
+            <field name="name">hr.eos.fnf.form.inherit</field>
+            <field name="model">hr.salary.rule</field>
+            <field name="inherit_id" ref="hr_payroll.hr_salary_rule_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="is_leave_deduction"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- form view for special allowance -->
+        <record id="view_hr_special_allowances_form" model="ir.ui.view">
+            <field name="name">view.hr.special.allowances.form</field>
+            <field name="model">hr.special.allowances</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="4">
+                        <field name="description" required="1"/>
+                        <field name="currency_id" required="1"/>
+                        <field name="amount" required="1"/>
+                        <field name="base_crncy_amount" readonly="1" force_save="1"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <!-- form view for other deduction -->
+        <record id="view_hr_other_deductions_form" model="ir.ui.view">
+            <field name="name">view.hr.other.deductions.form</field>
+            <field name="model">hr.other.deductions</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group col="4">
+                        <field name="description" required="1"/>
+                        <field name="currency_id" required="1"/>
+                        <field name="amount" required="1"/>
+                        <field name="base_crncy_amount" readonly="1" force_save="1"/>
+                        <field name="company_id" invisible="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,324 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* check_uae_print
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-15 07:22+0000\n"
+"PO-Revision-Date: 2019-03-15 07:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: check_uae_print
+#: model:ir.actions.act_window,name:check_uae_print.action_account_checkbook_detail
+msgid "Account Cheque Book"
+msgstr ""
+
+#. module: check_uae_print
+#: model_terms:ir.ui.view,arch_db:check_uae_print.view_account_cheque_book_form
+#: model_terms:ir.ui.view,arch_db:check_uae_print.view_account_cheque_book_tree
+msgid "Account Cheque book"
+msgstr ""
+
+#. module: check_uae_print
+#: selection:cheque.format,dir_currency_symbol:0
+msgid "After"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_font_size
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_words1_font_size
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_words2_font_size
+msgid "Amount Font Size"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_left_margin
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_words1_left_margin
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_words2_left_margin
+msgid "Amount Left Margin"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_top_margin
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_words1_top_margin
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_words2_top_margin
+msgid "Amount Top Margin"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_words1_width
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__amount_words2_width
+msgid "Amount Width"
+msgstr ""
+
+#. module: check_uae_print
+#: model_terms:ir.ui.view,arch_db:check_uae_print.cheque_format_form_view
+msgid "Amount in Digit"
+msgstr ""
+
+#. module: check_uae_print
+#: model_terms:ir.ui.view,arch_db:check_uae_print.cheque_format_form_view
+msgid "Amount in Words"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__bank_account_id
+msgid "Bank Account"
+msgstr "حساب بنكي"
+
+#. module: check_uae_print
+#: selection:cheque.format,dir_currency_symbol:0
+msgid "Before"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_res_company__us_check_layout
+msgid "Check Layout"
+msgstr "تخطيط الشيك"
+
+#. module: check_uae_print
+#: selection:res.company,us_check_layout:0
+msgid "Check in middle"
+msgstr ""
+
+#. module: check_uae_print
+#: selection:res.company,us_check_layout:0
+msgid "Check on bottom"
+msgstr ""
+
+#. module: check_uae_print
+#: selection:res.company,us_check_layout:0
+msgid "Check on top"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_journal__account_checkbook_id
+#: model:ir.ui.menu,name:check_uae_print.account_checkbook_menu
+msgid "Cheque Book"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__name
+msgid "Cheque Book Name"
+msgstr ""
+
+#. module: check_uae_print
+#: sql_constraint:account.checkbook:0
+msgid "Cheque Book already exists !"
+msgstr ""
+
+#. module: check_uae_print
+#: model_terms:ir.ui.view,arch_db:check_uae_print.cheque_format_form_view
+msgid "Cheque Date"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.actions.act_window,name:check_uae_print.action_cheque_format_detail
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__cheque_format_id
+#: model:ir.model.fields,field_description:check_uae_print.field_account_payment__check_format_id
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__name
+#: model:ir.model.fields,field_description:check_uae_print.field_print_prenumbered_checks__check_format_id
+#: model:ir.ui.menu,name:check_uae_print.cheque_format_menu
+#: model_terms:ir.ui.view,arch_db:check_uae_print.cheque_format_form_view
+#: model_terms:ir.ui.view,arch_db:check_uae_print.view_cheque_format_tree
+msgid "Cheque Format"
+msgstr ""
+
+#. module: check_uae_print
+#: sql_constraint:cheque.format:0
+msgid "Cheque Format already exists !"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model,name:check_uae_print.model_res_company
+msgid "Companies"
+msgstr "المؤسسات"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__create_uid
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__create_date
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__currency_symbol
+msgid "Currency Symbol"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__date_char_spacing
+msgid "Date Charactor Spacing"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__date_font_size
+msgid "Date Font Size"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__date_top_margin
+msgid "Date Top Margin"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__date_left_margin
+msgid "DateLeft Margin"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__dir_currency_symbol
+msgid "Dir Currency Symbol"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__display_name
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__pages
+msgid "End Page"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__id
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: check_uae_print
+#: model:ir.model,name:check_uae_print.model_account_journal
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__account_journal_id
+msgid "Journal"
+msgstr "دفتر اليومية"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook____last_update
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__write_uid
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__write_date
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__left_margin
+msgid "Left Margin"
+msgstr ""
+
+#. module: check_uae_print
+#: model_terms:ir.ui.view,arch_db:check_uae_print.view_account_cheque_book_form
+msgid "Name"
+msgstr "الاسم"
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_print_prenumbered_checks__next_number
+msgid "Next Check Number"
+msgstr "رقم الشيك التالي"
+
+#. module: check_uae_print
+#: selection:res.company,us_check_layout:0
+msgid "None"
+msgstr ""
+
+#. module: check_uae_print
+#: code:addons/check_uae_print/models/account_payment.py:29
+#: code:addons/check_uae_print/models/account_payment.py:49
+#, python-format
+msgid "Not enough cheque. Please define new cheque Book"
+msgstr ""
+
+#. module: check_uae_print
+#: model_terms:ir.ui.view,arch_db:check_uae_print.cheque_format_form_view
+msgid "Party/Payee Name"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__payee_font_size
+msgid "Payee Font Size"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__payee_left_margin
+msgid "Payee Left Margin"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__payee_top_margin
+msgid "Payee Top Margin"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model,name:check_uae_print.model_account_payment
+msgid "Payments"
+msgstr "المدفوعات"
+
+#. module: check_uae_print
+#: model:ir.actions.report,name:check_uae_print.action_print_uae_cheque
+msgid "Print Cheque"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model,name:check_uae_print.model_print_prenumbered_checks
+msgid "Print Pre-numbered Checks"
+msgstr "طباعة شيكات مرقمة مسبقاً"
+
+#. module: check_uae_print
+#: selection:res.company,us_check_layout:0
+msgid "Print UAE Check"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,help:check_uae_print.field_res_company__us_check_layout
+msgid "Select the format corresponding to the check paper you will be printing your checks on.\n"
+"In order to disable the printing feature, select 'None'."
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__start_page
+msgid "Start Page"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_cheque_format__top_margin
+msgid "Top Margin"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model.fields,field_description:check_uae_print.field_account_checkbook__printed_page
+msgid "Total Printed Pages"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model,name:check_uae_print.model_account_checkbook
+msgid "account.checkbook"
+msgstr ""
+
+#. module: check_uae_print
+#: model:ir.model,name:check_uae_print.model_cheque_format
+msgid "cheque.format"
+msgstr ""
+

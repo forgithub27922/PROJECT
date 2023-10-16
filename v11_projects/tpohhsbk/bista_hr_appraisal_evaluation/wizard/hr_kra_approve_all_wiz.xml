@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="kra_approve_all_wiz" model="ir.ui.view">
+        <field name="name">kra.approve.all.wiz</field>
+        <field name="model">hr.kra.approve.all.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <h4>
+                    Are you sure you want to approve all appraisal record ?
+                </h4>
+                <footer>
+                    <button name="approve_all_kra" string="Approve"
+                            type="object" class="oe_highlight"/>
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for approving all review-->
+    <act_window id="approve_all_wiz_action"
+                name="Approve All"
+                res_model="hr.kra.approve.all.wiz"
+                groups="bista_hr_appraisal_evaluation.group_app_evaluation_hr_user"
+                src_model="hr.employee.kra"
+                view_type="form"
+                view_mode="form"
+                multi="True"
+                target="new"
+                context="{'form_view_ref':'bista_hr_appraisal_evaluation.kra_approve_all_wiz'}"/>
+</odoo>

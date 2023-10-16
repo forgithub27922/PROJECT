@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_job_offer_bista">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <div class="oe_structure" />
+                <div class="row">
+                    <div class="col-xs-12">
+                        <t t-if="doc.get_html_field_data('document_content')">
+                            <div class="container">
+                                <div itemprop="html_doc_content" t-field="doc.html_translater"
+                                    class="oe_structure mt16" id="html_doc_content">
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="offer_letter_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="hr_document.report_job_offer_bista"/>
+            </t>
+        </t>
+    </template>
+
+</odoo>

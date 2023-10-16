@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_template_job_offer_letter">
+         <t t-call="web.external_layout">
+            <t t-if="not o and doc">
+                <t t-set="o" t-value="doc" />
+            </t>
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <center><h2>Job Offer Letter</h2></center>
+                    </div>
+                    <br/><br/><br/><br/>
+                    <div class="col-xs-12">
+                        <div class="col-xs-6 pull-left">
+                            <strong><span t-esc="o.applicant_name"></span></strong>
+                        </div>
+                    </div>
+                    <br/><br/>
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            <center>
+                                <h3>
+                                    Welcome to <span t-esc="o.applicant_id.company_id.name"/> Family
+                                    <br/><br/><br/></h3>
+                            </center>
+                        </div>
+                    </div>
+                    <br/><br/>
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            <b>
+                                <span t-esc="o.applicant_id.company_id.name"/>
+                            </b>is pleased to offer you the position of
+                            <b>
+                                <span t-esc="o.applicant_id.job_id.name"/>.</b> Your
+                            skills and experience will be an ideal fit for the applied position.
+                            As we discussed your starting salary is
+                            <b>CTC <span t-esc="o.ctc_amount"/>​
+
+                            <span t-esc="o.applicant_id.company_id.currency_id.name"/>
+                        </b>
+                            per annum.<br/><br/>
+                        </div>
+                    </div>
+                    <br/><br/><br/>
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            <span>We congratulate you on your appointment and
+                                wish you a long and successful career with us.
+                                We are Confident that your contribution will
+                                take further in our journey toward becoming
+                                world leaders. We Assure you of our support
+                                for your professional development and and
+                                growth.<br/></span>​
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="col-xs-12">
+                        <div class="col-xs-12">
+                            <span>We look forward to welcoming you to the team
+                                <b><span t-esc="o.applicant_id.company_id.name"/>.
+                                </b>Please let us know ​ if you have any
+                                questions or i can provide any additional
+                                information.<br/><br/><br/></span>​
+                        </div>
+                    </div>
+                    <br/><br/>
+                    <div class="col-xs-12">
+                        <div class="col-xs-6 pull-left">
+                            <span>Thank you
+                                .<br/><br/><br/><br/><br/><br/></span>
+                        </div>
+                    </div>
+                    <br/><br/><br/>
+                    <div class="col-xs-12">
+                        <div class="col-xs-6 pull-left">
+                            <span>Yours Truly,</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-6 pull-right">
+                            <span>Signature: __________________</span>
+                        </div>
+                    </div>
+
+                    <p style="page-break-before:always"/>
+                    <div class="col-xs-12">
+                        Your CTC structure is given below
+                        <br/><br/>
+                        <table class="table table-condensed mb32">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th class="text-right">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.salary_detail_id.salary_detail_lines" t-as="line">
+                                    <td>
+                                        <span t-esc="line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-esc="line.category_id.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="line.total"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/><br/>
+                        Deductions like Professional Tax, PF and TDS if any will be deducted from the employee's
+                        gross salary which is part of your CTC.
+                        <br/><br/>
+                        Wishing you the best for the next year. Do keep up your good performance.
+                        <br/><br/><br/><br/><br/><br/>
+                        <div class="col-xs-12">
+                            <div class="pull-left">
+                                <span>Yours Truly,</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="pull-right">
+                                <span>Signature: __________________</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </t>
+    </template>
+
+    <template id="job_offer_letter_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="bista_hr_recruitment.report_template_job_offer_letter"
+                    t-lang="doc.applicant_id and doc.applicant_id.company_id and doc.applicant_id.company_id.partner_id.lang" />
+            </t>
+        </t>
+    </template>
+</odoo>

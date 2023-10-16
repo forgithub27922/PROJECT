@@ -1,0 +1,6 @@
+id,name,code,type,default_credit_account_id/id,default_debit_account_id/id,company_id/id,currency_id/id,bank_statements_source,show_on_dashboard
+account_journal_alin_1,First Abu Dhabi Bank A/C # 6201627118,FAB1,Bank,l10n_al_ain_palace.account_account_al_ain_palace_14,l10n_al_ain_palace.account_account_al_ain_palace_14,sbk_company.company_al_ain_palace,,Record Manually,True
+account_journal_alin_2,First Abu Dhabi Bank A/C # 6202104038,FAB2,Bank,l10n_al_ain_palace.account_account_al_ain_palace_15,l10n_al_ain_palace.account_account_al_ain_palace_15,sbk_company.company_al_ain_palace,,Record Manually,True
+account_journal_alin_3,Union National Bank - A/C - 012197718887,UNB,Bank,l10n_al_ain_palace.account_account_al_ain_palace_11,l10n_al_ain_palace.account_account_al_ain_palace_11,sbk_company.company_al_ain_palace,,Record Manually,True
+account_journal_alin_4,Union National Bank - A/C - 012197718480,UNB1,Bank,l10n_al_ain_palace.account_account_al_ain_palace_12,l10n_al_ain_palace.account_account_al_ain_palace_12,sbk_company.company_al_ain_palace,,Record Manually,True
+account_journal_alin_5,Union National Bank - A/C - 012197718289,UNB2,Bank,l10n_al_ain_palace.account_account_al_ain_palace_13,l10n_al_ain_palace.account_account_al_ain_palace_13,sbk_company.company_al_ain_palace,,Record Manually,True

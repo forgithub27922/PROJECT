@@ -1,0 +1,134 @@
+<odoo>
+
+	<!--Roster Attendance Views -->
+	<record id="hr_roster_vs_attendance_form"
+		model="ir.ui.view">
+		<field name="name">roster.vs.attendance.form</field>
+		<field name="model">roster.vs.attendance</field>
+		<field name="arch" type="xml">
+			<form string="Roster Vs Attendance">
+				<header>
+					<button name="generate_roster_attendance_lines"
+						type="object" string="Update" class="oe_highlight"
+						states="draft" groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager"/>
+					<button name="action_cancel" type="object" string="Cancel"
+						states="draft" groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager"/>
+					<button name="action_submit" type="object" string="Submit"
+						states="draft" groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager"/>
+					<field name="state" readonly="1" widget="statusbar" />
+				</header>
+				<sheet>
+					<group>
+						<group col="4" colspan="4">
+							<field name="employee_id" required="1"
+								options="{'no_create_edit': True,'no_create':True,'no_quick_create':True}" 
+								attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+						     <field name="company_id" groups="base.group_multi_company"/>
+						</group>
+						<group colspan="4" col="4">
+							<label for="start_date" />
+							<div>
+								<field name="start_date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+								<br />
+								<field name="start_date_hijri" placeholder="YYYY-MM-DD" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+							</div>
+							<label for="end_date" />
+							<div>
+								<field name="end_date" required="1" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+								<br />
+								<field name="end_date_hijri" placeholder="YYYY-MM-DD" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+							</div>
+						</group>
+					</group>
+					<notebook>
+						<page string="Attendances">
+							<field name="roster_attendance_line_ids">
+								<tree create="false" delete="false" decoration-danger="diff_hours &gt; 0" decoration-success="diff_hours &lt; 0">
+									<field name="att_date" />
+									<field name="week_day" />
+									<field name="planned_sign_in" widget="float_time" />
+									<field name="planned_sign_out" widget="float_time" />
+									<field name="actual_sign_in" widget="float_time" />
+									<field name="actual_sign_out" widget="float_time" />
+									<field name="tota_break_time" widget="float_time"/>
+									<field name="taken_break_time" widget="float_time"/>
+									<field name="diff_hours" widget="float_time" />
+									<field name="working_hours" widget="float_time" />
+									<field name="total_hours" widget="float_time" />
+									<field name="status" />
+								</tree>
+								<form>
+									<group>
+										<group>
+											<field name="att_date" readonly="1"/>
+											<field name="planned_sign_in" widget="float_time" readonly="1"/>
+											<field name="planned_sign_out" widget="float_time" readonly="1"/>
+											<field name="tota_break_time" widget="float_time" readonly="1"/>
+											<field name="diff_hours" widget="float_time" readonly="1"/>
+											<field name="working_hours" widget="float_time" readonly="1"/>
+										</group>
+										<group>
+											<field name="week_day" readonly="1"/>
+											<field name="actual_sign_in" widget="float_time"  readonly="1"/>
+											<field name="actual_sign_out" widget="float_time"  readonly="1"/>
+											<field name="taken_break_time" widget="float_time" readonly="1"/>
+											<field name="total_hours"  widget="float_time" readonly="1"/>
+											<field name="status" readonly="1"/>
+										</group>
+										<group>
+											<field name="comment"/>
+										</group>
+									</group>
+								</form>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="hr_roster_vs_attendance_tree"
+		model="ir.ui.view">
+		<field name="name">roster.vs.attendance.tree</field>
+		<field name="model">roster.vs.attendance</field>
+		<field name="arch" type="xml">
+			<tree string="Roster">
+				<field name="employee_id" />
+				<field name="start_date" />
+				<field name="end_date" />
+				<field name="state" />
+				<field name="company_id" groups="base.group_multi_company"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="hr_roster_vs_attendance_search"
+		model="ir.ui.view">
+		<field name="name">roster.vs.attendance.search</field>
+		<field name="model">roster.vs.attendance</field>
+		<field name="arch" type="xml">
+			<search string="Roster Attendance">
+				<field name="employee_id" />
+				<field name="start_date" />
+				<field name="end_date" />
+				<field name="company_id" groups="base.group_multi_company"/>
+			</search>
+		</field>
+	</record>
+
+	<record id="action_roster_vs_attendance"
+		model="ir.actions.act_window">
+		<field name="name">Roaster Vs Attendance</field>
+		<field name="res_model">roster.vs.attendance</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="menu_hr_attendance_timesheet_timesheet"
+		name="Roster Vs Attendance" parent="hr_attendance.menu_hr_attendance_manage_attendances"
+		action="action_roster_vs_attendance" sequence="23" groups="hr_attendance.group_hr_attendance" />
+
+
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id='hr_lifecycle_view' model='ir.ui.view'>
+			<field name="name">hr.lifecycle.view</field>
+			<field name='model'>hr.employee</field>
+			<field name='inherit_id' ref='hr.view_employee_form' />
+			<field name='arch' type='xml'>
+				<xpath expr='//sheet' position='before'>
+					<header>
+						<button name='open_wizard' string='Training' type='object'
+							context="{'training': 'training'}"
+							attrs="{'invisible': ['|', ('is_training', '=', True),
+                                ('status','in',('employment','notice_period', 'relieved','probation','ex-probation','terminated','pip'))]}" />
+						<button name='open_wizard' string='Probation' type='object'
+							attrs='{"invisible":["|",("is_probation","=",True),("status","in",("employment","notice_period","relieved","terminated","pip"))]}'
+							context="{'probation':'probation'}" />
+						<button name='open_wizard' string='Confirm' type='object'
+							attrs='{"invisible":[("status","not in",("training", "pip","ex-training", "probation", "ex-probation", "joined"))]}'
+							context="{'employment':'employment'}" />
+						<button name='open_wizard' string='Performance Improvement'
+							type='object'
+							attrs='{"invisible":["|",("is_pip","=",True),("status","in",("joined","training","ex-training","probation","ex-probation","notice_period","relieved","rejoined","terminated"))]}'
+							context="{'pip':'pip'}" />
+						<button name='open_wizard' string='Extend training' type='object'
+							attrs='{"invisible":["|",("is_ex_training","=",True),("status","in",("joined","probation","ex-probation","terminated","rejoined","employment","notice_period","relieved","pip"))]}'
+							context="{'ex-training':'ex-training'}" />
+						<button name='open_wizard' string='Extend Probation' type='object'
+							attrs='{"invisible":["|","|",("status","!=","probation"),("is_ex_probation","=",True),("status","==","joined")]}'
+							context="{'ex-probation':'ex-probation'}" />
+						<button name='open_wizard' string='Resign' type='object'
+							attrs='{"invisible":["|",("is_notice_period","=",True),("status","not in",("training","ex-training","probation","ex-probation","employment","pip"))]}'
+							context="{'notice_period':'notice_period'}" />
+						<button name='open_wizard' string='Relieve' type='object'
+							attrs='{"invisible":["|",("is_relieved","=",True),("status","in",("joined","training","ex-training","probation","ex-probation","employment","pip","terminated","rejoined"))]}'
+							context="{'relieved':'relieved'}" />
+						<button name='open_wizard' string='Rejoin' type='object'
+							attrs='{"invisible":["|",("is_rejoined","=",True),("status","in",("joined","training","ex-training","probation","ex-probation","employment","pip","notice_period"))]}'
+							context="{'rejoined':'rejoined'}" />
+						<button name='open_wizard' string='Terminate' type='object'
+							attrs='{"invisible" : [("status","not in", ("training","probation","employment","ex-training","ex-probation","pip","notice_period"))]}'
+							context="{'terminated':'terminated'}" />
+						<button name='open_wizard' string='Retain' type='object'
+							attrs='{"invisible" : [("status","not in", ("notice_period"))]}' context="{'employment':'employment'}" />
+						<field name='status' widget='statusbar'
+							statusbar_visible="joined,training,probation,employment,pip,notice_period,relieved,rejoined" />
+					</header>
+				</xpath>
+				<xpath expr='//notebook' position='inside'>
+					<page name='hr_lifecycle' string="Lifecycle">
+						<field name='status_history'>
+							<tree editable="bottom" create="false">
+								<field name='state' />
+								<field name='start_date' />
+								<field name='end_date' />
+								<field name="company_id" groups="base.group_multi_company" />
+								<field name='is_emp' invisible="1" />
+								<field name='is_np' invisible="1" />
+							</tree>
+						</field>
+						<field name='is_training' invisible='1' />
+						<field name='is_ex_training' invisible='1' />
+						<field name='is_probation' invisible='1' />
+						<field name='is_ex_probation' invisible='1' />
+						<field name='is_employment' invisible='1' />
+						<field name='is_pip' invisible='1' />
+						<field name='is_notice_period' invisible='1' />
+						<field name='is_relieved' invisible='1' />
+						<field name='is_rejoined' invisible='1' />
+						<field name='is_terminated' invisible='1' />
+					</page>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

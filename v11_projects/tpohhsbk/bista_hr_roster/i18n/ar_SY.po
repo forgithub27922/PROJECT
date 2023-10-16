@@ -1,0 +1,1060 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* bista_hr_roster
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-04-09 08:51+0000\n"
+"PO-Revision-Date: 2018-04-09 08:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_attendance.py:502
+#, python-format
+msgid "\"Break In\" time cannot be earlier than \"Break Out\" time."
+msgstr "لا يمكن أن يكون الوقت \"إستراحه الدخول\" أقدم من وقت\"إاستراحه الخروج\"."
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_attendance.py:504
+#, python-format
+msgid "\"Break Out\" time cannot be earlier than \"Check In\" time."
+msgstr "لا يمكن أن يكون وقت \"إستراحه الخروج\" أقدم من وقت \"الدخول\"."
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_attendance.py:511
+#, python-format
+msgid "\"OT Out\" time cannot be earlier than \"OT In\" time."
+msgstr "لا يمكن أن يكون وقت \"إضافي خارجي\" أقدم من وقت \"إضافي داخلي\"."
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+#: selection:review.attendance.timesheet.line,status:0
+msgid "Absence"
+msgstr "غياب"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_type
+msgid "Action"
+msgstr "الإجراء"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_break_in
+msgid "Actual Break In"
+msgstr "كسر الاستراحه داخل"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_break_out
+msgid "Actual Break Out"
+msgstr "كسر الاستراحه خارج"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_actual_sign_in
+msgid "Actual Sign In"
+msgstr "كسر دخول"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_actual_sign_out
+msgid "Actual Sign Out"
+msgstr "كسر خارج"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_form_view
+#: selection:request.exception,state:0
+msgid "Approve"
+msgstr "تصديق"
+
+#. module: bista_hr_roster
+#: selection:hr.overtime,state:0
+msgid "Approve by AGM"
+msgstr "الموافقة عليها من قبل الجمعية العمومية"
+
+#. module: bista_hr_roster
+#: selection:hr.overtime,state:0
+msgid "Approve by GM"
+msgstr "وافق من قبل جنرال موتورز"
+
+#. module: bista_hr_roster
+#: selection:hr.overtime,state:0
+msgid "Approve by HR"
+msgstr "الموافقة على الموارد البشرية"
+
+#. module: bista_hr_roster
+#: selection:hr.overtime,state:0
+msgid "Approve by Manager"
+msgstr "وافق من قبل مدير"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_approved_ot
+msgid "Approved Overtime"
+msgstr "موافقة إضافي"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_hr_attendance
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_attendance_id
+msgid "Attendance"
+msgstr "حضور"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_roster_attendance_line_ids
+msgid "Attendance Lines"
+msgstr "خطوط الحضور"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_attendance_timesheet_line_form
+msgid "Attendance Timesheet"
+msgstr "حضور جدول الزمني"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+msgid "Attendances"
+msgstr "الحضور"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_roster_old.py:34
+#, python-format
+msgid "Break From Time should be between working hours."
+msgstr "يجب أن يكون وقت الاستراحة بين ساعات العمل."
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_attendance_break_in
+msgid "Break In"
+msgstr " إستراحه داخل"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_break_in_time
+msgid "Break In Time"
+msgstr "وقت الاستراحه داخل"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_attendance_break_out
+msgid "Break Out"
+msgstr "إستراحه خارج"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_break_out_time
+msgid "Break Out Time"
+msgstr "وقت إستراحه خارج"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_roster_old.py:48
+#, python-format
+msgid "Break To Time should be between working hours."
+msgstr "يجب أن يكون وقت الاستراحة بين ساعات العمل."
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+msgid "Calculated Attendance Data"
+msgstr "حساب الحضور البيانات"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_overtime
+msgid "Calculated Overtime"
+msgstr "حساب إضافي"
+
+#. module: bista_hr_roster
+#: selection:hr.overtime,state:0
+#: selection:hr.roster,state:0
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_form_view
+#: model:ir.ui.view,arch_db:bista_hr_roster.wiz_view_reject_req_exception_form
+#: selection:request.exception,state:0
+#: selection:review.attendance.timesheet,state:0
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_description
+msgid "Change Description"
+msgstr "بتغيير الوصف"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_code
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day_code
+msgid "Code"
+msgstr "الكود"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_comments
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_comments
+msgid "Comments"
+msgstr "ملاحظات"
+
+#. module: bista_hr_roster
+#: selection:hr.overtime,state:0
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_form_view
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_roster_update_request_form
+#: selection:request.exception,state:0
+#: selection:roster.update.request,state:0
+msgid "Confirm"
+msgstr "تأكيد"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_overtime_request_create_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_request_exception_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_overtime_request_create_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_request_exception_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_current_user
+msgid "Current user"
+msgstr "المستخدم الحالي"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_schedule_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_att_date
+msgid "Date"
+msgstr "التاريخ"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_date_hijri
+msgid "Date Hijri"
+msgstr "التاريخ الهجري"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_description
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_display_approve_btn
+msgid "Display Approve Button"
+msgstr "زر الموافقة على العرض"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_overtime_request_display_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_request_exception_display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_roster_update_request_form
+#: selection:roster.update.request,state:0
+msgid "Done"
+msgstr "منتهي"
+
+#. module: bista_hr_roster
+#: selection:hr.overtime,state:0
+#: selection:hr.roster,state:0
+#: selection:request.exception,state:0
+#: selection:review.attendance.timesheet,state:0
+#: selection:roster.update.request,state:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_duration
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_duration
+msgid "Duration"
+msgstr "المدة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_early_break_out
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+#: selection:request.exception,type:0
+msgid "Early Break Out"
+msgstr "الخروج قبل وقت الراحة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_early_out
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+msgid "Early Out"
+msgstr "الخروج المبكر"
+
+#. module: bista_hr_roster
+#: selection:request.exception,type:0
+msgid "Early Punch Out"
+msgstr "الخروج المبكر"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_hr_employee
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_employee_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_employee_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_employee_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_employee_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_employee_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_employee_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_employee_id
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: bista_hr_roster
+#: model:ir.actions.act_window,name:bista_hr_roster.action_hr_roster
+msgid "Employee Roster"
+msgstr "جدول الموظفين"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_end_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_end_date_hijri
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_end_date
+msgid "End Date"
+msgstr "تاريخ الإنتهاء"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_attendance.py:97
+#: code:addons/bista_hr_roster/models/hr_roster.py:91
+#, python-format
+msgid "End Date must be greater than Start Date!"
+msgstr "يجب أن يكون تاريخ الانتهاء أكبر من تاريخ البدء!"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_end_date_hijri
+msgid "End date hijri"
+msgstr "تاريخ الانتهاء هجري"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_exception_hours
+msgid "Exception Hours"
+msgstr "ساعات الاستثناء"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_request_exception_ids
+msgid "Exceptions"
+msgstr "استثناءات"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,code:bista_hr_roster.weekoff_fri
+msgid "FRI"
+msgstr "FRI"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_extra_hours
+msgid "Extra Hours"
+msgstr "ساعات اضافية"
+
+#. module: bista_hr_roster
+#: selection:request.exception,type:0
+msgid "Field Work"
+msgstr "تكليف"
+
+#. module: bista_hr_roster
+#: selection:request.exception,type:0
+msgid "Forget Punch In"
+msgstr "عدم إثبات بصمة دخول"
+
+#. module: bista_hr_roster
+#: selection:request.exception,type:0
+msgid "Forget Punch Out"
+msgstr "عدم إثبات بصمة خروج"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,name:bista_hr_roster.weekoff_fri
+msgid "Friday"
+msgstr "الجمعة"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_attendance.py:100
+#, python-format
+msgid "Future dates are not allowed!"
+msgstr "لا يسمح بالتواريخ المستقبلية!"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+msgid "Get Attendances"
+msgstr "الحصول على الحضور"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_form
+msgid "Get Roster"
+msgstr "احصل على الجدول"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_search
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_search_view
+msgid "Group By"
+msgstr "تجميع حسب"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_is_holiday
+#: selection:review.attendance.timesheet.line,status:0
+msgid "Holiday"
+msgstr "يوم الاجازة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_overtime_request_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_request_exception_id
+msgid "ID"
+msgstr "المعرف"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_is_hr_manager
+msgid "Is hr manager"
+msgstr "هو مدير الموارد البشرية"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_overtime_request___last_update
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_request_exception___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_overtime_request_write_uid
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_request_exception_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_overtime_request_write_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_request_exception_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_late_break_in
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+#: selection:request.exception,type:0
+msgid "Late Break In"
+msgstr "التاخير في وقت الراحة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_late_in
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+msgid "Late In"
+msgstr "تاخير  الدخول"
+
+#. module: bista_hr_roster
+#: selection:request.exception,type:0
+msgid "Late Punch In"
+msgstr "تاخير  الدخول"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_hr_holidays
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_is_leave
+#: selection:review.attendance.timesheet.line,status:0
+msgid "Leave"
+msgstr "مغادرة"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,code:bista_hr_roster.weekoff_mon
+msgid "MON"
+msgstr "MON"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_manager_id
+msgid "Manager"
+msgstr "المدير"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,name:bista_hr_roster.weekoff_mon
+msgid "Monday"
+msgstr "الاثنين"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_name
+#: model:ir.model.fields,field_description:bista_hr_roster.field_weekoff_day_name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_is_night_shift
+msgid "Night Shift"
+msgstr "الدوام الليلي"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_no_of_early_breakout
+msgid "No of Early Break Out"
+msgstr "عدد مرات الخروج قبل الراحة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_no_of_earlyout
+msgid "No of Early Out"
+msgstr "عدد مرات الخروج المبكر"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_no_of_late_breakin
+msgid "No of Late Break In"
+msgstr "عدد مرات تاخير الدخول وقت الراحة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_no_of_latein
+msgid "No of Late In"
+msgstr "عدد مرات تاخير الدخول"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_no_of_overtime
+msgid "No of Overtime"
+msgstr "عدد مرات الاضافي"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_attendance_ot_in
+msgid "OT In"
+msgstr "إضافي داخل"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_attendance_ot_out
+msgid "OT Out"
+msgstr "إضافي خارج"
+
+#. module: bista_hr_roster
+#: selection:request.exception,type:0
+msgid "Other"
+msgstr "أخرى"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+msgid "Overtime"
+msgstr "إضافي"
+
+#. module: bista_hr_roster
+#: selection:review.attendance.timesheet.line,status:0
+msgid "Permission"
+msgstr "استئدان"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_planned_break_in
+msgid "Planned Break In"
+msgstr "خطة إستراحه دخول"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_planned_break_out
+msgid "Planned Break Out"
+msgstr "خطة إستراحه خارج"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_planned_sign_in
+msgid "Planned Sign In"
+msgstr "خطة تسجيل الدخول"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_planned_sign_out
+msgid "Planned Sign Out"
+msgstr "خطة تسجيل الخروج"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_attendance.py:79
+#, python-format
+msgid "Please Generate Attendance Lines."
+msgstr "يرجى توليد خطوط الحضور."
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_roster.py:116
+#, python-format
+msgid "Please Generate Roster Lines."
+msgstr "الرجاء إنشاء خطوط جدول"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.wiz_view_reject_req_exception_form
+msgid "Please fill up the reason to reject the request exception"
+msgstr "يرجى ملء سبب رفض استثناء الطلب"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.wiz_view_reject_req_exception_form
+msgid "Proceed"
+msgstr "تقدم"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.wiz_view_reject_req_exception_form
+msgid "Reason"
+msgstr "السبب"
+
+#. module: bista_hr_roster
+#: selection:hr.overtime,state:0
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_form_view
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_roster_update_request_form
+#: selection:request.exception,state:0
+msgid "Reject"
+msgstr "رفض"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_overtime_request_reject_reason
+#: model:ir.model.fields,field_description:bista_hr_roster.field_wiz_reject_request_exception_reject_reason
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_form_view
+msgid "Reject Reason"
+msgstr "رفض السبب"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.wiz_view_reject_req_exception_form
+msgid "Reject Request Exception"
+msgstr "رفض طلب الاستثناء"
+
+#. module: bista_hr_roster
+#: selection:roster.update.request,state:0
+msgid "Rejected"
+msgstr "مرفوض"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_req_date_hijri
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_request_date
+msgid "Request Date"
+msgstr "تاريخ الطلب"
+
+#. module: bista_hr_roster
+#: model:ir.actions.act_window,name:bista_hr_roster.action_request_exception
+#: model:ir.ui.menu,name:bista_hr_roster.menu_request_exception
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_form_view
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_search_view
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_tree_view
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_attendance_timesheet_line_form
+msgid "Request Exception"
+msgstr "طلب استثناء"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_requested_by
+msgid "Requested By"
+msgstr "بتوصية من"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_roster_id
+#: model:ir.ui.menu,name:bista_hr_roster.menu_root_roster
+#: model:ir.ui.menu,name:bista_hr_roster.menu_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_tree
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_search
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_tree
+msgid "Roster"
+msgstr "جدول"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_search
+msgid "Roster Attendance"
+msgstr "حضور الجدول"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_roster_line_ids
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_form
+msgid "Roster Lines"
+msgstr "خطوط الجدول"
+
+#. module: bista_hr_roster
+#: model:ir.actions.act_window,name:bista_hr_roster.action_roster_update_request
+#: model:ir.ui.menu,name:bista_hr_roster.menu_roster_update_request
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_roster_update_request_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_roster_update_tree
+msgid "Roster Update Request"
+msgstr "طلب تحديث الجدول"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_employee_roster_count
+#: model:ir.ui.view,arch_db:bista_hr_roster.inherited_haji_emp_form
+msgid "Rosters"
+msgstr "الجدول"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,code:bista_hr_roster.weekoff_sat
+msgid "SAT"
+msgstr "SAT"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,code:bista_hr_roster.weekoff_sun
+msgid "SUN"
+msgstr "SUN"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,name:bista_hr_roster.weekoff_sat
+msgid "Saturday"
+msgstr "السبت"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+msgid "Set To Draft"
+msgstr "تعيين إلى مسودة"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_form_view
+msgid "Set to Draft"
+msgstr "ضبط كمسودة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_shift_code_id
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_shift_code_id
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_hr_shift_code_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.view_hr_shift_code_tree
+msgid "Shift Code"
+msgstr "رمز الجدول"
+
+#. module: bista_hr_roster
+#: model:ir.actions.act_window,name:bista_hr_roster.action_hr_shift_codes
+#: model:ir.ui.menu,name:bista_hr_roster.menu_hr_shift_codes
+msgid "Shift Codes"
+msgstr "رمز الجدول"
+
+#. module: bista_hr_roster
+#: selection:request.exception,type:0
+msgid "Short Leave"
+msgstr "إجازة قصيرة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_start_date
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_start_date_hijri
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_start_date
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_start_date_hijri
+msgid "Start date hijri"
+msgstr "تاريخ البدء هجري"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_overtime_state
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_state
+#: model:ir.model.fields,field_description:bista_hr_roster.field_roster_update_request_state
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_search
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_search_view
+msgid "State"
+msgstr "المحافظة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_state
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_state
+msgid "States"
+msgstr "المحافظات"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_status
+msgid "Status"
+msgstr "الحاله "
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+#: selection:review.attendance.timesheet,state:0
+msgid "Submit"
+msgstr "عرض "
+
+#. module: bista_hr_roster
+#: selection:hr.roster,state:0
+msgid "Submit to HR"
+msgstr "عرض الى الموارد البشرية"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,name:bista_hr_roster.weekoff_sun
+msgid "Sunday"
+msgstr "الاحد"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,code:bista_hr_roster.weekoff_thur
+msgid "THUR"
+msgstr "THUR"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,code:bista_hr_roster.weekoff_tue
+msgid "TUE"
+msgstr "TUE"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_roster_old.py:82
+#, python-format
+msgid "There should be at least one weekoff."
+msgstr "يجب أن يكون هناك أسبوع واحد على الأقل."
+
+#. module: bista_hr_roster
+#: model:weekoff.day,name:bista_hr_roster.weekoff_thur
+msgid "Thursday"
+msgstr "الخميس"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_time_from
+msgid "Time From"
+msgstr "وقت من"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/request_exception.py:91
+#, python-format
+msgid "Time From Should be Smaller Than Time To!"
+msgstr "الوقت من يجب أن يكون أصغر من الوقت الى!"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_time_in
+msgid "Time In"
+msgstr "وقت دخول"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_shift_code_time_out
+msgid "Time Out"
+msgstr "وقت خروج"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_time_to
+msgid "Time To"
+msgstr "وقت الى "
+
+#. module: bista_hr_roster
+#: model:ir.actions.act_window,name:bista_hr_roster.action_hr_review_attendance_timesheet
+#: model:ir.ui.menu,name:bista_hr_roster.menu_hr_review_attendance_timesheet
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+msgid "Timesheet"
+msgstr "سجل الدوام"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_request_exception_attendance_timesheet_line_id
+msgid "Timesheet Line"
+msgstr "خط الجدول الزمني"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_total_absence_days
+msgid "Total Absence Days"
+msgstr "مجموع أيام الغياب"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_total_absence_hours
+msgid "Total Absence Hours"
+msgstr "مجموع ساعات الغياب"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_total_early_break_out
+msgid "Total Early Break Out"
+msgstr "مجموع المبكرالاستراحة خارج "
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_total_earlyout
+msgid "Total Early Out"
+msgstr "مجموع المبكرخارج "
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_total_late_break_in
+msgid "Total Late Break In"
+msgstr "مجموع المتأخرة الاستراحه داخل"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_total_latein
+msgid "Total Late In"
+msgstr "مجموع تسجيل الدخول"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_total_overtime
+msgid "Total Overtime"
+msgstr "مجموع إضافي"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,name:bista_hr_roster.weekoff_tue
+msgid "Tuesday"
+msgstr "الثلاثاء"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,code:bista_hr_roster.weekoff_wed
+msgid "WED"
+msgstr "WED"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_roster_old.py:81
+#, python-format
+msgid "Warning"
+msgstr "تحذير"
+
+#. module: bista_hr_roster
+#: model:weekoff.day,name:bista_hr_roster.weekoff_wed
+msgid "Wednesday"
+msgstr "الاربعاء"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_week_day
+msgid "Week Day"
+msgstr "يوم الأسبوع"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_weekoff_day
+msgid "Week Days"
+msgstr "Week Days"
+
+#. module: bista_hr_roster
+#: selection:review.attendance.timesheet.line,status:0
+msgid "Weekend"
+msgstr "عطلة نهاية الاسبوع"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_line_is_weekoff
+msgid "Weekoff"
+msgstr "إسبوع إجازة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_hr_roster_weekoff
+msgid "Weekoff Day"
+msgstr "يوم الإجازة"
+
+#. module: bista_hr_roster
+#: model:ir.model.fields,field_description:bista_hr_roster.field_review_attendance_timesheet_line_working_hours
+msgid "Working Hours"
+msgstr "ساعات العمل"
+
+#. module: bista_hr_roster
+#: selection:review.attendance.timesheet.line,status:0
+msgid "Working On Holiday"
+msgstr "العمل في يوم الإجازة"
+
+#. module: bista_hr_roster
+#: selection:review.attendance.timesheet.line,status:0
+msgid "Working On Weekend"
+msgstr "العمل في عطلة نهاية الاسبوع"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_review_attendance_timesheet_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.hr_roster_form
+#: model:ir.ui.view,arch_db:bista_hr_roster.request_exception_form_view
+msgid "YYYY-MM-DD"
+msgstr "YYYY-MM-DD"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_attendance.py:168
+#, python-format
+msgid "You can define roster for same day only one.!"
+msgstr "يمكنك تحديد قائمة لنفس اليوم واحد فقط."
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/request_exception.py:101
+#: code:addons/bista_hr_roster/models/request_exception.py:110
+#, python-format
+msgid "You can not take Short Leave for more than 4 Hours/Day!"
+msgstr "لا يمكنك أخذ إجازة قصيرة لأكثر من 4 ساعات / يوم!"
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_roster.py:260
+#, python-format
+msgid "You cannot delete confirmed Roster."
+msgstr "لا يمكنك حذف الجدول المؤكدة."
+
+#. module: bista_hr_roster
+#: code:addons/bista_hr_roster/models/hr_attendance.py:108
+#, python-format
+msgid "You cannot overlap attendance dates for same employee!"
+msgstr "لا يمكنك التداخل مع مواعيد الحضور لنفس الموظف!"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_base_config_settings
+msgid "base.config.settings"
+msgstr "base.config.settings"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_hr_overtime
+msgid "hr.overtime"
+msgstr "hr.overtime"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_hr_roster
+msgid "hr.roster"
+msgstr "hr.roster"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_hr_roster_line
+msgid "hr.roster.line"
+msgstr "hr.roster.line"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_hr_shift_code
+msgid "hr.shift.code"
+msgstr "hr.shift.code"
+
+#. module: bista_hr_roster
+#: model:ir.ui.view,arch_db:bista_hr_roster.wiz_view_reject_req_exception_form
+msgid "or"
+msgstr "أو"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_request_exception
+msgid "request.exception"
+msgstr "request.exception"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_request_exception_action
+msgid "request.exception.action"
+msgstr "request.exception.action"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_review_attendance_timesheet
+msgid "review.attendance.timesheet"
+msgstr "review.attendance.timesheet"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_review_attendance_timesheet_line
+msgid "review.attendance.timesheet.line"
+msgstr "review.attendance.timesheet.line"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_roster_update_request
+msgid "roster.update.request"
+msgstr "roster.update.request"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_weekoff_day
+msgid "weekoff.day"
+msgstr "weekoff.day"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_wiz_reject_overtime_request
+msgid "wiz.reject.overtime.request"
+msgstr "wiz.reject.overtime.request"
+
+#. module: bista_hr_roster
+#: model:ir.model,name:bista_hr_roster.model_wiz_reject_request_exception
+msgid "wiz.reject.request.exception"
+msgstr "wiz.reject.request.exception"
+

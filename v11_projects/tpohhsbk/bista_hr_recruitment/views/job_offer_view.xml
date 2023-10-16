@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Job Offer Form view -->
+    <record id="job_offer_view_form" model="ir.ui.view">
+        <field name="name">job.offer.view.form</field>
+        <field name="model">hr.job.offer</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="HR Approval" type="object" name="approve_by_hr" class="oe_highlight"
+                            attrs="{'invisible':[('state', '!=', 'draft')]}" groups="hr.group_hr_manager"/>
+                    <button string="Manager Approval" type="object" name="approve_by_mngr" class="oe_highlight"
+                           attrs="{'invisible':[('state', '!=', 'hr_manager')]}" groups="hr.group_hr_manager"/>
+                    <button string="Reset To Draft" type="object" name="reset_to_draft" class="oe_highlight"
+                            attrs="{'invisible':[('state', '!=', 'hr_manager')]}" groups="hr.group_hr_manager,hr.group_hr_user"/>
+                    <button string="Cancel" type="object" name="cancel" class="oe_highlight"
+                            attrs="{'invisible':[('state', 'not in', ['hr_manager', 'approved'])]}" groups="hr.group_hr_manager,hr.group_hr_user"/>
+                    <field name="state" widget="statusbar"/>
+
+                </header>
+                <sheet>
+                    <group>
+                        <group name="group_applicant">
+                            <field name="applicant_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="description" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="proposed_by_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="struct_id" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group name="group_applicant">
+                            <field name="applicant_name" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="date_validity" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="amount" attrs="{'readonly':[('state','!=','draft')]}"/>
+                            <field name="ctc_amount" readonly="1"/>
+                            <label for="ctc_amount" string=" "/>
+                            <button name="compute_salary" string="Compute" type="object" class="oe_link"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="page_job_revise" string="Revision">
+                            <field name="job_revision_ids">
+                                <tree create="false">
+                                    <field name="approved_by_id"/>
+                                    <field name="approved_date"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Reason">
+                            <group name="reason">
+                                <field name="reason" nolabel="1"
+                                       attrs="{'readonly':[('state', '!=', 'draft')],'invisible':[('state', '!=', 'cancel')]}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Job Offer Tree view-->
+    <record id="job_offer_view_tree" model="ir.ui.view">
+        <field name="name">job.offer.view.tree</field>
+        <field name="model">hr.job.offer</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="applicant_id"/>
+                <field name="applicant_name"/>
+                <field name="description"/>
+                <field name="date_validity"/>
+                <field name="proposed_by_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hr_job_offer_action" model="ir.actions.act_window">
+        <field name="name">Job Offer</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.job.offer</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Job Offer -->
+    <menuitem parent="hr_recruitment.menu_crm_case_categ0_act_job"
+              id="menu_hr_job_offer" sequence="4" action="hr_job_offer_action"/>
+
+    <!-- Form view for Job Revision -->
+    <record id="job_revision_view_form" model="ir.ui.view">
+        <field name="name">job.revision.view.form</field>
+        <field name="model">hr.job.revision</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="approved_by_id" />
+                        <field name="approved_date" />
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree view for Job Revision -->
+    <record id="job_revision_view_tree" model="ir.ui.view">
+        <field name="name">job.revision.view.tree</field>
+        <field name="model">hr.job.revision</field>
+        <field name="arch" type="xml">
+            <tree create="0">
+                <field name="approved_by_id"/>
+                <field name="approved_date"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="option_child_recursive" name="Child Recursive">
+         <t>
+            <t t-set="count" t-value="count+1"/>
+            <span t-set="sub_childs" t-value="request.env['account.group'].search([('parent_id','=',sub_child.id)])"/>
+            <t t-foreach="sub_childs.filtered(lambda l:l.display_in_bs_report)" t-as="sub_child">
+                <span t-set="qry" t-value="query_execute(sub_child,s)"/>
+                <span t-set="total_grp_data" t-value="get_total_of_group(sub_child,s)" />
+                <span t-set="get_child_level" t-value="get_group_child_level(sub_child,s)"/>
+
+                <tr t-if="qry or total_grp_data[2] ">
+                    <td>
+                        <span style="color: transparent;font-weight:bold;" t-esc="'...'*(count)"/>
+                        <t t-esc="sub_child.name"/>
+                    </td>
+                    <t t-if="not total_grp_data[2] or not get_child_level">
+                        <td class="text-right" style="width:25%;">
+                            <t t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data" />
+                        </td>
+                        <td class="text-right" style="width:25%;">
+                            <t t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data" />
+                        </td>
+                    </t>
+
+                    <t t-if="total_grp_data[2]">
+                        <td style="font-weight:bold;" colspan="2">
+                        </td> 
+                    </t>
+                </tr>
+
+                <t t-call="bista_account_report.option_child_recursive" t-if="sub_child"/>
+                    <tr t-if="total_grp_data[2] and get_child_level" style="font-weight:bold;border-bottom:2px solid;border-top:2px solid; ">
+                        <td>
+                            <span style="color: transparent;font-weight:bold;" t-esc="'...'*(count)"/>
+                            <span t-attf-style="background-color:#{sub_child.highlighted_in_bs_report and 'grey !important;color:white;' or ''}">Total of </span>
+                            <span t-esc="sub_child.name" t-attf-style="background-color:#{sub_child.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+                        </td>
+                        <td class="text-right" style="width:25%">
+                            <span t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data" t-attf-style="background-color:#{sub_child.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+                        </td>
+                        <td class="text-right" style="width:25%">
+                            <span t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data" t-attf-style="background-color:#{sub_child.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+                        </td>
+                    </tr>
+                </t>
+         </t>
+    </template>
+
+
+    <template id="option_child_recursive_account" name="Child Recursive Account">
+         <t>
+            <t t-set="count" t-value="count+1"/>
+            <span t-set="childs" t-value="request.env['account.group'].search([('parent_id','=',sub_child.id)])"/>
+            <t t-foreach="childs" t-as="sub_child">
+                <span style="border-bottom:2px solid;border-top:2px solid;" t-set="qry_data" t-value="query_execute(sub_child,s,flag=True)"/>
+                <span t-set="total_grp_data" t-value="get_total_of_group(sub_child,s,flag=True)" />
+                <tr t-if="total_grp_data[0] or total_grp_data[1]">
+                    <td style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                         <span style="color: transparent;" t-esc="'...'*(count)"/>
+                         <t t-esc="sub_child.name"  />
+                    </td>
+                    <t t-if="total_grp_data[2]">
+                        <td colspan="2" style="border-bottom:2px solid;border-top:2px solid;"/>
+                    </t>
+                    <t t-if="not total_grp_data[2]">
+                        <td class="text-right" style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                        <t t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data"/>
+                        </td>
+                        <td class="text-right" style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                            <t t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data"/>
+                        </td>
+                    </t>
+                </tr>
+                <!--<t style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" t-if="not total_grp_data[2] and (total_grp_data[0] or total_grp_data[0])">-->
+                    <!--<td>-->
+                        <!--<span t-esc="sub_child.name"/>-->
+                    <!--</td>-->
+                    <!--<td class="text-right" style="width:25%">-->
+                        <!--<t t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data"/>-->
+                    <!--</td>-->
+                    <!--<td class="text-right" style="width:25%">-->
+                        <!--<t t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data"/>-->
+                    <!--</td>-->
+                <!--</t>-->
+
+                <t t-foreach="qry_data" t-as="qry">
+                    <tr>
+                        <td>
+                            <span style="color: transparent;" t-esc="'...'*(count)"/>
+                            <t t-esc="request.env['account.account'].browse(qry[2]).display_name" t-if="qry"/>
+                        </td>
+                        <td class="text-right" style="width:25%">
+                            <t t-esc="lang.format(fmt,qry[0],grouping=True)" t-if="qry" />
+                        </td>
+                        <td class="text-right" style="width:25%">
+                            <t t-esc="lang.format(fmt,qry[1],grouping=True)" t-if="qry" />
+                        </td>
+                    </tr>
+                </t>
+
+                <t t-call="bista_account_report.option_child_recursive_account" t-if="sub_child"/>
+                    <!--<span t-set="total_grp_data" t-value="get_total_of_group(sub_child,s,flag=True)"/>-->
+                    <tr t-if="total_grp_data[2]" style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                        <td>
+                            <span style="color: transparent;font-weight:bold;" t-esc="'...'*(count)"/>
+                            Total of
+                            <t t-esc="sub_child.name"/>
+                        </td>
+                        <td class="text-right" style="width:25%">
+                            <t t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data" />
+                        </td>
+                        <td class="text-right" style="width:25%">
+                            <t t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data" />
+                        </td>
+                    </tr>
+                </t>
+         </t>
+    </template>
+
+    <template id="balance_sheet_account_grp_report">
+        <t t-call="web.basic_layout">
+            <div class="header">
+                <div class="row">
+                    <t t-set="company" t-value="docs.company_id"/>
+                    <div class="col-xs-3 mb4">
+                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 45px;"/>
+                    </div>
+                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="docs.company_id.name" name="moto"/>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-xs-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+            </div>
+            <div class="page">
+                <t t-foreach="docs" t-as="s">
+                    <t t-set="lang" t-value="request.env['res.lang'].sudo().search([('code','=',user.lang)])"/>
+                    <t t-set="fmt" t-value='"%.{0}f".format(s.company_id.currency_id.decimal_places)'/>
+                    <t t-set="currency" t-value="s.company_id.currency_id.name" />
+                    <t t-set="total_cyytd_liabilities_amount" t-value="0"/>
+                    <t t-set="total_pyytd_liabilities_amount" t-value="0"/>
+
+                    <span t-value="get_account_type_value(s)" t-set="account_grp_value_data"/>
+                    <t t-if="account_grp_value_data[0]">
+                        <div style="font-size:24px;text-align:center;">
+                            <span>Balance Sheet</span>
+                        </div>
+                        <div style="font-weight:bold;text-align:center;">
+                            <span>As on </span>
+                            <span t-esc="datetime.datetime.strptime(s.date, '%Y-%m-%d').strftime('%d-%m-%Y')"/> 
+                        </div>
+
+                        <table class="table" style="border:None">
+                            <thead>
+                                <tr>
+                                    <th style="border-bottom:2px solid;border-top:2px solid;" class="text-left">Particulars</th>
+                                    <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.YTD(<t t-esc="currency"/>)</th>
+                                    <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.YTD(<t t-esc="currency"/>)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="account_grp_value_data[0]" t-as="ac">
+                                   <t t-set="count" t-value="0"/>
+                                   <t t-if="ac">
+                                        <span t-set="parent_grp_total" t-value="get_total_of_group(ac,s)"/>
+                                        <span t-set="childs" t-value="request.env['account.group'].search([('parent_id','=',ac.id)])" />.
+                                        <t t-if="not childs and ac.display_in_bs_report">
+                                            <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" t-if="parent_grp_total[2]">
+                                                <td colspan="3">
+                                                    <span t-esc="ac.name"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <t t-if="childs">
+                                            <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" t-if="parent_grp_total[0] or parent_grp_total[1] ">
+                                                <td colspan="3">
+                                                    <span t-esc="ac.name"/>
+                                                </td>
+
+                                            </tr>
+                                            <t style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" t-if="not parent_grp_total[2] and (parent_grp_total[0] or parent_grp_total[0]) and ac.display_in_bs_report">
+                                                <td>
+                                                    <span t-esc="ac.name"/>
+                                                </td>
+                                                <td class="text-right" style="width:25%">
+                                                    <t t-esc="lang.format(fmt,parent_grp_total[0],grouping=True)" t-if="parent_grp_total"/>
+                                                </td>
+                                                <td class="text-right" style="width:25%">
+                                                    <t t-esc="lang.format(fmt,parent_grp_total[1],grouping=True)" t-if="parent_grp_total"/>
+                                                </td>
+                                            </t>
+
+                                            <t t-foreach="childs.filtered(lambda l:l.display_in_bs_report)" t-as="sub_child">
+                                                <span t-set="total_grp_data" t-value="get_total_of_group(sub_child,s)" />
+                                                <tr t-if="total_grp_data[0] or total_grp_data[1] and sub_child.display_in_bs_report">
+                                                    <td style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" colspan="3">
+                                                        <t t-esc="sub_child.name"/>
+                                                        <t t-if="not total_grp_data[2]">
+                                                            <td class="text-right" style="width:25%">
+                                                                <t t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data" />
+                                                            </td>
+                                                            <td class="text-right" style="width:25%">
+                                                                <t t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data" />
+                                                            </td>
+                                                        </t>
+                                                        <t t-call="bista_account_report.option_child_recursive" t-if="sub_child"/>
+                                                        <span t-set="total_grp_data" t-value="get_total_of_group(sub_child,s)" t-if="sub_child"/>
+                                                        <tr t-if="total_grp_data[2] and sub_child.display_in_bs_report" style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                                              <td >
+                                                                  <span style="color: transparent;font-weight:bold;" t-esc="'...'*(count)"/>
+                                                                  <span t-attf-style="background-color:#{sub_child.highlighted_in_bs_report and 'grey !important;color:white;' or ''}">Total of </span>
+                                                                  <span t-esc="sub_child.name" t-attf-style="background-color:#{sub_child.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+                                                              </td>
+                                                              <td class="text-right" style="width:25%">
+                                                                <span t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data" t-attf-style="background-color:#{sub_child.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+
+                                                              </td>
+                                                              <td class="text-right" style="width:25%">
+                                                                <span t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data" t-attf-style="background-color:#{sub_child.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+                                                              </td>
+                                                        </tr>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </t>
+
+                                        <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" t-if="parent_grp_total[2] and childs and ac.display_in_bs_report">
+                                              <td>
+                                                  <span style="color: transparent;font-weight:bold;" t-esc="'...'*(count)"/>
+                                                  <span t-attf-style="background-color:#{ac.highlighted_in_bs_report and 'grey !important;color:white;' or ''}">Total of </span>
+                                                  <span t-esc="ac.name" t-attf-style="background-color:#{ac.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+                                              </td>
+                                              <td class="text-right" style="width:25%">
+                                                  <span t-esc="lang.format(fmt,parent_grp_total[0],grouping=True)" t-if="parent_grp_total" t-attf-style="background-color:#{ac.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+                                              </td>
+                                              <td class="text-right" style="width:25%">
+                                                 <span t-esc="lang.format(fmt,parent_grp_total[1],grouping=True)" t-if="parent_grp_total" t-attf-style="background-color:#{ac.highlighted_in_bs_report and 'grey !important;color:white;' or ''}"/>
+                                              </td>
+                                        </tr>
+                                   </t>
+                                </t>
+
+                                <t t-if="account_grp_value_data[1]">
+                                    <t t-value="get_unallocated_earning(s)" t-set="unallocated_earning" />
+                                    <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                        <td>
+                                            <span style="background-color:grey;color:white;">RETAINED EARNINGS (P Y)</span>
+                                        </td>
+                                        <td class="text-right" style="width:25%">
+                                            <span t-esc="lang.format(fmt,unallocated_earning[1],grouping=True)" style="background-color:grey;color:white;"/>
+                                        </td>
+                                        <td class="text-right" style="width:25%">
+                                            <span t-esc="lang.format(fmt,unallocated_earning[3],grouping=True)" style="background-color:grey;color:white;"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                        <td>
+                                            <span style="background-color:grey;color:white;">RETAINED EARNINGS (C Y)</span>
+                                        </td>
+                                        <td class="text-right" style="width:25%">
+                                            <span t-esc="lang.format(fmt,unallocated_earning[0],grouping=True)" style="background-color:grey;color:white;"/>
+                                        </td>
+                                        <td class="text-right" style="width:25%">
+                                            <span t-esc="lang.format(fmt,unallocated_earning[2],grouping=True)"  style="background-color:grey;color:white;"/>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                        <td>
+                                            <span style="background-color:grey;color:white;">TOTAL LIABILITIES</span>
+                                        </td>
+                                        <td class="text-right" style="width:25%">
+                                            <span t-esc="lang.format(fmt,unallocated_earning[4],grouping=True)" style="background-color:grey;color:white;"/>
+                                            <span t-set="total_cyytd_liabilities_amount" t-value="total_cyytd_liabilities_amount + unallocated_earning[4]" style="background-color:grey;color:white;"/>
+
+                                        </td>
+                                        <td class="text-right" style="width:25%">
+                                            <span t-esc="lang.format(fmt,unallocated_earning[5],grouping=True)" style="background-color:grey;color:white;"/>
+                                            <span t-set="total_pyytd_liabilities_amount" t-value="total_pyytd_liabilities_amount + unallocated_earning[5]" style="background-color:grey;color:white;"/>
+                                        </td>
+                                    </tr>
+
+                                </t>
+                           </tbody>
+                       </table>
+                       <p style="page-break-before:always;"> </p>
+                    </t>
+
+                    <!-- Page 2 -->
+
+                    <span t-value="get_account_type_value(s)" t-set="account_grp_value_data_account"/>
+                    <t t-if="account_grp_value_data_account[0]">
+                        <div style="font-size:24px;text-align:center;">
+                            <span>Detailed Balance Sheet</span>
+                        </div>
+                        <div style="font-weight:bold;text-align:center;">
+                            <span>As on </span>
+                            <span t-esc="datetime.datetime.strptime(s.date, '%Y-%m-%d').strftime('%d-%m-%Y')"/> 
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="border-bottom:2px solid;border-top:2px solid;" class="text-left">Particulars</th>
+                                    <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.YTD(<t t-esc="currency"/>)</th>
+                                    <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.YTD(<t t-esc="currency"/>)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <t t-foreach="account_grp_value_data_account[0]" t-as="ac">
+                               <t t-set="count" t-value="0"/>
+                               <t t-if="ac">
+                                    <span t-set="main_parent_total_grp_data" t-value="get_total_of_group(ac,s,flag=True)" />
+
+                                    <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" t-if="main_parent_total_grp_data[2]">
+                                        <td colspan="3">
+                                            <span t-esc="ac.name"/>
+                                        </td>
+                                    </tr>
+                                    <span t-set="childs" t-value="request.env['account.group'].search([('parent_id','=',ac.id)])"/>
+                                    <t t-foreach="childs.filtered(lambda l:l.name != 'Equity')" t-as="sub_child" t-if="childs">
+                                        <span t-set="total_grp_data" t-value="get_total_of_group(sub_child,s,flag=True)" />
+                                        <tr t-if="total_grp_data[0] or total_grp_data[1]">
+                                            <td style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                                <t t-esc="sub_child.name" />
+                                                <t t-if="not total_grp_data[2]">
+                                                    <td class="text-right" style="width:25%">
+                                                       <t t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data" />
+                                                    </td>
+                                                    <td class="text-right" style="width:25%">
+                                                       <t t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data" />
+                                                    </td>
+                                                </t>
+                                                <span style="border-bottom:2px solid;border-top:2px solid;" t-set="qry_data" t-value="query_execute(sub_child,s,flag=True)"/>
+                                                <t t-foreach="qry_data" t-as="qry">
+                                                    <tr>
+                                                        <td>
+                                                            <span style="color: transparent;" t-esc="'...'*(count)" t-if="qry"/>
+                                                            <t t-esc="request.env['account.account'].browse(qry[2]).display_name" t-if="qry"/>
+                                                        </td>
+                                                        <td class="text-right" style="width:25%">
+                                                            <t t-esc="lang.format(fmt,qry[0],grouping=True)" t-if="qry" />
+                                                        </td>
+                                                        <td class="text-right" style="width:25%">
+                                                            <t t-esc="lang.format(fmt,qry[1],grouping=True)" t-if="qry" />
+                                                        </td>
+                                                    </tr>
+                                                </t>
+                                                <t t-call="bista_account_report.option_child_recursive_account" t-if="sub_child"/>
+                                                <!--<span t-set="total_grp_data" t-value="get_total_of_group(sub_child,s,flag=True)" t-if="sub_child"/>-->
+                                                <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" t-if="total_grp_data[2]">
+                                                    <td >
+                                                        <span style="color: transparent;font-weight:bold;" t-esc="'...'*(count)"/>
+                                                        Total of
+                                                        <t t-esc="sub_child.name"/>
+                                                    </td>
+                                                    <td class="text-right" style="width:25%">
+                                                        <t t-esc="lang.format(fmt,total_grp_data[0],grouping=True)" t-if="total_grp_data" />
+                                                    </td>
+                                                    <td class="text-right" style="width:25%">
+                                                        <t t-esc="lang.format(fmt,total_grp_data[1],grouping=True)" t-if="total_grp_data" />
+                                                    </td>
+                                                </tr>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                   <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;" t-if="main_parent_total_grp_data[2]">
+                                      <td >
+                                          <span style="color: transparent;font-weight:bold;" t-esc="'...'*(count)"/>
+                                          Total of
+                                          <span t-esc="ac.name"/>
+                                      </td>
+                                      
+                                      <td class="text-right" style="width:25%">
+
+                                        <span t-esc="lang.format(fmt,main_parent_total_grp_data[0],grouping=True)" t-if="main_parent_total_grp_data" />
+                                      </td>
+                                      <td class="text-right" style="width:25%">
+
+<!--                                         <t t-if="ac.name != 'Liabilities'">-->
+                                          <span t-esc="lang.format(fmt,main_parent_total_grp_data[1],grouping=True)" t-if="main_parent_total_grp_data" />
+<!--                                        </t>-->
+<!--                                          -->
+<!--                                        <span t-esc="lang.format(fmt,total_pyytd_liabilities_amount,grouping=True)"/>-->
+                                      </td>
+                                    </tr>
+
+                                    <!-- show ratained earning and previous earning same like pag 1. -->
+                                    <t t-if="ac.name == 'Liabilities'">
+                                        <t t-value="get_unallocated_earning(s)" t-set="unallocated_earning" />
+                                        <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                            <td>
+                                                <span>RETAINED EARNINGS (P Y)</span>
+                                            </td>
+                                            <td class="text-right" style="width:25%">
+                                                <span t-esc="lang.format(fmt,unallocated_earning[1],grouping=True)"/>
+                                            </td>
+                                            <td class="text-right" style="width:25%">
+                                                <span t-esc="lang.format(fmt,unallocated_earning[3],grouping=True)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                            <td>
+                                                <span>RETAINED EARNINGS (C Y)</span>
+                                            </td>
+                                            <td class="text-right" style="width:25%">
+                                                <span t-esc="lang.format(fmt,unallocated_earning[0],grouping=True)"/>
+                                            </td>
+                                            <td class="text-right" style="width:25%">
+                                                <span t-esc="lang.format(fmt,unallocated_earning[2],grouping=True)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                            <td>
+                                                <span>TOTAL LIABILITIES</span>
+                                            </td>
+                                            <td class="text-right" style="width:25%">
+                                                <span t-esc="lang.format(fmt,unallocated_earning[4],grouping=True)"/>
+                                                <span t-set="total_cyytd_liabilities_amount" t-value="total_cyytd_liabilities_amount + unallocated_earning[4]"/>
+
+                                            </td>
+                                            <td class="text-right" style="width:25%">
+                                                <span t-esc="lang.format(fmt,unallocated_earning[5],grouping=True)"/>
+                                                <span t-set="total_pyytd_liabilities_amount" t-value="total_pyytd_liabilities_amount + unallocated_earning[5]"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+ 
+                                    
+                               </t>
+                            </t>
+                           </tbody>
+                       </table>
+                       <p style="page-break-before:always;"> </p>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+
+</odoo>

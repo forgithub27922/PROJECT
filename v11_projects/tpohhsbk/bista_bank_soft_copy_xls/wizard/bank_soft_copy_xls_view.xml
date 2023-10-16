@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- bank.soft.copy.xls form view for wizard-->
+    <record id="bank_soft_copy_xls_form_view" model="ir.ui.view">
+        <field name="name">bank.soft.copy.xls.form.view</field>
+        <field name="model">bank.soft.copy.xls</field>
+        <field name="arch" type="xml">
+            <form string="Bank Specific Report">
+                <group>
+                    <field name="payslip_ids" invisible="1"/>
+                    <div>Click on print button to print bank soft copy
+                        report.</div>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print"
+                            type="object" class="oe_highlight"
+                            context="{'report': 'bnk_soft'}"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+        id="bank_soft_copy_xls_wiz_action"
+        name="Bank Soft Copy Report"
+        res_model="bank.soft.copy.xls"
+        src_model="hr.payslip"
+        view_type="form"
+        view_mode="form"
+        target="new"/>
+
+    <!-- Action for approving all review-->
+    <act_window id="bank_soft_copy_xls_wiz_action"
+                name="Bank Soft Copy Report"
+                res_model="bank.soft.copy.xls"
+                src_model="hr.payslip"
+                view_type="form"
+                view_mode="form"
+                key2="client_action_multi"
+                multi="True"
+                target="new"/>
+
+    <!-- Action for approving all review from batch -->
+    <act_window id="batch_bank_soft_copy_xls_wiz_action"
+                name="Bank Soft Copy Report"
+                res_model="bank.soft.copy.xls"
+                src_model="hr.payslip.run"
+                view_type="form"
+                view_mode="form"
+                target="new"/>
+
+    <!-- ratibi_card_transfer form view for wizard-->
+    <record id="ratibi_card_transfer_xls_form_view" model="ir.ui.view">
+        <field name="name">bank.soft.copy.xls.form.view</field>
+        <field name="model">bank.soft.copy.xls</field>
+        <field name="arch" type="xml">
+            <form string="Bank Specific Report">
+                <group>
+                    <field name="payslip_ids" invisible="1"/>
+                    <div>Click on print button to print Ratibi Card Transfer
+                        report.</div>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print"
+                            type="object" class="oe_highlight"
+                            context="{'report': 'ratibi'}"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for RATIBI card transfer from Batch -->
+    <act_window id="batch_ratibi_card_transfer_xls_wiz_action"
+                name="RATIBI Card Transfer Report"
+                res_model="bank.soft.copy.xls"
+                src_model="hr.payslip.run"
+                view_type="form"
+                view_mode="form"
+                view_id="bista_bank_soft_copy_xls.ratibi_card_transfer_xls_form_view"
+                target="new"/>
+
+    <!-- Action for RATIBI card transfer from all review-->
+    <act_window id="ratibi_card_transfer_xls_wiz_action"
+                name="RATIBI Card Transfer Report"
+                res_model="bank.soft.copy.xls"
+                src_model="hr.payslip"
+                view_type="form"
+                view_mode="form"
+                view_id="bista_bank_soft_copy_xls.ratibi_card_transfer_xls_form_view"
+                key2="client_action_multi"
+                multi="True"
+                target="new"/>
+
+    <!-- ProCash form view for wizard-->
+    <record id="pro_cash_xls_form_view" model="ir.ui.view">
+        <field name="name">bank.soft.copy.xls.form.view</field>
+        <field name="model">bank.soft.copy.xls</field>
+        <field name="arch" type="xml">
+            <form string="ProCash Report">
+                <group>
+                    <field name="payslip_ids" invisible="1"/>
+                    <div>Click on print button to print ProCash
+                        report.</div>
+                </group>
+                <footer>
+                    <button name="print_report" string="Print"
+                            type="object" class="oe_highlight"
+                            context="{'report': 'procash'}"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for ProCash from all review-->
+    <act_window id="all_pro_cash_xls_wiz_action"
+                name="ProCash Report"
+                res_model="bank.soft.copy.xls"
+                src_model="hr.payslip"
+                view_type="form"
+                view_mode="form"
+                view_id="bista_bank_soft_copy_xls.pro_cash_xls_form_view"
+                key2="client_action_multi"
+                multi="True"
+                target="new"/>
+
+    <!-- Action for ProCash from Batch -->
+    <act_window id="batch_pro_cash_xls_wiz_action"
+                name="ProCash Report"
+                res_model="bank.soft.copy.xls"
+                src_model="hr.payslip.run"
+                view_type="form"
+                view_mode="form"
+                view_id="bista_bank_soft_copy_xls.pro_cash_xls_form_view"
+                target="new"/>
+
+    <!--Download report view-->
+    <record id="bank_copy_print_link_form_view" model="ir.ui.view">
+        <field name="name">bank.copy.print.link.form.view</field>
+        <field name="model">bank.copy.print.link</field>
+        <field name="arch" type="xml">
+            <form string="Excel Output">
+                <separator colspan="4" string="Please save file as .xls excel format"/>
+                <group>
+                    <field name="name" invisible="1"/>
+                    <field name="authority_xls_output" filename='name' readonly='1'/>
+                </group>
+                <footer>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

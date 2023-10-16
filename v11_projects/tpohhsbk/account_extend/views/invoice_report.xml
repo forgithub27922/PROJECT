@@ -1,0 +1,113 @@
+<odoo>
+    <data>
+
+        <!-- QWeb Reports -->
+        <report
+            id="account.account_invoices"
+            model="account.invoice"
+            string="Tax Invoice"
+            report_type="qweb-pdf"
+            name="account.report_invoice_with_payments"
+            file="account.report_invoice_with_payments"
+            attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="(object._get_printed_report_name())"
+            groups="account.group_account_invoice"
+        />
+        <report
+            id="account.account_invoices_without_payment"
+            model="account.invoice"
+            string="Tax Invoice without Payment"
+            report_type="qweb-pdf"
+            name="account.report_invoice"
+            file="account.report_invoice"
+            attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
+            print_report_name="(object._get_printed_report_name())"
+        />
+
+        <template id="report_invoice_inherit_sbk" inherit_id="account.report_invoice_document">
+            <xpath expr="//div[@class='page']/div[@class='row']/div[@name='invoice_address']/div" position="replace">
+                <div t-if="o.partner_id.vat" class="mt16">TRN No.: <span t-field="o.partner_id.vat"/></div>
+            </xpath>
+            <xpath expr="//div[@class='page']/h2" position="replace">
+                <h2>
+                    <span t-if="o.type == 'out_invoice' and (o.state == 'open' or o.state == 'paid')">Tax Invoice</span>
+                    <span t-if="o.type == 'out_invoice' and o.state == 'draft'">Draft Tax Invoice</span>
+                    <span t-if="o.type == 'out_invoice' and o.state == 'cancel'">Cancelled Tax Invoice</span>
+                    <span t-if="o.type == 'out_refund'">Credit Note</span>
+                    <span t-if="o.type == 'in_refund'">Vendor Credit Note</span>
+                    <span t-if="o.type == 'in_invoice'">Vendor Bill</span>
+                    <span t-field="o.number"/>
+                </h2>
+            </xpath>
+
+            <xpath expr="//div[@class='page']" position="inside">
+                <table style="margin-top:115px;">
+                    <tr>
+                        <td style="font-weight:bold;"> Prepared by : </td>
+                        <td style="border-bottom:1px solid;width:22%"/>
+                        <td style="padding-left:7px;font-weight:bold;"> Checked by : </td>
+                        <td style="border-bottom:1px solid;width:22%"/>
+                        <td style="padding-left:7px;font-weight:bold;"> Approved by : </td>
+                        <td style="border-bottom:1px solid;width:22%"/>
+                    </tr>
+                </table>
+                <t t-if="o.type == 'out_invoice'">
+                    <table style="margin-top:50px;">
+                        <tr>
+                            <td style="font-weight:bold;"> Customer Signature : </td>
+                            <td style="border-bottom:1px solid;width:50%"/>
+                        </tr>
+                    </table>
+                </t>
+
+            </xpath>
+
+        </template>
+
+
+        <!-- Inherit external footer -->
+        <template id="external_layout_background_sbk" inherit_id="web.external_layout_background">
+            <xpath expr="//div[@class='footer o_background_footer']/div/ul" position="replace">
+                <ul class="list-inline">
+                    <li t-if="company.phone"><i class="fa fa-phone"/> <span t-field="company.phone"/></li>
+                    <li t-if="company.email"><i class="fa fa-at"/> <span t-field="company.email"/></li>
+                    <li t-if="company.website"><i class="fa fa-globe"/> <span t-field="company.website"/></li>
+                    <li t-if="company.vat"><i class="fa fa-building-o"/>TRN No.: <span t-field="company.vat"/></li>
+                </ul>
+            </xpath>
+        </template>
+
+        <template id="external_layout_boxed_sbk" inherit_id="web.external_layout_boxed">
+            <xpath expr="//div[@class='footer o_boxed_footer']/div/ul" position="replace">
+                <ul class="list-inline">
+                    <li t-if="company.phone">Tel: <span t-field="company.phone"/></li>
+                    <li t-if="company.email">Mail: <span t-field="company.email"/></li>
+                    <li t-if="company.website">Web: <span t-field="company.website"/></li>
+                    <li t-if="company.vat">TRN No.: <span t-field="company.vat"/></li>
+                </ul>
+            </xpath>
+        </template>
+
+        <template id="external_layout_clean_sbk" inherit_id="web.external_layout_clean">
+            <xpath expr="//div[@class='header o_clean_header']/div/div/ul" position="replace">
+                <ul class="list-unstyled">
+                    <strong><li t-if="company.name"><span t-field="company.name"/></li></strong>
+                    <li t-if="company.vat">TRN No.: <span t-field="company.vat"/></li>
+                    <li t-if="company.phone">Tel: <span t-field="company.phone"/></li>
+                    <li t-if="company.email"><span t-field="company.email"/></li>
+                    <li t-if="company.website"><span t-field="company.website"/></li>
+                </ul>
+            </xpath>
+        </template>
+        <template id="external_layout_standard_sbk" inherit_id="web.external_layout_standard">
+            <xpath expr="//div[@class='footer']/div/ul" position="replace">
+                <ul class="list-inline mb4">
+                    <li t-if="company.phone">Phone: <span t-field="company.phone"/></li>
+                    <li t-if="company.email">Email: <span t-field="company.email"/></li>
+                    <li t-if="company.website">Web: <span t-field="company.website"/></li>
+                    <li t-if="company.vat">TRN No.: <span t-field="company.vat"/></li>
+                </ul>
+            </xpath>
+        </template>
+    </data>
+</odoo>

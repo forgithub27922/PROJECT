@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherited HR Expense Sheet Form View -->
+        <record id="hr_expense_sheet_form_inherited" model="ir.ui.view">
+            <field name="name">hr.expense.sheet.form.inherited</field>
+            <field name="model">hr.expense.sheet</field>
+            <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form"/>
+            <field name="arch" type="xml">
+                <!--  Remove Widget From Expense Line Ids -->
+                <xpath expr="//field[@name='expense_line_ids']" position="attributes">
+                    <attribute name="widget"></attribute>
+                </xpath>
+                <!--  Added Submit to Manager Button -->
+                <xpath expr="//header" position="inside">
+                    <button name="submit_expenses" states="draft"
+                            string="Submit to Manager" type="object"
+                            class="oe_highlight o_expense_submit"/>
+                </xpath>
+                <!--  Added Extra computed fields to calculate reimbursement -->
+                <xpath expr="//field[@name='expense_line_ids']" position="after">
+                    <group class="oe_subtotal_footer oe_right" colspan="2" name="expense_total">
+                        <field name="total_expense" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                        <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                            <label for="expense_to_reimburse" />
+                        </div>
+                        <field name="expense_to_reimburse" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    </group>
+                </xpath>
+                <!-- Replace Defaults Refuse Button -->
+                <xpath expr="//field[@name='expense_line_ids']//button[@name='%(hr_expense.hr_expense_refuse_wizard_action)d']" position="replace">
+                    <field name="is_refused" invisible="1"/>
+                    <field name="expense_sheet_state" invisible="1"/>
+                   <button name="refuse_line_expense"
+                            string="Refuse"
+                            context="{'hr_expense_refuse_model':'hr.expense'}"
+                            type="object"
+                            groups="hr_expense.group_hr_expense_user, account.group_account_user"
+                            icon="fa-times"
+                            attrs="{'invisible': ['|',('expense_sheet_state','in',['draft', 'approve','post','done','cancel']),
+                                                      ('is_refused','!=',False)]}"/>
+                    <button name="validate_refuse_line_expense"
+                            string="Allow"
+                            context="{'hr_expense_refuse_model':'hr.expense'}"
+                            type="object"
+                            groups="hr_expense.group_hr_expense_user, account.group_account_user"
+                            icon="fa-check"
+                            attrs="{'invisible': ['|',('expense_sheet_state','in',['approve','post','done','cancel']),
+                                                      ('is_refused','=',False), ('expense_sheet_state', '!=', 'draft')]}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Apply group on default To approve menu -->
+        <menuitem id="hr_expense.menu_hr_expense_to_approve"
+                  name="To Approve" sequence="2"
+                  parent="hr_expense.menu_hr_expense_root"
+                  groups="group_bista_hr_expense_reimburse_all_menu"/>
+
+        <!-- Apply group on default My expenses menu -->
+        <menuitem id="hr_expense.menu_hr_expense_my_expenses"
+                  name="My Expenses" sequence="1"
+                  parent="hr_expense.menu_hr_expense_root"
+                  groups="group_bista_hr_expense_reimburse_all_menu"/>
+
+        <!-- New Expenses Menu -->
+        <menuitem id="menu_bista_hr_expenses"
+                  name="Expenses" sequence="2"
+                  parent="hr_expense.menu_hr_expense_root"/>
+
+        <!-- Child of Expenses custom menu -->
+        <menuitem id="menu_bista_hr_expense_sheet_reports"
+                  name="Expenses" sequence="3"
+                  parent="menu_bista_hr_expenses"
+                  action="hr_expense.action_hr_expense_sheet_my_all"/>
+
+    </data>
+</odoo>

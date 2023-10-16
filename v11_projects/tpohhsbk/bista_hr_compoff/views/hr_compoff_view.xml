@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+
+        <record id="view_hr_compoff_tree" model="ir.ui.view">
+            <field name="name">hr.compoff.tree</field>
+            <field name="model">hr.compoff</field>
+            <field name="arch" type="xml">
+                <tree string="Comp-Off" decoration-bf="state=='draft'"
+                    decoration-info="state=='submit'"
+                    decoration-muted="state=='approve_manager'"
+                    decoration-primary="state=='approve_hr'"
+                    decoration-success="state=='compoff_given'"
+                    decoration-danger="state=='refused'">
+                    <field name="date_compoff"/>
+                    <field name="employee_id"/>
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="date_expired" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_hr_compoff_form" model="ir.ui.view">
+            <field name="name">hr.compoff.form</field>
+            <field name="model">hr.compoff</field>
+            <field name="arch" type="xml">
+                <form string="Comp-Off">
+                    <header>
+                        <button name="action_submit" string="Submit"
+                            type="object" states="draft" class="oe_highlight"
+                            groups="bista_hr_compoff.group_hr_holidays_user_employee"/>
+                        <button name="action_approve_manager" string="Approved by Manager"
+                            type="object" states="submit" class="oe_highlight"
+                            groups="hr_holidays.group_hr_holidays_user"/>
+                        <button name="action_approve_hr" string="Approved by HR" type="object"
+                            states="approve_manager" class="oe_highlight"
+                            groups="hr_holidays.group_hr_holidays_manager"/>
+                        <button name="action_compoff_given" string="Comp-Off Given" type="object"
+                            states="approve_hr" class="oe_highlight"
+                            groups="hr_holidays.group_hr_holidays_manager"/>
+                        <button name="action_refused" string="Refused" type="object"
+                            attrs="{'invisible': [('state', 'in', ('compoff_given','refused'))]}"
+                            groups="hr_holidays.group_hr_holidays_manager"
+                            confirm="Are you sure want to refuse the Comp-Off?"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet string="Comp-Off">
+                        <div class="oe_button_box" name="button_box">
+                            <button name="action_view_allocation"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-calendar"
+                                attrs="{'invisible': [('allocation_count', '=', 0)]}">
+                                <field name="allocation_count" widget="statinfo" string="Allocation"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="date_compoff"/>
+                                <field name="date_expired"/>
+                            </group>
+                            <group>
+                                <field name="employee_id"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="parent_id" groups="hr.group_hr_user"
+                                       attrs="{'readonly': [('state', 'not in', ('draft','submit'))]}"  />
+                                <field name="attendance" widget="float_time"/>
+                            </group>
+                        </group>
+                        <group string="Comments">
+                            <field name="notes" nolabel="1"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hr_compoff_filter" model="ir.ui.view">
+            <field name="name">hr.compoff.filter</field>
+            <field name="model">hr.compoff</field>
+            <field name="arch" type="xml">
+                <search string="Search Comp-Off">
+                    <field name="name"/>
+                    <field name="date_compoff"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="employee_id"/>
+                    <filter domain="[('state','=','draft')]" string="Draft" name="draft"/>
+                    <filter domain="[('state','in',('confirm','submit'))]" string="To Submit" name="submit"/>
+                    <separator/>
+                    <filter domain="[('state','in',('confirm','approve_manager'))]"
+                        string="Manager Approved" name="approve_manager"/>
+                    <filter domain="[('state','in',('confirm','approve_hr'))]" string="HR Approved" name="approve_hr"/>
+                    <filter domain="[('state','in',('confirm','refused'))]" string="Refused" name="refused"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_employee" string="Employee" context="{'group_by':'employee_id'}"/>
+                        <filter name="group_date_compoff" string="Date" context="{'group_by':'date_compoff'}"/>
+                        <filter name="group_state" string="Status" context="{'group_by':'state'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_hr_compoff" model="ir.actions.act_window">
+            <field name="name">Comp-Off</field>
+            <field name="res_model">hr.compoff</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_hr_compoff_tree"/>
+            <field name="search_view_id" ref="view_hr_compoff_filter"/>
+        </record>
+
+        <menuitem id="menu_hr_compoff"
+                  action="action_hr_compoff"
+                  parent="hr_holidays.menu_hr_holidays_my_leaves"
+                  groups="group_hr_holidays_user_employee"
+                  sequence="45"/>
+    </data>
+</openerp>

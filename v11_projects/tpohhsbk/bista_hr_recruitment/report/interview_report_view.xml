@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            string="Interview Report"
+            id="report_hr_interview"
+            model="hr.applicant"
+            report_type="qweb-pdf"
+            name="bista_hr_recruitment.hr_interview_report_bista"
+            file="bista_hr_recruitment.hr_interview_report_bista"
+            print_report_name="'Interview  - %s' % (object.name)"
+        />
+
+    </data>
+</odoo>

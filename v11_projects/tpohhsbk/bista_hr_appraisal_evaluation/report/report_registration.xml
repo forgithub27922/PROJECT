@@ -1,0 +1,22 @@
+<odoo>
+    <data>
+
+        <!--- KRA Report -->
+        <report
+                id="action_appraisal_eval_report"
+                string="KRA Report"
+                model="hr.employee.kra"
+                report_type="qweb-pdf"
+                file="bista_hr_appraisal_evaluation.kra_report"
+                name="bista_hr_appraisal_evaluation.kra_report"
+        />
+
+        <!-- Annual Appraisal Report -->
+        <report id="action_annual_appraisal_report"
+                string="Annual Appraisal Report" model="hr.employee.kra"
+                report_type="qweb-pdf"
+                menu="False"
+                file="bista_hr_appraisal_evaluation.annual_appraisal_report"
+                name="bista_hr_appraisal_evaluation.annual_appraisal_report"/>
+    </data>
+</odoo>

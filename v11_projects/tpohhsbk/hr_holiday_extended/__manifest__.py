@@ -1,0 +1,32 @@
+# -*- coding: utf-8 -*-
+
+{
+    'name': 'Leave Extended',
+    'version': '1.2',
+    'sequence': 19,
+    'category': 'Human Resources',
+    'summary': "Manage leave allocations",
+    'description': """""",
+    'author': 'Bista Solutions Pvt. Ltd.',
+    'website': 'https://www.bistasolutions.com',
+    'depends': ['hr_holidays', 'hr_public_holidays',
+                'bista_hr_experience', 'hr_payroll'],
+    'data': [
+        'security/hr_security.xml',
+        'security/ir.model.access.csv',
+        'views/employee_grade_view.xml',
+        'views/holiday_status.xml',
+        'views/res_config_settings_views.xml',
+        'views/account_payment.xml',
+        'wizard/encashment_payment_wizard.xml',
+        'views/leave_encashment_view.xml',
+        'views/lapse_leaves_view.xml',
+        'views/exception_leave_allocation.xml',
+        'data/ir_cron.xml',
+    ],
+    'demo': [],
+    'images': [],
+    'application': True,
+    'installable': True,
+    'auto_install': False,
+}

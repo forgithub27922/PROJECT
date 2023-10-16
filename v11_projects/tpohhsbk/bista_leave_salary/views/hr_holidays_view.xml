@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- added accrual setting in hr_holiday form view -->
+    <record id="edit_holiday_status_form_inherit" model="ir.ui.view">
+        <field name="name">edit.holiday.status.form.inherit</field>
+        <field name="model">hr.holidays.status</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_status_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='limit']" position="after">
+                <field name="accruals"/>
+                <field name="expense_account_id" attrs="{'invisible': [('accruals', '=', False)], 'required':[('accruals', '=', True)]}"/>
+                <field name="leave_salary_journal_id" attrs="{'invisible': [('accruals', '=', False)], 'required':[('accruals', '=', True)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="edit_holiday_new_inherit" model="ir.ui.view">
+        <field name="name">edit.holiday.new.inherit</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holidays.edit_holiday_new"/>
+        <field name="arch" type="xml">
+            <!-- <xpath expr="//field[@name='number_of_days_temp']" position="after">
+                <field name="account_move_id" invisible="1"/>
+            </xpath> -->
+            
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="leave_accrual_amount" attrs="{'invisible':[('type','!=','add')]}"/>
+                <field name="leave_salary_paid" invisible="1"/>
+                <field name="account_move_id" invisible="1"/>
+                <field name="move_leave_accrual_amount" attrs="{'invisible':[('type','!=','add')]}" invisible="1"/>
+                <field name="leave_amount"/>
+                <field name="is_batch_warning" invisible="1"/>
+                <field name="increment_wage_amount" invisible="1"/>
+                <field name="batch_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//form/sheet/div" position="before">
+            	<div class="oe_button_box">
+     				<button name="get_journal_entry" type="object" string="Journal Entry" 
+     						icon="fa-dollar" class="oe_stat_button" attrs="{'invisible':[('account_move_id','=',False)]}"/>
+				</div>
+	        </xpath>
+        </field>
+    </record>
+
+    <record id="hr_holidays_tree_inherit" model="ir.ui.view">
+        <field name="name">hr.holiday.tree.inherit</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holidays.view_holiday_allocation_tree"/>
+        <field name="arch" type="xml">
+        	<field name="number_of_days" position="after">
+        		<field name="type" invisible="1"/>
+        		<field name="leave_accrual_amount" attrs="{'invisible':[('type','=','remove')]}"/>
+        		<field name="move_leave_accrual_amount" attrs="{'invisible':[('type','=','remove')]}" invisible="1"/>
+        		<field name="leave_amount" attrs="{'invisible':[('type','=','remove')]}" sum="Accrual Amount"/>
+        	</field>
+        </field>
+	</record>
+
+
+    <record id="inherit_holiday_simple_tree_view" model="ir.ui.view">
+        <field name="name">hr.holiday.tree.inherit</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holidays.view_holiday_simple"/>
+        <field name="arch" type="xml">
+            <field name="number_of_days" position="after">
+                <field name="leave_amount" string="Accrued Amount" sum="Remaining Amount"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="inherit_holiday_request_tree_view" model="ir.ui.view">
+        <field name="name">hr.holiday.tree.inherit</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holidays.view_holiday"/>
+        <field name="arch" type="xml">
+            <field name="number_of_days" position="after">
+                <field name="leave_amount" string="Request Amount" sum="Request Amount"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

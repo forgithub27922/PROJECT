@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template_m20_ex" xml:space="preserve">
+    <t t-extend="FieldMany2One">
+        <t t-jquery="button" t-operation="replace">
+        </t>
+    </t>
+</templates>

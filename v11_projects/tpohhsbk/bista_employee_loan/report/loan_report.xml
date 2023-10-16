@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_loan">
+        <t t-call="web.external_layout">
+            <t t-if="not docs">
+                <div class="page" >
+                    <div class="row">
+                        <h3>No matching records found!.</h3>
+                    </div>
+                </div>
+            </t>
+            <t t-if="docs">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page" >
+                        <p style="page-break-after:always;"/>
+                        <div class="row">
+                            <style type="text/css">
+                                td.text-center{
+                                align:center;
+                                }
+                            </style>
+                            <t t-foreach="doc_ids" t-as="wiz">
+                                <center>
+                                    <div style="font-size:19px;font-weight:bold;padding-top:20px">
+                                        Loan Summary Report From: <span t-esc="datetime.datetime.strptime(wiz.date_from, '%Y-%m-%d').strftime('%d-%m-%Y')"/> to <t t-esc="datetime.datetime.strptime(wiz.date_to, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                                    </div>
+                                </center>
+                            </t>
+                            <br/>
+                            <!-- Employee Info -->
+                            <table class="table table-bordered"
+                                   width="100%" height="100%"
+                                   style="border: 1px solid #000000;font-size:13px">
+                                <tbody>
+                                    <tr bgcolor="#D3D3D3">
+                                        <td height="10%" class="text-center">
+                                            <b>Name</b>
+                                        </td>
+                                        <td height="10%" class="text-center">
+                                            <b>Nationality</b>
+                                        </td>
+
+                                        <td height="10%" class="text-center">
+                                            <b>Join Date</b>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td height="10%" class="text-center">
+                                            <span t-esc="o.employee_id.name"/>
+                                        </td>
+
+                                        <td height="10%" class="text-center">
+                                            <span t-esc="o.employee_id.country_id.name"/>
+                                        </td>
+                                        <td height="10%" class="text-center">
+                                            <span t-if="o.employee_id.date_joining" t-esc="datetime.datetime.strptime(o.employee_id.date_joining, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                                        </td>
+                                    </tr>
+                                    <tr bgcolor="#D3D3D3">
+                                        <td height="10%" class="text-center">
+                                            <b>Department</b>
+                                        </td>
+                                        <td height="10%" class="text-center">
+                                            <b>Job Title</b>
+                                        </td>
+                                        <td height="10%" colspan="3" class="text-center">
+                                            <b>Email Address</b>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="10%" class="text-center">
+                                            <span t-esc="o.department_id.name"/>
+                                        </td>
+                                        <td height="10%" class="text-center">
+                                            <span t-esc="o.employee_id.job_id.name"/>
+                                        </td>
+                                        <td height="10%" colspan="3" class="text-center">
+                                            <span t-esc="o.employee_id.work_email"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- Loan Request Information -->
+                            <table class="table table-bordered"
+                                   width="100%" height="100%"
+                                   style="border: 1px solid #000000;font-size:13px">
+                                <tbody>
+                                    <tr>
+                                        <td width="20%">
+                                            <b>Request Number</b>
+                                        </td>
+                                        <td  width="25%">
+                                            <span t-esc="o.name"/>
+                                        </td>
+                                        <td  width="25%">
+                                            <b>Total Amount</b>
+                                        </td>
+                                        <td width="30%" class="text-right">
+                                            <span t-esc="o.loan_amount"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <b> Loan Issuing Date </b>
+                                        </td>
+                                        <td width="25%">
+                                            <span t-if="o.loan_issuing_date" t-esc="datetime.datetime.strptime(o.loan_issuing_date, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                                        </td>
+                                        <td width="25%">
+                                            <b>
+                                                Total Paid Installment Amount
+                                            </b>
+                                        </td>
+                                        <td width="30%" class="text-right">
+                                            <t t-if="o.total_paid_installment_amount">
+                                                <span t-esc="o.total_paid_installment_amount"/>
+                                            </t>
+                                            <t t-if="not o.total_paid_installment_amount">
+                                                0.0
+                                            </t>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="20%">
+                                            <b>Loan Installments</b>
+                                        </td>
+                                        <td width="25%">
+                                            <span t-esc="len(o.loan_installment_ids)"/>
+                                        </td>
+                                        <td width="25%">
+                                            <b>Remaining Installments Total Amount</b>
+                                        </td>
+                                        <td width="30%" class="text-right">
+                                            <t t-if="o.remaining_installments_total_amount">
+                                                <span t-esc="o.remaining_installments_total_amount"/>
+                                            </t>
+                                            <t t-if="not o.remaining_installments_total_amount">
+                                                0.0
+                                            </t>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!--Loan Paid Installment Information-->
+                            <t t-if="o.loan_installment_ids.filtered(lambda l:l.state == 'done')">
+                                <table class="table table-bordered"
+                                       width="100%" height="100%">
+                                    <thead>
+                                        <tr bgcolor="#D3D3D3">
+                                            <th height="10%" class="text-center" colspan="3">
+                                                Paid Installments
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th height="10%" class="text-center">
+                                                <b>Paid Date</b>
+                                            </th>
+                                            <th height="10%" class="text-center">
+                                                <b>Amount</b>
+                                            </th>
+
+                                            <th height="10%" class="text-center">
+                                                <b>Remarks</b>
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.loan_installment_ids.filtered(lambda l:l.state == 'done')" t-as="installment">
+                                            <tr>
+                                                <td height="10%" class="text-center">
+                                                    <span t-if="installment.paid_date" t-esc="datetime.datetime.strptime(installment.paid_date, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                                                </td>
+                                                <td height="10%" class="text-right">
+                                                    <span t-esc="installment.amount"/>
+                                                </td>
+                                                <td height="10%" class="text-center">
+                                                    <span t-esc="installment.remarks"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </t>
+                            <!--Loan remaining Installment Information-->
+                            <t t-if="o.loan_installment_ids.filtered(lambda l:l.state != 'done')">
+                                <table class="table table-bordered"
+                                       width="100%" height="100%">
+                                    <thead>
+                                        <tr bgcolor="#D3D3D3">
+                                            <th height="10%" class="text-center" colspan="4">
+                                                Remaining Installments
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th height="10%" class="text-center">
+                                                <b>Due Date</b>
+                                            </th>
+                                            <th height="10%" class="text-center">
+                                                <b>Amount</b>
+                                            </th>
+                                            <th height="10%" class="text-center">
+                                                <b>Status</b>
+                                            </th>
+                                            <th height="10%" class="text-center">
+                                                <b>Remarks</b>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="o.loan_installment_ids.filtered(lambda l:l.state != 'done')" t-as="installment">
+                                            <tr>
+                                                <td height="10%" class="text-center">
+                                                    <span t-if="installment.due_date" t-esc="datetime.datetime.strptime(installment.due_date, '%Y-%m-%d').strftime('%d-%m-%Y')"/>
+                                                </td>
+                                                <td height="10%" class="text-right">
+                                                    <span t-esc="installment.amount"/>
+                                                </td>
+                                                <td height="10%" class="text-center">
+                                                    <t t-esc="dict(installment.fields_get(allfields=['state'])['state']['selection'])[installment.state]"/>
+                                                </td>
+                                                <td height="10%" class="text-center">
+                                                    <span t-esc="installment.remarks"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                                <t t-if="o.reject_reason">
+                                    <table class="table table-bordered"
+                                           width="100%" height="100%"
+                                           style="border: 1px solid #000000;font-size:13px">
+                                        <tbody>
+                                            <tr>
+                                                <td height="10%" width="15%" class="text-center">
+                                                    <b>Reject Reason</b>
+                                                </td>
+                                                <td height="10%" width="85%" class="text-center">
+                                                    <span t-esc="o.reject_reason"/>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </t>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

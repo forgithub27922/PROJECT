@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_hr_payslip_form_with_net_amount_view" model="ir.ui.view">
+        <field name="name">view.hr.payslip.form.view</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='credit_note']" position="after">
+                <field name="net_amount" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="inherit_hr_payslip_tree_view" model="ir.ui.view">
+        <field name="name">view.hr.payslip.tree.view</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree"/>
+        <field name="arch" type="xml">
+            <field name="payslip_run_id" position="after">
+                <field name="net_amount" sum="Payslip Net Amount"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

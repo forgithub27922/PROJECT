@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--<report-->
+            <!--string="EOS Letter"-->
+            <!--id="report_experience_letter"-->
+            <!--model="hr.exit.document"-->
+            <!--report_type="qweb-pdf"-->
+            <!--name="bista_eos.experience_letter_report"-->
+            <!--file="bista_eos.experience_letter_report"-->
+            <!--print_report_name="'Experience Letter  - %s ' % (object.employee_id.name)"-->
+        <!--/>-->
+
+    </data>
+</odoo>

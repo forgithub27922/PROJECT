@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="view_employee_form_inherit_gratuity" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="after">
+                    <field name="partner_id" readonly="0"/>
+                </field>
+                <field name="address_home_id" position="attributes">
+                	<attribute name="context">{'default_parent_id':partner_id, 'show_address': 1}</attribute>
+                    <attribute name="string">Local Address</attribute>
+                </field>
+            </field>
+        </record>
+        
+        <record id="view_employee_form_inherit_employee_add" model="ir.ui.view">
+            <field name="name">hr.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id"
+                   ref="bista_hr.inherited_hr_employee_form_view_added_field"/>
+            <field name="arch" type="xml">
+                <field name="partner_permanent_address_id" position="attributes">
+                	<attribute name="context">{'default_parent_id':partner_id}</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

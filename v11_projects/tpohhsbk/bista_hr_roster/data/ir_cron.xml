@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="roster_vs_attendance_update" model="ir.cron">
+	    <field name="name">Roster Vs Attendance Update</field>
+	    <field eval="True" name="active"/>
+	    <field name="user_id" ref="base.user_root"/>
+	    <field name="interval_number">6</field>
+	    <field name="interval_type">hours</field>
+	    <field name="numbercall">-1</field>
+	    <field eval="False" name="doall" />
+	    <field name="model_id" ref="model_roster_vs_attendance"/>
+	     <field name="code">model.update_roster_vs_attendance()</field>
+	    <field name="priority">10</field>
+	    <field name="state">code</field>
+	</record>
+	
+</odoo>

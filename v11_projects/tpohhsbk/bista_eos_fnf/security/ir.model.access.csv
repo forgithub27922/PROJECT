@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_eos_fnf_hr_officer,access.hr.eos.fnf.hr_officer,model_hr_eos_fnf,hr.group_hr_user,1,0,0,0
+access_hr_eos_fnf_hr_manager,access.hr.eos.fnf.hr_manager,model_hr_eos_fnf,hr.group_hr_manager,1,1,1,1
+access_hr_salary_payable,access_hr_salary_payable,model_hr_salary_payable,hr.group_hr_user,1,0,0,0
+access_hr_salary_payable,access_hr_salary_payable,model_hr_salary_payable,hr.group_hr_manager,1,1,1,1
+access_hr_special_allowances,access_hr_special_allowances,model_hr_special_allowances,hr.group_hr_user,1,0,0,0
+access_hr_special_allowances,access_hr_special_allowances,model_hr_special_allowances,hr.group_hr_manager,1,1,1,1
+access_hr_other_deductions,access_hr_other_deductions,model_hr_other_deductions,hr.group_hr_user,1,0,0,0
+access_hr_other_deductions,access_hr_other_deductions,model_hr_other_deductions,hr.group_hr_manager,1,1,1,1
+access_hr_gratuity_final_payment,access_hr_gratuity_final_payment,model_hr_gratuity_final_payment,hr.group_hr_user,1,0,0,0
+access_hr_gratuity_final_payment,access_hr_gratuity_final_payment,model_hr_gratuity_final_payment,hr.group_hr_manager,1,1,1,1

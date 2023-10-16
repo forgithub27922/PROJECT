@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+
+    <data noupdate="1">
+
+        <!-- create gratuity for past year or month that is remaining-->
+        <record model="ir.cron" id="hr_past_gratuity_scheduler_extended">
+            <field name="name">Automatic Past gratuity Calculation</field>
+            <field eval="False" name="active"/>
+            <field name="model_id" ref="model_gratuity_accrual_line"/>
+            <field name="state">code</field>
+            <field name="code">model.automatic_hr_past_gratuity_calculation(company=False,start_date=False)</field>
+            <field name="interval_number">12</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

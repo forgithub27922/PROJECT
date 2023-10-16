@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_group_tree_inherit_sbk" model="ir.ui.view">
+            <field name="name">account.group.tree</field>
+            <field name="model">account.group</field>
+            <field name="inherit_id" ref="account.view_account_group_tree"/>
+            <field name="arch" type="xml">
+                <field name="code_prefix" position="before">
+                    <field name="sequence" widget="handle"/>
+                </field>
+                <field name="name" position="after">
+                    <field name="parent_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_account_group_search_inherit_sbk2" model="ir.ui.view">
+            <field name="name">account.group.search.sbk</field>
+            <field name="model">account.group</field>
+            <field name="inherit_id" ref="account.view_account_group_search"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="parent_id"/>
+                    <separator/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_parent_id"
+                                string="Parent"
+                                context="{'group_by':'parent_id'}"/>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+        <menuitem id="account_accountant.menu_account_group" parent="account.account_account_menu" action="account.action_account_group_tree" groups="account.group_account_manager"/>
+
+    </data>
+</odoo>

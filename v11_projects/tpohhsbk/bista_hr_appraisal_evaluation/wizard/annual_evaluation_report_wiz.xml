@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="annual_eval_report_wizard" model="ir.ui.view">
+        <field name="name">annual_eval_report_wizard</field>
+        <field name="model">annual.evaluation.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="appraisal_template_id"
+                               required="1"
+                               options="{'no_open': True,'no_create': True,'no_quick_create': True,'no_create_edit': True}"/>
+                        <field name="order_by" required="1"/>
+                        <field name="appraisal_period_ids"
+                               widget="many2many_tags"
+                               options="{'no_create_edit': 1, 'no_create':1}"
+                               domain="[('appraisal_template_id','=',appraisal_template_id)]"/>
+                    </group>
+                    <notebook>
+                        <page string="Employee">
+                            <field name="employee_ids"
+                            options="{'no_create_edit': 1, 'no_create':1}"/>
+                        </page>
+                    </notebook>
+                    <footer>
+                        <button name="generate_annual_evaluation_report"
+                                class="oe_highlight"
+                                string="Print PDF"
+                                type="object"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <act_window
+            id="annual_eval_report_wiz_action"
+            name="Annual Evaluation Report"
+            res_model="annual.evaluation.report.wizard"
+            src_model="hr.appraisal.configuration"
+            view_type="form"
+            view_mode="form"
+            target="new"
+            context="{'default_appraisal_template_id':active_id}"/>
+
+    <record id="annual_eval_report_wiz_act_window_action"
+            model="ir.actions.act_window">
+        <field name="name">Annual Evaluation Report</field>
+        <field name="res_model">annual.evaluation.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

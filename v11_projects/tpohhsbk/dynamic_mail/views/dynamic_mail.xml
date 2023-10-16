@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="seq_dynamic_mail" model="ir.sequence">
+            <field name="name">Dynamic Mail </field>
+            <field name="code">dynamic.mail</field>
+            <field name="prefix">DYNM</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+    <record id="dynamic_send_mail_tree_view" model="ir.ui.view">
+            <field name="name">dynamic.mail.tree</field>
+            <field name="model">dynamic.mail</field>
+            <field name="arch" type="xml">
+                <tree>
+                        <field name="name" />
+                        <field name="send_mail_to" />
+                        <field name="model_id" />
+                        <field name="field_id" />
+                        <field name="template_id" />
+                        <field name="all_mail_sent" />
+                </tree>
+            </field>
+    </record>
+
+    <record id="dynamic_send_mail_form_view" model="ir.ui.view">
+            <field name="name">dynamic.mail.form</field>
+            <field name="model">dynamic.mail</field>
+            <field name="arch" type="xml">
+                <form>
+                     <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" required="1" readonly="1"/>
+                            <field name="send_mail_to" widget="radio" options="{'horizontal': true}"/>
+                            <field name="groups_ids"  widget="many2many_tags" attrs="{'invisible':[('send_mail_to','!=','group')],'required':[('send_mail_to','=','group')]}"/> 
+                            <field name="user_ids"  widget="many2many_tags" domain="[('company_id','=',company_id)]"
+                                   attrs="{'invisible':[('send_mail_to','=',False)],'required':[('send_mail_to','=','user')]}" options="{'no_quick_create':False}"/>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                            <field name="all_mail_sent" />
+<!--                             <field name="mail_ids" readonly="1"> -->
+<!--                                     <tree> -->
+<!--                                         <field name="state" /> -->
+<!--                                         <field name="date" /> -->
+<!--                                         <field name ='subject' /> -->
+<!--                                         <field name="author_id" /> -->
+<!--                                     </tree> -->
+<!--                             </field> -->
+                        </group>
+                        <group>
+                            <field name="model_id" required="1" attrs="{'readonly':[('cron_id','!=',False)]}"/>
+                            <field name="model_name" invisible="1" />  
+                            <field name="domain_filter" widget="domain" options="{'model': 'model_name'}"/>
+                            <field name="field_id" domain="[('model_id','=',model_id),('ttype','in',['datetime','date'])]" required="1"/>
+                            <label for="select_time" string="Trigger Before"/>
+                            <div class="o_row">
+                                <field name="before_or_after"/>
+                                <field name="select_time"  attrs="{'invisible':[('before_or_after','=','same_day')]}"/>
+                                <span attrs="{'invisible':[('before_or_after','=','same_day')]}">Duration </span>
+                                <field name="select_month_days" attrs="{'invisible':[('before_or_after','=','same_day')]}"/>
+                            </div>
+                            <field name="template_id" required="1" domain="[('model_id','=',model_id)]"/>
+                            <field name="cron_id" readonly="1"/>
+                            
+                        </group>
+                    </group>
+                </form>
+            </field>
+    </record>
+
+    <record id="action_send_dynamic_mail" model="ir.actions.act_window">
+        <field name="name">Dynamic Mail</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dynamic.mail</field>
+        <field name="view_mode">form,tree</field>
+        <field name="view_id" ref="dynamic_send_mail_tree_view" />
+    </record>
+
+<!--     <menuitem id="menu_send_mail_main_menu" -->
+<!--         name="Dynamic Mail" web_icon="dynamic_mail,static/description/icon.png"/> -->
+
+    <menuitem id="menu_send_mail_configuration"
+        name="Dynamic Mail"
+        parent="base.menu_email"
+        sequence="0"
+        action="action_send_dynamic_mail"
+        />
+</odoo>

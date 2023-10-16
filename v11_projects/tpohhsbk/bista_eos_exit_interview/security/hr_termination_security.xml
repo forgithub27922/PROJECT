@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="rule_for_employee_officer_exit_interview" model="ir.rule">
+            <field name="name">Exit Interview- Employee</field>
+            <field name="model_id" ref="bista_eos_exit_interview.model_exit_interview"/>
+            <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="rule_for_manager_exit_interview" model="ir.rule">
+            <field name="name">Exit Interview--Manager</field>
+            <field name="model_id" ref="bista_eos_exit_interview.model_exit_interview"/>
+            <field name="domain_force">['|', ('manager_id.user_id','=',user.id), ('employee_id.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')),(4, ref('hr.group_hr_user'))]"/>
+        </record>
+
+        <record id="rule_for_hr_exit_interview" model="ir.rule">
+            <field name="name">Exit Interview--HR HrAdmin</field>
+            <field name="model_id" ref="bista_eos_exit_interview.model_exit_interview"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager'))]"/>
+        </record>
+
+		<record id="exit_interview_rule_multi_company" model="ir.rule">
+            <field name="name">Exit Interview Multi Company Rule</field>
+            <field name="model_id" ref="bista_eos_exit_interview.model_exit_interview"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+    </data>
+</odoo>

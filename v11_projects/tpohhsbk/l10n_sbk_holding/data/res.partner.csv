@@ -1,0 +1,26 @@
+id,name,customer,supplier,company_id/id
+res_partner_sbk_holding_1,Global Trading & Contracting Business Limited,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_2,MSN Business Limited,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_3,Leaders Insurance Brokers,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_4,Capita Symonds,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_5,Mercury International,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_6,China Chemicals,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_7,Vitkovice,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_8,TP - 8 International Holdings,FALSE,TRUE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_9,TP - Tamer Adel,FALSE,TRUE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_10,TP - Others,FALSE,TRUE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_11,Abu Dhabi International Capital,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_12,SBK Investments Ltd,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_13,KPC Petroleum Trading,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_14,OCA - Mina Al Fajer Real Estate LLC,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_15,Emalab Logistics,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_16,Libyan Project,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_17,EMALAB,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_18,AGS - Shaikha Shamma,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_19,Tally-HO General Trading,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_20,Royal Falcon Labour Supply LLC,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_21,N.R Doshi,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_22,Proton Partners,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_23,Fairmont Dubai,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_24,Upto Date General Trading LLC,TRUE,FALSE,sbk_company.company_sbk_holding
+res_partner_sbk_holding_25,Kurd Commercial,TRUE,FALSE,sbk_company.company_sbk_holding

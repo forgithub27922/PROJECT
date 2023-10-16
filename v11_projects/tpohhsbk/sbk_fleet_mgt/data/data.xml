@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Email template for Driver Document Expiry Date-->
+        <record id="driver_document_expiry_date_template" model="mail.template">
+            <field name="name">Driver Document Expiry Date</field>
+            <field name="subject">Driver Document Expiry Of ${object.partner_id.name}</field>
+            <field name="model_id" ref="sbk_fleet_mgt.model_fleet_vehicle_document"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <p>This mail is to inform you that
+                        ${object.partner_id.name}'s Document
+                        <b>${object.name}</b> will be expire on
+                        ${object.expiry_date}.</p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Email template for Vehicle Registration Expiry Date-->
+        <record id="vehicle_registration_expiry_date_template" model="mail.template">
+            <field name="name">Vehicle Registration Expiry Date</field>
+            <field name="subject">Vehicle Registration Expiry Of ${object.vehicle_id.name}</field>
+            <field name="model_id" ref="sbk_fleet_mgt.model_fleet_vehicle_document"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <p>This mail is to inform you that
+                        Vehicle <b>${object.vehicle_id.display_name}</b> Registration
+                        will be expire on <b>${object.expiry_date}</b>.</p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Email template for Vehicle Insurance Expiry Date-->
+        <record id="vehicle_insurance_expiry_date_template" model="mail.template">
+            <field name="name">Vehicle Insurance Expiry Date</field>
+            <field name="subject">Vehicle Insurance Expiry Of ${object.vehicle_id.name}</field>
+            <field name="model_id" ref="sbk_fleet_mgt.model_fleet_vehicle_document"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <p>This mail is to inform you that
+                        Vehicle <b>${object.vehicle_id.display_name}</b> Insurance
+                        will be expire on <b>${object.expiry_date}</b>.</p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Email template for Company Document Expiry Date-->
+        <record id="company_document_expiry_date_template" model="mail.template">
+            <field name="name">Comany Document Expiry Date</field>
+            <field name="subject">Company Document Expiry Of ${object.  .name}</field>
+            <field name="model_id" ref="sbk_fleet_mgt.model_fleet_vehicle_document"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <p>This mail is to inform you that
+                        ${object.ref_company_id.name}'s Document
+                        <b>${object.name}</b> will be expire on
+                        ${object.expiry_date}.</p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

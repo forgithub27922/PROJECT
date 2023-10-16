@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+	<!-- Removed Encashment from payslip -->
+    <data>
+        <record id="hr_rule_leave_encash" model="hr.salary.rule">
+        <field name="name">Leave Encashment</field>
+        <field name="sequence" eval="199"/>
+        <field name="code">ENCASH</field>
+        <field name="category_id" ref="hr_payroll.ALW"/>
+        <field name="condition_select">none</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">result = +payslip.encash_amount</field>
+    </record>
+    </data>
+    <data noupdate="1">
+        <!--Sheduler for automatic Full leave allocation-->
+
+        <record model="ir.cron" id="automatic_full_leave_allocation_scheduler">
+            <field name="name">Automatic Full Leave Allocation</field>
+            <field eval="True" name="active"/>
+            <field name="model_id" ref="model_automatic_leave_allocation"/>
+            <field name="state">code</field>
+            <field name="code">model.allocate_full_leaves_automatic()</field>
+            <field name="interval_number">12</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <!--Sheduler for automatic pro-rata leave allocation-->
+        <record model="ir.cron" id="automatic_pro_rata_leave_allocation_scheduler">
+            <field name="name">Automatic Pro-Rata Leave Allocation</field>
+            <field eval="True" name="active"/>
+            <field name="model_id" ref="model_automatic_leave_allocation"/>
+            <field name="state">code</field>
+            <field name="code">model.allocate_pro_rata_leaves_automatic()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <!--Last 4 Month Scheduler for automatic pro-rata leave allocation-->
+        <record model="ir.cron" id="automatic_pro_rata_leave_allocation_scheduler_4_month">
+            <field name="name">Last 4 Month Automatic Pro-Rata Leave Allocation</field>
+            <field eval="False" name="active"/>
+            <field name="model_id" ref="model_automatic_leave_allocation"/>
+            <field name="state">code</field>
+            <field name="code">model.last_month_allocate_pro_rata_leaves_automatic()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+        <!--Sheduler for automatic pro-rata leave Validating-->
+        <record model="ir.cron" id="automatic_pro_rata_leave_approve_scheduler">
+            <field name="name">Automatic Pro-Rata Leave's Approve</field>
+            <field eval="True" name="active"/>
+            <field name="model_id" ref="model_automatic_leave_allocation"/>
+            <field name="state">code</field>
+            <field name="code">model.approve_pro_rata_leaves_automatic()</field>
+            <field name="interval_number">15</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+
+
+        <!--Scheduler for expire carry forwarded leaves-->
+          <record model="ir.cron" id="automatic_expiry_caarry_forwarded_scheduler">
+            <field name="name">Automatic Expire Carry Forwarded Leave</field>
+            <field eval="True" name="active"/>
+            <field name="model_id" ref="model_automatic_leave_allocation"/>
+            <field name="state">code</field>
+            <field name="code">model.expiry_carry_forwarded_leave()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>

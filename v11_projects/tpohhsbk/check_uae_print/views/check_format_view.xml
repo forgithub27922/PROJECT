@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="cheque_format_form_view" model="ir.ui.view">
+            <field name="name">cheque.format.form.view</field>
+            <field name="model">cheque.format</field>
+            <field name="arch" type="xml">
+                <form string="Cheque Format">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" default_focus="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="top_margin"/>
+                                <field name="left_margin"/>
+                            </group>
+                            <!-- <group>
+                                 <field name="height"/>
+                                 <field name="weight"/>
+                             </group>-->
+                        </group>
+                        <group>
+                            <group string="Cheque Date">
+                                <field name="date_top_margin"/>
+                                <field name="date_left_margin"/>
+                                <field name="date_font_size"/>
+                                <field name="date_char_spacing"/>
+                            </group>
+                            <group string="Party/Payee Name">
+                                <field name="payee_top_margin"/>
+                                <field name="payee_left_margin"/>
+                                <field name="payee_font_size"/>
+                            </group>
+                            <group string="Account Payee">
+                                <field name="is_ac_payee"/>
+                                <field name="ac_payee_top_margin" attrs="{'invisible':[('is_ac_payee','=',False)]}"/>
+                                <field name="ac_payee_left_margin" attrs="{'invisible':[('is_ac_payee','=',False)]}"/>
+                                <field name="ac_payee_font_size" attrs="{'invisible':[('is_ac_payee','=',False)]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Amount in Digit">
+                                <field name="amount_top_margin"/>
+                                <field name="amount_left_margin"/>
+                                <field name="amount_font_size"/>
+                            </group>
+                            <!--<group string="Currency Symbol">
+                                <field name="currency_symbol"/>
+                                <field name="dir_currency_symbol" string="Position"/>
+                            </group>-->
+                            <group string="Amount in Words">
+                                <field name="amount_words1_top_margin"/>
+                                <field name="amount_words1_left_margin"/>
+                                <field name="amount_words1_font_size"/>
+                                <field name="amount_words1_width"/>
+                            </group>
+                        </group>
+
+                        <!--<group>
+                            <group string="Amount in Words">
+                                <field name="amount_words1_top_margin"/>
+                                <field name="amount_words1_left_margin"/>
+                                <field name="amount_words1_font_size"/>
+                                <field name="amount_words1_width"/>
+                            </group>
+                            &lt;!&ndash;<group string="Amount in Words: 2nd line">
+                                <field name="amount_words2_top_margin"/>
+                                <field name="amount_words2_left_margin"/>
+                                <field name="amount_words2_font_size"/>
+                                <field name="amount_words2_width"/>
+                            </group>&ndash;&gt;
+                        </group>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_cheque_format_tree" model="ir.ui.view">
+            <field name="name">Cheque Format</field>
+            <field name="model">cheque.format</field>
+            <field name="arch" type="xml">
+                <tree string="Cheque Format">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_cheque_format_detail" model="ir.actions.act_window">
+            <field name="name">Cheque Format</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cheque.format</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_cheque_format_tree"/>
+        </record>
+
+        <menuitem id="cheque_format_menu" name='Cheque Format' parent='account.menu_finance_configuration'
+                  action='action_cheque_format_detail'/>
+
+
+    </data>
+</openerp>

@@ -1,0 +1,61 @@
+<odoo>
+    <template id="vehicle_report_by_driver">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="s">
+                    <br/>
+                    <br/>
+                    <h3 style="text-align:center">
+                        <b>Vehicle Report By Driver/Custodian</b>
+                    </h3>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <b>Driver/Custodian:</b> <t t-esc="driver"/>
+                    <br/>
+                    <b>Dates:</b> <t t-esc="st_dt"/> - <t t-esc="en_dt"/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Car</th>
+                                <th>Transaction Type</th>
+                                <th>From Driver/Custodian</th>
+                                <th>To Driver/Custodian</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <t t-foreach="txns" t-as="txn">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <t t-esc="txn.date"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="txn.vehicle_id and txn.vehicle_id.name"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="txn_type[txn.type]"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="txn.from_partner_id and txn.from_partner_id.name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="txn.to_partner_id and txn.to_partner_id.name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="txn.to_loc_id and txn.to_loc_id.name or (txn.from_loc_id and txn.from_loc_id.name or '')"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </t>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+
+</odoo>

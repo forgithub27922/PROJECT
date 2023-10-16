@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_exit_interview_user,exit.interview.user,bista_eos_exit_interview.model_exit_interview,base.group_user,1,1,0,0
+access_exit_interview_emp,exit.interview.emp,bista_eos_exit_interview.model_exit_interview,hr.group_hr_user,1,1,0,0
+access_exit_interview_manager,exit.interview.manager,model_exit_interview,hr.group_hr_manager,1,0,0,0
+access_exit_interview_hr,exit.interview.hr,model_exit_interview,hr.group_hr_manager,1,1,1,1

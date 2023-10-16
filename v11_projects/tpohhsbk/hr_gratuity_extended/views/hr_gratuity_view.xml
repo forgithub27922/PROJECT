@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_hr_gratuity_form_inherit" model="ir.ui.view">
+            <field name="name">hr.gratuity.form.inherit</field>
+            <field name="model">hr.gratuity</field>
+            <field name="inherit_id" ref="bista_hr_gratuity.view_hr_gratuity_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='resignation_contract']" position="before">
+                    <page name="same_nation" string="Locality">
+                        <field name="nationality_ids">
+                            <tree string="Locality Gratuity"
+                                  editable="bottom">
+                                <field name="from_experience"/>
+                                <field name="to_experience"/>
+                                <field name="days"/>
+                                <field name="allowed_gratuity_days"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page name="other_nation"
+                          string="Expats">
+                        <field name="other_nationality_ids">
+                            <tree string="Expats"
+                                  editable="bottom">
+                                <field name="from_experience"/>
+                                <field name="to_experience"/>
+                                <field name="days"/>
+                                <field name="allowed_gratuity_days"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Tree view for nationality-->
+        <record id="view_gratuity_nationality_tree" model="ir.ui.view">
+            <field name="name">gratuity.nationality.tree</field>
+            <field name="model">gratuity.nationality</field>
+            <field name="arch" type="xml">
+                <tree string="Gratuity Nationality">
+                    <field name="from_experience"/>
+                    <field name="to_experience"/>
+                    <field name="days"/>
+                    <field name="allowed_gratuity_days"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Tree view for other nationality -->
+        <record id="view_gratuity_other_nationality_tree" model="ir.ui.view">
+            <field name="name">gratuity.other.nationality.tree</field>
+            <field name="model">gratuity.other.nationality</field>
+            <field name="arch" type="xml">
+                <tree string="Gratuity Other Nationality">
+                    <field name="from_experience"/>
+                    <field name="to_experience"/>
+                    <field name="days"/>
+                    <field name="allowed_gratuity_days"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

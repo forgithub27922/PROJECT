@@ -1,0 +1,16 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_interview_manager,hr_interview_manager,model_hr_interview,group_interview_manager,1,1,1,1
+access_hr_interview_user,access_hr_interview_user,model_hr_interview,group_interview_user,1,1,0,0
+access_total_overall_score,access_total_overall_score,model_total_overall_score,base.group_user,1,1,1,1
+access_mode_of_interview,mode_of_interview,model_mode_of_interview,base.group_user,1,1,1,1
+access_mode_hr_job_offer,hr.job.offer.emp,model_hr_job_offer,base.group_user,1,0,0,0
+access_mode_hr_job_offer_hr_manager,hr.job.offer.hr.manager,model_hr_job_offer,hr.group_hr_manager,1,1,1,1
+access_mode_hr_job_officer_officer,hr.job.offer.hr.officer,model_hr_job_offer,hr.group_hr_user,1,1,1,0
+access_mode_hr_job_revision,hr.job.revision.emp,model_hr_job_revision,base.group_user,1,0,0,0
+access_mode_hr_job_revision_manager,hr.job.revision.hr.manager,model_hr_job_revision,hr.group_hr_manager,1,1,1,1
+access_mode_hr_job_revision_officer,hr.job.revision.officer,model_hr_job_revision,hr.group_hr_user,1,1,1,0
+
+access_hr_salary_offer_details_officer,hr.salary.offer.details.officer,model_hr_salary_offer_details,hr.group_hr_user,1,0,0,0
+access_hr_salary_offer_details_manager,hr.salary.offer.details.manager,model_hr_salary_offer_details,hr.group_hr_manager,1,1,1,1
+access_hr_salary_offer_details_line_officer,hr.salary.offer.details.line.officer,model_hr_salary_offer_details_line,hr.group_hr_user,1,0,0,0
+access_hr_salary_offer_details_line_manager,hr.salary.offer.details.line.manager,model_hr_salary_offer_details_line,hr.group_hr_manager,1,1,1,1

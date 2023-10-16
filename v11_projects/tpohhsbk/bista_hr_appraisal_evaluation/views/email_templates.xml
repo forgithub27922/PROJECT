@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!-- hr generate appraisal email temp -->
+        <record id="hr_generate_appraisal_email_temp" model="mail.template">
+            <field name="name">Appraisal Evaluation</field>
+            <field name="model_id"
+                   ref="bista_hr_appraisal_evaluation.model_hr_employee_kra"/>
+            <field name="email_from">${user.email | safe}</field>
+            <field name="email_to">${object.employee_id.work_email | safe}
+            </field>
+            <field name="email_cc"></field>
+            <field name="subject">Appraisal Evaluation Request</field>
+            <field name="body_html"><![CDATA[
+<p>
+Dear ${object.employee_id.name},
+<br/>
+<p>
+Congratulations on moving on to your next venture.
+<br/><br/>
+Please fill the <b>Self Appraisal Form</b> and send it to us by ${object.review_end_date}.
+<br/><br/>
+<b>Employee Name: </b>${object.employee_id.name}
+<br/>
+<b>Appraisal Form: </b>${object.name}
+<br/>
+% if ctx["display_link"]:
+   To proceed, Kindly <a href="${ctx["base_url"]}/web#id=${object.id}&view_type=form&model=${ctx["model"]}&action=${ctx["action_id"]}">Click Here</a>
+% endif
+<br/><br/>
+Please feel free to get in touch with us if you have any Query.
+</p>
+<p> Kind Regards </p>
+<br/>
+<p style="font-size:13px; color:blue; border: 1px solid red; width:350px;"> Auto generated message through the ERP System. </p>
+			   ]]>
+            </field>
+        </record>
+
+        <!-- Manager Review appraisal email temp -->
+        <record id="manager_review_appraisal_email_temp" model="mail.template">
+            <field name="name">Appraisal Evaluation</field>
+            <field name="model_id"
+                   ref="bista_hr_appraisal_evaluation.model_hr_employee_kra"/>
+            <field name="email_from">${user.email | safe}</field>
+            <field name="email_to">${object.reviewed_by.work_email | safe}
+            </field>
+            <field name="email_cc"></field>
+            <field name="subject">Appraisal Evaluation Request</field>
+            <field name="body_html"><![CDATA[
+<p>
+Dear ${object.reviewed_by.name},
+<br/>
+<p>
+Please review the Appraisal Form <b>${object.name}</b> for the employee <b>${object.employee_id.name}</b> and send it to us by ${object.review_end_date}.
+<br/>
+<br/>
+% if ctx["display_link"]:
+   To proceed, Kindly <a href="${ctx["base_url"]}/web#id=${object.id}&view_type=form&model=${ctx["model"]}&action=${ctx["action_id"]}">Click Here</a>
+% endif
+<br/><br/>
+Please feel free to get in touch with us if you have any Query.
+</p>
+<p> Kind Regards </p>
+<br/>
+<p style="font-size:13px; color:blue; border: 1px solid red; width:350px;"> Auto generated message through the ERP System. </p>
+			   ]]>
+            </field>
+        </record>
+
+        <!-- Peers Review appraisal email temp -->
+        <record id="peers_review_appraisal_email_temp" model="mail.template">
+            <field name="name">Appraisal Evaluation</field>
+            <field name="model_id"
+                   ref="bista_hr_appraisal_evaluation.model_hr_employee_kra"/>
+            <field name="email_from">${user.email | safe}</field>
+            <field name="email_to">${object.reviewed_by.work_email | safe}
+            </field>
+            <field name="email_cc"></field>
+            <field name="subject">Appraisal Evaluation Request</field>
+            <field name="body_html"><![CDATA[
+<p>
+Dear ${object.reviewed_by.name},
+<br/>
+<p>
+Please review the Appraisal Form <b>${object.name}</b> for the employee <b>${object.employee_id.name}</b> and send it to us by ${object.review_end_date}.
+<br/>
+<br/>
+% if ctx["display_link"]:
+   To proceed, Kindly <a href="${ctx["base_url"]}/web#id=${object.id}&view_type=form&model=${ctx["model"]}&action=${ctx["action_id"]}">Click Here</a>
+% endif
+<br/><br/>
+Please feel free to get in touch with us if you have any Query.
+</p>
+<p> Kind Regards </p>
+<br/>
+<p style="font-size:13px; color:blue; border: 1px solid red; width:350px;"> Auto generated message through the ERP System. </p>
+			   ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

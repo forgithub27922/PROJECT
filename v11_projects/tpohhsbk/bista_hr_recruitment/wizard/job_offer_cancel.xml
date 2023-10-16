@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Form view of Reject Request wizard -->
+    <record id="wiz_view_reject_job_form" model="ir.ui.view">
+        <field name="name">wiz.reject.job.offer.form</field>
+        <field name="model">wiz.reject.job.offer</field>
+        <field name="arch" type="xml">
+            <form string="Cancel Offer">
+                <label
+                        string="Please fill up the reason to cancel the offer"/>
+                <separator string="Reason"/>
+                <field name="reject_reason" required="1"/>
+                <footer>
+                    <button name="reject" string="Proceed" type="object" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

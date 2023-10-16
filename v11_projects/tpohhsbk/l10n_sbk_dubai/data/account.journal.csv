@@ -1,0 +1,6 @@
+"id","name","code","type","default_credit_account_id/id","default_debit_account_id/id","company_id/id","currency_id/id","bank_statements_source","show_on_dashboard"
+"account_journal_abcd","Abu Dhabi Commercial Bank","ADCB","Bank","l10n_sbk_dubai.1_account_account_sbk_dubai_49","l10n_sbk_dubai.1_account_account_sbk_dubai_49","base.main_company","","Record Manually","True"
+"account_journal_enbd","Emirates NBD","ENBD","Bank","l10n_sbk_dubai.1_account_account_sbk_dubai_52","l10n_sbk_dubai.1_account_account_sbk_dubai_52","base.main_company","","Record Manually","True"
+"account_journal_fadb","First Abu Dhabi Bank","FADB","Bank","l10n_sbk_dubai.1_account_account_sbk_dubai_53","l10n_sbk_dubai.1_account_account_sbk_dubai_53","base.main_company","","Record Manually","True"
+"account_journal_NOUVOBANQ_SCR","NOUVOBANQ - SCR","NOU-S","Bank","l10n_sbk_dubai.1_account_account_sbk_dubai_51","l10n_sbk_dubai.1_account_account_sbk_dubai_51","base.main_company","","Record Manually","True"
+"account_journal_NOUVOBANQ_US","NOUVOBANQ - US","NOUVO","Bank","l10n_sbk_dubai.1_account_account_sbk_dubai_50","l10n_sbk_dubai.1_account_account_sbk_dubai_50","base.main_company","","Record Manually","True"

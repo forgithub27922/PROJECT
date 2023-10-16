@@ -1,0 +1,107 @@
+<odoo>
+
+	<!--Attendance Configuration Menu-->
+	<menuitem
+		id="menu_attendance_configuration"
+		name="Configuration"
+		parent="hr_attendance.menu_hr_attendance_root"
+		sequence="99"/>
+
+	<!-- Shift Code views -->
+	<record id="view_hr_shift_code_tree" model="ir.ui.view">
+		<field name="name">hr.shift.code.tree</field>
+		<field name="model">hr.shift.code</field>
+		<field name="arch" type="xml">
+			<tree string="Shift Code">
+				<field name="code" />
+				<field name="description" />
+				<field name="time_in" widget="float_time" />
+				<field name="time_out" widget="float_time" />
+				<field name="duration" widget="float_time" />
+				<field name="company_id" groups="base.group_multi_company"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="view_hr_shift_code_form" model="ir.ui.view">
+		<field name="name">hr.shift.code.form</field>
+		<field name="model">hr.shift.code</field>
+		<field name="arch" type="xml">
+			<form string="Shift Code">
+				<sheet>
+					<group>
+						<group cols="4">
+							<field name="description" />
+							<field name="time_in" widget="float_time" />
+							<field name="duration" widget="float_time" />
+							<field name="company_id" groups="base.group_multi_company"/>
+						</group>
+						<group>
+							<field name="code" />
+							<field name="time_out" widget="float_time" />
+							<field name="total_break_duration" widget="float_time"/>
+						</group>
+					</group>
+					<notebook>
+						<page string="Break Time">
+							<field name="break_time_ids">
+								<tree string="Break Time" editable="bottom">
+									<field name="name" required="True" />
+									<field name="break_in_time" widget="float_time" />
+									<field name="break_out_time" widget="float_time" />
+									<field name="duration" widget="float_time" />
+								</tree>
+								<form>
+									<group>
+										<group>
+											<field name="name" required="True" />
+											<field name="break_out_time" widget="float_time" />
+											<field name="break_in_time" widget="float_time" />
+											<field name="duration" widget="float_time" />
+										</group>
+									</group>
+								</form>
+							</field>
+						</page>
+					</notebook>
+				</sheet>
+				<div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+			</form>
+		</field>
+	</record>
+
+	<record id="action_hr_shift_codes" model="ir.actions.act_window">
+		<field name="name">Shift Codes</field>
+		<field name="res_model">hr.shift.code</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<!-- Roster Configuration Menu-->
+	<menuitem id="menu_roster_configuration" name="Roster"
+		parent="menu_attendance_configuration"
+		groups="hr_attendance.group_hr_attendance"
+		sequence="2"/>
+
+	<menuitem
+		id="hr_attendance.menu_hr_attendance_view_employees_kanban"
+		name="Employees"
+		parent="menu_roster_configuration"
+		sequence="15"
+		groups="hr_attendance.group_hr_attendance_user"
+		action="hr.open_view_employee_list_my"/>
+
+	<!--Menu Shift Code -->
+	<menuitem id="menu_hr_shift_codes" name="Shift Codes"
+		parent="menu_roster_configuration"
+		action="action_hr_shift_codes" sequence="5" groups="hr_attendance.group_hr_attendance" />
+
+	<!--Setting Menu of Attendance-->
+	<menuitem id="hr_attendance.menu_hr_attendance_settings" parent="menu_attendance_configuration"
+        sequence="1" action="hr_attendance.action_hr_attendance_settings" groups="hr_attendance.group_hr_attendance_manager"/>
+
+
+</odoo>

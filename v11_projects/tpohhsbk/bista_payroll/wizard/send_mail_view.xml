@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="employee_payslip_send_mail_wizard" model="ir.ui.view">
+        <field name="name">Employee Payslip</field>
+        <field name="model">send.payslip.email</field>
+        <field name="arch" type="xml">
+            <form string="Send Payslip">
+                <h3>
+                    Clicl Send Payslip to send Email with Payslip report.
+                </h3>
+                <footer>
+                    <button string="Send Payslip" name="send_payslip" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="view_hr_payslip_by_employees_department" model="ir.ui.view">
+        <field name="name">hr_payroll_payslip_employees</field>
+        <field name="model">hr.payslip.employees</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_by_employees"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//group[1]" position="after">
+                <group>
+                    <field name="company_id" required="1" readonly="1" force_save="1"/>
+                </group>
+                <group colspan="4" >
+                    <separator string="Departments" colspan="4"/>
+                    <newline/>
+                    <field name="department_ids" widget="many2many_tags" domain="[('company_id', '=' , company_id)]" nolabel="1"/>
+                    <separator string="Jobs" colspan="4"/>
+                    <newline/>
+                    <field name="job_ids"  widget="many2many_tags" nolabel="1" context="{'department_ids': department_ids, 'company_id': company_id}"/>
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='employee_ids']" position="attributes">
+                <attribute name="widget">many2many_tags</attribute>
+                <attribute name="context">{'department_ids': department_ids, 'designation_ids': job_ids}</attribute>
+                <attribute name="domain">[('company_id','=',company_id)]</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
+

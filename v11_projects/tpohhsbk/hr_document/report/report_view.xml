@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            string="Document"
+            id="report_offer_letter"
+            model="hr.job.document"
+            report_type="qweb-pdf"
+            name="hr_document.offer_letter_report"
+            file="hr_document.hr_document_report"
+            print_report_name="'%s of' % (object.name) + '%s' % (object.applicant_id.partner_name)"
+        />
+
+    </data>
+</odoo>

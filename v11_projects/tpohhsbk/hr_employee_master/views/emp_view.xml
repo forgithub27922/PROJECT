@@ -1,0 +1,187 @@
+<odoo>
+    <data>
+        <!-- Inherit hr.empolyee Form View to Modify it -->
+        <record id="inherit_view_employee_form" model="ir.ui.view">
+            <field name="name">inherit.view.employee.form</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <!-- Add fields in employee form -->
+                <xpath expr="//field[@name='category_ids']" position="after">
+                    <group col="4">
+                        <field name="alt_id"/>
+                        <field name="personal_id"/>
+                        <field name="emp_type_id"/>
+                        <field name="category_id"/>
+                        <field name="sponser_id"/>
+                        <field name="pay_group_id"/>
+                    </group>
+                </xpath>
+                <!-- Add page in employee form -->
+                <xpath expr="//notebook/page[@name='public']" position="before">
+                    <page name="office_detail_tab" string="Office Detail">
+                        <group col="4">
+                            <field name="position_cat_id"/>
+                            <field name="join_date"/>
+                            <field name="sub_department_id"/>
+                            <field name="eos_eff_date"/>
+                            <field name="location_id"/>
+                            <field name="seniority_date"/>
+                            <field name="branch_id"/>
+                            <field name="complete_on"/>
+                            <field name="probation_period"/>
+                            <field name="rejoin_date"/>
+                            <field name="division_id"/>
+                            <field name="exit_date"/>
+                        </group>
+                    </page>
+                </xpath>
+                <!-- Add fields in private info page in birth in employee form -->
+                <xpath expr="//field[@name='birthday']" position="after">
+                    <field name="wedding_date"/>
+                </xpath>
+                <!-- Add fields in private info page in Citizenship in employee form -->
+                <xpath expr="//field[@name='country_id']" position="after">
+                    <field name="religion"/>
+                </xpath>
+                <!-- Add fields in private info page in status in employee form -->
+                <xpath expr="//field[@name='marital']" position="after">
+                    <field name="blood_group"/>
+                </xpath>
+                <!-- Add group in private info page in employee form -->
+                <xpath expr="//group[@name='work_permit']" position="after">
+                    <group name="bank_info" string="Bank Info.">
+                        <field name="bank_name"/>
+                        <field name="bank_account_id"/>
+                        <field name="iban_no"/>
+                        <field name="account_name"/>
+                        <field name="amount"/>
+                    </group>
+                </xpath>
+                <!-- Add field in private info page in work permit in employee form -->
+                <xpath expr="//field[@name='visa_no']" position="before">
+                    <field name="visa_status"/>
+                </xpath>
+                <!-- Add tab in employee form -->
+                <xpath expr="//notebook/page[@name='personal_information']" position="after">
+                    <page name="contact_tab" string="Contact">
+                        <group>
+                            <field name="partner_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="address_type"/>
+                                    <field name="mobile"/>
+                                    <field name="phone"/>
+                                    <field name="email"/>
+                                    <field name="street"/>
+                                    <field name="street2"/>
+                                    <field name="city"/>
+                                    <field name="country_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+                <!-- Add tab in employee form -->
+                <xpath expr="//notebook/page[@name='contact_tab']" position="after">
+                    <page name="other_info" string="Other Information">
+                        <group>
+                            <group name="insaurance" string="Insurance">
+                                <field name="is_insurance"/>
+                                <field name="policy_no"/>
+                                <field name="company"/>
+                                <field name="category"/>
+                                <field name="insured_from"/>
+                                <field name="insured_to"/>
+                                <field name="insurance_amount"/>
+                                <field name="premium"/>
+                            </group>
+                            <group name="document" string="Documents">
+                                <field name="document"/>
+                                <field name="document_no"/>
+                                <field name="document_type"/>
+                                <field name="issue_date"/>
+                                <field name="exp_date"/>
+                                <field name="issue_place"/>
+                                <field name="issued_by"/>
+                                <field name="reminder_date"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+                <!-- Add tab in employee form -->
+                <xpath expr="//notebook/page[@name='other_info']" position="after">
+                    <page name="education" string="Education">
+                        <group>
+                            <field name="education_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="employee_id" invisible="1"/>
+                                    <field name="education_id"/>
+                                    <field name="type"/>
+                                    <field name="university_id"/>
+                                    <field name="country_id"/>
+                                    <field name="grade"/>
+                                    <field name="year"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+                <!-- Add tab in employee form -->
+                <xpath expr="//notebook/page[@name='education']" position="after">
+                    <page name="experience" string="Experience">
+                        <group>
+                            <field name="experience_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="employee_id" invisible="1"/>
+                                    <field name="designation"/>
+                                    <field name="company_id"/>
+                                    <field name="country_id"/>
+                                    <field name="peroid_from"/>
+                                    <field name="peroid_to"/>
+                                    <field name="reference"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+                <xpath expr="//notebook/page[@name='experience']" position="after">
+                    <page name="asset" string="Assets">
+                        <group>
+                            <field name="asset_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="employee_id" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="asset_no"/>
+                                    <field name="details"/>
+                                    <field name="issue_date"/>
+                                    <field name="return_date"/>
+                                    <field name="department_id"/>
+                                    <field name="location_id"/>
+                                    <field name="division_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </page>
+                </xpath>
+
+
+            </field>
+        </record>
+        <!-- Inherit res.partner Form View to Modify it -->
+        <record id="inherit_view_partner_form" model="ir.ui.view">
+            <field name="name">inherit.view.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='is_company']" position="before">
+                    <field name="is_person" invisible="1"/>
+                </xpath>
+                <!--<xpath expr="//field[@name='']" position="">-->
+                <!--<field name="employee_id"/>-->
+                <!--</xpath>-->
+
+            </field>
+        </record>
+    </data>
+</odoo>

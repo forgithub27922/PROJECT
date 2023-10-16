@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='fleet_vehicle_registration_form_view' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.registration.form</field>
+        <field name="model">fleet.vehicle.registration</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="show_registration_document" type="object"
+                                class="oe_stat_button" icon="fa-file" groups="hr.group_hr_manager,bista_hr.group_pr_department"
+                                context="{'default_company_id':company_id,'default_type':'Registration',
+                                        'default_vehicle_id':vehicle_id}">
+                            <field name="registration_document_count" widget="statinfo" string="Documents"/>
+                        </button>
+                    </div>
+                    <group col="4">
+                        <field name="vehicle_id" required="1"/>
+                        <field name="country_id" required="1"/>
+                        <field name="registration_start_date" required="1"/>
+                        <field name="res_state_id" required="1"/>
+                        <field name="registration_end_date" required="1"/>
+                        <field name="owner_id"/>
+                        <field name="company_id" required="1" readonly="1" force_save="1" groups="base.group_multi_company"/>
+                    </group>
+                    <group>
+                        <field name="notes" nolabel="1" placeholder="Write here all other information relative to Registration."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_registration_tree_view' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.registration.tree</field>
+        <field name="model">fleet.vehicle.registration</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="vehicle_id"/>
+                <field name="res_state_id"/>
+                <field name="registration_start_date"/>
+                <field name="registration_end_date"/>
+                <field name="owner_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_registration_action' model='ir.actions.act_window'>
+        <field name="name">Vehicles Registrations</field>
+        <field name="res_model">fleet.vehicle.registration</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem action="fleet_vehicle_registration_action" parent="fleet.fleet_vehicles"
+        id="fleet_vehicle_registration_menu" groups="fleet.fleet_group_user" sequence="25"/>
+
+    <record id='fleet_vehicle_document_form_view' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.document.form</field>
+        <field name="model">fleet.vehicle.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group col="4">
+                        <field name="name" required="1"/>
+                        <field name="document_type_id" required="1"/>
+                        <field name="start_date" required="1"/>
+                        <field name="expiry_date" required="1"/>
+                        <field name="type" invisible="1"/>
+                        <field name="vehicle_registration_id" invisible="1"/>
+                        <field name="vehicle_insurance_id" invisible="1"/>
+                        <field name="company_id" invisible="1"/>
+                        <field name="vehicle_id" invisible="1"/>
+                        <field name="ref_company_id" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_document_tree_view' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.document.tree</field>
+        <field name="model">fleet.vehicle.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="document_type_id"/>
+                <field name="start_date"/>
+                <field name="expiry_date"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

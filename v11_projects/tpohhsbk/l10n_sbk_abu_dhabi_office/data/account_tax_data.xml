@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tax Configuration for SBK Abh Dhabi Office Company -->
+    <record id="tax_sbk_abu_dhabi_office_sale" model="account.tax">
+        <field name="chart_template_id" ref="account_arabic_coa_sbk_abu_dhabi_office"/>
+        <field name="name">Vat 5%</field>
+        <field name="description">Sales Vat 5% (SBK Abu Dhabi Office)</field>
+        <field name="amount">5.0</field>
+        <field name="type_tax_use">sale</field>
+        <!--<field name="account_id" search="[('code', '=', '49016')]"/>-->
+        <!--<field name="refund_account_id" search="[('code', '=', '49016')]"/>-->
+        <field name="company_id" ref="sbk_company.company_sbk_abu_dhabi_office"/>
+    </record>
+    <record id="tax_sbk_abu_dhabi_office_purchase" model="account.tax">
+        <field name="chart_template_id" ref="account_arabic_coa_sbk_abu_dhabi_office"/>
+        <field name="name">Vat 5%</field>
+        <field name="description">Purchase Vat 5% (SBK Abu Dhabi Office)</field>
+        <field name="amount">5.0</field>
+        <field name="type_tax_use">purchase</field>
+        <!--<field name="account_id" search="[('code', '=', '21801')]"/>-->
+        <!--<field name="refund_account_id" search="[('code', '=', '21801')]"/>-->
+        <field name="company_id" ref="sbk_company.company_sbk_abu_dhabi_office"/>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="dynamic_mail_multi_company_rule_empower" model="ir.rule">
+            <field name="name">Dynamic Mail Multi Company Rule</field>
+            <field name="model_id" ref="model_dynamic_mail"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+    </data>
+</odoo>
+

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_termination_request_all,termination.request.all,model_hr_termination_request,,1,1,1,0
+access_account_asset_emp,account.asset.emp,account_asset.model_account_asset_asset,hr.group_hr_user,1,0,0,0
+access_account_asset_line_emp,account.asset.line.emp,account_asset.model_account_asset_depreciation_line,hr.group_hr_user,1,1,1,0
+access_account_asset_manager,account.asset.manager,account_asset.model_account_asset_asset,hr.group_hr_manager,1,0,0,0
+access_account_asset_hr,account.asset.hr,account_asset.model_account_asset_asset,hr.group_hr_manager,1,0,0,0
+access_account_asset_acc_manager,account.asset.acc.manager,account_asset.model_account_asset_asset,account.group_account_manager,1,1,1,1
+access_applicant_hr_document_emp,applicant.hr.document.emp,hr_document.model_applicant_hr_document,base.group_user,1,0,0,0
+access_applicant_hr_document_officer,applicant.hr.document.officer,hr_document.model_applicant_hr_document,hr.group_hr_user,1,1,1,0
+access_applicant_hr_document_manager,applicant.hr.manager,hr_document.model_applicant_hr_document,hr.group_hr_manager,1,1,1,1
+access_hr_job_emp,hr.job.emp,hr.model_hr_job,,1,0,0,0

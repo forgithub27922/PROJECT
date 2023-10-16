@@ -1,0 +1,19 @@
+<odoo>
+	<record model="ir.ui.view" id="hr_roster_vs_attendance_form_overtime">
+		<field name="name">roster.vs.attendance.overtime.form</field>
+		<field name="model">roster.vs.attendance</field>
+		<field name="inherit_id" ref="bista_hr_roster.hr_roster_vs_attendance_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='roster_attendance_line_ids']/tree//field[@name='total_hours']" position="after">
+				<field name="overtime" widget="float_time" />
+				<field name="actual_overtime" widget="float_time"/>
+			</xpath>
+			<xpath expr="//field[@name='roster_attendance_line_ids']/form//field[@name='planned_sign_out']" position="after">
+				<field name="overtime" widget="float_time" readonly="1"/>
+			</xpath>
+			<xpath expr="//field[@name='roster_attendance_line_ids']/form//field[@name='actual_sign_out']" position="after">
+				<field name="actual_overtime" widget="float_time" readonly="1"/>
+			</xpath>
+		</field>
+	</record>
+</odoo>

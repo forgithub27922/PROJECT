@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="inherit_analytic_account_form_add_form" model="ir.ui.view">
+            <field name="name">inherit.analytic.account.form.add.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="analytic_group_id"/>
+                    <field name="sequence"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="inherit_analytic_account_list_view" model="ir.ui.view">
+            <field name="name">inherit.analytic.account.form.add.form</field>
+            <field name="model">account.analytic.account</field>
+            <field name="inherit_id" ref="analytic.view_account_analytic_account_list"/>
+            <field name="arch" type="xml">
+                <field name="display_name" position="before">
+                    <field name="sequence" widget="handle" />
+                </field>
+            </field>
+        </record>
+
+        <record id="account_analytic_tag_form_view_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.tag.form.inherit</field>
+            <field name="model">account.analytic.tag</field>
+            <field name="inherit_id" ref="analytic.account_analytic_tag_form_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="company_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="account_analytic_tag_tree_view_inherit" model="ir.ui.view">
+            <field name="name">account.analytic.tag.tree.inherit</field>
+            <field name="model">account.analytic.tag</field>
+            <field name="inherit_id" ref="analytic.account_analytic_tag_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="company_id"/>
+                </field>
+            </field>
+        </record>
+
+
+
+        <record id="analytic_group_form" model="ir.ui.view">
+            <field name="name">analytic.group.form</field>
+            <field name="model">analytic.group</field>
+            <field name="arch" type="xml">
+                <form string="Analytic Group">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="account_group_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="analytic_group_tree" model="ir.ui.view">
+            <field name="name">analytic.group.tree</field>
+            <field name="model">analytic.group</field>
+            <field name="arch" type="xml">
+                <tree string="Analytic Group">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="analytic_group_action" model="ir.actions.act_window">
+            <field name="name">Analytic Groups</field>
+            <field name="res_model">analytic.group</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new Group.
+              </p>
+            </field>
+        </record>
+
+        <menuitem
+            id="analytic_group_menu"
+            name="Analytic Groups"
+            parent="account.menu_analytic_accounting"
+            action="bista_analytic_account.analytic_group_action"/>
+
+</odoo>

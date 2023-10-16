@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="kra_generate_wiz" model="ir.ui.view">
+        <field name="name">kra.genrate.wiz</field>
+        <field name="model">hr.kra.generate.wiz</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="appraisal_template_id" readonly="1"/>
+                        <field name="review_start_date" required="1" readonly="1"/>
+                        <field name="self_review_date" required="1"/>
+                    </group>
+                    <group>
+                        <field name="appraisal_period_id" readonly="1"/>
+                        <field name="review_end_date" required="1" readonly="1"/>
+                        <field name="mngr_pr_review_date" required="1"/>
+                    </group>
+                </group>
+                <group name="employee" string="Employees">
+                    <field name="employee_ids" nolabel="1"
+                           options="{'no_create_edit': 1, 'no_create':1}">
+                        <tree editable="top">
+                            <field name="name" readonly="1"/>
+                            <field name="category_ids" readonly="1"/>
+                            <field name="department_id" readonly="1"/>
+                            <field name="job_id" readonly="1"/>
+                            <field name="parent_id" readonly="1"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string="Generate Appraisal"
+                            type='object' class="oe_highlight"
+                            name="generate_appraisal_records"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+
+    </record>
+
+    <record id="hr_kra_generate_wiz_act" model="ir.actions.act_window">
+        <field name="name">Generate Appraisal</field>
+        <field name="res_model">hr.kra.generate.wiz</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

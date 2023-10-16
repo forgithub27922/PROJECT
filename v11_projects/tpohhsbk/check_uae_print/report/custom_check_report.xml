@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <template id="custom_check_report_document">
+            <t t-set="lang" t-value="request.env['res.lang'].sudo().search([('code','=',user.lang)],limit=1)"/>
+            <t t-set="fmt" t-value='"%.{0}f".format(o.company_id.currency_id.decimal_places)'/>
+
+            <div class="ckus_check"
+                 t-attf-style="margin-top:#{o.check_format_id.top_margin}%; margin-left:#{o.check_format_id.top_margin}%;">
+
+
+                <!--payment date-->
+                <div t-attf-style="padding-top:#{o.check_format_id.date_top_margin}%!important; margin-left:#{o.check_format_id.date_left_margin}%;
+                        font-size:#{o.check_format_id.date_font_size}%; letter-spacing:#{o.check_format_id.date_char_spacing}%;"
+                     t-field="o.date"/>
+
+                <!--A/C payee-->
+                <div t-if="o.check_format_id.is_ac_payee" t-attf-style="padding-top:#{o.check_format_id.ac_payee_top_margin}%!important; margin-left:#{o.check_format_id.ac_payee_left_margin}%;
+                        font-size:#{o.check_format_id.ac_payee_font_size}%;">
+                    <span>A/C Payee</span>
+                </div>
+
+                <!--customer/payee name-->
+                <div t-attf-style="margin-top:#{o.check_format_id.payee_top_margin}%; margin-left:#{o.check_format_id.payee_left_margin}%;
+                        font-size:#{o.check_format_id.payee_font_size}%;"
+                    t-esc="o.partner_id.name"/>
+                <div>
+                <!--amount in words-->
+                <div t-attf-style="margin-top:#{o.check_format_id.amount_words1_top_margin}%; margin-left:#{o.check_format_id.amount_words1_left_margin}%;
+                        font-size:#{o.check_format_id.amount_words1_font_size}%; width:#{o.check_format_id.amount_words1_width}%;"
+                        t-esc="o.amount_in_words">
+                </div>
+
+                <!--amount-->
+                <div t-attf-style="margin-top:#{o.check_format_id.amount_top_margin}%; margin-left:#{o.check_format_id.amount_left_margin}%;
+                            font-size:#{o.check_format_id.amount_font_size}%;"
+                        t-esc="lang.format(fmt,o.amount,grouping=True)"/>
+<!-- 	                     t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}' -->
+            </div>
+
+            </div>
+        </template>
+
+        <template id="custom_check_report">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <t t-call="check_uae_print.custom_check_report_document"/>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

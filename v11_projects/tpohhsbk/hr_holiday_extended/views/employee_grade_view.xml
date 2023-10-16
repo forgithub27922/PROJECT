@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <!--Tree view of employee.grade-->
+    <record id="view_tree_employee_grade" model="ir.ui.view">
+        <field name="name">employee.grade.tree</field>
+        <field name="model">employee.grade</field>
+        <field name="arch" type="xml">
+            <tree string="Employee grade">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Form view of employee.grade-->
+    <record id="view_form_employee_grade" model="ir.ui.view">
+        <field name="name">employee.grade.form</field>
+        <field name="model">employee.grade</field>
+        <field name="arch" type="xml">
+            <form string="Employee Grade">
+                <sheet>
+                    <group colspan="4" col="4">
+                        <field name="name" required="1"/>
+                        <field name="code" required="1"/>
+                        <field name="company_id" groups="base.group_multi_company"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--Action for employee.grade-->
+    <record id="action_employee_grade" model="ir.actions.act_window">
+        <field name="name">All Grades</field>
+        <field name="res_model">employee.grade</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--&lt;!&ndash;menuitem for employee.grade&ndash;&gt;-->
+    <!--<menuitem id="employee_grade_menu" name="Employee Grade"-->
+              <!--parent="hr_holidays.menu_hr_holidays_configuration"-->
+              <!--action="action_employee_grade"-->
+              <!--sequence="980"-->
+              <!--groups="hr.group_hr_manager,hr.group_hr_user"/>-->
+
+    <!--Tree view of Automatic Leave Allocation-->
+    <record id="view_tree_automatic_leave_allocation" model="ir.ui.view">
+        <field name="name">automatic.leave.allocation.tree</field>
+        <field name="model">automatic.leave.allocation</field>
+        <field name="arch" type="xml">
+            <tree string="Automatic Leave Allocation">
+                <field name="holiday_status_id"/>
+                <field name="grade_id" invisible="1"/>
+                <field name="type"/>
+                <field name="last_alloc_date"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--Form view of Automatic Leave Allocation-->
+    <record id="view_form_automatic_leave_allocation" model="ir.ui.view">
+        <field name="name">automatic.leave.allocation.form</field>
+        <field name="model">automatic.leave.allocation</field>
+        <field name="arch" type="xml">
+            <form string="Automatic Leave Allocation">
+                <sheet>
+                    <group col="4">
+                        <field name="holiday_status_id" required="1"
+                               domain="[('company_id', '=', company_id)]"/>
+                        <field name="type" required="1"/>
+                        <field name="last_alloc_date" readonly="1"/>
+                        <field name="company_id" required="1"/>
+                        <field name="grade_id" required="0" invisible="1"/>
+                    </group>
+                    <group>
+                        <field name="department_ids" widget="many2many_tags"/>
+                        <field name="employee_ids" widget="many2many_tags"/>
+                    </group>
+                    <notebook>
+                        <page name="auto_leave_alloc"
+                              string="Allocation Line">
+                            <field name="automatic_alloc_leave_line_ids">
+                                <tree editable="top">
+                                    <field name="employee_status"
+                                           required="1"/>
+                                    <field name="from_experience" required="1"/>
+                                    <field name="to_experience" required="1"/>
+                                    <field name="days_to_allocate" required="1"/>
+                                    <field name="company_id" groups="base.group_multi_company"/>
+                                </tree>
+                            </field>
+
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"
+                           widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--Action for Automatic Leave Allocation-->
+    <record id="action_autoatic_leave_allocation"
+            model="ir.actions.act_window">
+        <field name="name">Automatic Leave Allocation</field>
+        <field name="res_model">automatic.leave.allocation</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--menuitem for Automatic Leave Allocation-->
+    <menuitem id="employee_automatic_leave-alocation"
+              name="Automatic Leave Allocation"
+              parent="hr_holidays.menu_hr_holidays_configuration"
+              sequence="979"
+              groups="hr.group_hr_manager,hr.group_hr_user,hr_holidays.group_hr_holidays_manager"
+              action="action_autoatic_leave_allocation"/>
+
+
+    <record id='edit_holiday_new_inherited_emp' model='ir.ui.view'>
+        <field name="name">hr.holidays.form.inherit</field>
+        <field name='model'>hr.holidays</field>
+        <field name='inherit_id' ref='hr_holidays.edit_holiday_new'/>
+        <field name='arch' type='xml'>
+            <xpath expr="//form/sheet/group[1]/group[1]/div/div" position="attributes">
+                <attribute name="attrs">{}</attribute>
+            </xpath>
+            <field name="date_from" position="attributes">
+               <attribute name="attrs">{'required':[('lapse_leave','=', False)]}</attribute>
+            </field>
+            <field name="date_to" position="attributes">
+               <attribute name="attrs">{'required':[('lapse_leave','=', False)]}</attribute>
+            </field>
+            <field name="holiday_type" position="attributes">
+                <attribute name="attrs">{'readonly':[('state','!=','draft')]}</attribute>
+            </field>
+            <field name="department_id" position="after">
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="carry_forwarded" attrs="{'invisible':[('type','=','remove')]}"  readonly="1"/>
+                <field name="lapse_leave" attrs="{'invisible':[('type','=','add')]}" readonly="1"/>
+                <field name="carry_forward_lapse_leave" attrs="{'invisible':[('type','=','add')]}"  readonly="1"/>
+                <field name="is_pro_rata_leave" invisible="1"/>
+                <field name="is_leave_adjustment" invisible="1"/>
+                <field name="encash_amount" attrs="{'invisible':[('type','=','add')]}" readonly="1"/>
+                <field name="lapse_leave_id" invisible="1"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_survey_user_input_inherited" model="ir.ui.view">
+            <field name="name">survey.user.input</field>
+            <field name="model">survey.user_input</field>
+            <field name="inherit_id" ref="survey.survey_user_input_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='token']" position="after">
+                    <field name="employee_id" />
+                </xpath>
+                <xpath expr="//field[@name='quizz_score']" position="after">
+                    <field name="user_id" />
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_survey_user_input_tree_inherited" model="ir.ui.view">
+            <field name="name">survey.user.input.tree</field>
+            <field name="model">survey.user_input</field>
+            <field name="inherit_id" ref="survey.survey_user_input_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="replace">
+                    <field name="employee_id" />
+                </xpath>
+                <xpath expr="//field[@name='email']" position="replace">
+                    <field name="user_id" />
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

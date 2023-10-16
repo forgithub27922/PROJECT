@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+	<!-- Generate Roster wizard -->
+    <record id="generate_roster_form" model="ir.ui.view">
+        <field name="name">generate.roster.form</field>
+        <field name="model">generate.roster</field>
+        <field name="arch" type="xml">
+            <form string="Generate Roster">
+            	<group>
+            		<group>
+            			<field name="type" required="1"/>
+            			<field name="shift_id" attrs="{'invisible': [('type', '!=', 'linear')], 
+            			'required': [('type', '=', 'linear')]}"/>
+            			<field name="rotation_periods" attrs="{'invisible': [('type', '!=', 'rotational')]}"/>
+            			<field name="roster_id" invisible="1"/>
+            		</group>
+            		<field name="weekday_lines" attrs="{'invisible': [('type', '!=', 'weekdays')]}">
+            			<tree editable="bottom">
+            				<field name="week_day" widget="many2many_tags" 
+            				options="{'no_create_edit': True}"  
+            				context="{'add_domain': True, 'roster_id': parent.roster_id}"
+            				attrs="{'required': [('parent.type', '=', 'weekdays')]}" 
+            				/>
+            				<field name="shift_id" options="{'no_create_edit': True}"
+            				attrs="{'required': [('parent.type', '=', 'weekdays')]}"/>
+            			</tree>
+            		</field>
+            	</group>
+            	<separator string="Select Shifts" attrs="{'invisible': [('type', '!=', 'rotational')]}"/>
+            	<groups>
+            			<field name="rotational_shift_ids" 
+            		options="{'no_open':True,'no_create':1,'no_create_edit':1}" 
+            		attrs="{'invisible': [('type', '!=', 'rotational')]}"/>
+            		</groups>
+                <footer>
+                    <button name="action_generate_roster_line" string="Generate Roster" type="object" class="btn-primary"/>
+                    or
+                    <button special="cancel" string="Cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    
+    <record id="action_generate_roster_form" model="ir.actions.act_window">
+	    <field name="name">Generate Roster</field>
+	    <field name="type">ir.actions.act_window</field>
+	    <field name="res_model">generate.roster</field>
+	    <field name="view_type">form</field>
+	    <field name="view_mode">form</field>
+	    <field name="target">new</field>
+	</record>
+    
+</odoo>

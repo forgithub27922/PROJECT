@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- added accrual setting in hr_holiday form view -->
+    <record id="gratuity_view_company_form_inherit" model="ir.ui.view">
+        <field name="name">gratuity.view.company.form.inherit</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <field name="report_header" position="after">
+                <field name="gratuity_journal_id"/>
+                <field name="gratuity_account_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

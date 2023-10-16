@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="group_validate_vendor_bill" model="res.groups">
+            <field name="name">Validate Vendor Bill</field>
+        </record>
+
+    </data>
+
+    <data>
+
+        <!-- All  record rule are related to allow warehouses from users -->
+        <record id="allow_stock_warehouse_rule_admin" model="ir.rule">
+            <field name="name">Admin User Warehouse </field>
+            <field name="model_id" ref="stock.model_stock_warehouse"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record id="allow_stock_warehouse_rule" model="ir.rule">
+            <field name="name">Allows User Warehouse</field>
+            <field name="model_id" ref="stock.model_stock_warehouse"/>
+            <field name="domain_force">[('id', 'in', [x.id for x in user.warehouse_ids])]</field>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+
+        <record id="purchase_order_wh_rule_admin" model="ir.rule">
+            <field name="name">No Restrict Purchase Order warehouse</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record id="purchase_order_wh_rule_users" model="ir.rule">
+            <field name="name">Restrict Purchase Order warehouse</field>
+            <field name="model_id" ref="purchase.model_purchase_order"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('picking_type_id.warehouse_id','in',user.warehouse_ids.ids)]</field>
+        </record>
+
+        <record id="sale_order_wh_rule_users" model="ir.rule">
+            <field name="name">Restrict Sale Order warehouse</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('warehouse_id','in',user.warehouse_ids.ids)]</field>
+        </record>
+
+        <record id="sale_order_wh_rule_admin" model="ir.rule">
+            <field name="name">No Restrict Sale Order warehouse</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <!-- Restrict to See Inventory -->
+        <record id="picking_own_wh_rule_admin" model="ir.rule">
+            <field name="name">No Restrict to See Transfer(Picking)</field>
+            <field ref="stock.model_stock_picking" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record id="picking_own_wh_rule" model="ir.rule">
+            <field name="name">Restrict to See Transfer(Picking)</field>
+            <field ref="stock.model_stock_picking" name="model_id"/>
+            <field name="domain_force">['|','|',('location_id', 'child_of', [x.lot_stock_id.id for x in user.warehouse_ids]), ('location_dest_id', 'in', [x.lot_stock_id.id for x in user.warehouse_ids]),('location_dest_id.usage' ,'in', ('supplier','customer')),('picking_type_id.warehouse_id', 'in', [x.id for x in user.warehouse_ids])]</field>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user')),(4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+
+        <!-- Restrict to See Operations Type -->
+
+        <record id="picking_type_own_wh_rule_admin" model="ir.rule">
+            <field name="name">No Restrict to See Operation Type</field>
+            <field name="model_id" search="[('model','=','stock.picking.type')]" model="ir.model"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record id="picking_type_own_wh_rule" model="ir.rule">
+            <field name="name">Restrict to See Operation Type</field>
+            <field name="model_id" search="[('model','=','stock.picking.type')]" model="ir.model"/>
+            <field name="domain_force">['|',('warehouse_id','=', False),('warehouse_id','in',[x.id for x in user.warehouse_ids])]</field>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user')),(4, ref('sales_team.group_sale_salesman'))]"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_read" eval="True"/>
+        </record>
+
+        <!-- Restrict to see only assigned WH inventory adjustment -->
+        <record id="stock_inventory_rule_restrict" model="ir.rule">
+            <field name="name">Restrict to Inventory Adjustment</field>
+            <field name="model_id" ref="stock.model_stock_inventory"/>
+            <field name="domain_force">[('location_id', 'child_of', [x.lot_stock_id.id for x in user.warehouse_ids])]</field>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+
+        <record id="stock_inventory_rule_admin" model="ir.rule">
+            <field name="name">No Restrict to Inventory Adjustment</field>
+            <field name="model_id" ref="stock.model_stock_inventory"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record id="location_own_wh_rule" model="ir.rule">
+            <field name="name">Restrict to See Location</field>
+            <field ref="stock.model_stock_location" name="model_id"/>
+            <field name="domain_force">['|', ('company_id','=',False),'|',('id','child_of',[x.lot_stock_id.id for x in user.warehouse_ids]), ('location_id', 'child_of', [x.lot_stock_id.location_id.id for x in user.warehouse_ids])]</field>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+
+        <record id="location_own_wh_rule_admin" model="ir.rule">
+            <field name="name">No Restrict to See Location</field>
+            <field ref="stock.model_stock_location" name="model_id"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <!-- Restrict to see all quants-->
+        <record id="stock_quant_rule_admin" model="ir.rule">
+            <field name="name">No Restrict to See Quants</field>
+            <field name="model_id" ref="stock.model_stock_quant"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record id="stock_quant_rule_users" model="ir.rule">
+            <field name="name">Restrict to See All Quants</field>
+            <field name="model_id" ref="stock.model_stock_quant"/>
+            <field name="domain_force">['|', ('location_id', 'child_of', [x.lot_stock_id.id for x in user.warehouse_ids]), 
+            ('location_id.usage', 'in', ('customer', 'supplier', 'inventory', 'procurement', 'production', 'transit'))]</field>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_read" eval="True"/>
+        </record>
+
+        <record model="ir.rule" id="stock_move_rule_admin">
+            <field name="name">No Restrict stock_move multi-company</field>
+            <field name="model_id" search="[('model','=','stock.move')]" model="ir.model"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record model="ir.rule" id="stock_move_rule_users">
+            <field name="name"> Restrict stock_move multi-company</field>
+            <field name="model_id" search="[('model','=','stock.move')]" model="ir.model"/>
+            <field name="domain_force">['|',('location_id', 'child_of', [x.lot_stock_id.id for x in user.warehouse_ids]),
+                                        ('location_dest_id', 'child_of', [x.lot_stock_id.id for x in user.warehouse_ids])]
+            </field>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+
+        <record model="ir.rule" id="stock_move_line_rule_admin">
+            <field name="name">No Restrict stock_move_line multi-company</field>
+            <field name="model_id" search="[('model','=','stock.move.line')]" model="ir.model"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('base.group_system'))]"/>
+        </record>
+
+        <record model="ir.rule" id="stock_move_line_rule_users">
+            <field name="name">Restrict stock_move_line multi-company</field>
+            <field name="model_id" search="[('model','=','stock.move.line')]" model="ir.model"/>
+            <field name="domain_force">['|',('location_id', 'child_of', [x.lot_stock_id.id for x in user.warehouse_ids]),
+                                        ('location_dest_id', 'child_of', [x.lot_stock_id.id for x in user.warehouse_ids])]
+            </field>
+            <field name="groups" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+
+    </data>
+</odoo>
+
+

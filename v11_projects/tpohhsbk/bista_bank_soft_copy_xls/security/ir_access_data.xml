@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="1">
+		<record id="rule_hr_payslip_report_header" model="ir.rule">
+            <field name="name">HR Payslip Report Header</field>
+            <field name="model_id" ref="bista_bank_soft_copy_xls.model_hr_payslip_report_header"/>
+            <field name="domain_force">['|',('company_id','child_of',user.company_id.id),('company_id','=',False)]</field>
+			<field eval="True" name="global"/>        
+		</record>
+		
+	</data>
+</odoo>
+	

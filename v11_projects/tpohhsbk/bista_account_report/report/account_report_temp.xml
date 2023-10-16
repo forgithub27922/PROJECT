@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="bista_account_report_temp">
+        <t t-call="web.basic_layout">
+            <div class="page">
+                <t t-foreach="docs" t-as="s">
+                    <h3 style="text-align:center">
+                        <b>Account Report</b>
+                    </h3>
+                    <t t-foreach="account_data" t-as="ac">
+                        <t t-if="account_data.get(ac)">
+                            <table class="table" style="border-collapse: collapse; border: 1px solid black;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid black;"
+                                            colspan="3">
+                                            <b>[ <t t-esc="ac.code"/> ] <t t-esc="ac.name"/></b>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid black;"
+                                            width="60%">Partners</th>
+                                        <th style="border: 1px solid black;"
+                                            width="20%"
+                                            class="text-center">Debit</th>
+                                        <th style="border: 1px solid black;"
+                                            width="20%"
+                                            class="text-center">Credit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="account_data.get(ac)" t-as="lst">
+                                        <tr>
+                                            <td style="border: 1px solid black;">
+                                                <t t-esc="request.env['res.partner'].browse(lst[2]).name"/>
+                                            </td>
+                                            <td style="border: 1px solid black;"
+                                                class="text-center">
+                                                <t t-esc="lst[0]"/>
+                                            </td>
+                                            <td style="border: 1px solid black;"
+                                                class="text-center">
+                                                <t t-esc="lst[1]"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                            <br/>
+                        </t>
+                    </t>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

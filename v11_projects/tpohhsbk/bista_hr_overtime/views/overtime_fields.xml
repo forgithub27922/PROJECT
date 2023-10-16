@@ -1,0 +1,44 @@
+<odoo>
+	
+	<record id="hr_employee_emp_form_inherit0" model="ir.ui.view">
+		<field name="name">hr.employee.emp.inherit.form</field>
+		<field name="model">hr.employee</field>
+		<field name="inherit_id" ref="hr.view_employee_form"/>
+		<field name="arch" type="xml">
+			<field name="user_id" position="after">
+				<field name="overtime_rate_weekday"/>
+				<field name="overtime_rate_weekend"/>
+			</field>
+		</field>
+	</record>
+	
+	<record id="view_department_form_emp" model="ir.ui.view">
+		<field name="name">hr.department.inherit.form</field>
+		<field name="model">hr.department</field>
+		<field name="inherit_id" ref="hr.view_department_form"/>
+		<field name="arch" type="xml">
+			<field name="company_id" position="after">
+					<field name="overtime_rate_weekday"/>
+					<field name="overtime_rate_weekend"/>
+			</field>
+		</field>
+	</record>
+
+	
+	<record id="view_company_form_emp" model="ir.ui.view">
+		<field name="name">res.company.emp.form</field>
+		<field name="model">res.company</field>
+		<field name="inherit_id" ref="base.view_company_form"/>
+		<field name="arch" type="xml">
+			<xpath expr="//page[last()]" position="after">
+				<page name="overtime" string="Overtime Rate">
+					<group>
+						<field name="overtime_rate_weekday"/>
+						<field name="overtime_rate_weekend"/>
+					</group>
+				</page>
+			</xpath>
+		</field>
+	</record>
+	
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+    <record id="lapse_employee_leaves_form_view" model="ir.ui.view">
+        <field name="name">Lapse Leave</field>
+        <field name="model">lapse.employee.leave</field>
+        <field name="arch" type="xml">
+            <form string="Lapse Leaves">
+               <group>
+                    <field name="employee_id" required="1"/>
+                    <field name="lapse_type" widget="radio"/>
+                    <field name="leave_type_id" attrs="{'invisible': [('lapse_type','=', 'lapse_all')], 'required': [('lapse_type','=', 'leave_selected')]}"/>
+                    <field name="count"/>
+                    <field name="leaves_to_lapse" attrs="{'invisible': [('lapse_type','=', 'lapse_all')], 'required': [('lapse_type','=', 'leave_selected')]}"/>
+                    <field name="company_id" groups="base.group_multi_company" required="1" readonly="1" force_save="1"/>
+                </group>
+                <footer>
+                    <button name="lapse_leaves" string="Lapse" type="object" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="lapse_leaves_action_view" model="ir.actions.act_window">
+        <field name="name">Lapse Leaves</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">lapse.employee.leave</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="leaves_lapse_menu" string="Lapse Leaves" action="lapse_leaves_action_view"
+              parent="hr_holidays.menu_hr_holidays_my_leaves" sequence="501" groups="hr_holidays.group_hr_holidays_manager"/>
+
+	<record id="hr_holidays_view_form_cal" model="ir.ui.view">
+        <field name="name">hr.holidays.form.inherit</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holiday_extended.edit_holiday_new_inherited_emp"/>
+        <field name="arch" type="xml">
+            <field name="lapse_leave" position="attributes">
+            	<attribute name="invisible">1</attribute>
+            </field>
+            <field name="carry_forward_lapse_leave" position="attributes">
+            	<attribute name="invisible">1</attribute>
+            </field>
+       	</field>
+    </record>
+
+    <record id="hr_holidays_view_form_alocate" model="ir.ui.view">
+        <field name="name">hr.holidays.allocate.form.inherit</field>
+        <field name="model">hr.holidays</field>
+        <field name="inherit_id" ref="hr_holiday_extended.edit_holiday_new_inherited_emp"/>
+        <field name="arch" type="xml">
+            <field name="carry_forwarded" position="attributes">
+            	<attribute name="invisible">1</attribute>
+            </field>
+            <field name="holiday_type" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </field>
+       	</field>
+    </record>
+
+</odoo>

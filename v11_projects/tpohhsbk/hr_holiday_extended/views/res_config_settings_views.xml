@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_lapse_leaves" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="hr.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='hr']" position="inside">
+                <h2>Lapse Leaves</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-md-6 o_setting_box"
+                         title="Show organizational chart on employee form">
+                        <div class="o_setting_left_pane">
+                            <field name="lapse_leaves" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="lapse_leaves" />
+                            <div class="text-muted">
+                                If true all leaves will be lapse if employee goes to notice period.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

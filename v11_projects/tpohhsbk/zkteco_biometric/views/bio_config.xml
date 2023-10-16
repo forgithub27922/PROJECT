@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <!--    Biometric Configuration Form View    -->
+        <record id="bio_config_form" model="ir.ui.view">
+            <field name="name">bio.config.form</field>
+            <field name="model">bio.config</field>
+            <field name="groups_id" eval="[(4,ref('hr_attendance.group_hr_attendance_user'))]"/>
+            <field name="arch" type="xml">
+            <form string="Biometric Configuration">
+                <header>
+                     <button string="Attendance Fetch" type="object" name="onclick_attendance" class="oe_highlight"/>
+                </header>
+                <group>
+                    <field name="bioip" required="True"/>
+                    <field name="bioport" required="True"/>
+                    <field name="bio_tz" required="True"/>
+                </group>
+            </form>
+            </field>
+        </record>
+
+        <!--    Biometric Configuration Tree View    -->
+        <record id="bio_config_tree" model="ir.ui.view">
+            <field name="name">bio.config.tree</field>
+            <field name="model">bio.config</field>
+            <field name="arch" type="xml">
+                <tree string="Biometric Configuration">
+                    <field name="bioip"/>
+                    <field name="bioport"/>
+                    <field name="bio_tz" />
+                    <button string="Unlock Door" type="object" name="onclick_unlock"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--    Biometric Configuration Menu    -->
+        <record model="ir.actions.act_window" id="biometric_attendance_action">
+            <field name="name">Biometric Configuration</field>
+            <field name="res_model">bio.config</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--    Biometric Configuration Menu in the HR Attendance    -->
+        <menuitem id="main_bio_config_menu" name="Biometric Configuration" groups="hr_attendance.group_hr_attendance_manager" parent="hr_attendance.menu_hr_attendance_root" sequence="10"  action="biometric_attendance_action"/>
+</odoo>

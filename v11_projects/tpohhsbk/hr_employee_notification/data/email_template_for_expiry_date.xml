@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Email template for Visa Expiry Date-->
+        <record id="visa_expiry_date_template" model="mail.template">
+            <field name="name">Visa Expiry Date</field>
+            <field name="subject">Visa Expiry Of ${object.employee_id.name}
+            </field>
+            <field name="model_id" ref="bista_hr.model_hr_visa"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <p>This mail is to inform you that
+                        ${object.employee_id.name}'s Visa
+                        <b>${object.name}</b> will be expire on
+                        ${object.date_end}.</p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Email template for Document Expiry Date-->
+        <record id="document_expiry_date_template" model="mail.template">
+            <field name="name">Document Expiry Date</field>
+            <field name="subject">Document Expiry Of ${object.employee_id.name}
+            </field>
+            <field name="model_id" ref="bista_hr.model_hr_document"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <p>This mail is to inform you that
+                        ${object.employee_id.name}'s Document
+                        <b>${object.name}</b> will be expire on
+                        ${object.date_expiry}.</p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+
+        <!-- Email template for Leave Expiry Notification-->
+        <record id="leave_expiry_notification_template" model="mail.template">
+            <field name="name">Leave Expiry Notification</field>
+            <field name="subject">${object.holiday_status_id.name} Expiry
+                Alert!
+            </field>
+            <field name="model_id" ref="hr_holidays.model_hr_holidays"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello ${object.employee_id.name},</p>
+                    <p>This mail is to inform you that your
+                        <b> ${ctx["remaining_leaves"]}
+                        ${object.holiday_status_id.name}</b>
+                        leaves are left, Which is
+                        going to expire on <b>${object.date_to}</b>.</p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Email template for Visa Cancellation Exit Date-->
+        <record id="visa_exit_date_template" model="mail.template">
+            <field name="name">Visa Exit Date</field>
+            <field name="subject">Visa Exit Of ${object.employee_id.name}
+            </field>
+            <field name="model_id" ref="bista_hr.model_hr_visa"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <p>This mail is to inform you that
+                        ${object.employee_id.name}'s Visa
+                        <b>${object.name}</b> will be Exit on
+                        ${object.exit_date}.</p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+        <!-- Email template for Passport Outside for certain  Period-->
+        <record id="passport_outside_certain_period_template" model="mail.template">
+            <field name="name">Passport Template</field>
+            <field name="subject">Passport ${object.employee_id.name}</field>
+            <field name="model_id" ref="bista_hr.model_hr_employee_passport"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello,</p>
+                    <p>This mail is to inform you that
+                        ${object.employee_id.name}'s Passsport
+                        was outside for ${object.start_date} To ${object.end_date} period.
+                    </p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="bista_analytic_account_report_temp">
+        <t t-call="web.basic_layout">
+            <div class="header">
+                <div class="row">
+                    <t t-set="company" t-value="docs.company_id"/>
+                    <div class="col-xs-3 mb4">
+                        <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" style="max-height: 45px;"/>
+                    </div>
+                    <div class="col-xs-9 text-right" style="margin-top:22px;" t-field="docs.company_id.name" name="moto"/>
+                </div>
+                <div class="row zero_min_height">
+                    <div class="col-xs-12">
+                        <div style="border-bottom: 1px solid black;"/>
+                    </div>
+                </div>
+            </div>
+            <div class="page" style="font-size:11px;">
+                <t t-foreach="docs" t-as="s">
+                    <t t-set="currency_id" t-value="s.company_id.currency_id"/>
+                    <t t-set="lang" t-value="request.env['res.lang'].sudo().search([('code','=',user.lang)],limit=1)"/>
+                    <t t-set="fmt" t-value='"%.{0}f".format(currency_id.decimal_places)'/>
+                    <div style="font-size:24px;text-align:center;">
+                        <span>Income &amp; Expenditure Report</span>
+                    </div>
+                    <div style="font-weight:bold;text-align:center;">
+                        <span>As of </span>
+                        <span t-esc="datetime.datetime.strptime(docs.date, '%Y-%m-%d').strftime('%d-%m-%Y')"/> 
+                    </div>
+
+                    <!-- 1st Page Report -->
+                    <span t-value="get_exp_analytic_account_value(s)" t-set="exp_account_data"/>
+	                    <span t-set="final_exp_ct_mtd_total" t-value="0.00"/>
+                        <span t-set="final_exp_py_mtd_total" t-value="0.00"/>
+                        <span t-set="final_exp_ct_ytd_total" t-value="0.00"/>
+                        <span t-set="final_exp_py_ytd_total" t-value="0.00"/>
+
+	                    <span t-set="exp_ct_mtd_total" t-value="0.00"/>
+	                    <span t-set="exp_py_mtd_total" t-value="0.00"/>
+	                    <span t-set="exp_ct_ytd_total" t-value="0.00"/>
+	                    <span t-set="exp_py_ytd_total" t-value="0.00"/>
+
+	                    <table class="table">
+	                        <thead>
+	                            <tr>
+	                                <th style="border-bottom:2px solid;border-top:2px solid;" class="text-left">Particulars</th>
+	                                <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.MTD (<span t-esc="currency_id.name"/>)</th>
+	                                <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.MTD (<span t-esc="currency_id.name"/>)</th>
+	                                <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.YTD (<span t-esc="currency_id.name"/>)</th>
+	                                <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.YTD (<span t-esc="currency_id.name"/>)</th>
+	                            </tr>
+	                        </thead>
+	                        <tbody>
+	                            <span t-raw="get_income_account_value(s)"/>
+
+	                           <!-- Expenses Amount -->
+	                           <t t-if="exp_account_data">
+	                                <tr style="font-weight:bold;border-bottom:2px solid;">
+	                                    <td colspan="5">
+	                                        <span>Expenses</span>
+	                                    </td>
+	                                </tr>
+	                                <t t-foreach="exp_account_data" t-as="ac">
+	                                    <tr style="font-weight:bold;">
+	                                        <td>
+	                                            <t t-esc="request.env['analytic.group'].sudo().browse(ac[0]).name"/>
+	                                        </td>
+	                                        <td class="text-right">
+	                                           <span t-esc="lang.format(fmt,ac[1],grouping=True)"/>
+	                                            <t t-set="exp_ct_mtd_total" t-value="exp_ct_mtd_total+ac[1]"/>
+	                                        </td>
+	                                        <td class="text-right">
+	                                            <span t-esc="lang.format(fmt,ac[2],grouping=True)"/>
+	                                            <t t-set="exp_py_mtd_total" t-value="exp_py_mtd_total+ac[2]"/>
+	                                        </td>
+	                                        <td class="text-right">
+	                                            <span t-esc="lang.format(fmt,ac[3],grouping=True)"/>
+	                                            <t t-set="exp_ct_ytd_total" t-value="exp_ct_ytd_total+ac[3]"/>
+	                                        </td>
+	                                        <td class="text-right">
+	                                            <span t-esc="lang.format(fmt,ac[4],grouping=True)"/>
+	                                            <t t-set="exp_py_ytd_total" t-value="exp_py_ytd_total+ac[4]"/>
+	                                        </td>
+	                                     </tr>
+	                                 </t>
+	                                 <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+	                                    <td>
+	                                        <span>Total Expenses</span>
+	                                    </td>
+	                                    <td class="text-right">
+	                                        <span t-esc="lang.format(fmt,exp_ct_mtd_total,grouping=True)"/>
+	                                        <t t-set="final_exp_ct_mtd_total" t-value="final_exp_ct_mtd_total + exp_ct_mtd_total"/>
+	                                    </td>
+	                                    <td class="text-right">
+	                                        <span t-esc="lang.format(fmt,exp_py_mtd_total,grouping=True)"/>
+	                                        <t t-set="final_exp_py_mtd_total" t-value="final_exp_py_mtd_total + exp_py_mtd_total"/>
+	                                    </td>
+	                                    <td class="text-right">
+	                                        <span t-esc="lang.format(fmt,exp_ct_ytd_total,grouping=True)"/>
+	                                        <t t-set="final_exp_ct_ytd_total" t-value="final_exp_ct_ytd_total + exp_ct_ytd_total"/>
+	                                    </td>
+	                                    <td class="text-right">
+	                                        <span t-esc="lang.format(fmt,exp_py_ytd_total,grouping=True)"/>
+	                                        <t t-set="final_exp_py_ytd_total" t-value="final_exp_py_ytd_total + exp_py_ytd_total"/>
+	                                    </td>
+	                                </tr>
+	                           </t>
+	                           <span t-value="total_income_value(s)" t-set="income_grp"/>
+	                           <t t-if="income_grp">
+	                               <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                   <td class="text-left">EXCESS OF INCOME/(EXPENDITURE)</td>
+                                   <td class="text-right">
+                                       <span t-set="final_income_exp" t-value="(income_grp[0] - final_exp_ct_mtd_total)"/>
+                                       <span t-esc="lang.format(fmt,final_income_exp,grouping=True)"/>
+                                   </td>
+                                   <td class="text-right">
+                                       <span t-set="final_income_exp" t-value="(income_grp[1] - final_exp_py_mtd_total)"/>
+                                       <span t-esc="lang.format(fmt,final_income_exp,grouping=True)"/>
+                                   </td>
+                                   <td class="text-right">
+                                       <span t-set="final_income_exp" t-value="(income_grp[2] - final_exp_ct_ytd_total)"/>
+                                       <span t-esc="lang.format(fmt,final_income_exp,grouping=True)"/>
+                                   </td>
+                                   <td class="text-right">
+                                       <span t-set="final_income_exp" t-value="(income_grp[3] - final_exp_py_ytd_total)"/>
+                                       <span t-esc="lang.format(fmt,final_income_exp,grouping=True)"/>
+                                   </td>
+                                </tr>
+
+	                           </t>
+	                       </tbody>
+	                   </table>
+	                   <p style="page-break-before:always;"> </p>
+
+                    <!-- Second Page Report-->
+                    <span t-set="account_group" t-value="request.env['analytic.group'].sudo().search([])"/>
+
+                    <t t-foreach="account_group" t-as="group">
+                        <span t-value="group_wise_analytic_account_value(s,group)" t-set="grp_analytic_account_data"/>
+                        <t t-if="grp_analytic_account_data">
+                            <div style="font-size:24px;text-align:center;">
+                                <span t-esc="group.name"/>
+                            </div>
+                            <div style="font-weight:bold;text-align:center;">
+                                <span>As of </span>
+                                <span t-esc="datetime.datetime.strptime(docs.date, '%Y-%m-%d').strftime('%d-%m-%Y')"/> 
+                            </div>
+                                <span t-set="exp_ct_mtd_total" t-value="0.00"/>
+                                <span t-set="exp_py_mtd_total" t-value="0.00"/>
+                                <span t-set="exp_ct_ytd_total" t-value="0.00"/>
+                                <span t-set="exp_py_ytd_total" t-value="0.00"/>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th style="border-bottom:2px solid;border-top:2px solid;" class="text-left">Particulars</th>
+                                            <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.MTD (<span t-esc="currency_id.name"/>)</th>
+                                            <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.MTD (<span t-esc="currency_id.name"/>)</th>
+                                            <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.YTD (<span t-esc="currency_id.name"/>)</th>
+                                            <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.YTD (<span t-esc="currency_id.name"/>)</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <t t-foreach="grp_analytic_account_data" t-as="ac">
+                                        <tr style="font-weight:bold;">
+                                            <td>
+                                                <t t-esc="request.env['account.analytic.account'].sudo().browse(ac[0]).name"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="lang.format(fmt,ac[1],grouping=True)"/>
+                                                <span t-set="exp_ct_mtd_total" t-value="exp_ct_mtd_total+ac[1]"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="lang.format(fmt,ac[2],grouping=True)"/>
+                                                <t t-set="exp_py_mtd_total" t-value="exp_py_mtd_total+ac[2]"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="lang.format(fmt,ac[3],grouping=True)"/>
+                                                <t t-set="exp_ct_ytd_total" t-value="exp_ct_ytd_total+ac[3]"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <span t-esc="lang.format(fmt,ac[4],grouping=True)"/>
+                                                <t t-set="exp_py_ytd_total" t-value="exp_py_ytd_total+ac[4]"/>
+                                            </td>
+                                         </tr>
+                                     </t>
+                                     <tr style="font-weight:bold;border-bottom:2px solid;border-top:2px solid;">
+                                        <td>
+                                            <span>Total Expenses</span>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="lang.format(fmt,exp_ct_mtd_total,grouping=True)"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="lang.format(fmt,exp_py_mtd_total,grouping=True)"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="lang.format(fmt,exp_ct_ytd_total,grouping=True)"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="lang.format(fmt,exp_py_ytd_total,grouping=True)"/>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <p style="page-break-before:always;"> </p>
+                              </t>
+                   </t>
+
+                   <!-- Third Page Analytic Group Wise Account Group and it's data -->
+
+                    <t t-foreach="account_group" t-as="group">
+                        <span t-set="is_analytic_acc" t-value="request.env['account.analytic.account'].sudo().search([('analytic_group_id','=',group.id)],order='sequence')"/>
+                        <t t-if="is_analytic_acc">
+                            <div style="font-size:24px;text-align:center;">
+                                <span t-esc="group.name"/>
+                            </div>
+                            <div style="font-weight:bold;text-align:center;">
+                                <span>As of </span>
+                                <span t-esc="datetime.datetime.strptime(docs.date, '%Y-%m-%d').strftime('%d-%m-%Y')"/> 
+                            </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-left">Particulars</th>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.MTD (<span t-esc="currency_id.name"/>)</th>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.MTD (<span t-esc="currency_id.name"/>)</th>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.YTD (<span t-esc="currency_id.name"/>)</th>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.YTD (<span t-esc="currency_id.name"/>)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <span t-raw="analytic_grp_acc_wise_report_vals(s,group)"/>
+                                </tbody>
+                            </table>
+                                <p style="page-break-before:always;"> </p>
+                        </t>
+                    </t>
+
+<!--                     4th Page Report Analytic Account Wise Expenses Data -->
+                    <t t-set="analytic_acc_data" t-value="request.env['account.analytic.account'].sudo().search([('company_id','=',s.company_id.id),('line_ids', '!=', False)],order='sequence')"/>
+                        <t t-foreach="analytic_acc_data" t-as="analytic_acc">
+                            <div style="font-size:24px;text-align:center;">
+                                Expenditure Statement For <span t-esc="analytic_acc.name"/>
+                            </div>
+                                <div style="font-weight:bold;text-align:center;">
+                                    <span>As of </span>
+                                    <span t-esc="datetime.datetime.strptime(docs.date, '%Y-%m-%d').strftime('%d-%m-%Y')"/> 
+                                </div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-left">Particulars</th>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.MTD (<span t-esc="currency_id.name"/>)</th>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.MTD (<span t-esc="currency_id.name"/>)</th>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">C.Y.YTD (<span t-esc="currency_id.name"/>)</th>
+                                        <th style="border-bottom:2px solid;border-top:2px solid;" class="text-right">P.Y.YTD (<span t-esc="currency_id.name"/>)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <span t-raw="analytic_acc_wise_report_data(s,analytic_acc)"/>
+                                </tbody>
+                            </table>
+                            <p style="page-break-before:always;"> </p>
+                        </t>
+                    </t>
+            </div>
+        </t>
+    </template>
+</odoo>

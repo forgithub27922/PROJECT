@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_petty_cash_document_employee,petty.cash.document.employee,model_petty_cash_document,base.group_user,1,1,1,0
+access_petty_cash_document_hr_officer,petty.cash.document.hr_officer,model_petty_cash_document,hr.group_hr_user,1,1,1,1
+access_voucher_petty_cash_employee,voucher.petty.cash.employee,model_voucher_petty_cash,base.group_user,1,1,1,0
+access_voucher_petty_cash_hr_officer,voucher.petty.cash.hr_officer,model_voucher_petty_cash,hr.group_hr_user,1,1,1,1

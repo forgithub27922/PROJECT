@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_document_appointment_letter" model="hr.job.document">
+            <field name="name">Appointment Letter Template</field>
+            <field name="type">appo_ltr</field>
+            <field name="is_applicant">True</field>
+            <field name="document_content"><![CDATA[
+                <div style="text-align: center;">
+                    <u style=""><b>${object.name}</b></u></div>
+<br><br><br>
+<span><b>Date: </b><span><b>${(datetime.date.today())}</b></span><br><br>
+<span><b>Dear ${object.applicant_id.partner_name or object.employee_id.name}
+</b><br><br>
+<div style="text-align: center;"><u style=""><b>Welcome to
+${object.applicant_id.company_id.name or object.employee_id.company_id.name} Family
+</b></u></div><br><br><br>
+<p>We are pleased to appoint you in our organization as
+ <b>"${object.applicant_id.job_id.name or object.employee_id.job_id.name}"</b> You will
+be based in our main Office. Your date of joining will be
+on or before ${object.date_validity}.</p><br>
+<p>This is a confirmation of your employement with
+${object.applicant_id.company_id.name or object.employee_id.company_id.name}.</p><br>
+<p><b>Yours truly,
+</b></p><br>
+<br>
+<p><b></b>
+</p><p><b>General Manager- Devops
+</b></p><p><b>${object.applicant_id.company_id.name or ''}&nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp;Candidate Signature: __________________</b></p><p><b><br></b></p>
+<p><b><br></b></p><p><b><br></b></p><p><b><br></b></p><p><b><br></b></p><p><b>
+<br></b></p><p><b><br></b></p><p><b><br></b></p><p><b><br></b></p><p><b><br>
+</b></p></span></span>
+]]>
+            </field>
+        </record>
+
+        <record id="hr_document_joining_letter" model="hr.job.document">
+            <field name="name">Joining Letter Template</field>
+            <field name="type">appo_ltr</field>
+            <field name="is_applicant">True</field>
+            <field name="document_content"><![CDATA[
+                <p><b><font style="font-size: 14px;">Date: ${(datetime.date.today())}</font></b></p>
+                <p><font style="font-size: 14px;"></font><br>&nbsp;&nbsp;&nbsp;&nbsp;<br></p>
+                <p> </p><p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: center; line-height: 19.5px;">
+                <font style="font-size: 12pt;"><font style="font-size: 10pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</font></font>
+                <u style="font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial;">
+                <b><font style="font-size: 14px;">${object.name}</font></b></u>
+                <font style="font-size: 12pt; font-style: initial; font-variant-caps: initial; font-variant-ligatures: initial; font-weight: initial;">
+                <font style="font-size: 14px;">&nbsp;</font><font style="font-size: 10pt;"> &nbsp; &nbsp; &nbsp;</font></font>
+                <span style="font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial;">&nbsp; &nbsp;&nbsp;</span></p>
+                <p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: justify; line-height: 19.5px;">
+                <font style="font-size: 12pt;"><font style="font-size: 10pt;"></font></font></p>
+                <p style="margin-top: 0.49cm; margin-bottom: 0.49cm; line-height: 19.5px;">
+                <span style="font-size: 10pt;">Dear&nbsp;</span>
+                <span style="font-size: 13.3333px;"><b>${object.applicant_id.partner_name or object.employee_id.name}</b></span>
+                <span style="font-size: 10pt;">,</span></p>
+                <p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: justify; line-height: 19.5px;">
+                <font style="font-size: 12pt;">
+                <font style="font-size: 10pt;">It is my pleasure to announce that, you have been recruited in our Company&nbsp;</font></font>
+                <font style="font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial; font-size: 10pt;">as&nbsp;</font>
+                <font style="font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial; font-size: 10pt;">a&nbsp;</font>
+                <span style="font-style: initial; font-variant-ligatures: initial; font-variant-caps: initial; font-weight: initial; font-size: 13.3333px;">
+                ${object.applicant_id.job_id.name or object.employee_id.job_id.name}. Firstly we would like to congratulate you on securing this job. ${object.date_validity}, would be your joining date,
+                 if you are willing to step in to our company.</span></p>
+                <p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: justify; line-height: 19.5px;">
+                <span style="font-size: 13.3333px;">Our whole team will be welcoming you, to work as a ${object.applicant_id.job_id.name or object.employee_id.job_id.name}.
+                We believe that you would perfectly suit this job profile based on your experience. All your previous
+                 years of experience would count here as it will certainly help our company’s targets and in coming up
+                  with new strategies.</span></p><p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: justify; line-height: 19.5px;">
+                  <span style="font-size: 13.3333px;">Finally I just want to conclude by fixing your pay scale. We would like to pay you
+                  ${object.amount} per annum which would be quite reasonable. For any other query you can reach me at the office contact
+                   number.</span></p><p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: justify; line-height: 19.5px;">
+                   <span style="font-size: 13.3333px;"><br></span></p><p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: justify; line-height: 19.5px;">
+                   <span style="font-size: 13.3333px;">Sincerely,</span></p>
+                   <p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: justify; line-height: 19.5px;">
+                   <span style="font-size: 13.3333px;"><br></span></p><p style="margin-top: 0.49cm; margin-bottom: 0.49cm; text-align: justify; line-height: 19.5px;">
+                   <span style="font-size: 13.3333px;"><b>Executive Director,</b></span></p>
+                   <div><span style="font-size: 13.3333px;"><br></span></div>]]>
+            </field>
+        </record>
+
+        <record id="hr_document_reference_letter" model="hr.job.document">
+            <field name="name">Reference Letter Template</field>
+            <field name="is_applicant">False</field>
+            <field name="type">experience</field>
+            <field name="document_content"><![CDATA[
+            <b>Date: ${object.date}<br></b>
+                                   <br><br><center><strong>
+                                   <u><font style="font-size: 16px;">
+                                   To whom so ever it may
+                                   concern</font></u></strong></center><br>
+                                   <br>I hereby verify that<b>
+                                   ${object.employee_id.name or ''}</b> has
+                                   been working in our organization from the
+                                   period of Date <b>
+                                   ${object.emp_join_date or ''}</b>
+                                   To<b> ${object.emp_relieve_date or ''}</b>.
+                                   While employed with <b>
+                                   ${object.employee_id.company_id.name or ''},
+                                   </b> his responsibilities have included
+                                   interacting with our clients and providing
+                                   them with information on the steel
+                                   products we distribute. He has done a
+                                   fantastic job completing these tasks,
+                                   and he has always been on time and
+                                   professional during his tenure here.<br>We
+                                   wish him every success in life.
+                                   <br><br><br>Sincerely, <br><br><br>
+                                   Director Human Resource <br><b>${
+                                   object.employee_id.company_id.name or ''}
+                                   </b>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="eos_fnf_report"
+            model="hr.termination.request"
+            string="F&amp;F Report"
+            report_type="qweb-pdf"
+            name="bista_eos_fnf.report_fnf_template"
+            file="bista_eos_fnf.eos_fnf_report"
+        />
+
+    </data>
+</odoo>

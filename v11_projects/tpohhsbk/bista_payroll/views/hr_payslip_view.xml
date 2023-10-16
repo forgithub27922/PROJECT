@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="payslip_form_inherit_send_email" model="ir.ui.view">
+        <field name="name">hr.payslip.form.inherit</field>
+        <field name="model">hr.payslip</field>
+        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_form"/>
+        <field name="arch" type="xml">
+            <button name="action_payslip_done" position="after">
+                <button name="action_set_to_draft" type="object" class="oe_highlight" string="Set TO Draft"
+                        
+                        attrs="{'invisible': ['|', ('state', '!=', 'done'), ('is_paid', '=', True)]}"/>
+                <button name="action_to_pay" string="Pay" type="object" class="oe_highlight"
+                    attrs="{'invisible': ['|', ('state', '!=', 'done'), ('is_paid', '=', True)]}"/>
+            </button>
+            <button name="%(hr_payroll.act_payslip_lines)d" position="after">
+                <button name="action_view_entries" class="oe_stat_button" icon="fa-university" type="object"
+                    string="Payment Matching" help="Payslip Payment Details"
+                    attrs="{'invisible': [('account_move_id', '=', False)]}"/>
+            </button>
+            <xpath expr="//field[@name='credit_note']" position="after">
+                <field name="email_sended" invisible="1"/>
+                <field name="is_paid" invisible="1"/>
+                <field name="account_move_id" invisible="1"/>
+                <field name="no_of_days" invisible="1"/>
+                <field name="calculate_total_days" invisible="1"/>
+                <field name="employee_payment_journal_id" invisible="1"/>
+            </xpath>
+            <xpath expr="//form/header" position="inside">
+                <button name="action_payslip_send"
+                        string="Send Payslip by Email" type="object"
+
+                        class="btn-primary"/>
+            </xpath>
+            <xpath expr="//field[@name='contract_id']" position="attributes">
+                <attribute name="domain">[('employee_id','=',employee_id),('state','=','open'),('date_start','&lt;=',date_to),'|',('date_end','&gt;=',date_from),('date_end','=',False)]
+                </attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="res_config_settings_view_form_send_payslip_email" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="70"/>
+        <field name="inherit_id" ref="hr_payroll.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='hr_payroll']" position="inside">
+                <h2>Send Email</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-md-6 o_setting_box"
+                         title="Show organizational chart on employee form">
+                        <div class="o_setting_left_pane">
+                            <field name="send_payslip" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="send_payslip" />
+                            <div class="text-muted">
+                                If true payslip will be sended to employee with attachment.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Hide Payslip</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-xs-12 col-md-6 o_setting_box"
+                         title="Show organizational chart on employee form">
+                        <div class="o_setting_left_pane">
+                            <field name="hide_payslip_zero" />
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="hide_payslip_zero" />
+                            <div class="text-muted">
+                                Hide payslip lines having zero amount.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="hr_contract_view_form_for_lable" model="ir.ui.view">
+        <field name="name">hr.contract.form.inherit</field>
+        <field name="model">hr.contract</field>
+        <field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='salary_and_advantages']" position="attributes">
+                <attribute name="string"></attribute>
+            </xpath>
+            <xpath expr="//label[@for='wage']" position="attributes">
+                <attribute name="string">Basic of the Salary</attribute>
+            </xpath>
+            <field name="analytic_account_id" position="attributes">
+                <attribute name="required">1</attribute>
+            </field>
+        </field>
+    </record>
+
+    <!-- Inherit Form View to Modify it -->
+    <record id="hr_payslip_run_form_inherit_compute_slip" model="ir.ui.view">
+        <field name="name">hr.payslip.run.form</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header" position="inside">
+                <button name="compute_payslip" type="object" string="Compute Payslips" class="oe_highlight"
+                attrs="{'invisible': [('state', 'in', ['confirm','paid', 'close'])]}"/>
+                <button name="confirm_payslip" type="object" string="Confirm Payslips" class="oe_highlight"
+                attrs="{'invisible': [('state', 'in', ['confirm','paid', 'close'])]}"/>
+                <button name="action_set_batch_to_draft" type="object" class="oe_highlight" string="Set TO Draft"
+                        attrs="{'invisible': [('state', 'in', ['draft', 'close', 'paid'])]}"/>
+                <button string="Pay" name="action_to_pay" type="object" class="oe_highlight"
+                        attrs="{'invisible': [('state', 'in', ['draft', 'close', 'paid'])]}"/>
+            </xpath>
+
+            <button name="%(hr_payroll.action_hr_payslip_by_employees)d" position="attributes">
+                <attribute name="context">{'default_company_id':company_id}</attribute>
+            </button>
+            <xpath expr="//label[@for='name']" position="after">
+                <div class="oe_button_box" name="button_box">
+                    <button name="action_view_journal_items" type="object"
+                        class="oe_stat_button" icon="fa-server"
+                        string="Journal Item"
+                        attrs="{'invisible': ['|',('account_move_id', '=', False), ('state', 'in', ['draft', 'confirm', 'close'])]}"/>
+                    <button name="action_view_entries" type="object"
+                        class="oe_stat_button" icon="fa-credit-card"
+                        string="Payment Journal Entry" help="Payslip Payment Details"
+                        attrs="{'invisible': ['|',('account_move_id', '=', False), ('state', 'in', ['draft', 'confirm', 'close'])]}"/>
+                    <button name="action_view_batch_entries" type="object"
+                        class="oe_stat_button" icon="fa-book"
+                        string="Accounting Entry" help="Payslip Payment Details"
+                        attrs="{'invisible': [('state', 'in', ['draft', 'close'])]}"/>
+                </div>
+            </xpath>
+            <field name="credit_note" position="after">
+                <field name="account_move_id" invisible="1"/>
+                <field name="account_move_ids" invisible="1"/>
+                <field name="company_id" required="1"/>
+                <field name="move_name" invisible="1"/>
+            </field>
+            <xpath expr="//sheet" position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_hr_batch_payslip_to_pay" model="ir.actions.act_window">
+        <field name="name">Payslips Batches</field>
+        <field name="res_model">hr.payslip.run</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('state','=','confirm')]</field>
+    </record>
+    
+    <record id="action_hr_payslip_to_pay_form" model="ir.actions.act_window">
+        <field name="name">Employee Payslips</field>
+        <field name="res_model">hr.payslip</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="domain">[('state','=','done')]</field>
+    </record>
+
+    <!-- Contracts Menu -->
+    <menuitem
+        id="hr_contract.hr_menu_contract"
+        name="Contracts"
+        action="hr_contract.action_hr_contract"
+        parent="hr_payroll.menu_hr_payroll_configuration"
+        sequence="100"
+        groups="hr.group_hr_manager"/>
+        
+   <menuitem
+        id="parent_menu_accounting_staff"
+        name="Staff"
+        parent="account.menu_finance"
+        sequence="6"/>
+        
+   <menuitem
+        id="menu_item_account_salaries_to_pay_batch"
+        name="Salaries to Pay (Batch)"
+        action="action_hr_batch_payslip_to_pay"
+        parent="parent_menu_accounting_staff"
+        sequence="3"/>
+        
+    <menuitem
+        id="menu_item_account_salary_to_pay_payslip"
+        name="Salary to Pay (Payslips)"
+        action="action_hr_payslip_to_pay_form"
+        parent="parent_menu_accounting_staff"
+        sequence="4"/>
+        
+   
+        
+    
+        
+</odoo>

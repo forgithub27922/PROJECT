@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_cheque_custom_tree" model="ir.ui.view">
+        <field name="name">Custom Cheque Print</field>
+        <field name="model">wizard.print.check</field>
+        <field name="arch" type="xml">
+            <tree string="Cheque Format">
+                <field name="partner_id"/>
+                <field name="date"/>
+                <field name="amount"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="wizrad_print_check_form_view" model="ir.ui.view">
+        <field name="name">wizard.print.check</field>
+        <field name="model">wizard.print.check</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="print_check_report" string="Print Check" type="object"
+                            class="oe_highlight" />
+                </header>
+                <sheet>
+
+                    <div>
+                        <h1 class="mt0">
+                            <field name="name" class="oe_inline" />
+
+                        </h1>
+                    </div>
+                <group>
+                    <group>
+                        <field name="partner_id" required="1"/>
+
+                        <field name="amount" required="1"/>
+                        <field name="amount_in_words"/>
+                    </group>
+                    <group>
+                        <field name="date" required="1"/>
+                        <field name="company_id" required="1" groups="base.group_multi_company"/>
+                        <field name="check_format_id" required="1"/>
+<!--                        <field name="description"/>-->
+
+
+                    </group>
+                    <div>
+                     <field name="description"  placeholder="Notes ..."/>
+                    </div>
+                </group>
+               </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizrad_print_check_1" model="ir.actions.act_window">
+        <field name="name">Print Check</field>
+        <field name="res_model">wizard.print.check</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_print_check"
+        name="Print Check"
+        parent="account.menu_finance_payables"
+        action="action_wizrad_print_check_1"
+        sequence="4"
+        groups="account.group_account_manager,account.group_account_user"
+        />
+
+</odoo>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- loan request send for HR Approval -->
+        <record id="loan_request_send_hr" model="mail.template">
+            <field name="name">Employee Loan HR Approval</field>
+            <field name="model_id"
+                   ref="bista_employee_loan.model_hr_employee_loan" />
+            <field name="email_from">${user.email | safe}</field>
+            <field name="email_to">${ctx["email_to"]}</field>
+            <field name="email_cc"></field>
+            <field name="subject">Loan Request To Be Approved</field>
+            <field name="body_html"><![CDATA[
+<p>
+Dear HR Team,
+<br/>
+<br/>
+<p style="padding-left: 4em;">
+Kindly, Approve the pending Loan request.
+<br/>
+    <br/>
+<b>Employee Name: </b>${object.employee_id.name}
+<br/>
+</p>
+<br/>
+<br/>
+% if ctx["display_link"]:
+   To proceed, Kindly <a href="${ctx["base_url"]}/web#id=${object.id}&view_type=form&model=${ctx["model"]}&action=${ctx["action_id"]}">Click Here</a>
+% endif
+<br/>
+<p> Kind Regards </p>
+<br/>
+<p style="font-size:13px; color:blue; border: 1px solid red; width:350px;"> Auto generated message through the ERP System. </p>
+			   ]]>
+            </field>
+        </record>
+
+        <!-- Loan request send for Finance Approval -->
+        <record id="loan_request_send_finance" model="mail.template">
+            <field name="name">Loan Finance Approval</field>
+            <field name="model_id"
+                   ref="bista_employee_loan.model_hr_employee_loan" />
+            <field name="email_from">${user.email | safe}</field>
+            <field name="email_to">${ctx["email_to"]}</field>
+            <field name="subject">Loan Request To Be Approved</field>
+            <field name="body_html"><![CDATA[
+<p>
+Dear Finance Team,
+<br/>
+<br/>
+<p style="padding-left: 4em;">
+Kindly, Approve the pending Loan request.
+<br/>
+<b>Employee Name: </b>${object.employee_id.name}
+<br/>
+</p>
+<br/>
+<br/>
+% if ctx["display_link"]:
+   To proceed, Kindly <a href="${ctx["base_url"]}/web#id=${object.id}&view_type=form&model=${ctx["model"]}&action=${ctx["action_id"]}">Click Here</a>
+% endif
+<br/>
+<p> Kind Regards </p>
+<br/>
+<p style="font-size:13px; color:blue; border: 1px solid red; width:350px;"> Auto generated message through the ERP System. </p>
+			   ]]>
+            </field>
+        </record>
+
+        <!-- Loan request Approved -->
+        <record id="loan_request_send_approved" model="mail.template">
+            <field name="name">Loan Request Approved</field>
+            <field name="model_id"
+                   ref="bista_employee_loan.model_hr_employee_loan" />
+            <field name="email_from">${user.email | safe}</field>
+            <field name="email_to">${object.employee_id.work_email | safe}</field>
+            <field name="subject">Loan Request Approved</field>
+            <field name="body_html"><![CDATA[
+<p>
+Dear ${(object.employee_id.user_id.name or '')|safe},
+<br/>
+<br/>
+<p style="padding-left: 4em;">
+Your Loan request has been approved.
+<br/>
+</p>
+<br/>
+<br/>
+% if ctx["display_link"]:
+   To proceed, Kindly <a href="${ctx["base_url"]}/web#id=${object.id}&view_type=form&model=${ctx["model"]}&action=${ctx["action_id"]}">Click Here</a>
+% endif
+<br/>
+<p> Kind Regards </p>
+<br/>
+<p style="font-size:13px; color:blue; border: 1px solid red; width:350px;"> Auto generated message through the ERP System. </p>
+			   ]]>
+            </field>
+        </record>
+
+          <!-- Loan request Approved -->
+        <record id="loan_request_rejected" model="mail.template">
+            <field name="name">Loan Request Rejected</field>
+            <field name="model_id"
+                   ref="bista_employee_loan.model_hr_employee_loan" />
+            <field name="email_from">${user.email | safe}</field>
+            <field name="email_to">${object.employee_id.work_email | safe}</field>
+            <field name="subject">Loan Request Rejected</field>
+            <field name="body_html"><![CDATA[
+<p>
+Dear ${(object.employee_id.user_id.name or '')|safe},
+<br/>
+<br/>
+<p style="padding-left: 4em;">
+Your Loan request has been Rejected .
+<br/>
+</p>
+% if ctx["reject_reason"]:
+Reject Reason:${ctx["reject_reason"]}
+% endif
+<br/>
+<br/>
+% if ctx["display_link"]:
+   To proceed, Kindly <a href="${ctx["base_url"]}/web#id=${object.id}&view_type=form&model=${ctx["model"]}&action=${ctx["action_id"]}">Click Here</a>
+% endif
+<br/>
+<p> Kind Regards </p>
+<br/>
+<p style="font-size:13px; color:blue; border: 1px solid red; width:350px;"> Auto generated message through the ERP System. </p>
+			   ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

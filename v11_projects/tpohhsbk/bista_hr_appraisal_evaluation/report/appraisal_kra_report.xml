@@ -1,0 +1,305 @@
+<odoo>
+
+    <template id="kra_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <center><h1>Performance Appraisal</h1></center>
+                        <div class="oe_structure"/>
+                        <table width="100%">
+                            <tr class="border-black" style="border:1px solid ">
+                                <td class="border-black"
+                                    style="border:1px solid ">
+                                    <b style="padding-left:5px;">Name</b>
+                                </td>
+                                <td>
+                                    <span style="padding-left:5px;"
+                                          t-field="o.name"/>
+                                </td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="border-black" style="border:1px solid ">
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <b style="padding-left:5px;">Employee</b>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <span style="padding-left:5px;"
+                                          t-field="o.employee_id.name"/>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <b style="padding-left:5px;">Position</b>
+                                </td>
+
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <span style="padding-left:5px;"
+                                          t-field="o.job_id.name"/>
+                                </td>
+                            </tr>
+                            <tr class="border-black" style="border:1px solid">
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <b style="padding-left:5px;">Appraisal 
+                                        Template
+                                    </b>
+                                </td>
+                                <td>
+                                    <span style="padding-left:5px;"
+                                          t-field="o.appraisal_template_id"/>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid">
+
+                                    <b style="padding-left:5px;">Appraisal
+                                        period
+                                    </b>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <span style="padding-left:5px;"
+                                          t-field="o.appraisal_period_id"/>
+                                </td>
+                            </tr>
+                            <tr class="border-black" style="border:1px solid ">
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <b style="padding-left:5px;">Review Start
+                                        Date
+                                    </b>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <span style="padding-left:5px;"
+                                          t-field="o.review_start_date"/>
+                                </td>
+                                <td style="border:1px solid">
+
+                                    <b style="padding-left:5px;">Review End
+                                        Date
+                                    </b>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <span style="padding-left:5px;"
+                                          t-field="o.review_end_date"/>
+                                </td>
+                            </tr>
+                            <tr class="border-black" style="border:1px solid">
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <b style="padding-left:5px;">Reviewer</b>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid; max-width:30px">
+
+                                    <t t-foreach="o.reviewer_ids" t-as="e">
+                                        <span style="padding-left:5px;"
+                                              t-field="e.name"/>,
+                                    </t>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid">
+                                    <b style="padding-left:5px;">peers</b>
+                                </td>
+                                <td class="border-black"
+                                    style="border:1px solid; max-width:30px">
+                                    <t t-foreach="o.peers_ids" t-as="e">
+                                        <span style="padding-left:5px;" t-field="e.name"/>,
+                                    </t>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                        <table width="100%" class="table table-condensed">
+                            <tr>
+                                <th colspan="6">
+                                    Self Assessement
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Question</th>
+                                <th>Description</th>
+                                <th>Weightage</th>
+                                <th>Measurement</th>
+                                <th>Self Assessment</th>
+                                <th>Self Remark</th>
+                            </tr>
+                            <t t-foreach="o.kra_line_ids" t-as="j">
+                                <tr>
+                                    <td>
+                                        <span t-field="j.question"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="j.description"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="j.weightage"/>
+                                    </td>
+                                    <td>
+                                        <t t-foreach="j.measurement_ids"
+                                           t-as="m">
+                                            <span t-field="m.name"/>,
+                                        </t>
+                                    </td>
+                                    <td>
+                                        <span t-field="j.self_assessment"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="j.self_remark"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <tr>
+                                <td colspan="4" style="padding-left:720px">
+                                    <b>Total:</b>
+                                </td>
+                                <td>
+                                    <span t-field="o.total_self_assessment"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <br/>
+                        <br/>
+                        <t t-if="o.state == 'approved'">
+                            <t t-set="manager_assessment_rec"
+                               t-value="o.get_mngr_assessment_rec('manager_assessment')"/>
+                            <t t-foreach="manager_assessment_rec"
+                               t-as="mngr_assessment_rec">
+                                <t t-if="mngr_assessment_rec.review_state == 'confirm'">
+                                    <table width="100%"
+                                           class="table table-condensed">
+                                        <tr>
+                                            <th colspan="6">
+                                                Manager Review By -
+                                                <span t-field="mngr_assessment_rec.reviewed_by.name"/>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>Question</th>
+                                            <th>Description</th>
+                                            <th>Weightage</th>
+                                            <th>Measurement</th>
+                                            <th>Manager Assessment</th>
+                                            <th>Manager Remark</th>
+                                        </tr>
+                                        <t t-set="mngr_total" t-value="0"/>
+                                        <t t-foreach="mngr_assessment_rec.kra_manager_review_ids"
+                                           t-as="k">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="k.question"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="k.description"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="k.weightage"/>
+                                                </td>
+                                                <td>
+                                                    <t t-foreach="k.measurement_ids"
+                                                       t-as="n">
+                                                        <span t-field="n.name"/>
+                                                        ,
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <span t-field="k.manager_assessment"/>
+                                                    <t t-set="mngr_total"
+                                                       t-value="mngr_total + k.manager_assessment"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="k.manager_remark"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td colspan="4"
+                                                style="padding-left:720px">
+                                                <b>Total:</b>
+                                            </td>
+                                            <td>
+                                                <t t-esc="mngr_total"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </t>
+                            </t>
+                            <br/>
+                            <br/>
+                            <t t-set="peer_assessment_rec"
+                               t-value="o.get_peers_assessment_rec('peers_assessment')"/>
+                            <t t-foreach="peer_assessment_rec"
+                               t-as="peers_assessment_rec">
+                                <t t-if="peers_assessment_rec.review_state == 'confirm'">
+                                    <table width="100%"
+                                           class="table table-condensed">
+                                        <tr>
+                                            <th colspan="6">
+                                                Peers Review By -
+                                                <span t-field="peers_assessment_rec.reviewed_by.name"/>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>Question</th>
+                                            <th>Description</th>
+                                            <th>Weightage</th>
+                                            <th>Measurement</th>
+                                            <th>Peers Assessment</th>
+                                            <th>Peers Remark</th>
+                                        </tr>
+                                        <t t-set="peers_total" t-value="0"/>
+                                        <t t-foreach="peers_assessment_rec.kra_peers_review_ids"
+                                           t-as="l">
+                                            <tr>
+                                                <td>
+                                                    <span t-field="l.question"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.description"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.weightage"/>
+                                                </td>
+                                                <td>
+                                                    <t t-foreach="l.measurement_ids"
+                                                       t-as="p">
+                                                        <span t-field="p.name"/>
+                                                        ,
+                                                    </t>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.peers_assessment"/>
+
+                                                    <t t-set="peers_total"
+                                                       t-value="peers_total + l.peers_assessment"/>
+                                                </td>
+                                                <td>
+                                                    <span t-field="l.peers_remark"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                        <tr>
+                                            <td colspan="4"
+                                                style="padding-left:720px">
+                                                <b>Total:</b>
+                                            </td>
+                                            <td>
+                                                <t t-esc="peers_total"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </t>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

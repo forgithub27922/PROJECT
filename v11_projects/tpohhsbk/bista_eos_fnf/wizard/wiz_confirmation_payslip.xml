@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--  view of generate payslip Wizard -->
+	<record id="view_wiz_confirmation_payslip" model="ir.ui.view">
+		<field name="name">view.wiz.confirmation.payslip</field>
+		<field name="model">wiz.confirmation.payslip</field>
+		<field name="arch" type="xml">
+			<form>
+				<group>
+                    <h2>Do you wants to generate payslip of the previous month?</h2>
+				</group>
+				<footer>
+					<button name="generate_payslips" string="Yes" type="object" class="btn-primary"/>
+					<button special="cancel" string="No"/>
+				</footer>
+			</form>
+		</field>
+	</record>
+
+	<!--  Action of Wizard -->
+	<record id="action_wiz_confirmation_payslip" model="ir.actions.act_window">
+		<field name="name">Payslip Generate Confirmation</field>
+		<field name="res_model">wiz.confirmation.payslip</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">form</field>
+		<field name="target">new</field>
+	</record>
+</odoo>

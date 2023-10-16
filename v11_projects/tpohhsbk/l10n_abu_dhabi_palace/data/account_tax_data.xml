@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tax Configuration for Abu Dhabi Palace Company -->
+    <record id="tax_abu_dhabi_palace_sale" model="account.tax">
+        <!--<field name="chart_template_id" ref="account_arabic_coa_abu_dhabi_palace"/>-->
+        <field name="name">Vat 5%</field>
+        <field name="description">Sales Vat 5% (Abu Dhabi Palace)</field>
+        <field name="amount">5.0</field>
+        <field name="type_tax_use">sale</field>
+        <!--<field name="account_id" search="[('code', '=', 'A0213')]"/>-->
+        <!--<field name="refund_account_id" search="[('code', '=', 'A0213')]"/>-->
+        <field name="company_id" ref="sbk_company.company_abu_dhabi_palace"/>
+    </record>
+    <record id="tax_abu_dhabi_palace_purchase" model="account.tax">
+        <!--<field name="chart_template_id" ref="account_arabic_coa_abu_dhabi_palace"/>-->
+        <field name="name">Vat 5%</field>
+        <field name="description">Purchase Vat 5% (Abu Dhabi Palace)</field>
+        <field name="amount">5.0</field>
+        <field name="type_tax_use">purchase</field>
+        <!--<field name="account_id" search="[('code', '=', 'L0026')]"/>-->
+        <!--<field name="refund_account_id" search="[('code', '=', 'L0026')]"/>-->
+        <field name="company_id" ref="sbk_company.company_abu_dhabi_palace"/>
+    </record>
+</odoo>

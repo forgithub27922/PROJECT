@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mail_template_employee_login_credentials" model="mail.template">
+        <field name="name">Employee Login Credentials</field>
+        <field name="subject">Login Credentials Details</field>
+        <field name="email_from">${object.work_email}</field>
+        <field name="email_to">${object.work_email}</field>
+        <field name="lang">${user.lang}</field>
+        <field name="auto_delete" eval="True"/>
+        <field name="model_id" ref="bista_hr.model_hr_employee"/>
+        <field name="attachment_ids"></field>
+        <field name="body_html" type="html">
+            <div>
+                <p>Hello ${object.name},</p>
+                <p>Below is your login details,</p>
+                <p>Login ID :- ${object.work_email},</p>
+                <p>Password :- ${object.env.user.company_id.password},</p>
+                <p>Thanks,</p>
+                % if user and user.signature:
+                ${user.signature | safe}
+                % endif
+            </div>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_dynamic_mail.dynamic_mai,dynamic_mail_user,dynamic_mail.model_dynamic_mail,,1,1,1,1

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='fleet_vehicle_insurance_form_view' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.insurance.form</field>
+        <field name="model">fleet.vehicle.insurance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="show_insurance_document" type="object"
+                                class="oe_stat_button" icon="fa-file" groups="hr.group_hr_manager,bista_hr.group_pr_department"
+                                context="{'default_company_id':company_id,'default_type':'Insurance',
+                                          'default_vehicle_id':vehicle_id}">
+                            <field name="insurance_document_count" widget="statinfo" string="Documents"/>
+                        </button>
+                    </div>
+                    <group col="4">
+                        <field name="vehicle_id" required="1"/>
+                        <field name="country_id" required="1"/>
+                        <field name="insurance_start_date" required="1"/>
+                        <field name="res_state_id" required="1"/>
+                        <field name="insurance_end_date" required="1"/>
+                        <field name="company_id" required="1" readonly="1" force_save="1" groups="base.group_multi_company"/>
+                    </group>
+                    <group>
+                        <field name="notes" nolabel="1" placeholder="Write here all other information relative to Insurance."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_insurance_tree_view' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.insurance.tree</field>
+        <field name="model">fleet.vehicle.insurance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="vehicle_id"/>
+                <field name="res_state_id"/>
+                <field name="insurance_start_date"/>
+                <field name="insurance_end_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_insurance_action' model='ir.actions.act_window'>
+        <field name="name">Vehicles Insurances</field>
+        <field name="res_model">fleet.vehicle.insurance</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem action="fleet_vehicle_insurance_action" parent="fleet.fleet_vehicles"
+        id="fleet_vehicle_insurance_menu" groups="fleet.fleet_group_user" sequence="26"/>
+
+</odoo>

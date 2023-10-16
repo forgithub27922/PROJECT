@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<template id="report_journal_black" inherit_id="account.report_journal">
+		<xpath expr="//table/tbody/tr/td[3]" position="replace">
+			<td><span t-esc="aml.account_id.code +' '+aml.account_id.name"/></td>
+		</xpath>
+	</template>
+</odoo>

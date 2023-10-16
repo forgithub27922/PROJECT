@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="hr_religion_muslem" model="hr.religion">
+            <field name="name">Muslem</field>
+        </record>
+        <record id="hr_religion_christian" model="hr.religion">
+            <field name="name">Christian</field>
+        </record>
+
+    </data>
+</odoo>

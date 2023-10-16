@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.module.category" id="module_category_assets">
+        <field name="name">Assets Management</field>
+        <field name="sequence">0</field>
+        <field name="visible" eval="0" />
+    </record>
+
+    <record id="group_pr_department" model="res.groups">
+        <field name="name">PR Department</field>
+        <field name="comment">the user will allow to create or update Employee Document.</field>
+    </record>
+
+    <record id="group_assets_officer" model="res.groups">
+        <field name="name">Assets Officer</field>
+        <field name="category_id" ref="bista_hr.module_category_assets"/>
+        <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]"/>
+        <field name="comment">the user will allow to read or update assets.</field>
+    </record>
+
+    <record id="group_assets_manager" model="res.groups">
+        <field name="name">Assets Manager</field>
+        <field name="category_id" ref="bista_hr.module_category_assets"/>
+        <field name="implied_ids" eval="[(4, ref('bista_hr.group_assets_officer'))]"/>
+        <field name="comment">the user will allow to read, update, create or delete assets.</field>
+    </record>
+
+    <record id="project_manager_and_subordinates_rule_for_employee" model="ir.rule" >
+        <field name="name">Employee Manager: see their own and subordinates employee.</field>
+        <field name="model_id" ref="model_hr_employee"/>
+        <field name="domain_force">['|',('id', 'child_of', [employee.id for employee in user.employee_ids]), ('user_id' ,'=' , user.id)]</field>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+    <!-- HR Manager and HR Officer can see all the employee -->
+    <record id="hr_manager_and_hr_office_rule_for_employee" model="ir.rule" >
+        <field name="name">HR Manager and HR Officer: Can see all the employee.</field>
+        <field name="model_id" ref="model_hr_employee"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4,ref('hr.group_hr_manager')),(4,ref('hr.group_hr_user'))]"/>
+    </record>
+
+    <record id="hr_user_rule_for_hr_employee" model="ir.rule" >
+        <field name="name">Employee: User can see their own employee.</field>
+        <field name="model_id" ref="model_hr_employee"/>
+        <field name="domain_force">[('user_id','=', user.id)]</field>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+	<!-- Multi Company Rule for Employee -->
+    <record id="hr_employee_multi_company_rule_empower" model="ir.rule">
+        <field name="name">Employee Multi Company Rule</field>
+        <field name="model_id" ref="hr.model_hr_employee"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+	<!-- Multi Company Rule for Family -->
+	<record id="hr_family_comp_rule" model="ir.rule">
+        <field name="name">HR Family Multi Company Rule</field>
+        <field name="model_id" ref="model_hr_family"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+    </record>
+
+	<!-- Multi Company Rule for HR Insurance -->
+	<record id="hr_insurance_multi_company_rule_empower" model="ir.rule">
+        <field name="name">HR Insurance Multi Company Rule</field>
+        <field name="model_id" ref="model_hr_insurance"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+	<!-- Multi Company Rule for HR Visa -->
+	<record id="hr_visa_multi_company_rule_empower" model="ir.rule">
+        <field name="name">HR Visa Multi Company Rule</field>
+        <field name="model_id" ref="model_hr_visa"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+	<!-- Multi Company Rule for Employee Work Location -->
+	<record id="employee_work_location_multi_company_rule_empower" model="ir.rule">
+        <field name="name">Employee Work Location Multi Company Rule</field>
+        <field name="model_id" ref="model_employee_work_location"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+	<!-- Multi Company Rule for HR Document Type -->
+	<record id="document_type_multi_company_rule_empower" model="ir.rule">
+        <field name="name">HR Document Type Multi Company Rule</field>
+        <field name="model_id" ref="model_document_type"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+	<!-- Multi Company Rule for HR Document -->
+	<record id="hr_document_multi_company_rule_empower" model="ir.rule">
+        <field name="name">HR Document Multi Company Rule</field>
+        <field name="model_id" ref="model_hr_document"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+	<!-- Multi Company Rule for Partner -->
+    <record id="base.res_partner_rule" model="ir.rule">
+        <field name="name">Partner Multi Company Rule</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+        <field name="active" eval="True"/>
+    </record>
+
+    <!-- Multi Company Rule for Contract -->
+    <record id="hr_contract_multi_company_rule_empower" model="ir.rule">
+        <field name="name">Employee Contract Multi Company Rule</field>
+        <field name="model_id" ref="hr_contract.model_hr_contract"/>
+		<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+    <!-- Multi Company Rule for Product Template -->
+    <record id="product_template_multi_company_rule_empower" model="ir.rule">
+        <field name="name">Product Template Multi Company Rule</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        <field eval="True" name="global"/>
+    </record>
+
+    <!-- Insurance Record Rule -->
+    <record id="employee_insurance_record_rule" model="ir.rule">
+        <field name="name">Employee Officer Insurance Record Rule</field>
+        <field name="model_id" ref="bista_hr.model_hr_insurance"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user')),
+                                    (4, ref('bista_hr.group_pr_department'))]"/>
+    </record>
+
+    <record id="employee_manager_insurance_record_rule" model="ir.rule">
+        <field name="name">Employee Manager Insurance Record Rule</field>
+        <field name="model_id" ref="bista_hr.model_hr_insurance"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('hr.group_hr_manager')), (4, ref('bista_hr.group_pr_department'))]"/>
+    </record>
+
+    <!-- Visa Record Rule -->
+    <record id="employee_visa_record_rule" model="ir.rule">
+        <field name="name">Employee Visa Record Rule</field>
+        <field name="model_id" ref="bista_hr.model_hr_visa"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user')),
+                                    (4, ref('bista_hr.group_pr_department'))]"/>
+    </record>
+
+    <record id="employee_manager_visa_record_rule" model="ir.rule">
+        <field name="name">Employee Manager Visa Record Rule</field>
+        <field name="model_id" ref="bista_hr.model_hr_visa"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('hr.group_hr_manager')), (4, ref('bista_hr.group_pr_department'))]"/>
+    </record>
+
+    <!-- document Record Rule -->
+    <record id="employee_document_record_rule" model="ir.rule">
+        <field name="name">Employee Document Record Rule</field>
+        <field name="model_id" ref="bista_hr.model_hr_document"/>
+        <field name="domain_force">[('employee_id.user_id','=',user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user')),
+                                    (4, ref('bista_hr.group_pr_department'))]"/>
+    </record>
+
+    <record id="employee_manager_document_record_rule" model="ir.rule">
+        <field name="name">Employee Manager Document Record Rule</field>
+        <field name="model_id" ref="bista_hr.model_hr_document"/>
+        <field name="domain_force">[(1,'=',1)]</field>
+        <field name="groups" eval="[(4, ref('hr.group_hr_manager')), (4, ref('bista_hr.group_pr_department'))]"/>
+    </record>
+
+</odoo>

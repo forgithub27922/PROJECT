@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+
+    <template id="account_reports_backend" inherit_id="web.assets_backend" active="True">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/report_partner_filter/static/src/js/account_reports.js"></script>
+        </xpath>
+    </template>
+
+    <!-- Partner filter in reports -->
+    <template id="account_reports.search_template_partner">
+        <a type="button" class="dropdown-toggle partner_filter" data-toggle="dropdown">
+            <span class="fa fa-folder-open"/> Partner
+            <span class="caret"/>
+        </a>
+        <ul class="dropdown-menu o_filters_menu" role="menu">
+            <li style='margin-left: 10px; margin-right: 10px;'>
+                <b>Partner</b><br />
+                <select class="js_partner_reports_auto_complete" data-filter="partners" multiple="multiple" style="min-width: 100px;">
+                    <t t-foreach="partners" t-as="p">
+                        <option t-att-value="p[0]"><t t-esc="p[1]" /></option>
+                    </t>
+                </select>
+            </li>
+            <li class="divider"></li>
+        </ul>
+    </template>
+
+    <template id="search_template" inherit_id="account_reports.search_template">
+        <xpath expr="//div[hasclass('o_account_reports_filter_analytic')]" position="after">
+            <div class="btn-group o_dropdown o_account_reports_filter_partner" t-if="options.get('partner') != None">
+                <t t-call="account_reports.search_template_partner"/>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Partner Filter in Customer Statements -->
+    <template id="followup_search_template" inherit_id="account_reports.followup_search_template">
+        <xpath expr="//div" position="after">
+            <div class="btn-group o_dropdown o_account_reports_filter_partner" t-if="options.get('partner') != None">
+                <t t-call="account_reports.search_template_partner"/>
+            </div>
+        </xpath>
+    </template>
+
+</data>
+</odoo>

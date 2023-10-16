@@ -1,0 +1,57 @@
+<odoo>
+
+    <!-- res bank Inherit Form View to Modify it -->
+    <record id="res_bank_with_branch_form_view" model="ir.ui.view">
+        <field name="name">res.bank.with.branch.form.view</field>
+        <field name="model">res.bank</field>
+        <field name="inherit_id" ref="base.view_res_bank_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='bic']" position="after">
+                <field name="branch_id" invisible="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Bank Branch tree view -->
+    <record id="res_bank_branch_tree_view" model="ir.ui.view">
+        <field name="name">res.bank.branch.view.tree</field>
+        <field name="model">res.bank.branch</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="bank_id" required="1"/>
+                <field name="name" required="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- res_bank_branch action window -->
+    <record id="res_bank_branch_action" model="ir.actions.act_window">
+        <field name="name">Bank Branch</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.bank.branch</field>
+        <field name="view_mode">tree</field>
+        <field name="view_type">form</field>
+    </record>
+
+    
+    <menuitem id="menu_bank_account_details" name="Bank Details" parent="account.menu_finance_configuration" sequence="3" groups="account.group_account_invoice"/>
+
+    <menuitem action="base.action_res_bank_form" id="menu_account_res_bank" parent="menu_bank_account_details" groups="account.group_account_manager" sequence="8"/>
+
+    <menuitem action="res_bank_branch_action" id="menu_res_bank_branch" parent="menu_bank_account_details" groups="account.group_account_manager" sequence="9"/>
+
+    <menuitem action="base.action_res_partner_bank_account_form" name="Bank Accounts Number" id="bank_menu_res_bank_account" parent="menu_bank_account_details" groups="account.group_account_manager" sequence="10"/>
+
+    <!-- res bank  action window in employee configurations -->
+    <record id="res_bank_employee_config_action" model="ir.actions.act_window">
+        <field name="name">Bank</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.bank</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_type">form</field>
+    </record>
+
+    <menuitem action="res_bank_employee_config_action" name="Bank" id="menu_res_bank_employee_config" 
+            parent="hr.menu_human_resources_configuration" groups="hr.group_hr_manager" sequence="10"/>
+
+</odoo>

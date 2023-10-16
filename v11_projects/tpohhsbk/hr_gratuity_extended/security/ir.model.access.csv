@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gratuity_nationality_employee,gratuity.nationality.employee,model_gratuity_nationality,base.group_user,1,0,0,0
+access_gratuity_nationality_payroll_manager,gratuity.nationality.payroll_manager,model_gratuity_nationality,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_gratuity_other_nationality_employee,gratuity.other.nationality.employee,model_gratuity_other_nationality,base.group_user,1,0,0,0
+access_gratuity_other_nationality_payroll_manager,gratuity.other.nationality.payroll_manager,model_gratuity_other_nationality,hr_payroll.group_hr_payroll_manager,1,1,1,1

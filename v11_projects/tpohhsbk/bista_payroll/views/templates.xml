@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--Default Notification Email template for Payslip-->
+        <record id="mail_template_data_notification_email_payslip" model="mail.template">
+            <field name="name">Payslip Notification Email</field>
+            <field name="subject">${object.subject}</field>
+            <field name="model_id" ref="mail.model_mail_message"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html"><![CDATA[<html>
+                <head></head>
+                hiiiiii
+                </html>
+            ]]></field>
+        </record>
+
+
+        <!-- Payslip send to employee of current period -->
+        <record id="payslip_send_email" model="mail.template">
+            <field name="name">Pay Slip</field>
+            <field name="model_id"
+                   ref="hr_payroll.model_hr_payslip"/>
+            <field name="email_from">${user.email | safe}</field>
+            <field name="email_to">${object.employee_id.work_email}</field>
+            <field name="subject">Pay Slip of ${object.employee_id.name} For the Month
+                ${datetime.datetime.strptime(object.date_from, "%Y-%m-%d").strftime("%B , %Y")}
+            </field>
+            <field name="auto_delete" eval="True"/>
+            <field name="report_template" ref="hr_payroll.action_report_payslip"/>
+            <field name="report_name">Payslip ${(object.employee_id.name)}</field>
+            <field name="body_html"><![CDATA[
+<p>
+Mr. ${object.employee_id.name}
+<br/>
+</p>
+<p>Please find herewith the enclosed pay slip for the month of ${datetime.datetime.strptime(object.date_from, "%Y-%m-%d").strftime("%B , %Y")}</p>
+<br/>
+For ${object.company_id.name}.
+			   ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

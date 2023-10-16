@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<!-- Request Overtime Views -->
+	<record id="request_overtime_form_view" model="ir.ui.view">
+		<field name="name">request.overtime.form</field>
+		<field name="model">request.overtime</field>
+		<field name="arch" type="xml">
+			<form string="Request Overtime">
+				<header>
+					<button name="action_confirm" states="draft" type="object"
+						string="Confirm" class="oe_highlight" />
+					<button name="action_approve_by_manager"
+						type="object" string="Approve by Manager" class="oe_highlight"
+						attrs="{'invisible': ['|',('is_manager', '=', False),('state', '!=', 'confirm')]}"/>
+					<button name="action_approve" states="approve_manager" type="object"
+						string="Approve" class="oe_highlight"
+						groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager" />
+					<button name="action_reject" states="approve_manager" type="object"
+						string="Reject" class="oe_highlight"
+						groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager" />
+					<button name="action_cancel" states="draft,confirm" type="object"
+						string="Cancel" />
+					<field name="state" widget="statusbar"
+						statusbar_visible="draft,confirm,approve" readonly="1" />
+				</header>
+				<sheet>
+					<group>
+						<group>
+							<field name="employee_id" required="1"
+								attrs="{'readonly':[('state', '!=', 'draft')]}"
+								options="{'no_create_edit': True,'no_create':True,'no_quick_create':True}" />
+							<field name="manager_id" readonly="1" />
+							<field name="is_manager" invisible="1"/>
+							<label for="request_date" />
+							<div>
+								<field name="request_date" required="1"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" />
+								<br />
+								<field name="hijri_request_date" placeholder="YYYY-MM-DD"
+									attrs="{'readonly':[('state', '!=', 'draft')]}" />
+							</div>
+							<field name="calculated_duration" widget="float_time"
+								groups="hr_attendance.group_hr_attendance_user,hr_attendance.group_hr_attendance_manager" />
+							<field name="request_duration" widget="float_time"
+								attrs="{'readonly':[('state', '!=', 'draft')]}" />
+						</group>
+					</group>
+					<separator string="Comments" />
+					<field name="comment"
+						attrs="{'readonly':[('state', '!=', 'draft')]}" />
+					<separator string="Reason For Rejection"
+						attrs="{'invisible': [('state', '!=', 'reject')]}" />
+					<field name="rejection_reason" readonly="1"
+						attrs="{'invisible': [('state', '!=', 'reject')]}" />
+				</sheet>
+				<div class="oe_chatter">
+					<field name="message_ids" widget="mail_thread" />
+				</div>
+			</form>
+		</field>
+	</record>
+
+	<record id="request_overtime_tree_view" model="ir.ui.view">
+		<field name="name">request.overtime.tree</field>
+		<field name="model">request.overtime</field>
+		<field name="arch" type="xml">
+			<tree string="Request Overtime">
+				<field name="employee_id" />
+				<field name="request_date" />
+				<field name="request_duration" required="1"
+					widget="float_time" />
+				<field name="state" />
+			</tree>
+		</field>
+	</record>
+
+	<record id="request_overtime_search_view" model="ir.ui.view">
+		<field name="name">request.overtime.search</field>
+		<field name="model">request.overtime</field>
+		<field name="arch" type="xml">
+			<search string="Request Overtime">
+				<field name="employee_id" />
+				<field name="request_date" />
+				<field name="state" />
+				<group expand="0" string="Group By">
+					<filter name="state" string="State"
+						context="{'group_by':'state'}" />
+				</group>
+			</search>
+		</field>
+	</record>
+
+	<record id="action_request_overtime"
+		model="ir.actions.act_window">
+		<field name="name">Request Overtime</field>
+		<field name="res_model">request.overtime</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="menu_request_overtime" name="Request Overtime"
+		parent="hr_attendance.menu_hr_attendance_manage_attendances"
+		action="action_request_overtime" sequence="21" />
+
+</odoo>

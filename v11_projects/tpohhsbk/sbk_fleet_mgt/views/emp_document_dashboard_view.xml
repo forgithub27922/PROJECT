@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="employee_visa_dashboard_tree_view" model="ir.ui.view">
+            <field name="name">employee.visa.dashboard.tree</field>
+            <field name="model">employee.visa.dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_employee_visa_dashboard" model="ir.actions.act_window">
+            <field name="name">Visa</field>
+            <field name="res_model">employee.visa.dashboard</field>
+            <field name="view_id" ref="employee_visa_dashboard_tree_view"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="employee_passport_dashboard_tree_view" model="ir.ui.view">
+            <field name="name">employee.passport.dashboard.tree</field>
+            <field name="model">employee.passport.dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_employee_passport_dashboard" model="ir.actions.act_window">
+            <field name="name">Passport</field>
+            <field name="res_model">employee.passport.dashboard</field>
+            <field name="view_id" ref="employee_passport_dashboard_tree_view"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="employee_emirates_dashboard_tree_view" model="ir.ui.view">
+            <field name="name">employee.emirates.dashboard.tree</field>
+            <field name="model">employee.emirates.dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_employee_emirates_dashboard" model="ir.actions.act_window">
+            <field name="name">Emirates</field>
+            <field name="res_model">employee.emirates.dashboard</field>
+            <field name="view_id" ref="employee_emirates_dashboard_tree_view"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="employee_insurance_dashboard_tree_view" model="ir.ui.view">
+            <field name="name">employee.insurance.dashboard.tree</field>
+            <field name="model">employee.insurance.dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_employee_insurance_dashboard" model="ir.actions.act_window">
+            <field name="name">Insurance</field>
+            <field name="res_model">employee.insurance.dashboard</field>
+            <field name="view_id" ref="employee_insurance_dashboard_tree_view"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <record id="vehicle_registration_dashboard_tree_view" model="ir.ui.view">
+            <field name="name">vehicle.registration.dashboard.tree</field>
+            <field name="model">vehicle.registration.dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="vehicle_id"/>
+                    <field name="name"/>
+                    <field name="document_type_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_vehicle_registration_document" model="ir.actions.act_window">
+            <field name="name">Vehicle Registration</field>
+            <field name="res_model">vehicle.registration.dashboard</field>
+            <field name="view_id" ref="vehicle_registration_dashboard_tree_view"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="vehicle_insurance_dashboard_tree_view" model="ir.ui.view">
+            <field name="name">vehicle.insurance.dashboard.tree</field>
+            <field name="model">vehicle.insurance.dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="vehicle_id"/>
+                    <field name="name"/>
+                    <field name="document_type_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_vehicle_insurance_document" model="ir.actions.act_window">
+            <field name="name">Vehicle Insurance</field>
+            <field name="res_model">vehicle.insurance.dashboard</field>
+            <field name="view_id" ref="vehicle_insurance_dashboard_tree_view"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="company_document_dashboard_tree_view" model="ir.ui.view">
+            <field name="name">company.document.dashboard.tree</field>
+            <field name="model">company.document.dashboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="document_type_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_company_document_dashboard" model="ir.actions.act_window">
+            <field name="name">Company Document</field>
+            <field name="res_model">company.document.dashboard</field>
+            <field name="view_id" ref="company_document_dashboard_tree_view"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="emp_document_dashboard_form_view" model="ir.ui.view">
+            <field name="name">board.board.form</field>
+            <field name="model">board.board</field>
+            <field name="arch" type="xml">
+                <form string="Document Dashboard">
+                    <board style="1-1">
+                        <column>
+                            <action name="%(sbk_fleet_mgt.action_employee_visa_dashboard)d" string="Visa"/>
+                            <action name="%(sbk_fleet_mgt.action_employee_emirates_dashboard)d" string="Emirates ID"/>
+                            <action name="%(sbk_fleet_mgt.action_vehicle_registration_document)d" string="Vehicle Registrations"/>
+                            <action name="%(sbk_fleet_mgt.action_company_document_dashboard)d" string="Company Documents"/>
+                        </column>
+                        <column>
+                            <action name="%(sbk_fleet_mgt.action_employee_passport_dashboard)d" string="Passport"/>
+                            <action name="%(sbk_fleet_mgt.action_employee_insurance_dashboard)d" string="Insurances"/>
+                            <action name="%(sbk_fleet_mgt.action_vehicle_insurance_document)d" string="Vehicle Insurances"/>
+                        </column>
+                    </board>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_emp_document_dashboard" model="ir.actions.act_window">
+            <field name="name">Document Dashboard</field>
+            <field name="res_model">board.board</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="emp_document_dashboard_form_view"/>
+        </record>
+
+        <menuitem id="menu_action_emp_document_dashboard"
+                  name="Document Dashboard"
+                  parent="bista_hr.menu_employee"
+                  sequence="3" 
+                  action="action_emp_document_dashboard"/>
+
+    </data>
+
+    <!-- <data>
+        <function id="create_custom_view" model="board.board" name="create_board_custom_view"/>
+    </data> -->
+
+</odoo>

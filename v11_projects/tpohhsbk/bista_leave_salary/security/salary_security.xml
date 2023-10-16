@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+		<!-- Multi Company Rule for Leave Salary -->
+		<record id="leave_salary_multi_cmpny_rule_empower" model="ir.rule">
+        	<field name="name">HR Travel Multi Company Rule</field>
+        	<field name="model_id" ref="bista_leave_salary.model_leave_salary"/>
+        	<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+        	<field eval="True" name="global"/>
+    	</record>
+
+    	<!-- Batch Payment -->
+    	<record id="batch_allocation_multi_company_rule" model="ir.rule">
+            <field name="name">Batch Allocation Multi Company Rule</field>
+            <field name="model_id" ref="bista_leave_salary.model_leave_allocation_batch"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+    </data>
+</odoo>

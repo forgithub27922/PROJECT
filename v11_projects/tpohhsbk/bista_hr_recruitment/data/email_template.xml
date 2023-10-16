@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Email template for Document Expiry Date-->
+        <record id="interviewer_notification_template" model="mail.template">
+            <field name="name">Schedule to Conduct Interview</field>
+            <field name="subject">Schedule Interview of ${object.partner_name}</field>
+            <field name="model_id" ref="bista_hr_recruitment.model_hr_applicant"/>
+            <field name="auto_delete" eval="False"/>
+            <field name="body_html"><![CDATA[
+                <div style="font-family: 'Lucica Grande', Ubuntu, Arial,
+                    Verdana, sans-serif; font-size: 12px; color:
+                    rgb(34, 34, 34);">
+                    <p>Hello ,</p>
+                    <p>This mail is to inform you that </p>
+                    <p>Thank you,<br/>
+                    <b>${user.name}</b></p>
+                </div>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

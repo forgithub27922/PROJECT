@@ -1,0 +1,13 @@
+<odoo>
+        <!-- Inherited view of account to add description -->
+        <record id="view_account_form_notes_inherit" model="ir.ui.view">
+            <field name="name">account.account.form</field>
+            <field name="model">account.account</field>
+            <field name="inherit_id" ref="account.view_account_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='deprecated']" position="after">
+                    <field name="note" string="Description"/>
+                </xpath>
+            </field>
+        </record>
+</odoo>

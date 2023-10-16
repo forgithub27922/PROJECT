@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Roster security -->
+        <record id="rule_for_employee_officer_roster" model="ir.rule">
+            <field name="name">Roster Rule for All</field>
+            <field name="model_id" ref="bista_hr_roster.model_hr_roster"/>
+            <field name="domain_force">[('employee_id.user_id','=',user.id),'|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+        </record>
+
+        <record id="rule_hr_roster_manager" model="ir.rule">
+            <field name="name">Roster Rule for Manager-Officer</field>
+            <field name="model_id" ref="bista_hr_roster.model_hr_roster"/>
+            <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')),(4, ref('hr.group_hr_user'))]"/>
+        </record>
+
+        <!-- Shift Code -->
+        <record id="rule_shift_code_employee_officer" model="ir.rule">
+            <field name="name">Shift Code Rule for All</field>
+            <field name="model_id" ref="bista_hr_roster.model_hr_shift_code"/>
+            <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+        </record>
+
+
+        <record id="rule_shift_code_manager" model="ir.rule">
+            <field name="name">Shift Code Rule for Manager-Officer</field>
+            <field name="model_id" ref="bista_hr_roster.model_hr_shift_code"/>
+            <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')),(4, ref('hr.group_hr_user'))]"/>
+        </record>
+
+        
+        
+        <!-- Roster Vs Attendance -->
+        <record id="rule_employee_officer_roster_vs_attendance" model="ir.rule">
+            <field name="name">Roster Vs Attendance Rule for Employee</field>
+            <field name="model_id" ref="bista_hr_roster.model_roster_vs_attendance"/>
+            <field name="domain_force">[('employee_id.user_id','=',user.id),'|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+        </record>
+
+
+        <record id="rule_manager_roster_vs_attendance" model="ir.rule">
+            <field name="name">Roster Vs Attendance Rule for Manager-Officer</field>
+            <field name="model_id" ref="bista_hr_roster.model_roster_vs_attendance"/>
+            <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')),(4, ref('hr.group_hr_user'))]"/>
+        </record>
+
+        <!-- Break Time Line -->
+        <record id="rule_employee_officer_break_time" model="ir.rule">
+            <field name="name">Break Time Line Rule for Employee</field>
+            <field name="model_id" ref="bista_hr_roster.model_break_time_line"/>
+            <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+        </record>
+
+
+        <record id="rule_manager_break_time" model="ir.rule">
+            <field name="name">Break Time Line Rule for Manager-Officer</field>
+            <field name="model_id" ref="bista_hr_roster.model_break_time_line"/>
+            <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')),(4, ref('hr.group_hr_user'))]"/>
+        </record>
+
+        <!-- Attendance -->
+        <record id="rule_employee_officer_hr_attendance" model="ir.rule">
+            <field name="name">Attendance Rule for Employee</field>
+            <field name="model_id" ref="hr_attendance.model_hr_attendance"/>
+            <field name="domain_force">[('employee_id.user_id','=',user.id),'|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+            <field name="perm_write">False</field>
+            <field name="perm_create">False</field>
+            <field name="perm_unlink">False</field>
+        </record>
+
+
+        <record id="rule_manager_hr_attendance" model="ir.rule">
+            <field name="name">Atttendance Rule for Manager-Officer</field>
+            <field name="model_id" ref="hr_attendance.model_hr_attendance"/>
+            <field name="domain_force">['|',('company_id','=',user.company_id.id),('company_id','=',False)]</field>
+            <field name="groups" eval="[(4, ref('hr.group_hr_manager')),(4, ref('hr.group_hr_user'))]"/>
+        </record>
+
+		<!-- Multi Company Rule -->
+		<record id="hr_attendance_rule_multi_company" model="ir.rule">
+			<field name="name">HR Attendance Multi Company Rule</field>
+			<field name="model_id" ref="hr_attendance.model_hr_attendance" />
+			<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+			<field eval="True" name="global" />
+		</record>
+
+		<record id="hr_roster_rule_multi_company" model="ir.rule">
+			<field name="name">HR Roster Multi Company Rule</field>
+			<field name="model_id" ref="bista_hr_roster.model_hr_roster" />
+			<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+			<field eval="True" name="global" />
+		</record>
+
+		<record id="roster_vs_attendance_rule_multi_company" model="ir.rule">
+			<field name="name">HR Roster vs Attendance Multi Company Rule</field>
+			<field name="model_id" ref="bista_hr_roster.model_roster_vs_attendance" />
+			<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+			<field eval="True" name="global" />
+		</record>
+
+		<record id="hr_shift_code_rule_multi_company" model="ir.rule">
+			<field name="name">HR Shift Code Multi Company Rule</field>
+			<field name="model_id" ref="bista_hr_roster.model_hr_shift_code" />
+			<field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+			<field eval="True" name="global" />
+		</record>
+
+    </data>
+</odoo>

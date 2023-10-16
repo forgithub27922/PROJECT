@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="hr_gratuity_config" model="hr.gratuity">
+            <field name="name">Gratuity</field>
+            <field name="date" eval="(datetime.now() +
+            relativedelta(day=23,month=3,year=2017)).strftime('%Y-%m-%d')"/>
+            <field name="country_id" ref="base.ae"/>
+            <field name="resignation_contract_ids" eval="[(5, 0),
+            (0,0, {'from_experience':1.0, 'to_experience':3.0, 'eosb':0.33, 'days':7}),
+            (0,0, {'from_experience':3.0, 'to_experience':5.0, 'eosb':0.67, 'days':14}),
+            (0,0, {'from_experience':5.0, 'to_experience':0.0, 'eosb':1.0, 'days':21})]"
+            />
+            <field name="termination_contract_ids" eval="[(5, 0),
+            (0,0, {'from_experience':1.0, 'to_experience':3.0, 'eosb':1.0, 'days':3}),
+            (0,0, {'from_experience':3.0, 'to_experience':5.0, 'eosb':1.0, 'days':7}),
+            (0,0, {'from_experience':5.0, 'to_experience':0.0, 'eosb':2.0, 'days':15})]"
+            />
+        </record>
+    </data>
+</odoo>

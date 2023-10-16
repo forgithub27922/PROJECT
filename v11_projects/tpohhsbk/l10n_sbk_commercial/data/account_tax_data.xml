@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <!-- Tax Configuration for SBK Commercial Company -->
+    <record id="tax_sbk_commercial_sale" model="account.tax">
+        <field name="name">Vat 5%</field>
+        <field name="description">Sales Vat 5% (SBK Commercial)</field>
+        <field name="amount">5.0</field>
+        <field name="type_tax_use">sale</field>
+        <field name="company_id" ref="sbk_company.company_sbk_commercial"/>
+    </record>
+    <record id="tax_sbk_commercial_purchase" model="account.tax">
+        <field name="name">Vat 5%</field>
+        <field name="description">Purchase Vat 5% (SBK Commercial)</field>
+        <field name="amount">5.0</field>
+        <field name="type_tax_use">purchase</field>
+        <field name="company_id" ref="sbk_company.company_sbk_commercial"/>
+    </record>
+
+</odoo>

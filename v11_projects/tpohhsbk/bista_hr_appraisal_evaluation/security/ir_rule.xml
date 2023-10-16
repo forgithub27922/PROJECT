@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- <record id="appraisal_rule_for_normal_user" model="ir.rule">
+            <field name="name">Normal User</field>
+            <field name="model_id" ref="model_hr_employee_kra"/>
+            <field name="domain_force">['|',
+                ('employee_id.user_id','=',user.id), ('reviewed_by.user_id','=',user.id)]</field>
+            <field name="groups" eval="[(4,ref('group_app_evaluation_normal_user'))]"/>
+            <field name="perm_write" eval="False"/>
+        </record>
+
+        <record id="appraisal_rule_for_hr_user" model="ir.rule">
+            <field name="name">HR User</field>
+            <field name="model_id" ref="model_hr_employee_kra"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4,ref('group_app_evaluation_hr_user'))]"/>
+        </record> -->
+
+        <!-- Record Rule for Appraisal Measurement-->
+        <record id="record_rule_for_appraisal_measurement" model="ir.rule">
+            <field name="name">Appraisal Measurement</field>
+            <field name="model_id" ref="model_appraisal_measurement"/>
+            <field name="domain_force">['|',('company_id','child_of',user.company_id.id),('company_id','=',False)]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+        <!-- Record rule for HR Employee KRA -->
+        <record id="record_rule_for_hr_employee_kra" model="ir.rule">
+            <field name="name">HR Employee Kra</field>
+            <field name="model_id" ref="model_hr_employee_kra"/>
+            <field name="domain_force">['|',('company_id','child_of',user.company_id.id),('company_id','=',False)]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+        <!-- Record rule for HR Appraisal Configuration-->
+        <record id="record_rule_for_hr_appraisal_configuration" model="ir.rule">
+            <field name="name">HR Appraisal Configuration</field>
+            <field name="model_id" ref="model_hr_appraisal_configuration"/>
+            <field name="domain_force">['|',('company_id', 'child_of', user.company_id.id),('company_id','=',False)]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+          <!-- Record rule for HR Appraisal Configuration-->
+        <record id="record_rule_for_hr_kra_configuration" model="ir.rule">
+            <field name="name">HR Kra Configuration</field>
+            <field name="model_id" ref="model_hr_kra_configuration"/>
+            <field name="domain_force">['|',('company_id', 'child_of', user.company_id.id),('company_id','=',False)]</field>
+            <field eval="True" name="global"/>
+        </record>
+
+
+    </data>
+</odoo>

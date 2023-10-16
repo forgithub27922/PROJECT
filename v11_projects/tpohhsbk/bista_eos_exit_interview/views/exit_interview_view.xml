@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--Exit Interview Views -->
+    <record id="exit_interview_form" model="ir.ui.view">
+        <field name="name">exit.interview.form</field>
+        <field name="model">exit.interview</field>
+        <field name="arch" type="xml">
+            <form string="Exit Interview">
+                <header>
+                    <button name="fill_exit_interview"
+                            type="object"
+                    string="Fill Exit Interview Form" class="oe_highlight"
+                    attrs="{'invisible':[('state','=', 'submit')]}"/>
+                    <button name="state_submit"
+                            groups="hr.group_hr_manager, hr.group_hr_user"
+                            type="object" string="Submit"
+                            class="oe_highlight" attrs="{'invisible':[('state','=', 'submit')]}"/>
+                    <field name="state" widget="statusbar" readonly="1"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="1" attrs="{'readonly':[('state','=', 'submit')]}"/>
+                            <field name="department_id" readonly="1"/>
+                            <label for="date"/>
+                            <div>
+                                <field name="date" required="1" attrs="{'readonly':[('state','=', 'submit')]}"/><br/>
+                                <field name="date_hijri" placeholder="YYYY-MM-DD" attrs="{'readonly':[('state','=', 'submit')]}"/>
+                            </div>
+                            <field name="exit_interview_form_id" options="{'no_open':True}"
+                                attrs="{'readonly':[('state','=', 'submit')]}"/>
+                            <field name="survey_ans" readonly="1"
+                                   groups="hr.group_hr_manager" options="{'no_create_edit': True,'no_create':True,'no_quick_create':True}"/>
+                        </group>
+                        <group>
+                            <field name="employee_id" required="1" attrs="{'readonly':[('state','=', 'submit')]}"/>
+                            <field name="manager_id" readonly="1" attrs="{'readonly':[('state','=', 'submit')]}"/>
+                            <field name="company_id" groups="base.group_multi_company" attrs="{'readonly':[('state','=', 'submit')]}" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Reason">
+                            <group name="reason">
+                                <field name="reason" nolabel="1"
+                                       required="1"
+                                       attrs="{'readonly':[('state','=', 'submit')]}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="exit_interview_tree" model="ir.ui.view">
+        <field name="name">exit.interview.tree</field>
+        <field name="model">exit.interview</field>
+        <field name="arch" type="xml">
+            <tree string="Exit Interview">
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="manager_id"/>
+                <field name="date"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="exit_interview_search" model="ir.ui.view">
+        <field name="name">exit.interview.search</field>
+        <field name="model">exit.interview</field>
+        <field name="arch" type="xml">
+            <search string="Exit Interview">
+                <field name="emp_id" string="Employee ID" filter_domain="[('emp_id','=',self)]"/>
+                <field name="employee_id"/>
+                <field name="department_id"/>
+                <field name="manager_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="date"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_exit_interview" model="ir.actions.act_window">
+        <field name="name">Exit Interview</field>
+        <field name="res_model">exit.interview</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_exit_interview" name="Exit Interview"
+        parent="bista_eos.menu_hr_termination"
+              action="action_exit_interview" sequence="3"
+              groups="bista_eos.group_eos_user,bista_eos.group_eos_manager"/>
+</odoo>

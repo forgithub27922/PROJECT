@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Cron job for Sequence-->
+    <record id="generate_monthly_sequence" model="ir.cron">
+        <field name="name">Scheduler for generate monthly sequence</field>
+        <field eval="True" name="active"/>
+        <field name="interval_number">12</field>
+        <field name="interval_type">months</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+        <field name="model_id" ref="model_ir_sequence"/>
+        <field name="state">code</field>
+        <field name="code">model._generate_sub_sequence_scheduler()</field>
+    </record>
+
+</odoo>

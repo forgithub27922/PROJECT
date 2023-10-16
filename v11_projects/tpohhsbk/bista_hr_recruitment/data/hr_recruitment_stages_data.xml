@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="hr_recruitment_stage_applied" model="hr.recruitment.stage">
+            <field name="name">Applied</field>
+            <field name="sequence">1</field>
+        </record>
+        <record id="hr_recruitment_stage_shortListed"
+                model="hr.recruitment.stage">
+            <field name="name">ShortListed</field>
+            <field name="sequence">2</field>
+        </record>
+        <record id="hr_recruitment_stage_rejected"
+                model="hr.recruitment.stage">
+            <field name="name">Rejected</field>
+            <field name="sequence">3</field>
+        </record>
+        <record id="hr_recruitment_stage_interview"
+                model="hr.recruitment.stage">
+            <field name="name">Interview</field>
+            <field name="sequence">4</field>
+            <field name="is_interview">True</field>
+        </record>
+        <record id="hr_recruitment_stage_offered" model="hr.recruitment.stage">
+            <field name="name">Offered</field>
+            <field name="sequence">5</field>
+            <field name="is_document">True</field>
+            <field name="is_job_offer">True</field>
+        </record>
+        <record id="hr_recruitment_stage_negotiation"
+                model="hr.recruitment.stage">
+            <field name="name">Negotiation</field>
+            <field name="sequence">6</field>
+            <field name="is_job_offer">True</field>
+        </record>
+        <record id="hr_recruitment_stage_finalized"
+                model="hr.recruitment.stage">
+            <field name="name">Finalized</field>
+            <field name="sequence">7</field>
+        </record>
+    </data>
+</odoo>

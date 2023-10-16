@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <!-- Form view of leave salary-->
+    <record id="view_leave_salary_form" model="ir.ui.view">
+        <field name="name">view.leave.salary.form</field>
+        <field name="model">leave.salary</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar"/>
+                     <button name="confirm_leave_salary" string="Confirm" type="object"
+                            class="btn-primary" attrs="{'invisible':[('state','not in',('draft'))]}"/>
+                      <button name="add_leave_salary_lines" string="Add Lines" type="object"
+                            class="btn-primary" attrs="{'invisible':[('state','not in',('draft'))]}"/>
+                     <button name="approve_leave_salary" string="Approve" type="object"
+                            class="btn-primary" attrs="{'invisible':[('state','not in',('confirm'))]}"/>
+                      <button name="pay_leave_salary" string="Pay" type="object"
+                            class="btn-primary"
+                            confirm="Are you sure you want to make a payment?"
+                            attrs="{'invisible':['|',('state','not in',('approve')),('leave_salary_payment_mode','=','salary')]}"
+                            groups="account.group_account_user"/>
+                      <button name="cancel_leave_salary" string="Cancel" type="object"
+                            class="btn-primary" attrs="{'invisible':[('state','in',('draft','cancel'))]}"/>
+                     <button name="clear_salary_lines" string="Clear Lines" type="object"
+                            class="btn-primary" attrs="{'invisible':[('state','not in',('draft'))]}"/>
+                     <button name="reset_leave_salary" string="Reset" type="object"
+                            class="btn-primary" attrs="{'invisible':[('state','not in',('cancel'))]}"/>
+                            
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box"
+                         attrs="{'invisible': [('state', '!=', 'paid')]}">
+                         <feild name="account_move_id" invisible="1" />
+                        <button class="oe_stat_button" type="object" attrs="{'invisible':[('account_move_id','=',False)]}"
+                                string="Accounting Entry" name="action_open_journal_entries"
+                                icon="fa-book"/>
+                    </div>
+                    <group col="4">
+                        <field name="employee_id" required="1"
+                               attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="date" attrs="{'readonly': [('state', '=', 'paid')]}"/>
+                        <field name="leave_accrued"/>
+                        <field name="leave_taken" readonly="1"/>
+                        <field name="amount_accrued"/>
+                        <field name="amount_taken"/>
+                        <field name="leave_salary_payment_mode" widget="radio" required="1"/>
+                        <field name="is_accrued" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="company_id" groups="base.group_multi_company" readonly="1" force_save="1"/>
+                        <field name="payment_mode"
+                               domain="[('type','in',['cash','bank']),
+                               ('company_id','=',company_id)]"
+                               options="{'no_create_edit': True,
+                               'no_create':True,'no_quick_create':True}"
+                               attrs="{'readonly': [('state', '=', 'paid')],'required':[('leave_salary_payment_mode','=','direct')],'invisible':[('leave_salary_payment_mode','!=','direct')]}"/>
+                        <field name="account_move_id" invisible="1"/>
+                        <field name="move_name" invisible="1"/>
+                    </group>
+                    <field name="leave_salary_line_ids" readonly="1">
+                    	<tree editable="bottom">
+                    		<field name="leave_request_id"/>
+                    		<field name="employee_id"/>
+                    		<field name="start_date"/>
+                    		<field name="end_date"/>
+                    		<field name="no_of_days" readonly="1" sum="Total Days"/>
+							<field name="amount" readonly="1" sum="Total Amount"/>
+                    		<field name="state" readonly="1"/>
+                    	</tree>
+                    </field>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--Tree view for leave salary-->
+    <record id="view_leave_salary_tree" model="ir.ui.view">
+        <field name="name">view.leave.salary.tree</field>
+        <field name="model">leave.salary</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id"/>
+                <field name="date"/>
+                <field name="leave_accrued"/>
+                <field name="leave_taken"/>
+                <field name="amount_accrued"/>
+                <field name="amount_taken"/>
+                <field name="payment_mode"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--action for leave salary-->
+    <record id="action_leave_salary" model="ir.actions.act_window">
+        <field name="name">Leave Salary</field>
+        <field name="res_model">leave.salary</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <record id="action_leave_salary_to_pay" model="ir.actions.act_window">
+        <field name="name">Leave Salary</field>
+        <field name="res_model">leave.salary</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('state','=','approve')]</field>
+    </record>
+
+    <!--menu for leave salary-->
+    <menuitem id="leave_salary_menu"
+              action="action_leave_salary"
+              parent="hr_holiday_extended.leaves_menu_top"
+              groups="hr_payroll.group_hr_payroll_user"/>
+              
+	<menuitem
+        id="menu_item_account_leave_salary_to_pay_payslip"
+        name="Leave Salaries to Pay"
+        action="action_leave_salary_to_pay"
+        parent="bista_payroll.parent_menu_accounting_staff"
+        sequence="1"/>              
+
+</odoo>
